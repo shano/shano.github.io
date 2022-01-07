@@ -11,4 +11,6 @@ me constantly if I wanted to continue using my machine. So I made
 &lt;a class="reference external" href="https://github.com/shano/activitynag"&gt;ActivityNag&lt;/a&gt;! You can find all
 the details around Activity
 &lt;a class="reference external" href="https://github.com/shano/activitynag/blob/main/README.md"&gt;here&lt;/a&gt;.&lt;/p&gt;
-</content><category term="posts"></category><category term="Digital Minimalism"></category></entry></feed>
+</content><category term="Digital Minimalism"></category><category term="Digital Minimalism"></category></entry><entry><title>TIL Updating ZSH</title><link href="https://shanedowling.com/til-updating-zsh.html" rel="alternate"></link><published>2021-01-04T00:00:00+01:00</published><updated>2021-01-04T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2021-01-04:/til-updating-zsh.html</id><content type="html">&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
+realise there was an omz command!&lt;/p&gt;
+</content><category term="posts"></category><category term="TIL"></category></entry></feed>
