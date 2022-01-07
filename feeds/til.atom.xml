@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - TIL</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/til.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2021-01-04T00:00:00+01:00</updated><subtitle>Shane Dowling</subtitle><entry><title>TIL Updating ZSH</title><link href="https://shanedowling.com/til-updating-zsh.html" rel="alternate"></link><published>2021-01-04T00:00:00+01:00</published><updated>2021-01-04T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2021-01-04:/til-updating-zsh.html</id><content type="html">&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
+realise there was an omz command!&lt;/p&gt;
+</content><category term="TIL"></category><category term="TIL"></category></entry></feed>
