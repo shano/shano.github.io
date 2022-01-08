@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2021-12-28T00:00:00+01:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Activity Nag</title><link href="https://shanedowling.com/activity-nag.html" rel="alternate"></link><published>2021-12-28T00:00:00+01:00</published><updated>2021-12-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2021-12-28:/activity-nag.html</id><summary type="html">&lt;div class="figure"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2022-01-04T00:00:00+01:00</updated><subtitle>Shane Dowling</subtitle><entry><title>TIL Updating ZSH</title><link href="https://shanedowling.com/til-updating-zsh.html" rel="alternate"></link><published>2022-01-04T00:00:00+01:00</published><updated>2022-01-04T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-01-04:/til-updating-zsh.html</id><content type="html">&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
+realise there was an omz command!&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>Activity Nag</title><link href="https://shanedowling.com/activity-nag.html" rel="alternate"></link><published>2022-01-03T00:00:00+01:00</published><updated>2022-01-03T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-01-03:/activity-nag.html</id><summary type="html">&lt;div class="figure"&gt;
 &lt;img alt="Digital Minimalism" src="./images/digital_minimalism.jpeg" /&gt;
 &lt;p class="caption"&gt;Digital Minimalism&lt;/p&gt;
 &lt;/div&gt;
@@ -19,6 +21,92 @@ me constantly if I wanted to continue using my machine. So I made
 &lt;a class="reference external" href="https://github.com/shano/activitynag"&gt;ActivityNag&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;You can find all the details around ActivityNag
 &lt;a class="reference external" href="https://github.com/shano/activitynag/blob/main/README.md"&gt;here&lt;/a&gt;.&lt;/p&gt;
-</content><category term="Digital Minimalism"></category></entry><entry><title>TIL Updating ZSH</title><link href="https://shanedowling.com/til-updating-zsh.html" rel="alternate"></link><published>2021-01-04T00:00:00+01:00</published><updated>2021-01-04T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2021-01-04:/til-updating-zsh.html</id><content type="html">&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
-realise there was an omz command!&lt;/p&gt;
-</content><category term="TIL"></category></entry></feed>
+</content><category term="Digital Minimalism"></category></entry><entry><title>Nonviolent Communication</title><link href="https://shanedowling.com/nonviolent-communication.html" rel="alternate"></link><published>2021-08-27T00:00:00+02:00</published><updated>2021-08-27T00:00:00+02:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2021-08-27:/nonviolent-communication.html</id><summary type="html">&lt;p&gt;&lt;img alt="image0" src="file:///home/shane/Downloads/medium/posts/md_1641659894138/img/1__Tq3cCMHDxnnkVTxtFSJ6jA.jpeg" /&gt;&lt;/p&gt;
+&lt;div class="section" id="what-is-nonviolent-communication"&gt;
+&lt;h2&gt;What is Nonviolent Communication?&lt;/h2&gt;
+&lt;p&gt;Nonviolent Communication(NVC) helps us communicate clearly by breaking
+down and identifying our needs and communicating them compassionately.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why"&gt;
+&lt;h2&gt;Why?&lt;/h2&gt;
+&lt;p&gt;NVC can help reduce conflict towards others and ourselves. It can also
+help us to hear others out and recognise each other's needs and support
+acting more …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="image0" src="file:///home/shane/Downloads/medium/posts/md_1641659894138/img/1__Tq3cCMHDxnnkVTxtFSJ6jA.jpeg" /&gt;&lt;/p&gt;
+&lt;div class="section" id="what-is-nonviolent-communication"&gt;
+&lt;h2&gt;What is Nonviolent Communication?&lt;/h2&gt;
+&lt;p&gt;Nonviolent Communication(NVC) helps us communicate clearly by breaking
+down and identifying our needs and communicating them compassionately.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why"&gt;
+&lt;h2&gt;Why?&lt;/h2&gt;
+&lt;p&gt;NVC can help reduce conflict towards others and ourselves. It can also
+help us to hear others out and recognise each other's needs and support
+acting more compassionately day to day.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how"&gt;
+&lt;h2&gt;How&lt;/h2&gt;
+&lt;p&gt;At a high level, the steps involved are:&lt;/p&gt;
+&lt;div class="section" id="observation"&gt;
+&lt;h3&gt;Observation&lt;/h3&gt;
+&lt;p&gt;Be present and listen carefully to what the other person is saying. How
+is it affecting you? Just observe, don't evaluate.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Avoid quick immediate judgements like &amp;quot;You never sweep the floor&amp;quot;&lt;/li&gt;
+&lt;li&gt;Use &amp;quot;The last three times I asked you to sweep the floor, it wasn't
+done&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="feeling"&gt;
+&lt;h3&gt;Feeling&lt;/h3&gt;
+&lt;p&gt;Express how you feel. Be specific, give narratives if you need to.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Avoid ambiguous statements like &amp;quot;I feel drained&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="needs"&gt;
+&lt;h3&gt;Needs&lt;/h3&gt;
+&lt;p&gt;Identify the needs at the root of your feelings. This can take practice,
+the objective is to be able to sincerely express yourself directly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="requests"&gt;
+&lt;h3&gt;Requests&lt;/h3&gt;
+&lt;p&gt;Express clearly and specifically what you really want. Be specific in
+the action needed. Express yourself with positive language. Ask for
+something, don't frame the request as something to stop being done.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Avoid &amp;quot;You are always X&amp;quot;&lt;/li&gt;
+&lt;li&gt;Use language like &amp;quot;I would like….&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="listening"&gt;
+&lt;h2&gt;Listening&lt;/h2&gt;
+&lt;p&gt;As a bonus, you can also use NVC when you are listening.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;*Observation* — Give the person space to fully express their
+feelings.&lt;/li&gt;
+&lt;li&gt;*Feeling* — Don't jump to offer advice. Ask questions and help the
+other person evaluate and understand their feelings.&lt;/li&gt;
+&lt;li&gt;*Needs* — Use the power of reflection. Rephrase what the other
+person is saying back to them, sometimes what they communicate might
+not be what they actually need.&lt;/li&gt;
+&lt;li&gt;*Request* — Confirm and clarify the request after establishing what
+the need is. Ensure it's clearly understood.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="behaviours"&gt;
+&lt;h2&gt;Behaviours&lt;/h2&gt;
+&lt;p&gt;There are also behaviours to be mindful of when practising NVC.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Take responsibility for your feelings. Your reaction to life events
+determines how you feel, not the event itself.&lt;/li&gt;
+&lt;li&gt;When reacting to conflict, avoid defensive/negative reactions,
+neither get to the root of the issue.&lt;/li&gt;
+&lt;li&gt;Talk through your own feelings and use the process to identify your
+emotional response and address the reasons for the conflict.&lt;/li&gt;
+&lt;li&gt;Use NVC to reduce self-judgement. Listen to your judgement and
+instead of being led by those feelings, ask yourself, &amp;quot;what unmet
+needs am I expressing here?&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="Leadership"></category></entry></feed>

@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Shane Dowling</title><link>https://shanedowling.com/</link><description>Shane Dowling</description><lastBuildDate>Tue, 28 Dec 2021 00:00:00 +0100</lastBuildDate><item><title>Activity Nag</title><link>https://shanedowling.com/activity-nag.html</link><description>&lt;div class="figure"&gt;
+<rss version="2.0"><channel><title>Shane Dowling</title><link>https://shanedowling.com/</link><description>Shane Dowling</description><lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0100</lastBuildDate><item><title>TIL Updating ZSH</title><link>https://shanedowling.com/til-updating-zsh.html</link><description>&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
+realise there was an omz command!&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Tue, 04 Jan 2022 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2022-01-04:/til-updating-zsh.html</guid><category>TIL</category></item><item><title>Activity Nag</title><link>https://shanedowling.com/activity-nag.html</link><description>&lt;div class="figure"&gt;
 &lt;img alt="Digital Minimalism" src="./images/digital_minimalism.jpeg" /&gt;
 &lt;p class="caption"&gt;Digital Minimalism&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;I'm trying out a month of Digital Minimalism and I wanted some…
 encouragement to ensure I stick to my rules. One of which is to use my
 laptop only for specific tasks I know ahead of time, for an hour a day
-only. I currently already use Activitywatch …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Tue, 28 Dec 2021 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2021-12-28:/activity-nag.html</guid><category>Digital Minimalism</category></item><item><title>TIL Updating ZSH</title><link>https://shanedowling.com/til-updating-zsh.html</link><description>&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
-realise there was an omz command!&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Mon, 04 Jan 2021 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2021-01-04:/til-updating-zsh.html</guid><category>TIL</category></item></channel></rss>
+only. I currently already use Activitywatch …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Mon, 03 Jan 2022 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2022-01-03:/activity-nag.html</guid><category>Digital Minimalism</category></item><item><title>Nonviolent Communication</title><link>https://shanedowling.com/nonviolent-communication.html</link><description>&lt;p&gt;&lt;img alt="image0" src="file:///home/shane/Downloads/medium/posts/md_1641659894138/img/1__Tq3cCMHDxnnkVTxtFSJ6jA.jpeg" /&gt;&lt;/p&gt;
+&lt;div class="section" id="what-is-nonviolent-communication"&gt;
+&lt;h2&gt;What is Nonviolent Communication?&lt;/h2&gt;
+&lt;p&gt;Nonviolent Communication(NVC) helps us communicate clearly by breaking
+down and identifying our needs and communicating them compassionately.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why"&gt;
+&lt;h2&gt;Why?&lt;/h2&gt;
+&lt;p&gt;NVC can help reduce conflict towards others and ourselves. It can also
+help us to hear others out and recognise each other's needs and support
+acting more …&lt;/p&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Fri, 27 Aug 2021 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:shanedowling.com,2021-08-27:/nonviolent-communication.html</guid><category>Leadership</category></item></channel></rss>
