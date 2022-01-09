@@ -21,7 +21,9 @@
                     <ul class="main-nav-list">
                         <li class="main-nav-item active"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
+                        <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
              </div>
@@ -37,6 +39,59 @@
         <div class="pure-u-1 pure-u-lg-2-3">
 
 
+            <div class="post">
+                <div class="post-meta pure-g">
+
+
+                    <div class="pure-u-3-4 meta-data">
+                        <a href="./category/posts.html" class="category">posts</a><br />
+
+                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                        &mdash; <abbr title="2014-07-10T00:00:00+00:00">Thu 10 July 2014</abbr>
+                    </div>
+                </div>
+                <h2><a href="./sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html" rel="bookmark" title="Permalink to SugarCRM 7 — Colour Code Rows based on data values">SugarCRM 7 — Colour Code Rows based on data values</a></h2>
+                <div class="post-content">
+                    <p>Add this into your recordlist javascript file.</p>
+<p>render_colors : function() {
+ console.log(‘here’);
+ $(“tr[name^=’<YOUR\_MODULE’\]”).each(function() { //loop over each row
+ if($(this).find(‘div\[data-original-title=”Out”\]’).length > 0) { //check value of TD
+ $(this).find($(‘td’)).each(function() {
+ $(this).css(“background-color”, “#FFBABA”);
+ });
+ } else if($(this).find(‘div[data-original-title=”In”]’).length &gt; 0) {
+ $(this).find($(‘td’)).each(function() {
+ $(this).css(“background-color”, “#C3F8B5”);
+ });
+ } else if($(this …</your\_module’\]”).each(function()></p>
+                </div>
+                <div class="post-footer">
+                    <a href="./sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html">Read more</a>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-meta pure-g">
+
+
+                    <div class="pure-u-3-4 meta-data">
+                        <a href="./category/posts.html" class="category">posts</a><br />
+
+                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                        &mdash; <abbr title="2014-07-10T00:00:00+00:00">Thu 10 July 2014</abbr>
+                    </div>
+                </div>
+                <h2><a href="./your-brain-on-stoicism-783d1cd1995c.html" rel="bookmark" title="Permalink to Your brain on stoicism">Your brain on stoicism</a></h2>
+                <div class="post-content">
+                    <p><img alt="" src="images/1__SOaZJ4BwYNtsm0SoctZl7A.jpeg"></p>
+<p>For the last few months I’ve been attempting to practice Stoicism and
+wanted to share the effects of what regular stoic practice has had. If
+you’ve never heard of Stoicism I’d recommend <a href="https://tim.blog/2009/04/13/stoicism-101-a-practical-guide-for-entrepreneurs/">fourhourworkweek.com’s introduction</a>, which is very pragmatic. Essentially, what happens after several weeks of …</p>
+                </div>
+                <div class="post-footer">
+                    <a href="./your-brain-on-stoicism-783d1cd1995c.html">Read more</a>
+                </div>
+            </div>
             <div class="post">
                 <div class="post-meta pure-g">
 
@@ -79,48 +134,6 @@ tutorial attempts to make the whole process as easy …</p>
                     <a href="./simple-api-mocking-with-guzzle-and-charles-e5fdabe8b9fd.html">Read more</a>
                 </div>
             </div>
-            <div class="post">
-                <div class="post-meta pure-g">
-
-
-                    <div class="pure-u-3-4 meta-data">
-                        <a href="./category/posts.html" class="category">posts</a><br />
-
-                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-06-21T00:00:00+00:00">Sat 21 June 2014</abbr>
-                    </div>
-                </div>
-                <h2><a href="./sugarcrm-permissions-script-6b7031eb0eef.html" rel="bookmark" title="Permalink to SugarCRM — Permissions Script">SugarCRM — Permissions Script</a></h2>
-                <div class="post-content">
-                    <p>I use <a href="http://www.saltstack.com/">salt</a> quite extensively to deploy SugarCRM installs and I wanted a scriptable way to setup the correct permissions for Sugar running on a linux box. This script is based on the <a href="http://support.sugarcrm.com/04_Find_Answers/02KB/02Administration/100Install/Required_File_System_Permissions_on_Linux/">Sugar documentation</a> and this handy post <a href="http://developer.sugarcrm.com/2012/07/19/a-newbies-guide-to-getting-your-sugarcrm-instances-permissions-right/">here</a>.</p>
-<p>Simply fill in your apache user details and the path …</p>
-                </div>
-                <div class="post-footer">
-                    <a href="./sugarcrm-permissions-script-6b7031eb0eef.html">Read more</a>
-                </div>
-            </div>
-            <div class="post">
-                <div class="post-meta pure-g">
-
-
-                    <div class="pure-u-3-4 meta-data">
-                        <a href="./category/posts.html" class="category">posts</a><br />
-
-                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-06-15T00:00:00+00:00">Sun 15 June 2014</abbr>
-                    </div>
-                </div>
-                <h2><a href="./engineers-log-69525c451538.html" rel="bookmark" title="Permalink to Engineers Log">Engineers Log</a></h2>
-                <div class="post-content">
-                    <p><img alt="" src="images/1__u5I9tVI8pJKp8tTRe1__AqA.jpeg"></p>
-<p>Four years ago(to the day) I wrote a post on why I was <a href="http://shanedowling.com/giving-up-on-wikis/">Giving up on wikis</a> and I have to admit, four years later my opinions on the topic really haven’t changed.</p>
-<p>It’s been 4 years, 700 questions(with 800 answers) and several server
-moves later …</p>
-                </div>
-                <div class="post-footer">
-                    <a href="./engineers-log-69525c451538.html">Read more</a>
-                </div>
-            </div>
 
 <div class="pagination">
     <div class="post-meta pure-g">
@@ -136,7 +149,9 @@ moves later …</p>
             <footer class="index-footer">
 
                 <a href="./" title="Shane Dowling">Shane Dowling</a>
+                <a href="./category/til.html">TIL</a>
                 <a href="./category/posts.html">posts</a>
+                <a href="./category/digital-minimalism.html">Digital Minimalism</a>
 
             </footer>
 

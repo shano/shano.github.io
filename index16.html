@@ -21,7 +21,9 @@
                     <ul class="main-nav-list">
                         <li class="main-nav-item active"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
+                        <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
              </div>
@@ -37,6 +39,48 @@
         <div class="pure-u-1 pure-u-lg-2-3">
 
 
+            <div class="post">
+                <div class="post-meta pure-g">
+
+
+                    <div class="pure-u-3-4 meta-data">
+                        <a href="./category/posts.html" class="category">posts</a><br />
+
+                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                        &mdash; <abbr title="2014-06-21T00:00:00+00:00">Sat 21 June 2014</abbr>
+                    </div>
+                </div>
+                <h2><a href="./sugarcrm-permissions-script-6b7031eb0eef.html" rel="bookmark" title="Permalink to SugarCRM — Permissions Script">SugarCRM — Permissions Script</a></h2>
+                <div class="post-content">
+                    <p>I use <a href="http://www.saltstack.com/">salt</a> quite extensively to deploy SugarCRM installs and I wanted a scriptable way to setup the correct permissions for Sugar running on a linux box. This script is based on the <a href="http://support.sugarcrm.com/04_Find_Answers/02KB/02Administration/100Install/Required_File_System_Permissions_on_Linux/">Sugar documentation</a> and this handy post <a href="http://developer.sugarcrm.com/2012/07/19/a-newbies-guide-to-getting-your-sugarcrm-instances-permissions-right/">here</a>.</p>
+<p>Simply fill in your apache user details and the path …</p>
+                </div>
+                <div class="post-footer">
+                    <a href="./sugarcrm-permissions-script-6b7031eb0eef.html">Read more</a>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-meta pure-g">
+
+
+                    <div class="pure-u-3-4 meta-data">
+                        <a href="./category/posts.html" class="category">posts</a><br />
+
+                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                        &mdash; <abbr title="2014-06-15T00:00:00+00:00">Sun 15 June 2014</abbr>
+                    </div>
+                </div>
+                <h2><a href="./engineers-log-69525c451538.html" rel="bookmark" title="Permalink to Engineers Log">Engineers Log</a></h2>
+                <div class="post-content">
+                    <p><img alt="" src="images/1__u5I9tVI8pJKp8tTRe1__AqA.jpeg"></p>
+<p>Four years ago(to the day) I wrote a post on why I was <a href="http://shanedowling.com/giving-up-on-wikis/">Giving up on wikis</a> and I have to admit, four years later my opinions on the topic really haven’t changed.</p>
+<p>It’s been 4 years, 700 questions(with 800 answers) and several server
+moves later …</p>
+                </div>
+                <div class="post-footer">
+                    <a href="./engineers-log-69525c451538.html">Read more</a>
+                </div>
+            </div>
             <div class="post">
                 <div class="post-meta pure-g">
 
@@ -84,49 +128,6 @@ come up with a few ways to hide them.</p>
                     <a href="./sugarcrm-7-hiding-subpanels-based-on-specific-criteria-eee6aacb95e1.html">Read more</a>
                 </div>
             </div>
-            <div class="post">
-                <div class="post-meta pure-g">
-
-
-                    <div class="pure-u-3-4 meta-data">
-                        <a href="./category/posts.html" class="category">posts</a><br />
-
-                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-06-06T00:00:00+00:00">Fri 06 June 2014</abbr>
-                    </div>
-                </div>
-                <h2><a href="./super-simple-folder-backup-one-liner-de43a969cb0d.html" rel="bookmark" title="Permalink to Super simple folder backup one-liner">Super simple folder backup one-liner</a></h2>
-                <div class="post-content">
-                    <p>I needed a simple cron job, that just took backups of my project
-folders, should the worst happen to my laptop. Google brought up nothing
-obvious, so I figured I’d share it here.</p>
-<p>tar zcvf /tmp/snap.tgz ~/Projects &amp;&amp; rsync /tmp/snap.tgz user@remotebox:/home/backups/snap_`date …</p>
-                </div>
-                <div class="post-footer">
-                    <a href="./super-simple-folder-backup-one-liner-de43a969cb0d.html">Read more</a>
-                </div>
-            </div>
-            <div class="post">
-                <div class="post-meta pure-g">
-
-
-                    <div class="pure-u-3-4 meta-data">
-                        <a href="./category/posts.html" class="category">posts</a><br />
-
-                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-05-22T00:00:00+00:00">Thu 22 May 2014</abbr>
-                    </div>
-                </div>
-                <h2><a href="./sugarcrm-7-adding-a-custom-column-to-a-list-1370ce1fbdb2.html" rel="bookmark" title="Permalink to SugarCRM 7 — Adding a custom column to a list">SugarCRM 7 — Adding a custom column to a list</a></h2>
-                <div class="post-content">
-                    <p>This is the SugarCRM 7 equivalent to this post <a href="https://medium.com/shanes-tech-tips/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1">here</a>, because Sugar has dropped the process record logic hook, we need to come up with a new solution.</p>
-<p>Here’s how you can add a new column to a list view, I have to admit this
-is one of the …</p>
-                </div>
-                <div class="post-footer">
-                    <a href="./sugarcrm-7-adding-a-custom-column-to-a-list-1370ce1fbdb2.html">Read more</a>
-                </div>
-            </div>
 
 <div class="pagination">
     <div class="post-meta pure-g">
@@ -142,7 +143,9 @@ is one of the …</p>
             <footer class="index-footer">
 
                 <a href="./" title="Shane Dowling">Shane Dowling</a>
+                <a href="./category/til.html">TIL</a>
                 <a href="./category/posts.html">posts</a>
+                <a href="./category/digital-minimalism.html">Digital Minimalism</a>
 
             </footer>
 

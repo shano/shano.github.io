@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2021-08-27T13:32:59+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Nonviolent Communication</title><link href="https://shanedowling.com/nonviolent-communication-a7bddf8d0805.html" rel="alternate"></link><published>2021-08-27T13:32:59+00:00</published><updated>2021-08-27T13:32:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2021-08-27:/nonviolent-communication-a7bddf8d0805.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__Tq3cCMHDxnnkVTxtFSJ6jA.jpeg"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2022-01-04T00:00:00+01:00</updated><subtitle>Shane Dowling</subtitle><entry><title>TIL Updating ZSH</title><link href="https://shanedowling.com/til-updating-zsh.html" rel="alternate"></link><published>2022-01-04T00:00:00+01:00</published><updated>2022-01-04T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-01-04:/til-updating-zsh.html</id><content type="html">&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
+realise there was an omz command!&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>Activity Nag</title><link href="https://shanedowling.com/activity-nag.html" rel="alternate"></link><published>2022-01-03T00:00:00+01:00</published><updated>2022-01-03T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-01-03:/activity-nag.html</id><summary type="html">&lt;div class="figure"&gt;
+&lt;img alt="Digital Minimalism" src="./images/digital_minimalism.jpeg" /&gt;
+&lt;p class="caption"&gt;Digital Minimalism&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I'm trying out a month of Digital Minimalism and I wanted some…
+encouragement to ensure I stick to my rules. One of which is to use my
+laptop only for specific tasks I know ahead of time, for an hour a day
+only. I currently already use Activitywatch …&lt;/p&gt;</summary><content type="html">&lt;div class="figure"&gt;
+&lt;img alt="Digital Minimalism" src="./images/digital_minimalism.jpeg" /&gt;
+&lt;p class="caption"&gt;Digital Minimalism&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I'm trying out a month of Digital Minimalism and I wanted some…
+encouragement to ensure I stick to my rules. One of which is to use my
+laptop only for specific tasks I know ahead of time, for an hour a day
+only. I currently already use Activitywatch to track all my activities
+on my machine, so I wanted a quick script that would(after an hour) nag
+me constantly if I wanted to continue using my machine. So I made
+&lt;a class="reference external" href="https://github.com/shano/activitynag"&gt;ActivityNag&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;You can find all the details around ActivityNag
+&lt;a class="reference external" href="https://github.com/shano/activitynag/blob/main/README.md"&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content><category term="Digital Minimalism"></category></entry><entry><title>Nonviolent Communication</title><link href="https://shanedowling.com/nonviolent-communication-a7bddf8d0805.html" rel="alternate"></link><published>2021-08-27T13:32:59+00:00</published><updated>2021-08-27T13:32:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2021-08-27:/nonviolent-communication-a7bddf8d0805.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__Tq3cCMHDxnnkVTxtFSJ6jA.jpeg"&gt;&lt;/p&gt;
 &lt;h3&gt;What is Nonviolent Communication?&lt;/h3&gt;
 &lt;p&gt;Nonviolent Communication(NVC) helps us communicate clearly by breaking down and identifying our needs and communicating them compassionately.&lt;/p&gt;
 &lt;h3&gt;Why?&lt;/h3&gt;

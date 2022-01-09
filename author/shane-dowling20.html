@@ -21,7 +21,9 @@
                     <ul class="main-nav-list">
                         <li class="main-nav-item"><a href="../" class="pure-menu-link">Shane Dowling</a></li>
 
+                        <li class="main-nav-item"><a href="../category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="../category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="../category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
              </div>
@@ -42,6 +44,48 @@
 
 <div class="author-page-container">
 
+    <div class="post">
+        <div class="post-meta pure-g">
+
+            <div class="pure-u-3-4 meta-data">
+                <a href="../category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-03-27T00:00:00+00:00">Thu 27 March 2014</abbr>
+            </div>
+        </div>
+        <h2><a href="../useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html" rel="bookmark" title="Permalink to Useful bit of SQL to update many records in SugarCRM">Useful bit of SQL to update many records in SugarCRM</a></h2>
+        <div class="post-content">
+            <p>UPDATE clowns SET deleted=1 WHERE id IN
+ (SELECT id FROM (
+ SELECT id FROM clowns WHERE deleted = 0 ORDER BY id ASC LIMIT 0, 800)
+ tmp );</p>
+        </div>
+        <div class="post-footer">
+            <a href="../useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html">Read more</a>
+        </div>
+    </div>
+    <div class="post">
+        <div class="post-meta pure-g">
+
+            <div class="pure-u-3-4 meta-data">
+                <a href="../category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-03-17T00:00:00+00:00">Mon 17 March 2014</abbr>
+            </div>
+        </div>
+        <h2><a href="../unit-tests-and-code-smells-2de9891c25ff.html" rel="bookmark" title="Permalink to Unit Tests and Code Smells">Unit Tests and Code Smells</a></h2>
+        <div class="post-content">
+            <p>Basically, the unit test pushed out something which I realised was a
+code smell, because I was writing a bunch of stuff into a controller
+function that really should’ve been in a controller I was having a
+really painful time writing a unit test for it. For example these …</p>
+        </div>
+        <div class="post-footer">
+            <a href="../unit-tests-and-code-smells-2de9891c25ff.html">Read more</a>
+        </div>
+    </div>
     <div class="post">
         <div class="post-meta pure-g">
 
@@ -86,46 +130,6 @@ ability week …</p>
         </div>
         <div class="post-footer">
             <a href="../perfomance-enhancing-breakfast-4a14f17ee20a.html">Read more</a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-meta pure-g">
-
-            <div class="pure-u-3-4 meta-data">
-                <a href="../category/posts.html" class="category">posts</a><br />
-
-                <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2014-02-27T00:00:00+00:00">Thu 27 February 2014</abbr>
-            </div>
-        </div>
-        <h2><a href="../owning-your-data-296ed1534643.html" rel="bookmark" title="Permalink to Owning Your Data">Owning Your Data</a></h2>
-        <div class="post-content">
-            <p><img alt="" src="images/1__onILu1exx9sSg4nwDK__CJw.jpeg"></p>
-<p>Governments are collecting data on you, that’s a fairly accepted fact at this stage. Whether you’re being “social”, reading email, playing video games or even when you’re writing a book on the NSA. If you want more details The Guardian has a great explanation as to what …</p>
-        </div>
-        <div class="post-footer">
-            <a href="../owning-your-data-296ed1534643.html">Read more</a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-meta pure-g">
-
-            <div class="pure-u-3-4 meta-data">
-                <a href="../category/posts.html" class="category">posts</a><br />
-
-                <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2014-02-22T00:00:00+00:00">Sat 22 February 2014</abbr>
-            </div>
-        </div>
-        <h2><a href="../the-counterfeited-blog-post-9d8f32f5d4b4.html" rel="bookmark" title="Permalink to The Counterfeited Blog Post">The Counterfeited Blog Post</a></h2>
-        <div class="post-content">
-            <p><img alt="" src="images/1__FbR__Xju3pqCkl2d7OhLEFg.jpeg"></p>
-<p>I’ve been reading <a href="https://en.wikipedia.org/wiki/Aspects_of_the_Novel">E. M. Forster’s Aspects of the Novel</a> and in it I came across a discussion on the French writer André Gide, specifically about his book <a href="https://en.wikipedia.org/wiki/The_Counterfeiters_%28novel%29">Les faux-monnayeurs(The Counterfeiters)</a>.</p>
-<p>The book is a merge of reality and fiction, Gide himself keeps a journal
-of his …</p>
-        </div>
-        <div class="post-footer">
-            <a href="../the-counterfeited-blog-post-9d8f32f5d4b4.html">Read more</a>
         </div>
     </div>
 
