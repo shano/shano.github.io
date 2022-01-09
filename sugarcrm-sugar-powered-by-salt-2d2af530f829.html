@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM — Sugar powered by Salt!</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-08-02T00:00:00+00:00">Sat 02 August 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM — Sugar powered by Salt!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__zMEOOXE7GYSSRFVwtqxhVQ.png"></p>
+<p>SugarCRM can be a pain to setup, especially if you are managing many
+installs on different servers/environments. I’m a big fan of using <a href="http://www.saltstack.com/">salt</a> to configure my servers. I rarely manage any servers directly anymore and generally run things through my salt master. This guide should hopefully get you up and running with a production ready setup of SugarCRM that you can re-use over and over. If you are looking for a decent primer on saltstack, <a href="http://www.youtube.com/watch?v=fTieSO2tp3s">this video</a> will give you a really useful introduction to what salt can really do. I’m barely scratching the surface.</p>
+<h3>Howto</h3>
+<ol>
+<li><a href="http://docs.saltstack.com/en/latest/topics/installation/ubuntu.html">Install salt</a> on the server you with to act as the salt-master(the provisioner). <a href="https://www.digitalocean.com/?refcode=81266f739d19%20">DigitalOcean</a> is great and cheap for this sort of non-mission critical task.</li>
+<li>Spin up a new server(which will be production), <a href="http://docs.saltstack.com/en/latest/ref/configuration/index.html">install/configure the salt-minion</a> and point it at the master.</li>
+<li>Clone <a href="https://github.com/shano/salted_sugar">this repo</a> to your salt-master or fork and create your own. You’ll need to do a bunch of customisations that you’ll want private.</li>
+<li>Do a grep -iRn ‘TODO’ sugar_salt/* and fill in all details and copy
+     files where needed.</li>
+<li>Overwrite or merge this folder with your existing /srv/salt.</li>
+<li>Run a sudo salt-call -l debug state.highstate on the minion box
+     you’ve setup. This will give you a ton of output and let you know if
+     anything has gone wrong.</li>
+</ol>
+<h3>What this configuration gives you</h3>
+<ol>
+<li>A set of core server essentially tools including git, vim, curl etc.</li>
+<li>Systat which I find essential for finding out what’s causing
+     potential issues on servers.</li>
+<li>All of SugarCRMs LAMP requirements, including redis, elasticsearch,
+     composer and apt-pinning to php 5.3.</li>
+<li>Correct php config including recommended increases to memory limit.</li>
+<li>Correct server permissions for your SugarCRM codebase.</li>
+<li>Ensures correct config files are always maintained.</li>
+<li>Ensures the correct htaccess files is always maintained.</li>
+<li>Ensures cache, upload directories exist with the correct permissions.</li>
+</ol>
+<h3>Notes</h3>
+<ol>
+<li>This configuration is tested on Ubuntu servers ONLY, specifically
+     12.04. If you intend to use this on something else please verify this
+     works with a virtual machine before using on production machines.
+     <a href="https://docs.vagrantup.com/v2/provisioning/salt.html">Salt plays really well with vagrant</a>, in
+     fact I actually manage all of my development, testing and production
+     boxes using salt and this includes the development Vagrant boxes on
+     my laptop. Specifically you’ll probably want to change the php.ini
+     that might not play nice with your alternate OS of choice.</li>
+<li>One improvement that could be made is to in fact keep config.php and
+     config_override.php in version control but have the take in
+     environment variables that salt could maintain(or your server).</li>
+<li>This is actually a little different to how I generally configure my
+     SugarCRM boxes with salt. This configuration is not as re-usable as
+     it could be, so what I do is abstract everything that’s per server
+     into their own sub-folders and everything that repeats per server
+     into it’s own server. I haven’t shown this here for the sake of
+     simplicity but is should be fairly straight forward.</li>
+<li>This repo was setup with SugarCRM 7 in mind. With the requirements specified <a href="http://support.sugarcrm.com/02_Documentation/01_Sugar_Editions/04_Sugar_Professional/Sugar_Professional_7.2/Installation_and_Upgrade_Guide/">here</a>. Alter the configuration files based on the requirements of the version that’s applicable to you.</li>
+</ol>
+<p>Any tips or improvements(I’m sure there’s plenty), feel free to comment.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM 7 — Fix to re-enable ElasticSearch on custom modules</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-09-18T00:00:00+00:00">Thu 18 September 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM 7 — Fix to re-enable ElasticSearch on custom modules</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__HOS9Snvhcd__NSa6OnO__ksQ.png"></p>
+<p>I had an issue in Sugar where some custom modules refused to appear in
+the Global Search settings, meaning I couldn’t index them in
+ElasticSearch.</p>
+<p>When I checked the module oddly enough unified search would be enabled:</p>
+<p>modules/<MODULE>/vardefs.php</p>
+<h3>1. Re-enable the module</h3>
+<p>To force it to be re-enabled update/create this file</p>
+<p>custom/Extension/modules/<MODULE>/Ext/Vardefs/vardefs.php</p>
+<p>and add this setting.</p>
+<p>$dictionary[‘<MODULE>’][‘unified_search’] = true;</p>
+<h3>2. Re-enable a field</h3>
+<p>You’ll also need a field using the unified index before SugarCRM</p>
+<p>custom/Extension/modules/<MODULE>/Ext/Vardefs/sugarfield_name.php</p>
+<p>Enable unfied_search as a setting.</p>
+<p>$dictionary[‘<MODULE>’][‘fields’][‘name’][‘unified_search’]=true;</p>
+<p>After a quick repair/rebuild. My module appears in the Global Search
+Settings and I can poll it as normal through ElasticSearch.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

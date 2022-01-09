@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Unit-testing unmanaged Django models</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2013-08-31T00:00:00+00:00">Sat 31 August 2013</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Unit-testing unmanaged Django models</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>Say you have an app with a set of models that aren’t being managed by
+Django, you’re going to run into trouble when it comes time to run
+unit-tests against these. What I mean is if in the model meta you have
+something like this</p>
+<p>app_label = ‘your_app_label’
+ managed = False
+ db_table = u’your_table_name’</p>
+<p>If you run unit-tests against these models the trouble occurs because
+django will ignore this model when creating tables in the test database
+and you’ll get a relation not defined error for ‘your_table_name’. The
+solution to this is to create an app specific TestRunner that will
+over-ride this setting and temporarily allow Django to manage your
+models, just for testing purposes.</p>
+<p>from django.test.simple import DjangoTestSuiteRunner</p>
+<p>class ManagedModelTestRunner(DjangoTestSuiteRunner):
+ “””
+ Test runner that automatically makes all unmanaged models in your Django
+ project managed for the duration of the test run, so that one doesn’t need
+ to execute the SQL manually to create them.
+ “””
+ def setup_test_environment(self, *args, **kwargs):
+ from django.db.models.loading import get_models
+ self.unmanaged_models = [m for m in get_models()
+ if not m._meta.managed
+ and m._meta.app_label is ‘your_app_label’]
+ m._meta.managed = True
+ super(ManagedModelTestRunner, self).setup_test_environment(*args,
+ **kwargs)</p>
+<p>def teardown_test_environment(self, *args, **kwargs):
+ super(ManagedModelTestRunner, self).teardown_test_environment(*args,
+ **kwargs)
+ # reset unmanaged models
+ m._meta.managed = False</p>
+<p>This code was lovingly taken from <a href="http://www.caktusgroup.com/blog/2010/09/24/simplifying-the-testing-of-unmanaged-database-models-in-django/">here</a> and extending very slightly to only include models that exist under the my_app_label app. I don’t want my app’s test to go fudging around with others, unless it’s needed.</p>
+<p>To then run tests with this testrunner, create a test_settings.py that
+looks something like this. This which basically tells Django to import
+your existing settings but to use your newly created TestRunner</p>
+<p>from settings import *</p>
+<p>TEST_RUNNER = ‘your_app_label.scripts.testrunner.ManagedModelTestRunner’</p>
+<p>./manage.py test your_app_label settings=you_app_label.settings.test_settings</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

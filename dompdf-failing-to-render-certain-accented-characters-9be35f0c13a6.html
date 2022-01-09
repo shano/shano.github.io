@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>DOMpdf failing to render certain accented characters</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-08-21T00:00:00+00:00">Thu 21 August 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>DOMpdf failing to render certain accented characters</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>I’ve noticed some issues with DOMpdf when trying to generate PDFs using
+their internal Helvetica font. After banging my head against a wall for
+a few hours trying to “fix” UTF-8 support, it turned out UTF-8 support
+was working fine. Essentially DOMpdf’s internal Helvetica font didn’t
+support a few polish characters. Specifically the Sacute, sacute and a
+few others like this. This was a bit of a killer problem for my
+requirements so I needed a work-around. My workaround was to use Arial
+fonts(they were close enough), but if you really need Helvetica you
+could source a copy of the .ttfs and replicate these steps.</p>
+<h3>Download Arial fonts</h3>
+<p>wget <a href="http://www.drivehq.com/file/df.aspx/shareID2129391/fileID59377155/arial.ttf">http://www.drivehq.com/file/df.aspx/shareID2129391/fileID59377155/arial.ttf</a>
+ wget <a href="http://www.911fonts.com/fonts/6/0/5/605.ttf">http://www.911fonts.com/fonts/6/0/5/605.ttf</a> -O arialit.ttf
+ wget <a href="http://4nts.com/fonts/arialbd.ttf">http://4nts.com/fonts/arialbd.ttf</a>
+ wget <a href="http://www.911fonts.com/fonts/6/0/4/604.ttf">http://www.911fonts.com/fonts/6/0/4/604.ttf</a> -O arialbit.ttf</p>
+<p>This downloads arial, arial-bold, arial-oblique and arial-boldoblique.</p>
+<h3>Generate compatible dompdf files</h3>
+<p>Pull up a terminal and cd into your dompdf folder. If you’re using
+composer, it’ll be /vendor/dompdf/dompdf</p>
+<p>php load_font.php arial ~/arial.ttf ~/arialbd.ttf ~/arialit.ttf ~/arialbit.ttf</p>
+<p>You should now see an entry in lib/fonts/dompdf_font_family_cache.php</p>
+<p>arial’ =&gt;
+ array (
+ ‘normal’ =&gt; DOMPDF_FONT_DIR . ‘arial’,
+ ‘bold’ =&gt; DOMPDF_FONT_DIR . ‘arialbd’,
+ ‘italic’ =&gt; DOMPDF_FONT_DIR . ‘arialit’,
+ ‘bold_italic’ =&gt; DOMPDF_FONT_DIR . ‘arialbit’,
+ ),</p>
+<p>You can now reference the Arial font-family in your DOMpdf stylesheets
+and have it render some nice Helvetica like fonts.</p>
+<p>If you are using composer with DOMpdf, I would highly recommend not
+leaving your custom fonts in DOMpdfs vendor folder. Copy the fonts
+directory somewhere in your projects directory, and over-ride this
+variable with your own def, referencing the new folder location.</p>
+<p>def(“DOMPDF_FONT_DIR”, DOMPDF_DIR . “/lib/fonts/”);</p>
+<p>This means you shouldn’t need to rely on dodgy customisations to the
+vendor folder.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

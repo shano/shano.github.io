@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM 7 — Adding an action to the listview headerpanel</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2015-07-25T00:00:00+00:00">Sat 25 July 2015</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM 7 — Adding an action to the listview headerpanel</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__WJpUe2DNz1qsC4zMTJB0eA.jpeg"></p>
+<p>This tutorial should show you how to add a custom button/action that
+will appear across all modules. It’s a little similar to <a href="http://shanedowling.com/sugarcrm-7-adding-an-action-to-the-listview/">this tutorial</a>
+with a few changes to how the button gets rendered and the actions get
+called.</p>
+<h3>1. Adding the button to the headerpanel</h3>
+<p>Firstly you’ll need to create a new folder to store the headerpane
+actions, so create this folder in the sugarcrm root
+directory custom/clients/base/views/list-headerpane/. Then create the
+file list-headerpane.php with this content. This will add a button next
+to the Create button for all modules.</p>
+<?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
+<p>/*
+ * Your installation or use of this SugarCRM file is subject to the applicable
+ * terms available at
+ * <a href="http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/">http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/</a>.
+ * If you do not agree to all of the applicable terms or do not have the
+ * authority to bind the entity as an authorized representative, then do not
+ * install or use this SugarCRM file.
+ *
+ * Copyright (C) SugarCRM Inc. All rights reserved.
+ */</p>
+<p>$viewdefs['base']['view']['list-headerpane'] = array(
+    'template' =&gt; 'headerpane',
+    'title' =&gt; 'LBL_MODULE_NAME',
+    'buttons' =&gt; array(
+        array(
+            'name'    =&gt; 'new_button',
+            'type'    =&gt; 'button',
+            'label'   =&gt; 'LBL_NEW_BUTTON_LABEL',
+            'css_class' =&gt; 'btn-secondary',
+            'acl_action' =&gt; 'list',
+            'events' =&gt; array(
+                'click' =&gt; 'list:new_button:fire'
+            ),
+        ),
+        array(
+            'name'    =&gt; 'create_button',
+            'type'    =&gt; 'button',
+            'label'   =&gt; 'LBL_CREATE_BUTTON_LABEL',
+            'css_class' =&gt; 'btn-primary',
+            'acl_action' =&gt; 'create',
+            'route' =&gt; array(
+                'action'=&gt;'create'
+            )
+        ),
+        array(
+            'name' =&gt; 'sidebar_toggle',
+            'type' =&gt; 'sidebartoggle',
+        ),
+    ),
+);</p>
+<h3>2. Adding the action hook</h3>
+<p>To fire this action you’ll need to add some
+code custom/clients/base/views/recordlist/recordlist.js, in the</p>
+<p>this.context.on(‘list:new_button:fire’, this.applyFxn, this);</p>
+<p>Now populate applyFxn with whatever code you want to run and it will
+work across every module.</p>
+<h3>3. Quick Repair and Rebuilt(as always)</h3>
+<p>Any questions feel free to ask!</p>
+<h3>Extra tip.</h3>
+<p>Only want to do this for a single module. Instead of placing the code in
+custom/clients place it in custom/modules/<MODULE>/clients and it
+should work for just that one module.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

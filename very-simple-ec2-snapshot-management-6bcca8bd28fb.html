@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Very Simple EC2 Snapshot Management</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2011-04-01T00:00:00+00:00">Fri 01 April 2011</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Very Simple EC2 Snapshot Management</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>I’ve been pulling my hair out trying to get a handy ec2 snapshot
+backup/management working. My google results have ranged from broken
+libraries to using bash scripts to do one aspect and php scripts to do
+another, all of the solutions seem to have serious issues with regions.</p>
+<p>Anyway I’ve coded up a very very stupidly simple bash script that’s
+based on the ec2-api-tools. Ubuntu based info <a href="https://help.ubuntu.com/community/EC2StartersGuide">here</a>. Essentially sudo apt-get install ec2-api-tools should get the required tools.</p>
+<p><strong>What it does:</strong> Backs up all instances and deletes all snapshots older
+than 7 days.</p>
+<p>You can find it <a href="http://pastebin.com/xMHQUbmH">here</a>, hope it helps.</p>
+<p>Due to major problems with ec2-api-tools I’ve done a quick rewrite for
+to support <a href="http://open.eucalyptus.com/wiki/Euca2oolsGuide">euca2ools</a>. Essentially I had this script running on a micro instance and due to bugs with the ubuntu kernel and java it would tank my server so I’ve switched to the python-based euca2ools.</p>
+<p>You can find this script <a href="http://pastebin.com/CCmJyULN">here</a>.</p>
+<p>To get euca2ools work simply install via sudo apt-get install euca2ools
+and add this to ~/.eucarc</p>
+<p>EC2_REGION=”${EC2_REGION:-eu-west-1}”</p>
+<p>EC2_CERT=${HOME}/cert.pem</p>
+<p>EC2_PRIVATE_KEY=${HOME}/pk.pem</p>
+<p>EC2_ACCESS_KEY=AAAAAAAAAAAAAAAAAAA</p>
+<p>EC2_SECRET_KEY=+AAAAAAAAAAAAAAaaaaaaaaaaa</p>
+<p>EC2_USER_ID=1234567890</p>
+<p>EUCALYPTUS_CERT=/etc/ec2/amitools/cert-ec2.pem</p>
+<p>EC2_URL=https://ec2.${EC2_REGION}.amazonaws.com</p>
+<p>S3_URL=https://s3.amazonaws.com:443</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

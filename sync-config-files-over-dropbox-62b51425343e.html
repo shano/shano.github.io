@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Sync config files over dropbox</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2010-02-14T00:00:00+00:00">Sun 14 February 2010</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Sync config files over dropbox</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>One of the many reasons for my love of linux is the idea of keeping
+config information in simple texts files in the home directory of each
+user. It all very painless. And now with <a href="https://www.dropbox.com/referrals/NTQyMzk2MT">Dropbox</a> I can have a
+set of application configurations stored via the web.</p>
+<p>Using Dropbox, add a folder(I’ve called mine dotfiles) and add in all
+the useful config files you have.</p>
+<p>For me it’s my</p>
+<p>.bashrc (sets up environment stuff, can be iffy with multiple machines
+however)</p>
+<p>.bash_aliases (sets up all my command line aliases)</p>
+<p>.vimrc (my vim configuration)</p>
+<p>.vim/ (my vim plugins and documentation)</p>
+<p>.muttrc (my mutt config)</p>
+<p>.screenrc (my screen config)</p>
+<p>.irssi (my irssi config)</p>
+<p>Move all the files you wish to sync with Dropbox into your dotfiles(or</p>
+<p>1) cd ~</p>
+<p>2) ln -s /home/username/Dropbox/dotfiles/.bashrc</p>
+<p>And bingo! Your bashrc files is now synced over Dropbox. Any changes you
+make on your current machine will be propagated over all machines use
+this Dropboxconfig and visa-versa. On top of that the prospect of
+maintaining profiles over multiple machines become a lot less painful.
+Even setting up a new machine is handy. Setup your os, download dropbox,
+execute ln -s a few times and you’re done, and this can be extended to
+any application that supports these plain-text config files. It’s really
+awesome!</p>
+<h3>Update — 04/04/14</h3>
+<p>These days, I’m actually using bittorrent sync to do effectively the same thing, minus all the privacy invading Dropbox features.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

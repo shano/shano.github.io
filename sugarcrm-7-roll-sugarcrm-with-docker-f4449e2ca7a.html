@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM 7 — Roll SugarCRM with Docker</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2015-04-07T00:00:00+00:00">Tue 07 April 2015</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM 7 — Roll SugarCRM with Docker</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__IkzYCoEsXglLAC549u9Wzg.png"></p>
+<p>I find trying to replicate the SugarCRM environment locally a real pain.
+One of the main issues is simply that Sugar requires such old versions
+of PHP to be installed, especially compared to other web projects I have
+that implement the latest/greatest versions of PHP. Running multiple PHP
+versions simultaneously can be a pain. One solution is to use Vagrant
+but I find that too heavy for my needs, so I gave docker a go and found
+it a much faster/elegant solution.</p>
+<p>Here’s the steps to get yourself up and running.</p>
+<h3>1. MySQL</h3>
+<p>You’ll need your own installation of MySQL for this. As I use Debian
+testing as a host I just installed MySQL on it and have my SugarCRM
+boxes point to the host using the dockerhost entry in /etc/hosts on each
+docker container.</p>
+<p>There is nothing at all stopping you from creating another Docker
+instance running MySQL but I figured this was an unnecessary step and
+getting data persistence working with Docker can be a little annoying.</p>
+<h3>2. Getting the Docker config</h3>
+<p>Simply clone the repo for whichever version you intend to you use.</p>
+<p>I have two versions of this setup for both SugarCRM Version 7.2(Needing
+PHP 5.3) and Version 7.5(Needing PHP 5.4).</p>
+<p>Sugar-Docker 7.2 is <a href="https://github.com/shano/docker-sugarcrm-72">here</a>.
+Sugar-Docker 7.5 is <a href="https://github.com/shano/docker-sugarcrm-75">here</a>.</p>
+<h3>3. Fill in Docker settings</h3>
+<p>run.sh</p>
+<p>Edit this script and change the containers ip to whatever your hosts ip
+is. Don’t forget to set the folder to your SugarCRM code folder.</p>
+<p>files/vhost.conf</p>
+<p>Change settings here if you wish to use a custom url to access Sugar or
+if you have multiple instances of SugarCRM installed.</p>
+<p>files/php.ini</p>
+<p>Change any settings you might want to customise with PHP here.</p>
+<h3>4. Tell SugarCRM to use the right MySQL database</h3>
+<p>In config.php I just set the mysql host to dockerhost.</p>
+<h3>5. Hosts entry</h3>
+<p>Then on your host operating system make sure to point the virtualhost
+url to the box. For me, in my /etc/hosts I have this entry.</p>
+<p>127.0.0.1 sugar.dev</p>
+<h3>Debugging</h3>
+<p>Because I’ve used stdout for logs you can see apache errors by running a
+command like this.</p>
+<p>sudo docker logs -f sugarcrm72</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

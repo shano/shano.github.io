@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Build Yii 1.* with composer</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-04-08T00:00:00+00:00">Tue 08 April 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Build Yii 1.* with composer</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__l9C5aZ3qEUjpuOr__ZRZtbw.png"></p>
+<p>While we’re looking forward to Yii 2 coming alive, all of the posts on
+please do not use it for production**. So it might be a little while
+before we have in-built composer awesomeness with Yii. <a href="http://www.yiiframework.com/wiki/392/creating-yii-applications-with-composer/">The guide
+online</a> on integrating composer with yii does not seem particularly
+straight-forward and misses out on a lot of steps, hence this post. You
+basically need to have the right folder structure or things will start
+to break. This guide relies on some of phundaments packages to get
+things up and running, as the official yii composer project doesn’t work
+anymore.</p>
+<p>- Create the root folder my_yii_install.
+- mkdir -p my_yii_install/protected/config
+- In my_yii_install/protected/ <a href="https://getcomposer.org/download/">download the composer.phar</a> and create a composer.json like so.</p>
+<p>{
+ “repositories”: [
+ {
+ “type”:”composer”,
+ “url”: “http://packages.phundament.com”
+ }
+ ],
+ “require": {
+ “php”: “&gt;=5.3.2”,
+ “yiisoft/yii”: “1.1.*”,
+ “yiiext/migrate-command”: “0.7.*”
+ },
+ “config”: {
+ “bin-dir”: “bin/”
+ },
+ “autoload”: {
+ “psr-0”: {
+ “config”: “./”
+ }
+ },
+ “scripts”: {
+ “pre-install-cmd”: “config\\ComposerCallback::preInstall”,
+ “post-install-cmd”: “config\\ComposerCallback::postInstall”,
+ “pre-update-cmd”: “config\\ComposerCallback::preUpdate”,
+ “post-update-cmd”: “config\\ComposerCallback::postUpdate”,
+ “post-package-install”: [“config\\ComposerCallback::postPackageInstall”],
+ “post-package-update”: [“config\\ComposerCallback::postPackageUpdate”]
+ }
+ }</p>
+<p>- In my_yii_install/config add console.php</p>
+<p>return array(
+ ‘aliases’ =&gt; array(
+ ‘vendor’ =&gt; ‘application.vendor’,
+ ),
+ ‘basePath’ =&gt; dirname(__FILE__) . DIRECTORY_SEPARATOR .’..’,
+ ‘name’ =&gt; ‘My Awesome Yii Site’,
+ ‘components’ =&gt; array(
+ ‘db’ =&gt; array(
+ // MySQL
+ ‘connectionString’ =&gt; ‘mysql:host=localhost;dbname=my_yii_database’,
+ ‘emulatePrepare’ =&gt; true,
+ ‘username’ =&gt; ‘root’,
+ ‘password’ =&gt; ‘root’,
+ ‘charset’ =&gt; ‘utf8’,
+ ),
+ ),
+ ‘params’ =&gt; array(
+ ‘composer.callbacks’ =&gt; array(
+ // args for Yii command runner
+ ‘yiisoft/yii-install’ =&gt; array(‘yiic’, ‘webapp’, dirname(__FILE__).DIRECTORY_SEPARATOR.’..’.DIRECTORY_SEPARATOR.’..’),
+ ‘post-update’ =&gt; array(‘yiic’, ‘migrate’),
+ ‘post-install’ =&gt; array(‘yiic’, ‘migrate’),
+ ),
+ ),
+ );</p>
+<p>- Now you’ll need to add a file like the below to actually handle the
+ new composer hooks you’ve created. This will basically run migrations
+ once your dependencies have installed.</p>
+<p>This is blantantly taken from phundaments <a href="https://github.com/phundament/app/blob/yii-webapp/protected/config/ComposerCallback.php">ComposerCallback</a>.
+I just thought I’d copy it here for completeness.</p>
+<p>ComposerCallback.php</p>
+<p>/**
+ * Class file
+ *
+ * @author Tobias Munk
+ * @link <a href="http://www.phundament.com/">http://www.phundament.com/</a>
+ * @copyright Copyright © 2012 diemeisterei GmbH
+ * @license <a href="http://www.phundament.com/license">http://www.phundament.com/license</a>
+ */</p>
+<p>namespace config;
+ use Composer\Script\Event;</p>
+<p>/**
+ * ComposerCallback provides composer hooks
+ *
+ * This setup class triggers `./yiic migrate` at post-install and post-update.
+ * For a package the class triggers `./yiic -` at post-package-install and
+ * post-package-update.
+ * See composer manual (http://getcomposer.org/doc/articles/scripts.md)
+ *
+ * Usage example
+ *
+ * config.php
+ * ‘params’ =&gt; array(
+ ‘composer.callbacks’ =&gt; array(
+ ‘post-update’ =&gt; array(‘yiic’, ‘migrate’),
+ ‘post-install’ =&gt; array(‘yiic’, ‘migrate’),
+ ‘yiisoft/yii-install’ =&gt; array(‘yiic’, ‘webapp’, realpath(dirname(__FILE__))),
+ ),
+ )
+ );</p>
+<p>* composer.json
+ * “scripts”: {
+ * “pre-install-cmd”: “config\\ComposerCallback::preInstall”,
+ “post-install-cmd”: “config\\ComposerCallback::postInstall”,
+ “pre-update-cmd”: “config\\ComposerCallback::preUpdate”,
+ “post-update-cmd”: “config\\ComposerCallback::postUpdate”,
+ “post-package-install”: [
+ “config\\ComposerCallback::postPackageInstall”
+ ],
+ “post-package-update”: [
+ “config\\ComposerCallback::postPackageUpdate”
+ ]
+ }</p>
+<p>*
+ *
+ * @author Tobias Munk
+ * @package phundament.app
+ * @since 0.7.1
+ */</p>
+<p>defined(‘YII_PATH’) or define(‘YII_PATH’, dirname(__FILE__).’/../vendor/yiisoft/yii/framework’);
+ defined(‘CONSOLE_CONFIG’) or define(‘CONSOLE_CONFIG’, dirname(__FILE__).’/console.php’);</p>
+<p>class ComposerCallback
+ {
+ /**
+ * Displays welcome message
+ * @static
+ * @param ComposerScriptEvent $event
+ */
+ public static function preInstall(Event $event)
+ {
+ $composer = $event-&gt;getComposer();
+ // do stuff
+ echo “Phundament 3 Installernn”;
+ echo “ * download packages specified in composer.json
+ * trigger composer callbacksnn”;
+ if (self::confirm(“Start Installation?”)) {
+ self::runHook(‘pre-install’);
+ } else {
+ exit(“Installation aborted.n”);
+ }
+ }</p>
+<p>/**
+ * Executes ./yiic migrate
+ * @static
+ * @param ComposerScriptEvent $event
+ */
+ public static function postInstall(Event $event)
+ {
+ self::runHook(‘post-install’);
+ echo “nnInstallation completed.nnThank you for choosing Phundament 3!nn”;
+ }</p>
+<p>/**
+ * Displays welcome message
+ *
+ * @static
+ * @param ComposerScriptEvent $event
+ */
+ public static function preUpdate(Event $event)
+ {
+ echo “Welcome to Phundament Installation 3 via composernnUpdating your application to the lastest available packages…n”;
+ self::runHook(‘pre-update’);
+ }</p>
+<p>/**
+ * Executes ./yiic migrate
+ *
+ * @static
+ * @param ComposerScriptEvent $event
+ */
+ public static function postUpdate(Event $event)
+ {
+ self::runHook(‘post-update’);
+ echo “nnUpdate completed.nn”;
+ }</p>
+<p>/**
+ * Executes ./yiic -
+ *
+ * @static
+ * @param ComposerScriptEvent $event
+ */
+ public static function postPackageInstall(Event $event)
+ {
+ $installedPackage = $event-&gt;getOperation()-&gt;getPackage();
+ $hookName = $installedPackage-&gt;getPrettyName().’-install’;
+ self::runHook($hookName);
+ }</p>
+<p>/**
+ * Executes ./yiic -
+ *
+ * @static
+ * @param ComposerScriptEvent $event
+ */
+ public static function postPackageUpdate(Event $event)
+ {
+ $installedPackage = $event-&gt;getOperation()-&gt;getTargetPackage();
+ $commandName = $installedPackage-&gt;getPrettyName().’-update’;
+ self::runHook($commandName);
+ }</p>
+<p>/**
+ * Asks user to confirm by typing y or n.
+ *
+ * Credits to Yii CConsoleCommand
+ *
+ * @param string $message to echo out before waiting for user input
+ * @return bool if user confirmed
+ */
+ public static function confirm($message)
+ {
+ echo $message . ‘ [yes|no] ‘;
+ return !strncasecmp(trim(fgets(STDIN)), ‘y’, 1);
+ }</p>
+<p>/**
+ * Runs Yii command, if available (defined in config/console.php)
+ */
+ private static function runHook($name){
+ $app = self::getYiiApplication();
+ if ($app === null) return;</p>
+<p>if (isset($app-&gt;params[‘composer.callbacks’][$name])) {
+ $args = $app-&gt;params[‘composer.callbacks’][$name];
+ $app-&gt;commandRunner-&gt;addCommands(Yii::getPathOfAlias(‘system.cli.commands’));
+ $app-&gt;commandRunner-&gt;run($args);
+ }
+ }</p>
+<p>/**
+ * Creates console application, if Yii is available
+ */
+ private static function getYiiApplication()
+ {
+ if (!is_file(YII_PATH.’/yii.php’))
+ {
+ return null;
+ }</p>
+<p>require_once(YII_PATH.’/yii.php’);
+ spl_autoload_register(array(‘YiiBase’, ‘autoload’));</p>
+<p>if (Yii::app() === null) {
+ if (is_file(CONSOLE_CONFIG)) {
+ $app = Yii::createConsoleApplication(CONSOLE_CONFIG);
+ } else {
+ throw new Exception(“File from CONSOLE_CONFIG not found”);
+ }
+ } else {
+ $app = Yii::app();
+ }
+ return $app;
+ }</p>
+<p>}</p>
+<p>- Now you should be able to run</p>
+<p>php composer.phar install</p>
+<p>and it should ask do you want to setup your yii project and all of the
+required folders, which is pretty awesome. The only other thing you
+might want to do is add more dependencies. Say you have a library you
+wish to add. Add the entry into composer.json run the update(which
+should call any migrations needed automatically), then you need to add
+this line to your index.php.</p>
+<p>require_once(dirname(__FILE__).’/protected/vendor/autoload.php’);</p>
+<p>And should be be good to access composers namespaces libraries. Very
+cool!</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

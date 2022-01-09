@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Generate Binary Tree From String</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2015-10-27T00:00:00+00:00">Tue 27 October 2015</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Generate Binary Tree From String</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>Recently while implementing the <a href="http://rosalind.info/problems/ba7f/">Small Parsimony Problem</a> I had the need to generate a binary tree from a string in Python.</p>
+<p>The pseudo-code in the question implicitly assumes you have some functionality that will generate a DNA sequence like CAAATCCC into a binary tree, then run SmallParsimony on it. I couldn’t find that functionality anywhere, so I decided to implement something simple in networkx. Hopefully it’s useful.</p>
+<h1>!/usr/bin/env python</h1>
+<p>“””
+ Shane Dowling, 27 Oct 2015
+ To run simply call generate_leaf_graph and pass in s string.
+ “””
+def count_predecessors(T):
+ pred = 0
+ for v in T.nodes():
+ pred += 1
+ return pred</p>
+<p>def generate_leaf_graph(s):
+ “””
+ Will generate a leaf graph and return it along
+ with the Character dictionary representing the characters
+ at each leaf node position
+ “””
+ T = nx.DiGraph()
+ Character = {}
+ i = 0
+ parI = len(s)
+ for (son, daughter) in zip(s[0::2], s[1::2]):
+   Character[i] = son
+   Character[i+1] = daughter
+   T.add_edge(parI, i)
+   T.add_edge(parI, i+1)
+   i += 2
+   parI += 1</p>
+<p>while count_predecessors(T) &gt; 1:
+  for v in T.nodes():
+   T.add_edge(parI, v)
+   T.add_edge(parI, v+1)
+   parI += 1
+ return [T, Character]</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

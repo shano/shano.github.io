@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM 7 — Adding a custom column to a list</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-05-22T00:00:00+00:00">Thu 22 May 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM 7 — Adding a custom column to a list</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>This is the SugarCRM 7 equivalent to this post <a href="https://medium.com/shanes-tech-tips/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1">here</a>, because Sugar has dropped the process record logic hook, we need to come up with a new solution.</p>
+<p>Here’s how you can add a new column to a list view, I have to admit this
+is one of the really powerful additions to SugarCRM 7, no more crazy
+config files or hacks to try cheat your data in. By leveraging
+javascript events with a decent restful API you can come up with some
+really nice solutions, with lots of hooks to do custom things. Once you
+see the difference in implementation you’ll see why I’m so pleased.</p>
+<p>So anyway, back to the customisations.</p>
+<h3>1. Add the placeholder column</h3>
+<p>You need to do this by adding a new column into your custom modules
+list.php file, which is generally located at
+custom/modules/YOUR_CUSTOM_MODULE/clients/base/views/list/list.php,
+add your new column in under
+$viewdefs[$modulename][‘base’][‘view’][‘list’][‘panels’][0][‘fields’]</p>
+<p>array (
+ ‘name’ =&gt; ‘custom_fieldname’,
+ ‘label’ =&gt; ‘LBL_CUSTOM_RECORD’,
+ ‘enabled’ =&gt; true,
+ ‘width’ =&gt; ‘10%’,
+ ‘default’ =&gt; true,
+ ),</p>
+<h3>2. Add the JS action</h3>
+<p>This should go into
+custom/modules/YOUR\_CUSTOM\_MODULE/clients/base/views/recordlist/recordlist.js</p>
+<p>({</p>
+<p>this.before(‘render’, function() {
+ return this.beforeRenderCallback()
+ }, this);
+ this.on(‘render’, function() {
+ this.renderCallback();
+ if (this.previewVisible) {
+ this.decorateRow(this.previewModel);
+ }
+ }, this);
+ this._super(“bindDataChange”);
+ },
+ /**
+ * Callback for before on(‘render’) event
+ */
+ this.collection.each(function(model) {
+ app.api.call(‘GET’, app.api.buildURL(‘YOUR_CUSTOM_MODULE/YOUR_CUSTOM_FUNCTION/’+model.id), null, {
+ model.set({
+ your_custom_field : data
+ });
+ }, this)
+ });
+ }, this);
+ },
+ })</p>
+<h3>3. Add the API end point</h3>
+<p>The documentation here is really straightforward but as an example for
+completeness this should return a json response with the data needed.</p>
+<p>This code would go into
+custom/modules/YOUR_CUSTOM_MODULE/clients/base/api/YOUR\_CUSTOM_FUNCTION.php</p>
+<p>if(!defined(‘sugarEntry’) || !sugarEntry) die(‘Not A Valid Entry Point’);
+ require_once(‘custom/modules/YOUR_CUSTOM_MODULE/Custom_Bean.php’);</p>
+<p>class YOUR_CUSTOM_FUNCTION extends SugarApi
+ {
+ public function registerApiRest()
+ {
+ return array(
+ //GET
+ ‘MyGetEndpoint’ =&gt; array(
+ //request type
+ ‘reqType’ =&gt; ‘GET’,</p>
+<p>//endpoint path
+ ‘path’ =&gt; array(‘YOUR_CUSTOM_MODULE’, ‘YOUR_CUSTOM_FUNCTION’, ‘?’),</p>
+<p>//endpoint variables
+ ‘pathVars’ =&gt; array(‘’, ‘’, ‘data’),</p>
+<p>//method to call
+ ‘method’ =&gt; ‘MyGetMethod’,</p>
+<p>//short help string to be displayed in the help documentation
+ ‘shortHelp’ =&gt; ‘Some help text’,</p>
+<p>//long help to be displayed in the help documentation
+ //’longHelp’ =&gt; ‘’,
+ ),
+ );
+ }</p>
+<p>/**
+ * Method to be used for my MyEndpoint/GetExample endpoint
+ */
+ public function MyGetMethod($api, $args)
+ {
+ $id = $args;</p>
+<p>$custom_bean = new Custom_Bean();
+ $custom_bean-&gt;retrieve($id);</p>
+<p>return $custom_bean-&gt;getCustomColumnData();
+ }</p>
+<p>}</p>
+<h3>4. Add to column to the dictionary</h3>
+<p>custom/Extension/modules/YOUR_CUSTOM_MODULE/Ext/Vardefs/sugarfield_custom_fieldname.php</p>
+<p>$dictionary[‘YOUR_CUSTOM_MODULE’][‘fields’][‘custom_fieldname’][‘labelValue’]=’Custom Row ‘;
+ $dictionary[‘YOUR_CUSTOM_MODULE’][‘fields’][‘custom_fieldname’][‘full_text_search’]=array (
+ ‘boost’ =&gt; ‘0’,
+ ‘enabled’ =&gt; false,
+ );
+ $dictionary[‘YOUR_CUSTOM_MODULE’][‘fields’][‘custom_fieldname’][‘enforced’]=’’;
+ $dictionary[‘YOUR_CUSTOM_MODULE’][‘fields’][‘custom_fieldname’][‘dependency’]=’’;
+ ?&gt;</p>
+<p>On quick repair/rebuild this will get merged into
+custom/modules/YOUR_CUSTOM_MODULES/Ext/Vardefs/vardefs.ext.php</p>
+<h3>5. No need to even guess, do a quick repair/rebuild.</h3>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

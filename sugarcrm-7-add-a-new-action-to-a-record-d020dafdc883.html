@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM 7 — Add a new action to a record</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-08-07T00:00:00+00:00">Thu 07 August 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM 7 — Add a new action to a record</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__lM3J923TEAa5__XNjB__57Jg.jpeg"></p>
+<p>Odds are if you’re customising SugarCRM, you will at some point need to
+add functionality to the records page. This article shows you a
+framework for creating actions on the UI, the API entrypoints to run
+your code and how to link it all together using SugarCRM’s sidecar
+functionality.</p>
+<h3>1. Add the button</h3>
+<p>In custom/modules//clients/base/views/record/record.php,
+you’ll need this to add the core button array.</p>
+<p>$viewdefs[$module_name][‘base’][‘view’][‘record’][‘buttons’] =
+ array (
+ 0 =&gt;
+ array (
+ ‘type’ =&gt; ‘button’,
+ ‘name’ =&gt; ‘cancel_button’,
+ ‘label’ =&gt; ‘LBL_CANCEL_BUTTON_LABEL’,
+ ‘css_class’ =&gt; ‘btn-invisible btn-link’,
+ ‘showOn’ =&gt; ‘edit’,
+ ),
+ 1 =&gt;
+ array (
+ ‘type’ =&gt; ‘rowaction’,
+ ‘event’ =&gt; ‘button:save_button:click’,
+ ‘name’ =&gt; ‘save_button’,
+ ‘label’ =&gt; ‘LBL_SAVE_BUTTON_LABEL’,
+ ‘css_class’ =&gt; ‘btn btn-primary’,
+ ‘showOn’ =&gt; ‘edit’,
+ ‘acl_action’ =&gt; ‘edit’,
+ ),
+ 2 =&gt;
+ array (
+ ‘type’ =&gt; ‘actiondropdown’,
+ ‘name’ =&gt; ‘main_dropdown’,
+ ‘primary’ =&gt; true,
+ ‘showOn’ =&gt; ‘view’,
+ ‘buttons’ =&gt;
+ array (
+ 0 =&gt;
+ array (
+ ‘type’ =&gt; ‘rowaction’,
+ ‘event’ =&gt; ‘button:edit_button:click’,
+ ‘name’ =&gt; ‘edit_button’,
+ ‘label’ =&gt; ‘LBL_EDIT_BUTTON_LABEL’,
+ ‘acl_action’ =&gt; ‘edit’,
+ ),
+ 1 =&gt;
+ array (
+ ‘type’ =&gt; ‘shareaction’,
+ ‘name’ =&gt; ‘share’,
+ ‘label’ =&gt; ‘LBL_RECORD_SHARE_BUTTON’,
+ ‘acl_action’ =&gt; ‘view’,
+ ),
+ 2 =&gt;
+ array (
+ ‘type’ =&gt; ‘pdfaction’,
+ ‘name’ =&gt; ‘download-pdf’,
+ ‘label’ =&gt; ‘LBL_PDF_VIEW’,
+ ‘action’ =&gt; ‘download’,
+ ‘acl_action’ =&gt; ‘view’,
+ ),
+ 3 =&gt;
+ array (
+ ‘type’ =&gt; ‘pdfaction’,
+ ‘name’ =&gt; ‘email-pdf’,
+ ‘label’ =&gt; ‘LBL_PDF_EMAIL’,
+ ‘action’ =&gt; ‘email’,
+ ‘acl_action’ =&gt; ‘view’,
+ ),
+ 4 =&gt;
+ array (
+ ‘type’ =&gt; ‘divider’,
+ ),
+ 5 =&gt;
+ array (
+ ‘type’ =&gt; ‘rowaction’,
+ ‘event’ =&gt; ‘button:do_some_task:click’,
+ ‘name’ =&gt; ‘do_some_task’,
+ ‘label’ =&gt; ‘LBL_DO_SOME_ACTION’,
+ ‘acl_action’ =&gt; ‘view’,
+ ),
+ 6 =&gt;
+ array (
+ ‘type’ =&gt; ‘rowaction’,
+ ‘event’ =&gt; ‘button:find_duplicates_button:click’,
+ ‘name’ =&gt; ‘find_duplicates_button’,
+ ‘label’ =&gt; ‘LBL_DUP_MERGE’,
+ ‘acl_action’ =&gt; ‘edit’,
+ ),
+ 7 =&gt;
+ array (
+ ‘type’ =&gt; ‘rowaction’,
+ ‘event’ =&gt; ‘button:duplicate_button:click’,
+ ‘name’ =&gt; ‘duplicate_button’,
+ ‘label’ =&gt; ‘LBL_DUPLICATE_BUTTON_LABEL’,
+ ‘acl_module’ =&gt; ‘’,
+ ‘acl_action’ =&gt; ‘create’,
+ ),
+ 8 =&gt;
+ array (
+ ‘type’ =&gt; ‘rowaction’,
+ ‘event’ =&gt; ‘button:audit_button:click’,
+ ‘name’ =&gt; ‘audit_button’,
+ ‘label’ =&gt; ‘LNK_VIEW_CHANGE_LOG’,
+ ‘acl_action’ =&gt; ‘view’,
+ ),
+ 9 =&gt;
+ array (
+ ‘type’ =&gt; ‘divider’,
+ ),
+ 10 =&gt;
+ array (
+ ‘type’ =&gt; ‘rowaction’,
+ ‘event’ =&gt; ‘button:delete_button:click’,
+ ‘name’ =&gt; ‘delete_button’,
+ ‘label’ =&gt; ‘LBL_DELETE_BUTTON_LABEL’,
+ ‘acl_action’ =&gt; ‘delete’,
+ ),
+ ),
+ ),
+ 3 =&gt;
+ array (
+ ‘name’ =&gt; ‘sidebar_toggle’,
+ ‘type’ =&gt; ‘sidebartoggle’,
+ ),
+ );</p>
+<p>Note what I’ve stored at **array key 5**. This is the custom button that
+will be rendered and the event button do\_some\_task will be called in
+the javacript file we’ll created. You can add this anywhere in the
+drop-down I just generally choose here.</p>
+<h3>2. Create the javascript hook to call the API</h3>
+<p>In custom/modules//clients/base/views/record/record.js
+create a file like this.</p>
+<p>({</p>
+<p>this.context.on(‘button:do_some_task:click’, this.do_some_task, this);
+ },
+ do_some_task : function() {
+ app.api.call(‘GET’, app.api.buildURL(‘/DoSomeTask/’+this.model.get(‘id’)), null, {
+ //response comes back from your api, maybe you want to set some value on your model or alter a response?
+ this.model.set(‘some_field’, response);
+ //Or maybe you want to show an error or success
+ app.alert.show(‘bad-task-response’, {
+ });
+ }, this)
+ });
+ }
+ })</p>
+<h3>3. Build the API to act on the javascript file</h3>
+<p>In custom/modules//clients/base/api/doSomeTask.php create a
+file like so</p>
+<p>if(!defined(‘sugarEntry’) || !sugarEntry) die(‘Not A Valid Entry Point’);
+ require_once(‘custom/modules//SomeCustomClass.php’);</p>
+<p>class doSomeTask extends SugarApi
+ {
+ public function registerApiRest()
+ {
+ return array(
+ //GET
+ ‘MyGetEndpoint’ =&gt; array(
+ //request type
+ ‘reqType’ =&gt; ‘GET’,</p>
+<p>//endpoint path
+ ‘path’ =&gt; array(‘’, ‘DoSomeTask’, ‘?’),</p>
+<p>//endpoint variables
+ ‘pathVars’ =&gt; array(‘’, ‘’, ‘data’),</p>
+<p>//method to call
+ ‘method’ =&gt; ‘DoSomeTask’,</p>
+<p>//short help string to be displayed in the help documentation
+ ‘shortHelp’ =&gt; ‘This does some custom task’,
+ ),
+ );
+ }</p>
+<p>/**
+ * Method to be used for my MyEndpoint/GetExample endpoint
+ */
+ public function DoSomeTask($api, $args)
+ {
+ $id = $args[‘data’];</p>
+<p>$custom_bean = new SomeCustomClass();
+ $custom_bean-&gt;retrieve($id);
+ return $custom_bean-&gt;doSomething();
+ }</p>
+<p>}</p>
+<p><strong>Note:</strong> Make sure your DoSomeTask functon is uppercased not camel
+cased. I kept getting invalid argument count errors when it was
+camel-cased.</p>
+<h3>4. Language files for the button</h3>
+<p>Create a new language file at
+custom/Extension/modules//Ext/Language/en\_us.doSomeTask.php
+with contents like</p>
+<p>$mod_strings[‘LBL_DO_SOME_TASK’] = ‘Do some task’;</p>
+<h3>5. Quick Repair/Rebuild</h3>
+<p>This should hopefully merge your language files into your code and
+recompile your javascript into the front-end.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

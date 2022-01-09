@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Setting up git with Rescuetime highlights</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2015-02-15T00:00:00+00:00">Sun 15 February 2015</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Setting up git with Rescuetime highlights</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__jppvR1Pu3XEUcOHJp__3t3g.jpeg"></p>
+<p>Recently I’ve written on another site how I use Rescuetime to provide metrics on my overall productivity that I can review each week. One useful feature I noticed was Rescuetime highlights, which gives you a good overview of your accompishments throughout the day. The first thing I wanted to add to this (obviously) was git commits.</p>
+<p>Luckily it turns out someone had already thought of this and implemented
+it. The script itself is here, I’m just going to reproduce it below.</p>
+<h1>!/bin/sh</h1>
+<h1></h1>
+<p># An example hook script to log commit messages
+# as a 'daily highlight' in RescueTime Premium</p>
+<h1></h1>
+<p># See README.md for more information</p>
+<h1></h1>
+<p># To enable this hook:</p>
+<h1></h1>
+<p># 1. Place this file in .git/hooks and rename to "post-commit".</p>
+<h1></h1>
+<p># 2. Update the value of API_KEY below with a valid RescueTime API key.
+#    [ you can generate a key at <a href="https://www.rescuetime.com/anapi/manage">https://www.rescuetime.com/anapi/manage</a> ]</p>
+<p>API_KEY=PUT_YOUR_API_KEY_HERE</p>
+<p># REQUIRED FIELDS - Today's date and commit message</p>
+<p>MESSAGE=$(git log -1 HEAD --pretty=format:%s)
+DATE_TODAY=$(date +"%Y-%m-%d")</p>
+<p># You can edit the LABEL value if you would rather
+# describe these commits differently.</p>
+<p>LABEL='Code Commit'</p>
+<p># See more filtering examples in README.md</p>
+<p>if [[ ${#MESSAGE} -gt 16 ]]; then
+  curl --data "key=$API_KEY&amp;highlight_date=$DATE_TODAY&amp;description=$MESSAGE&amp;source=$LABEL" <a href="https://www.rescuetime.com/anapi/highlights_post">https://www.rescuetime.com/anapi/highlights_post</a>
+fi</p>
+<p>Now, the annoying part for me is that this doesn’t work globally across
+all of my git repos, so to fix this you can leverage git’s templates directory.
+To create/initialise a git template folder simply run these commands.</p>
+<p>git config — global init.templatedir ‘~/.git_template’
+mkdir -p ~/.git-templates/hooks</p>
+<p>Then put the above shell code into ~/.git-templates/hooks/post-commit</p>
+<p>What this means is that from now on, any new git repos you initialise
+will contain this post-hook script. However, if you want to attach this
+to existing repos, just run a git init wherever the .git folder is.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

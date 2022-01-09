@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Simple git web interface</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2012-01-07T00:00:00+00:00">Sat 07 January 2012</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Simple git web interface</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>I decided instead of springing for a monthly github payed account I’d
+install git on a server and use a decent web interface that could be
+easily installed.</p>
+<p>So for this little guide I’m rocking ubuntu 10.04 with git and lighttpd
+already installed.</p>
+<p>It was a Goldilocks search for ease of installation vs web interfaces
+usefulness. I tried a number of options, gitweb looked a little rough
+for my liking and Gitorious and InDeferno were just an utter pain to
+install. Eventually I came across gitalist and decided I would give it’s
+incredibly simple to installation go(http://www.gitalist.com/install/).
+By simply following the directions I managed to get it running without
+any thought. The problem was it was running on port 3000, I wanted it to
+hook it into lighttpd and have it run under a subdomain.</p>
+<p>Since Gitalist is built with the catalyst framework, I figured using a
+lighttpd catalyst tutorial would do the job.</p>
+<p>Firstly you need to install FCGI and FCGI Process Manager for perl, so</p>
+<p>sudo cpan FCGI FCGI::ProcManager</p>
+<p>Or on ubuntu I think you can use</p>
+<p>sudo apt-get install libfcgi-perl libfcgi-procmanager-perl</p>
+<p>Now attempt to execute this command</p>
+<p>/var/www/gitalist/script/gitalist_fastcgi.pl — listen
+ 127.0.0.1:55900 — nproc 5</p>
+<p>If your ubuntu install is anything like mine a bunch of errors with get
+thrown in relation is FCGI.pm(And the proc manager) not being found. If
+you do, run a locate for FCGI.pm, find which folder it’s under then make
+sure the folder FCGI.pm is in is in perl’s @INC variable(this list of
+folders should have been printed out when the above command executed and
+failed). Then add them to the @INC in gitalist.</p>
+<p>So for me, I simply edited lib/Gitalist/Script/FastCGI.pm and added
+these 2 lines.</p>
+<p>> push(@INC, “/usr/local/lib/perl/5.10.1/”);</p>
+<p>push(@INC, “/usr/local/share/perl/5.10.1/”);</p>
+<p>Once these were added executing the gitalist_fastcgi.pl worked fine.
+Next step was to hook everything into lighttpd.</p>
+<p>> $HTTP[“host”] =~ “(^|.)git_repos.example.com$” {</p>
+<p>fastcgi.server = (</p>
+<p>“” =&gt; (</p>
+<p># the extension is empty because we want to match on any extension</p>
+<p>“127.0.0.1” =&gt; (</p>
+<p>“host” =&gt; “127.0.0.1”,</p>
+<p>“port” =&gt; 55900,</p>
+<p>“check-local” =&gt; “disable”</p>
+<p>)</p>
+<p>)</p>
+<p>),</p>
+<h1>make sure these folders exist</h1>
+<p>server.errorlog = “/var/log/lighttpd/gitalist/error.log”</p>
+<p>accesslog.filename = “/var/log/lighttpd/gitalist/access.log”</p>
+<p>}</p>
+<p>Give lighttpd a restart and it should all hopefully work just fine.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

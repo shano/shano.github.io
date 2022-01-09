@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Connect to routers anonymously</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2013-09-28T00:00:00+00:00">Sat 28 September 2013</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Connect to routers anonymously</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__2zYJ6QvnP__Z17B321DD7NQ.png"></p>
+<p>I’ve created a little script that incorporates
+<a href="https://launchpad.net/wicd">wicd</a>, <a href="https://github.com/alobbs/macchanger">macchanger</a>, <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?hostname">hostname</a> and <a href="http://www.openwall.com/john/">john the ripper’s</a> password list to randomise your mac address and hostname when connecting to the internet.</p>
+<p>I’ve gone with wicd over network manager as network-manager has a
+tendency to store connection details, so while your machine might id
+your hostname or mac address as something new, network-manager will
+actually connect using the original stored details.</p>
+<p>I must admit I enjoyed writing this, it reminded me of the old days when
+linux network managers were all rubbish and you had to write bash
+scripts to connect to vaguely complex network configurations.</p>
+<h1>!/bin/bash</h1>
+<p># Anonymise your machines internet connection</p>
+<p># Settings
+ INTERFACE=wlan1
+ HOSTS_FILE=”/etc/hosts”
+ START_TOKEN=”## start-anon”
+ END_TOKEN=”## end-anon”</p>
+<p># Must be run as root
+ if [[ $EUID -ne 0 ]]; then
+ printf “This script must be run as root\n” 1&gt;&amp;2
+ exit 1
+ fi</p>
+<p># Network restart function
+ if [ “Linux” == `uname` ]; then
+ restart_network=”/etc/init.d/networking restart”
+ fi</p>
+<p># Function to clear old data and add new hosts entry
+ function update_hosts()
+ {
+ # if no hosts file found…
+ if [ ! -f $1 ]
+ then
+ printf \n”No hosts file found\n” 1&gt;&amp;2
+ exit 1
+ fi</p>
+<p>file=$1
+ host=$2</p>
+<p>sed_script=”{
+ s/$END_TOKEN/$END_TOKEN/
+ t finished_sites</p>
+<p>s/$START_TOKEN/$START_TOKEN/
+ x
+ t started_sites</p>
+<p>s/$START_TOKEN/$START_TOKEN/
+ x
+ t started_sites</p>
+<dl>
+<dt>p</dt>
+<dt>b end</dt>
+<dd>
+<dl>
+<dt>started_sites</dt>
+<dt>d</dt>
+<dd>
+<dl>
+<dt>finished_sites</dt>
+<dt>x</dt>
+<dt>d</dt>
+<dd>end
+ d
+ }”</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>hostname $host</p>
+<p>sed — in-place -e “$sed_script” $file
+ echo $START_TOKEN &gt;&gt; $file
+ printf “\n127.0.1.1 $host\n” &gt;&gt; $file
+ echo $END_TOKEN &gt;&gt; $file
+ }</p>
+<p># Presenting original information
+ printf “Starting to anonimise your data\n”</p>
+<p># Stop Wicd
+ sudo service wicd stop
+ sleep 1</p>
+<h1>changing mac address to random</h1>
+<p>ifconfig $INTERFACE down &gt; /dev/null
+ if [ $? == 0 ]; then
+ printf “%snChanging mac address…\n”
+ macchanger -r $INTERFACE
+ else
+ printf “%sScript encountered an error, sorry…\n”
+ exit 1
+ fi
+ sleep 1</p>
+<p># Use john to supply new hostname to function
+ OLDHOST=$(hostname)
+ printf “%s\nChanging hostname…\n”
+ printf “Current : $OLDHOST \n”
+ FILE=/usr/share/john/password.lst
+ WORD=$(sort -R $FILE | head -1)
+ update_hosts $HOSTS_FILE $WORD
+ NEWHOST=$(hostname)
+ printf “New : $NEWHOST \n”
+ sleep 1</p>
+<p># putting interface up
+ ifconfig $INTERFACE up &gt; /dev/null
+ printf “\n”
+ sleep 1</p>
+<p># Restart networking
+ $restart_network</p>
+<p># Get wicd back up and running
+ service wicd start
+ sleep 1</p>
+<p>wicd-gtk &gt; /dev/null 2&gt;&amp;1 &amp;</p>
+<h1>END</h1>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

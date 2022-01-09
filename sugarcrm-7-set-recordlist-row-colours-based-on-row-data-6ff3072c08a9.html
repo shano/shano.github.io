@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM 7 — Set recordlist row colours based on row data</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-07-12T00:00:00+00:00">Sat 12 July 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM 7 — Set recordlist row colours based on row data</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__ftmi7V32ZXjnNFoJRH6UnQ.jpeg"></p>
+<p>The tutorial shows you how to do two useful things in SugarCRM 7.
+Firstly, how to call actions when rows get updated in SugarCRM’s
+recordlist and secondly, how to set information based on row data. The
+example I have here will essentially update the table colours based on a
+specific data value in each row. So say you have a drop-down with the
+values Red,Green,Orange and Yellow this will update the rows to the
+specified colour. The key call here is this.collection.on(‘data:sync:complete’), which essentially fires when the sidecar(read backbone), data sync is completed.</p>
+<p>This code would go in custom/modules/<YOUR\_MODULE>/clients/base/views/recordlist/recordlist.js</p>
+<p>({</p>
+<p>this.collection.on(‘data:sync:complete’, function() {
+ this.render_colors();
+ }, this);
+ },
+ render_colors : function() {
+ setTimeout(
+ function() {
+ $(“tr[name^=’’]”).each(function () { //loop over each row
+ if ($(this).find(‘div[data-original-title=”Red”]’).length &gt; 0) { //check value of TD
+ $(this).find($(‘td’)).each(function () {
+ $(this).css(“background-color”, “#FFBABA”);
+ });
+ } else if ($(this).find(‘div[data-original-title=”Green”]’).length &gt; 0) {
+ $(this).find($(‘td’)).each(function () {
+ $(this).css(“background-color”, “#C3F8B5”);
+ });
+ } else if ($(this).find(‘div[data-original-title=”Orange”]’).length &gt; 0) {
+ $(this).find($(‘td’)).each(function () {
+ $(this).css(“background-color”, “#FFCF8F”);
+ });
+ } else if ($(this).find(‘div[data-original-title=”Yellow”]’).length &gt; 0) {
+ $(this).find($(‘td’)).each(function () {
+ $(this).css(“background-color”, “#FAFE8E”);
+ });
+ }
+ });
+ }, 1000);
+ }
+ })</p>
+<p>One thing you might note is the setTimeout with a delay of 1 second.
+This is simply because the table won’t have rendered as soon as the sync
+has completed so a wait of a second was added to allow the browser to
+render the table, before iterating through the rows and setting the
+appropriate colours. I honestly just couldn’t find any documentation or
+code samples to see if an even fired when the table gets re-rendered,
+but I’ll update it here if I find a better solution.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

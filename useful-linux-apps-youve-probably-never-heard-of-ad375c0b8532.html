@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Useful Linux apps you’ve probably never heard of</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2008-06-12T00:00:00+00:00">Thu 12 June 2008</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Useful Linux apps you’ve probably never heard of</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <h3>Corkscrew</h3>
+<p>What corkscrew does is allow you to tunnel ssh connections over a http
+proxy very easily. As far as admins of the http proxy can see this is
+encrypted traffic which is most likely anssl connection to a web
+server(the server you have sshed to), you could in theory ( :D ), create
+a socks proxy using an ssh tunnel that is corkscrewing over a http
+proxy. Then set your browser to use that socks proxy instead of the http
+proxy and thus encrypt all your traffic. I think you can use this with
+windows and cygwin tool but its probably easier to simply use putty as
+is has added support for this a while back.</p>
+<h3>Tsocks</h3>
+<p>This useful little command line app allows you to use the socks protocol
+with applications that may or may not support socks proxies and does not
+require you to have to configure all of your apps. So if you want to use
+the Opera web browser over a socks proxy, which it annoyingly doesn’t
+support simply configure tsocks with your socks proxy and run “tsocks
+opera”. Tsocks has pretty much worked with every command I could throw
+at it when I’m stuck behind an annoying proxy.</p>
+<h3>Curlftpfs</h3>
+<p>Another app to make life that little bit easier, if you’re using a crap
+cheapo web hosting service(like I currently am), one way to make your
+life easier is to mount the ftp server locally and run all the commands
+you want to on it using curlftp, so you don’t need that fancy expensive
+server with ssh access to run stuff, well unless you want to execute
+something on the server… which you probably will, like I really do,
+but i’ll put up with this rather than paying triple what I am now for
+hosting. :D. But Curlftp seems to work just as well as others remote
+mounting such assshfs etc… I would recommend building from source, I
+was using Ubuntu and the repos version didn’t work.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

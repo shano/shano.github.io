@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Pseudocode Programming Process</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2009-11-23T00:00:00+00:00">Mon 23 November 2009</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Pseudocode Programming Process</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>So for the last while I’ve been experimenting with PPP as described in
+<a href="http://cc2e.com/Page.aspx?hid=145">Code Complete</a>. Jeff Atwood has a great description of it on <a href="http://www.codinghorror.com/blog/archives/001264.html">coding horror</a>. You should read the blog post the metaphor of pseudocode as tang is a good one. I’ve been using PPP for a number of weeks now and so far it’s really been working. There have been several reasons why I found it worksbut for me the most important and useful part is purely that it **slows me down**.</p>
+<p>One of Jeff’s arguments against PPP is that he ‘thinks in code’, and
+before I tried PPP I would have said the same. The problem is when I
+‘think in code’, it sometimes results in poorly written code that
+clearly I haven’t spent nearly enough time thinking about. I’m moving
+straight into worrying about implementation details.</p>
+<p>Now, because I’m abstracting the thinking away from the code it’s
+effectively created a new step in programming for me. Now Jeff is
+undoubtedly a better and more experienced programmer than I, so this is
+where he bases his argument, however we don’t all have this immediate
+ability to make the optimum choices as we start writing out code. When I
+say it slows me down, on a routine level, I start to think more about
+naming, is the function parameters in keeping with the abstraction of
+the overall class, the boundaries on parameters and other implementation
+details I may miss. And although most of those points are not at all
+related to what PPP wants me to think about it’s because I’m forcing
+myself to slow down I begin to become more thoughtful in the part where
+I fill out the tang. For now at least, I find it difficult to conceptualise all of this on top of worrying about all of the implementation details of the language. I really have shifted my thinking process to a new ‘thinking about thinking’ stage, that has significantly improved the quality of my code. I do sometimes feel like slipping into old habits, but I know the quality of my code will slip too so for the last while I’ve been good.</p>
+<p>For examplewhen I’ve had to really think about certain functions it may
+become obvious that it needs to be split, something I may not have
+noticed worrying about implementation details, or more likely I’ll
+noticed it needs to be split half-way through coding it. I also know
+there have been times when I ‘should’ have split a routine but because I
+mid programming it I ‘leave it for now’. Never a good idea but when
+deadlines loom….. However when I’m writing pseudocode, if what I’m
+writing need some serious explaining, it become’s pretty obvious that I
+need to start a new routine. Typically this has resulted in small tight
+functions that truly adhere to the ‘do one thing well’ ideal. There are
+many other examplesbut it all boils down to a procedure that focuses my
+thoughts.</p>
+<p>One tip I would suggest is to write your pseudocode for any language to
+implement, so I always re-read the pseudocode with an eye to writing it
+in a totally different language for me it’s C(I typically code in PHP).
+This ensures there’s no language details in there.</p>
+<p>Another good way to think about it is a <a href="http://en.wikipedia.org/wiki/Getting_Things_Done">GTD</a> to-do list.
+Basically, ‘a person needs to move tasks out of the mind by recording
+them externally. That way, the mind is freed from the job of remembering
+everything that needs to be done, and can concentrate on actually
+performing those tasks.’ I feel this step is becoming more and more
+vital for me and on top of that free well written comments are a
+terrific bonus for the lazy programmer!</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

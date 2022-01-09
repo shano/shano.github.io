@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM — Prevent currencies getting overridden</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2015-04-16T00:00:00+00:00">Thu 16 April 2015</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM — Prevent currencies getting overridden</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__zrzOG7L4xvFI2XJ2hB9iaA.jpeg"></p>
+<p>SugarCRM has some neat features involving currency rates, but one of the
+more annoying ones is that Sugar will automatically update the base rate
+every time you save a record with a currency field attached. This can be
+fairly annoying default behaviour if you wish to maintain the correct
+record value at the time of sale.</p>
+<h3>The problem</h3>
+<p>Say for example you have a custom module Books and your systems base
+currency is USD. You sell a book for 10 Euros at 11 dollars(the currenct
+change rate). If say a few weeks later you wanted to change the status
+of the Book to say, note down that the invoice was received and the
+exchange rate in that time has changed drastically. When you hit save
+Sugar would re-calculate the Euro value again(and despite the item being
+sold for 10 Euros originally the exchange rate has now changed and Sugar
+shows say 12 Euros, which is completely inconsistent with what you’ve
+invoiced.</p>
+<h3>The solution</h3>
+<p>There is thankfully a way around this using by overriding Sugar’s
+default behaviour using logic hooks. So taking our book example this is
+what custom/modules/Books/logic\_hooks.php might look like.</p>
+<?php
+  // Do not store anything in this file that is not part of the array or the hook version.  This file will
+  // be automatically rebuilt in the future.
+  $hook\_version = 1;
+  $hook\_array = Array();
+  // position, file, function
+  $hook\_array\['before\_save'\] = Array();
+  $hook\_array\['before\_save'\]\[\] = Array(1, 'workflow', 'include/workflow/WorkFlowHandler.php','WorkFlowHandler', 'WorkFlowHandler');
+  $hook\_array\['before\_save'\]\[\] = Array(2, 'Custom Book Logic Hooks', 'custom/modules/Books/logic\_hooks\_class.php','books\_logic\_hooks', 'before\_save\_method');
+  $hook\_array\['after\_save'\]\[\] = Array(1, 'Custom Book Logic Hooks', 'custom/modules/Books/logic\_hooks\_class.php','books\_logic\_hooks', 'after\_save\_method');
+?>
+
+<p>And the actual code to do the overriding would be in
+custom/modules/Books/logic_hooks_class.php</p>
+<?php
+if (!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
+<p>class books_logic_hooks
+{
+  protected static $fetchedRow;</p>
+<p>function before_save_method(&amp;$bean, $event, $arguments)
+  {
+    if (!empty($bean-&gt;id)) {
+      self::$fetchedRow[$bean-&gt;id] = $bean-&gt;fetched_row;
+    }
+  }</p>
+<p>/**
+  * Called as process_record logic hook on the Books module
+  */</p>
+<p>/**
+  * <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> $bean
+  * <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> $event
+  * <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> $arguments
+  */
+  function after_save_method(&amp;$bean, $event, $arguments)
+  {
+    $custom_bean = new Books();
+    $custom_bean-&gt;retrieve($bean-&gt;id);
+    $resave_bean = false;</p>
+<p>// Need to ignore base rate updates when the currency stays the same
+    if (isset(self::$fetchedRow[$custom_bean-&gt;id]['currency_id']) &amp;&amp; self::$fetchedRow[$custom_bean-&gt;id]['currency_id'] == $bean-&gt;fetched_row['currency_id']
+    ) {
+      if (isset(self::$fetchedRow[$custom_bean-&gt;id]['base_rate']) &amp;&amp;
+      self::$fetchedRow[$custom_bean-&gt;id]['base_rate'] !=     $bean-&gt;fetched_row['base_rate']) {
+        // Run a SQL update to reset the base price to the original, as it shouldn't be over-ridden unless it's new
+        $sql = sprintf('UPDATE books_cstm SET base_rate="%s" WHERE id_c="%s";', self::$fetchedRow[$custom_bean-&gt;id]['base_rate'], $custom_bean-&gt;id);
+        $bean-&gt;db-&gt;query($sql);
+      }
+    }
+  }
+}</p>
+<p>Using the db over-ride hack should allow you to retain the same base
+rate on each record and Sugar will display the original 10 Euros despite
+the exchange rate changing.</p>
+<h3>Some words of caution</h3>
+<p>If you decide to override Sugar’s default behaviour, you could run
+into some issues down the line with reporting.
+Basically the reports modules seems to ignore the base rate stored on
+each individual record and just uses whatever the system default is.</p>
+<p>So you’ll have totals in your report that will be inconsistent with the
+currency value that’s stored on the record. One way around this is to
+only create reports using your base currency, another is to create a
+secondary field storing the correct amount of the currency in a decimal
+field rather than a currency field and creating reports based on that
+amount.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

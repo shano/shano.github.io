@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM 7 — Custom subpanels</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-08-13T00:00:00+00:00">Wed 13 August 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM 7 — Custom subpanels</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__g70Q0ojQdUFPYP4a__sPE5w.png"></p>
+<p>This tutorial should hopefully help you to create a new subpanel under
+the Contacts module in Sugar using a custom link class and driven by
+SugarCRM 7’s new SugarQuery API.</p>
+<h3>1. Create a new link class</h3>
+<p>This should go into custom/modules//YourNewLink.php and this
+class will act as the custom functionality that will build your link
+between the two records.</p>
+<p>/**
+ * Custom filtered link
+ */
+ class YourNewLink extends Link2
+ {
+ /**
+ * DB
+ *
+ * @var DBManager
+ */
+ protected $db;</p>
+<p>public function __construct($linkName, $bean, $linkDef = false)
+ {
+ $this-&gt;focus = $bean;
+ $this-&gt;name = $linkName;
+ $this-&gt;db = DBManagerFactory::getInstance();
+ if (empty($linkDef)) {
+ $this-&gt;def = $bean-&gt;field_defs[$linkName];
+ } else {
+ $this-&gt;def = $linkDef;
+ }
+ }</p>
+<p>/**
+ * Returns false if no relationship was found for this link
+ *
+ * @return bool
+ */
+ public function loadedSuccesfully()
+ {
+ // this link always loads successfully
+ return true;
+ }</p>
+<p>/**
+ * @see Link2::getRelatedModuleName()
+ */
+ public function getRelatedModuleName()
+ {
+ return ‘’;
+ }</p>
+<p>/**
+ *
+ * @see Link2::buildJoinSugarQuery()
+ */
+ public function buildJoinSugarQuery($sugar_query, $options = array())
+ {
+ $joinParams = array(‘joinType’ =&gt; isset($options[‘joinType’]) ? $options[‘joinType’] : ‘INNER’);
+ $jta = ‘active_other_invites’;
+ if (!empty($options[‘joinTableAlias’])) {
+ $jta = $joinParams[‘alias’] = $options[‘joinTableAlias’];
+ }</p>
+<p>$sugar_query-&gt;joinRaw($this-&gt;getCustomJoin($options), $joinParams);
+ return $sugar_query-&gt;join[$jta];
+ }</p>
+<p>/**
+ * Builds main join subpanel
+ * @param string $params
+ * @return string JOIN clause
+ */
+ protected function getCustomJoin($params = array())
+ {
+ $bean_id = $this-&gt;db-&gt;quoted($this-&gt;focus-&gt;id);
+ $sql = “ INNER JOIN(“;
+ $sql .= “SELECT id FROM accounts WHERE id={$bean_id}”; // This is essentially a select statement that will return a set of ids that you can match with the existing sugar_query
+ $sql .= “) accounts_result ON accounts_result.id = sugar_query_table.id”;
+ return $sql;
+ }
+ }</p>
+<p>The argument $sugar_query is a new SugarQuery object, the details of
+which are documented <a href="http://developer.sugarcrm.com/2014/04/22/sugarcrm-cookbook-sugarquery-the-basics/">here</a>.
+What you essentially need to do is extend this query with whatever
+join/filters you wish to add. This is done in the inner join I’ve
+specified.</p>
+<p><strong>Note:</strong> The inner join can get really complicated, so if you want a
+real working example, checkout modules/Emails/ArchivedEmailsLink.php and
+how the core sugar team use this. I can confirm however that this does
+work with custom joins.</p>
+<p>Here is the getEmailsJoin to help you understand what you can actually
+produce via this custom join.</p>
+<p>/**
+ * Builds main join for archived emails
+ * @param string $params
+ * @return string JOIN clause
+ */
+ protected function getEmailsJoin($params = array())
+ {
+ $bean_id = $this-&gt;db-&gt;quoted($this-&gt;focus-&gt;id);
+ if (!empty($params[‘join_table_alias’])) {
+ $table_name = $params[‘join_table_alias’];
+ } else {
+ $table_name = ‘emails’;
+ }</p>
+<p>return “INNER JOIN (\n”.
+ // directly assigned emails
+ “select eb.email_id, ‘direct’ source FROM emails_beans eb where eb.bean_module = ‘{$this-&gt;focus-&gt;module_dir}’
+ AND eb.bean_id = $bean_id AND eb.deleted=0\n” .
+ “ UNION “.
+ // Related by directly by email
+ “select DISTINCT eear.email_id, ‘relate’ source from emails_email_addr_rel eear INNER JOIN email_addr_bean_rel eabr
+ ON eabr.bean_id = $bean_id AND eabr.bean_module = ‘{$this-&gt;focus-&gt;module_dir}’ AND
+ eabr.email_address_id = eear.email_address_id and eabr.deleted=0 where eear.deleted=0\n” .
+ “) email_ids ON $table_name.id=email_ids.email_id “;
+ }</p>
+<h3>2. Add a new vardef entry for the link field.</h3>
+<p>For this example, I’m going to create the custom link on the contacts
+module. So this code goes in
+custom/Extension/modules/Contacts/Ext/Vardefs/your_field_name.php</p>
+<p>$dictionary[“Contact”][“fields”][“your_field_name”] = array(
+ ‘name’ =&gt; ‘active_other_invites’,
+ ‘type’ =&gt; ‘link’,
+ ‘link_file’ =&gt; ‘custom/modules//YourNewLink.php’,
+ ‘link_class’ =&gt; ‘YourNewLink’,
+ ‘source’ =&gt; ‘non-db’,
+ ‘vname’ =&gt; ‘LBL_NEW_LINK’,
+ ‘module’ =&gt; ‘’,
+ ‘link_type’ =&gt; ‘many’,
+ ‘relationship’ =&gt; ‘’,
+ );</p>
+<h3>3. Add the new link as a subpanel</h3>
+<p>custom/Extension/modules/Contacts/Ext/clients/base/layouts/subpanels/your_subpanel_name.php</p>
+<p>$viewdefs[‘Contacts’][‘base’][‘layout’][‘subpanels’][‘components’][] = array (
+ ‘layout’ =&gt; ‘subpanel’,
+ ‘label’ =&gt; ‘LBL_NEW_LINK’,
+ ‘context’ =&gt;
+ array (
+ ‘link’ =&gt; ‘your_field_name’,
+ ),
+ );</p>
+<h3>4. Add the label</h3>
+<p>custom/Extension/modules/Contacts/Ext/Language/en_us.new_link.php</p>
+<p>Content:</p>
+<p>$mod_strings[‘LBL_ACTIVE_OTHER_INVITES’] = ‘Your New Link’;</p>
+<h3>5. Quick Repair and Rebuild</h3>
+<p>That should hopefully get you started. Keep an eye on the sugarlogs
+while you’re debugging your queries. I also found using xdebug and
+SugarQueries compileSql function invaluable in figuring out what I
+needed to do to get a working INNER JOIN statement.</p>
+<p>I’ve found this to be a surprisingly powerful solution, it means that if
+you need to show information related to a module that might be a few
+joins away, this allows you to create the links manually without having
+to create pointless related fields in-between the two.</p>
+<p>.. |sugar7subpanel| image:: /images/sugar7subpanel-1024x209.png</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

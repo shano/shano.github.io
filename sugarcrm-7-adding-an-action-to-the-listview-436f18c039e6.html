@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM 7 — Adding an action to the listview</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-05-18T00:00:00+00:00">Sun 18 May 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM 7 — Adding an action to the listview</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__O0TIZQumvouoJ6ZCn8__s3g.jpeg"></p>
+<p>There doesn’t appear to be a documented way to do this but in SugarCRM 7
+this is how I’ve added actions to the listview. For this example it’s
+showing how to add a button to an animal module, which adds the animal
+to a related circus event.</p>
+<h3>1. Adding the button</h3>
+<p>This first thing you need to do is copy the global recordlist.php file
+into your module and create a custom recordlist.php which overrides the
+existing one. You can copy the base one SugarCRM has or simply take this
+file below and alter the add_to_circus button. Note the
+addtocirus:fire action, we will create javascript code that is called
+when this event is fired. This code should go into
+custom/module/animals/clients/base/views/recordlist/recordlist.php</p>
+<p>if (!defined(‘sugarEntry’) || !sugarEntry) {
+ die(‘Not A Valid Entry Point’);
+ }</p>
+<p>/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product (“Company”) that Company is bound by
+ * <a href="http://www.sugarcrm.com/master-subscription-agreement">http://www.sugarcrm.com/master-subscription-agreement</a>
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright © 2004–2014 SugarCRM Inc. All rights reserved.
+ ********************************************************************************/</p>
+<p>$viewdefs[‘CSTM_ANIMALS’][‘base’][‘view’][‘recordlist’] = array(
+ ‘selection’ =&gt; array(
+ ‘type’ =&gt; ‘multi’,
+ ‘actions’ =&gt; array(
+ array(
+ ‘name’ =&gt; ‘edit_button’,
+ ‘type’ =&gt; ‘button’,
+ ‘label’ =&gt; ‘LBL_MASS_UPDATE’,
+ ‘primary’ =&gt; true,
+ ‘events’ =&gt; array(
+ ‘click’ =&gt; ‘list:massupdate:fire’,
+ ),
+ ‘acl_action’ =&gt; ‘massupdate’,
+ ),
+ array(
+ ‘name’ =&gt; ‘merge_button’,
+ ‘type’ =&gt; ‘button’,
+ ‘label’ =&gt; ‘LBL_MERGE’,
+ ‘primary’ =&gt; true,
+ ‘events’ =&gt; array(
+ ‘click’ =&gt; ‘list:mergeduplicates:fire’,
+ ),
+ ‘acl_action’ =&gt; ‘edit’,
+ ),
+ array(
+ ‘name’ =&gt; ‘calc_field_button’,
+ ‘type’ =&gt; ‘button’,
+ ‘label’ =&gt; ‘LBL_UPDATE_CALC_FIELDS’,
+ ‘events’ =&gt; array(
+ ‘click’ =&gt; ‘list:updatecalcfields:fire’,
+ ),
+ ‘acl_action’ =&gt; ‘massupdate’,
+ ),
+ array(
+ ‘name’ =&gt; ‘addtolist_button’,
+ ‘type’ =&gt; ‘button’,
+ ‘label’ =&gt; ‘LBL_ADD_TO_PROSPECT_LIST_BUTTON_LABEL’,
+ ‘primary’ =&gt; true,
+ ‘events’ =&gt; array(
+ ‘click’ =&gt; ‘list:massaddtolist:fire’,
+ ),
+ ‘acl_module’ =&gt; ‘ProspectLists’,
+ ‘acl_action’ =&gt; ‘edit’,
+ ),
+ array(
+ ‘name’ =&gt; ‘delete_button’,
+ ‘type’ =&gt; ‘button’,
+ ‘label’ =&gt; ‘LBL_DELETE’,
+ ‘acl_action’ =&gt; ‘delete’,
+ ‘primary’ =&gt; true,
+ ‘events’ =&gt; array(
+ ‘click’ =&gt; ‘list:massdelete:fire’,
+ ),
+ ),
+ array(
+ ‘name’ =&gt; ‘export_button’,
+ ‘type’ =&gt; ‘button’,
+ ‘label’ =&gt; ‘LBL_EXPORT’,
+ ‘acl_action’ =&gt; ‘export’,
+ ‘primary’ =&gt; true,
+ ‘events’ =&gt; array(
+ ‘click’ =&gt; ‘list:massexport:fire’,
+ ),
+ ),
+ array(
+ ‘name’ =&gt; ‘add_to_circus_button’,
+ ‘type’ =&gt; ‘button’,
+ ‘label’ =&gt; ‘LBL_ADD_TO_FAIR’,
+ ‘acl_action’ =&gt; ‘edit’,
+ ‘primary’ =&gt; true,
+ ‘events’ =&gt; array(
+ ‘click’ =&gt; ‘list:addtocircus:fire’,
+ ),
+ ),
+ ),
+ ),
+ );</p>
+<h3>2. Adding the action</h3>
+<p>This is an example of the JS code you could call when the event has
+custom/modules/animals/clients/base/views/recordlist/recordlist.js. On
+initialise we simply set a new context.on that calls your js modules
+function.</p>
+<p>({</p>
+<p>//add listener for custom button
+ this.context.on(‘list:addtocircus:fire’, this.add_to_circus, this);
+ },
+ add_to_circus : function() {
+ var idCSV = ‘’;
+ var selector = ‘CSTM_ANIMALS_’;
+ // I’m sure there’s a better way to do this, but not documented or found anywhere.
+ $(‘input[type=checkbox]:checked’).closest(‘[name^=’+selector+’]’).each(function(){
+ idCSV += $(this).attr(‘name’).substring(selector.length) + ‘,’;</p>
+<p>});
+ $.ajax({
+ if(errorResponse != ‘’) {
+ app.alert.show(‘bad-add-to-circus’, {
+ });
+ }
+ }
+ });
+ },
+ })</p>
+<p>Now there’s a few caveats with this code.</p>
+<p>- I couldn’t find a documented way to get the selected backbone items
+ from SugarCRMs listview collection. So I had to write a jQuery
+ selector, simply replace CSTM_ANIMAL with your module name and the
+ selector should get you the list of ids that have been selected by
+ the user, package them to a CSV then pass them to the ajax call.
+- The keen eyed observers might have noticed I’m using the old way of
+ directly calling a controller action, this is because this code was
+ implemented to support a migration project from SugarCRM 6 -&gt;
+ SugarCRM 7 and it was faster than re-implementing the PHP code.
+ However if starting anew, I would strongly recommend instead adding a
+ new rest endpoint to your module and calling that via AJAX. There’s
+ some great documentation <a href="http://developer.sugarcrm.com/2014/03/10/sugarcrm-cookbook-adding-a-rest-endpoint-2/">here</a> on that topic, which should help show you how to implement the code to add the animal to a circus. I’ll do another post on this in the future.</p>
+<h3>3. Quick Repair and Rebuilt(as always)</h3>
+<p>Any questions feel free to ask!</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

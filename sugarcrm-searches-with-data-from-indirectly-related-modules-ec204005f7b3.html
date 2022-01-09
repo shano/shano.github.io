@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM — Searches with data from indirectly related modules</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-04-17T00:00:00+00:00">Thu 17 April 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM — Searches with data from indirectly related modules</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>Building modules in SugarCRM can cause you to create a boatload of
+unnecessary relationships, simply because it’s convenient to do so.
+Maybe you’d have a relationship where A relates to B and B to C but
+you’d like to search for all A module records that relate to C. One
+option is to maybe related A to C and maintain the relationships by
+using hooks on save to preserve the A-C relationship. That way you could
+leverage Sugar relate fields and indirect searching, but that can be a
+messy choice that adds a lot of complexity if overused.</p>
+<p>The alternative is to keep the relationship structure as it is and add a
+new field to the search and build a custom subselect statement. For this
+example we’re adding a Drop-Down to Accounts to allow a user to search
+which Accounts are indirectly related to Performers via Events. Say we
+wish to present a drop-down on Accounts of all performers and if you
+search, it will return all Accounts attached to the specified Performer.</p>
+<h3>Get the data for the drop-down</h3>
+<p>In custom/modules/Accounts/getCustomDropDown.php</p>
+<p>require_once(“modules/Performers/Performers.php”);</p>
+<p>function galleryPerformers($focus, $field, $value, $view, $tabindex=’0') {
+ $performersBean = BeanFactory::getBean(‘Performers’);
+ $performers = $performersBean-&gt;get_full_list();
+ $html = “ — “;
+ $selected_performer = $_REQUEST[‘performer_type_search’]; // Or whatever dom id your drop-down has
+ foreach($performers as $performer) {
+ $html .= “ if($selected_performer == $performer-&gt;id) { // Props to Igor who flagged this in the comments!
+ $html .= “selected”;
+ }
+ $html .=” value=’{$performer-&gt;id}’&gt;{$performer-&gt;name}”;
+ }
+ return $html;
+ }</p>
+<h3>Present the drop-down on the accounts search</h3>
+<p>Note This has to go into modules/Accounts(I know, I know), but this had
+to break updatability to work otherwise this will wipe with a quick
+repair/rebuild(if you put it in custom). If you find an alternative
+solution put it here.</p>
+<p>So in modules/Accounts/metadata/vardefs.php</p>
+<p>$dictionary[“Account”][“fields”][“performer_type_search”] = array(
+ ‘name’ =&gt; ‘test’,
+ ‘vname’ =&gt; ‘test’,
+ ‘type’ =&gt; ‘varchar’, // function to call that will return html that will be inserted
+ ‘function’ =&gt; array(
+ ‘name’ =&gt; ‘galleryPerformer’,
+ ‘returns’ =&gt; ‘html’,
+ ‘include’ =&gt; ‘custom/modules/Accounts/getCustomDropDown.php’),
+ ‘required’ =&gt; false,
+ ‘do_report’ =&gt; false,
+ ‘reportable’ =&gt; false,
+ ‘comment’ =&gt; ‘Performer Searching’,
+ ‘source’ =&gt; ‘non-db’
+ );</p>
+<h3>Extend the search</h3>
+<p>Now that you have your drop-down working you need to extend the search
+to do what you need.</p>
+<p>custom/modules/Accounts/metadata/SearchFields.php</p>
+<p>‘performer_search’ =&gt; array(
+ ‘query_type’ =&gt; ‘default’,
+ ‘operator’ =&gt; ‘subquery’,
+ ‘subquery’ =&gt; ‘SELECT accounts.id FROM accounts LEFT JOIN account_event acc_evt ON acc_evt.`account_ida` = accounts.id LEFT JOIN performers_event per_evt ON pvt_evt.`event_idb` = acc_evt.`performers_idb` WHERE acc_evt.deleted = 0 AND pvt_evt.deleted = 0 AND accounts.deleted = 0 AND pvt_evt.`fair_ida` LIKE’,
+ ‘db_field’ =&gt; array(‘id’),
+ ‘type’ =&gt; ‘enum’, ),</p>
+<p>Now this query probably looks a little weird, but basically it’s an
+almost pseudocode type query that simply connected the two lookup tables
+between Accounts and Events then Events and Performers and does the
+where on the performers id.</p>
+<p>Note the LIKE in the query. Even if you’re querying IDs, Sugar stupidly
+passes in the value with a % at the end. So make sure this is LIKE
+statement.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Owning Your Data — Initial Server Setup</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-03-06T00:00:00+00:00">Thu 06 March 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Owning Your Data — Initial Server Setup</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__Frjg0ruGoXtEESBMek____Lw.png"></p>
+<p>So before you can move to your own self-hosted services, you’ll need
+your own hosting. This is a really basic tutorial/set of links on
+getting a server up and running with Salt.</p>
+<h3>Hosting Provider</h3>
+<p>DigitalOcean is a terrific hosting company if you’re want to play around with a few personal servers. Here’s the pro’s list.</p>
+<ul>
+<li>It’s really cost effective.</li>
+<li>The UI is super basic.</li>
+<li>They have great tutorials for beginners.</li>
+</ul>
+<h3>How safe is DigitalOcean?</h3>
+<p>Well, this is a call you’ll need to make yourself. They are a New York
+based hosting company so that’s not so good. However, you can deploy
+droplets(servers) in Amsterdam which CEO Ben Uretsky stated should make
+snooping harder. It’s hardly a ringing endorsement.</p>
+<h3>Safer alternatives</h3>
+<p>If you want to go a more untraceable route, look for a hosting provider
+that’ll take Bitcoin. Don’t supply any personal information and if
+possible only connect to the server through a VPN. Here’s a few
+examples.</p>
+<ul>
+<li>BitcoinWebHosting</li>
+<li>NameCheap</li>
+<li>Incloudibly Zurich based making it even safer, but also far more expensive.</li>
+</ul>
+<h3>Setting Up the Server</h3>
+<p>`DigitalOcean `__
+themselves have a\ `great guide on setting up your first
+server `__
+and do a great job of explaining what the settings mean and the effect
+they have. Even if you don’t go with DigitalOcean it’s a recommended read.
+In terms of settings I’d recommend using Ubuntu 12.04 LTS 32bit or 64bit
+depending on how much RAM you give your machine. 12.04 LTS is the last
+Long Term Support release of Ubuntu, so you will get updates till late
+2017.</p>
+<p>If you’re more comfortable with servers Debian is an alternative OS that
+is admittedly a little safer. Ubuntu contains some proprietary software
+and potentially unsafe opt-ins but that’s mostly pertaining to the
+desktop. DigitalOcean tends to provide more Ubuntu documentation to beginners so it makes a good starter OS, so you can get comfortable with Ubuntu now then transition to Debian later, with a little help from salt(which I’ll go into later).</p>
+<p>I’d also recommend going with around 1GB of Ram if you intend to use the
+server for multiple features, for example mail server, file server,
+photo sharing etc. `The tutorial `__ also goes into how to connect to your box so by the end of the tutorial you should have a server up and running and be connected via the terminal prompt.</p>
+<h3>Setting up Salt</h3>
+<p>Salt is an infrastructure management software, but don’t let that put
+you off. We won’t be using about 90% of what Salt does, just a few
+features here and there to get you up to speed faster. To explain, these
+guides rely on Salt to allow you to quickly configure your servers based
+on configurations I’ve already made, there’s no need to worry too much
+about how Salt works. Generally you’ll just need to copy certain files
+and run a command or two, should be pretty straight-forward.
+Anyway, yet again I’ll leverage a DigitalOcean guide. Here’s how to
+install Salt on `Ubuntu 12.04 `__.</p>
+<h3>Done?</h3>
+<p>Excellent, you’re on your way. Checkout `here `__ to choose what
+service you want to swap across to your awesome new machine!</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Getting yourself on Trinity’s Wireless network with Linux</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2008-02-03T00:00:00+00:00">Sun 03 February 2008</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Getting yourself on Trinity’s Wireless network with Linux</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>Since ISServices have washed their hands of any support for Linux, I’ve
+banged up a guide on how to get onto it with Linux. I’m using Ubuntu so
+things may need to be changed depending on your distro. :D Right, you
+need wpa_supplicant installed and modify it’s config file
+/etc/wpa_supplicant.conf</p>
+<p>ctrl_interface=/var/run/wpa_supplicant
+ ctrl_interface_group=0
+ eapol_version=1
+ ap_scan=1
+ fast_reauth=1
+network={
+ ssid=”TCDwifi”
+ scan_ssid=1
+ key_mgmt=IEEE8021X
+ eap=LEAP
+ identity=”username”
+ password=”password”
+ phase2=”MSCHAPV2"
+ }</p>
+<p>If you’re in Computer Science you can also use COMPSCIwireless2 and
+there’s no MAC address filtering so no stupid registering stuff. Place
+this in your /etc/network/interfaces if its not already there so you can
+dhcp over your wireless card.</p>
+<p>auto eth1
+ iface eth1 inet dhcp</p>
+<p>And finally all of this stuff into a script, say tcd.sh</p>
+<p>echo “Putting the wifi card up and down”
+ sudo ifconfig eth1 down
+ sudo ifconfig eth1 up
+ sleep 3
+ echo “Killing all necessary stuff”
+ sudo killall dhclient dhclient3
+ sudo killall wpa_supplicant
+ sleep 3
+ echo “Setting up WPA”
+ sudo wpa_supplicant -B -ieth1 -Dwext -c/etc/wpa_supplicant.conf
+ sleep 3
+ echo “Connecting to wireless”
+ sudo iwconfig eth1 essid TCDwifi
+ sleep 3
+ sudo dhclient eth1</p>
+<p>Then run sh tcd.sh and enter your root password, it may not work
+sometimes, this seems to be due to the wireless networks being hidden.
+If you want add this to the start of your script. iwlist scanning \|
+grep TCDwifi and if you see a few TCDwifi access points coming up you
+“should” be ok and it will connect alright, otherwise cancel the script
+and give it another go. The wifi card should pick up the access points
+now… hopefully</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

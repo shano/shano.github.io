@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Fixing a broken vagrant box</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2013-10-17T00:00:00+00:00">Thu 17 October 2013</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Fixing a broken vagrant box</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__TalXSpVG5yo__Lucbr1Wm6w.png"></p>
+<p>The first time this happened I went into a cold sweat. My box with all
+dev versions of my companies live databases had died. Of course I had
+the box provisioned with salt so configuration wasn’t a problem, but
+grabbing all those databases, downloading, altering specific internal
+values and inserting them was going to cost me hours. These steps
+should’ve been salted too but I hadn’t gotten round to it yet.</p>
+<p>When I brought my vagrant box up, vagrant kept thinking that my original
+box had gone and kept trying to re-create a new one and provisioning it.
+Instead of starting from scratch I dug down and tried to figure out the
+problem. This issue has happened on several occasions for me so I
+figured I’d document the steps to fix it.</p>
+<p>— — — — — — — — — — — — — — — — — — — — — — -</p>
+<ol>
+<li>Start up virtualbox and make sure the box is still there and working.</li>
+<li>Sometimes I find that the .vbox file can get corrupted. This sucks but go into the folder that contains the vbox file and see if there’s a VM_NAME.vbox-prev and copy that back to VM_NAME.vbox and try to run it just via virtualbox to see if it picks back up. This was always my issue, I believe because my laptop sometimes ran out of space and virtualbox tries to write a new file it can’t and simply writes something corrupted.</li>
+</ol>
+<p>Make sure Vagrant points to your working VirtualMachine
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — -</p>
+<ol>
+<li>While trying to get vagrant up and running again it may have create a
+     bunch of similar boxes, get rid of those and retain the box you want
+     to keep.</li>
+<li>Run this VBoxManage list vms and get the GUID of your newly fixed
+     box.</li>
+<li>From the vagrant box directory go to .vagrant/machines/default/virtualbox and replace the contents of this
+     file with just the GUID. <strong>Make sure no newline exists at the end of this file.</strong> This is key. A lot of editors will automatically add a newline here and won’t present it when you attempt to delete the newline. Try diffing this id file with the id file from another vagrant box to see if the newline still appears. Otherwise, vim will also state noeol in it’s statusbar to confirm there is no end of line.</li>
+<li>Run vagrant status and see if it picks up your old box, if it doesn’t
+     make sure step 4 is correct.</li>
+</ol>
+<p>Test your VM
+ — — — — — —</p>
+<ol>
+<li>Make sure none of the other VMs are still running. I use the <a href="https://github.com/joshmcarthur/vagrant-list">vagrant
+     list plugin</a> for this. Once installed run vagrant list.</li>
+<li>Then I shut down any that might conflict with my VM using VBoxManage
+     controlvm VM_NAME poweroff</li>
+<li>Then vagrant reload my vagrant box to ensure everything works.</li>
+</ol>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

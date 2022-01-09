@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>SugarCRM — Add a code-driven column to a list</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-04-05T00:00:00+00:00">Sat 05 April 2014</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>SugarCRM — Add a code-driven column to a list</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>Sometimes you might find that you want your users to make decisions based on ListViews and you need to pull in relational data beyond the immediately related objects. Example</p>
+<p>So using the circus example say you have performers who are performing for a specific show. You might want to see what other shows those performers are also attached to. If it’s typically only one or two shows per event, you can probably make another column in the ListView that displays all shows related to that performer. Lets call this field ‘Other Shows’.</p>
+<p>What to do
+ — — — — —</p>
+<p>Add your new field in studio before you do anything. So fire up Studio
+and create an ‘Other Shows’ field, create this as a text field.</p>
+<p>Alter the newly created fields vardef and set it to non-db.</p>
+<p>You can typically find it in
+custom/Extension/modules/Performers/Ext/Vardefs/other_shows_c.php.</p>
+<p>$dictionary[‘Performers’][‘fields’][‘other_shows_c’] = array(
+ ‘name’ =&gt; ‘other_shows_c’,
+ ‘vname’ =&gt; ‘LBL_OTHER_SHOWS_C’,
+ ‘type’ =&gt; ‘varchar’,
+ ‘len’ =&gt; ‘255’,
+ ‘source’ =&gt; ‘non-db’
+ );</p>
+<p>Ensure the field isn’t sortable..</p>
+<p>Trying to sort a db/non-db field will cause a bit of trouble and
+ListViews don’t support it, so just disable it.</p>
+<p>Under custom/modules/Performers/metadata/listviewdefs.php change your
+newly created fields definition.</p>
+<p>‘OTHER_SHOWS_C’ =&gt;
+ array (
+ ‘label’ =&gt; ‘Other Shows’,
+ ‘width’ =&gt; ‘10%’,
+ ‘default’ =&gt; true,
+ ‘sortable’ =&gt; false,
+ ),</p>
+<p>Adding the actual code to run.</p>
+<p>For this we’re going to leverage SugarCRM’s logic hooks. If you haven’t
+already create a logic\_hooks.php under custom/modules/Performers/ with
+contents like this.</p>
+<p>This file essentially defines the hooks you’re going to call. The hook
+process_record means it’ll be called for every row that’s displayed on
+the ListView.</p>
+<p>The performers_logic_hooks_class.php file will be included,
+performers_logic_hooks is the class that it will look for and
+list\_record\_process is the function within that class that it will
+call.</p>
+<p>// Do not store anything in this file that is not part of the array or the hook version. This file will
+ // be automatically rebuilt in the future.
+ $hook_version = 1;
+ $hook_array = Array();
+ // position, file, function
+ $hook_array[‘before_save’] = Array();
+ $hook_array[‘before_save’][] = Array(1, ‘workflow’, ‘include/workflow/WorkFlowHandler.php’,’WorkFlowHandler’, ‘WorkFlowHandler’);
+ $hook_array[‘process_record’][] = Array(1, ‘Other_Shows’, ‘custom/modules/Performers/performers_logic_hooks.php’,’performers_logic_hooks’, ‘list_record_process’);</p>
+<p>?&gt;</p>
+<p>Define the class.</p>
+<p>Don’t name the class something generic, like logic_hook_class and use
+that class name everywhere. It’ll cause a bunch of conflicts when it
+comes to saving related data, hence the name performers\_logic\_hooks.</p>
+<p>class performers_logic_hooks
+ {</p>
+<p>/**
+ * Called as process_record logic hook on the Performers module
+ */
+ public function list_record_process($bean, $event, $arguments)
+ {
+ //Do some code to get the related shows for the performer and store in the $other_shows variable</p>
+<p>$this-&gt;other_shows_c = $other_shows;
+ }</p>
+<p>}</p>
+<p>Add the field to your listview via studio and do a quick repair/rebuild.
+That should hopefully be it.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>
