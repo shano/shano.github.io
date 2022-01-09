@@ -58,7 +58,7 @@
     </div>
 
     <div class="entry-content">
-        <p><img alt="" src="img/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg"></p>
+        <p><img alt="" src="images/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg"></p>
 <p>PostGis is awesome, I think I already established this in <a href="http://shanedowling.com/index.php/postgis/">this post</a>. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you’ve failed to create a proper postgres_template database for your test database to work with. Run these commands in your postgres prompt to create the appropriate template.</p>
 <p>CREATE DATABASE template_postgis ENCODING=’utf-8';
 UPDATE pg_database SET datistemplate=’true’ WHERE datname=’template_postgis’;
