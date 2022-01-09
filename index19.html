@@ -45,18 +45,19 @@
                         <a href="./category/posts.html" class="category">posts</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-06-15T00:00:00+00:00">Sun 15 June 2014</abbr>
+                        &mdash; <abbr title="2014-04-04T00:00:00+00:00">Fri 04 April 2014</abbr>
                     </div>
                 </div>
-                <h2><a href="./engineers-log-69525c451538.html" rel="bookmark" title="Permalink to Engineers Log">Engineers Log</a></h2>
+                <h2><a href="./yii-issues-with-homebrew-php-5-3-8d759e748a92.html" rel="bookmark" title="Permalink to Yii issues with Homebrew PHP 5.3">Yii issues with Homebrew PHP 5.3</a></h2>
                 <div class="post-content">
-                    <p><img alt="" src="images/1__u5I9tVI8pJKp8tTRe1__AqA.jpeg"></p>
-<p>Four years ago(to the day) I wrote a post on why I was <a href="http://shanedowling.com/giving-up-on-wikis/">Giving up on wikis</a> and I have to admit, four years later my opinions on the topic really haven’t changed.</p>
-<p>It’s been 4 years, 700 questions(with 800 answers) and several server
-moves later …</p>
+                    <p>When running yii with a homebrewed install of PHP 5.3, PHP code embedded
+in HTML wouldn’t work. This is because for some inexplicable reason
+Homebrew’s PHP install disables short-tag support. Simply edit
+<em>/usr/local/etc/php/5.3/php.ini</em> and change short-tags to On.</p>
+<p>short_open …</p>
                 </div>
                 <div class="post-footer">
-                    <a href="./engineers-log-69525c451538.html">Read more</a>
+                    <a href="./yii-issues-with-homebrew-php-5-3-8d759e748a92.html">Read more</a>
                 </div>
             </div>
             <div class="post">
@@ -67,21 +68,19 @@ moves later …</p>
                         <a href="./category/posts.html" class="category">posts</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
+                        &mdash; <abbr title="2014-03-29T00:00:00+00:00">Sat 29 March 2014</abbr>
                     </div>
                 </div>
-                <h2><a href="./quick-salt-minion-setup-354516c0ff63.html" rel="bookmark" title="Permalink to Quick Salt Minion Setup">Quick Salt Minion Setup</a></h2>
+                <h2><a href="./owning-your-data-replacing-gmail-20e9e2259fa2.html" rel="bookmark" title="Permalink to Owning Your Data — Replacing Gmail">Owning Your Data — Replacing Gmail</a></h2>
                 <div class="post-content">
-                    <p>I find myself setting up salt minions a LOT. So I figured I’d write down
-the steps in this concise format.</p>
-<h3>On the minion</h3>
-<p>sudo add-apt-repository ppa:saltstack/salt
-sudo apt-get update &amp;&amp; sudo apt-get install salt-minion
-sudo echo ‘ salt’ &gt;&gt; /etc/hosts //Or whatever the salt master is
-sudo salt-call …</p>
+                    <p><img alt="" src="images/1__jrj__wnQecgnTwBXPZsg05w.jpeg"></p>
+<p>Gmail isn’t secure or private, Google have admitted this. You simply cannot expect privacy from any service that you don’t have
+control of. Thankfully your email doesn’t have to be tied a mail service
+like Gmail, Yahoo or Microsoft. You can simply roll your own email
+server …</p>
                 </div>
                 <div class="post-footer">
-                    <a href="./quick-salt-minion-setup-354516c0ff63.html">Read more</a>
+                    <a href="./owning-your-data-replacing-gmail-20e9e2259fa2.html">Read more</a>
                 </div>
             </div>
             <div class="post">
@@ -92,18 +91,18 @@ sudo salt-call …</p>
                         <a href="./category/posts.html" class="category">posts</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
+                        &mdash; <abbr title="2014-03-27T00:00:00+00:00">Thu 27 March 2014</abbr>
                     </div>
                 </div>
-                <h2><a href="./sugarcrm-7-hiding-subpanels-based-on-specific-criteria-eee6aacb95e1.html" rel="bookmark" title="Permalink to SugarCRM 7 — Hiding subpanels based on specific criteria">SugarCRM 7 — Hiding subpanels based on specific criteria</a></h2>
+                <h2><a href="./useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html" rel="bookmark" title="Permalink to Useful bit of SQL to update many records in SugarCRM">Useful bit of SQL to update many records in SugarCRM</a></h2>
                 <div class="post-content">
-                    <p>The new Sugar subpanels look great but they do take up quite a lot
-space, without any ability to remove Subpanels via studio I’ve had to
-come up with a few ways to hide them.</p>
-<p><strong>Note: Original Props go to Robin Larsson who wrote the</strong> <a href="https://community.sugarcrm.com/sugarcrm/topics/dynamically_hiding_showing_subpanels_based_on_record_values_in_sugar_7"><strong>original</strong></a> <strong>on the Sugar …</strong></p>
+                    <p>UPDATE clowns SET deleted=1 WHERE id IN
+ (SELECT id FROM (
+ SELECT id FROM clowns WHERE deleted = 0 ORDER BY id ASC LIMIT 0, 800)
+ tmp );</p>
                 </div>
                 <div class="post-footer">
-                    <a href="./sugarcrm-7-hiding-subpanels-based-on-specific-criteria-eee6aacb95e1.html">Read more</a>
+                    <a href="./useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html">Read more</a>
                 </div>
             </div>
             <div class="post">
@@ -114,18 +113,18 @@ come up with a few ways to hide them.</p>
                         <a href="./category/posts.html" class="category">posts</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-06-06T00:00:00+00:00">Fri 06 June 2014</abbr>
+                        &mdash; <abbr title="2014-03-17T00:00:00+00:00">Mon 17 March 2014</abbr>
                     </div>
                 </div>
-                <h2><a href="./super-simple-folder-backup-one-liner-de43a969cb0d.html" rel="bookmark" title="Permalink to Super simple folder backup one-liner">Super simple folder backup one-liner</a></h2>
+                <h2><a href="./unit-tests-and-code-smells-2de9891c25ff.html" rel="bookmark" title="Permalink to Unit Tests and Code Smells">Unit Tests and Code Smells</a></h2>
                 <div class="post-content">
-                    <p>I needed a simple cron job, that just took backups of my project
-folders, should the worst happen to my laptop. Google brought up nothing
-obvious, so I figured I’d share it here.</p>
-<p>tar zcvf /tmp/snap.tgz ~/Projects &amp;&amp; rsync /tmp/snap.tgz user@remotebox:/home/backups/snap_`date …</p>
+                    <p>Basically, the unit test pushed out something which I realised was a
+code smell, because I was writing a bunch of stuff into a controller
+function that really should’ve been in a controller I was having a
+really painful time writing a unit test for it. For example these …</p>
                 </div>
                 <div class="post-footer">
-                    <a href="./super-simple-folder-backup-one-liner-de43a969cb0d.html">Read more</a>
+                    <a href="./unit-tests-and-code-smells-2de9891c25ff.html">Read more</a>
                 </div>
             </div>
 

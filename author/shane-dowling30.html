@@ -49,19 +49,21 @@
                 <a href="../category/posts.html" class="category">posts</a><br />
 
                 <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2013-12-27T00:00:00+00:00">Fri 27 December 2013</abbr>
+                &mdash; <abbr title="2013-08-25T00:00:00+00:00">Sun 25 August 2013</abbr>
             </div>
         </div>
-        <h2><a href="../the-freedom-of-limits-8677931d93e0.html" rel="bookmark" title="Permalink to The Freedom of Limits">The Freedom of Limits</a></h2>
+        <h2><a href="../archlinux-pacman-update-fix-a99b2f157a2c.html" rel="bookmark" title="Permalink to Archlinux Pacman Update Fix">Archlinux Pacman Update Fix</a></h2>
         <div class="post-content">
-            <p>Over the course of this blog I intend to show how limitations can in
-many ways bring positive changes in your life. While limitations can
-appear under various guises(vegetarianism, minimalism) etc there is a
-huge number of aspects in your life where you can benefit from limits,
-just without …</p>
+            <p>I’m writing this up as a quick solution to archlinux’s dreaded pacman
+update problem.</p>
+<p>If you have yaourt installed simply update package-query through it and
+update pacman normally.</p>
+<p>yaourt -S package-query
+pacman -Syu</p>
+<p>Make sure also to delete the SyncFirst option from /etc/pacman.conf</p>
         </div>
         <div class="post-footer">
-            <a href="../the-freedom-of-limits-8677931d93e0.html">Read more</a>
+            <a href="../archlinux-pacman-update-fix-a99b2f157a2c.html">Read more</a>
         </div>
     </div>
     <div class="post">
@@ -71,18 +73,17 @@ just without …</p>
                 <a href="../category/posts.html" class="category">posts</a><br />
 
                 <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2013-12-27T00:00:00+00:00">Fri 27 December 2013</abbr>
+                &mdash; <abbr title="2013-08-25T00:00:00+00:00">Sun 25 August 2013</abbr>
             </div>
         </div>
-        <h2><a href="../vegetarian-3c437a98aa85.html" rel="bookmark" title="Permalink to Vegetarian">Vegetarian</a></h2>
+        <h2><a href="../zmap-b25d89e8c1b5.html" rel="bookmark" title="Permalink to Zmap">Zmap</a></h2>
         <div class="post-content">
-            <p>Deciding to become vegetarian is not an easy step. I decided to dip my
-toe in the water several years ago by trying a month of not eating meat,
-I would highly recommend everyone try this at least once just to see
-what it might be like. I enjoyed the …</p>
+            <p>Zmap</p>
+<h4></h4>
+<p>Woah! I should not know `this `__ exists.</p>
         </div>
         <div class="post-footer">
-            <a href="../vegetarian-3c437a98aa85.html">Read more</a>
+            <a href="../zmap-b25d89e8c1b5.html">Read more</a>
         </div>
     </div>
     <div class="post">
@@ -92,15 +93,16 @@ what it might be like. I enjoyed the …</p>
                 <a href="../category/posts.html" class="category">posts</a><br />
 
                 <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2013-12-26T00:00:00+00:00">Thu 26 December 2013</abbr>
+                &mdash; <abbr title="2013-08-24T00:00:00+00:00">Sat 24 August 2013</abbr>
             </div>
         </div>
-        <h2><a href="../principles-5cdc28ff6843.html" rel="bookmark" title="Permalink to Principles">Principles</a></h2>
+        <h2><a href="../writing-django-tests-for-postgis-9eefe47fd368.html" rel="bookmark" title="Permalink to Writing Django tests for PostGis">Writing Django tests for PostGis</a></h2>
         <div class="post-content">
-            <p>Going to spend St.Stephen’s day going over <a href="http://www.bwater.com/Uploads/FileManager/Principles/Bridgewater-Associates-Ray-Dalio-Principles.pdf">Dalio’s Principles</a>. I always find the holidays a good time to get a high-level view of things.</p>
+            <p><img alt="" src="images/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg"></p>
+<p>PostGis is awesome, I think I already established this in <a href="http://shanedowling.com/index.php/postgis/">this post</a>. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you’ve failed to create a proper postgres_template database for your test database to …</p>
         </div>
         <div class="post-footer">
-            <a href="../principles-5cdc28ff6843.html">Read more</a>
+            <a href="../writing-django-tests-for-postgis-9eefe47fd368.html">Read more</a>
         </div>
     </div>
     <div class="post">
@@ -110,18 +112,15 @@ what it might be like. I enjoyed the …</p>
                 <a href="../category/posts.html" class="category">posts</a><br />
 
                 <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2013-12-12T00:00:00+00:00">Thu 12 December 2013</abbr>
+                &mdash; <abbr title="2013-08-23T00:00:00+00:00">Fri 23 August 2013</abbr>
             </div>
         </div>
-        <h2><a href="../thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html" rel="bookmark" title="Permalink to Thrashing your networks download with dispatch and axel">Thrashing your networks download with dispatch and axel</a></h2>
+        <h2><a href="../install-nzbget-using-salt-7cc40711adb6.html" rel="bookmark" title="Permalink to Install nzbget using salt">Install nzbget using salt</a></h2>
         <div class="post-content">
-            <p>Say you need to grab a file as fast as possible and you also happen to
-have a few network connections knocking about. For example maybe a
-separate network for your wireless and ethernet. Maybe you have a phone
-with tethering or a 3g dongle. This little guide will get …</p>
+            <p>Recently I’ve been using vagrant to configure more and more of the local webapps I’m using day to day, simply as I find sticking all the apps I use on my host machine a little messy. I’ve also been picking up <a href="http://saltstack.com/">salt-stack</a> with salt-states as the provisioner …</p>
         </div>
         <div class="post-footer">
-            <a href="../thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html">Read more</a>
+            <a href="../install-nzbget-using-salt-7cc40711adb6.html">Read more</a>
         </div>
     </div>
 

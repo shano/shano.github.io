@@ -45,18 +45,19 @@
                         <a href="./category/posts.html" class="category">posts</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-10-02T00:00:00+00:00">Thu 02 October 2014</abbr>
+                        &mdash; <abbr title="2014-07-12T00:00:00+00:00">Sat 12 July 2014</abbr>
                     </div>
                 </div>
-                <h2><a href="./better-php-debugging-with-emacs-1c2f71c947fe.html" rel="bookmark" title="Permalink to Better PHP Debugging with Emacs">Better PHP Debugging with Emacs</a></h2>
+                <h2><a href="./sugarcrm-7-set-recordlist-row-colours-based-on-row-data-6ff3072c08a9.html" rel="bookmark" title="Permalink to SugarCRM 7 — Set recordlist row colours based on row data">SugarCRM 7 — Set recordlist row colours based on row data</a></h2>
                 <div class="post-content">
-                    <p><img alt="" src="images/1__3CPMZKjTwVkDGKtphfr3yQ.png"></p>
-<p>Recently I came across an app called <a href="http://codebugapp.com/">CodeBug</a>, a really nice PHP debugger for
-Mac. I find debugging PHP really painful within editors such as Vim or Emacs, so up until now I’d been stuck using the incredibly bloated PHPStorm.</p>
-<p>On Emacs you can currently use Geben for debugging …</p>
+                    <p><img alt="" src="images/1__ftmi7V32ZXjnNFoJRH6UnQ.jpeg"></p>
+<p>The tutorial shows you how to do two useful things in SugarCRM 7.
+Firstly, how to call actions when rows get updated in SugarCRM’s
+recordlist and secondly, how to set information based on row data. The
+example I have here will essentially update the table colours based on a …</p>
                 </div>
                 <div class="post-footer">
-                    <a href="./better-php-debugging-with-emacs-1c2f71c947fe.html">Read more</a>
+                    <a href="./sugarcrm-7-set-recordlist-row-colours-based-on-row-data-6ff3072c08a9.html">Read more</a>
                 </div>
             </div>
             <div class="post">
@@ -67,21 +68,20 @@ Mac. I find debugging PHP really painful within editors such as Vim or Emacs, so
                         <a href="./category/posts.html" class="category">posts</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-09-25T00:00:00+00:00">Thu 25 September 2014</abbr>
+                        &mdash; <abbr title="2014-07-10T00:00:00+00:00">Thu 10 July 2014</abbr>
                     </div>
                 </div>
-                <h2><a href="./shellshock-am-i-vulnerable-and-what-do-i-do-4368762a4c94.html" rel="bookmark" title="Permalink to Shellshock — Am I vulnerable and what do I do?">Shellshock — Am I vulnerable and what do I do?</a></h2>
+                <h2><a href="./minimalist-mysql-reporting-ecc27a71d97.html" rel="bookmark" title="Permalink to Minimalist MySQL Reporting">Minimalist MySQL Reporting</a></h2>
                 <div class="post-content">
-                    <p><img alt="" src="images/1__9ehFHvJtYiV__mH5tFVI9OQ.png"></p>
-<p>`Shellshock `__ is the
-latest Heartbleed level vulnerability to be discovered. It’s a pretty
-long running exploit in how bash handles environment variables. It’s a
-good thing to fix asap, especially if you’re running any old services
-like telnet, ftp or an old version of apache.</p>
-<h3>Is my …</h3>
+                    <p><img alt="" src="images/1__ehZIxeK7e1vIcDgZbwxgXQ.jpeg"></p>
+<p>Sometimes business folk can have crazy demands on the types of reports
+your system should produce and sometimes these can be really time
+consuming and painful to get right. Often I find the most flexible
+solution is to give these power-users access to tidier version of the
+raw data within …</p>
                 </div>
                 <div class="post-footer">
-                    <a href="./shellshock-am-i-vulnerable-and-what-do-i-do-4368762a4c94.html">Read more</a>
+                    <a href="./minimalist-mysql-reporting-ecc27a71d97.html">Read more</a>
                 </div>
             </div>
             <div class="post">
@@ -92,22 +92,27 @@ like telnet, ftp or an old version of apache.</p>
                         <a href="./category/posts.html" class="category">posts</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-09-18T00:00:00+00:00">Thu 18 September 2014</abbr>
+                        &mdash; <abbr title="2014-07-10T00:00:00+00:00">Thu 10 July 2014</abbr>
                     </div>
                 </div>
-                <h2><a href="./sugarcrm-7-fix-to-re-enable-elasticsearch-on-custom-modules-f669c97ca480.html" rel="bookmark" title="Permalink to SugarCRM 7 — Fix to re-enable ElasticSearch on custom modules">SugarCRM 7 — Fix to re-enable ElasticSearch on custom modules</a></h2>
+                <h2><a href="./sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html" rel="bookmark" title="Permalink to SugarCRM 7 — Colour Code Rows based on data values">SugarCRM 7 — Colour Code Rows based on data values</a></h2>
                 <div class="post-content">
-                    <p><img alt="" src="images/1__HOS9Snvhcd__NSa6OnO__ksQ.png"></p>
-<p>I had an issue in Sugar where some custom modules refused to appear in
-the Global Search settings, meaning I couldn’t index them in
-ElasticSearch.</p>
-<p>When I checked the module oddly enough unified search would be enabled:</p>
-<p>modules/<MODULE>/vardefs.php</p>
-<h3>1. Re-enable the module</h3>
-<p>To force it to be …</p>
+                    <p>Add this into your recordlist javascript file.</p>
+<p>render_colors : function() {
+ console.log(‘here’);
+ $(“tr[name^=’<YOUR\_MODULE’\]”).each(function() { //loop over each row
+ if($(this).find(‘div\[data-original-title=”Out”\]’).length > 0) { //check value of TD
+ $(this).find($(‘td’)).each(function() {
+ $(this).css(“background-color”, “#FFBABA”);
+ });
+ } else if($(this).find(‘div[data-original-title=”In”]’).length &gt; 0) {
+ $(this).find($(‘td’)).each(function() {
+ $(this).css(“background-color”, “#C3F8B5”);
+ });
+ } else if($(this …</your\_module’\]”).each(function()></p>
                 </div>
                 <div class="post-footer">
-                    <a href="./sugarcrm-7-fix-to-re-enable-elasticsearch-on-custom-modules-f669c97ca480.html">Read more</a>
+                    <a href="./sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html">Read more</a>
                 </div>
             </div>
             <div class="post">
@@ -118,16 +123,18 @@ ElasticSearch.</p>
                         <a href="./category/posts.html" class="category">posts</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-09-11T00:00:00+00:00">Thu 11 September 2014</abbr>
+                        &mdash; <abbr title="2014-07-10T00:00:00+00:00">Thu 10 July 2014</abbr>
                     </div>
                 </div>
-                <h2><a href="./sugarcrm-7-enable-importing-on-custom-modules-eabf29774f3b.html" rel="bookmark" title="Permalink to SugarCRM 7 — Enable Importing on Custom Modules">SugarCRM 7 — Enable Importing on Custom Modules</a></h2>
+                <h2><a href="./your-brain-on-stoicism-783d1cd1995c.html" rel="bookmark" title="Permalink to Your brain on stoicism">Your brain on stoicism</a></h2>
                 <div class="post-content">
-                    <p><img alt="" src="images/1__rMyjz1HzRpsHOYM40IoG7A.jpeg"></p>
-<p>I’ve been wracking my brain trying to get <a href="http://support.sugarcrm.com/04_Find_Answers/03_Developers/100Customization/Enabling_Importing_for_Custom_Modules/">this guide</a> to work with SugarCRM 7. Add to the fact that it “looks” like this is also how it’s done in SugarCRM 7, if you peruse the code under Accounts or Contacts. However it isn’t. This is how …</p>
+                    <p><img alt="" src="images/1__SOaZJ4BwYNtsm0SoctZl7A.jpeg"></p>
+<p>For the last few months I’ve been attempting to practice Stoicism and
+wanted to share the effects of what regular stoic practice has had. If
+you’ve never heard of Stoicism I’d recommend <a href="https://tim.blog/2009/04/13/stoicism-101-a-practical-guide-for-entrepreneurs/">fourhourworkweek.com’s introduction</a>, which is very pragmatic. Essentially, what happens after several weeks of …</p>
                 </div>
                 <div class="post-footer">
-                    <a href="./sugarcrm-7-enable-importing-on-custom-modules-eabf29774f3b.html">Read more</a>
+                    <a href="./your-brain-on-stoicism-783d1cd1995c.html">Read more</a>
                 </div>
             </div>
 
