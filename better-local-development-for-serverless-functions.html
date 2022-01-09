@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Better local development for Serverless Functions</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/posts.html" class="category">posts</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2019-02-11T00:00:00+01:00">Mon 11 February 2019</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Better local development for Serverless Functions</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>Lambda is a terrific piece of kit for all the benefits listed on the AWS
+  product page and Serverless is a very useful framework for…
+date: '2019-02-11T20:15:38.791Z'
+categories: []
+keywords: []
+slug: /@shano/better-local-development-for-serverless-functions-b96b5a4cfa8f</p>
+<hr>
+<p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__roedigbmFjRYkZobdZWuKg.jpeg"></p>
+<p>Lambda is a terrific piece of kit for all the benefits listed on the <a href="https://aws.amazon.com/lambda/">AWS product page</a> and <a href="https://serverless.com/">Serverless</a> is a very useful framework for developing Lambda functions. However, developing serverless applications locally is a total pain if what you’re solving isn’t totally trivial.</p>
+<p>When things get complicated and your Lambda functions start to integrate with other AWS services, things really begin to break down. There are a few things that look like silver-bullets, I’ll share them here and explain why they didn’t work for me, then give you a working example that I myself struggled to find(hence me writing this).</p>
+<h3>Localstack</h3>
+<p><a href="https://github.com/localstack/localstack">Localstack</a> is definitely the biggest attempt at a silver bullet here. Basically it emulates a huge chunk of AWS locally and you connect your serverless functions into that. Why I didn’t use it:</p>
+<ol>
+<li>Bits worked, but if you have any sort of half complicated setup(like a region outside us-east-1 or eu-west-1), it will break down. Uploading a whole cloudformation template was a disaster of broken links between services. I got to the point of editing localstack code to try fix issue after issue I was coming across and gave up. The product would be cool if it wasn’t trying to do something so super complicated.</li>
+<li>It’s also a huge resource drain on a developer’s machine.</li>
+<li>Fundamentally, you shouldn’t have to emulate half of AWS to test your code.</li>
+</ol>
+<h3>Serverless Offline</h3>
+<p>Serverless offline is fairly straightforward. It should allow you to spin up your functions locally and call them as needed. Where this fell down for me was that it required you to have HTTP endpoints for your lambda functions, all of our Lambda functions were driven either by SQS events or a Cron. We also instantiate our SNS topics in our code, so it would constantly attempt to create SNS topics and AWS would throw errors.</p>
+<p>I also did try using <a href="https://www.npmjs.com/package/serverless-offline-sqs">serverless-offline-sqs</a> but could not get it to drive events into our Lamdba functions.</p>
+<p>I was burning a lot of time getting a dev environment setup and I realised that this was fundamentally the wrong approach. I needed to start writing proper unit tests and use mocking to emulate the infrastructure(I mean ideally they’d be isolated properly and infrastructure/functions would be totally ignorant of each other, but that’s for another day).</p>
+<h3>The Example</h3>
+<p>Say we’re developing an application that makes use of:</p>
+<ul>
+<li>Lambda</li>
+<li>MongoDB</li>
+<li>SQS</li>
+<li>SNS</li>
+</ul>
+<p>Your lambda function connects to your MongoDB, does a thing and fires off occasional SNS notifications/SQS messages to other services.</p>
+<p><strong>Lambda</strong></p>
+<p>For the actual code being run, I was going to use <a href="https://www.npmjs.com/package/jest">jest</a> to start writing tests. Jest works well and integrates nicely into serverless.</p>
+<p><strong>MongoDB</strong></p>
+<p>To emulate MongoDB, I’m going to use an <a href="https://www.npmjs.com/package/mongodb-memory-server">in-memory version of MongoDB</a> that ties nicely into our Mongoose models.</p>
+<p><strong>SQS/SNS</strong></p>
+<p>For any Amazon infrastructure, we’re going to use <a href="https://www.npmjs.com/package/aws-sdk-mock">aws-sdk-mock</a>. This is an excellent wrapper around <a href="https://www.npmjs.com/package/sinon">sinon</a> for mocking the AWS infrastructure, that’s super useful for unit tests as you’ll see later.</p>
+<h3>Tieing it all together</h3>
+<p>So firstly lets install our dependencies.</p>
+<p>npm install aws-sdk-mock mongodb-memory-server sinon jest --save-dev</p>
+<p>Let’s also create a tests folder to keep all this test code in.</p>
+<p>mkdir tests</p>
+<p><strong>Setting up MongoDB</strong></p>
+<p>Now, for our code to integrate with our in-memory Mongo-DB server, we’re going to need to add a few setup/teardown functions and a Mongo Environment. Clone this <a href="https://github.com/vladgolubev/jest-mongodb">repo</a> and put:</p>
+<ul>
+<li><code>setup.js</code></li>
+<li><code>teardown.js</code></li>
+<li><code>mongo-environment.js</code></li>
+</ul>
+<p>into your new test folder.</p>
+<p>In your root directory add a <code>jest.config.js</code> with this content.</p>
+<p>module.exports = {<br>
+  globalSetup: './tests/setup.js',<br>
+  globalTeardown: './tests/teardown.js',<br>
+  testEnvironment: './tests/mongo-environment.js',<br>
+  roots: ['./tests/'],<br>
+};</p>
+<p>This should be enough to get MongoDB up and running. Now onto our actual tests scripts.</p>
+<p><strong>Setting up our tests</strong></p>
+<p>Now, finally, you can tie it all together with this snippet:</p>
+<p>Add jest to your package.json</p>
+<p>"scripts":{   <br>
+  "test": "jest"<br>
+},</p>
+<p>And run with <code>npm test</code> .</p>
+<p>One major point to note is that aws-mock-sdk requires a very specific way of instantiating AWS resources(within the scope of the function tests), so if you see any errors around aws regions, double check <a href="https://github.com/dwyl/aws-sdk-mock#use-in-your-tests">you’re following the rules</a>.</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>

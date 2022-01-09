@@ -1,21 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Shane Dowling - Shane Dowling</title><link>https://shanedowling.com/</link><description>Shane Dowling</description><lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0100</lastBuildDate><item><title>TIL Updating ZSH</title><link>https://shanedowling.com/til-updating-zsh.html</link><description>&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
-realise there was an omz command!&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Tue, 04 Jan 2022 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2022-01-04:/til-updating-zsh.html</guid><category>TIL</category></item><item><title>Activity Nag</title><link>https://shanedowling.com/activity-nag.html</link><description>&lt;div class="figure"&gt;
-&lt;img alt="Digital Minimalism" src="./images/digital_minimalism.jpeg" /&gt;
-&lt;p class="caption"&gt;Digital Minimalism&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;I'm trying out a month of Digital Minimalism and I wanted some…
-encouragement to ensure I stick to my rules. One of which is to use my
-laptop only for specific tasks I know ahead of time, for an hour a day
-only. I currently already use Activitywatch …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Mon, 03 Jan 2022 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2022-01-03:/activity-nag.html</guid><category>Digital Minimalism</category></item><item><title>Nonviolent Communication</title><link>https://shanedowling.com/nonviolent-communication.html</link><description>&lt;p&gt;&lt;img alt="image0" src="./images/1__Tq3cCMHDxnnkVTxtFSJ6jA.jpeg" /&gt;&lt;/p&gt;
-&lt;div class="section" id="what-is-nonviolent-communication"&gt;
-&lt;h2&gt;What is Nonviolent Communication?&lt;/h2&gt;
-&lt;p&gt;Nonviolent Communication(NVC) helps us communicate clearly by breaking
-down and identifying our needs and communicating them compassionately.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="why"&gt;
-&lt;h2&gt;Why?&lt;/h2&gt;
-&lt;p&gt;NVC can help reduce conflict towards others and ourselves. It can also
-help us to hear others out and recognise each other's needs and support
-acting more …&lt;/p&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Fri, 27 Aug 2021 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:shanedowling.com,2021-08-27:/nonviolent-communication.html</guid><category>Leadership</category></item></channel></rss>
+<rss version="2.0"><channel><title>Shane Dowling - Shane Dowling</title><link>https://shanedowling.com/</link><description>Shane Dowling</description><lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0100</lastBuildDate><item><title>5 Steps to a better Personal Development Plan(PDP)</title><link>https://shanedowling.com/5-steps-to-a-better-personal-development-planpdp.html</link><description>&lt;p&gt;5 steps to help give you the direction needed to turn those PDP opportunities
+  into something actionable, demonstrable and focused.
+date: '2021-03-26T15:30:42.563Z'
+categories: []
+keywords: []
+slug: /@shano/wrangle-your-personal-development-plan-pdp-into-actionable-objectives-e448649b5db0&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__fc4D7D9urHFu0rbm8cpP2Q.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Reviewing your PDP can be a somewhat overwhelming process. So many areas of improvement can be highlighted, it can be …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Fri, 26 Mar 2021 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2021-03-26:/5-steps-to-a-better-personal-development-planpdp.html</guid><category>posts</category></item><item><title>Learning Python as a Platform Engineer — First Steps</title><link>https://shanedowling.com/learning-python-as-a-platform-engineer-first-steps.html</link><description>&lt;p&gt;I’ve relatively recently moved into a Platform Engineering position after
+  working in very developer oriented teams for many years. What’s…
+date: '2021-01-01T14:48:49.480Z'
+categories: []
+keywords: []
+slug: /@shano/learning-python-as-a-platform-engineer-first-steps-911e59dd4af8&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__t__tjPBb9m6YDhRdn3wKGSg.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;I’ve relatively recently moved into a Platform Engineering position after working in very developer oriented teams for …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Fri, 01 Jan 2021 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2021-01-01:/learning-python-as-a-platform-engineer-first-steps.html</guid><category>posts</category></item><item><title>Populate Ansible from Amazon secrets manager</title><link>https://shanedowling.com/populate-ansible-from-amazon-secrets-manager.html</link><description>&lt;p&gt;One of the ways to improve your security and avoid passing around env files is
+  to follow the twelve factor app and start populating your…
+date: '2020-09-03T18:06:58.955Z'
+categories: []
+keywords: []
+slug: /@shano/populate-ansible-from-amazon-secrets-manager-8eac77127e37&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__l0WrN40X7lf7tKsbdtj7Sw.png"&gt;&lt;/p&gt;
+&lt;p&gt;One of the ways to improve your security and avoid passing around env files is …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Thu, 03 Sep 2020 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:shanedowling.com,2020-09-03:/populate-ansible-from-amazon-secrets-manager.html</guid><category>posts</category></item><item><title>Better local development for Serverless Functions</title><link>https://shanedowling.com/better-local-development-for-serverless-functions.html</link><description>&lt;p&gt;Lambda is a terrific piece of kit for all the benefits listed on the AWS
+  product page and Serverless is a very useful framework for…
+date: '2019-02-11T20:15:38.791Z'
+categories: []
+keywords: []
+slug: /@shano/better-local-development-for-serverless-functions-b96b5a4cfa8f&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__roedigbmFjRYkZobdZWuKg.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Lambda is a terrific piece of kit for all the benefits listed on the &lt;a href="https://aws.amazon.com/lambda/"&gt;AWS …&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Mon, 11 Feb 2019 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2019-02-11:/better-local-development-for-serverless-functions.html</guid><category>posts</category></item><item><title>Easy maintenance mode with nginx</title><link>https://shanedowling.com/easy-maintenance-mode-with-nginx.html</link><description>&lt;p&gt;So I combined a few solutions I found online to come up with a quick way to
+  set up maintenance mode using nginx. Ideally it shouldn’t…
+date: '2018-08-20T18:51:42.074Z'
+categories: []
+keywords: []
+slug: /@shano/easy-maintenance-mode-with-nginx-2d4d510a0980&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;So I combined a few solutions I found online to come up with …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Mon, 20 Aug 2018 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-08-20:/easy-maintenance-mode-with-nginx.html</guid><category>posts</category></item><item><title>Please don’t do it Github</title><link>https://shanedowling.com/please-dont-do-it-github.html</link><description>&lt;p&gt;So Microsoft has been in talks with Github about a potential acquisition.
+  There are several reasons why this is a terrible idea. Github is…
+date: '2018-06-02T16:39:57.081Z'
+categories: []
+keywords: []
+slug: /@shano/please-dont-do-it-github-5890eb72d12c&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__cKz__YzMFvM1HgqvzbIBvzw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So &lt;a href="http://www.businessinsider.com/2-billion-startup-github-could-be-for-sale-microsoft-2018-5"&gt;Microsoft has been in talks with Github&lt;/a&gt; about a potential acquisition. There are several reasons …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Sat, 02 Jun 2018 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-06-02:/please-dont-do-it-github.html</guid><category>posts</category></item><item><title>Beware the todo list</title><link>https://shanedowling.com/beware-the-todo-list.html</link><description>&lt;p&gt;For the last few months, I’ve been working off a varying series of to-do lists
+  to drive my life. I use a mix of the Things app, my bullet…
+date: '2018-04-02T13:45:51.323Z'
+categories: []
+keywords: []
+slug: /@shano/beware-the-todo-list-7faac97dae4a&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__enCLGwgR9ubVJ2oT2fFCKQ__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;For the last few months, I’ve been working off …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Mon, 02 Apr 2018 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-04-02:/beware-the-todo-list.html</guid><category>posts</category></item><item><title>Wild Wild Country – The Soundtrack</title><link>https://shanedowling.com/wild-wild-country-the-soundtrack.html</link><description>&lt;p&gt;For anyone who hasn’t seen Netflix’s Wild Wild Country, I highly recommend you
+  watch it. The story told, along with the wealth of footage…
+date: '2018-03-29T20:16:00.115Z'
+categories: []
+keywords: []
+slug: /@shano/wild-wild-country-the-soundtrack-bbe397fc1cf4&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Wild Wild Country – The Soundtrack&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1____IGWS6a7nQTfKgT6H5FQZw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;For anyone who hasn’t seen Netflix’s &lt;a href="https://www.netflix.com/title/80145240?s=i&amp;amp;trkid=14170286"&gt;Wild …&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Thu, 29 Mar 2018 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-03-29:/wild-wild-country-the-soundtrack.html</guid><category>posts</category></item><item><title>Four years without Facebook</title><link>https://shanedowling.com/four-years-without-facebook.html</link><description>&lt;p&gt;I’m happy to see the media dog-piling on Facebook so much lately. None of this
+  ‘news’ seems to actually be conveying much that’s new, more…
+date: '2018-03-26T18:06:17.553Z'
+categories: []
+keywords: []
+slug: /@shano/four-years-without-facebook-7d5285a25913&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__gvkmxCDjT7hqaHPPWYsovg__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;I’m happy to see the media dog-piling on Facebook so much lately …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Mon, 26 Mar 2018 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-03-26:/four-years-without-facebook.html</guid><category>posts</category></item><item><title>Leaving no Trace</title><link>https://shanedowling.com/leaving-no-trace.html</link><description>&lt;p&gt;While I was camping along the West Coast of the US, I heard about the Leave No
+  Trace movement and found the idea very much resonated with…
+date: '2018-03-19T14:26:05.208Z'
+categories: []
+keywords: []
+slug: /@shano/leaving-no-trace-6ca31ffc0b9&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__ybl2a5U__z3REr1FD8qv09Q__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;While I was camping along the West Coast of the US, I heard …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Mon, 19 Mar 2018 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-03-19:/leaving-no-trace.html</guid><category>posts</category></item><item><title>'Thanks, that’s great to hear that and very much appreciated.'</title><link>https://shanedowling.com/thanks-thats-great-to-hear-that-and-very-much-appreciated.html</link><description>&lt;p&gt;For example, I’ve become a lot calmer, not because meditation made me calm but
+  that when thing made me anxious instead of immediately…
+date: '2018-03-18T07:31:33.594Z'
+categories: []
+keywords: []
+slug: /@shano/thanks-thats-great-to-hear-that-and-very-much-appreciated-3fcde67212b0&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Thanks, that’s great to hear that and very much appreciated. I totally get that meditation …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Sun, 18 Mar 2018 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-03-18:/thanks-thats-great-to-hear-that-and-very-much-appreciated.html</guid><category>posts</category></item><item><title>10 lessons from 150 days of meditation</title><link>https://shanedowling.com/10-lessons-from-150-days-of-meditation.html</link><description>&lt;p&gt;I’ve been meditating now for 150 days straight, but even before that I was a
+  fairly regular meditator for many years, I had just never kept…
+date: '2018-03-14T22:06:05.025Z'
+categories: []
+keywords: []
+slug: /@shano/10-lessons-from-150-days-of-meditation-b4976d062a20&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__GBwIzkZphZlN9GeNW3HAEA__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;I’ve been meditating now for 150 days straight, but even before that …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Wed, 14 Mar 2018 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-03-14:/10-lessons-from-150-days-of-meditation.html</guid><category>posts</category></item><item><title>Lessons from Remote Working</title><link>https://shanedowling.com/lessons-from-remote-working.html</link><description>&lt;p&gt;For the past few years as a freelancer, I’ve done many forms of remote work.
+  I’ve worked both part and full-time remote positions, I’ve…
+date: '2018-02-18T22:57:15.686Z'
+categories: []
+keywords: []
+slug: /@shano/for-the-past-few-years-as-a-freelancer-ive-done-many-forms-of-remote-work-19b58de3bc90&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;For the past few years as a freelancer, I’ve done many forms …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Sun, 18 Feb 2018 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-02-18:/lessons-from-remote-working.html</guid><category>posts</category></item><item><title>Really excellent write-up Jason.</title><link>https://shanedowling.com/really-excellent-write-up-jason.html</link><description>&lt;p&gt;Orienting my view of myself with a more compassionate mindset has helped me
+  massively over the years.
+date: '2018-01-31T13:04:13.027Z'
+categories: []
+keywords: []
+slug: /@shano/really-excellent-write-up-jason-f9c47dbde1b6&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Really excellent write-up Jason. Your whole story and the realisations around it sound shockingly familiar. The only thing I would add is to …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Wed, 31 Jan 2018 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-01-31:/really-excellent-write-up-jason.html</guid><category>posts</category></item><item><title>Supplementing an iPad Pro with Linux</title><link>https://shanedowling.com/supplementing-an-ipad-pro-with-linux.html</link><description>&lt;p&gt;Recently I wrote about why I’m using an iPad Pro as my main “at home” machine
+  and how I’m generally using it for tinkering around with…
+date: '2018-01-21T13:04:52.269Z'
+categories: []
+keywords: []
+slug: /@shano/supplementing-an-ipad-pro-57a809a06d7f&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Recently I wrote about &lt;a href="https://medium.com/@shano/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2"&gt;why I’m using an iPad Pro as …&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Sun, 21 Jan 2018 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-01-21:/supplementing-an-ipad-pro-with-linux.html</guid><category>posts</category></item><item><title>'The iPad Pro as a focused, simple coding machine'</title><link>https://shanedowling.com/the-ipad-pro-as-a-focused-simple-coding-machine.html</link><description>&lt;p&gt;So recently I wrote a post on why a developer might use an iPad Pro as an at
+  home machine. Today, I’m going to elaborate on how I’m…
+date: '2018-01-20T22:47:42.983Z'
+categories: []
+keywords: []
+slug: /@shano/how-am-i-using-my-ipad-pro-as-a-development-machine-e4912a31744e&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__bY3zgSqJyGTkf__ghXqpKRQ.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So recently I wrote a post on &lt;a href="https://medium.com/@shano/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2"&gt;why a developer …&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Sat, 20 Jan 2018 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-01-20:/the-ipad-pro-as-a-focused-simple-coding-machine.html</guid><category>posts</category></item><item><title>Why an iPad for a backend developer</title><link>https://shanedowling.com/why-an-ipad-for-a-backend-developer.html</link><description>&lt;p&gt;So I’m a backend developer. I’m often closest to the source of most technical
+  problems at my job. Networking issues, memory issues…
+date: '2018-01-08T19:38:33.381Z'
+categories: []
+keywords: []
+slug: /@shano/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__B__WKx4__N__VChXf__FWDV5dg__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So I’m a backend developer. I’m often closest to the source of most technical …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Mon, 08 Jan 2018 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-01-08:/why-an-ipad-for-a-backend-developer.html</guid><category>posts</category></item><item><title>Freelancer Lessons – Part 3</title><link>https://shanedowling.com/freelancer-lessons-part-3.html</link><description>&lt;p&gt;This is part 3 in a series on lessons I’ve learned from several years of
+  freelancing. You can find Part 1 here and Part 2 here, though you…
+date: '2018-01-06T14:54:41.133Z'
+categories: []
+keywords: []
+slug: /@shano/freelancer-lessons-part-3-7015dc89b6fb&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__Ih__APvHH2mTGl0LL8Uv__kg__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;This is part 3 in a series on lessons I’ve …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Sat, 06 Jan 2018 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-01-06:/freelancer-lessons-part-3.html</guid><category>posts</category></item><item><title>Freelancer Lessons – Part 2</title><link>https://shanedowling.com/freelancer-lessons-part-2.html</link><description>&lt;p&gt;This is a series of posts on lessons I’ve learned while freelancing for the
+  past four years. You can find Part 1 here.
+date: '2018-01-01T16:45:00.508Z'
+categories: []
+keywords: []
+slug: /@shano/freelancer-lessons-part-2-e5700002d8b&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__2AEQoUCrc3CV1JPJNEGr9Q__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;This is a series of posts on lessons I’ve learned while freelancing for the past …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Mon, 01 Jan 2018 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2018-01-01:/freelancer-lessons-part-2.html</guid><category>posts</category></item><item><title>Freelancer lessons – Part 1</title><link>https://shanedowling.com/freelancer-lessons-part-1.html</link><description>&lt;p&gt;Looking back on this year, many of the lessons I’ve learned had less to do
+  with specific technologies and more to do with long term career…
+date: '2017-12-31T19:20:04.741Z'
+categories: []
+keywords: []
+slug: /@shano/developer-lessons-from-2017-part-1-14c31f45307c&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__T29vR6I4G8K__edEp81oWCQ__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Looking back on this year, many of the lessons I’ve learned had …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Sun, 31 Dec 2017 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:shanedowling.com,2017-12-31:/freelancer-lessons-part-1.html</guid><category>posts</category></item></channel></rss>

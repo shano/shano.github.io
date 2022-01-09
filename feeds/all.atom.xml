@@ -1,112 +1,715 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2022-01-04T00:00:00+01:00</updated><subtitle>Shane Dowling</subtitle><entry><title>TIL Updating ZSH</title><link href="https://shanedowling.com/til-updating-zsh.html" rel="alternate"></link><published>2022-01-04T00:00:00+01:00</published><updated>2022-01-04T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-01-04:/til-updating-zsh.html</id><content type="html">&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
-realise there was an omz command!&lt;/p&gt;
-</content><category term="TIL"></category></entry><entry><title>Activity Nag</title><link href="https://shanedowling.com/activity-nag.html" rel="alternate"></link><published>2022-01-03T00:00:00+01:00</published><updated>2022-01-03T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-01-03:/activity-nag.html</id><summary type="html">&lt;div class="figure"&gt;
-&lt;img alt="Digital Minimalism" src="./images/digital_minimalism.jpeg" /&gt;
-&lt;p class="caption"&gt;Digital Minimalism&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;I'm trying out a month of Digital Minimalism and I wanted some…
-encouragement to ensure I stick to my rules. One of which is to use my
-laptop only for specific tasks I know ahead of time, for an hour a day
-only. I currently already use Activitywatch …&lt;/p&gt;</summary><content type="html">&lt;div class="figure"&gt;
-&lt;img alt="Digital Minimalism" src="./images/digital_minimalism.jpeg" /&gt;
-&lt;p class="caption"&gt;Digital Minimalism&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;I'm trying out a month of Digital Minimalism and I wanted some…
-encouragement to ensure I stick to my rules. One of which is to use my
-laptop only for specific tasks I know ahead of time, for an hour a day
-only. I currently already use Activitywatch to track all my activities
-on my machine, so I wanted a quick script that would(after an hour) nag
-me constantly if I wanted to continue using my machine. So I made
-&lt;a class="reference external" href="https://github.com/shano/activitynag"&gt;ActivityNag&lt;/a&gt;!&lt;/p&gt;
-&lt;p&gt;You can find all the details around ActivityNag
-&lt;a class="reference external" href="https://github.com/shano/activitynag/blob/main/README.md"&gt;here&lt;/a&gt;.&lt;/p&gt;
-</content><category term="Digital Minimalism"></category></entry><entry><title>Nonviolent Communication</title><link href="https://shanedowling.com/nonviolent-communication.html" rel="alternate"></link><published>2021-08-27T00:00:00+02:00</published><updated>2021-08-27T00:00:00+02:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2021-08-27:/nonviolent-communication.html</id><summary type="html">&lt;p&gt;&lt;img alt="image0" src="./images/1__Tq3cCMHDxnnkVTxtFSJ6jA.jpeg" /&gt;&lt;/p&gt;
-&lt;div class="section" id="what-is-nonviolent-communication"&gt;
-&lt;h2&gt;What is Nonviolent Communication?&lt;/h2&gt;
-&lt;p&gt;Nonviolent Communication(NVC) helps us communicate clearly by breaking
-down and identifying our needs and communicating them compassionately.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="why"&gt;
-&lt;h2&gt;Why?&lt;/h2&gt;
-&lt;p&gt;NVC can help reduce conflict towards others and ourselves. It can also
-help us to hear others out and recognise each other's needs and support
-acting more …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="image0" src="./images/1__Tq3cCMHDxnnkVTxtFSJ6jA.jpeg" /&gt;&lt;/p&gt;
-&lt;div class="section" id="what-is-nonviolent-communication"&gt;
-&lt;h2&gt;What is Nonviolent Communication?&lt;/h2&gt;
-&lt;p&gt;Nonviolent Communication(NVC) helps us communicate clearly by breaking
-down and identifying our needs and communicating them compassionately.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="why"&gt;
-&lt;h2&gt;Why?&lt;/h2&gt;
-&lt;p&gt;NVC can help reduce conflict towards others and ourselves. It can also
-help us to hear others out and recognise each other's needs and support
-acting more compassionately day to day.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="how"&gt;
-&lt;h2&gt;How&lt;/h2&gt;
-&lt;p&gt;At a high level, the steps involved are:&lt;/p&gt;
-&lt;div class="section" id="observation"&gt;
-&lt;h3&gt;Observation&lt;/h3&gt;
-&lt;p&gt;Be present and listen carefully to what the other person is saying. How
-is it affecting you? Just observe, don't evaluate.&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Avoid quick immediate judgements like &amp;quot;You never sweep the floor&amp;quot;&lt;/li&gt;
-&lt;li&gt;Use &amp;quot;The last three times I asked you to sweep the floor, it wasn't
-done&amp;quot;&lt;/li&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2021-03-26T00:00:00+01:00</updated><subtitle>Shane Dowling</subtitle><entry><title>5 Steps to a better Personal Development Plan(PDP)</title><link href="https://shanedowling.com/5-steps-to-a-better-personal-development-planpdp.html" rel="alternate"></link><published>2021-03-26T00:00:00+01:00</published><updated>2021-03-26T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2021-03-26:/5-steps-to-a-better-personal-development-planpdp.html</id><summary type="html">&lt;p&gt;5 steps to help give you the direction needed to turn those PDP opportunities
+  into something actionable, demonstrable and focused.
+date: '2021-03-26T15:30:42.563Z'
+categories: []
+keywords: []
+slug: /@shano/wrangle-your-personal-development-plan-pdp-into-actionable-objectives-e448649b5db0&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__fc4D7D9urHFu0rbm8cpP2Q.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Reviewing your PDP can be a somewhat overwhelming process. So many areas of improvement can be highlighted, it can be …&lt;/p&gt;</summary><content type="html">&lt;p&gt;5 steps to help give you the direction needed to turn those PDP opportunities
+  into something actionable, demonstrable and focused.
+date: '2021-03-26T15:30:42.563Z'
+categories: []
+keywords: []
+slug: /@shano/wrangle-your-personal-development-plan-pdp-into-actionable-objectives-e448649b5db0&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__fc4D7D9urHFu0rbm8cpP2Q.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Reviewing your PDP can be a somewhat overwhelming process. So many areas of improvement can be highlighted, it can be a real challenge to discover what to focus on. Not only that but you also want to make sure your areas of focus have high impact benefits to the squad, so much to think about!&lt;/p&gt;
+&lt;p&gt;These 5 steps should help give you the direction needed to turn those PDP opportunities into something actionable, demonstrable and focused on what you care about.&lt;/p&gt;
+&lt;h3&gt;Step 1 — Find the themes&lt;/h3&gt;
+&lt;p&gt;Depending on your PDP, a lot of areas of improvements might be highlighted(or maybe that’s just me). They might be categorised as different things, for example competency or skills. It can be overwhelming to try to parse all of that opportunity into something actionable. The first thing I would suggest is to find the themes. Try your best to group your areas of opportunity as best you can, it won’t be perfect, but it’s helpful to put together some order. That way, you can tackle the theme to demonstrate the competency and show your skills!&lt;/p&gt;
+&lt;p&gt;An example that might help, say there’s your Agile skills improvement and also a competency you could demonstrate around execution. Could they live under the theme of delivery? Theming can be challenging, but it’s an iterative process that you’ll improve on over time.&lt;/p&gt;
+&lt;h3&gt;Step 2 — What gives you energy?&lt;/h3&gt;
+&lt;p&gt;Whenever I’ve tried to think about what I care about I often struggle. Historically I get wrapped up in the objectives of the team and leave my own preferences to one side, this has gone on for so long in my career, I often struggle to answer the question “What do I even care about?”.&lt;/p&gt;
+&lt;p&gt;One thing working at Gousto has taught me early on was to ask yourself “What gives you energy?”. It’s deceptively clever for such a simple statement. Focus less on what you want to care about in the future. Focus on what gives you energy now, what undertakings have given you that energy in the past? Use that to inform your decisions.&lt;/p&gt;
+&lt;p&gt;With that frame of mind pick one or two of your themes that you think will give you energy.&lt;/p&gt;
+&lt;h3&gt;Step 3 — Find the outcomes&lt;/h3&gt;
+&lt;p&gt;Now that you’ve come up with the themes you want to put energy into, now is a good time to try to link it to outcomes. What are the outcomes that will help you and the business?&lt;/p&gt;
+&lt;p&gt;More importantly, can you demonstrate that you personally are improving in this area and that the business is benefiting from it? Come up with as many outcomes as you can here, we’ll whittle them down in the next step!&lt;/p&gt;
+&lt;h3&gt;Step 4 — Impact and metrics&lt;/h3&gt;
+&lt;p&gt;So you have some themes and a greater number of outcomes you could progress, what outcomes should you focus on?&lt;/p&gt;
+&lt;p&gt;One tactic you can take is to ask yourself is why? Ideally, you ask yourself why about 5 times. &lt;a href="https://en.wikipedia.org/wiki/Five_whys"&gt;The Five whys&lt;/a&gt; technique is not perfect, but it will hopefully help challenge you into clarifying why that outcome matters.&lt;/p&gt;
+&lt;p&gt;The other approach is to look at is metrics. Do your outcomes move any metrics? If not maybe it’s worth initially capturing a metric before executing the outcome. When it comes time to review your PDP, demonstrating metrics have moved as a result of executing your PDP is a pretty compelling sign of progress.&lt;/p&gt;
+&lt;h3&gt;Step 5 — Make a plan&lt;/h3&gt;
+&lt;p&gt;At this point the best thing to do is to start breaking down those outcomes and to come up with a plan with your line manager. Hopefully what you now bring to the table is not only what you’re going to focus on but also a very clear why you want to focus on it.&lt;/p&gt;
+&lt;h3&gt;Outcomes&lt;/h3&gt;
+&lt;p&gt;Ideally you’ll now have the structure in place to really kickstart your PDPs and have much more productive sessions with your line manager. This can also be something you refer back to regularly, particularly in review sessions.&lt;/p&gt;
+&lt;p&gt;As time passes you might discover other worthwhile initiatives, now you can evaluate those initiatives with the same process and stack it against your current focus. It’s always useful to remind yourself not only of what you want to focus on, but what you decided not to do and why. This should be your north star.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Learning Python as a Platform Engineer — First Steps</title><link href="https://shanedowling.com/learning-python-as-a-platform-engineer-first-steps.html" rel="alternate"></link><published>2021-01-01T00:00:00+01:00</published><updated>2021-01-01T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2021-01-01:/learning-python-as-a-platform-engineer-first-steps.html</id><summary type="html">&lt;p&gt;I’ve relatively recently moved into a Platform Engineering position after
+  working in very developer oriented teams for many years. What’s…
+date: '2021-01-01T14:48:49.480Z'
+categories: []
+keywords: []
+slug: /@shano/learning-python-as-a-platform-engineer-first-steps-911e59dd4af8&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__t__tjPBb9m6YDhRdn3wKGSg.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;I’ve relatively recently moved into a Platform Engineering position after working in very developer oriented teams for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’ve relatively recently moved into a Platform Engineering position after
+  working in very developer oriented teams for many years. What’s…
+date: '2021-01-01T14:48:49.480Z'
+categories: []
+keywords: []
+slug: /@shano/learning-python-as-a-platform-engineer-first-steps-911e59dd4af8&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__t__tjPBb9m6YDhRdn3wKGSg.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;I’ve relatively recently moved into a Platform Engineering position after working in very developer oriented teams for many years. What’s interesting is that the engineers you work with have much more diverse and interesting backgrounds in terms of their experience, so there’s a real opportunity to grow and learn a lot more, as opposed to a more homogenous set of developers. With that in mind, I wanted to put together materials on how a more ops focused engineer can up-skill in Python(as that’s more my wheel-house), in particular what are the things that would help you move into a more Python-focused role.&lt;/p&gt;
+&lt;h3&gt;Where to start&lt;/h3&gt;
+&lt;p&gt;Beginners who have no experience of Python are going to need to get their head around the fundamentals. I wouldn’t avoid reading books, but you’re going to get more impact delivering. Prioritise writing and reading code over anything else. One thing I’d always suggest is to try automate parts of your life with code. There’s a great book called “Automate the boring stuff with Python” if you need inspiration to focus on delivering.&lt;/p&gt;
+&lt;p&gt;Personally, when I needed a refresher in Python after several years of NodeJS, I started writing scripts that helped me to refresh myself. I wrote a script to alert me of the most up to date bus arrival times from TFL just before I’d usually leave the house in the morning, so I knew what time I had to leave.&lt;/p&gt;
+&lt;p&gt;On an ongoing basis, I maintain a simple Python project on an ongoing-basis that will watch a YouTube channel and automatically download any streams that appear. I use this project to test out things is like to try out, such as new libraries or programming concepts. It’s a safe way to try things out before I might suggest using it at work.&lt;/p&gt;
+&lt;p&gt;So to start with, &lt;strong&gt;pick a project&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;What to avoid&lt;/h3&gt;
+&lt;p&gt;Don’t read books and not output anything! It’s a trap of feeling productive while avoiding cementing any learnings. Think of it this way, you don’t want to “learn to code”, what you are is lazy and what you really want is to solve boring problems with code. You’re learning to use a hammer, find nails in your life to start banging away at!&lt;/p&gt;
+&lt;p&gt;Also avoid getting bogged down in setup. As an ops engineer, you might lean more into what you’re comfortable with. Just get something super basic working and don’t waste too much time on setup or use repl.it and forget about it! Heck I even wrote a post on &lt;a href="https://shano.medium.com/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2"&gt;coding on my iPad&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Set a goal&lt;/h3&gt;
+&lt;p&gt;Don’t set a vague goal when learning to program, getting “better” doesn’t mean anything. Programming is about delivering projects and learning what works and what doesn’t. Focus on delivering small projects that help you in any small way and iterate on complexity. Don’t be afraid to set clear goals for yourself and share them with others.&lt;/p&gt;
+&lt;p&gt;If it helps try to think about it as a maturity vs capabilities. You don’t “mature” to be a developer, what would that even mean? Think of it more as adding capabilities to yourself, “I’m capable of writing a Python script, I’m capable of writing some tests, I’m capable of using boto to interact with AWS automatically”. Avoid thinking “I’ll read a bunch of books and be a developer some day”.&lt;/p&gt;
+&lt;p&gt;So set a goal of delivering a &lt;strong&gt;specific project at a specific date&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;Figure it out&lt;/h3&gt;
+&lt;p&gt;Now it’s time to start figuring out how to solve this problem you’ve set for yourself. At this stage I would say, look for what works best for you. Could you learn the basics more from say a book, a series of articles, a Udemy course? I’ve put some resources at the bottom of this post but this step really only you can define.&lt;/p&gt;
+&lt;p&gt;The one thing I would recommend is getting good at reading documentation, try to read up using the Python docs first before using Google/SO, but it’s fine if that’s what you need to do.&lt;/p&gt;
+&lt;h3&gt;Asking for help&lt;/h3&gt;
+&lt;p&gt;If you get stuck, ask for help. Ask colleagues, if you can’t ask them, ask on Stackoverflow or find a Python discord or IRC channel for example: &lt;a href="https://pythondiscord.com/"&gt;https://pythondiscord.com/&lt;/a&gt; and reach out. I can only speak for myself, but I always love helping people genuinely trying to learn but just getting blocked. If you can’t find any help at those resources and have some cash to spare, you can always use a service like &lt;a href="https://codementor.io"&gt;https://codementor.io&lt;/a&gt; to get the expertise you need.&lt;/p&gt;
+&lt;h3&gt;Automate your (platform) life&lt;/h3&gt;
+&lt;p&gt;From a more platform-focused perspective, if you have say, manual things you do in AWS repeatedly, could that be turned into a quick script? Take a look at boto3 and see if there’s anything that could save you some time every day.&lt;/p&gt;
+&lt;p&gt;Some inspiration:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When an incident occurs in the systems you maintain, are there several things you might check depending on the type of incident that occurs? Perhaps you could automate pulling out some key data on your local machine to save some critical time.&lt;/li&gt;
+&lt;li&gt;Rotating keys, setting up users, any other admin tasks you could use avoid logging into your cloud platform?&lt;/li&gt;
+&lt;li&gt;Are there parts of your job where the UI of your cloud-provider of choice is a total pain(*cough* Cloudwatch… *cough*)? Perhaps you could avoid it by programming a solution.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="feeling"&gt;
-&lt;h3&gt;Feeling&lt;/h3&gt;
-&lt;p&gt;Express how you feel. Be specific, give narratives if you need to.&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Avoid ambiguous statements like &amp;quot;I feel drained&amp;quot;&lt;/li&gt;
+&lt;h3&gt;Resources&lt;/h3&gt;
+&lt;p&gt;In terms of resources you can use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://automatetheboringstuff.com"&gt;https://automatetheboringstuff.com&lt;/a&gt; — Great for inspiration to start projects.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.twilio.com/quest/learn/python"&gt;https://www.twilio.com/quest/learn/python&lt;/a&gt; — If you can’t think of any projects you’d like to start, this looks like a fun way to crank out some lines of code.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.fullstackpython.com/"&gt;https://www.fullstackpython.com/&lt;/a&gt; — Deep dive into programming in Python.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=mvK0UzFNw1Q"&gt;https://www.youtube.com/watch?v=mvK0UzFNw1Q&lt;/a&gt; — Great video on where to start and explains why you should focus on delivering projects instead.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://repl.it/"&gt;https://repl.it/&lt;/a&gt; — Don’t get bogged down setting your local environment.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://codementor.io/"&gt;https://codementor.io/&lt;/a&gt; — Pay to get expert help.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="needs"&gt;
-&lt;h3&gt;Needs&lt;/h3&gt;
-&lt;p&gt;Identify the needs at the root of your feelings. This can take practice,
-the objective is to be able to sincerely express yourself directly.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="requests"&gt;
-&lt;h3&gt;Requests&lt;/h3&gt;
-&lt;p&gt;Express clearly and specifically what you really want. Be specific in
-the action needed. Express yourself with positive language. Ask for
-something, don't frame the request as something to stop being done.&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Avoid &amp;quot;You are always X&amp;quot;&lt;/li&gt;
-&lt;li&gt;Use language like &amp;quot;I would like….&amp;quot;&lt;/li&gt;
+&lt;p&gt;This is definitely enough to get a platform engineer started, I’ll expand on this series with next steps, so keep an eye! I’ll also start documenting how I’m growing from a Developer into a role demanding more Ops capabilities when I feel more comfortable myself.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Populate Ansible from Amazon secrets manager</title><link href="https://shanedowling.com/populate-ansible-from-amazon-secrets-manager.html" rel="alternate"></link><published>2020-09-03T00:00:00+02:00</published><updated>2020-09-03T00:00:00+02:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-03:/populate-ansible-from-amazon-secrets-manager.html</id><summary type="html">&lt;p&gt;One of the ways to improve your security and avoid passing around env files is
+  to follow the twelve factor app and start populating your…
+date: '2020-09-03T18:06:58.955Z'
+categories: []
+keywords: []
+slug: /@shano/populate-ansible-from-amazon-secrets-manager-8eac77127e37&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__l0WrN40X7lf7tKsbdtj7Sw.png"&gt;&lt;/p&gt;
+&lt;p&gt;One of the ways to improve your security and avoid passing around env files is …&lt;/p&gt;</summary><content type="html">&lt;p&gt;One of the ways to improve your security and avoid passing around env files is
+  to follow the twelve factor app and start populating your…
+date: '2020-09-03T18:06:58.955Z'
+categories: []
+keywords: []
+slug: /@shano/populate-ansible-from-amazon-secrets-manager-8eac77127e37&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__l0WrN40X7lf7tKsbdtj7Sw.png"&gt;&lt;/p&gt;
+&lt;p&gt;One of the ways to improve your security and avoid passing around env files is to follow the &lt;a href="https://12factor.net/config"&gt;twelve factor app&lt;/a&gt; and start populating your secrets from the environment. Another improvement is to pull those secrets from a known secret store, with features like rotation, auditing etc.&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.ansible.com/"&gt;Ansible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Have some secrets stored in &lt;a href="https://aws.amazon.com/secrets-manager/"&gt;AWS Secrets Manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ansible should have access to the latest &lt;a href="https://aws.amazon.com/cli/"&gt;aws-cli&lt;/a&gt; command(secrets manager is a recent addition)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://stedolan.github.io/jq/"&gt;Jq&lt;/a&gt; if you’re storing json in your secrets&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="listening"&gt;
-&lt;h2&gt;Listening&lt;/h2&gt;
-&lt;p&gt;As a bonus, you can also use NVC when you are listening.&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;*Observation* — Give the person space to fully express their
-feelings.&lt;/li&gt;
-&lt;li&gt;*Feeling* — Don't jump to offer advice. Ask questions and help the
-other person evaluate and understand their feelings.&lt;/li&gt;
-&lt;li&gt;*Needs* — Use the power of reflection. Rephrase what the other
-person is saying back to them, sometimes what they communicate might
-not be what they actually need.&lt;/li&gt;
-&lt;li&gt;*Request* — Confirm and clarify the request after establishing what
-the need is. Ensure it's clearly understood.&lt;/li&gt;
+&lt;p&gt;It’s worth testing your AWS calls to just extract the secret you’re interested in to stdout, from the terminal tests some calls like:&lt;/p&gt;
+&lt;p&gt;aws secretsmanager get-secret-value --secret-id some/secret/name --query SecretString --output text&lt;/p&gt;
+&lt;p&gt;Or for json you might do something like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;aws secretsmanager get-secret-value --secret-id secrets| jq --raw-output &amp;#39;.SecretString&amp;#39; | jq -r .API_KEY&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Ansible Config&lt;/h3&gt;
+&lt;p&gt;Once you have secrets manager outputting your secrets to stdout, you can utilise it in Ansible. In this example I’m outputting to an env file but this could but used anywhere in Ansible. Instead of outputting to a file you could set its own environment variables then spin up the project from Ansible without outputting to a file anywhere.&lt;/p&gt;
+&lt;p&gt;- name: Setting env with some secret&lt;br&gt;
+  args:&lt;br&gt;
+    executable: /bin/bash&lt;br&gt;
+  shell: |&lt;br&gt;
+    aws secretsmanager get-secret-value --secret-id some/secret/name --query SecretString --output text&lt;br&gt;
+  register: some_secret&lt;/p&gt;
+&lt;p&gt;- name: pass response of ssm to .env file&lt;br&gt;
+  become: no&lt;br&gt;
+  blockinfile:&lt;br&gt;
+    dest: '{{ some_environment_path }}/.env'&lt;br&gt;
+    state: present&lt;br&gt;
+    create: yes&lt;br&gt;
+    marker: "# {mark} MY SECRET FROM AWS #"&lt;br&gt;
+    block: |&lt;br&gt;
+      SOME_SECRET='{{ some_secret.stdout }}'&lt;/p&gt;
+&lt;p&gt;And that’s it! Anything I could’ve done better(which I’m sure there is), do let me know!&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Better local development for Serverless Functions</title><link href="https://shanedowling.com/better-local-development-for-serverless-functions.html" rel="alternate"></link><published>2019-02-11T00:00:00+01:00</published><updated>2019-02-11T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2019-02-11:/better-local-development-for-serverless-functions.html</id><summary type="html">&lt;p&gt;Lambda is a terrific piece of kit for all the benefits listed on the AWS
+  product page and Serverless is a very useful framework for…
+date: '2019-02-11T20:15:38.791Z'
+categories: []
+keywords: []
+slug: /@shano/better-local-development-for-serverless-functions-b96b5a4cfa8f&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__roedigbmFjRYkZobdZWuKg.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Lambda is a terrific piece of kit for all the benefits listed on the &lt;a href="https://aws.amazon.com/lambda/"&gt;AWS …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Lambda is a terrific piece of kit for all the benefits listed on the AWS
+  product page and Serverless is a very useful framework for…
+date: '2019-02-11T20:15:38.791Z'
+categories: []
+keywords: []
+slug: /@shano/better-local-development-for-serverless-functions-b96b5a4cfa8f&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__roedigbmFjRYkZobdZWuKg.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Lambda is a terrific piece of kit for all the benefits listed on the &lt;a href="https://aws.amazon.com/lambda/"&gt;AWS product page&lt;/a&gt; and &lt;a href="https://serverless.com/"&gt;Serverless&lt;/a&gt; is a very useful framework for developing Lambda functions. However, developing serverless applications locally is a total pain if what you’re solving isn’t totally trivial.&lt;/p&gt;
+&lt;p&gt;When things get complicated and your Lambda functions start to integrate with other AWS services, things really begin to break down. There are a few things that look like silver-bullets, I’ll share them here and explain why they didn’t work for me, then give you a working example that I myself struggled to find(hence me writing this).&lt;/p&gt;
+&lt;h3&gt;Localstack&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/localstack/localstack"&gt;Localstack&lt;/a&gt; is definitely the biggest attempt at a silver bullet here. Basically it emulates a huge chunk of AWS locally and you connect your serverless functions into that. Why I didn’t use it:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Bits worked, but if you have any sort of half complicated setup(like a region outside us-east-1 or eu-west-1), it will break down. Uploading a whole cloudformation template was a disaster of broken links between services. I got to the point of editing localstack code to try fix issue after issue I was coming across and gave up. The product would be cool if it wasn’t trying to do something so super complicated.&lt;/li&gt;
+&lt;li&gt;It’s also a huge resource drain on a developer’s machine.&lt;/li&gt;
+&lt;li&gt;Fundamentally, you shouldn’t have to emulate half of AWS to test your code.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Serverless Offline&lt;/h3&gt;
+&lt;p&gt;Serverless offline is fairly straightforward. It should allow you to spin up your functions locally and call them as needed. Where this fell down for me was that it required you to have HTTP endpoints for your lambda functions, all of our Lambda functions were driven either by SQS events or a Cron. We also instantiate our SNS topics in our code, so it would constantly attempt to create SNS topics and AWS would throw errors.&lt;/p&gt;
+&lt;p&gt;I also did try using &lt;a href="https://www.npmjs.com/package/serverless-offline-sqs"&gt;serverless-offline-sqs&lt;/a&gt; but could not get it to drive events into our Lamdba functions.&lt;/p&gt;
+&lt;p&gt;I was burning a lot of time getting a dev environment setup and I realised that this was fundamentally the wrong approach. I needed to start writing proper unit tests and use mocking to emulate the infrastructure(I mean ideally they’d be isolated properly and infrastructure/functions would be totally ignorant of each other, but that’s for another day).&lt;/p&gt;
+&lt;h3&gt;The Example&lt;/h3&gt;
+&lt;p&gt;Say we’re developing an application that makes use of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lambda&lt;/li&gt;
+&lt;li&gt;MongoDB&lt;/li&gt;
+&lt;li&gt;SQS&lt;/li&gt;
+&lt;li&gt;SNS&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="behaviours"&gt;
-&lt;h2&gt;Behaviours&lt;/h2&gt;
-&lt;p&gt;There are also behaviours to be mindful of when practising NVC.&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Take responsibility for your feelings. Your reaction to life events
-determines how you feel, not the event itself.&lt;/li&gt;
-&lt;li&gt;When reacting to conflict, avoid defensive/negative reactions,
-neither get to the root of the issue.&lt;/li&gt;
-&lt;li&gt;Talk through your own feelings and use the process to identify your
-emotional response and address the reasons for the conflict.&lt;/li&gt;
-&lt;li&gt;Use NVC to reduce self-judgement. Listen to your judgement and
-instead of being led by those feelings, ask yourself, &amp;quot;what unmet
-needs am I expressing here?&amp;quot;&lt;/li&gt;
+&lt;p&gt;Your lambda function connects to your MongoDB, does a thing and fires off occasional SNS notifications/SQS messages to other services.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lambda&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;For the actual code being run, I was going to use &lt;a href="https://www.npmjs.com/package/jest"&gt;jest&lt;/a&gt; to start writing tests. Jest works well and integrates nicely into serverless.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MongoDB&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To emulate MongoDB, I’m going to use an &lt;a href="https://www.npmjs.com/package/mongodb-memory-server"&gt;in-memory version of MongoDB&lt;/a&gt; that ties nicely into our Mongoose models.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SQS/SNS&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;For any Amazon infrastructure, we’re going to use &lt;a href="https://www.npmjs.com/package/aws-sdk-mock"&gt;aws-sdk-mock&lt;/a&gt;. This is an excellent wrapper around &lt;a href="https://www.npmjs.com/package/sinon"&gt;sinon&lt;/a&gt; for mocking the AWS infrastructure, that’s super useful for unit tests as you’ll see later.&lt;/p&gt;
+&lt;h3&gt;Tieing it all together&lt;/h3&gt;
+&lt;p&gt;So firstly lets install our dependencies.&lt;/p&gt;
+&lt;p&gt;npm install aws-sdk-mock mongodb-memory-server sinon jest --save-dev&lt;/p&gt;
+&lt;p&gt;Let’s also create a tests folder to keep all this test code in.&lt;/p&gt;
+&lt;p&gt;mkdir tests&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Setting up MongoDB&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Now, for our code to integrate with our in-memory Mongo-DB server, we’re going to need to add a few setup/teardown functions and a Mongo Environment. Clone this &lt;a href="https://github.com/vladgolubev/jest-mongodb"&gt;repo&lt;/a&gt; and put:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;setup.js&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;teardown.js&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mongo-environment.js&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-</content><category term="Leadership"></category></entry></feed>
+&lt;p&gt;into your new test folder.&lt;/p&gt;
+&lt;p&gt;In your root directory add a &lt;code&gt;jest.config.js&lt;/code&gt; with this content.&lt;/p&gt;
+&lt;p&gt;module.exports = {&lt;br&gt;
+  globalSetup: './tests/setup.js',&lt;br&gt;
+  globalTeardown: './tests/teardown.js',&lt;br&gt;
+  testEnvironment: './tests/mongo-environment.js',&lt;br&gt;
+  roots: ['./tests/'],&lt;br&gt;
+};&lt;/p&gt;
+&lt;p&gt;This should be enough to get MongoDB up and running. Now onto our actual tests scripts.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Setting up our tests&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Now, finally, you can tie it all together with this snippet:&lt;/p&gt;
+&lt;p&gt;Add jest to your package.json&lt;/p&gt;
+&lt;p&gt;"scripts":{   &lt;br&gt;
+  "test": "jest"&lt;br&gt;
+},&lt;/p&gt;
+&lt;p&gt;And run with &lt;code&gt;npm test&lt;/code&gt; .&lt;/p&gt;
+&lt;p&gt;One major point to note is that aws-mock-sdk requires a very specific way of instantiating AWS resources(within the scope of the function tests), so if you see any errors around aws regions, double check &lt;a href="https://github.com/dwyl/aws-sdk-mock#use-in-your-tests"&gt;you’re following the rules&lt;/a&gt;.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Easy maintenance mode with nginx</title><link href="https://shanedowling.com/easy-maintenance-mode-with-nginx.html" rel="alternate"></link><published>2018-08-20T00:00:00+02:00</published><updated>2018-08-20T00:00:00+02:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-08-20:/easy-maintenance-mode-with-nginx.html</id><summary type="html">&lt;p&gt;So I combined a few solutions I found online to come up with a quick way to
+  set up maintenance mode using nginx. Ideally it shouldn’t…
+date: '2018-08-20T18:51:42.074Z'
+categories: []
+keywords: []
+slug: /@shano/easy-maintenance-mode-with-nginx-2d4d510a0980&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;So I combined a few solutions I found online to come up with …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So I combined a few solutions I found online to come up with a quick way to
+  set up maintenance mode using nginx. Ideally it shouldn’t…
+date: '2018-08-20T18:51:42.074Z'
+categories: []
+keywords: []
+slug: /@shano/easy-maintenance-mode-with-nginx-2d4d510a0980&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;So I combined a few solutions I found online to come up with a quick way to set up maintenance mode using nginx. Ideally it shouldn’t happen but in times of emergency in can be good to knock up a quick maintenance page for everyone but your own internal ips.&lt;/p&gt;
+&lt;h3&gt;Nginx Config&lt;/h3&gt;
+&lt;p&gt;So here’s the configuration I use for nginx, it starts with setting the internal ips of your company in the main nginx config file. Then in the actual vhost, you can set it to watch for the existence of a maintenance_on.html and when it exists, throw a 503 and use the maintenance page as your 503 error page.&lt;/p&gt;
+&lt;h3&gt;How to use&lt;/h3&gt;
+&lt;p&gt;By default I have the file named as maintenance_off.html, so it’s only a simple move operation to turn on maintenance mode. For the content of my maintenance file, I generally use this self-contained static html file to serve out a message to customers.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Any sort of conditionals going on on your web server is likely to slow things down by a few milliseconds. Again you’re asking your web server to check against network and the disk per request, then make a decision, so bear this in mind before implementing a solution like this.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Please don’t do it Github</title><link href="https://shanedowling.com/please-dont-do-it-github.html" rel="alternate"></link><published>2018-06-02T00:00:00+02:00</published><updated>2018-06-02T00:00:00+02:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-06-02:/please-dont-do-it-github.html</id><summary type="html">&lt;p&gt;So Microsoft has been in talks with Github about a potential acquisition.
+  There are several reasons why this is a terrible idea. Github is…
+date: '2018-06-02T16:39:57.081Z'
+categories: []
+keywords: []
+slug: /@shano/please-dont-do-it-github-5890eb72d12c&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__cKz__YzMFvM1HgqvzbIBvzw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So &lt;a href="http://www.businessinsider.com/2-billion-startup-github-could-be-for-sale-microsoft-2018-5"&gt;Microsoft has been in talks with Github&lt;/a&gt; about a potential acquisition. There are several reasons …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So Microsoft has been in talks with Github about a potential acquisition.
+  There are several reasons why this is a terrible idea. Github is…
+date: '2018-06-02T16:39:57.081Z'
+categories: []
+keywords: []
+slug: /@shano/please-dont-do-it-github-5890eb72d12c&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__cKz__YzMFvM1HgqvzbIBvzw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So &lt;a href="http://www.businessinsider.com/2-billion-startup-github-could-be-for-sale-microsoft-2018-5"&gt;Microsoft has been in talks with Github&lt;/a&gt; about a potential acquisition. There are several reasons why this is a terrible idea. Github is a pretty solid git repo hosting company, but it has a few core values that are in jeopardy here and I’m not sure Microsoft(or anyone) can acquire an entity like Github without severe repercussions.&lt;/p&gt;
+&lt;h3&gt;Platform agnostic integrations&lt;/h3&gt;
+&lt;p&gt;Github has a ton of super useful integrations that help make the life for developers a lot easier. Tools like appveyor, travis-ci, coverall, readthedocs, codacy are really useful and what’s so great is you free to run them wherever you like. How can Microsoft make the business case to keep platform agnostic integrations that are aiding competitors? Maybe they won’t ban them, but they may become very much second class citizens.&lt;/p&gt;
+&lt;p&gt;Don’t believe me? Some examples of Microsoft not giving a single crap about anyone outside Microsoft products..&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Having to use &lt;a href="https://tel.red/linux.php"&gt;Sky&lt;/a&gt; as there’s no Skype for Business on Linux&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://blog.sunrise.am/"&gt;Sunrise to Outlook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theverge.com/2015/1/29/7936081/microsoft-outlook-app-ios-android-features"&gt;Accompli to Outlook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are certainly more examples, but the day I need to sign into a Microsoft account to use Github or can only deploy to Azure platforms for build tools, will be the day I stop bothering to use it and this is a real concern I have.&lt;/p&gt;
+&lt;h3&gt;The connection to open source&lt;/h3&gt;
+&lt;p&gt;Github repos are by default open and if you wish to pay a monthly fee they can be made private, this alone has simply been amazing for open source and why Github has been the platform of choice for most open source projects. There’s also a great issue tracker, wikis, support for markdown readmes etc. We’ve all benefitted from such a great setup for open source projects.&lt;/p&gt;
+&lt;p&gt;Microsoft has been doing good work in the open source space for the last few years, but anyone can see this is a recent development and purely for business reasons to regain much of the damage done in the 90s. When Microsoft attended Linux conferences they’ve &lt;a href="https://www.samba.org/samba/news/articles/low_point/column08.html"&gt;come dressed as Darth Vader&lt;/a&gt;, the dark corporate entity against the rebels of open source. Now they’re planning to purchase the entity hosting the largest repository of open source code that has ever existed? If the strong connection to open source goes, the coolness factor takes a hit and so does Github’s community.&lt;/p&gt;
+&lt;h3&gt;Coolness&lt;/h3&gt;
+&lt;p&gt;Microsoft is not cool. God love them, they’re trying their best, and I don’t hate Microsoft at all. They’ve always given a shit about developers. I recently gave VSCode a whirl and was impressed. However, can you imagine Windows and Microsoft services getting hooked into Github all over the place? Collaborate with your open source developers over (ugh) Skype, auto-deploy your repo to Azure, or tie your Github account into your Linkedin one so recruiters can find more evidence you’re perfect for that Java role because of some decade old Java repo from college. If anyone thinks this is insane I give you this monstrosity.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__8tn6DDr1phm4CJnvPvr__0A__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;In the end, migrating to another git host(cough &lt;a href="https://about.gitlab.com/"&gt;gitlab&lt;/a&gt;) might be a bit of a pain but it’s really not that much work, mostly because git is so awesome. So Microsoft is really going to have to play this one carefully. I imagine a lot of Stallman’s army will leave the moment Github agrees to such an acquisition, in fact Gnome has moved to Gitlab as they feel it matches them &lt;a href="https://about.gitlab.com/2018/05/31/welcome-gnome-to-gitlab/"&gt;more in spirit&lt;/a&gt;. Can you imagine many open source projects aligning with Microsoft ‘in spirit’? Open source as a movement naturally rebels against centralised systems, how Microsoft can purchase its way into the hearts of developers is a hard thing to see.&lt;/p&gt;
+&lt;p&gt;Edit: Update&lt;/p&gt;
+&lt;p&gt;So there’s been a &lt;a href="https://www.bloomberg.com/news/articles/2018-06-03/microsoft-is-said-to-have-agreed-to-acquire-coding-site-github"&gt;confirmation from Microsoft,&lt;/a&gt; color me skeptical. The best case scenario is Microsoft gives it the lightest possible touch. The question is if Microsoft’s recent efforts with Github provide enough positive energy to maintain goodwill towards Github or if Gitlab becomes the de-facto FOSS git repo and let’s be honest, the de-facto git repo hosting company of choice down the line.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/swlh"&gt;&lt;img alt="" src="https://cdn-images-1.medium.com/max/800/1*YqDjlKFwScoQYQ62DWEdig.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;This story is published in &lt;a href="https://medium.com/swlh"&gt;The Startup&lt;/a&gt;, Medium’s largest entrepreneurship publication followed by 331,853+ people.&lt;/h4&gt;
+&lt;h4&gt;Subscribe to receive &lt;a href="http://growthsupply.com/the-startup-newsletter/"&gt;our top stories here&lt;/a&gt;.&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://medium.com/swlh"&gt;&lt;img alt="" src="https://cdn-images-1.medium.com/max/800/1*ouK9XR4xuNWtCes-TIUNAw.png"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Beware the todo list</title><link href="https://shanedowling.com/beware-the-todo-list.html" rel="alternate"></link><published>2018-04-02T00:00:00+02:00</published><updated>2018-04-02T00:00:00+02:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-04-02:/beware-the-todo-list.html</id><summary type="html">&lt;p&gt;For the last few months, I’ve been working off a varying series of to-do lists
+  to drive my life. I use a mix of the Things app, my bullet…
+date: '2018-04-02T13:45:51.323Z'
+categories: []
+keywords: []
+slug: /@shano/beware-the-todo-list-7faac97dae4a&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__enCLGwgR9ubVJ2oT2fFCKQ__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;For the last few months, I’ve been working off …&lt;/p&gt;</summary><content type="html">&lt;p&gt;For the last few months, I’ve been working off a varying series of to-do lists
+  to drive my life. I use a mix of the Things app, my bullet…
+date: '2018-04-02T13:45:51.323Z'
+categories: []
+keywords: []
+slug: /@shano/beware-the-todo-list-7faac97dae4a&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__enCLGwgR9ubVJ2oT2fFCKQ__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;For the last few months, I’ve been working off a varying series of to-do lists to drive my life. I use a mix of the Things app, my bullet journal, and a calendar. Basically, my setup is to have annual Smart Goals, broken down into achievable chunks, then broken down into tasks to knock off todo lists. On the face of it, it’s a way to organise a wiggly world.&lt;/p&gt;
+&lt;p&gt;And what is a wiggly world? Alan Watts describes it best:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This world is a great wiggly affair. Clouds are wiggly, waters are wiggly, plants are wiggly, mountains are wiggly, people are wiggly. But people are always trying to straighten things out.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Todo lists are essentially another attempt to make wiggly things straight and processable. There’s the addictive high of knocking another task off a list, then spending no time actually appreciating what you’ve accomplished. After you spend months achieving something important, how long does the joy you obtain from completing the activity last? From my experience, maybe a few hours. Essentially the to-do lists can become is just a list of unfulfilled craving with no real end-point in sight.&lt;/p&gt;
+&lt;p&gt;Drive is important. From the theory behind Compassion Focused Therapy(CFT), your mind is broken down into three elements of emotional regulation. Drive, Threat and Soothing. All three are essential to living a happy, productive, flourishing life, but issues arise when the balance is skewed one way or another and this is where my concern with todo lists comes in.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__4LBDCrsJSxN2vzhDISELNw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;External threats like losing your job can be helpful so you don’t slack off each day at work. There is a functional value to threats like this. However, I’m beginning to think that todo lists are engaging threat into a pit of sorts. In the act of creating a to-do list, your converting your Drive behavior into a sort of Threat based motivation. I feel Drive, so I make these todos, I am then threatening myself into an unfulfilled existence if I don’t act on this external list. If balanced, this can work relatively well.&lt;/p&gt;
+&lt;p&gt;The problems arise when there’s too much Drive forcing far too much Threat for you to handle. Our hunter-gatherer ancestors probably found it relatively easy to keep a balanced Drive -&amp;gt; Threat system, where we only kept in our heads a few goals to further enhance our status or gain a mate etc. Think of it like a physical attack, if you have one or two threats, you can make a reasonable estimation and attack/flee accordingly, when you’re surrounded by a dozen or so, screw it, you might as well just lie on the ground and let it happen.&lt;/p&gt;
+&lt;p&gt;For now, I’m just going try to create a few aims(maybe three or so) each morning and work out, if I’m any more or less productive than I was before or after. No long todo lists, no more guilt over unfulfilled goals. I’m going to look at what my wiggly mind wants to do at each instant, rather than crowbarring in what my driven straight-lined-self wanted me to do a few weeks ago.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Wild Wild Country – The Soundtrack</title><link href="https://shanedowling.com/wild-wild-country-the-soundtrack.html" rel="alternate"></link><published>2018-03-29T00:00:00+02:00</published><updated>2018-03-29T00:00:00+02:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-03-29:/wild-wild-country-the-soundtrack.html</id><summary type="html">&lt;p&gt;For anyone who hasn’t seen Netflix’s Wild Wild Country, I highly recommend you
+  watch it. The story told, along with the wealth of footage…
+date: '2018-03-29T20:16:00.115Z'
+categories: []
+keywords: []
+slug: /@shano/wild-wild-country-the-soundtrack-bbe397fc1cf4&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Wild Wild Country – The Soundtrack&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1____IGWS6a7nQTfKgT6H5FQZw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;For anyone who hasn’t seen Netflix’s &lt;a href="https://www.netflix.com/title/80145240?s=i&amp;amp;trkid=14170286"&gt;Wild …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;For anyone who hasn’t seen Netflix’s Wild Wild Country, I highly recommend you
+  watch it. The story told, along with the wealth of footage…
+date: '2018-03-29T20:16:00.115Z'
+categories: []
+keywords: []
+slug: /@shano/wild-wild-country-the-soundtrack-bbe397fc1cf4&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Wild Wild Country – The Soundtrack&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1____IGWS6a7nQTfKgT6H5FQZw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;For anyone who hasn’t seen Netflix’s &lt;a href="https://www.netflix.com/title/80145240?s=i&amp;amp;trkid=14170286"&gt;Wild Wild Country&lt;/a&gt;, I highly recommend you watch it. The story told, along with the wealth of footage they got their hands on makes it an incredible watch.&lt;/p&gt;
+&lt;p&gt;The soundtrack is also excellent, I’ve put together the soundtrack as a playlist on Apple Music, you can find it &lt;a href="https://itunes.apple.com/gb/playlist/wild-wild-country-soundtrack/pl.u-4Jomzk2tMMl6Gm"&gt;here&lt;/a&gt;. Enjoy!&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Four years without Facebook</title><link href="https://shanedowling.com/four-years-without-facebook.html" rel="alternate"></link><published>2018-03-26T00:00:00+02:00</published><updated>2018-03-26T00:00:00+02:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-03-26:/four-years-without-facebook.html</id><summary type="html">&lt;p&gt;I’m happy to see the media dog-piling on Facebook so much lately. None of this
+  ‘news’ seems to actually be conveying much that’s new, more…
+date: '2018-03-26T18:06:17.553Z'
+categories: []
+keywords: []
+slug: /@shano/four-years-without-facebook-7d5285a25913&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__gvkmxCDjT7hqaHPPWYsovg__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;I’m happy to see the media dog-piling on Facebook so much lately …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’m happy to see the media dog-piling on Facebook so much lately. None of this
+  ‘news’ seems to actually be conveying much that’s new, more…
+date: '2018-03-26T18:06:17.553Z'
+categories: []
+keywords: []
+slug: /@shano/four-years-without-facebook-7d5285a25913&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__gvkmxCDjT7hqaHPPWYsovg__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;I’m happy to see the media dog-piling on Facebook so much lately. None of this ‘news’ seems to actually be conveying much that’s new, more that it’s started taking what was slowly becoming normalised and framed it in a way to highlight the outrage. I don’t particularly like the media’s approach but I can’t feel too sorry about Facebook. We should be outraged with their on-going behaviour.&lt;/p&gt;
+&lt;p&gt;Four years ago I wrote an &lt;a href="https://medium.com/brightpin/de-activating-facebook-for-a-month-f91b49da00a4"&gt;article about de-activating Facebook&lt;/a&gt;, I have not used Facebook since then and I believe I’ve permanently deleted my account somewhere along the way. I didn’t remove Facebook for it’s data hoovering and sharing but simply for it’s lack of intrinsic value. There have been points over the years where I felt a little FOMO, but very rarely and never enough to get back onto the site. Perhaps I don’t know what I’m missing, but from the looks of it on the outside that hasn’t been the case.&lt;/p&gt;
+&lt;p&gt;I’m happy to see Facebook die(not that I believe this will be anything like a death bell for them). Ideally, I’d like to see functionality it provides get split up into smaller, focused alternatives, that could be something I’d use again.&lt;/p&gt;
+&lt;p&gt;Perhaps this recent outrage is a nice reminder to question the true value of social networks in general, and to what extent we can meaningfully communicate through them. Think about your last few interactions with Facebook, did you feel good? Did you feel engaged with those around you? I certainly didn’t.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Leaving no Trace</title><link href="https://shanedowling.com/leaving-no-trace.html" rel="alternate"></link><published>2018-03-19T00:00:00+01:00</published><updated>2018-03-19T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-03-19:/leaving-no-trace.html</id><summary type="html">&lt;p&gt;While I was camping along the West Coast of the US, I heard about the Leave No
+  Trace movement and found the idea very much resonated with…
+date: '2018-03-19T14:26:05.208Z'
+categories: []
+keywords: []
+slug: /@shano/leaving-no-trace-6ca31ffc0b9&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__ybl2a5U__z3REr1FD8qv09Q__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;While I was camping along the West Coast of the US, I heard …&lt;/p&gt;</summary><content type="html">&lt;p&gt;While I was camping along the West Coast of the US, I heard about the Leave No
+  Trace movement and found the idea very much resonated with…
+date: '2018-03-19T14:26:05.208Z'
+categories: []
+keywords: []
+slug: /@shano/leaving-no-trace-6ca31ffc0b9&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__ybl2a5U__z3REr1FD8qv09Q__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;While I was camping along the West Coast of the US, I heard about the &lt;a href="https://en.wikipedia.org/wiki/Leave_No_Trace"&gt;Leave No Trace&lt;/a&gt; movement and found the idea very much resonated with me. Recently, I’ve found myself looking around day to day and wondering where I could start leaving less of a trace. We can all hate on consumerism, but lets face it, well all need to consume a certain amount to live in the modern world. So this isn’t a guide on becoming a burlap wearing hermit, it’s just a few things I’ve come up with for to start applying this idea into my life a little more.&lt;/p&gt;
+&lt;h3&gt;Transport&lt;/h3&gt;
+&lt;p&gt;The weather in London has finally started getting a little better, so I’m now alternating running and cycling to work instead of using public transport. Save money, contribute less carbon and free exercise. The benefits are obvious but we all know it’s not that simple. Start small and build from there.&lt;/p&gt;
+&lt;h3&gt;Food&lt;/h3&gt;
+&lt;p&gt;I have a Nespresso machine and looking back, I kind of regret that purchase. They do provide a recycling program(I assume in response to the massive amounts of waste going on), so please do use that if you can. It’s still not great and I do feel guilty about that level of waste. I’ve picked up some re-usable pods and compost the coffee grounds(they’re great for plants). I already have an aero-press with a steel filter that provides almost no waste(beyond the coffee itself), so I am tempted to, swap back to that. Will see if the effort becomes a bother again.&lt;/p&gt;
+&lt;h3&gt;Reducing Waste&lt;/h3&gt;
+&lt;p&gt;Find out what your local authority can take in terms of recycling. For the UK &lt;a href="https://www.gov.uk/recycling-collections"&gt;here’s a postcode finder&lt;/a&gt;, that displays the information you need.&lt;/p&gt;
+&lt;h3&gt;When things break&lt;/h3&gt;
+&lt;h4&gt;Electronics&lt;/h4&gt;
+&lt;p&gt;Here’s a few things to try before hitting that store:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Perhaps the manufacturer has an option to repair the thing. It costs almost no time, so check up on this before doing anything else.&lt;/li&gt;
+&lt;li&gt;If that’s not an option, check out if it’s repairable. See if there’s some &lt;a href="https://www.ifixit.com/"&gt;ifixit guides&lt;/a&gt; available. I have had a &lt;a href="https://www.ifixit.com/Device/Lenovo_Thinkpad_x230"&gt;Lenovo Thinkpad x230&lt;/a&gt; for several years and have replaced almost everything in it and it’s still a great machine. It’s currently running as a server but could be pulled back out into more regular usage soon if I ever feel like it.&lt;/li&gt;
+&lt;li&gt;If you’re not too comfortable with repairs, see if there’s a repair cafe nearby where someone could help. There’s a recent article &lt;a href="https://www.theguardian.com/world/2018/mar/15/can-we-fix-it-the-repair-cafes-waging-war-on-throwaway-culture"&gt;here&lt;/a&gt; on The Guardian about such places, so take a look and see what options there are.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Clothes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Repairing clothes is not that difficult, take a look into a course. It’s definitely something I’ll be doing in the coming months but right now my girlfriend is excellent at clothes repair, so I do rely on here a little…&lt;/li&gt;
+&lt;li&gt;If you’re into that, consider going to your local dry cleaners, they will often do clothes repair often at a pretty reasonable price. I’ve used them myself for various fixes/alterations and never had anything but good experiences.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;When you need to buy something new&lt;/h3&gt;
+&lt;h4&gt;In General&lt;/h4&gt;
+&lt;p&gt;There’s a bunch of places where you can buy second hand. eBay, Gumtree, Shpock, Craigslist are all great options when you need something new that doesn’t have to be new.&lt;/p&gt;
+&lt;h4&gt;Electronics&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;If you can, go second hand. The UK has a number of second hand stores: Cex, Envirophone, Cash Converters to name a few. Make use of these places too when you’re getting rid of a device, free money and perhaps preventing the sale of another unnecessary new gadget&lt;/li&gt;
+&lt;li&gt;If you are into repairs and definitely need a new phone, take a look into a &lt;a href="https://www.fairphone.com/en/"&gt;Fairphone&lt;/a&gt;. It’s an easily fixable Android smartphone created with ethically sourced labour and parts. Definitely worth looking into. Neat things include individual upgrades to parts, want a better camera? Instead of buying a new phone, just buy an upgraded camera and put it into the phone! It’s a very cool idea.&lt;/li&gt;
+&lt;li&gt;Take a look at the ifixit score to make life easier if it does go down the drain.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Clothes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Check out that local charity shop and see if they don’t provide what you’re looking for. Give some money to charity, reduce waste and get stuff cheaper. There’s really no downside here.&lt;/li&gt;
+&lt;li&gt;Hate shopping? Consider looking for Buy it For Life items, there’s a &lt;a href="https://www.reddit.com/r/BuyItForLife/"&gt;subreddit&lt;/a&gt; dedicated to durable, quality items, so less waste and less boring clothes shopping.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Just buy less&lt;/h3&gt;
+&lt;p&gt;Okay, so there’s a little bit of anti-consumerism going on. I’m not going to bore you landfill stats or other miserable information about waste, that’s not the point. Just maybe take some time to contemplate your purchases a little more, perhaps when you feel the urge to buy item X add it to your calendar for 30 days in the future and see where you get to.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>'Thanks, that’s great to hear that and very much appreciated.'</title><link href="https://shanedowling.com/thanks-thats-great-to-hear-that-and-very-much-appreciated.html" rel="alternate"></link><published>2018-03-18T00:00:00+01:00</published><updated>2018-03-18T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-03-18:/thanks-thats-great-to-hear-that-and-very-much-appreciated.html</id><summary type="html">&lt;p&gt;For example, I’ve become a lot calmer, not because meditation made me calm but
+  that when thing made me anxious instead of immediately…
+date: '2018-03-18T07:31:33.594Z'
+categories: []
+keywords: []
+slug: /@shano/thanks-thats-great-to-hear-that-and-very-much-appreciated-3fcde67212b0&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Thanks, that’s great to hear that and very much appreciated. I totally get that meditation …&lt;/p&gt;</summary><content type="html">&lt;p&gt;For example, I’ve become a lot calmer, not because meditation made me calm but
+  that when thing made me anxious instead of immediately…
+date: '2018-03-18T07:31:33.594Z'
+categories: []
+keywords: []
+slug: /@shano/thanks-thats-great-to-hear-that-and-very-much-appreciated-3fcde67212b0&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Thanks, that’s great to hear that and very much appreciated. I totally get that meditation can be a confusing sell, probably because the thing it is is so mundane and boring, just focusing on the present sounds like trite advice, but it’s basically the starting point for all those benefits you read about.&lt;/p&gt;
+&lt;p&gt;For example, I’ve become a lot calmer, not because meditation made me calm but that when thing made me anxious instead of immediately attaching myself to the anxiety, I became aware of ‘oh, I think this is anxiety coming on’, and sitting with it, in awareness, just made me less attached to it and generally calmer. Not always, and not 100% detached from it, but it definitely gave enough space from these types of feelings.&lt;/p&gt;
+&lt;p&gt;As terrifyingly simple as it sounds, meditation is literally just awareness. For better or worse. :)&lt;/p&gt;
+&lt;p&gt;Good luck with it!&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>10 lessons from 150 days of meditation</title><link href="https://shanedowling.com/10-lessons-from-150-days-of-meditation.html" rel="alternate"></link><published>2018-03-14T00:00:00+01:00</published><updated>2018-03-14T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-03-14:/10-lessons-from-150-days-of-meditation.html</id><summary type="html">&lt;p&gt;I’ve been meditating now for 150 days straight, but even before that I was a
+  fairly regular meditator for many years, I had just never kept…
+date: '2018-03-14T22:06:05.025Z'
+categories: []
+keywords: []
+slug: /@shano/10-lessons-from-150-days-of-meditation-b4976d062a20&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__GBwIzkZphZlN9GeNW3HAEA__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;I’ve been meditating now for 150 days straight, but even before that …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’ve been meditating now for 150 days straight, but even before that I was a
+  fairly regular meditator for many years, I had just never kept…
+date: '2018-03-14T22:06:05.025Z'
+categories: []
+keywords: []
+slug: /@shano/10-lessons-from-150-days-of-meditation-b4976d062a20&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__GBwIzkZphZlN9GeNW3HAEA__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;I’ve been meditating now for 150 days straight, but even before that I was a fairly regular meditator for many years, I had just never kept up with any sort of meaningful streak every single day. My current momentum started from a difficult period in my life and even once that difficulty subsided, there was still a desire to keep going with the streak. 150 days later and I’m still happy to maintain it, but figured I’d write down a few insights I’ve gotten from this whole period.&lt;/p&gt;
+&lt;p&gt;For most of my meditation sessions, I’ve used Headspace. I’ve worked my way through many their programs, finished Headspace Pro(which incorporates more silence week on week), their daily sessions and have just used it as timer when I didn’t want to hear anything.&lt;/p&gt;
+&lt;p&gt;Over time, I’ve tried to reflect heavily on what has worked for me and what hasn’t.&lt;/p&gt;
+&lt;h3&gt;1. Space matters&lt;/h3&gt;
+&lt;p&gt;I’ve meditated on trains, planes (and automobiles in fact) and everywhere else in between and while it’s great to be able to meditate anywhere, I do have to say that I found my mind definitely casts itself into that relaxed awareness far more easily in the right space. At home, I put some effort in. My flat has wooden floors, so I have a pretty comfy mat with a pretty solid meditation cushion on the floor. During the early morning sessions I often light some incense and a candle.&lt;/p&gt;
+&lt;p&gt;This is something I never really focused on before, assuming that I could just focus on my breath and those aids were just hippie nonsense, posing as a mindful person. For me nowadays it’s whatever can best help me get into a quiet, contemplating, curious mind. So ignore that self-critical part of yourself that might judge for some incense, or a particular post, whatever gets you in the zone and practicing every day.&lt;/p&gt;
+&lt;h3&gt;2. The lead up and wind down help&lt;/h3&gt;
+&lt;p&gt;The best time I’ve found to meditate is first thing in the morning. That’s what I’ve worked out but it may be different for you. When my mind is still relatively quiet, I move around a bit to get some alertness and then sit in silence, it’s also a wonderful way to start the day but isn’t always possible.&lt;/p&gt;
+&lt;p&gt;If you have to meditate in strange places, the best thing you can do is spend a minute or two just focusing cultivating a genuine curiousity about how you’re feeling right now, like ask yourself “How is my breathing?”, I’ve found it helps me keep focused and not take the practice for granted and get more value out of it.&lt;/p&gt;
+&lt;p&gt;The same is true after meditating, I spend a minute or two just basking in the feeling after a meditation and resolving to try maintain it for as long as I can, which is admittedly, not always very long.&lt;/p&gt;
+&lt;h3&gt;3. Incorporate it everywhere&lt;/h3&gt;
+&lt;p&gt;I have also found however, that when I meditated just in the morning, the relaxed, wise energy that came with the practice faded quickly. I started incorporating meditation into various parts of my day. Headspace has a commuting meditation, as well as a walk in the park. There’s sessions dedicated to various issues you might have at work, mindful computer usage etc. I’ve tried a lot of these and I can’t recommend any one of them more than any other. They all sort of provide the general benefit of making you aware of your monkey brain and might help to stop feeding that side of you when you get caught up in things.&lt;/p&gt;
+&lt;p&gt;From my own perspective, I gained a lot of insight just trying different things out, all the while still maintaining my morning practice.&lt;/p&gt;
+&lt;p&gt;Another thing I can recommend if you have an Apple Watch is the Breathe App. It’s a simple timer that vibrates in such a way to help you time your in and out breaths. This is called rhythmic breathing and it’s great.&lt;/p&gt;
+&lt;p&gt;There’s a talk on YouTube &lt;a href="https://www.youtube.com/watch?v=q06YIWCR2Js"&gt;here&lt;/a&gt;, that might help convince of you of the value of rhythmic breathing(including measuring the heart rate of a poor guy dragged on stage). It’s pretty convincing that rhythmic breathing is definitely something worth trying, there is also probably some alternative you could use on a Phone, I’ve just found the Apple Watch app is discreet and convenient, so I can do it on the train or work and no-one would even notice I’m simply focusing on my breathing rhythm.&lt;/p&gt;
+&lt;h3&gt;4. If you’re mind is too active while meditating&lt;/h3&gt;
+&lt;p&gt;Another sales pitch for rhythmic breathing, when I found my mind was too active and jumping around while I meditated if I switched to rhythmic breathing for a few minutes, I could more easily focus on the original meditation I wanted to work on. This was particularly helpful when I woke up after a stressful dream and my mind was still racing.&lt;/p&gt;
+&lt;h3&gt;5. Don’t meditate in bed!!!&lt;/h3&gt;
+&lt;p&gt;This might seem obvious, but on those days where I was feeling pretty lazy, I would attempt a meditation in bed, rather than get up and do it. It’s a pretty bad idea and you might as well not bother and get a couple of extra minutes sleep. Seems obvious but it can be a pretty easy thing to convince yourself to try in a half awake state.&lt;/p&gt;
+&lt;h3&gt;6. Silent meditation is different to the apps&lt;/h3&gt;
+&lt;p&gt;Most of the meditations on Headspace are heavily guided, you can choose to go along the Headspace Pro pack(which I do recommend after a while) or the timed Unguided Meditation, but beyond that most involve a lot of listening to Andy guiding you through the exercise and for the most part I find this great. However, I did notice the difficulty ramping up when I tried to simply sit quietly.&lt;/p&gt;
+&lt;p&gt;During my 150 days I went on an introductory meditation retreat for a weekend. No screens whatsoever and a lot of (surprisingly enjoyable) silent periods. When I arrived I felt like meditation was something I was good at and wouldn’t have any problems with the prolonged silent meditations. Boy was I wrong. While Headspace is great at practicing with meditation, just a silent meditation of just you with your own thoughts is still definitely a more challenging experience. Far more noticing of discomfort, a louder mind with no voice to guide it, I frankly struggled sometimes, but in a way the reward. was much greater. I felt like I had delved deeper into facing the monkey mind despite the challenges i faced. Silent meditation is not something I think I could do at home every day but I do think I’ll push along with headspace pro again and find more time for silence.&lt;/p&gt;
+&lt;h3&gt;7. Find every opportunity&lt;/h3&gt;
+&lt;p&gt;Sounds similar to the previous lesson of incorporating it everywhere but not exactly. You can focus on the breath everywhere, but you can also focus on different activities. You really can meditate while walking, cleaning, cooking, eating, basically just focusing on your life with a easy relaxed awareness supported by some sort of regular focused meditation would give everyone a huge boost in contentment. Don’t get too hung-up on the breath, at the same time those other “mindful moments” certainly are a little more difficult to maintain and I am certainly not there myself, but it is something I try to aspire to each day(when work and life don’t get in the way).&lt;/p&gt;
+&lt;h3&gt;8. Slow down&lt;/h3&gt;
+&lt;p&gt;One of the lessons I learned very recently was to slow down, this message came to me during my meditation retreat. The long periods of silence and no technology created an environment that cultivated an excellent setup to meditation practice. When I say this, I mean that feeling of easy awareness really stuck with me for far longer. Our lives are often incompatible with a mindful attitude, but that content, easy feeling I felt during the retreat motivated me to start taking a hard look at my own life and perhaps eliminate as much “busyness” as I could to cultivate a similar feeling. This realisation has come recently and am I certainly only a beginner at this, but will share any insights and things I’ve tried that have/haven’t worked.&lt;/p&gt;
+&lt;h3&gt;9. Don’t hold any expectations&lt;/h3&gt;
+&lt;p&gt;If you constantly expect meditation to show you something about yourself, or provide that warm fuzzy feeling you will often be disappointed. If there’s any expectation to hold it’s that you will always find the truth in meditation, and that truth can be extreme pain or the height of pleasure.&lt;/p&gt;
+&lt;h3&gt;10. The Best Advice&lt;/h3&gt;
+&lt;p&gt;That’s all I can come up with for now, but the best advice I could probably offer from a wise cartoon monkey(10 points if you get that reference), which is, “Every day it gets a little easier. But you have to do it every day. That’s the hard part. But it does get easier.”.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Lessons from Remote Working</title><link href="https://shanedowling.com/lessons-from-remote-working.html" rel="alternate"></link><published>2018-02-18T00:00:00+01:00</published><updated>2018-02-18T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-02-18:/lessons-from-remote-working.html</id><summary type="html">&lt;p&gt;For the past few years as a freelancer, I’ve done many forms of remote work.
+  I’ve worked both part and full-time remote positions, I’ve…
+date: '2018-02-18T22:57:15.686Z'
+categories: []
+keywords: []
+slug: /@shano/for-the-past-few-years-as-a-freelancer-ive-done-many-forms-of-remote-work-19b58de3bc90&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;For the past few years as a freelancer, I’ve done many forms …&lt;/p&gt;</summary><content type="html">&lt;p&gt;For the past few years as a freelancer, I’ve done many forms of remote work.
+  I’ve worked both part and full-time remote positions, I’ve…
+date: '2018-02-18T22:57:15.686Z'
+categories: []
+keywords: []
+slug: /@shano/for-the-past-few-years-as-a-freelancer-ive-done-many-forms-of-remote-work-19b58de3bc90&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;For the past few years as a freelancer, I’ve done many forms of remote work. I’ve worked both part and full-time remote positions, I’ve also worked with teams across multiple time-zones, in locations ranging from home offices, hotdesking, even camping and crummy motels, so I have a fairly broad range of experience with remote working. It seems to be the trend that many companies have opted for, and this is definitely a great idea, both for the employee and the company. The employee can often cultivate a better work-life balance and the company can access a far wider range of talent than what may exist in the local area.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__vEPp8je3q4MQbK__hHru5AA__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;However, with remote teams, there is a cost paid for the lack of a physical presence. If right now, communication is sloppy and requires a lot of working around the system, going remote is going to be difficult. Most of this article deals with the issues of communication but also problems can come up with regard to teamwork, motivation and the potential for a class-based communication system, with remote workers being second class citizens so to speak. I’m also going to be stealing a bunch of stuff from the Agile framework, as (intentionally or not), it seems to cultivate very good remote working conditions, from my experience.&lt;/p&gt;
+&lt;h3&gt;Communication&lt;/h3&gt;
+&lt;p&gt;So the first thing is (obviously enough) communication. You will have to cultivate a lot more intentional focus on communication. You begin to appreciate how excellent the bandwidth of face to face conversations is when its gone. One way in which my more successful remote teams worked is through the &lt;a href="https://en.wikipedia.org/wiki/Agile_software_development"&gt;Agile framework&lt;/a&gt;. Agile is a programmer-specific framework, but there are still lessons that can be taken away for non-development teams. Many of the things I’ve found that worked within remote teams have strong Agile ties.&lt;/p&gt;
+&lt;h3&gt;Enforce Morning stand-ups&lt;/h3&gt;
+&lt;p&gt;So within Agile, there is the idea of a morning standup, where you essentially discuss what you worked on yesterday, any particular blockers to that work and what you plan on doing today. This sort of morning meeting often becomes the backbone of communication with remote teams, it also has a great bang for your buck in terms of actually building a sense of a team. Too easily can you slip into the role of a lone remote worker and ignore the resources on your team, you do so at your peril, so having a semi-formal place to air out your issues and perhaps get valuable insights from others should not be under-estimated. For those running teams, you can get a huge amount of value in a very short space of time.&lt;/p&gt;
+&lt;h3&gt;Emulate the water cooler&lt;/h3&gt;
+&lt;p&gt;While I’m on the topic of morning retro’s there is another aspect to meetings that I found definitely increases my feeling of working within a team and that was the watercooler-esque conversations with the team before and after meetings. These to me are somewhat essential if you want to try and cultivate a good team vibe. Typically at the start of a remote meeting, someone will be late or have connection issues, use the time to chat about life, catch up with the people who are online with you and fill them in on what’s new in your life. These things are really easy to ignore but when you start getting into a routine of informal chatting it can really create a great connection between team members.&lt;/p&gt;
+&lt;h3&gt;Retrospectives are also useful&lt;/h3&gt;
+&lt;p&gt;Retros are another part of the Agile methodology, essentially they are a semi-regular meeting to review how a past sprint(few weeks work) has gone. There’s plenty of info online if you want to dig in, but essentially, it’s an intentional review of how things are going outside of the work itself. One topic that came up often in retro’s is how we could improve communication, we’d often face an issue, come up with a potential solution, try it out and see how it went in the next retro. The points I’m sharing here are just a starting off point, it’s going to be up to you and your team to figure out what works best and retro’s can be a great way to put some structure around that and (to some extent) force these beneficial reviews because it’s not like you going to happen across each other at lunchtime, and chat out your ideas. Formalise these types of insight capturing or they will be lost.&lt;/p&gt;
+&lt;h3&gt;Everyone should act as if remote&lt;/h3&gt;
+&lt;p&gt;One thing that can kill a remote team vibe is where most of the team is in an office and remote members have to join from a screen in. I’ve sat in such meetings and essentially you become a second class member of the meeting. I guarantee you will not say nearly as much as you could have, had you been on-site. Interjecting on someone’s point is really difficult and awkward when it’s on a room full of people separate to you, the time delay alone can mean awkward breaks in the conversation, you’ll give up and often won’t respond to much unless there’s specific attention directed towards you. I’ve been there, it happens and valuable insights can be missed as a result.&lt;/p&gt;
+&lt;p&gt;Try to see if you can test having all team members working a remote setup. It will help immensely with balancing out communication barriers between the team and if there are sub-conversations that need to be had been two members in the same office, they can always take it offline after the remote meeting has happened, so hopefully, it should’nt ruin the office-workers bandwidth too much.&lt;/p&gt;
+&lt;h3&gt;Slack is actually awesome&lt;/h3&gt;
+&lt;p&gt;While I didn’t want to specifically talk much about tools, I will say this, just use Slack. It’s flexibility, the variety of communication methods and ease of use make it the best tool I’ve found for working remotely. Hands down. There’s plenty of reviews discussing features, but for me, the best part was when a text-conversation became too burdensome, how easily it was to just swap to an audio/video call or a screen-sharing session. It’s simply awesome.&lt;/p&gt;
+&lt;p&gt;If the company you work with doesn’t use Slack and is using something rubbish like Skype or something painful like an old ass version of Cisco WebEx that doesn’t support Linux(ugh), appear.in can also provide a handy video chat tool that requires no sign-up and just a browser to get things going. Can definitely recommend it too.&lt;/p&gt;
+&lt;p&gt;Try use video chat where you can, I have found it can get really easy to get too comfortable typing to communicate with team members. Never underestimate the value of a video conversation, even if it often feels like too much effort from the comfort of your office chair.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__wRyT5k0tDgJZZ6wcwxAcpw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;h3&gt;Get dressed for work&lt;/h3&gt;
+&lt;p&gt;This is just a small point, but it really will do you no harm to get dressed in the morning. You want to create as much of an appearance of a working environment as possible, even when it couldn’t be further from the truth. Yanking a shirt out of my backpack gave me some sense of professionalism even when it was a laptop on my lap on some dingy couch in a run-down motel.&lt;/p&gt;
+&lt;p&gt;The more simulated distance you can create between “work you” and “life you” the less those two things will bleed into each other, which is better for your headspace and of those around you, coworkers and family benefit too. So try come up with as many simulated differences as possible. Perhaps try having a routine that emulates commuting or a habit that signifies “this is the start of work”, that isn’t just getting right into work.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__d1fy9ivJ4ziTH6jxvEoBFQ__2x.jpeg"&gt;&lt;/p&gt;
+&lt;h3&gt;Try to make it fun&lt;/h3&gt;
+&lt;p&gt;One of the QA members I worked with always came up with nice ideas for each of the remote workers to share something about their location or day for each retro. So try take a photo of your workspace or go outside your front door and take a picture, these little things were a really nice way to get a sense of what was going on in your co-worker’s lives. Not essential but definitely a nice thing to do.&lt;/p&gt;
+&lt;h3&gt;Use the focus&lt;/h3&gt;
+&lt;p&gt;I’ve worked in many companies (remote and on-site) that have had shitty communication setups. Too many meetings, too many people in meetings, pointless meetings with no aim, the list goes on. This often happened because there was no barrier to just adding a few more people who might be useful in that meeting, hey the meeting room is a few feet from my desk, I can drop in for a bit.&lt;/p&gt;
+&lt;p&gt;With remote working, you actually have a nice default which is that communication doesn’t come easy, so make use of that. Start to become very intentional about how you communicate and why. You can create a very refined, tight communication structure, filled with value because communication itself becomes a regular topic to refine in and of itself. There are no natural moments where two people are sitting beside each other where you can informally ask “Hey can I run this by you”, those interactions get forgotten when you’re running a local team, for better or worse.&lt;/p&gt;
+&lt;h3&gt;What now?&lt;/h3&gt;
+&lt;p&gt;Myself, I’ve since moved back to a full-time office position within an office, with a generous option to remote work(which I’ve taken them up on occasion), I’ll share another post on why at a later stage, but if I remember any other insights from my years of remote working, I will certainly add it here.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__6gfnVvkMRFtjVsWF7vkClA.png"&gt;&lt;/p&gt;
+&lt;h4&gt;This story is published in &lt;a href="https://medium.com/swlh"&gt;The Startup&lt;/a&gt;, Medium’s largest entrepreneurship publication followed by 298,432+ people.&lt;/h4&gt;
+&lt;h4&gt;Subscribe to receive &lt;a href="http://growthsupply.com/the-startup-newsletter/"&gt;our top stories here&lt;/a&gt;.&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__6gfnVvkMRFtjVsWF7vkClA.png"&gt;&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Really excellent write-up Jason.</title><link href="https://shanedowling.com/really-excellent-write-up-jason.html" rel="alternate"></link><published>2018-01-31T00:00:00+01:00</published><updated>2018-01-31T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-01-31:/really-excellent-write-up-jason.html</id><summary type="html">&lt;p&gt;Orienting my view of myself with a more compassionate mindset has helped me
+  massively over the years.
+date: '2018-01-31T13:04:13.027Z'
+categories: []
+keywords: []
+slug: /@shano/really-excellent-write-up-jason-f9c47dbde1b6&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Really excellent write-up Jason. Your whole story and the realisations around it sound shockingly familiar. The only thing I would add is to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Orienting my view of myself with a more compassionate mindset has helped me
+  massively over the years.
+date: '2018-01-31T13:04:13.027Z'
+categories: []
+keywords: []
+slug: /@shano/really-excellent-write-up-jason-f9c47dbde1b6&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Really excellent write-up Jason. Your whole story and the realisations around it sound shockingly familiar. The only thing I would add is to perhaps consider watching when those feelings come up with compassion.&lt;/p&gt;
+&lt;p&gt;Orienting my view of myself with a more compassionate mindset has helped me massively over the years.&lt;/p&gt;
+&lt;p&gt;With just mindfulness, the negative aspects of an anxious mind can turn self-critical pretty quickly. So if you can, watch those feelings from a compassionate place.&lt;/p&gt;
+&lt;p&gt;Great essay!&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Supplementing an iPad Pro with Linux</title><link href="https://shanedowling.com/supplementing-an-ipad-pro-with-linux.html" rel="alternate"></link><published>2018-01-21T00:00:00+01:00</published><updated>2018-01-21T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-01-21:/supplementing-an-ipad-pro-with-linux.html</id><summary type="html">&lt;p&gt;Recently I wrote about why I’m using an iPad Pro as my main “at home” machine
+  and how I’m generally using it for tinkering around with…
+date: '2018-01-21T13:04:52.269Z'
+categories: []
+keywords: []
+slug: /@shano/supplementing-an-ipad-pro-57a809a06d7f&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Recently I wrote about &lt;a href="https://medium.com/@shano/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2"&gt;why I’m using an iPad Pro as …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Recently I wrote about why I’m using an iPad Pro as my main “at home” machine
+  and how I’m generally using it for tinkering around with…
+date: '2018-01-21T13:04:52.269Z'
+categories: []
+keywords: []
+slug: /@shano/supplementing-an-ipad-pro-57a809a06d7f&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Recently I wrote about &lt;a href="https://medium.com/@shano/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2"&gt;why I’m using an iPad Pro as my main “at home” machine&lt;/a&gt; and &lt;a href="https://medium.com/@shano/how-am-i-using-my-ipad-pro-as-a-development-machine-e4912a31744e"&gt;how I’m generally using it for tinkering around with remote servers&lt;/a&gt;. There is however, one caveat. I do still have an at-home server that I use for helping with making the iPad as feature rich as I need it to be.&lt;/p&gt;
+&lt;h4&gt;The Server&lt;/h4&gt;
+&lt;p&gt;To do this, I essentially have Archlinux running on an old Thinkpad X230, sitting under my router connected via an ethernet cable to keep things nice and stable. The only way I manage it is over SSH.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1____SEPppZNXVSX8WegbbzcEQ.png"&gt;&lt;/p&gt;
+&lt;h4&gt;Blocking Advertisements&lt;/h4&gt;
+&lt;p&gt;While the iPad has the ability to add content blockers into Safari, this (obviously enough) did not block the ads within Apps, nor did it provide as complete an ad-blocking setup as I would have liked. Though I can recommend &lt;a href="https://1blocker.com"&gt;1Blocker&lt;/a&gt; as a pretty great app in a pinch.&lt;/p&gt;
+&lt;p&gt;For this I ended up using &lt;a href="https://pi-hole.net"&gt;pi-hole&lt;/a&gt;, a pretty excellent ad-blocking solution that works on the router end of things. There’s a great guide on their site, that allows you to set your router to use a local DNS server(instead of your ISPs or Google’s for example). Also how pi-hole blocks is pretty great too, it attempts to &lt;a href="https://www.reddit.com/r/pihole/comments/7evq88/how_does_pihole_responds_to_a_piholed_domain/dq8988s/"&gt;minimise visual interruption&lt;/a&gt;, which is neat.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__obYk____7GDnINeg2aRaxg6w.png"&gt;&lt;/p&gt;
+&lt;h4&gt;Making use of Usenet&lt;/h4&gt;
+&lt;p&gt;Very rarely do I need to use Usenet these days, my various TV/Movie subscription almost always sort me out. When I do need to grab something off Usenet, I have a very nice setup connecting my iPad to my Archlinux box to add a few nice features.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__0rs2KHDuoThDZD0sqxrH9g.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Firstly I installed/configured &lt;a href="https://nzbget.net"&gt;NZBGet&lt;/a&gt; on my Archlinux machine and ensured I could connect to the WebUI from the iPad. Don’t worry if the UI looks a bit rough around the edges, someone has written a really nice client for IOS.&lt;/p&gt;
+&lt;p&gt;The next setup it to down/setup &lt;a href="https://itunes.apple.com/us/app/nzbclient-for-nzbget/id1178245637?mt=8"&gt;NZBClient for NZBGet&lt;/a&gt; on my iPad, which doesn’t take long. You can fill in both your NZBGet server details as well as your &lt;a href="https://sabnzbd.org/wiki/introduction/nzb-sources"&gt;indexer&lt;/a&gt;, that way, you can search for stuff and download it directly from your iPad, pretty seamless! However what happens when you want to watch/listen to anything you might have grabbed from Usenet?&lt;/p&gt;
+&lt;h4&gt;Media Streaming&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__GYDK9r5tzOltIFYEmakcsg.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;The most useful/performant App I found so far for Media Streaming, is an app called &lt;a href="https://itunes.apple.com/us/app/playerxtreme-media-player-pro/id440488550?platform=ipad&amp;amp;preserveScrollPosition=true#platform/ipad"&gt;PlayerExtreme&lt;/a&gt;. It supports a lot of different remote server types. For me I actually found just setting up plain &lt;a href="https://wiki.archlinux.org/index.php/samba"&gt;Samba&lt;/a&gt; on Archlinux worked really well for streaming, but there’s plenty of other protocols you can try.&lt;/p&gt;
+&lt;p&gt;Either way, it, combined with my Usenet client means I never need to really hit the server anymore, everything has been up and running for a few months now and is always working as expected. I’d definitely give this is a go if you running into similar limitations on your iPad.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>'The iPad Pro as a focused, simple coding machine'</title><link href="https://shanedowling.com/the-ipad-pro-as-a-focused-simple-coding-machine.html" rel="alternate"></link><published>2018-01-20T00:00:00+01:00</published><updated>2018-01-20T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-01-20:/the-ipad-pro-as-a-focused-simple-coding-machine.html</id><summary type="html">&lt;p&gt;So recently I wrote a post on why a developer might use an iPad Pro as an at
+  home machine. Today, I’m going to elaborate on how I’m…
+date: '2018-01-20T22:47:42.983Z'
+categories: []
+keywords: []
+slug: /@shano/how-am-i-using-my-ipad-pro-as-a-development-machine-e4912a31744e&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__bY3zgSqJyGTkf__ghXqpKRQ.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So recently I wrote a post on &lt;a href="https://medium.com/@shano/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2"&gt;why a developer …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;So recently I wrote a post on why a developer might use an iPad Pro as an at
+  home machine. Today, I’m going to elaborate on how I’m…
+date: '2018-01-20T22:47:42.983Z'
+categories: []
+keywords: []
+slug: /@shano/how-am-i-using-my-ipad-pro-as-a-development-machine-e4912a31744e&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__bY3zgSqJyGTkf__ghXqpKRQ.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So recently I wrote a post on &lt;a href="https://medium.com/@shano/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2"&gt;why a developer might use an iPad Pro&lt;/a&gt; as an at home machine. Today, I’m going to elaborate on how I’m actually using it day to day.&lt;/p&gt;
+&lt;h3&gt;So there is not much you can do locally&lt;/h3&gt;
+&lt;p&gt;Realistically, as a local dev environment there really is not much an iPad Pro can do. I’m used to proper Linux/Unix based machines, these sandboxed apps just didn’t cut it for me, there’s nothing close to a full development system on an iPad(sorry I know!), I wouldn’t even bother trying. So pretty quickly I opted to go for a remote Linux box that I could remotely access.&lt;/p&gt;
+&lt;p&gt;I picked up an iPad Pro with the ability to add in cellular data, so I can hop onto my remote server from anywhere I have data, which made this a solid possibility. I know I am basically cheating, but, I still needed to investigate if there was a painless enough setup I could use on the iPad that I would actually continue to use. So a fast starting server, decent network connection, and a decent enough editing environment was essential.&lt;/p&gt;
+&lt;h3&gt;Editing Code&lt;/h3&gt;
+&lt;p&gt;Now that I’ve already pulled back the curtain(you can’t really code just on an iPad), we need to decide on a method of remotely editing code. I’ve used Vim for years, for me, I was happy to just ssh onto the server using some terminal client, setup a nice Vim environment and be done. Everything went well setup wise, but unfortunately vim editing sucks a lot more when you’re missing an escape key. Which the iPad Pro Smart Keyboard does not have and I’m not lugging around a second keyboard just for the ESC key.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__wXkWchnmXkkug2FEzXFdOA.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;There is hacky ways with other shortcuts to get esc working, there’s also an onscreen esc key that terminal clients provide for IOS, but it’s just just the same, my decade old Vim muscle memory makes the whole thing too painful when I keep hitting backtick constantly. So Vim was out the window.&lt;/p&gt;
+&lt;p&gt;I tried a few different options but in the end, &lt;a href="http://gocoedit.com"&gt;GoCoEdit&lt;/a&gt; was the best available. It can remotely mount folders over ssh, it performs pretty well over networking and it has a fairly decent interface(sublime textish if that helps).&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__vel3b1tg__V__rsu4RlMO2Yg.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;If you do more web-based editing, I hear Coda is pretty great but not what I wanted for my needs. I’m a more terminals, piping and grepping, not pretty pages and CSS.&lt;/p&gt;
+&lt;p&gt;What I’ll probably end up doing is setting up &lt;a href="http://spacemacs.org"&gt;Spacemacs&lt;/a&gt; with the Emacs configuration and seeing if I can finally pull the trigger and start using Emacs’s crazy keybindings, but I’m not learning a whole new set of editor shortcuts right now.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__hCg__jKnXH__1LM3zXbVnxew.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Executing Applications&lt;/h3&gt;
+&lt;h4&gt;Which remote server&lt;/h4&gt;
+&lt;p&gt;I needed a way to be able to spin up/shut down a remote Linux box, have it start-up pretty quickly and do this in the painless way as possible, because I’m not paying for constantly on uptime when this is only being used very occasionally by myself. I also wanted it to be connectable via the same access details each time, to avoid having to put in new server IPs into my terminal client every time I started up the server.&lt;/p&gt;
+&lt;p&gt;I tried out both Vultr and DigitalOcean for this, mostly as they were relatively straightforward to work with and this is mostly for me playing around with things, not production uptime machines. So in the end it came down to speed and App quality. Cutting a long story short, DigitalOcean won out. It supported having a reserved ip, which meant I didn’t need to rely on something like DynDNS/waiting for DNS propagation each time I powered it down/up again(or manually setting IPs). It was also very quick to spin up, like shockingly quick. If I requested a power-up via the DigitalOcean IOS app, by the time I’d swapped to my ssh client and connected, it was already up, which was crazy good for me. I could also run an instance from London which reduced latency a bunch for me, that was a nice advantage over Vultr. To add to it, the app that could connect to DigitalOcean seem to be of a better quality(and actually worked, which is nice). None of the apps tested were particularly amazing but the DigitalOcean one consistently worked and worked well. So from my perspective, I’d strongly suggest DigitalOcean for such a setup.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__hV07DCg6sdHlxSfoK__D7tA.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So people know, the DigitalOcean app I tried was &lt;a href="https://itunes.apple.com/us/app/digitalocean-manager/id633128302?mt=8"&gt;DigitalOcean Manager&lt;/a&gt; and the Vultr one was called &lt;a href="https://itunes.apple.com/us/app/vulture-unofficial-vultr-app/id1116844578?mt=8"&gt;Vulture&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Remotely connecting&lt;/h3&gt;
+&lt;p&gt;So here’s the list of tools I use for connecting to various services I might need.&lt;/p&gt;
+&lt;h4&gt;SQL Client&lt;/h4&gt;
+&lt;p&gt;So on the App Store there are a few SQL Clients but none of them looked so great. So I just use &lt;a href="http://www.mycli.net"&gt;mycli&lt;/a&gt; on the server itself, works just fine.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__wPGK5QcybjIjH8ePcYmV__g.jpeg"&gt;&lt;/p&gt;
+&lt;h4&gt;&lt;a href="https://itunes.apple.com/gb/app/termius/id549039908?mt=8"&gt;Termius&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;I’ve been a Linux user for so many years, I’m pretty comfortable working exclusive on the command line. Termius is the de-facto ssh terminal client for IOS and for good reason. I ran it, it worked perfectly and never even bothered looking at anything else.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__iS2vFJJgmH5XpACE6GmV9g.png"&gt;&lt;/p&gt;
+&lt;h4&gt;&lt;a href="https://www.docker.com"&gt;Docker&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;I would definitely recommend picking up some Docker knowledge if you haven’t already. Being able to quickly spin up services on a remote machine is really handy. For example I wanted to migrate from my static content pelican site to Medium, but Medium only accepts Wordpress archives. So I spun up a basic Wordpress Docker, used a quick script(with a few of my own bugfixes) to import my static content to Wordpress and exported to Medium, all without touching the parent operating system. All very nice!&lt;/p&gt;
+&lt;h3&gt;A Handy Tip&lt;/h3&gt;
+&lt;p&gt;So one thing that might be useful is when you exit your little server to have it automatically shut down so you don’t need to keep remembering to kill the server via the app. If you want to do this without needing to enter a password each time, firstly run this command to start editing the sudoers file.&lt;/p&gt;
+&lt;p&gt;sudo visudo&lt;/p&gt;
+&lt;p&gt;Then add this line to allow passwordless access to poweroff commands.&lt;/p&gt;
+&lt;p&gt;username   ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown&lt;/p&gt;
+&lt;p&gt;Then create an alias for your user so that when you hit exit, it actually shuts down the machine. Put this in your .bashrc or .zshrc or whatever rc your shell uses.&lt;/p&gt;
+&lt;p&gt;alias exit=’sudo poweroff’&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__6gfnVvkMRFtjVsWF7vkClA.png"&gt;&lt;/p&gt;
+&lt;h4&gt;This story is published in &lt;a href="https://medium.com/swlh"&gt;The Startup&lt;/a&gt;, Medium’s largest entrepreneurship publication followed by 295,232+ people.&lt;/h4&gt;
+&lt;h4&gt;Subscribe to receive &lt;a href="http://growthsupply.com/the-startup-newsletter/"&gt;our top stories here&lt;/a&gt;.&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__6gfnVvkMRFtjVsWF7vkClA.png"&gt;&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Why an iPad for a backend developer</title><link href="https://shanedowling.com/why-an-ipad-for-a-backend-developer.html" rel="alternate"></link><published>2018-01-08T00:00:00+01:00</published><updated>2018-01-08T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-01-08:/why-an-ipad-for-a-backend-developer.html</id><summary type="html">&lt;p&gt;So I’m a backend developer. I’m often closest to the source of most technical
+  problems at my job. Networking issues, memory issues…
+date: '2018-01-08T19:38:33.381Z'
+categories: []
+keywords: []
+slug: /@shano/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__B__WKx4__N__VChXf__FWDV5dg__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So I’m a backend developer. I’m often closest to the source of most technical …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So I’m a backend developer. I’m often closest to the source of most technical
+  problems at my job. Networking issues, memory issues…
+date: '2018-01-08T19:38:33.381Z'
+categories: []
+keywords: []
+slug: /@shano/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__B__WKx4__N__VChXf__FWDV5dg__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So I’m a backend developer. I’m often closest to the source of most technical problems at my job. Networking issues, memory issues, hardware issues, operating system issues, the list goes on. I need to be able to tinker and play with things often, so usually my work environments reflect this. So the question is, why in God’s name would I want to move to an iPad?&lt;/p&gt;
+&lt;p&gt;The downsides are immediately obvious, I have almost no tinkering power on here. It’s not Open Source, like at all. There’s very little I can do with this if something goes wrong, recently I had an issue with an app not syncing with my iPhone, I had to contact the developer and ask for assistance, rather than just jump down to the log files or the code itself and see what was up.&lt;/p&gt;
+&lt;p&gt;I also like to keep abreast of whatever new tech changes happen on Linux machines. Examples off the top of my head are the removal of ifconfig on most systems or the change to upstartd, these were things I had faced on my bleeding edge desktop long before the became the norm on my work servers. But, most of these “issues” I can live with. Let me explain the benefits and how I’ve gotten around the inability to tinker and play about with the bleeding edge server changes.&lt;/p&gt;
+&lt;h3&gt;Single tasking is great&lt;/h3&gt;
+&lt;p&gt;These days I prefer Apps to the Web. For me the web is an open-ended mind field of negative sentiment and distraction. I find myself disliking it more and more when I jump onto a web browser for anything other than totally focused work, it’s just a time suck for me. So now I find the idea of a full-screen, mostly single tasking app-driven system does wonders for my focus. (IOS does support split screen but it’s mostly terrible to use and unintuitive in it’s design, so I’m happy to ignore it’s existence).&lt;/p&gt;
+&lt;p&gt;What single tasking am I doing? Right now I’m writing this on the wonderfully hipster Hanx app, which is essentially an old type-writer clone(for some reason the sound of old clackey keys makes me want to write more). I also spend a fair amount of time reading and writing on the Medium, and I have a few dev/ssh apps on here(but more on that later), in general it’s mostly to pop on, do something specific and hop off. Rarely do I hit Safari and rarely do I get stuck on some random time-sink that had nothing to do with my original intentions. The sandboxed feel of working within the context of “Apps” genuinely has done wonders for my sanity.&lt;/p&gt;
+&lt;h3&gt;Maintenance takes up energy&lt;/h3&gt;
+&lt;p&gt;The first thing I do when I jump onto my own Macbook or my work Linux machine is maintenance. Any new brew updates on this thing? Everything running okay? Do I need to run CleanMyMac or Hazel to tidy things up? Often times on my personal machine, I don’t want to think about these tasks, I want to use the tool in my hands, not screw about with it’s inner workings. I might be a developer, but at home I might want to just hop on some writing project or screw around with my guitar on Garageband, I would say, with a laptop more than half the times I wanted to do some specific task, I would go down some unrelated technical rabbit hole and go nowhere near the task I intended on solving. The iPad removes a lot of that, it feels like it’s removed a barrier that I always have with my Macbook.&lt;/p&gt;
+&lt;h3&gt;Tinkering and Digging have their place&lt;/h3&gt;
+&lt;p&gt;When I do want to start screwing around with things, as I often do, I spin up a DigitalOcean instance, SSH on and play around, simple as that. I have an iPad that takes a sim card for cellular data and ssh doesn’t take up much data for me. On top of that DigitalOcean instances seem to spin up pretty instantaneously for me, so there really isn’t much of a barrier for me to get to a tinkery Debian environment from my iPad.&lt;/p&gt;
+&lt;p&gt;Also for me and my personal tinkering, Vim is a perfectly excellent editor. However, I even have a local editor on my iPad that allows me to mount remote SSH servers should I want something locally. Also pleasantly Emacs with Spacemacs seems to work fine over ssh, so if I need to do some heavier development, that’s always an option.&lt;/p&gt;
+&lt;p&gt;The nice thing about all this however is my tinkering environment is siloed in a very pleasing way. It’s also fully backed up at an OS level for a dollar a month, so if I screw something up and totally bomb it, firstly I haven’t lost my general purpose computing device and secondly I can restore what is non-essential tinkering server from a backup from a few days ago.&lt;/p&gt;
+&lt;h3&gt;The battery life is actually good&lt;/h3&gt;
+&lt;p&gt;Maybe is was because of my Dev setup and the iPad has forced some simplicity on me, but my 2017 Macbook Pro had a shitty battery life for me. Again, this could be down to Docker images or some other pile of services on my old machine that killed the battery, but I never ever got close to the advertised speeds on my Macbook. My iPad however, has a crazy good battery. Sure, Docker, Vagrant and the other power sucks have been migrated off to a remote server so perhaps “technically” this iPad battery is worse than my Macbook but practically speaking, it’s incredibly good.&lt;/p&gt;
+&lt;h3&gt;These sandboxes Apps are…. nice&lt;/h3&gt;
+&lt;p&gt;All day at work I deal with things like package management issues, log files, potential security threats, etc. There is certain amount of pleasure in pulling this device out(that does “just work”) and start doing productive things, without thinking about all of the crap I usually need to maintain on a machine. When I (very rarely) hop onto my MacBook at home, there’s a sense of dread that there will be something I need to deal with. The whole interface to it feels clunky, should I really need to maintain brew packages every time I hop onto a machine?&lt;/p&gt;
+&lt;p&gt;Certainly you can argue that I could set my MacBook up to be more sandboxed and probably doesn’t need constant maintenance, but ultimately my tinkering is an addiction. I feel compelled to just start messing around with things and create yet another crazy setup that will add no value and I will inevitably discard but will take me a bunch of time to configure properly. I left my Linux machine for a Macbook, mostly due to endless tinkering. However all the Macbook became was a shit version of Linux for tinkering. I still found endless time to waste on maintenance getting “The Perfect Setup”.&lt;/p&gt;
+&lt;h3&gt;How does it feel?&lt;/h3&gt;
+&lt;p&gt;I mean, I know full well RMS would be very angry with me. I guess I’m at a point where I no longer care. I have little to prove to anyone either. In my younger days there was a sense of pride pulling out my custom installed ArchLinux distro, with some obscure window manager and working almost purely from the command line. I could show off my crazy looking colour terminal where most of my work is done(I mean that is basically what my work development environment looks like right now). Lately however, I’m seeing these machines much more as tools to be used than a time-suck in and of themselves.&lt;/p&gt;
+&lt;p&gt;Since I’ve had this iPad, I have only ever used my Macbook for yanking files off of, nothing more. In my mind this is a success, but only time will tell.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Freelancer Lessons – Part 3</title><link href="https://shanedowling.com/freelancer-lessons-part-3.html" rel="alternate"></link><published>2018-01-06T00:00:00+01:00</published><updated>2018-01-06T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-01-06:/freelancer-lessons-part-3.html</id><summary type="html">&lt;p&gt;This is part 3 in a series on lessons I’ve learned from several years of
+  freelancing. You can find Part 1 here and Part 2 here, though you…
+date: '2018-01-06T14:54:41.133Z'
+categories: []
+keywords: []
+slug: /@shano/freelancer-lessons-part-3-7015dc89b6fb&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__Ih__APvHH2mTGl0LL8Uv__kg__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;This is part 3 in a series on lessons I’ve …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is part 3 in a series on lessons I’ve learned from several years of
+  freelancing. You can find Part 1 here and Part 2 here, though you…
+date: '2018-01-06T14:54:41.133Z'
+categories: []
+keywords: []
+slug: /@shano/freelancer-lessons-part-3-7015dc89b6fb&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__Ih__APvHH2mTGl0LL8Uv__kg__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;This is part 3 in a series on lessons I’ve learned from several years of freelancing. You can find Part 1 &lt;a href="https://medium.com/@shano/developer-lessons-from-2017-part-1-14c31f45307c?source=linkShare-c3fb4f3f97d3-1515250377"&gt;here&lt;/a&gt; and Part 2 &lt;a href="https://medium.com/@shano/freelancer-lessons-part-2-e5700002d8b?source=linkShare-c3fb4f3f97d3-1515250418"&gt;here&lt;/a&gt;, though you can read these in no specific order really.&lt;/p&gt;
+&lt;h3&gt;Watch your mental state&lt;/h3&gt;
+&lt;p&gt;When you’re working a full-time job, you’ll have people around you who will get to know you over time. Professional relationships start to develop, people will start to recognise you ‘on a good day’ or ‘on a bad day’ with enough ‘bad days’ on the trot almost always a caring co-worker or a good boss will check in on you, perhaps help with your workload or just lend an ear to listen.&lt;/p&gt;
+&lt;p&gt;When contracting, you may want to ensure that you have some sort of support network around the work you do that may not come from your co-workers. You may not be in roles long enough to garner the professional relationships I’ve mentioned above or perhaps as a contractor there may be a professional distance you want to maintain. The point is when you start to have several ‘bad days’ in a row, make sure someone is around to recognise and make you aware of it and can talk to you about it.&lt;/p&gt;
+&lt;p&gt;Having not really having had much of a professional support network and realising its implicit value, one of my main focus points when returning to full time work is to ensure that I am more of a caring co-worker to the people around me and am trying to do a better job of keeping an eye on the well-being of those around me. It’s easy for programmers(or knowledge workers in general) to get too focused on solving problems on the screen in front of you, and not lift your head up and check in on the people around you and make sure they’re doing okay.&lt;/p&gt;
+&lt;h3&gt;Seek job satisfaction&lt;/h3&gt;
+&lt;p&gt;One of the underlying lessons I hope I’ve imparted is that there can be a tendency to prioritise ‘the business’ over the individual, this point is just to keep in mind how happy you are in your role. One of the benefits to contracting is flexibility, make use of it. Don’t like a role? Hop onto something else! As a contractor this is to some extent more expected than a perm employee and right now freelancer programmers can be picky about their roles. I’m certain this won’t always be the case, but we may as well enjoy this while it lasts!&lt;/p&gt;
+&lt;p&gt;To counterpoint this however, I would also bear in mind that there is always a drive in our society(and technology is no different) to be constantly seeking better, to never be happy with what you have. So if you do want to change roles, perhaps try to understand your underlying reasoning before job hopping. Maybe you don’t like only working in PHP or Python or whatever, but does that really bother you or is it the Hacker News posts talking about how better everything is with technology X or Y? PHP, Python, bloody Fortran are all fine to work with if you’re challenged and happy in your role, whatever that looks like.&lt;/p&gt;
+&lt;h3&gt;Simplify&lt;/h3&gt;
+&lt;p&gt;Contracting can make things complicated… Invoicing, chasing bills, logging receipts, sorting out your next contract, multiple development environments, company environments, accounts, tax returns etc, etc. Just do whatever you can to make it as simple as possible. I hired my own accountant which made things a little easier. I tried using an accountancy software, which didn’t make things easier(Unless you’re lucky enough to support a very standardised approach to invoicing and billing the accounting systems won’t be of much use). The point is, try things, does it make things easier? Then keep it, if not discard. Life’s complicated enough.&lt;/p&gt;
+&lt;p&gt;In terms of actual app/sites I used, I found I stuck to tools that were either very flexible or did one very specific thing well. In the end I used &lt;a href="https://www.google.com/sheets/about/"&gt;Google Sheets&lt;/a&gt; for invoicing, as well as tracking income and &lt;a href="https://1tapreceipts.com"&gt;1Tap Receipts&lt;/a&gt; for tracking my expenses, then emailed the whole ball of stuff to my accountant to deal with.&lt;/p&gt;
+&lt;h3&gt;Working from home is not all it’s cracked up to be&lt;/h3&gt;
+&lt;p&gt;This topic is a biggie, it’s one I might dedicate several posts to. Put in the most simple terms, every other point I’ve listed above can be compounded and its effects can be worsened by working from home. I’ll link to my future posts here about the pitfalls I faced working from home. Right now just bear in mind, for many it may not be the promised working utopia we were all told it would be.&lt;/p&gt;
+&lt;h3&gt;To sum it up&lt;/h3&gt;
+&lt;p&gt;I hope the realisations I’ve slowly(and sometimes painfully) gained are of some use to future/existing freelancers. Despite all of this, I think freelancing still can be a great way to work if you think it might suit you. For me, it has completely shifted how I perceive my work day to day and has also made me appreciate the many advantages there are to regular old full-time work.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Freelancer Lessons – Part 2</title><link href="https://shanedowling.com/freelancer-lessons-part-2.html" rel="alternate"></link><published>2018-01-01T00:00:00+01:00</published><updated>2018-01-01T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2018-01-01:/freelancer-lessons-part-2.html</id><summary type="html">&lt;p&gt;This is a series of posts on lessons I’ve learned while freelancing for the
+  past four years. You can find Part 1 here.
+date: '2018-01-01T16:45:00.508Z'
+categories: []
+keywords: []
+slug: /@shano/freelancer-lessons-part-2-e5700002d8b&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__2AEQoUCrc3CV1JPJNEGr9Q__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;This is a series of posts on lessons I’ve learned while freelancing for the past …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is a series of posts on lessons I’ve learned while freelancing for the
+  past four years. You can find Part 1 here.
+date: '2018-01-01T16:45:00.508Z'
+categories: []
+keywords: []
+slug: /@shano/freelancer-lessons-part-2-e5700002d8b&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__2AEQoUCrc3CV1JPJNEGr9Q__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;This is a series of posts on lessons I’ve learned while freelancing for the past four years. You can find Part 1 &lt;a href="https://medium.com/@shano/developer-lessons-from-2017-part-1-14c31f45307c?source=linkShare-c3fb4f3f97d3-1514928400"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Focusing on “profits only”&lt;/h3&gt;
+&lt;p&gt;I’ve alluded to this in my previous post, but, now that you’re a business, you may start to make decisions that optimise being a business, not a person. It becomes easier to start making decisions that might lead to say personal burnout for the sake of professional business health. Taking holidays was a big one for me, while contracting I never once took as many holidays as my partners mandatory holidays in her full time roles. Knowing your invoices were about to take a big hit next month by taking say, two weeks off will always be hanging over your head. Even if you’ve calculated that you would get paid a whole lot more over an annual period if you took a bunch of holidays while contacting when decision time comes for that month, it can be tough to make the call to take that time off.&lt;/p&gt;
+&lt;p&gt;Another “effective business decision” might be to jump on clearly bad idea projects for a higher day rate. You become less important in relation to “the business”. It takes effective higher level, long term thinking to ensure that profits are not the only metric to measure success against.&lt;/p&gt;
+&lt;h3&gt;Dealing with money really sucks&lt;/h3&gt;
+&lt;p&gt;While I’ve never been completely burned over invoicing issues(though many others have), late payments of invoices were shockingly regular. Perhaps there’s a better way to punish/promote better payment schedules, but I found trying to propose such things with clients difficult and awkward, often you need to be flexible to make it worth the effort to onboard you in the first place and offering punishing late payment terms seemed to get in the way, I regret that decision looking back. Had I known how often late payments would occur, I would have used a late payment penalty fee as a metric to determine whether a future client would cause issues. As I said before, I always had more work than time, and should have refused more contracts. There were several occasions where I wanted to keep a client happy several months after officially finishing work with them as they still had outstanding invoices to be paid, this is not a good way to work. One advantage to multiple clients is though is that you can hedge your bets and perhaps live from the income of one client while waiting for late payments from another.&lt;/p&gt;
+&lt;p&gt;The other burden with money is obviously having to submit your own tax returns, even with an accountant I found the whole process particularly stressful each year. Being a developer, you often want to know the ins and outs of things before proceeding, however tax law is often non-obvious and confusing, leading you down paths where you don’t know how to proceed. Even with my accountant, we ran into complications where the answers should have been straightforward but aren’t. Being a remote developer often working for several companies in different countries it was perhaps not a well trodden path and both HMRC and the accountants I worked with could do a better job understanding/sharing the information required. A lot of contractors in the UK create their own company as a way of reducing their tax burden, this can be complicated and cause issues with IR35 legislation if you are working for the same client for a long period of time. Despite being almost certain I was legally fine doing this, I decided instead to remain self employed as, frankly, I wanted to pay taxes(crazy I know) as it felt like the most honest approach. Part of me wishes I’ve gone down the company route, simply as it probably would have been more straightforward and liabilities would be tied up in the company not myself as an individual, but perhaps it was for the best as leaving/shutting down such a setup can be quite complicated.&lt;/p&gt;
+&lt;h3&gt;Not stagnating on tech&lt;/h3&gt;
+&lt;p&gt;One thing to bear in mind in terms of the technologies you work with, there often is excellent money in working with niche technologies, I can personally attest to that. The issue might come up however that the demand for such skills might dry up or (what happened with myself), you grow tired of working with a particular niche technology and simply want to move on. Ensure you maintain a broader set of skills so you can hop out of that niche into a variety of roles if the market/your interests change.&lt;/p&gt;
+&lt;h3&gt;The cost of seeking work&lt;/h3&gt;
+&lt;p&gt;This was never really an issue for me, finding work through contacts from previous roles meant that there has been always more work than time for me and I often had to turn potential offers down, but if you’re not in such a position having to regularly seek work and the stress involved in role changing can become an issue. Be wary of this and perhaps have a system in place for when it’s time to hunt for that new contract(or ideally several weeks or months before your current contract is due to end), in the end this will alleviate a lot of the stress and burden of finding new contracts.&lt;/p&gt;
+&lt;p&gt;Up next is the final post in this series, &lt;a href="https://medium.com/@shano/freelancer-lessons-part-3-7015dc89b6fb?source=linkShare-c3fb4f3f97d3-1515250509"&gt;Part 3&lt;/a&gt;.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Freelancer lessons – Part 1</title><link href="https://shanedowling.com/freelancer-lessons-part-1.html" rel="alternate"></link><published>2017-12-31T00:00:00+01:00</published><updated>2017-12-31T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2017-12-31:/freelancer-lessons-part-1.html</id><summary type="html">&lt;p&gt;Looking back on this year, many of the lessons I’ve learned had less to do
+  with specific technologies and more to do with long term career…
+date: '2017-12-31T19:20:04.741Z'
+categories: []
+keywords: []
+slug: /@shano/developer-lessons-from-2017-part-1-14c31f45307c&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__T29vR6I4G8K__edEp81oWCQ__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Looking back on this year, many of the lessons I’ve learned had …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Looking back on this year, many of the lessons I’ve learned had less to do
+  with specific technologies and more to do with long term career…
+date: '2017-12-31T19:20:04.741Z'
+categories: []
+keywords: []
+slug: /@shano/developer-lessons-from-2017-part-1-14c31f45307c&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__T29vR6I4G8K__edEp81oWCQ__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Looking back on this year, many of the lessons I’ve learned had less to do with specific technologies and more to do with long term career growth. I’ve been a developer now for 9 years and as a result, I’m starting to think more about longer term goals and happiness. As a result I made the decision to move from contracting back to full time work towards the tail end of the year so a lot of my reflections are tied around the costs of short term thinking and contracting in general.&lt;/p&gt;
+&lt;h3&gt;Money isn’t everything&lt;/h3&gt;
+&lt;p&gt;So this is an obvious one, but it was a lesson slowly learned for me. I’ve been a contractor for the past few years and while it has had some highlights and excellent roles there is definitely a price to pay being a contractor. At the end of the year I dropped my contracts and have moved back into a full time position. There were several reasons for this, many of which are outlined below. It was tough to leave the contractor lifestyle, it will almost always pay better than full time work, there’s a certain flexibility to it, you hop between multiple projects and that can keep things interesting. The key takeaway this year was that most of those benefits were slowly getting outweighed by negatives and the only thing keeping me contracting was high day rates and in the end I had to make the call to leave, money wasn’t worth the overhead.&lt;/p&gt;
+&lt;h3&gt;Keep it to one company&lt;/h3&gt;
+&lt;p&gt;For the last three years I have been contracting for either two or three companies simultaneously. I tended to draw higher day rates when I split my week between clients. Often clients simply need a top-up developer to help out with smaller projects while also not becoming an irreplaceable member of the team, it makes sense in terms of managing contractors. However there are issues with this setup.&lt;/p&gt;
+&lt;p&gt;Firstly, the cognitive overhead. Swapping 2 or 3 times a week between not only different tech, different team members, processes, documentation, heck even different email providers and ticketing systems has a higher long term cognitive overhead than one might expect. Initially, there might be no issues with such a setup, but over time the constant churn of swapping will create a productivity hit. There’s simply too much variability to focus as effectively on what your being hired to do. It also has the cumulative effect alongside the huge gaps between work. I might be halfway through a task and not get a chance to return to working on it for another 5 or 6 days, between which I’ve worked at multiple locations on different teams in different companies all likely with different tech. Anyone who believes there won’t be a cognitive cost(I include my past self in that group) is deluding themselves.&lt;/p&gt;
+&lt;p&gt;The second major issue is that clients bleed into one another. Be wary of clients where you’re the only subject matter expert for a particular technology. There can be definite expectations that when an issue arises you’ll take care of it despite working for another client that day. The stress levels of managing such a situation can be high, as you try to manage the expectations of multiple clients at once, and again this takes away from your focus on the job, which is not what you want when you live or die based on solidly productive days to justify your day rate.&lt;/p&gt;
+&lt;p&gt;There is further more subtle issues that arise with simultaneous contracts, but these are the main ones that lead me to believe that if your want to stay more focused, have a higher output and be day to day happier try to focus on one client only if you can.&lt;/p&gt;
+&lt;h3&gt;The team matters&lt;/h3&gt;
+&lt;p&gt;One thing about contracting is that you may end up working for companies that might not have the best team structure. That they need contractors to supplement their internal resources may indicate a staffing issue which can be for various reasons, there are plenty of exceptions to the rule and you can also certainly work with poor teams while working full time, it’s simply that there can be a tendency to prioritise the higher payoff over good working conditions.&lt;/p&gt;
+&lt;p&gt;The single thing I focused on when moving to a full time position was working within a good team and getting a good feeling from technical and non-technical leadership within the company. This was simply the most important motivator for me and I highly doubt I’ll ever regret using this as my barometer for finding my current position or future positions for that matter.&lt;/p&gt;
+&lt;h3&gt;Temporary decision-making leading to long term costs&lt;/h3&gt;
+&lt;p&gt;I have never had a client end a contract, it was always on me to move onto something else. As a contractor you might expect to work a 6 month contract, have it end, then move on. This belief can lead to short term decision making. For example, when you literally have a choice between a good and a bad team but there’s a twofold increase in your day rate, sacrificing your day to day happiness is a legitimate option as these decisions all to some extent feel like temporary measures. The problem is, it has never played out like this for me. Despite taking many short term contracts, the clients always ended up wanting to renew. In a way this makes sense, it can be a pain to replace contractors who have decent internal knowledge, or perhaps the hiring managers plan to replace you has gone awry or it’s simply just hard to find reliable developers.&lt;/p&gt;
+&lt;p&gt;The problem is that you might be making bad long term decisions while believing them to be short term ones and it can be easier to stick around somewhere because your comfortable and perhaps don’t have the energy levels to make a switch right now. The lesson here is simply to be wary of short term thinking, as it can easily play out over the long term.&lt;/p&gt;
+&lt;p&gt;Up next, &lt;a href="https://medium.com/@shano/freelancer-lessons-part-2-e5700002d8b?source=linkShare-c3fb4f3f97d3-1514928330"&gt;Part 2&lt;/a&gt;.&lt;/p&gt;</content><category term="posts"></category></entry></feed>
