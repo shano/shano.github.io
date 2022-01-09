@@ -61,18 +61,18 @@
         <p>Recently I wrote about <a href="https://medium.com/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2">why I’m using an iPad Pro as my main “at home” machine</a> and <a href="https://medium.com/how-am-i-using-my-ipad-pro-as-a-development-machine-e4912a31744e">how I’m generally using it for tinkering around with remote servers</a>. There is however, one caveat. I do still have an at-home server that I use for helping with making the iPad as feature rich as I need it to be.</p>
 <h4>The Server</h4>
 <p>To do this, I essentially have Archlinux running on an old Thinkpad X230, sitting under my router connected via an ethernet cable to keep things nice and stable. The only way I manage it is over SSH.</p>
-<p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1____SEPppZNXVSX8WegbbzcEQ.png"></p>
+<p><img alt="" src="img/1____SEPppZNXVSX8WegbbzcEQ.png"></p>
 <h4>Blocking Advertisements</h4>
 <p>While the iPad has the ability to add content blockers into Safari, this (obviously enough) did not block the ads within Apps, nor did it provide as complete an ad-blocking setup as I would have liked. Though I can recommend <a href="https://1blocker.com">1Blocker</a> as a pretty great app in a pinch.</p>
 <p>For this I ended up using <a href="https://pi-hole.net">pi-hole</a>, a pretty excellent ad-blocking solution that works on the router end of things. There’s a great guide on their site, that allows you to set your router to use a local DNS server(instead of your ISPs or Google’s for example). Also how pi-hole blocks is pretty great too, it attempts to <a href="https://www.reddit.com/r/pihole/comments/7evq88/how_does_pihole_responds_to_a_piholed_domain/dq8988s/">minimise visual interruption</a>, which is neat.</p>
-<p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__obYk____7GDnINeg2aRaxg6w.png"></p>
+<p><img alt="" src="img/1__obYk____7GDnINeg2aRaxg6w.png"></p>
 <h4>Making use of Usenet</h4>
 <p>Very rarely do I need to use Usenet these days, my various TV/Movie subscription almost always sort me out. When I do need to grab something off Usenet, I have a very nice setup connecting my iPad to my Archlinux box to add a few nice features.</p>
-<p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__0rs2KHDuoThDZD0sqxrH9g.jpeg"></p>
+<p><img alt="" src="img/1__0rs2KHDuoThDZD0sqxrH9g.jpeg"></p>
 <p>Firstly I installed/configured <a href="https://nzbget.net">NZBGet</a> on my Archlinux machine and ensured I could connect to the WebUI from the iPad. Don’t worry if the UI looks a bit rough around the edges, someone has written a really nice client for IOS.</p>
 <p>The next setup it to down/setup <a href="https://itunes.apple.com/us/app/nzbclient-for-nzbget/id1178245637?mt=8">NZBClient for NZBGet</a> on my iPad, which doesn’t take long. You can fill in both your NZBGet server details as well as your <a href="https://sabnzbd.org/wiki/introduction/nzb-sources">indexer</a>, that way, you can search for stuff and download it directly from your iPad, pretty seamless! However what happens when you want to watch/listen to anything you might have grabbed from Usenet?</p>
 <h4>Media Streaming</h4>
-<p><img alt="" src="/home/shane/Downloads/medium/posts/md_1641659894138/img/1__GYDK9r5tzOltIFYEmakcsg.jpeg"></p>
+<p><img alt="" src="img/1__GYDK9r5tzOltIFYEmakcsg.jpeg"></p>
 <p>The most useful/performant App I found so far for Media Streaming, is an app called <a href="https://itunes.apple.com/us/app/playerxtreme-media-player-pro/id440488550?platform=ipad&amp;preserveScrollPosition=true#platform/ipad">PlayerExtreme</a>. It supports a lot of different remote server types. For me I actually found just setting up plain <a href="https://wiki.archlinux.org/index.php/samba">Samba</a> on Archlinux worked really well for streaming, but there’s plenty of other protocols you can try.</p>
 <p>Either way, it, combined with my Usenet client means I never need to really hit the server anymore, everything has been up and running for a few months now and is always working as expected. I’d definitely give this is a go if you running into similar limitations on your iPad.</p>
     </div>
