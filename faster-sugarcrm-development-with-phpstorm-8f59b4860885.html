@@ -60,7 +60,7 @@
     </div>
 
     <div class="entry-content">
-        <p><img alt="" src="images/1__QzgJ__r__gWS5Nddl0PmJlSw.png" /></p>
+        <p><img alt="" src="images/1__QzgJ__r__gWS5Nddl0PmJlSw.png"></p>
 <p>Javascript development with SugarCRM can be a bit of a pain, however combining PHPStorm’s filewatcher tool with a cut down repair script can speed things up to a more tolerable level.</p>
 <p>What this setup does is watch for any javascript changes in our custom/ folder(because you’re not making core hacks are you?) and execute a light-weight repair script when any of those files change. So you’ll hit save in PHPStorm, wait a few seconds and your dev javascript should be refreshed and ready to test.</p>
 <p>The Repair Script
@@ -133,8 +133,8 @@
  — — — — — -</p>
 <p>The next thing to do is configure PHPStorm to start watching for Javascript file changes.</p>
 <p>Go into Settings-&gt;Tools-&gt;File Watchers and hit the green plus to add a new watcher.</p>
-<p><img alt="" src="images/1____XfSAae6p__j0R8XD__MGAHg.png" />
-<img alt="" src="images/1__jOrBq5xCqCJ7ONApQjVfww.png" /></p>
+<p><img alt="" src="images/1____XfSAae6p__j0R8XD__MGAHg.png">
+<img alt="" src="images/1__jOrBq5xCqCJ7ONApQjVfww.png"></p>
 <p>Simply alter your pattern to whatever your SugarCRM project structure looks like.</p>
 <p>You should see a count of the number of files the scope has detected in the project and it should be more than 0, so use that as a guide to ensure the scope is correctly identifying all your interesting javascript files.</p>
 <p>Once the scope is sorted, back in the watcher configuration, for the ‘Argument’ setting you will need to put in the path to the repair script from above then finally, for the ‘Working Directory’ put the root of the SugarCRM source.</p>

@@ -66,20 +66,20 @@ things may need to be changed depending on your distro. :D Right, you
 need wpa_supplicant installed and modify it’s config file
 /etc/wpa_supplicant.conf</p>
 <h1>!bash</h1>
-<div class="highlight"><pre><span></span><span class="n">ctrl</span>\<span class="n">_interface</span><span class="o">=/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wpa</span>\<span class="n">_supplicant</span>
-<span class="n">ctrl</span>\<span class="n">_interface</span>\<span class="n">_group</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">eapol</span>\<span class="n">_version</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">ap</span>\<span class="n">_scan</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">fast</span>\<span class="n">_reauth</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">network</span><span class="o">=</span><span class="p">{</span>
-<span class="n">ssid</span><span class="o">=</span><span class="err">”</span><span class="n">TCDwifi</span><span class="err">”</span>
-<span class="n">scan</span>\<span class="n">_ssid</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">key</span>\<span class="n">_mgmt</span><span class="o">=</span><span class="n">IEEE8021X</span>
-<span class="n">eap</span><span class="o">=</span><span class="n">LEAP</span>
-<span class="n">identity</span><span class="o">=</span><span class="err">”</span><span class="n">username</span><span class="err">”</span>
-<span class="n">password</span><span class="o">=</span><span class="err">”</span><span class="n">password</span><span class="err">”</span>
-<span class="n">phase2</span><span class="o">=</span><span class="err">”</span><span class="n">MSCHAPV2</span><span class="s2">&quot;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span>ctrl\_interface=/var/run/wpa\_supplicant
+ctrl\_interface\_group=0
+eapol\_version=1
+ap\_scan=1
+fast\_reauth=1
+network={
+ssid=”TCDwifi”
+scan\_ssid=1
+key\_mgmt=IEEE8021X
+eap=LEAP
+identity=”username”
+password=”password”
+phase2=”MSCHAPV2&quot;
+}
 </pre></div>
 
 
