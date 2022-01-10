@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Tech</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/tech.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2010-11-22T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Simple ubuntu backup to S3</title><link href="https://shanedowling.com/simple-ubuntu-backup-to-s3-d8a52b123d12.html" rel="alternate"></link><published>2010-11-22T00:00:00+00:00</published><updated>2010-11-22T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-11-22:/simple-ubuntu-backup-to-s3-d8a52b123d12.html</id><summary type="html">&lt;p&gt;After browsing the web for ages to find a decent solution to
+backup my server to amazon s3 I finally came across one and I’m just
+throwing it up here.&lt;/p&gt;
+&lt;h3&gt;Reqs:&lt;/h3&gt;
+&lt;p&gt;So basically all I need it to do was backup my sites(filesystem and mysql databases) and some …&lt;/p&gt;</summary><content type="html">&lt;p&gt;After browsing the web for ages to find a decent solution to
+backup my server to amazon s3 I finally came across one and I’m just
+throwing it up here.&lt;/p&gt;
+&lt;h3&gt;Reqs:&lt;/h3&gt;
+&lt;p&gt;So basically all I need it to do was backup my sites(filesystem and mysql databases) and some config for lighttpd.&lt;/p&gt;
+&lt;h3&gt;Implementation:&lt;/h3&gt;
+&lt;p&gt;The post I’m basing this off is &lt;a href="http://sdykman.com/blog/backing-drupal-sites-automysqlbackup-and-duplicity"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install automysqlbackup using apt&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;sudo apt-get install automysqlbackup&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Run automysqlbackup as root(just to give it a test)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;sudo automysqlbackup&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Double check the databases are being backed up you should see daily,
+weekly and monthly under /var/lib/automysqlbackup with the appropriate databases.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now use this script to backup all the specific folders you want.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh&lt;/span&gt;
+ &lt;span class="c1"&gt;# Export some ENV variables so you don’t have to type anything&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="se"&gt;\_&lt;/span&gt;ID&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;SECRET&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PASSPHRASE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="c1"&gt;# Your GPG key&lt;/span&gt;
+ GPG&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+ &lt;span class="c1"&gt;# The source of your backup&lt;/span&gt;
+ &lt;span class="nv"&gt;SOURCE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/
+ &lt;span class="c1"&gt;# The destination&lt;/span&gt;
+ &lt;span class="c1"&gt;# Note that the bucket need not exist&lt;/span&gt;
+ &lt;span class="c1"&gt;# but does need to be unique amongst all&lt;/span&gt;
+ &lt;span class="c1"&gt;# Amazon S3 users. So, choose wisely.&lt;/span&gt;
+ &lt;span class="nv"&gt;DEST&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;s3+http://
+ &lt;span class="c1"&gt;# The duplicity command and options&lt;/span&gt;
+ duplicity
+ — encrypt-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ — sign-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ — &lt;span class="nv"&gt;volsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;250&lt;/span&gt;
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/www
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/etc/lighttpd
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/lib/automysqlbackup
+ — &lt;span class="nv"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/&lt;span class="se"&gt;\*\*&lt;/span&gt;
+ &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SOURCE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;DEST&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ &lt;span class="c1"&gt;# Reset the ENV variables. Don’t need them sitting around&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="se"&gt;\_&lt;/span&gt;ID&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;SECRET&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PASSPHRASE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Add your own specific access key stuff and give it a test&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then add it to a cronjob&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; * * * /usr/sbin/automysqlbackup &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/s3_backup
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;.. |image0| image:: /images/Amazon_S3_Online_Service-resized200.gif.scaled500.gif&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Google History told me I’m a nerd</title><link href="https://shanedowling.com/google-history-told-me-im-a-nerd-68c2161f42c7.html" rel="alternate"></link><published>2010-05-06T00:00:00+00:00</published><updated>2010-05-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-05-06:/google-history-told-me-im-a-nerd-68c2161f42c7.html</id><summary type="html">&lt;p&gt;24000 searches later and here is my top ten sites I click to on google.&lt;/p&gt;
+&lt;p&gt;Top sites&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://ubuntuforums.org" title="http://ubuntuforums.org"&gt;&lt;strong&gt;Ubuntu Forums&lt;/strong&gt;
+_A help and support forum for Ubuntu Linux._ubuntuforums.org&lt;/a&gt;&lt;a href="http://ubuntuforums.org"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://en.wikipedia.org" title="http://en.wikipedia.org"&gt;&lt;strong&gt;Wikipedia, the free encyclopedia&lt;/strong&gt;
+_Allied naval bombardments of Japan during the last weeks of World War II in 1945 targeted industrial …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;24000 searches later and here is my top ten sites I click to on google.&lt;/p&gt;
+&lt;p&gt;Top sites&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://ubuntuforums.org" title="http://ubuntuforums.org"&gt;&lt;strong&gt;Ubuntu Forums&lt;/strong&gt;
+_A help and support forum for Ubuntu Linux._ubuntuforums.org&lt;/a&gt;&lt;a href="http://ubuntuforums.org"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://en.wikipedia.org" title="http://en.wikipedia.org"&gt;&lt;strong&gt;Wikipedia, the free encyclopedia&lt;/strong&gt;
+_Allied naval bombardments of Japan during the last weeks of World War II in 1945 targeted industrial and military…_en.wikipedia.org&lt;/a&gt;&lt;a href="http://en.wikipedia.org"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.boards.ie" title="http://www.boards.ie"&gt;&lt;strong&gt;boards.ie - Now Ye're Talkin'&lt;/strong&gt;
+_Boards.ie uses cookies. By continuing to browse this site you are agreeing to our use of cookies. Click here to find…_www.boards.ie&lt;/a&gt;&lt;a href="http://www.boards.ie"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://stackoverflow.com" title="http://stackoverflow.com"&gt;&lt;strong&gt;Stack Overflow - Where Developers Learn, Share, &amp;amp; Build Careers&lt;/strong&gt;
+_Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming…_stackoverflow.com&lt;/a&gt;&lt;a href="http://stackoverflow.com"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://lifehacker.com" title="http://lifehacker.com"&gt;&lt;strong&gt;Lifehacker - &lt;em&gt;Do everything better&lt;/em&gt;&lt;/strong&gt;
+Do everything betterlifehacker.com&lt;/a&gt;&lt;a href="http://lifehacker.com"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://php.net" title="http://php.net"&gt;&lt;strong&gt;PHP: Hypertext Preprocessor&lt;/strong&gt;
+_Please note that according to the PHP version support timelines, PHP 7.0.33 is the last scheduled release of PHP 7.0…_php.net&lt;/a&gt;&lt;a href="http://php.net"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://drupal.org"&gt;https://drupal.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://wiki.archlinux.org" title="http://wiki.archlinux.org"&gt;&lt;strong&gt;ArchWiki&lt;/strong&gt;
+_Welcome to the ArchWiki: your source for Arch Linux documentation on the web._wiki.archlinux.org&lt;/a&gt;&lt;a href="http://wiki.archlinux.org"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://addons.mozilla.org" title="http://addons.mozilla.org"&gt;&lt;strong&gt;Add-ons for Firefox (en-US)&lt;/strong&gt;
+_Download Firefox extensions and themes. They're like apps for your browser. They can block annoying ads, protect…_addons.mozilla.org&lt;/a&gt;&lt;a href="http://addons.mozilla.org"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Yep most of them are nerdy related but I was utterly shocked that
+ubuntuforums.org bested wikipedia. So I have more interest in a flavour
+of linux than I do on…. the rest of life, basically.&lt;/p&gt;
+&lt;p&gt;Terrific.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>8 randomly useful php tricks</title><link href="https://shanedowling.com/8-randomly-useful-php-tricks-1acfd89a3fb4.html" rel="alternate"></link><published>2010-02-22T00:00:00+00:00</published><updated>2010-02-22T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-02-22:/8-randomly-useful-php-tricks-1acfd89a3fb4.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;1)debug_print_backtrace()&lt;/strong&gt;
+I use this one a lot, print a debug-style list of what was called to get
+thethe point where this function is called. Very, very useful.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2) __autoload()&lt;/strong&gt;
+- Called when you attempt to load a class that hasn’t been defined.
+the autoloader to attempt an …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;1)debug_print_backtrace()&lt;/strong&gt;
+I use this one a lot, print a debug-style list of what was called to get
+thethe point where this function is called. Very, very useful.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2) __autoload()&lt;/strong&gt;
+- Called when you attempt to load a class that hasn’t been defined.
+the autoloader to attempt an import of xyz.php. Probably not the best
+technique for readability or clarity in code, but has it uses.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3) ip2long()&lt;/strong&gt;
+Don’t store IP addresses as strings on a db use this to store them as a
+long.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4) oString()&lt;/strong&gt;
+- If an object is ever used as a string, you can define what’s returned
+here. Again you can find it’s uses once you realise these things are
+possible. :)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5) get_browser()&lt;/strong&gt;
+- Easily get your hands on the users browser-type. Some leave this
+process to the browser end but can be useful to get this info server
+side.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;More of a total dirty hack(come on, it’s PHP). Having problems with
+that annoying ‘headers already sent’ error. Don’t bother to fix the
+underlying problem, just omit the closing php tag! It’s totally
+valid(this list is really becoming things I hate about PHP….)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7) natsort()&lt;/strong&gt;
+This will sort lists of things in ways humans will understand. Good idea
+when displaying drop-down lists etc for users. Again, you might find a
+use.:)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8) metaphone()&lt;/strong&gt;
+Again one of those random things PHP does, you may never use this but
+comparing words that sounds similar, this one’s really obscure and I
+honestly haven’t actually found a use for it yet.:)&lt;/p&gt;
+&lt;p&gt;Take a look at the PHP magic methods for some other ideas. :)&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Sync config files over dropbox</title><link href="https://shanedowling.com/sync-config-files-over-dropbox-62b51425343e.html" rel="alternate"></link><published>2010-02-14T00:00:00+00:00</published><updated>2010-02-14T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-02-14:/sync-config-files-over-dropbox-62b51425343e.html</id><summary type="html">&lt;p&gt;One of the many reasons for my love of linux is the idea of keeping
+config information in simple texts files in the home directory of each
+user. It all very painless. And now with &lt;a href="https://www.dropbox.com/referrals/NTQyMzk2MT"&gt;Dropbox&lt;/a&gt; I can have a
+set of application configurations stored via the web.&lt;/p&gt;
+&lt;p&gt;Using Dropbox …&lt;/p&gt;</summary><content type="html">&lt;p&gt;One of the many reasons for my love of linux is the idea of keeping
+config information in simple texts files in the home directory of each
+user. It all very painless. And now with &lt;a href="https://www.dropbox.com/referrals/NTQyMzk2MT"&gt;Dropbox&lt;/a&gt; I can have a
+set of application configurations stored via the web.&lt;/p&gt;
+&lt;p&gt;Using Dropbox, add a folder(I’ve called mine dotfiles) and add in all
+the useful config files you have.&lt;/p&gt;
+&lt;p&gt;For me it’s my&lt;/p&gt;
+&lt;p&gt;.bashrc (sets up environment stuff, can be iffy with multiple machines
+however)&lt;/p&gt;
+&lt;p&gt;.bash_aliases (sets up all my command line aliases)&lt;/p&gt;
+&lt;p&gt;.vimrc (my vim configuration)&lt;/p&gt;
+&lt;p&gt;.vim/ (my vim plugins and documentation)&lt;/p&gt;
+&lt;p&gt;.muttrc (my mutt config)&lt;/p&gt;
+&lt;p&gt;.screenrc (my screen config)&lt;/p&gt;
+&lt;p&gt;.irssi (my irssi config)&lt;/p&gt;
+&lt;p&gt;Move all the files you wish to sync with Dropbox into your dotfiles(or&lt;/p&gt;
+&lt;p&gt;1) cd ~&lt;/p&gt;
+&lt;p&gt;2) ln -s /home/username/Dropbox/dotfiles/.bashrc&lt;/p&gt;
+&lt;p&gt;And bingo! Your bashrc files is now synced over Dropbox. Any changes you
+make on your current machine will be propagated over all machines use
+this Dropboxconfig and visa-versa. On top of that the prospect of
+maintaining profiles over multiple machines become a lot less painful.
+Even setting up a new machine is handy. Setup your os, download dropbox,
+execute ln -s a few times and you’re done, and this can be extended to
+any application that supports these plain-text config files. It’s really
+awesome!&lt;/p&gt;
+&lt;h3&gt;Update — 04/04/14&lt;/h3&gt;
+&lt;p&gt;These days, I’m actually using bittorrent sync to do effectively the same thing, minus all the privacy invading Dropbox features.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Disable jQuery autocompleter cache</title><link href="https://shanedowling.com/disable-jquery-autocompleter-cache-a6f3a338274c.html" rel="alternate"></link><published>2010-02-12T00:00:00+00:00</published><updated>2010-02-12T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-02-12:/disable-jquery-autocompleter-cache-a6f3a338274c.html</id><summary type="html">&lt;p&gt;For anyone wondering how to disable the &lt;a href="http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/"&gt;autocompleter&lt;/a&gt; cache in jQuery(meaning you always poll the server each time a letter is entered).&lt;/p&gt;
+&lt;p&gt;Simply set cacheLength: 0, in the autocompleter’s settings. Seems obvious but my googling told me never set this value below 1 or the whole thing would …&lt;/p&gt;</summary><content type="html">&lt;p&gt;For anyone wondering how to disable the &lt;a href="http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/"&gt;autocompleter&lt;/a&gt; cache in jQuery(meaning you always poll the server each time a letter is entered).&lt;/p&gt;
+&lt;p&gt;Simply set cacheLength: 0, in the autocompleter’s settings. Seems obvious but my googling told me never set this value below 1 or the whole thing would explode. Tried matchSubset etc and nothing else worked.&lt;/p&gt;
+&lt;p&gt;Simple solutions eh?&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Php Beautifier</title><link href="https://shanedowling.com/php-beautifier-51200a4b525f.html" rel="alternate"></link><published>2010-01-23T00:00:00+00:00</published><updated>2010-01-23T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-01-23:/php-beautifier-51200a4b525f.html</id><summary type="html">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;When you’re faced with an ugly PHP file(or files) with little to do but
+trawl through it, there is a solution.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://phpbeautifier.com"&gt;PHP beautifier&lt;/a&gt; is a pear package that will process PHP files and reformat them in a (hopefully) nicer format.&lt;/p&gt;
+&lt;h3&gt;Installation&lt;/h3&gt;
+&lt;p&gt;You can install it using pear …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;When you’re faced with an ugly PHP file(or files) with little to do but
+trawl through it, there is a solution.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://phpbeautifier.com"&gt;PHP beautifier&lt;/a&gt; is a pear package that will process PHP files and reformat them in a (hopefully) nicer format.&lt;/p&gt;
+&lt;h3&gt;Installation&lt;/h3&gt;
+&lt;p&gt;You can install it using pear with a very simple&lt;/p&gt;
+&lt;p&gt;pear install PHP_Beautifier&lt;/p&gt;
+&lt;h3&gt;Usage&lt;/h3&gt;
+&lt;p&gt;Usage is pretty dependent on your needs. What’s nice is, it takes
+formatting rules as arguments, so if you pass in Pear() as an argument
+your code will be formatted to the pear standard.&lt;/p&gt;
+&lt;p&gt;Here’s a bash alias I used to fire an entire folder(and recursively
+through all sub-folders) through the beautifier with the Pear standard
+coding conventions and outputted to a src2 folder.&lt;/p&gt;
+&lt;p&gt;alias beautify=”php_beautifier -l “Pear()” -r “*.php” ./src2/”&lt;/p&gt;
+&lt;p&gt;Or if your using vim here is a mapping to call the beautifier on the
+current file when Ctrl-F2 is pressed(all my function keys are currently
+mapped to vim’sxdebug plugin).&lt;/p&gt;
+&lt;p&gt;map :% ! php_beautifier&lt;/p&gt;
+&lt;h3&gt;Results&lt;/h3&gt;
+&lt;p&gt;The results are pretty nice actually. The author of it notes that on
+40,000 lines of PHP it hasn’t broken a single file. I have noted that it
+can make certain files look like crap however. An example would be our
+locales file, that has large array mappings of terms to languages.
+Unless you’re totally certain your whole project is going to look
+awesome I would suggest using this on a file by file basis, as I have
+with vim.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Vim!</title><link href="https://shanedowling.com/vim-e2fc00d85b79.html" rel="alternate"></link><published>2010-01-11T00:00:00+00:00</published><updated>2010-01-11T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-01-11:/vim-e2fc00d85b79.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__z__gwqd53GgEAJGz83yndbA.png"&gt;&lt;/p&gt;
+&lt;p&gt;For a while now vim has been my editor of choice and only up until
+recently have I began to unearth it’s potential. My reasoning before was
+that it was so cross-compatible(even working in ssh terminals) that this
+would always be my go-to editor. Now it’s become …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__z__gwqd53GgEAJGz83yndbA.png"&gt;&lt;/p&gt;
+&lt;p&gt;For a while now vim has been my editor of choice and only up until
+recently have I began to unearth it’s potential. My reasoning before was
+that it was so cross-compatible(even working in ssh terminals) that this
+would always be my go-to editor. Now it’s become so much more! Running
+regexes across all working files with bufdo, crazy window manipulation
+and crazy editing tricks have made this editor truly fantastic. I’ve
+started using wherever possible, even trying out the vimperator firefox
+plugin.&lt;/p&gt;
+&lt;p&gt;3 reasons to learn Vim are&lt;/p&gt;
+&lt;p&gt;1. Edit text far more efficiently(I as a programmer do this more than a
+little)&lt;/p&gt;
+&lt;p&gt;2. Not look like an idiot by saying you “know” vim then head straight
+for the arrow keys&lt;/p&gt;
+&lt;p&gt;3. The ladies&lt;/p&gt;
+&lt;p&gt;I felt if I was ever going to learn it I would have to see someone use
+it. Luckily I found a guy who clearly only has love for VIM. Before I
+watched the videos I basically knew a couple of shortcuts but still used
+the arrows key and ‘i’ to do 95% of my work. Things have changed
+drastically since then.&lt;/p&gt;
+&lt;p&gt;* Play with &lt;a href="http://www.vim.org/"&gt;vim&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;* Watch all of these &lt;a href="http://www.derekwyatt.org/vim/vim-tutorial-videos/vim-novice-tutorial-videos/"&gt;vim tutorials&lt;/a&gt;, a guy who has likely changed me forever!&lt;/p&gt;
+&lt;p&gt;* Feel free to use the mindmap I made, I find it easier to traverse
+quickly over the flat cheatsheet(but that’s just me)&lt;/p&gt;
+&lt;p&gt;You’ll find yourself working at a slow pace(even slower than normal) but
+fight through this as the productivity rewards are worth it!&lt;/p&gt;
+&lt;p&gt;Alsoit may be a little annoying but add these to your .vimrc to disable
+the arrow keys, this helped me a lot in using the editor correctly.&lt;/p&gt;
+&lt;p&gt;You’ll find yourself working at a slow pace(even slower than normal) but
+fight true this as the productivity rewards are worth it!&lt;/p&gt;
+&lt;p&gt;Also if may be a little annoying but add these to your .vimrc to disable
+the arrow keys, this helped me a lot in using the editor correctly.&lt;/p&gt;
+&lt;p&gt;noremap "" noremap! noremap "" noremap! noremap "" noremap! noremap "" norema! noremap "" noremap! noremap "" noremap! noremap "" noremap! noremap "" norema!&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Google Wave Server Admin</title><link href="https://shanedowling.com/google-wave-server-admin-693186dcac55.html" rel="alternate"></link><published>2009-12-16T00:00:00+00:00</published><updated>2009-12-16T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2009-12-16:/google-wave-server-admin-693186dcac55.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__FO13w__1tT7x8ZvWoH19o0w.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Download &lt;a href="http://github.com/shanedowling/Wave-ServerAdmin"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;What it does&lt;/h3&gt;
+&lt;p&gt;Execute commands from google wave on your remote server.&lt;/p&gt;
+&lt;h3&gt;How to set it up&lt;/h3&gt;
+&lt;p&gt;You need python2.6 or greater, which sucks for a lot of debian users but I
+need it to be able to kill processes nicely.&lt;/p&gt;
+&lt;p&gt;Fill in the details required &lt;a href="http://github.com/shanedowling/Wave-ServerAdmin"&gt;here …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__FO13w__1tT7x8ZvWoH19o0w.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Download &lt;a href="http://github.com/shanedowling/Wave-ServerAdmin"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;What it does&lt;/h3&gt;
+&lt;p&gt;Execute commands from google wave on your remote server.&lt;/p&gt;
+&lt;h3&gt;How to set it up&lt;/h3&gt;
+&lt;p&gt;You need python2.6 or greater, which sucks for a lot of debian users but I
+need it to be able to kill processes nicely.&lt;/p&gt;
+&lt;p&gt;Fill in the details required &lt;a href="http://github.com/shanedowling/Wave-ServerAdmin"&gt;here&lt;/a&gt;. Deploy it to your own google app engine deployment and continue on the easy option.&lt;/p&gt;
+&lt;h3&gt;How it works&lt;/h3&gt;
+&lt;p&gt;Using google wave’s api and google’s datastore, when a blip is submitted
+an &lt;a href="http://www.python.org/doc/2.5.2/lib/module-xmlrpclib.html"&gt;xmlrpc&lt;/a&gt; request is sent to your server, along with your hashed password for
+authentication. The python code running on the server is then executed
+as a sub process and the output is returned. If the server subprocess
+lasts more than 3 seconds it is killed and that output is returned, I
+can’t seem to be able to wait any longer before the request times out.&lt;/p&gt;
+&lt;p&gt;As I mentioned the data is stored on google datastore. All passwords
+are hashed as soon as they’re entered.&lt;/p&gt;
+&lt;p&gt;If you need any further details, check the &lt;a href="http://github.com/shanedowling/Wave-ServerAdmin"&gt;source&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Why&lt;/h3&gt;
+&lt;p&gt;Generating ideas with what you can do with wave mostly. Obviously this
+script needs locking down to be useful, I’m doubting very many want to
+run ls -alh from google wave a lot. But if you start extending the code
+you can write some cool things into waves.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://o2sms.sourceforge.net/"&gt;o2sms&lt;/a&gt; it allows me to send text
+messages from the command line for free using my mobile phone operator’s
+web-account(this tool only works in Ireland however). So for me to send
+a text message I would type. o2sms sender_in_phonebook -M ‘a message’&lt;/p&gt;
+&lt;p&gt;o2sms mum -M ‘Hi I am sending you a message’&lt;/p&gt;
+&lt;p&gt;So with a few changes to my script I can create a new wave add the robot
+participant and type&lt;/p&gt;
+&lt;p&gt;mum Hi I am sending you a message&lt;/p&gt;
+&lt;p&gt;And presto I’m sending texts from my google wave, for free.&lt;/p&gt;
+&lt;p&gt;Happys Days!&lt;/p&gt;
+&lt;p&gt;And I’m sure there is a truck load of ideas that can be done around
+this, the project itself is purely a proof of concept that I hope will
+generate some cool stuff.&lt;/p&gt;
+&lt;p&gt;Note:I did this project to learn both python and google wave’s api, so
+apologies if the code sucks/is very PHPish.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Pseudocode Programming Process</title><link href="https://shanedowling.com/pseudocode-programming-process-ad198e7b0584.html" rel="alternate"></link><published>2009-11-23T00:00:00+00:00</published><updated>2009-11-23T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2009-11-23:/pseudocode-programming-process-ad198e7b0584.html</id><summary type="html">&lt;p&gt;So for the last while I’ve been experimenting with PPP as described in
+&lt;a href="http://cc2e.com/Page.aspx?hid=145"&gt;Code Complete&lt;/a&gt;. Jeff Atwood has a great description of it on &lt;a href="http://www.codinghorror.com/blog/archives/001264.html"&gt;coding horror&lt;/a&gt;. You should read the blog post the metaphor of pseudocode as tang is a good one. I’ve been using PPP for a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So for the last while I’ve been experimenting with PPP as described in
+&lt;a href="http://cc2e.com/Page.aspx?hid=145"&gt;Code Complete&lt;/a&gt;. Jeff Atwood has a great description of it on &lt;a href="http://www.codinghorror.com/blog/archives/001264.html"&gt;coding horror&lt;/a&gt;. You should read the blog post the metaphor of pseudocode as tang is a good one. I’ve been using PPP for a number of weeks now and so far it’s really been working. There have been several reasons why I found it worksbut for me the most important and useful part is purely that it **slows me down**.&lt;/p&gt;
+&lt;p&gt;One of Jeff’s arguments against PPP is that he ‘thinks in code’, and
+before I tried PPP I would have said the same. The problem is when I
+‘think in code’, it sometimes results in poorly written code that
+clearly I haven’t spent nearly enough time thinking about. I’m moving
+straight into worrying about implementation details.&lt;/p&gt;
+&lt;p&gt;Now, because I’m abstracting the thinking away from the code it’s
+effectively created a new step in programming for me. Now Jeff is
+undoubtedly a better and more experienced programmer than I, so this is
+where he bases his argument, however we don’t all have this immediate
+ability to make the optimum choices as we start writing out code. When I
+say it slows me down, on a routine level, I start to think more about
+naming, is the function parameters in keeping with the abstraction of
+the overall class, the boundaries on parameters and other implementation
+details I may miss. And although most of those points are not at all
+related to what PPP wants me to think about it’s because I’m forcing
+myself to slow down I begin to become more thoughtful in the part where
+I fill out the tang. For now at least, I find it difficult to conceptualise all of this on top of worrying about all of the implementation details of the language. I really have shifted my thinking process to a new ‘thinking about thinking’ stage, that has significantly improved the quality of my code. I do sometimes feel like slipping into old habits, but I know the quality of my code will slip too so for the last while I’ve been good.&lt;/p&gt;
+&lt;p&gt;For examplewhen I’ve had to really think about certain functions it may
+become obvious that it needs to be split, something I may not have
+noticed worrying about implementation details, or more likely I’ll
+noticed it needs to be split half-way through coding it. I also know
+there have been times when I ‘should’ have split a routine but because I
+mid programming it I ‘leave it for now’. Never a good idea but when
+deadlines loom….. However when I’m writing pseudocode, if what I’m
+writing need some serious explaining, it become’s pretty obvious that I
+need to start a new routine. Typically this has resulted in small tight
+functions that truly adhere to the ‘do one thing well’ ideal. There are
+many other examplesbut it all boils down to a procedure that focuses my
+thoughts.&lt;/p&gt;
+&lt;p&gt;One tip I would suggest is to write your pseudocode for any language to
+implement, so I always re-read the pseudocode with an eye to writing it
+in a totally different language for me it’s C(I typically code in PHP).
+This ensures there’s no language details in there.&lt;/p&gt;
+&lt;p&gt;Another good way to think about it is a &lt;a href="http://en.wikipedia.org/wiki/Getting_Things_Done"&gt;GTD&lt;/a&gt; to-do list.
+Basically, ‘a person needs to move tasks out of the mind by recording
+them externally. That way, the mind is freed from the job of remembering
+everything that needs to be done, and can concentrate on actually
+performing those tasks.’ I feel this step is becoming more and more
+vital for me and on top of that free well written comments are a
+terrific bonus for the lazy programmer!&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Code Complete</title><link href="https://shanedowling.com/code-complete-d53ccde8613b.html" rel="alternate"></link><published>2009-11-06T00:00:00+00:00</published><updated>2009-11-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2009-11-06:/code-complete-d53ccde8613b.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__aEP__LZBNqV2mQa4JFBx__7Q.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;I’ve been reading through Steve McConnell’s &lt;a href="http://www.amazon.com/exec/obidos/ASIN/0735619670/codinghorror-20"&gt;Code
+Complete&lt;/a&gt; for the last few months, in fact I’m working through mindmaps of each section to traverse through this dense book in a fairly easy manner.
+Basically, instead of saying “Hey I need to create a new class what
+should …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__aEP__LZBNqV2mQa4JFBx__7Q.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;I’ve been reading through Steve McConnell’s &lt;a href="http://www.amazon.com/exec/obidos/ASIN/0735619670/codinghorror-20"&gt;Code
+Complete&lt;/a&gt; for the last few months, in fact I’m working through mindmaps of each section to traverse through this dense book in a fairly easy manner.
+Basically, instead of saying “Hey I need to create a new class what
+should I be thinking about again, which pages are they on?”, I search
+the appropriate mindmap and all the headings are there, withpage number
+for a deeper reference(which is rarely needed). I would highly recommend
+this system to anyone who wants to read any book and also use it for a
+future reference.&lt;/p&gt;
+&lt;p&gt;Since I began my current software engineering job, my code quality has
+improved significantly purely because of this book(I have little
+technical expertise to rely on, low availability of experienced
+programmers has effectively forced me to punch about my own experience
+weight). For me the real impact of this book has been having my own
+expert to back my decisions, instead of my typical response of ‘Eh, I
+like doing it that way’, it’s moved to ‘Steve McConnell a widely
+regarded software engineer in a book that epitomises software
+engineering tells me to do it this way’.&lt;/p&gt;
+&lt;p&gt;It’s basically a handbook on how to be a software engineer, so for me
+truly at the start of this process, this book has been invaluable. It’s
+forced me to start thinking about things I would have never bothered
+putting thought into. An example would be variable names, which before I
+put barely any thought into(I know what it does…..) I’ve now got a large
+section of my mindmap dedicated to picking a decent name, in a
+consistent way. Another example would be creating a class. Before, I
+would ponder whether it ‘feels’ right to do so, then probably do it
+anyway. Now, I have a checklist to say whether making this section of
+code and variable does justify a class. I find myself thinking more
+about thinking. The most important part being I’m making decisions in a
+consistent manner and as I’ve put a lot more thought into them I tend to
+remember and repeat those decisions. Honestly I’ve already refactored a
+bunch of code as I realised just how unpleasant it was in the scheme of
+things.&lt;/p&gt;
+&lt;p&gt;I’d say at this stage I’m hitting Code Complete more than the php.net
+manual, which is a big feat(considering how often I forget how to do
+things). Honestly I have no idea if this would have any impact on an
+experienced programmer, I would hazard a guess that most large ongoing
+projects incorporate a look of the ideas this book puts forward. But as
+a beginner it’s influence on me has been morethen significant and I’ve
+already started to look at other inexperienced programmers who haven’t
+read this book with slightly less confidence. The book is in itself
+probably the most important book the programmer in me will ever read and
+is the first book I would recommend to any developer. Now I just have to
+finish it.&lt;/p&gt;
+&lt;p&gt;Oh there’s some awesome resources on Steve’s page Code Complete page.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Useful Linux apps you’ve probably never heard of</title><link href="https://shanedowling.com/useful-linux-apps-youve-probably-never-heard-of-ad375c0b8532.html" rel="alternate"></link><published>2008-06-12T00:00:00+00:00</published><updated>2008-06-12T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2008-06-12:/useful-linux-apps-youve-probably-never-heard-of-ad375c0b8532.html</id><summary type="html">&lt;h3&gt;Corkscrew&lt;/h3&gt;
+&lt;p&gt;What corkscrew does is allow you to tunnel ssh connections over a http
+proxy very easily. As far as admins of the http proxy can see this is
+encrypted traffic which is most likely anssl connection to a web
+server(the server you have sshed to), you could in …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Corkscrew&lt;/h3&gt;
+&lt;p&gt;What corkscrew does is allow you to tunnel ssh connections over a http
+proxy very easily. As far as admins of the http proxy can see this is
+encrypted traffic which is most likely anssl connection to a web
+server(the server you have sshed to), you could in theory ( :D ), create
+a socks proxy using an ssh tunnel that is corkscrewing over a http
+proxy. Then set your browser to use that socks proxy instead of the http
+proxy and thus encrypt all your traffic. I think you can use this with
+windows and cygwin tool but its probably easier to simply use putty as
+is has added support for this a while back.&lt;/p&gt;
+&lt;h3&gt;Tsocks&lt;/h3&gt;
+&lt;p&gt;This useful little command line app allows you to use the socks protocol
+with applications that may or may not support socks proxies and does not
+require you to have to configure all of your apps. So if you want to use
+the Opera web browser over a socks proxy, which it annoyingly doesn’t
+support simply configure tsocks with your socks proxy and run “tsocks
+opera”. Tsocks has pretty much worked with every command I could throw
+at it when I’m stuck behind an annoying proxy.&lt;/p&gt;
+&lt;h3&gt;Curlftpfs&lt;/h3&gt;
+&lt;p&gt;Another app to make life that little bit easier, if you’re using a crap
+cheapo web hosting service(like I currently am), one way to make your
+life easier is to mount the ftp server locally and run all the commands
+you want to on it using curlftp, so you don’t need that fancy expensive
+server with ssh access to run stuff, well unless you want to execute
+something on the server… which you probably will, like I really do,
+but i’ll put up with this rather than paying triple what I am now for
+hosting. :D. But Curlftp seems to work just as well as others remote
+mounting such assshfs etc… I would recommend building from source, I
+was using Ubuntu and the repos version didn’t work.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Getting yourself on Trinity’s Wireless network with Linux</title><link href="https://shanedowling.com/getting-yourself-on-trinitys-wireless-network-with-linux-dd6a51344317.html" rel="alternate"></link><published>2008-02-03T00:00:00+00:00</published><updated>2008-02-03T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2008-02-03:/getting-yourself-on-trinitys-wireless-network-with-linux-dd6a51344317.html</id><summary type="html">&lt;p&gt;Since ISServices have washed their hands of any support for Linux, I’ve
+banged up a guide on how to get onto it with Linux. I’m using Ubuntu so
+things may need to be changed depending on your distro. :D Right, you
+need wpa_supplicant installed and modify it …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Since ISServices have washed their hands of any support for Linux, I’ve
+banged up a guide on how to get onto it with Linux. I’m using Ubuntu so
+things may need to be changed depending on your distro. :D Right, you
+need wpa_supplicant installed and modify it’s config file
+/etc/wpa_supplicant.conf&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="nv"&gt;ctrl_interface&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/run/wpa_supplicant
+    &lt;span class="nv"&gt;ctrl_interface_group&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
+    &lt;span class="nv"&gt;eapol_version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+    &lt;span class="nv"&gt;ap_scan&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+    &lt;span class="nv"&gt;fast_reauth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+    &lt;span class="nv"&gt;network&lt;/span&gt;&lt;span class="o"&gt;={&lt;/span&gt;
+        &lt;span class="nv"&gt;ssid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;”TCDwifi”
+        &lt;span class="nv"&gt;scan_ssid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+        &lt;span class="nv"&gt;key_mgmt&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;IEEE8021X
+        &lt;span class="nv"&gt;eap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LEAP
+        &lt;span class="nv"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;”username”
+        &lt;span class="nv"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;”password”
+        &lt;span class="nv"&gt;phase2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;”MSCHAPV2&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;    }&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you’re in Computer Science you can also use COMPSCIwireless2 and
+there’s no MAC address filtering so no stupid registering stuff. Place
+this in your /etc/network/interfaces if its not already there so you can
+dhcp over your wireless card.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    auto eth1
+    iface eth1 inet dhcp
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And finally all of this stuff into a script, say tcd.sh&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="nb"&gt;echo&lt;/span&gt; “Putting the wifi card up and down”
+    sudo ifconfig eth1 down
+    sudo ifconfig eth1 up
+    sleep &lt;span class="m"&gt;3&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; “Killing all necessary stuff”
+    sudo killall dhclient dhclient3
+    sudo killall wpa&lt;span class="se"&gt;\_&lt;/span&gt;supplicant
+    sleep &lt;span class="m"&gt;3&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; “Setting up WPA”
+    sudo wpa&lt;span class="se"&gt;\_&lt;/span&gt;supplicant -B -ieth1 -Dwext -c/etc/wpa&lt;span class="se"&gt;\_&lt;/span&gt;supplicant.conf
+    sleep &lt;span class="m"&gt;3&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; “Connecting to wireless”
+    sudo iwconfig eth1 essid TCDwifi
+    sleep &lt;span class="m"&gt;3&lt;/span&gt;
+    sudo dhclient eth1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then run sh tcd.sh and enter your root password, it may not work
+sometimes, this seems to be due to the wireless networks being hidden.
+If you want add this to the start of your script. iwlist scanning \|
+grep TCDwifi and if you see a few TCDwifi access points coming up you
+“should” be ok and it will connect alright, otherwise cancel the script
+and give it another go. The wifi card should pick up the access points
+now… hopefully&lt;/p&gt;</content><category term="Tech"></category></entry></feed>

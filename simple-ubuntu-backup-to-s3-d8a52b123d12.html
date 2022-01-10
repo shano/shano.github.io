@@ -24,7 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
+                        <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -40,7 +43,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2010-11-22T00:00:00+00:00">Mon 22 November 2010</abbr>
@@ -71,44 +74,63 @@ throwing it up here.</p>
 <li>Install automysqlbackup using apt</li>
 </ol>
 <p>sudo apt-get install automysqlbackup</p>
-<p>2. Run automysqlbackup as root(just to give it a test)</p>
+<ol>
+<li>Run automysqlbackup as root(just to give it a test)</li>
+</ol>
 <p>sudo automysqlbackup</p>
-<p>3. Double check the databases are being backed up you should see daily,
- weekly and monthly under /var/lib/automysqlbackup with the
- appropriate databases.</p>
-<p>4. Now use this script to backup all the specific folders you want.</p>
-<h1>!/bin/sh</h1>
-<p># Export some ENV variables so you don’t have to type anything
- export AWS_ACCESS_KEY_ID=
- export AWS_SECRET_ACCESS_KEY=
- export PASSPHRASE=
- # Your GPG key
- GPG_KEY=;
- # The source of your backup
- SOURCE=/
- # The destination
- # Note that the bucket need not exist
- # but does need to be unique amongst all
- # Amazon S3 users. So, choose wisely.
- DEST=s3+http://
- # The duplicity command and options
+<ol>
+<li>
+<p>Double check the databases are being backed up you should see daily,
+weekly and monthly under /var/lib/automysqlbackup with the appropriate databases.</p>
+</li>
+<li>
+<p>Now use this script to backup all the specific folders you want.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+ <span class="c1"># Export some ENV variables so you don’t have to type anything</span>
+ <span class="nb">export</span> AWS<span class="se">\_</span>ACCESS<span class="se">\_</span>KEY<span class="se">\_</span>ID<span class="o">=</span>
+ <span class="nb">export</span> AWS<span class="se">\_</span>SECRET<span class="se">\_</span>ACCESS<span class="se">\_</span>KEY<span class="o">=</span>
+ <span class="nb">export</span> <span class="nv">PASSPHRASE</span><span class="o">=</span>
+ <span class="c1"># Your GPG key</span>
+ GPG<span class="se">\_</span>KEY<span class="o">=</span><span class="p">;</span>
+ <span class="c1"># The source of your backup</span>
+ <span class="nv">SOURCE</span><span class="o">=</span>/
+ <span class="c1"># The destination</span>
+ <span class="c1"># Note that the bucket need not exist</span>
+ <span class="c1"># but does need to be unique amongst all</span>
+ <span class="c1"># Amazon S3 users. So, choose wisely.</span>
+ <span class="nv">DEST</span><span class="o">=</span>s3+http://
+ <span class="c1"># The duplicity command and options</span>
  duplicity
- — encrypt-key=${GPG_KEY}
- — sign-key=${GPG_KEY}
- — volsize=250
- — include=/var/www
- — include=/home
- — include=/etc/lighttpd
- — include=/var/lib/automysqlbackup
- — exclude=/**
- ${SOURCE} ${DEST}
- # Reset the ENV variables. Don’t need them sitting around
- export AWS_ACCESS_KEY_ID=
- export AWS_SECRET_ACCESS_KEY=
- export PASSPHRASE=</p>
-<p>5. Add your own specific access key stuff and give it a test</p>
-<p>6. Then add it to a cronjob</p>
-<p>0 0 * * * /usr/sbin/automysqlbackup &amp;&amp; /root/s3_backup</p>
+ — encrypt-key<span class="o">=</span><span class="si">${</span><span class="nv">GPG</span><span class="se">\_</span><span class="nv">KEY</span><span class="si">}</span>
+ — sign-key<span class="o">=</span><span class="si">${</span><span class="nv">GPG</span><span class="se">\_</span><span class="nv">KEY</span><span class="si">}</span>
+ — <span class="nv">volsize</span><span class="o">=</span><span class="m">250</span>
+ — <span class="nv">include</span><span class="o">=</span>/var/www
+ — <span class="nv">include</span><span class="o">=</span>/home
+ — <span class="nv">include</span><span class="o">=</span>/etc/lighttpd
+ — <span class="nv">include</span><span class="o">=</span>/var/lib/automysqlbackup
+ — <span class="nv">exclude</span><span class="o">=</span>/<span class="se">\*\*</span>
+ <span class="si">${</span><span class="nv">SOURCE</span><span class="si">}</span> <span class="si">${</span><span class="nv">DEST</span><span class="si">}</span>
+ <span class="c1"># Reset the ENV variables. Don’t need them sitting around</span>
+ <span class="nb">export</span> AWS<span class="se">\_</span>ACCESS<span class="se">\_</span>KEY<span class="se">\_</span>ID<span class="o">=</span>
+ <span class="nb">export</span> AWS<span class="se">\_</span>SECRET<span class="se">\_</span>ACCESS<span class="se">\_</span>KEY<span class="o">=</span>
+ <span class="nb">export</span> <span class="nv">PASSPHRASE</span><span class="o">=</span>
+</pre></div>
+
+
+<ol>
+<li>
+<p>Add your own specific access key stuff and give it a test</p>
+</li>
+<li>
+<p>Then add it to a cronjob</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="m">0</span> <span class="m">0</span> * * * /usr/sbin/automysqlbackup <span class="o">&amp;&amp;</span> /root/s3_backup
+</pre></div>
+
+
 <p>.. |image0| image:: /images/Amazon_S3_Online_Service-resized200.gif.scaled500.gif</p>
     </div>
 

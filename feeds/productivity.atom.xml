@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Productivity</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/productivity.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2010-12-17T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>For any active del.icio.us users I’d highly recommend…</title><link href="https://shanedowling.com/for-any-active-del-icio-us-users-id-highly-recommend-d89cee8880c7.html" rel="alternate"></link><published>2010-12-17T00:00:00+00:00</published><updated>2010-12-17T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-12-17:/for-any-active-del-icio-us-users-id-highly-recommend-d89cee8880c7.html</id><content type="html">&lt;p&gt;&lt;a href="http://pinboard.in" title="http://pinboard.in"&gt;&lt;strong&gt;Pinboard: social bookmarking for introverts&lt;/strong&gt;
+_For a few more bucks a year, Pinboard offers an archiving service which saves a copy of everything you bookmark, gives…_pinboard.in&lt;/a&gt;&lt;a href="http://pinboard.in"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Top 10 webapps for programmers</title><link href="https://shanedowling.com/top-10-webapps-for-programmers-38c75fba4a63.html" rel="alternate"></link><published>2010-02-16T00:00:00+00:00</published><updated>2010-02-16T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-02-16:/top-10-webapps-for-programmers-38c75fba4a63.html</id><summary type="html">&lt;h3&gt;Evernote&lt;/h3&gt;
+&lt;p&gt;Although I use evernote as my brain online for everthing, it is
+incredibly useful for programmers too. Where I work things like
+requirements can be captured on almost anything, so snapping photos of
+whiteboards/notepads/beer mats that become OCR searchable is very handy.
+On top of that it …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Evernote&lt;/h3&gt;
+&lt;p&gt;Although I use evernote as my brain online for everthing, it is
+incredibly useful for programmers too. Where I work things like
+requirements can be captured on almost anything, so snapping photos of
+whiteboards/notepads/beer mats that become OCR searchable is very handy.
+On top of that it’s nice to have all notes auto stored up on the web(I’d
+have a fit if I lost my developer diary over a hard drive crash). The
+client application for evernote could be better and I’d consider
+Microsoft’s OneNote a much better application but Evernote does
+everything I need it too. The killer feature being the iPhone app that
+lets me capture text, voice and snapshots everywhere. Coupled with JotNot it gives me a very powerful information capturing device that I simply cannot live without. This is one of the truly killer apps for my iPhone.&lt;/p&gt;
+&lt;h3&gt;Dropbox&lt;/h3&gt;
+&lt;p&gt;Why does my hard-drive always die the evening I forget to push my code
+up to the git server? Store all code/config files/documents up on a
+server always. The benefits are stupidly obvious. It’s soon after
+this realise you can start adding free little tricks that you didn’t
+think possible. Another plus, I don’t have a static ip with my broadband at home(dyndns doesn’t work due to my isp’s infrastructure, a massive mesh NAT) so &lt;a href="http://lifehacker.com/5175362/start-bittorrent-downloads-at-home-from-any-computer-with-dropbox"&gt;here’s&lt;/a&gt; a cool trick for easily torrenting(or in my case usenetting) files remotely. There’s also something very nice about being all to pull up
+any of my important files anywhere there’s a web browser.&lt;/p&gt;
+&lt;h3&gt;Gmail&lt;/h3&gt;
+&lt;p&gt;Yes it rocks, despite Buzz.. Filters, label and keyboard shortcuts have made this such an obvious choice it’s not even funny. I’d almost forgotten to add Gmail to the list it’s become such an integrated part of my web-use. The programmer related benefits are dissimilar to general user benefits, but thing extended features like keyboard shortcuts etc I probably only of real benefit to the techies who are the only ones bothered to read up on these features. Other than that there’s little to say, odds are I’d mostly be preaching to the converted anyway.&lt;/p&gt;
+&lt;h3&gt;Stackoverflow&lt;/h3&gt;
+&lt;p&gt;Not exactly a web-app but something most programmers cannot live without
+and it’s web-based. Arguably this could be number one , but personally I
+don’t use this resource as much as the above three. Have a programming
+question, odds are insanely high it’ll be answered here.&lt;/p&gt;
+&lt;h3&gt;Google Reader&lt;/h3&gt;
+&lt;p&gt;We’ve all got to keep up with the latest developments in our industry.
+Coding Horror, A list apart, trivium, proggit and Bertrand Meyer’s blog.&lt;/p&gt;
+&lt;p&gt;Also reader has a new feature that supports updates on sites that don’t
+actually support RSS(some might question the point in RSS with features
+like this….). This feature’s very handy for one of my favourite programmer sites.&lt;/p&gt;
+&lt;h3&gt;Mindmeister&lt;/h3&gt;
+&lt;p&gt;I use a hell of a lot of mindmaps for storing programming related
+knowledge. Almost every technical book I read has mindmaps associated. I
+like building mindmaps, it forces me to have a 2nd thought on the
+content I’m reading and I have a less painless way of reviewing what
+I’ve read. To be honest, mindmeister as an application isn’t perfect. It
+doesn’t have folders or any decently readable way of labelling mindmaps.
+Very annoying when you’ve got tons of mindmaps to sort through. I’d love
+to say that the fairly expensive iPhone app makes up for this(not sure
+why it couldn’t be free considering it’s a subscription based service),
+but the app for me is almost worthless. There’s nothing wrong with the
+app in itself it’s just not a pleasant experience browsing/editing
+mindmaps on your iPhone. It seems like I’m singing the praises of
+mindmaps over mindmeister itself but other than these few issues
+mindmeister is a solid application. As it’s online sharing mindmaps is
+also a very handy feature. But if sharing/accessibilty
+anywhere doesn’t matter to you I’d recommend something like FreeMind for all your mindmapping needs, even keeping your local mindmaps synced on Dropbox could suit you just fine.&lt;/p&gt;
+&lt;h3&gt;Pinboard&lt;/h3&gt;
+&lt;p&gt;Pinboard is a very nice online bookmark storage. Very, very simple
+bookmarking/to-read lists, fantastically simple tagging features and the
+ability to add bookmarks from emails makes this a great service. I keep
+all my tech articles up on this service. For an extra charge all my
+bookmarks become archived, meaning if I bookmark a site using pinboard
+and the site in question goes down the page is still accessible from
+pinboard forever. I could do the same using archive.org but having this
+feature included in a bookmarking service really makes sense. On top of
+that adding bookmarks from google reader, twitter, instapaper and
+delicious really adds to the service. Highly recommended bookmarking
+service for techies.&lt;/p&gt;
+&lt;h3&gt;Rememberthemilk&lt;/h3&gt;
+&lt;p&gt;Remember the milk takes the simple idea of todos lists, adds a set of
+complex features(due dates, repeating tasks, tagging, folders, sharing
+and a lot more). Adds in the ability to add tasks from almost anywhere.
+IM, email, phone(if supported), widgets for almost anything(including
+gmail), and many apps that support it(tasque/gnome do for linux or a
+dashboard widget for osx) and you’ve got RTM. Yet the application itself
+never gets bogged down in it’s complexity. ‘Buy milk today’ or ‘Buy milk tuesday’ or ‘Buy milk tue’ or the many other variants of dates and rtm
+will likely be able to parse a date out of it. Other nice little tweaks like this makes RTM a great application for the programmer, as I mentioned in books like Passionate and Pragmatic Programmer Programmer there’s a lot of ‘Act On It’s’ some of them have different contexts, for example I might need to do a task weekly at home or do a task everyday in work. Using RTM to handle the adding of all these tasks makes things a &lt;strong&gt;lot&lt;/strong&gt; easier. I also use the pomodoro technique with RTM, using the tagging features I add estimates to my todos (e1,e2,e3) via tags. On top of all the other programming related todos I intend to do(including this post!) this service has made life a lot
+easier.&lt;/p&gt;
+&lt;h3&gt;Grooveshark&lt;/h3&gt;
+&lt;p&gt;It’s up for debate whether programmers should listen to music at work or not.
+Personally I find music listening to music fine when I actually have to
+code, but when it comes to creating a specification or stepping through
+code listening to music is a very annoying distraction. When I do
+listening to music I always use grooveshark. The UI leaves a lot to be
+desired but there’s a music selection that’s 2nd to none, the playlists
+are handy too depending on the mood you in. Feeling tired in the
+morning? I have a wake-up playlist. Need some background music, there’s
+a playlist for that! All very painless.&lt;/p&gt;
+&lt;h3&gt;NutshellMail&lt;/h3&gt;
+&lt;p&gt;NutshellMail is a service that combines twitter, facebook, linkedin and
+myspace updates into a single email that’s sent to you on a daily basis.
+I questioned whether I’d use this service when signed up but I’ve come
+to love this application. I follow a lot of developers on twitter and
+some through facebook and it’s really nice to know your updates will
+arrive at a certain time everyday. Instead of jumping on every few
+hours, negatively impacting on my productivity, I have a focused time to
+get myself updated on all the latest trends. The linkedin support is
+handy too for keeping up to date on your professional news also. I could
+have added twitter/linkedin to this top ten but at this stage I think
+these websites go without saying(and they’re not exactly web
+applications in the obvious sense).&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>The Pomodoro Technique</title><link href="https://shanedowling.com/the-pomodoro-technique-540acfc74681.html" rel="alternate"></link><published>2010-01-18T00:00:00+00:00</published><updated>2010-01-18T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-01-18:/the-pomodoro-technique-540acfc74681.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__is__0RWADKvxo3s4JL63AyQ.png"&gt;&lt;/p&gt;
+&lt;p&gt;I bought a &lt;a href="http://pragprog.com/titles/snfocus/pomodoro-technique-illustrated"&gt;book&lt;/a&gt;, basically because it was a GTD technique that came off the pragmatic bookshelf so I figured I’d give it a shot.&lt;/p&gt;
+&lt;h3&gt;Explanation:&lt;/h3&gt;
+&lt;p&gt;To give a very brief explanation of the technique. You have a sheet with &lt;strong&gt;Today’s Todos&lt;/strong&gt;, each time you do 25 minutes …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__is__0RWADKvxo3s4JL63AyQ.png"&gt;&lt;/p&gt;
+&lt;p&gt;I bought a &lt;a href="http://pragprog.com/titles/snfocus/pomodoro-technique-illustrated"&gt;book&lt;/a&gt;, basically because it was a GTD technique that came off the pragmatic bookshelf so I figured I’d give it a shot.&lt;/p&gt;
+&lt;h3&gt;Explanation:&lt;/h3&gt;
+&lt;p&gt;To give a very brief explanation of the technique. You have a sheet with &lt;strong&gt;Today’s Todos&lt;/strong&gt;, each time you do 25 minutes
+of work towards your todos you mark a ‘pomodoro’ and take a 5 minute
+break. You then clock up pomodoros everyday.&lt;/p&gt;
+&lt;p&gt;Then every morning you pick from your \*\*activity inventory\*\*(an
+unsorted list of todos), and pick the highest priority tasks, beside
+each task should be an estimate of how many pomodoros it should take.
+For exampleI had estimated 2pomdoros for this blog post. So when
+selecting your pomodoros for the day you take your pomodoro average (sum
+of all the pomodoros you’ve ever done divided by the number of days),
+and don’t add more estimated pomodoros than your averages. So for
+example my average could be 11 and I could have 3 high priority tasks
+each estimated to take 5 pomodoros each, well clearly I would have to
+add 2 and find a third that only took 1 pomodoro.&lt;/p&gt;
+&lt;p&gt;Now clearly there’s more to it(they have managed to get several books
+out of it). What you log all metrics on is called a report
+sheet, so things I log are completed pomodoros, how far off my
+estimates were, how many tasks did I fail to do today etc.&lt;/p&gt;
+&lt;h3&gt;How I use it&lt;/h3&gt;
+&lt;p&gt;I fully commited to the technique both at home and at work. So in work I
+have a large diary and some extra sheets, for my ‘personal’ stuff I use
+a small moleskine diary to do the job. There have been dramatic results
+on both accounts. In work I noticed a better structure coming around my
+day. When people asked me for things I now always delay till I’ve
+finished my pomodoro(the book explains how to handle interruptions),
+then weight how important the new task was over what I’m currently
+working on. I also find myself looking back very satisfied with the work
+I’ve done for the day, a personal sense of accomplishment. On top of
+that I like the fact if anyone did ask ‘what did you do all last week?’,
+I could very easily give a breakdown on what tasks I was working on.&lt;/p&gt;
+&lt;p&gt;Like everything else discipline is key. I’ve even noticed myself
+slipping the odd time. Say I finish a task in 20 minutes, the technique
+calls for &lt;strong&gt;25&lt;/strong&gt; minutes of focused work, so you should now focus on
+how you could do the task better or just improve on the task in some
+way. This is fine depending on some tasks but some just can’t be done
+any better. Going to the bathroom also becomes an interesting game as if
+you need to go to the bathroom you should cancel the pomodoro, very
+annoying when your bursting to go 22 minutes in. But youdo begin to
+relish maintaining an average of sorts. It’s something you work towards
+and try increase.&lt;/p&gt;
+&lt;h3&gt;It’s flexible!&lt;/h3&gt;
+&lt;p&gt;Now however a problem has become apparent and this is where the
+flexibility of the technique comes in. As a programmer I noticed a
+‘flow’ that stops as soon as the timer does(that’s the point), I’ve
+noticed 25 minutes is not nearly enough time so, as a compromise I can
+now alter how my pomodoro works. For this week I’m going to try 2*25
+minute programming pomodoros followed by a ten minute break. I could
+increase the time of the pomodoro itself (say 25 to 50 minutes) but I’d
+rather keep it 25 (busy work such as replying to emails etc doesn’t take
+50 minutes).&lt;/p&gt;
+&lt;h3&gt;Kaizen&lt;/h3&gt;
+&lt;p&gt;In essence the point of the technique is not the 25 minute burst is
+actually something called Kaizen, meaning make small improvements
+everyday. The constant reviewing of priorities and the daily review of
+work done is the real value in this technique. I find measuring metrics
+on your own productivity very powerful. If I find I’m doing more with
+2*25 minute pomodoros, maybe I’ll try 4 and take a 20 minute break.&lt;/p&gt;
+&lt;p&gt;To be honest I’ve actually found more use for this technique at home
+than at work. With work there is structure to your day and deadlines
+looming that will always motivate you. At home that project or that
+programming language that you’ve wanted to do for months has no
+deadlines and just doesn’t magically get done. With my moleskine(and
+calendar reminders) I’ve got a constantmotivator to get things done and
+do them better next time.&lt;/p&gt;
+&lt;p&gt;I can recommend this technique for anyone. To get started all it takes
+is 3 sheets of paper(the activity inventory, the report sheet and
+today’s todos) and some willpower. The book itself is great and would
+highly recommend a purchase.&lt;/p&gt;
+&lt;h3&gt;Resources&lt;/h3&gt;
+&lt;p&gt;A decent &lt;a href="http://docs.google.com/viewerurl%3Dhttp://www.pomodorotechnique.com/downloads/pomodoro_cheat_sheet.pdf"&gt;Online Cheatsheet&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A &lt;a href="https://docs.google.com/viewer?url=http%3A//www.pomodorotechnique.com/resources/cirillo/ThePomodoroTechnique_v1-3.pdf"&gt;free book&lt;/a&gt; written by the inventor of pomodoro(not the prag prog one I’ve read)&lt;/p&gt;
+&lt;p&gt;A mindmap I’ve done.&lt;/p&gt;
+&lt;p&gt;This one may read very strangely and how I do the technique may not work
+for you, but the hats represent a different ‘focus’ and when my
+productivity starts to wane imagining the hats works well. I would
+suggest using the mindmap after reading the prag programmer book.&lt;/p&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;</content><category term="Productivity"></category></entry></feed>
