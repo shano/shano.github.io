@@ -5867,10 +5867,7 @@ weekly and monthly under /var/lib/automysqlbackup with the appropriate databases
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; * * * /usr/sbin/automysqlbackup &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/s3_backup
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;.. |image0| image:: /images/Amazon_S3_Online_Service-resized200.gif.scaled500.gif&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>The problem with God arguments</title><link href="https://shanedowling.com/the-problem-with-god-arguments-c9543d98f6c8.html" rel="alternate"></link><published>2010-11-05T00:00:00+00:00</published><updated>2010-11-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-11-05:/the-problem-with-god-arguments-c9543d98f6c8.html</id><summary type="html">&lt;p&gt;Atheists and theists alike have for centuries attempted to
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>The problem with God arguments</title><link href="https://shanedowling.com/the-problem-with-god-arguments-c9543d98f6c8.html" rel="alternate"></link><published>2010-11-05T00:00:00+00:00</published><updated>2010-11-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-11-05:/the-problem-with-god-arguments-c9543d98f6c8.html</id><summary type="html">&lt;p&gt;Atheists and theists alike have for centuries attempted to
 debate the existence of God, desperately trying to reason out a
 conclusive answer. The reality of this struck me while I was reading a
 series of MIT lectures notes on arguments for and against the existence

@@ -68,10 +68,7 @@ weekly and monthly under /var/lib/automysqlbackup with the appropriate databases
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; * * * /usr/sbin/automysqlbackup &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/s3_backup
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;.. |image0| image:: /images/Amazon_S3_Online_Service-resized200.gif.scaled500.gif&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Google History told me I’m a nerd</title><link href="https://shanedowling.com/google-history-told-me-im-a-nerd-68c2161f42c7.html" rel="alternate"></link><published>2010-05-06T00:00:00+00:00</published><updated>2010-05-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-05-06:/google-history-told-me-im-a-nerd-68c2161f42c7.html</id><summary type="html">&lt;p&gt;24000 searches later and here is my top ten sites I click to on google.&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Google History told me I’m a nerd</title><link href="https://shanedowling.com/google-history-told-me-im-a-nerd-68c2161f42c7.html" rel="alternate"></link><published>2010-05-06T00:00:00+00:00</published><updated>2010-05-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-05-06:/google-history-told-me-im-a-nerd-68c2161f42c7.html</id><summary type="html">&lt;p&gt;24000 searches later and here is my top ten sites I click to on google.&lt;/p&gt;
 &lt;p&gt;Top sites&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://ubuntuforums.org" title="http://ubuntuforums.org"&gt;&lt;strong&gt;Ubuntu Forums&lt;/strong&gt;
 _A help and support forum for Ubuntu Linux._ubuntuforums.org&lt;/a&gt;&lt;a href="http://ubuntuforums.org"&gt;&lt;/a&gt;&lt;/p&gt;
