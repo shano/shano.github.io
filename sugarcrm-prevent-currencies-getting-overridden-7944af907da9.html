@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -86,13 +87,13 @@ what custom/modules/Books/logic\_hooks.php might look like.</p>
 <?php
   // Do not store anything in this file that is not part of the array or the hook version.  This file will
   // be automatically rebuilt in the future.
-  $hook\_version = 1;
-  $hook\_array = Array();
+  $hook_version = 1;
+  $hook_array = Array();
   // position, file, function
-  $hook\_array\['before\_save'\] = Array();
-  $hook\_array\['before\_save'\]\[\] = Array(1, 'workflow', 'include/workflow/WorkFlowHandler.php','WorkFlowHandler', 'WorkFlowHandler');
-  $hook\_array\['before\_save'\]\[\] = Array(2, 'Custom Book Logic Hooks', 'custom/modules/Books/logic\_hooks\_class.php','books\_logic\_hooks', 'before\_save\_method');
-  $hook\_array\['after\_save'\]\[\] = Array(1, 'Custom Book Logic Hooks', 'custom/modules/Books/logic\_hooks\_class.php','books\_logic\_hooks', 'after\_save\_method');
+  $hook_array['before_save'] = Array();
+  $hook_array['before_save'][] = Array(1, 'workflow', 'include/workflow/WorkFlowHandler.php','WorkFlowHandler', 'WorkFlowHandler');
+  $hook_array['before_save'][] = Array(2, 'Custom Book Logic Hooks', 'custom/modules/Books/logic_hooks_class.php','books_logic_hooks', 'before_save_method');
+  $hook_array['after_save'][] = Array(1, 'Custom Book Logic Hooks', 'custom/modules/Books/logic_hooks_class.php','books_logic_hooks', 'after_save_method');
 ?>
 
 <p>And the actual code to do the overriding would be in
@@ -109,14 +110,14 @@ if (!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
       self::$fetchedRow[$bean-&gt;id] = $bean-&gt;fetched_row;
     }
   }</p>
-<p>/**
+<p>/*<em>
   * Called as process_record logic hook on the Books module
-  */</p>
-<p>/**
+  </em>/</p>
+<p>/*<em>
   * <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> $bean
   * <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> $event
   * <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> $arguments
-  */
+  </em>/
   function after_save_method(&amp;$bean, $event, $arguments)
   {
     $custom_bean = new Books();

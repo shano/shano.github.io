@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -85,8 +86,8 @@ anymore.</p>
  ],
  “require": {
  “php”: “&gt;=5.3.2”,
- “yiisoft/yii”: “1.1.*”,
- “yiiext/migrate-command”: “0.7.*”
+ “yiisoft/yii”: “1.1.<em>”,
+ “yiiext/migrate-command”: “0.7.</em>”
  },
  “config”: {
  “bin-dir”: “bin/”
@@ -110,7 +111,7 @@ anymore.</p>
  ‘aliases’ =&gt; array(
  ‘vendor’ =&gt; ‘application.vendor’,
  ),
- ‘basePath’ =&gt; dirname(__FILE__) . DIRECTORY_SEPARATOR .’..’,
+ ‘basePath’ =&gt; dirname(<strong>FILE</strong>) . DIRECTORY_SEPARATOR .’..’,
  ‘name’ =&gt; ‘My Awesome Yii Site’,
  ‘components’ =&gt; array(
  ‘db’ =&gt; array(
@@ -125,7 +126,7 @@ anymore.</p>
  ‘params’ =&gt; array(
  ‘composer.callbacks’ =&gt; array(
  // args for Yii command runner
- ‘yiisoft/yii-install’ =&gt; array(‘yiic’, ‘webapp’, dirname(__FILE__).DIRECTORY_SEPARATOR.’..’.DIRECTORY_SEPARATOR.’..’),
+ ‘yiisoft/yii-install’ =&gt; array(‘yiic’, ‘webapp’, dirname(<strong>FILE</strong>).DIRECTORY_SEPARATOR.’..’.DIRECTORY_SEPARATOR.’..’),
  ‘post-update’ =&gt; array(‘yiic’, ‘migrate’),
  ‘post-install’ =&gt; array(‘yiic’, ‘migrate’),
  ),
@@ -137,14 +138,14 @@ anymore.</p>
 <p>This is blantantly taken from phundaments <a href="https://github.com/phundament/app/blob/yii-webapp/protected/config/ComposerCallback.php">ComposerCallback</a>.
 I just thought I’d copy it here for completeness.</p>
 <p>ComposerCallback.php</p>
-<p>/**
+<p>/*<em>
  * Class file
  *
  * @author Tobias Munk
  * @link <a href="http://www.phundament.com/">http://www.phundament.com/</a>
  * @copyright Copyright © 2012 diemeisterei GmbH
  * @license <a href="http://www.phundament.com/license">http://www.phundament.com/license</a>
- */</p>
+ </em>/</p>
 <p>namespace config;
  use Composer\Script\Event;</p>
 <p>/**
@@ -162,13 +163,14 @@ I just thought I’d copy it here for completeness.</p>
  ‘composer.callbacks’ =&gt; array(
  ‘post-update’ =&gt; array(‘yiic’, ‘migrate’),
  ‘post-install’ =&gt; array(‘yiic’, ‘migrate’),
- ‘yiisoft/yii-install’ =&gt; array(‘yiic’, ‘webapp’, realpath(dirname(__FILE__))),
+ ‘yiisoft/yii-install’ =&gt; array(‘yiic’, ‘webapp’, realpath(dirname(<strong>FILE</strong>))),
  ),
  )
  );</p>
-<p>* composer.json
- * “scripts”: {
- * “pre-install-cmd”: “config\\ComposerCallback::preInstall”,
+<ul>
+<li>composer.json</li>
+<li>“scripts”: {</li>
+<li>“pre-install-cmd”: “config\\ComposerCallback::preInstall”,
  “post-install-cmd”: “config\\ComposerCallback::postInstall”,
  “pre-update-cmd”: “config\\ComposerCallback::preUpdate”,
  “post-update-cmd”: “config\\ComposerCallback::postUpdate”,
@@ -178,22 +180,23 @@ I just thought I’d copy it here for completeness.</p>
  “post-package-update”: [
  “config\\ComposerCallback::postPackageUpdate”
  ]
- }</p>
+ }</li>
+</ul>
 <p>*
  *
  * @author Tobias Munk
  * @package phundament.app
  * @since 0.7.1
  */</p>
-<p>defined(‘YII_PATH’) or define(‘YII_PATH’, dirname(__FILE__).’/../vendor/yiisoft/yii/framework’);
- defined(‘CONSOLE_CONFIG’) or define(‘CONSOLE_CONFIG’, dirname(__FILE__).’/console.php’);</p>
+<p>defined(‘YII_PATH’) or define(‘YII_PATH’, dirname(<strong>FILE</strong>).’/../vendor/yiisoft/yii/framework’);
+ defined(‘CONSOLE_CONFIG’) or define(‘CONSOLE_CONFIG’, dirname(<strong>FILE</strong>).’/console.php’);</p>
 <p>class ComposerCallback
  {
- /**
+ /*<em>
  * Displays welcome message
  * @static
  * @param ComposerScriptEvent $event
- */
+ </em>/
  public static function preInstall(Event $event)
  {
  $composer = $event-&gt;getComposer();
@@ -207,78 +210,78 @@ I just thought I’d copy it here for completeness.</p>
  exit(“Installation aborted.n”);
  }
  }</p>
-<p>/**
+<p>/*<em>
  * Executes ./yiic migrate
  * @static
  * @param ComposerScriptEvent $event
- */
+ </em>/
  public static function postInstall(Event $event)
  {
  self::runHook(‘post-install’);
  echo “nnInstallation completed.nnThank you for choosing Phundament 3!nn”;
  }</p>
-<p>/**
+<p>/*<em>
  * Displays welcome message
  *
  * @static
  * @param ComposerScriptEvent $event
- */
+ </em>/
  public static function preUpdate(Event $event)
  {
  echo “Welcome to Phundament Installation 3 via composernnUpdating your application to the lastest available packages…n”;
  self::runHook(‘pre-update’);
  }</p>
-<p>/**
+<p>/*<em>
  * Executes ./yiic migrate
  *
  * @static
  * @param ComposerScriptEvent $event
- */
+ </em>/
  public static function postUpdate(Event $event)
  {
  self::runHook(‘post-update’);
  echo “nnUpdate completed.nn”;
  }</p>
-<p>/**
+<p>/*<em>
  * Executes ./yiic -
  *
  * @static
  * @param ComposerScriptEvent $event
- */
+ </em>/
  public static function postPackageInstall(Event $event)
  {
  $installedPackage = $event-&gt;getOperation()-&gt;getPackage();
  $hookName = $installedPackage-&gt;getPrettyName().’-install’;
  self::runHook($hookName);
  }</p>
-<p>/**
+<p>/*<em>
  * Executes ./yiic -
  *
  * @static
  * @param ComposerScriptEvent $event
- */
+ </em>/
  public static function postPackageUpdate(Event $event)
  {
  $installedPackage = $event-&gt;getOperation()-&gt;getTargetPackage();
  $commandName = $installedPackage-&gt;getPrettyName().’-update’;
  self::runHook($commandName);
  }</p>
-<p>/**
+<p>/*<em>
  * Asks user to confirm by typing y or n.
  *
  * Credits to Yii CConsoleCommand
  *
  * @param string $message to echo out before waiting for user input
  * @return bool if user confirmed
- */
+ </em>/
  public static function confirm($message)
  {
  echo $message . ‘ [yes|no] ‘;
  return !strncasecmp(trim(fgets(STDIN)), ‘y’, 1);
  }</p>
-<p>/**
+<p>/*<em>
  * Runs Yii command, if available (defined in config/console.php)
- */
+ </em>/
  private static function runHook($name){
  $app = self::getYiiApplication();
  if ($app === null) return;</p>
@@ -288,9 +291,9 @@ I just thought I’d copy it here for completeness.</p>
  $app-&gt;commandRunner-&gt;run($args);
  }
  }</p>
-<p>/**
+<p>/*<em>
  * Creates console application, if Yii is available
- */
+ </em>/
  private static function getYiiApplication()
  {
  if (!is_file(YII_PATH.’/yii.php’))
@@ -319,7 +322,7 @@ might want to do is add more dependencies. Say you have a library you
 wish to add. Add the entry into composer.json run the update(which
 should call any migrations needed automatically), then you need to add
 this line to your index.php.</p>
-<p>require_once(dirname(__FILE__).’/protected/vendor/autoload.php’);</p>
+<p>require_once(dirname(<strong>FILE</strong>).’/protected/vendor/autoload.php’);</p>
 <p>And should be be good to access composers namespaces libraries. Very
 cool!</p>
     </div>

@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -101,10 +102,10 @@ dhcp over your wireless card.</p>
     sleep <span class="m">3</span>
     <span class="nb">echo</span> “Killing all necessary stuff”
     sudo killall dhclient dhclient3
-    sudo killall wpa<span class="se">\_</span>supplicant
+    sudo killall wpa_supplicant
     sleep <span class="m">3</span>
     <span class="nb">echo</span> “Setting up WPA”
-    sudo wpa<span class="se">\_</span>supplicant -B -ieth1 -Dwext -c/etc/wpa<span class="se">\_</span>supplicant.conf
+    sudo wpa_supplicant -B -ieth1 -Dwext -c/etc/wpa_supplicant.conf
     sleep <span class="m">3</span>
     <span class="nb">echo</span> “Connecting to wireless”
     sudo iwconfig eth1 essid TCDwifi

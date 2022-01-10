@@ -24,10 +24,11 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -43,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2013-08-24T00:00:00+00:00">Sat 24 August 2013</abbr>
@@ -65,19 +66,24 @@
     <div class="entry-content">
         <p><img alt="" src="images/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg"></p>
 <p>PostGis is awesome, I think I already established this in <a href="http://shanedowling.com/index.php/postgis/">this post</a>. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you’ve failed to create a proper postgres_template database for your test database to work with. Run these commands in your postgres prompt to create the appropriate template.</p>
-<p>CREATE DATABASE template_postgis ENCODING=’utf-8';
-UPDATE pg_database SET datistemplate=’true’ WHERE datname=’template_postgis’;
-q</p>
-<p>sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-1.5/postgis.sql
- sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-1.5/spatial_ref_sys.sql
- sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis_comments.sql
- sudo -u postgres psql -d template_postgis -c “GRANT ALL ON geometry_columns TO PUBLIC;”
- sudo -u postgres psql -d template_postgis -c “GRANT ALL ON geography_columns TO PUBLIC;”
- sudo -u postgres psql -d template_postgis -c “GRANT ALL ON spatial_ref_sys TO PUBLIC;”</p>
+<div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">template_postgis</span> <span class="k">ENCODING</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">;</span>
+<span class="k">UPDATE</span> <span class="n">pg_database</span> <span class="k">SET</span> <span class="n">datistemplate</span><span class="o">=</span><span class="err">’</span><span class="k">true</span><span class="err">’</span> <span class="k">WHERE</span> <span class="n">datname</span><span class="o">=</span><span class="s1">&#39;template_postgis&#39;</span><span class="p">;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">psql</span> <span class="o">-</span><span class="n">d</span> <span class="n">template_postgis</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="mi">9</span><span class="p">.</span><span class="mi">1</span><span class="o">/</span><span class="n">contrib</span><span class="o">/</span><span class="n">postgis</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="o">/</span><span class="n">postgis</span><span class="p">.</span><span class="k">sql</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">psql</span> <span class="o">-</span><span class="n">d</span> <span class="n">template_postgis</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="mi">9</span><span class="p">.</span><span class="mi">1</span><span class="o">/</span><span class="n">contrib</span><span class="o">/</span><span class="n">postgis</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="o">/</span><span class="n">spatial_ref_sys</span><span class="p">.</span><span class="k">sql</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">psql</span> <span class="o">-</span><span class="n">d</span> <span class="n">template_postgis</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="mi">9</span><span class="p">.</span><span class="mi">1</span><span class="o">/</span><span class="n">contrib</span><span class="o">/</span><span class="n">postgis_comments</span><span class="p">.</span><span class="k">sql</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">psql</span> <span class="o">-</span><span class="n">d</span> <span class="n">template_postgis</span> <span class="o">-</span><span class="k">c</span> <span class="s1">&#39;GRANT ALL ON geometry_columns TO PUBLIC;&#39;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">psql</span> <span class="o">-</span><span class="n">d</span> <span class="n">template_postgis</span> <span class="o">-</span><span class="k">c</span> <span class="s1">&#39;GRANT ALL ON geography_columns TO PUBLIC;&#39;</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">psql</span> <span class="o">-</span><span class="n">d</span> <span class="n">template_postgis</span> <span class="o">-</span><span class="k">c</span> <span class="s1">&#39;GRANT ALL ON spatial_ref_sys TO PUBLIC;&#39;</span>
+</pre></div>
+
+
 <p>If you decide to name your postgis template something other than
 template_postgis, make sure you tell Django by putting the below into
 settings.py</p>
-<p>POSTGIS_TEMPLATE = ‘my_other_database_template’</p>
+<div class="highlight"><pre><span></span><span class="n">POSTGIS_TEMPLATE</span> <span class="o">=</span> <span class="err">‘</span><span class="n">my_other_database_template</span><span class="err">’</span>
+</pre></div>
+
+
 <p><strong>Note:</strong> I ran all of these commands on my Ubuntu 12.04 LTS vagrant
 box. If you get encoding errors you might need to set UTF-8 as the
 template DB encoding, see this <a href="http://stackoverflow.com/a/16737776/108396">SO answer</a>.</p>

@@ -24,10 +24,11 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -43,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2013-10-10T00:00:00+00:00">Thu 10 October 2013</abbr>
@@ -66,16 +67,22 @@
         <p>I couldn’t seem to find a decent tutorial on using PPA’s to manage repos
 with salt states so I’m documenting it here.</p>
 <p>Say you want to install golang using these</p>
-<p>sudo add-apt-repository ppa:duh/golang
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:duh/golang
 sudo apt-get update
-sudo apt-get install golang</p>
+sudo apt-get install golang
+</pre></div>
+
+
 <p>Well, to replicate this into a salt state it’s pretty straight-foward.
 This also ensures you always have an up-to-date version of go.</p>
-<p>golang:
-pkg:
-- latest
-pkgrepo.managed:
-- name: ppa:duh/golang</p>
+<div class="highlight"><pre><span></span><span class="nt">golang</span><span class="p">:</span>
+<span class="nt">pkg</span><span class="p">:</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">latest</span>
+<span class="nt">pkgrepo.managed</span><span class="p">:</span>
+ <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ppa:duh/golang</span>
+</pre></div>
+
+
 <p>That’s it, I just struggled to find that anyway.</p>
 <p>Also, I’m aware <a href="https://github.com/moovweb/gvm">gvm</a> is awesome but I wanted to get something up and running quick and this was a nice example.</p>
     </div>

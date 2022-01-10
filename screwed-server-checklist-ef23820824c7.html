@@ -24,10 +24,11 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -43,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2012-04-28T00:00:00+00:00">Sat 28 April 2012</abbr>
@@ -96,15 +97,24 @@ do the math.</p>
 <p>Does banging the servers ip into your local hosts file speed this up? If
 so, it could be a DNS issue.</p>
 <p><strong>MySQL</strong></p>
-<p>watch -n 1 mysqladmin — user=mysql_user — password=mysql_password processlist</p>
+<div class="highlight"><pre><span></span>watch -n <span class="m">1</span> mysqladmin — <span class="nv">user</span><span class="o">=</span>mysql_user — <span class="nv">password</span><span class="o">=</span>mysql_password processlist
+</pre></div>
+
+
 <p>-&gt; This command will watch live mysql queries being executed. Noticing any crap queries running insanely long? This could be your issue.</p>
 <p>And directly related to slow crap queries do you have an large tables
 that say might be causing a serious performance issue? Here’s a mysql
 query to grab the largest tables on your server.</p>
-<p>SELECT CONCAT(table_schema, ‘.’, table_name), CONCAT(ROUND(table_rows / 1000000, 2), ‘M’) rows, CONCAT(ROUND(data_length / ( 1024 * 1024 * 1024 ), 2), ‘G’) DATA, CONCAT(ROUND(index_length / ( 1024 * 1024 * 1024 ), 2), ‘G’) idx, CONCAT(ROUND(( data_length + index_length ) / ( 1024 * 1024 * 1024 ), 2), ‘G’) total_size, ROUND(index_length / data_length, 2) idxfrac FROM information_schema.TABLES ORDER BY data_length + index_length DESC LIMIT 10;</p>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">table_schema</span><span class="p">,</span> <span class="err">‘</span><span class="p">.</span><span class="err">’</span><span class="p">,</span> <span class="k">table_name</span><span class="p">),</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">table_rows</span> <span class="o">/</span> <span class="mi">1000000</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="err">‘</span><span class="n">M</span><span class="err">’</span><span class="p">)</span> <span class="k">rows</span><span class="p">,</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">data_length</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="err">‘</span><span class="k">G</span><span class="err">’</span><span class="p">)</span> <span class="k">DATA</span><span class="p">,</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">index_length</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="err">‘</span><span class="k">G</span><span class="err">’</span><span class="p">)</span> <span class="n">idx</span><span class="p">,</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">((</span> <span class="n">data_length</span> <span class="o">+</span> <span class="n">index_length</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="err">‘</span><span class="k">G</span><span class="err">’</span><span class="p">)</span> <span class="n">total_size</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">index_length</span> <span class="o">/</span> <span class="n">data_length</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">idxfrac</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">TABLES</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">data_length</span> <span class="o">+</span> <span class="n">index_length</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+
+
 <p>Index your tables better or truncate crap you don’t need.</p>
 <p><strong>Apache</strong></p>
-<p>ps ax | grep apache | wc -l</p>
+<div class="highlight"><pre><span></span>ps ax <span class="p">|</span> grep apache <span class="p">|</span> wc -l
+</pre></div>
+
+
 <p>Let’s assume you didn’t change your ubuntu default apache configuration,
 if your MaxChild setting is at 150 and the value returned from the above
 command is stuck at over 150(wc will match the ps command too), then

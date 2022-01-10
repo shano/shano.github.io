@@ -24,10 +24,11 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -43,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2013-10-17T00:00:00+00:00">Thu 17 October 2013</abbr>
@@ -74,32 +75,23 @@ should’ve been salted too but I hadn’t gotten round to it yet.</p>
 box had gone and kept trying to re-create a new one and provisioning it.
 Instead of starting from scratch I dug down and tried to figure out the
 problem. This issue has happened on several occasions for me so I
-figured I’d document the steps to fix it.</p>
-<p>— — — — — — — — — — — — — — — — — — — — — — -</p>
+figured I’d document the steps to fix it.
+-</p>
 <ol>
 <li>Start up virtualbox and make sure the box is still there and working.</li>
 <li>Sometimes I find that the .vbox file can get corrupted. This sucks but go into the folder that contains the vbox file and see if there’s a VM_NAME.vbox-prev and copy that back to VM_NAME.vbox and try to run it just via virtualbox to see if it picks back up. This was always my issue, I believe because my laptop sometimes ran out of space and virtualbox tries to write a new file it can’t and simply writes something corrupted.</li>
 </ol>
-<p>Make sure Vagrant points to your working VirtualMachine
- — — — — — — — — — — — — — — — — — — — — — — — — — — — -</p>
+<p>Make sure Vagrant points to your working VirtualMachine</p>
 <ol>
-<li>While trying to get vagrant up and running again it may have create a
-     bunch of similar boxes, get rid of those and retain the box you want
-     to keep.</li>
-<li>Run this VBoxManage list vms and get the GUID of your newly fixed
-     box.</li>
-<li>From the vagrant box directory go to .vagrant/machines/default/virtualbox and replace the contents of this
-     file with just the GUID. <strong>Make sure no newline exists at the end of this file.</strong> This is key. A lot of editors will automatically add a newline here and won’t present it when you attempt to delete the newline. Try diffing this id file with the id file from another vagrant box to see if the newline still appears. Otherwise, vim will also state noeol in it’s statusbar to confirm there is no end of line.</li>
-<li>Run vagrant status and see if it picks up your old box, if it doesn’t
-     make sure step 4 is correct.</li>
+<li>While trying to get vagrant up and running again it may have create a bunch of similar boxes, get rid of those and retain the box you want to keep.</li>
+<li>Run this VBoxManage list vms and get the GUID of your newly fixed box.</li>
+<li>From the vagrant box directory go to .vagrant/machines/default/virtualbox and replace the contents of this file with just the GUID. <strong>Make sure no newline exists at the end of this file.</strong> This is key. A lot of editors will automatically add a newline here and won’t present it when you attempt to delete the newline. Try diffing this id file with the id file from another vagrant box to see if the newline still appears. Otherwise, vim will also state noeol in it’s statusbar to confirm there is no end of line.</li>
+<li>Run vagrant status and see if it picks up your old box, if it doesn’t make sure step 4 is correct.</li>
 </ol>
-<p>Test your VM
- — — — — — —</p>
+<p>Test your VM</p>
 <ol>
-<li>Make sure none of the other VMs are still running. I use the <a href="https://github.com/joshmcarthur/vagrant-list">vagrant
-     list plugin</a> for this. Once installed run vagrant list.</li>
-<li>Then I shut down any that might conflict with my VM using VBoxManage
-     controlvm VM_NAME poweroff</li>
+<li>Make sure none of the other VMs are still running. I use the <a href="https://github.com/joshmcarthur/vagrant-list">vagrant list plugin</a> for this. Once installed run vagrant list.</li>
+<li>Then I shut down any that might conflict with my VM using VBoxManage controlvm VM_NAME poweroff</li>
 <li>Then vagrant reload my vagrant box to ensure everything works.</li>
 </ol>
     </div>

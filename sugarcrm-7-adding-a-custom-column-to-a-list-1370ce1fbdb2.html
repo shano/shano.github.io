@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -99,9 +100,9 @@ custom/modules/YOUR\_CUSTOM\_MODULE/clients/base/views/recordlist/recordlist.js<
  }, this);
  this._super(“bindDataChange”);
  },
- /**
+ /*<em>
  * Callback for before on(‘render’) event
- */
+ </em>/
  this.collection.each(function(model) {
  app.api.call(‘GET’, app.api.buildURL(‘YOUR_CUSTOM_MODULE/YOUR_CUSTOM_FUNCTION/’+model.id), null, {
  model.set({
@@ -141,9 +142,9 @@ custom/modules/YOUR_CUSTOM_MODULE/clients/base/api/YOUR\_CUSTOM_FUNCTION.php</p>
  ),
  );
  }</p>
-<p>/**
+<p>/*<em>
  * Method to be used for my MyEndpoint/GetExample endpoint
- */
+ </em>/
  public function MyGetMethod($api, $args)
  {
  $id = $args;</p>

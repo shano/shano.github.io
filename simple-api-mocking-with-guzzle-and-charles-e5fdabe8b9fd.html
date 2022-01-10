@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -102,7 +103,7 @@ response.</p>
  use GuzzleHttp\Subscriber\Mock;</p>
 <p>$client = new Client();</p>
 <p>$mock = new Mock();
- $mock-&gt;addResponse(__DIR__.’/mockresponses/your_raw_file’);</p>
+ $mock-&gt;addResponse(<strong>DIR</strong>.’/mockresponses/your_raw_file’);</p>
 <p>$client-&gt;getEmitter()-&gt;attach($mock); // This is the key line, attaching the mock file response to your client.
  $response = $client-&gt;get();
  echo $response-&gt;getBody();</p>

@@ -24,10 +24,11 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -43,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2012-02-19T00:00:00+00:00">Sun 19 February 2012</abbr>
@@ -106,9 +107,9 @@ use them from <a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">h
  $ sort -r names.txt
  — Sort passwd file by 3rd field.
  — Xarg:Copy all images to external hard-drive
- $ ls *.jpg | xargs -n1 -i cp {} /external-hard-drive/directory
+ $ ls <em>.jpg | xargs -n1 -i cp {} /external-hard-drive/directory
  — Xarg:Search all jpg images in the system and archive it.
- $ find / -name *.jpg -type f -print | xargs tar -cvzf images.tar.gz
+ $ find / -name </em>.jpg -type f -print | xargs tar -cvzf images.tar.gz
  — XargLDownload all the URLs mentioned in the url-list.txt file
  $ cat url-list.txt | xargs wget –c
  — LS:Order Files Based on Last Modified Time (In Reverse Order) Using ls -ltr
@@ -116,10 +117,10 @@ use them from <a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">h
  — LS:Visual Classification of Files With Special Characters Using ls -F
  $ ls -F
  — Gzip:Display compression ratio of the compressed file using gzip -l
- $ gzip -l *.gz
+ $ gzip -l <em>.gz
  $ bzip2 test.txt
  $ bzip2 -d test.txt.bz2
- — UNZip:View the contents of *.zip file (Without unzipping it):
+ — UNZip:View the contents of </em>.zip file (Without unzipping it):
  $ unzip -l jasper.zip
  — Shutdown the system after 10 minutes.
  $ shutdown -h +10
@@ -128,13 +129,13 @@ use them from <a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">h
  — FTP:Both ftp and secure ftp (sftp) has similar commands. To connect to a remote server and download multiple files, do the following.
  $ ftp IP/hostname
  — FTP:To download a file
- $ ftp&gt; mget *.html
+ $ ftp&gt; mget <em>.html
  — To view the file names located on the remote server before downloading, mls ftp command as shown below.
- $ ftp&gt; mls *.html -
+ $ ftp&gt; mls </em>.html -
  — View crontab entry for a specific user
  $ crontab -u john -l
  — Schedule a cron job every 10 minutes.
- $ */10 * * * * /home/ramesh/check-disk-cron
+ $ <em>/10 * </em> * <em> /home/ramesh/check-disk-cron
  $ service ssh status
  — Status:Check the status of all the services.
  $ service — status-all
@@ -146,7 +147,7 @@ use them from <a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">h
  $ ps -efH | more
  $ df -T
  $ rm -i filename.txt
- $ rm -i file*
+ $ rm -i file</em>
  — Copy file1 to file2. if file2 exists prompt for confirmation before overwritting it.
  $ cp -i file1 file2
  — While displaying the file, following cat -n command will prepend the line number to each line of the output.

@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -82,7 +83,7 @@ def main():
  r = requests.get(‘http://ipinfo.io', headers=headers)
  ipdata = r.json()
  print(ipdata[‘city’] + ‘, ‘ + ipdata[‘region’] + ‘, ‘ + ipdata[‘country’])</p>
-<p>if __name__ == “__main__”:
+<p>if <strong>name</strong> == “<strong>main</strong>”:
  main()</p>
 <p>And here’s the conky configuration I use to call it.</p>
 <p>${goto 40}Location: ${execpi 600 python ~/scripts/conky/location.py}</p>

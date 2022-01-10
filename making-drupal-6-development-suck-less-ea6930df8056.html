@@ -24,10 +24,11 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -43,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2013-10-03T00:00:00+00:00">Thu 03 October 2013</abbr>
@@ -78,18 +79,16 @@ because I too feel your pain.</p>
 <li>drush dl devel &amp;&amp; drush en devel</li>
 <li>Enable user permissions for devel</li>
 <li>Enable what you need to at <a href="http://root%5C_url.com/admin/settings/devel">http://rooturl.com/admin/settings/devel</a></li>
-<li>Install <a href="https://getfirebug.com/">FireBug</a> and <a href="http://firephp.org/">FirePHP</a> on firefox and enable the Net Panel
-     in firebug</li>
+<li>Install <a href="https://getfirebug.com/">FireBug</a> and <a href="http://firephp.org/">FirePHP</a> on firefox and enable the Net Panel in firebug</li>
 </ol>
 <p><strong>Usage</strong></p>
 <ol>
 <li>Checkout watchdog output on firePHP, pretty cool eh?</li>
-<li>You can see queries in the sidebar or if you’re logging them, here
-     <a href="http://example.com/devel/queries">http://example.com/devel/queries</a></li>
+<li>You can see queries in the sidebar or if you’re logging them, here <a href="http://example.com/devel/queries">http://example.com/devel/queries</a></li>
 <li>Directly output to firephp with(alternate WARN with ERROR or INFO):</li>
 </ol>
 <p>dfb($foo, ‘probably bad’, FirePHP::WARN);</p>
-<h3>Drupal Specific Vim Config</h3>
+<h3>Drupal Specific Vim Config</h3>
 <p><a href="https://github.com/joonty/vim-sauce"><strong>VimSauce</strong></a></p>
 <p>I like to keep my vim configurations separate from each other so I don’t
 end up with huge messy config files with settings overlapping and
@@ -116,7 +115,7 @@ settings.</p>
 <p>“ Enable syntax highlighting if &amp;t_Co &gt; 1 syntax enable endif syntax on</p>
 <p>“ Custom key mapping map :redo map :tabn map :tabp</p>
 <p>“ Uncomment the following to have Vim jump to the last position when “ reopening a file if has(“autocmd”) au BufReadPost * if line(“‘“”) &gt; 0 &amp;&amp; line(“‘“”) &lt;= line(“$”) | exe “normal! g’”” | endif endif</p>
-<h3>Sticking to a Coding Standard</h3>
+<h3>Sticking to a Coding Standard</h3>
 <p>So I try to always adhere to the coding standard of whatever system I’m
 using. Typically that’s easy but I’ve found getting my hands on a
 automated check that ensures my code is up to drupal’s standards a

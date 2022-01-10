@@ -24,10 +24,11 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -43,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2013-08-29T00:00:00+00:00">Thu 29 August 2013</abbr>
@@ -72,13 +73,19 @@ workable dataset up and running for a few small unit tests.</p>
 bunch of JSON files to represent a few simple locations can be a pain.
 So here’s a very quick example of how I use the ORM to populate a single
 location hierarchy for your tests.py.</p>
-<p>def setUp(self):</p>
-<p>self.country = Country(name=”United Kingdom”, code=’UK’, tld=’co.uk’, population = 62740000)
- self.country.save()</p>
-<p>self.region = Region(name = “London”, name_std=”London”, code=”LDN”, country=self.country)
- self.region.save()</p>
-<p>self.city = City(name=’Camden’, name_std=’Camden’, region=self.region, country=self.country, population = 8174000, location=’POINT (3400000 6700010)’)
-   self.city.save()</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+  <span class="bp">self</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">Country</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="err">”</span><span class="n">United</span> <span class="n">Kingdom</span><span class="err">”</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="err">’</span><span class="n">UK</span><span class="err">’</span><span class="p">,</span> <span class="n">tld</span><span class="o">=</span><span class="err">’</span><span class="n">co</span><span class="o">.</span><span class="n">uk</span><span class="err">’</span><span class="p">,</span> <span class="n">population</span> <span class="o">=</span> <span class="mi">62740000</span><span class="p">)</span>
+ <span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+  <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="n">Region</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="err">“</span><span class="n">London</span><span class="err">”</span><span class="p">,</span> <span class="n">name_std</span><span class="o">=</span><span class="err">”</span><span class="n">London</span><span class="err">”</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="err">”</span><span class="n">LDN</span><span class="err">”</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="p">)</span>
+ <span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+  <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">City</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="err">’</span><span class="n">Camden</span><span class="err">’</span><span class="p">,</span> <span class="n">name_std</span><span class="o">=</span><span class="err">’</span><span class="n">Camden</span><span class="err">’</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="p">,</span> <span class="n">population</span> <span class="o">=</span> <span class="mi">8174000</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="err">’</span><span class="n">POINT</span> <span class="p">(</span><span class="mi">3400000</span> <span class="mi">6700010</span><span class="p">)</span><span class="err">’</span><span class="p">)</span>
+   <span class="bp">self</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+
+
 <p>The city POINT location is totally random, I’ll start populating real
 location values when I need distance based tests.</p>
     </div>

@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -71,7 +72,7 @@ example I have here will essentially update the table colours based on a
 specific data value in each row. So say you have a drop-down with the
 values Red,Green,Orange and Yellow this will update the rows to the
 specified colour. The key call here is this.collection.on(‘data:sync:complete’), which essentially fires when the sidecar(read backbone), data sync is completed.</p>
-<p>This code would go in custom/modules/<YOUR\_MODULE>/clients/base/views/recordlist/recordlist.js</p>
+<p>This code would go in custom/modules/<YOUR_MODULE>/clients/base/views/recordlist/recordlist.js</p>
 <p>({</p>
 <p>this.collection.on(‘data:sync:complete’, function() {
  this.render_colors();

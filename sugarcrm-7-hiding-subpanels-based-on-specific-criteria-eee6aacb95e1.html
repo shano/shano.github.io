@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -79,14 +80,14 @@ altered his code based on use cases I’ve come across.</p>
      account has no contacts, hide that subpanel.</li>
 </ol>
 <p>Place this code in
-custom/modules/<YOUR\_MODULE>/clients/base/layouts/subpanels/subpanels.js and
+custom/modules/<YOUR_MODULE>/clients/base/layouts/subpanels/subpanels.js and
 simply populate the hide_variables with whatever you wish to hide!</p>
 <p>({</p>
 <p>},
- /**
+ /*<em>
  * Show the subpanel for the given linkName and hide all others
  * @param {String} linkName name of subpanel link
- */
+ </em>/
  var self = this,
  //this.layout is the filter layout which subpanels is child of; we
  //use it here as it has a last_state key in its meta
@@ -111,10 +112,10 @@ simply populate the hide_variables with whatever you wish to hide!</p>
  });
  });
  },</p>
-<p>/**
+<p>/*<em>
  * Check if the subpanel is on the hiding list and if the watched field has a specific value.
  * @param {Boolean} subpanel name of the module for the subpanel
- */
+ </em>/
  var relationship = field_collection.link.name;
  var self = this;
  var hide_subpanel = false;

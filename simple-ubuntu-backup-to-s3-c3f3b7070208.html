@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -86,11 +87,11 @@ databases.</p>
 </li>
 </ol>
 <div class="highlight"><pre><span></span> <span class="c1"># Export some ENV variables so you don’t have to type anything</span>
- <span class="nb">export</span> AWS<span class="se">\_</span>ACCESS<span class="se">\_</span>KEY<span class="se">\_</span>ID<span class="o">=</span>
- <span class="nb">export</span> AWS<span class="se">\_</span>SECRET<span class="se">\_</span>ACCESS<span class="se">\_</span>KEY<span class="o">=</span>
+ <span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>
+ <span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>
  <span class="nb">export</span> <span class="nv">PASSPHRASE</span><span class="o">=</span>
  <span class="c1"># Your GPG key</span>
- GPG<span class="se">\_</span>KEY<span class="o">=</span><span class="p">;</span>
+ <span class="nv">GPG_KEY</span><span class="o">=</span><span class="p">;</span>
  <span class="c1"># The source of your backup</span>
  <span class="nv">SOURCE</span><span class="o">=</span>/
  <span class="c1"># The destination</span>
@@ -100,18 +101,18 @@ databases.</p>
  <span class="nv">DEST</span><span class="o">=</span>s3+http://
  <span class="c1"># The duplicity command and options</span>
  duplicity
- — encrypt-key<span class="o">=</span><span class="si">${</span><span class="nv">GPG</span><span class="se">\_</span><span class="nv">KEY</span><span class="si">}</span>
- — sign-key<span class="o">=</span><span class="si">${</span><span class="nv">GPG</span><span class="se">\_</span><span class="nv">KEY</span><span class="si">}</span>
+ — encrypt-key<span class="o">=</span><span class="si">${</span><span class="nv">GPG_KEY</span><span class="si">}</span>
+ — sign-key<span class="o">=</span><span class="si">${</span><span class="nv">GPG_KEY</span><span class="si">}</span>
  — <span class="nv">volsize</span><span class="o">=</span><span class="m">250</span>
  — <span class="nv">include</span><span class="o">=</span>/var/www
  — <span class="nv">include</span><span class="o">=</span>/home
  — <span class="nv">include</span><span class="o">=</span>/etc/lighttpd
  — <span class="nv">include</span><span class="o">=</span>/var/lib/automysqlbackup
- — <span class="nv">exclude</span><span class="o">=</span>/<span class="se">\*\*</span>
+ — <span class="nv">exclude</span><span class="o">=</span>/**
  <span class="si">${</span><span class="nv">SOURCE</span><span class="si">}</span> <span class="si">${</span><span class="nv">DEST</span><span class="si">}</span>
  <span class="c1"># Reset the ENV variables. Don’t need them sitting around</span>
- <span class="nb">export</span> AWS<span class="se">\_</span>ACCESS<span class="se">\_</span>KEY<span class="se">\_</span>ID<span class="o">=</span>
- <span class="nb">export</span> AWS<span class="se">\_</span>SECRET<span class="se">\_</span>ACCESS<span class="se">\_</span>KEY<span class="o">=</span>
+ <span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>
+ <span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>
  <span class="nb">export</span> <span class="nv">PASSPHRASE</span><span class="o">=</span>
 </pre></div>
 
@@ -124,7 +125,7 @@ databases.</p>
 <p>Then add it to a cronjob</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><span class="m">0</span> <span class="m">0</span> * * * /usr/sbin/automysqlbackup <span class="o">&amp;&amp;</span> /root/s3<span class="se">\_</span>backup
+<div class="highlight"><pre><span></span><span class="m">0</span> <span class="m">0</span> * * * /usr/sbin/automysqlbackup <span class="o">&amp;&amp;</span> /root/s3_backup
 </pre></div>
     </div>
 

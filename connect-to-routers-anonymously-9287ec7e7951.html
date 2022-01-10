@@ -24,10 +24,11 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -43,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2013-09-28T00:00:00+00:00">Sat 28 September 2013</abbr>
@@ -73,43 +74,52 @@ actually connect using the original stored details.</p>
 <p>I must admit I enjoyed writing this, it reminded me of the old days when
 linux network managers were all rubbish and you had to write bash
 scripts to connect to vaguely complex network configurations.</p>
-<h1>!/bin/bash</h1>
-<p># Anonymise your machines internet connection</p>
-<p># Settings
- INTERFACE=wlan1
- HOSTS_FILE=”/etc/hosts”
- START_TOKEN=”## start-anon”
- END_TOKEN=”## end-anon”</p>
-<p># Must be run as root
- if [[ $EUID -ne 0 ]]; then
- printf “This script must be run as root\n” 1&gt;&amp;2
- exit 1
- fi</p>
-<p># Network restart function
- if [ “Linux” == `uname` ]; then
- restart_network=”/etc/init.d/networking restart”
- fi</p>
-<p># Function to clear old data and add new hosts entry
- function update_hosts()
- {
- # if no hosts file found…
- if [ ! -f $1 ]
- then
- printf \n”No hosts file found\n” 1&gt;&amp;2
- exit 1
- fi</p>
-<p>file=$1
- host=$2</p>
-<p>sed_script=”{
- s/$END_TOKEN/$END_TOKEN/
- t finished_sites</p>
-<p>s/$START_TOKEN/$START_TOKEN/
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+ <span class="c1"># Anonymise your machines internet connection</span>
+
+<span class="c1"># Settings</span>
+ <span class="nv">INTERFACE</span><span class="o">=</span>wlan1
+ <span class="nv">HOSTS_FILE</span><span class="o">=</span>”/etc/hosts”
+ <span class="nv">START_TOKEN</span><span class="o">=</span>”## start-anon”
+ <span class="nv">END_TOKEN</span><span class="o">=</span>”## end-anon”
+
+<span class="c1"># Must be run as root</span>
+ <span class="k">if</span> <span class="o">[[</span> <span class="nv">$EUID</span> -ne <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+ <span class="nb">printf</span> “This script must be run as root<span class="se">\\</span>n” <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+ <span class="nb">exit</span> <span class="m">1</span>
+ <span class="k">fi</span>
+
+<span class="c1"># Network restart function</span>
+ <span class="k">if</span> <span class="o">[</span> “Linux” <span class="o">==</span> <span class="se">\`</span>uname<span class="se">\`</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+ <span class="nv">restart_network</span><span class="o">=</span>”/etc/init.d/networking restart”
+ <span class="k">fi</span>
+
+<span class="c1"># Function to clear old data and add new hosts entry</span>
+ <span class="k">function</span> update_hosts<span class="o">()</span>
+ <span class="o">{</span>
+ <span class="c1"># if no hosts file found…</span>
+ <span class="k">if</span> <span class="o">[</span> ! -f <span class="nv">$1</span> <span class="o">]</span>
+ <span class="k">then</span>
+ <span class="nb">printf</span> <span class="se">\\</span>n”No hosts file found<span class="se">\\</span>n” <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+ <span class="nb">exit</span> <span class="m">1</span>
+ <span class="k">fi</span>
+
+<span class="nv">file</span><span class="o">=</span><span class="nv">$1</span>
+ <span class="nv">host</span><span class="o">=</span><span class="nv">$2</span>
+
+<span class="nv">sed_script</span><span class="o">=</span>”<span class="o">{</span>
+ s/<span class="nv">$END_TOKEN</span>/<span class="nv">$END_TOKEN</span>/
+ t finished_sites
+
+s/<span class="nv">$START_TOKEN</span>/<span class="nv">$START_TOKEN</span>/
  x
- t started_sites</p>
-<p>s/$START_TOKEN/$START_TOKEN/
+ t started_sites
+
+s/<span class="nv">$START_TOKEN</span>/<span class="nv">$START_TOKEN</span>/
  x
- t started_sites</p>
-<p>p
+ t started_sites
+
+p
  b end
  : started_sites
  d
@@ -118,49 +128,59 @@ scripts to connect to vaguely complex network configurations.</p>
  d
  : end
  d
- }”</p>
-<p>hostname $host</p>
-<p>sed — in-place -e “$sed_script” $file
- echo $START_TOKEN &gt;&gt; $file
- printf “\n127.0.1.1 $host\n” &gt;&gt; $file
- echo $END_TOKEN &gt;&gt; $file
- }</p>
-<p># Presenting original information
- printf “Starting to anonimise your data\n”</p>
-<p># Stop Wicd
+ <span class="o">}</span>”
+
+hostname <span class="nv">$host</span>
+
+sed — <span class="k">in</span>-place -e “<span class="nv">$sed_script</span>” <span class="nv">$file</span>
+ <span class="nb">echo</span> <span class="nv">$START_TOKEN</span> &gt;&gt; <span class="nv">$file</span>
+ <span class="nb">printf</span> “<span class="se">\\</span>n127.0.1.1 <span class="nv">$host</span><span class="se">\\</span>n” &gt;&gt; <span class="nv">$file</span>
+ <span class="nb">echo</span> <span class="nv">$END_TOKEN</span> &gt;&gt; <span class="nv">$file</span>
+ <span class="o">}</span>
+
+<span class="c1"># Presenting original information</span>
+ <span class="nb">printf</span> “Starting to anonimise your data<span class="se">\\</span>n”
+
+<span class="c1"># Stop Wicd</span>
  sudo service wicd stop
- sleep 1</p>
-<h1>changing mac address to random</h1>
-<p>ifconfig $INTERFACE down &gt; /dev/null
- if [ $? == 0 ]; then
- printf “%snChanging mac address…\n”
- macchanger -r $INTERFACE
- else
- printf “%sScript encountered an error, sorry…\n”
- exit 1
- fi
- sleep 1</p>
-<p># Use john to supply new hostname to function
- OLDHOST=$(hostname)
- printf “%s\nChanging hostname…\n”
- printf “Current : $OLDHOST \n”
- FILE=/usr/share/john/password.lst
- WORD=$(sort -R $FILE | head -1)
- update_hosts $HOSTS_FILE $WORD
- NEWHOST=$(hostname)
- printf “New : $NEWHOST \n”
- sleep 1</p>
-<p># putting interface up
- ifconfig $INTERFACE up &gt; /dev/null
- printf “\n”
- sleep 1</p>
-<p># Restart networking
- $restart_network</p>
-<p># Get wicd back up and running
+ sleep <span class="m">1</span>
+
+<span class="c1">#changing mac address to random</span>
+ ifconfig <span class="nv">$INTERFACE</span> down &gt; /dev/null
+ <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+ <span class="nb">printf</span> “%snChanging mac address…<span class="se">\\</span>n”
+ macchanger -r <span class="nv">$INTERFACE</span>
+ <span class="k">else</span>
+ <span class="nb">printf</span> “%sScript encountered an error, sorry…<span class="se">\\</span>n”
+ <span class="nb">exit</span> <span class="m">1</span>
+ <span class="k">fi</span>
+ sleep <span class="m">1</span>
+
+<span class="c1"># Use john to supply new hostname to function</span>
+ <span class="nv">OLDHOST</span><span class="o">=</span><span class="k">$(</span>hostname<span class="k">)</span>
+ <span class="nb">printf</span> “%s<span class="se">\\</span>nChanging hostname…<span class="se">\\</span>n”
+ <span class="nb">printf</span> “Current : <span class="nv">$OLDHOST</span> <span class="se">\\</span>n”
+ <span class="nv">FILE</span><span class="o">=</span>/usr/share/john/password.lst
+ <span class="nv">WORD</span><span class="o">=</span><span class="k">$(</span>sort -R <span class="nv">$FILE</span> <span class="p">|</span> head -1<span class="k">)</span>
+ update_hosts <span class="nv">$HOSTS_FILE</span> <span class="nv">$WORD</span>
+ <span class="nv">NEWHOST</span><span class="o">=</span><span class="k">$(</span>hostname<span class="k">)</span>
+ <span class="nb">printf</span> “New : <span class="nv">$NEWHOST</span> <span class="se">\\</span>n”
+ sleep <span class="m">1</span>
+
+<span class="c1"># putting interface up</span>
+ ifconfig <span class="nv">$INTERFACE</span> up &gt; /dev/null
+ <span class="nb">printf</span> “<span class="se">\\</span>n”
+ sleep <span class="m">1</span>
+
+<span class="c1"># Restart networking</span>
+ <span class="nv">$restart_network</span>
+
+<span class="c1"># Get wicd back up and running</span>
  service wicd start
- sleep 1</p>
-<p>wicd-gtk &gt; /dev/null 2&gt;&amp;1 &amp;</p>
-<h1>END</h1>
+ sleep <span class="m">1</span>
+
+wicd-gtk &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+</pre></div>
     </div>
 
     <footer>

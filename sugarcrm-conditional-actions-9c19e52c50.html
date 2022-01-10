@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -89,10 +90,10 @@
         var button_sel = '';
         var button_index = '';
         // find the buttons index for the share button
-        _.find(this.meta.buttons, function(bn, idx) {
+        <em>.find(this.meta.buttons, function(bn, idx) {
             if(bn.name == 'main_dropdown') {
                 button_sel = idx;
-                _.find(bn.buttons, function(bbn, idx_bbn) {
+                </em>.find(bn.buttons, function(bbn, idx_bbn) {
                     if(bbn.name == name) {
                         button_index = idx_bbn;
                         return true;

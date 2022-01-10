@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -112,20 +113,20 @@ someone else.</p>
  # open the existing maildir and the target mbox file
  maildir = mailbox.Maildir(maildirname, email.message_from_file)
  mbox = mailbox.mbox(mboxfilename)</p>
-<p># lock the mbox
- mbox.lock()</p>
-<p># iterate over messages in the maildir and add to the mbox
- mbox.add(msg)</p>
-<p># close and unlock
- mbox.close()
+<h1>lock the mbox</h1>
+<p>mbox.lock()</p>
+<h1>iterate over messages in the maildir and add to the mbox</h1>
+<p>mbox.add(msg)</p>
+<h1>close and unlock</h1>
+<p>mbox.close()
  maildir.close()</p>
 <h1>Creates the main mailbox</h1>
 <p>dirname=sys.argv[-2]
  mboxname=sys.argv[-1]
  mboxdirname=mboxname+’.sbd’
  if not os.path.exists(mboxdirname): os.makedirs(mboxdirname)</p>
-<p># Iterate over all folders
- def folder_iterate(dirname, mboxname):
+<h1>Iterate over all folders</h1>
+<p>def folder_iterate(dirname, mboxname):
  listofdirs=[dn for dn in os.walk(dirname).next()[1] if dn not in [‘new’, ‘cur’, ‘tmp’]]
  curlist=[mboxname]+curfold.split(‘.’)
  curpath=os.path.join(*[dn+’.sbd’ for dn in curlist if dn])

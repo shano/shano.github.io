@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -71,12 +72,12 @@ SugarCRM 7’s new SugarQuery API.</p>
 <p>This should go into custom/modules//YourNewLink.php and this
 class will act as the custom functionality that will build your link
 between the two records.</p>
-<p>/**
+<p>/<strong>
  * Custom filtered link
  */
  class YourNewLink extends Link2
  {
- /**
+ /</strong>
  * DB
  *
  * @var DBManager
@@ -93,27 +94,27 @@ between the two records.</p>
  $this-&gt;def = $linkDef;
  }
  }</p>
-<p>/**
+<p>/*<em>
  * Returns false if no relationship was found for this link
  *
  * @return bool
- */
+ </em>/
  public function loadedSuccesfully()
  {
  // this link always loads successfully
  return true;
  }</p>
-<p>/**
+<p>/*<em>
  * @see Link2::getRelatedModuleName()
- */
+ </em>/
  public function getRelatedModuleName()
  {
  return ‘’;
  }</p>
-<p>/**
+<p>/*<em>
  *
  * @see Link2::buildJoinSugarQuery()
- */
+ </em>/
  public function buildJoinSugarQuery($sugar_query, $options = array())
  {
  $joinParams = array(‘joinType’ =&gt; isset($options[‘joinType’]) ? $options[‘joinType’] : ‘INNER’);
@@ -124,11 +125,11 @@ between the two records.</p>
 <p>$sugar_query-&gt;joinRaw($this-&gt;getCustomJoin($options), $joinParams);
  return $sugar_query-&gt;join[$jta];
  }</p>
-<p>/**
+<p>/*<em>
  * Builds main join subpanel
  * @param string $params
  * @return string JOIN clause
- */
+ </em>/
  protected function getCustomJoin($params = array())
  {
  $bean_id = $this-&gt;db-&gt;quoted($this-&gt;focus-&gt;id);
@@ -149,11 +150,11 @@ how the core sugar team use this. I can confirm however that this does
 work with custom joins.</p>
 <p>Here is the getEmailsJoin to help you understand what you can actually
 produce via this custom join.</p>
-<p>/**
+<p>/*<em>
  * Builds main join for archived emails
  * @param string $params
  * @return string JOIN clause
- */
+ </em>/
  protected function getEmailsJoin($params = array())
  {
  $bean_id = $this-&gt;db-&gt;quoted($this-&gt;focus-&gt;id);

@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -69,25 +70,25 @@
 it. The script itself is here, I’m just going to reproduce it below.</p>
 <h1>!/bin/sh</h1>
 <h1></h1>
-<p># An example hook script to log commit messages
-# as a 'daily highlight' in RescueTime Premium</p>
+<h1>An example hook script to log commit messages</h1>
+<h1>as a 'daily highlight' in RescueTime Premium</h1>
 <h1></h1>
-<p># See README.md for more information</p>
+<h1>See README.md for more information</h1>
 <h1></h1>
-<p># To enable this hook:</p>
+<h1>To enable this hook:</h1>
 <h1></h1>
-<p># 1. Place this file in .git/hooks and rename to "post-commit".</p>
+<h1>1. Place this file in .git/hooks and rename to "post-commit".</h1>
 <h1></h1>
-<p># 2. Update the value of API_KEY below with a valid RescueTime API key.
-#    [ you can generate a key at <a href="https://www.rescuetime.com/anapi/manage">https://www.rescuetime.com/anapi/manage</a> ]</p>
+<h1>2. Update the value of API_KEY below with a valid RescueTime API key.</h1>
+<h1>[ you can generate a key at <a href="https://www.rescuetime.com/anapi/manage">https://www.rescuetime.com/anapi/manage</a> ]</h1>
 <p>API_KEY=PUT_YOUR_API_KEY_HERE</p>
-<p># REQUIRED FIELDS - Today's date and commit message</p>
+<h1>REQUIRED FIELDS - Today's date and commit message</h1>
 <p>MESSAGE=$(git log -1 HEAD --pretty=format:%s)
 DATE_TODAY=$(date +"%Y-%m-%d")</p>
-<p># You can edit the LABEL value if you would rather
-# describe these commits differently.</p>
+<h1>You can edit the LABEL value if you would rather</h1>
+<h1>describe these commits differently.</h1>
 <p>LABEL='Code Commit'</p>
-<p># See more filtering examples in README.md</p>
+<h1>See more filtering examples in README.md</h1>
 <p>if [[ ${#MESSAGE} -gt 16 ]]; then
   curl --data "key=$API_KEY&amp;highlight_date=$DATE_TODAY&amp;description=$MESSAGE&amp;source=$LABEL" <a href="https://www.rescuetime.com/anapi/highlights_post">https://www.rescuetime.com/anapi/highlights_post</a>
 fi</p>

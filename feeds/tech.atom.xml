@@ -1,5 +1,812 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Tech</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/tech.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2012-01-14T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Simple ubuntu backup to S3</title><link href="https://shanedowling.com/simple-ubuntu-backup-to-s3-c3f3b7070208.html" rel="alternate"></link><published>2012-01-14T00:00:00+00:00</published><updated>2012-01-14T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-01-14:/simple-ubuntu-backup-to-s3-c3f3b7070208.html</id><summary type="html">&lt;p&gt;After browsing the web for ages to find a decent solution to backup my
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Tech</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/tech.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2014-01-04T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Make money mining a cryptocurrency</title><link href="https://shanedowling.com/make-money-mining-a-cryptocurrency-618d8f4727bf.html" rel="alternate"></link><published>2014-01-04T00:00:00+00:00</published><updated>2014-01-04T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-04:/make-money-mining-a-cryptocurrency-618d8f4727bf.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__gEF0IVFmJ4OZC__A9XrmnEA__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;A while back I wrote a post on my tech blog about using a tool called
+salt to configure your boxes to mine a crypto-currency. The currency I was mining was Anoncoin and I jokingly said it was a bit of fun that would make no money. Turns out, as …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__gEF0IVFmJ4OZC__A9XrmnEA__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;A while back I wrote a post on my tech blog about using a tool called
+salt to configure your boxes to mine a crypto-currency. The currency I was mining was Anoncoin and I jokingly said it was a bit of fun that would make no money. Turns out, as Anoncoin grew against Bitcoin which by itself was significantly increasing in value, I managed to make a nice little contribution towards the cost of my servers for the year.&lt;/p&gt;
+&lt;p&gt;Anyway, while I wasn’t really keeping an eye on things it looks like
+alternative currencies seem to be doing quite well. So I figured I put
+up a little guide here on things to help people get started with mining
+your own coins. It might look like your making only small amounts over
+time but you can’t really anticipate how the coin’s value might increase
+over time. Plus you’ll be contributing to one of the coolest aspects of
+these crypto-currencies, decentralized mining
+So here’s the steps:&lt;/p&gt;
+&lt;h3&gt;1. Get a server to run your miner.&lt;/h3&gt;
+&lt;p&gt;Amazon has a free usage tier which gives you a free small instance for a year. So sign up and give it a go. I’d suggest just going with Ubuntu if you’re new to things and make sure to use a 64 bit AMI.&lt;/p&gt;
+&lt;h3&gt;2. Choose the right currency.&lt;/h3&gt;
+&lt;p&gt;Do some research. Coins-e provides a lot of good information on the historical price of currency prices. Take a look at what the prospects are like for your currency and how they’ve performed against Bitcoin.&lt;/p&gt;
+&lt;p&gt;Reddit CryptoCurrencies– There’s a lot of disparate info here. I’d suggest deciding on a currency, then searching on this subreddit for related information.&lt;/p&gt;
+&lt;p&gt;Also take a look at trading volume as an indicator of future prospects:
+http://coinmarketcap.com/ or &lt;a href="https://www.cryptsy.com/"&gt;https://www.cryptsy.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You should also look at computational difficultly and what you’d earn
+right now too. &lt;a href="http://dustcoin.com/mining"&gt;http://dustcoin.com/mining&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Basically the more established the currency, the harder it will be to
+mine as you’ll be competing with a lot of other miners. The sweet spot
+is to mine a currency in it’s infancy, while there’s not a lot of mining
+competition. Then win if it increases in value against Litecoin or
+Bitcoin, but it’s obviously a difficult one to predict. Two of the higher value currencies, Anoncoin and Protoshares might be a good starting point, but if you see any murmurings that another currency might make it big, go for that. For the purposes of this guide I’ll show you how to start on those two.&lt;/p&gt;
+&lt;h3&gt;3. Find a mining pool.&lt;/h3&gt;
+&lt;p&gt;A mining pool is where multiple clients come together and contribute to
+the mining of a currency. I won’t go into details, but unless you have
+serious hardware it’s going to be computationally too difficult to mine
+coins by yourself.&lt;/p&gt;
+&lt;p&gt;For Anoncoin I use coinpool.in and for Protoshares I’ve used ypool.net. All you need to do is sign up for an account and create a worker for the mining software you’ll run on your server to point to.&lt;/p&gt;
+&lt;h3&gt;4. Set up the miner on your server.&lt;/h3&gt;
+&lt;p&gt;Login to your server using ssh and run these commands. Replace
+username.worker and password with the worker details you created &lt;strong&gt;not your login details for the mining pool&lt;/strong&gt;.
+&lt;strong&gt;Note:&lt;/strong&gt; These are the details for using a cpuminer. If you’re running
+this on a server you should be using a cpu-based miner. GPU miners are
+better equipped for crypto-currencies in general, but that’s out of the
+scope of this article. If you want to skip the server steps and run this
+on your local machine, try out Guiminer for
+windows or Asteriod for OSX.&lt;/p&gt;
+&lt;p&gt;For &lt;strong&gt;Protoshare&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bash
+wget [http://www.theopeneffect.com/jhprotominer-yvg1900-M7c-linux64-core2.tgz](http://www.theopeneffect.com/jhprotominer-yvg1900-M7c-linux64-core2.tgz)
+ tar zxvf jhprotominer-yvg1900-M7c-linux64-core2.tgz
+ cd jhprotominer-yvg1900-M7c-linux64-core2
+ cd linux64-core2–256M
+ ./jhprotominer -O \`ypool.net \`__ -u username.worker -p password -t 5&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Note, 256M is the amount of memory per thread and 5 is the amount of
+threads that will run. So on these options you would need a box with
+256*5 MBs of memory which is 1280Mbs. Change these figures accordingly with how much memory your server has free. You can check this with free -m.&lt;/p&gt;
+&lt;p&gt;For &lt;strong&gt;Anoncoin&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bash
+sudo apt-get install build-essential libcurl4-openssl-dev
+ wget [http://sourceforge.net/projects/cpuminer/files/pooler-cpuminer-2.3.2.tar.gz](http://sourceforge.net/projects/cpuminer/files/pooler-cpuminer-2.3.2.tar.gz)
+ tar xzf pooler-cpuminer-*.tar.gz
+ cd cpuminer-*
+ ./configure CFLAGS="-O3"
+ make
+ ./minerd - url=stratum+tcp://anc.coinpool.in:3333 –userpass=username.worker:password&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Double check with your mining pool that your worker is connected and
+running. It’s also very similar steps for running many other crypto-currencies, I’m sure the mining pool you find will have better
+steps than these too.&lt;/p&gt;
+&lt;h3&gt;5. Leave it running for a few days/weeks/months/forever.&lt;/h3&gt;
+&lt;h3&gt;6. Converting to Bitcoin.&lt;/h3&gt;
+&lt;p&gt;Once you’ve mined a reasonable number of coins you can choose to cash
+them out. Firstly, you’ll need to convert the currency to Bitcoin. I
+would use coins-e.com for this. Create an account and generate a deposit address to receive the funds from your mining pool.
+Basically from your mining pools UI you should be able to Cash Out, enter the amount you’ve mined and the coins-e.com address. Wait a few minutes for the transfer to happen. Then on coin-e you easily be able to convert the deposited currency to Bitcoin. Don’t worry, you’re almost there.&lt;/p&gt;
+&lt;h3&gt;7. Cashing out&lt;/h3&gt;
+&lt;p&gt;Now that you have your Bitcoin it’s time to turn it into cold, hard
+cash. I use Bitstamp for this. You’ll need to enter bank account details etc. Now using the bitcoin wallet address you’ll get on Bitstamp, you should easily be able to trade the bitcoins for dollar cash monies. Then it’s simply a case of withdrawing it to your bank account. As soon as the money is in dollars, withdraw it. I’ve found these Bitcoin exchanges are ALWAYS less reliable than bank accounts. Due to poor quality exchanges I have frozen money sitting in several countries that I’ll probably never get back. Having dollars in these places isn’t secure, so make your transactions as fast as possible.&lt;/p&gt;
+&lt;p&gt;Anyway, that took longer than I’d hoped. If you happen to have any
+questions or improvements you think I could add, feel free to comment.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Thrashing your networks download with dispatch and axel</title><link href="https://shanedowling.com/thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html" rel="alternate"></link><published>2013-12-12T00:00:00+00:00</published><updated>2013-12-12T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-12:/thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html</id><summary type="html">&lt;p&gt;Say you need to grab a file as fast as possible and you also happen to
+have a few network connections knocking about. For example maybe a
+separate network for your wireless and ethernet. Maybe you have a phone
+with tethering or a 3g dongle. This little guide will get …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Say you need to grab a file as fast as possible and you also happen to
+have a few network connections knocking about. For example maybe a
+separate network for your wireless and ethernet. Maybe you have a phone
+with tethering or a 3g dongle. This little guide will get your download
+distributed across these connections and hopefully significantly speed
+things up.&lt;/p&gt;
+&lt;p&gt;Beforehand you’ll need &lt;a href="http://nodejs.org/download/"&gt;npm&lt;/a&gt;, &lt;a href="https://github.com/Morhaus/dispatch-proxy"&gt;dispatch&lt;/a&gt; and &lt;a href="http://axel.alioth.debian.org/"&gt;axel download manager&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Connect all of your network connections and get the IPs they have been
+allocated. I had some virtualbox connections appear as valid so make
+sure dispatch is using the right ones. You can actually use dispatch
+itself to list all potential connections.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dispatch list
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Run dispatch with those IPs&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dispatch start — http &lt;span class="m"&gt;192&lt;/span&gt;.168.111.68 &lt;span class="m"&gt;192&lt;/span&gt;.168.111.223
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Configure axel to use dispatch&lt;/p&gt;
+&lt;p&gt;~/.axelrc&lt;/p&gt;
+&lt;p&gt;http_proxy=http://localhost:8080&lt;/p&gt;
+&lt;p&gt;Download something&lt;/p&gt;
+&lt;p&gt;axel &lt;a href="http://cdimage.debian.org/debian-cd/7.2.0/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso"&gt;http://cdimage.debian.org/debian-cd/7.2.0/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now axel should download across all of your devices but using multiple
+connections and a single file thread, so no slow file concatenation at
+the end.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Fixing a broken vagrant box</title><link href="https://shanedowling.com/fixing-a-broken-vagrant-box-cd6f169a62eb.html" rel="alternate"></link><published>2013-10-17T00:00:00+00:00</published><updated>2013-10-17T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-10-17:/fixing-a-broken-vagrant-box-cd6f169a62eb.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__TalXSpVG5yo__Lucbr1Wm6w.png"&gt;&lt;/p&gt;
+&lt;p&gt;The first time this happened I went into a cold sweat. My box with all
+dev versions of my companies live databases had died. Of course I had
+the box provisioned with salt so configuration wasn’t a problem, but
+grabbing all those databases, downloading, altering specific internal
+values and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__TalXSpVG5yo__Lucbr1Wm6w.png"&gt;&lt;/p&gt;
+&lt;p&gt;The first time this happened I went into a cold sweat. My box with all
+dev versions of my companies live databases had died. Of course I had
+the box provisioned with salt so configuration wasn’t a problem, but
+grabbing all those databases, downloading, altering specific internal
+values and inserting them was going to cost me hours. These steps
+should’ve been salted too but I hadn’t gotten round to it yet.&lt;/p&gt;
+&lt;p&gt;When I brought my vagrant box up, vagrant kept thinking that my original
+box had gone and kept trying to re-create a new one and provisioning it.
+Instead of starting from scratch I dug down and tried to figure out the
+problem. This issue has happened on several occasions for me so I
+figured I’d document the steps to fix it.
+-&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Start up virtualbox and make sure the box is still there and working.&lt;/li&gt;
+&lt;li&gt;Sometimes I find that the .vbox file can get corrupted. This sucks but go into the folder that contains the vbox file and see if there’s a VM_NAME.vbox-prev and copy that back to VM_NAME.vbox and try to run it just via virtualbox to see if it picks back up. This was always my issue, I believe because my laptop sometimes ran out of space and virtualbox tries to write a new file it can’t and simply writes something corrupted.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Make sure Vagrant points to your working VirtualMachine&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;While trying to get vagrant up and running again it may have create a bunch of similar boxes, get rid of those and retain the box you want to keep.&lt;/li&gt;
+&lt;li&gt;Run this VBoxManage list vms and get the GUID of your newly fixed box.&lt;/li&gt;
+&lt;li&gt;From the vagrant box directory go to .vagrant/machines/default/virtualbox and replace the contents of this file with just the GUID. &lt;strong&gt;Make sure no newline exists at the end of this file.&lt;/strong&gt; This is key. A lot of editors will automatically add a newline here and won’t present it when you attempt to delete the newline. Try diffing this id file with the id file from another vagrant box to see if the newline still appears. Otherwise, vim will also state noeol in it’s statusbar to confirm there is no end of line.&lt;/li&gt;
+&lt;li&gt;Run vagrant status and see if it picks up your old box, if it doesn’t make sure step 4 is correct.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Test your VM&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure none of the other VMs are still running. I use the &lt;a href="https://github.com/joshmcarthur/vagrant-list"&gt;vagrant list plugin&lt;/a&gt; for this. Once installed run vagrant list.&lt;/li&gt;
+&lt;li&gt;Then I shut down any that might conflict with my VM using VBoxManage controlvm VM_NAME poweroff&lt;/li&gt;
+&lt;li&gt;Then vagrant reload my vagrant box to ensure everything works.&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Tech"></category></entry><entry><title>Using PPAs with Salt-States</title><link href="https://shanedowling.com/using-ppas-with-salt-states-dd60c32c1211.html" rel="alternate"></link><published>2013-10-10T00:00:00+00:00</published><updated>2013-10-10T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-10-10:/using-ppas-with-salt-states-dd60c32c1211.html</id><summary type="html">&lt;p&gt;I couldn’t seem to find a decent tutorial on using PPA’s to manage repos
+with salt states so I’m documenting it here.&lt;/p&gt;
+&lt;p&gt;Say you want to install golang using these&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:duh/golang
+sudo apt-get update
+sudo apt-get install golang
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Well, to replicate this into …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I couldn’t seem to find a decent tutorial on using PPA’s to manage repos
+with salt states so I’m documenting it here.&lt;/p&gt;
+&lt;p&gt;Say you want to install golang using these&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:duh/golang
+sudo apt-get update
+sudo apt-get install golang
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Well, to replicate this into a salt state it’s pretty straight-foward.
+This also ensures you always have an up-to-date version of go.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;golang&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="nt"&gt;pkg&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+ &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;latest&lt;/span&gt;
+&lt;span class="nt"&gt;pkgrepo.managed&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+ &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;ppa:duh/golang&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That’s it, I just struggled to find that anyway.&lt;/p&gt;
+&lt;p&gt;Also, I’m aware &lt;a href="https://github.com/moovweb/gvm"&gt;gvm&lt;/a&gt; is awesome but I wanted to get something up and running quick and this was a nice example.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Making Drupal 6 Development Suck Less</title><link href="https://shanedowling.com/making-drupal-6-development-suck-less-ea6930df8056.html" rel="alternate"></link><published>2013-10-03T00:00:00+00:00</published><updated>2013-10-03T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-10-03:/making-drupal-6-development-suck-less-ea6930df8056.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__pyKonP__4TTO__P9guQ1lY9A.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So you’re here. Like myself probably stuck developing for `Drupal
+6 `__. All the modules on-line are for
+the latest and greatest versions of Drupal and you’re scouring posts
+from 2009 to try find that deprecated module you really need. Well his
+post is dedicated to making your life …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__pyKonP__4TTO__P9guQ1lY9A.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;So you’re here. Like myself probably stuck developing for `Drupal
+6 `__. All the modules on-line are for
+the latest and greatest versions of Drupal and you’re scouring posts
+from 2009 to try find that deprecated module you really need. Well his
+post is dedicated to making your life that little bit less painful,
+because I too feel your pain.&lt;/p&gt;
+&lt;h3&gt;Better debugging with &lt;a href="https://drupal.org/project/devel"&gt;devel&lt;/a&gt;.&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Installation&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;a href="http://subversion.tigris.org/"&gt;subversion&lt;/a&gt; (to allow devel to download the firePHP extension code needed).&lt;/li&gt;
+&lt;li&gt;Make sure &lt;a href="http://drush.ws/"&gt;drush&lt;/a&gt; is installed.&lt;/li&gt;
+&lt;li&gt;drush dl devel &amp;amp;&amp;amp; drush en devel&lt;/li&gt;
+&lt;li&gt;Enable user permissions for devel&lt;/li&gt;
+&lt;li&gt;Enable what you need to at &lt;a href="http://root%5C_url.com/admin/settings/devel"&gt;http://rooturl.com/admin/settings/devel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Install &lt;a href="https://getfirebug.com/"&gt;FireBug&lt;/a&gt; and &lt;a href="http://firephp.org/"&gt;FirePHP&lt;/a&gt; on firefox and enable the Net Panel in firebug&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Checkout watchdog output on firePHP, pretty cool eh?&lt;/li&gt;
+&lt;li&gt;You can see queries in the sidebar or if you’re logging them, here &lt;a href="http://example.com/devel/queries"&gt;http://example.com/devel/queries&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Directly output to firephp with(alternate WARN with ERROR or INFO):&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;dfb($foo, ‘probably bad’, FirePHP::WARN);&lt;/p&gt;
+&lt;h3&gt;Drupal Specific Vim Config&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/joonty/vim-sauce"&gt;&lt;strong&gt;VimSauce&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I like to keep my vim configurations separate from each other so I don’t
+end up with huge messy config files with settings overlapping and
+breaking things. Before I used some shell aliases to alter symlinks to
+different vim configurations I had. Now, I use &lt;a href="https://github.com/joonty/vim-sauce"&gt;vimsauce&lt;/a&gt; to manage them. Once you got VimSauce installed(I’d recommend Vundle) create a new Drupal specific sauce with&lt;/p&gt;
+&lt;p&gt;:SauceNew drupal&lt;/p&gt;
+&lt;p&gt;then edit it with&lt;/p&gt;
+&lt;p&gt;:SauceEdit drupal&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://drupal.org/project/vimrc"&gt;&lt;strong&gt;Drupal Vimrc&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This project provides vimrc customisations for Drupal-specific editing. Exactly what&lt;/p&gt;
+&lt;p&gt;drush @none dl vimrc&lt;/p&gt;
+&lt;p&gt;This should install the file into ~/.drush/vimrc/bundle. Now you need to
+configure your new vimsauce file to work with the drupal vimrc
+customisations. The vimrc below should explain things. It’s a merge of
+the vimsauce default settings, a file I found under
+~/.drush/vimrc/examples/vimrc_timplunkett.vim and the pathogen
+settings.&lt;/p&gt;
+&lt;p&gt;set nocompatible call pathogen#infect(‘/home/user/.drush/vimrc/bundle’) call pathogen#infect(‘/home/user/.vimsauce/drupal/bundle’) “ End of vimrc-install additions.&lt;/p&gt;
+&lt;p&gt;let g:current_dir = “~/code/drupal” exec ‘cd ‘ . g:current_dir&lt;/p&gt;
+&lt;p&gt;“ Allow Vim-only settings even if they break vi keybindings. set nocompatible&lt;/p&gt;
+&lt;p&gt;“ Enable filetype detection filetype plugin on&lt;/p&gt;
+&lt;p&gt;“ General settings set incsearch “Find as you type set scrolloff=2 “Number of lines to keep above/below cursor set number “Show line numbers set wildmode=longest,list “Complete longest string, then list alternatives set pastetoggle= “Toggle paste mode set fileformats=unix “Use Unix line endings set history=300 “Number of commands to remember set showmode “Show whether in Visual, Replace, or Insert Mode set showmatch “Show matching brackets/parentheses set backspace=2 “Use standard backspace behavior set hlsearch “Highlight matches in search set ruler “Show line and column number set formatoptions=1 “Don’t wrap text after a one-letter word set linebreak “Break lines when appropriate&lt;/p&gt;
+&lt;p&gt;“ Persistent Undo (vim 7.3 and later) if exists(‘&amp;amp;undofile’) &amp;amp;&amp;amp; !&amp;amp;undofile set undodir=~/.vim_runtime/undodir set undofile endif&lt;/p&gt;
+&lt;p&gt;“ Enable syntax highlighting if &amp;amp;t_Co &amp;gt; 1 syntax enable endif syntax on&lt;/p&gt;
+&lt;p&gt;“ Custom key mapping map :redo map :tabn map :tabp&lt;/p&gt;
+&lt;p&gt;“ Uncomment the following to have Vim jump to the last position when “ reopening a file if has(“autocmd”) au BufReadPost * if line(“‘“”) &amp;gt; 0 &amp;amp;&amp;amp; line(“‘“”) &amp;lt;= line(“$”) | exe “normal! g’”” | endif endif&lt;/p&gt;
+&lt;h3&gt;Sticking to a Coding Standard&lt;/h3&gt;
+&lt;p&gt;So I try to always adhere to the coding standard of whatever system I’m
+using. Typically that’s easy but I’ve found getting my hands on a
+automated check that ensures my code is up to drupal’s standards a
+little difficult(especially with drupal 6). Firstly you need to install
+PHP’s codesniffer, which I did using PEAR.&lt;/p&gt;
+&lt;p&gt;sudo pear install PHP_CodeSniffer&lt;/p&gt;
+&lt;p&gt;In the end I was forced to use a Drupal 7 specific codesniffer. This
+project has actually been merged into the Coder project but as I’m using
+Drupal 6, the current version of coder that works with Drupal 6 doesn’t
+include the codesniffer. So I nabbed the latest standalone version of
+drupal codesniffer.&lt;/p&gt;
+&lt;p&gt;wget &lt;a href="http://ftp.drupal.org/files/projects/drupalcs-7.x-1.x-dev.tar.gz"&gt;http://ftp.drupal.org/files/projects/drupalcs-7.x-1.x-dev.tar.gz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I then extract it to my ~/.drush folder and symlink it to where pear has
+placed php codesniffers various syntax checking config files&lt;/p&gt;
+&lt;p&gt;sudo ln -sv ~/.drush/drupalcs/Drupal $(pear config-getphp_dir)/PHP/CodeSniffer/Standards&lt;/p&gt;
+&lt;p&gt;Now, this is the setting that I’ve come across that apparently changes
+phpcs to use Drupal as the standard which codesniffer adheres to.&lt;/p&gt;
+&lt;h3&gt;Use drupals codesniffer&lt;/h3&gt;
+&lt;p&gt;let g:syntastic_phpcs_conf=” — standard=Drupal — extensions=php,module,inc,install,test,profile,theme”&lt;/p&gt;
+&lt;p&gt;I could not get this to work. It simply refused to budge from the
+standard PSR syntax checker that is the default for PHP codesniffer. I
+was forced to just set the default to drupal’s.&lt;/p&gt;
+&lt;p&gt;sudo phpcs — config-set default_standard Drupal&lt;/p&gt;
+&lt;p&gt;This is a little annoying if you jump between standard PHP projects and
+Drupal projects, so I added a system command call to my various vim
+sauces to set php codesniffer to the correct standard. It should bug you
+to enter a sudo password, but I’d rather that than having to explicitly
+run these commands.&lt;/p&gt;
+&lt;p&gt;call system(“sudo phpcs — config-set default_standard Drupal”)&lt;/p&gt;
+&lt;p&gt;This post has already gotten very long but I’ll try to write something
+up on getting unit-testing up and running with Drupal 6 at a later
+stage. I can attest it is possible, just a bit of a pain in the ass.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Connect to routers anonymously</title><link href="https://shanedowling.com/connect-to-routers-anonymously-9287ec7e7951.html" rel="alternate"></link><published>2013-09-28T00:00:00+00:00</published><updated>2013-09-28T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-09-28:/connect-to-routers-anonymously-9287ec7e7951.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__2zYJ6QvnP__Z17B321DD7NQ.png"&gt;&lt;/p&gt;
+&lt;p&gt;I’ve created a little script that incorporates
+&lt;a href="https://launchpad.net/wicd"&gt;wicd&lt;/a&gt;, &lt;a href="https://github.com/alobbs/macchanger"&gt;macchanger&lt;/a&gt;, &lt;a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?hostname"&gt;hostname&lt;/a&gt; and &lt;a href="http://www.openwall.com/john/"&gt;john the ripper’s&lt;/a&gt; password list to randomise your mac address and hostname when connecting to the internet.&lt;/p&gt;
+&lt;p&gt;I’ve gone with wicd over network manager as network-manager has a
+tendency to store connection details, so while your …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__2zYJ6QvnP__Z17B321DD7NQ.png"&gt;&lt;/p&gt;
+&lt;p&gt;I’ve created a little script that incorporates
+&lt;a href="https://launchpad.net/wicd"&gt;wicd&lt;/a&gt;, &lt;a href="https://github.com/alobbs/macchanger"&gt;macchanger&lt;/a&gt;, &lt;a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?hostname"&gt;hostname&lt;/a&gt; and &lt;a href="http://www.openwall.com/john/"&gt;john the ripper’s&lt;/a&gt; password list to randomise your mac address and hostname when connecting to the internet.&lt;/p&gt;
+&lt;p&gt;I’ve gone with wicd over network manager as network-manager has a
+tendency to store connection details, so while your machine might id
+your hostname or mac address as something new, network-manager will
+actually connect using the original stored details.&lt;/p&gt;
+&lt;p&gt;I must admit I enjoyed writing this, it reminded me of the old days when
+linux network managers were all rubbish and you had to write bash
+scripts to connect to vaguely complex network configurations.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+ &lt;span class="c1"&gt;# Anonymise your machines internet connection&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Settings&lt;/span&gt;
+ &lt;span class="nv"&gt;INTERFACE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;wlan1
+ &lt;span class="nv"&gt;HOSTS_FILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;”/etc/hosts”
+ &lt;span class="nv"&gt;START_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;”## start-anon”
+ &lt;span class="nv"&gt;END_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;”## end-anon”
+
+&lt;span class="c1"&gt;# Must be run as root&lt;/span&gt;
+ &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nv"&gt;$EUID&lt;/span&gt; -ne &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+ &lt;span class="nb"&gt;printf&lt;/span&gt; “This script must be run as root&lt;span class="se"&gt;\\&lt;/span&gt;n” &lt;span class="m"&gt;1&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;
+ &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+ &lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Network restart function&lt;/span&gt;
+ &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; “Linux” &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="se"&gt;\`&lt;/span&gt;uname&lt;span class="se"&gt;\`&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+ &lt;span class="nv"&gt;restart_network&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;”/etc/init.d/networking restart”
+ &lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Function to clear old data and add new hosts entry&lt;/span&gt;
+ &lt;span class="k"&gt;function&lt;/span&gt; update_hosts&lt;span class="o"&gt;()&lt;/span&gt;
+ &lt;span class="o"&gt;{&lt;/span&gt;
+ &lt;span class="c1"&gt;# if no hosts file found…&lt;/span&gt;
+ &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; ! -f &lt;span class="nv"&gt;$1&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="k"&gt;then&lt;/span&gt;
+ &lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="se"&gt;\\&lt;/span&gt;n”No hosts file found&lt;span class="se"&gt;\\&lt;/span&gt;n” &lt;span class="m"&gt;1&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;
+ &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+ &lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="nv"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+ &lt;span class="nv"&gt;host&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;
+
+&lt;span class="nv"&gt;sed_script&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;”&lt;span class="o"&gt;{&lt;/span&gt;
+ s/&lt;span class="nv"&gt;$END_TOKEN&lt;/span&gt;/&lt;span class="nv"&gt;$END_TOKEN&lt;/span&gt;/
+ t finished_sites
+
+s/&lt;span class="nv"&gt;$START_TOKEN&lt;/span&gt;/&lt;span class="nv"&gt;$START_TOKEN&lt;/span&gt;/
+ x
+ t started_sites
+
+s/&lt;span class="nv"&gt;$START_TOKEN&lt;/span&gt;/&lt;span class="nv"&gt;$START_TOKEN&lt;/span&gt;/
+ x
+ t started_sites
+
+p
+ b end
+ : started_sites
+ d
+ : finished_sites
+ x
+ d
+ : end
+ d
+ &lt;span class="o"&gt;}&lt;/span&gt;”
+
+hostname &lt;span class="nv"&gt;$host&lt;/span&gt;
+
+sed — &lt;span class="k"&gt;in&lt;/span&gt;-place -e “&lt;span class="nv"&gt;$sed_script&lt;/span&gt;” &lt;span class="nv"&gt;$file&lt;/span&gt;
+ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$START_TOKEN&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$file&lt;/span&gt;
+ &lt;span class="nb"&gt;printf&lt;/span&gt; “&lt;span class="se"&gt;\\&lt;/span&gt;n127.0.1.1 &lt;span class="nv"&gt;$host&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;n” &amp;gt;&amp;gt; &lt;span class="nv"&gt;$file&lt;/span&gt;
+ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$END_TOKEN&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$file&lt;/span&gt;
+ &lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Presenting original information&lt;/span&gt;
+ &lt;span class="nb"&gt;printf&lt;/span&gt; “Starting to anonimise your data&lt;span class="se"&gt;\\&lt;/span&gt;n”
+
+&lt;span class="c1"&gt;# Stop Wicd&lt;/span&gt;
+ sudo service wicd stop
+ sleep &lt;span class="m"&gt;1&lt;/span&gt;
+
+&lt;span class="c1"&gt;#changing mac address to random&lt;/span&gt;
+ ifconfig &lt;span class="nv"&gt;$INTERFACE&lt;/span&gt; down &amp;gt; /dev/null
+ &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="nv"&gt;$?&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+ &lt;span class="nb"&gt;printf&lt;/span&gt; “%snChanging mac address…&lt;span class="se"&gt;\\&lt;/span&gt;n”
+ macchanger -r &lt;span class="nv"&gt;$INTERFACE&lt;/span&gt;
+ &lt;span class="k"&gt;else&lt;/span&gt;
+ &lt;span class="nb"&gt;printf&lt;/span&gt; “%sScript encountered an error, sorry…&lt;span class="se"&gt;\\&lt;/span&gt;n”
+ &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+ &lt;span class="k"&gt;fi&lt;/span&gt;
+ sleep &lt;span class="m"&gt;1&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Use john to supply new hostname to function&lt;/span&gt;
+ &lt;span class="nv"&gt;OLDHOST&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;hostname&lt;span class="k"&gt;)&lt;/span&gt;
+ &lt;span class="nb"&gt;printf&lt;/span&gt; “%s&lt;span class="se"&gt;\\&lt;/span&gt;nChanging hostname…&lt;span class="se"&gt;\\&lt;/span&gt;n”
+ &lt;span class="nb"&gt;printf&lt;/span&gt; “Current : &lt;span class="nv"&gt;$OLDHOST&lt;/span&gt; &lt;span class="se"&gt;\\&lt;/span&gt;n”
+ &lt;span class="nv"&gt;FILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/share/john/password.lst
+ &lt;span class="nv"&gt;WORD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;sort -R &lt;span class="nv"&gt;$FILE&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; head -1&lt;span class="k"&gt;)&lt;/span&gt;
+ update_hosts &lt;span class="nv"&gt;$HOSTS_FILE&lt;/span&gt; &lt;span class="nv"&gt;$WORD&lt;/span&gt;
+ &lt;span class="nv"&gt;NEWHOST&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;hostname&lt;span class="k"&gt;)&lt;/span&gt;
+ &lt;span class="nb"&gt;printf&lt;/span&gt; “New : &lt;span class="nv"&gt;$NEWHOST&lt;/span&gt; &lt;span class="se"&gt;\\&lt;/span&gt;n”
+ sleep &lt;span class="m"&gt;1&lt;/span&gt;
+
+&lt;span class="c1"&gt;# putting interface up&lt;/span&gt;
+ ifconfig &lt;span class="nv"&gt;$INTERFACE&lt;/span&gt; up &amp;gt; /dev/null
+ &lt;span class="nb"&gt;printf&lt;/span&gt; “&lt;span class="se"&gt;\\&lt;/span&gt;n”
+ sleep &lt;span class="m"&gt;1&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Restart networking&lt;/span&gt;
+ &lt;span class="nv"&gt;$restart_network&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Get wicd back up and running&lt;/span&gt;
+ service wicd start
+ sleep &lt;span class="m"&gt;1&lt;/span&gt;
+
+wicd-gtk &amp;gt; /dev/null &lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Explainshell</title><link href="https://shanedowling.com/explainshell-52cc1de7a71a.html" rel="alternate"></link><published>2013-09-13T00:00:00+00:00</published><updated>2013-09-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-09-13:/explainshell-52cc1de7a71a.html</id><content type="html">&lt;p&gt;&lt;a href="https://explainshell.com" title="https://explainshell.com"&gt;&lt;strong&gt;explainshell.com - &lt;em&gt;match command-line arguments to their help text&lt;/em&gt;&lt;/strong&gt;
+match command-line arguments to their help textexplainshell.com&lt;/a&gt;&lt;a href="https://explainshell.com"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A very nice visualization of command line args.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Salt Miner</title><link href="https://shanedowling.com/salt-miner-5d8c30f9d61f.html" rel="alternate"></link><published>2013-09-07T00:00:00+00:00</published><updated>2013-09-07T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-09-07:/salt-miner-5d8c30f9d61f.html</id><summary type="html">&lt;p&gt;I’ve just created a salt state that allows you to install a
+crypto-currency miner across your salt provisioned boxes. It’s only
+tested on Ubuntu and Debian, but I intend to extend it to
+Archlinux(there’s a lovely aur package that does all the work).
+Currently I’m …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’ve just created a salt state that allows you to install a
+crypto-currency miner across your salt provisioned boxes. It’s only
+tested on Ubuntu and Debian, but I intend to extend it to
+Archlinux(there’s a lovely aur package that does all the work).
+Currently I’m mining &lt;a href="https://anoncoin.net/"&gt;anoncoins&lt;/a&gt; as you have
+some chance of making tiny amounts of cash and it’s &lt;a href="https://www.cryptsy.com/markets/view/66"&gt;exchange rate
+against Bitcoins isn’t so bad&lt;/a&gt; but feel free to choose whatever coin you like.&lt;/p&gt;
+&lt;p&gt;Make literally pennies per day on your salt provisioned servers using a
+crappy unprofitable CPU-based miner! Yes, this was a labor of love, not
+profit. The git repo is &lt;a href="https://github.com/shano/salty-miner"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So when no one is visiting your blog and no one is using your web app at
+least you can be happy knowing your servers are doing something small
+towards paying themselves off.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Unit-testing unmanaged Django models</title><link href="https://shanedowling.com/unit-testing-unmanaged-django-models-bf2cb6837fec.html" rel="alternate"></link><published>2013-08-31T00:00:00+00:00</published><updated>2013-08-31T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-31:/unit-testing-unmanaged-django-models-bf2cb6837fec.html</id><summary type="html">&lt;p&gt;Say you have an app with a set of models that aren’t being managed by
+Django, you’re going to run into trouble when it comes time to run
+unit-tests against these. What I mean is if in the model meta you have
+something like this&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &lt;span class="n"&gt;app_label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;your …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Say you have an app with a set of models that aren’t being managed by
+Django, you’re going to run into trouble when it comes time to run
+unit-tests against these. What I mean is if in the model meta you have
+something like this&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &lt;span class="n"&gt;app_label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;your_app_label&amp;#39;&lt;/span&gt;
+ &lt;span class="n"&gt;managed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+ &lt;span class="n"&gt;db_table&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;u&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;your_table_name&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you run unit-tests against these models the trouble occurs because
+django will ignore this model when creating tables in the test database
+and you’ll get a relation not defined error for ‘your_table_name’. The
+solution to this is to create an app specific TestRunner that will
+over-ride this setting and temporarily allow Django to manage your
+models, just for testing purposes.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.test.simple&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;DjangoTestSuiteRunner&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ManagedModelTestRunner&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;DjangoTestSuiteRunner&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+ &lt;span class="err"&gt;“””&lt;/span&gt;
+ &lt;span class="n"&gt;Test&lt;/span&gt; &lt;span class="n"&gt;runner&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;automatically&lt;/span&gt; &lt;span class="n"&gt;makes&lt;/span&gt; &lt;span class="nb"&gt;all&lt;/span&gt; &lt;span class="n"&gt;unmanaged&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;Django&lt;/span&gt;
+ &lt;span class="n"&gt;project&lt;/span&gt; &lt;span class="n"&gt;managed&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;duration&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;so&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;one&lt;/span&gt; &lt;span class="n"&gt;doesn&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;need&lt;/span&gt;
+ &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;execute&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;SQL&lt;/span&gt; &lt;span class="n"&gt;manually&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;create&lt;/span&gt; &lt;span class="n"&gt;them&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+ &lt;span class="err"&gt;“””&lt;/span&gt;
+ &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setup_test_environment&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db.models.loading&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_models&lt;/span&gt;
+    &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unmanaged_models&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;get_models&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_meta&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;managed&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_meta&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;app_label&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;your_app_label&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_meta&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;managed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+    &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ManagedModelTestRunner&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setup_test_environment&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;teardown_test_environment&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ManagedModelTestRunner&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;teardown_test_environment&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# reset unmanaged models&lt;/span&gt;
+    &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_meta&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;managed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This code was lovingly taken from &lt;a href="http://www.caktusgroup.com/blog/2010/09/24/simplifying-the-testing-of-unmanaged-database-models-in-django/"&gt;here&lt;/a&gt; and extending very slightly to only include models that exist under the my_app_label app. I don’t want my app’s test to go fudging around with others, unless it’s needed.&lt;/p&gt;
+&lt;p&gt;To then run tests with this testrunner, create a test_settings.py that
+looks something like this. This which basically tells Django to import
+your existing settings but to use your newly created TestRunner&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;settings&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+
+&lt;span class="n"&gt;TEST_RUNNER&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="n"&gt;your_app_label&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;testrunner&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ManagedModelTestRunner&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./manage.py &lt;span class="nb"&gt;test&lt;/span&gt; your_app_label &lt;span class="nv"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;you_app_label.settings.test_settings
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Suppling test data to django-cities</title><link href="https://shanedowling.com/suppling-test-data-to-django-cities-6afd013f671d.html" rel="alternate"></link><published>2013-08-29T00:00:00+00:00</published><updated>2013-08-29T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-29:/suppling-test-data-to-django-cities-6afd013f671d.html</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/coderholic/django-cities"&gt;Django-Cities&lt;/a&gt;, is an awesome project that supplies easy to import worldwide location data and a set of very neat location models that you should really be using for any django project needing location information. I’ve been using it lately but ran into problems when I tried to run unit …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/coderholic/django-cities"&gt;Django-Cities&lt;/a&gt;, is an awesome project that supplies easy to import worldwide location data and a set of very neat location models that you should really be using for any django project needing location information. I’ve been using it lately but ran into problems when I tried to run unit tests that made use of the django-cities app.&lt;/p&gt;
+&lt;p&gt;As django-cities populates a load of data via it’s import command it can
+take a long time(over an hour) before a test database with all the data
+could be created. So I needed a stop-gap solution to quickly get a
+workable dataset up and running for a few small unit tests.&lt;/p&gt;
+&lt;p&gt;I find fixtures problematic, data may change over time and maintaining a
+bunch of JSON files to represent a few simple locations can be a pain.
+So here’s a very quick example of how I use the ORM to populate a single
+location hierarchy for your tests.py.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setUp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+  &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;country&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Country&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="n"&gt;United&lt;/span&gt; &lt;span class="n"&gt;Kingdom&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;UK&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tld&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;co&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uk&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;population&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;62740000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;country&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+  &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;region&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Region&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;London&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name_std&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="n"&gt;London&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="n"&gt;LDN&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;country&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;country&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;region&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+  &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;city&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;City&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;Camden&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name_std&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;Camden&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;region&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;region&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;country&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;country&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;population&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;8174000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;location&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;POINT&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3400000&lt;/span&gt; &lt;span class="mi"&gt;6700010&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+   &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;city&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The city POINT location is totally random, I’ll start populating real
+location values when I need distance based tests.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Archlinux Pacman Update Fix</title><link href="https://shanedowling.com/archlinux-pacman-update-fix-a99b2f157a2c.html" rel="alternate"></link><published>2013-08-25T00:00:00+00:00</published><updated>2013-08-25T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-25:/archlinux-pacman-update-fix-a99b2f157a2c.html</id><content type="html">&lt;p&gt;I’m writing this up as a quick solution to archlinux’s dreaded pacman
+update problem.&lt;/p&gt;
+&lt;p&gt;If you have yaourt installed simply update package-query through it and
+update pacman normally.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yaourt -S package-query
+pacman -Syu
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Make sure also to delete the SyncFirst option from /etc/pacman.conf&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Writing Django tests for PostGis</title><link href="https://shanedowling.com/writing-django-tests-for-postgis-9eefe47fd368.html" rel="alternate"></link><published>2013-08-24T00:00:00+00:00</published><updated>2013-08-24T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-24:/writing-django-tests-for-postgis-9eefe47fd368.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;PostGis is awesome, I think I already established this in &lt;a href="http://shanedowling.com/index.php/postgis/"&gt;this post&lt;/a&gt;. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you’ve failed to create a proper postgres_template database for your test database to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;PostGis is awesome, I think I already established this in &lt;a href="http://shanedowling.com/index.php/postgis/"&gt;this post&lt;/a&gt;. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you’ve failed to create a proper postgres_template database for your test database to work with. Run these commands in your postgres prompt to create the appropriate template.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt; &lt;span class="k"&gt;DATABASE&lt;/span&gt; &lt;span class="n"&gt;template_postgis&lt;/span&gt; &lt;span class="k"&gt;ENCODING&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;UPDATE&lt;/span&gt; &lt;span class="n"&gt;pg_database&lt;/span&gt; &lt;span class="k"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;datistemplate&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt; &lt;span class="k"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;datname&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;template_postgis&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;template_postgis&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgresql&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgis&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;sql&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;template_postgis&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgresql&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;spatial_ref_sys&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;sql&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;template_postgis&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgresql&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;postgis_comments&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;sql&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;template_postgis&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;GRANT ALL ON geometry_columns TO PUBLIC;&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;template_postgis&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;GRANT ALL ON geography_columns TO PUBLIC;&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="n"&gt;psql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;template_postgis&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;GRANT ALL ON spatial_ref_sys TO PUBLIC;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you decide to name your postgis template something other than
+template_postgis, make sure you tell Django by putting the below into
+settings.py&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;POSTGIS_TEMPLATE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="n"&gt;my_other_database_template&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I ran all of these commands on my Ubuntu 12.04 LTS vagrant
+box. If you get encoding errors you might need to set UTF-8 as the
+template DB encoding, see this &lt;a href="http://stackoverflow.com/a/16737776/108396"&gt;SO answer&lt;/a&gt;.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Install nzbget using salt</title><link href="https://shanedowling.com/install-nzbget-using-salt-7cc40711adb6.html" rel="alternate"></link><published>2013-08-23T00:00:00+00:00</published><updated>2013-08-23T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-23:/install-nzbget-using-salt-7cc40711adb6.html</id><summary type="html">&lt;p&gt;Recently I’ve been using vagrant to configure more and more of the local webapps I’m using day to day, simply as I find sticking all the apps I use on my host machine a little messy. I’ve also been picking up &lt;a href="http://saltstack.com/"&gt;salt-stack&lt;/a&gt; with salt-states as the provisioner …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Recently I’ve been using vagrant to configure more and more of the local webapps I’m using day to day, simply as I find sticking all the apps I use on my host machine a little messy. I’ve also been picking up &lt;a href="http://saltstack.com/"&gt;salt-stack&lt;/a&gt; with salt-states as the provisioner as I personally prefer it a lot more than puppet/chef.&lt;/p&gt;
+&lt;p&gt;As a learning exercise I figured I’d setup nzbget using salt, it’s good because it requires a few config files and some compiling. You can find the repo &lt;a href="https://github.com/shano/salt-nzbget"&gt;here&lt;/a&gt;. Should be fairly self explanatory, but there’s more details in the README. If you’ve any questions just ask in the comments.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Octopress back to Wordpress</title><link href="https://shanedowling.com/octopress-back-to-wordpress-6740efc31eb9.html" rel="alternate"></link><published>2013-08-22T00:00:00+00:00</published><updated>2013-08-22T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-22:/octopress-back-to-wordpress-6740efc31eb9.html</id><summary type="html">&lt;p&gt;I’ve been using &lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; for the last while
+and it felt good having a nice fast static blog as opposed to heavy-old
+&lt;a href="https://wordpress.com/"&gt;Wordpress&lt;/a&gt;. After time passed however, I noticed I wrote less. Having to grab my laptop and pull up vim to write something, then play around with git …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’ve been using &lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; for the last while
+and it felt good having a nice fast static blog as opposed to heavy-old
+&lt;a href="https://wordpress.com/"&gt;Wordpress&lt;/a&gt;. After time passed however, I noticed I wrote less. Having to grab my laptop and pull up vim to write something, then play around with git or a sometimes having dodgy rsync problems it made the whole process less seamless. Jumping straight onto Wordpress anywhere I felt like(even my phone), has made the ability to write much more present during my day and naturally as a result I’m writing more.&lt;/p&gt;
+&lt;p&gt;Anyway, I found a nice little project that pushed a folder of Octopress
+markdown to a Wordpress XML-RPC endpoint &lt;a href="https://github.com/collindonnell/octo-2-wp"&gt;here&lt;/a&gt;. It was a struggle
+to find, if you search for anything vaguely related to Octopress and
+Wordpress you’ll get a million tutorials pushing you out of nasty old
+Wordpress, not back into. The script didn’t work out of the box for me
+so I added a couple of fixes, which the author nicely accepted. Hope it
+helps!&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Postgis</title><link href="https://shanedowling.com/postgis-31e5d7e13bff.html" rel="alternate"></link><published>2013-08-19T00:00:00+00:00</published><updated>2013-08-19T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-19:/postgis-31e5d7e13bff.html</id><summary type="html">&lt;p&gt;from cities.models import City
+ cape_town = City.objects.filter(country__name=’South Africa’).get(name=’Cape Town’)
+ nearest = City.objects.distance(cape_town.location).exclude(id=cape_town.id).order_by(‘distance’)[:10000]&lt;/p&gt;
+&lt;p&gt;I must be very damaged from location data being badly implemented in MySQL. I’m still …&lt;/p&gt;</summary><content type="html">&lt;p&gt;from cities.models import City
+ cape_town = City.objects.filter(country__name=’South Africa’).get(name=’Cape Town’)
+ nearest = City.objects.distance(cape_town.location).exclude(id=cape_town.id).order_by(‘distance’)[:10000]&lt;/p&gt;
+&lt;p&gt;I must be very damaged from location data being badly implemented in MySQL. I’m still amazed that this request could be under a second, let alone be pretty much instant. &lt;a href="http://postgis.net/"&gt;Postgis&lt;/a&gt; is basically the coolest thing ever.&lt;/p&gt;
+&lt;p&gt;Oh and in case you were curious(which you weren’t), &lt;a href="https://en.wikipedia.org/wiki/Rocca_di_Papa"&gt;this place&lt;/a&gt; is in terms of
+distance the 10000th closest place to Cape Town.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>worksly.com — Find workspaces in the UK</title><link href="https://shanedowling.com/worksly-com-find-workspaces-in-the-uk-ee31e3f6b1b3.html" rel="alternate"></link><published>2013-05-22T00:00:00+00:00</published><updated>2013-05-22T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-05-22:/worksly-com-find-workspaces-in-the-uk-ee31e3f6b1b3.html</id><summary type="html">&lt;p&gt;It’s online &lt;a href="http://www.worksly.com/"&gt;here&lt;/a&gt;. Hopefully people find it useful, it’s got data from Foursquare, Yelp and a few other sources.&lt;/p&gt;
+&lt;p&gt;The site itself is built in Python, Bottle, Bootstrap and MySQL, though I hope to upgrade to Postgres with PostGIS when I get the time. I also want to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It’s online &lt;a href="http://www.worksly.com/"&gt;here&lt;/a&gt;. Hopefully people find it useful, it’s got data from Foursquare, Yelp and a few other sources.&lt;/p&gt;
+&lt;p&gt;The site itself is built in Python, Bottle, Bootstrap and MySQL, though I hope to upgrade to Postgres with PostGIS when I get the time. I also want to make it look a lot less bootstrappy.&lt;/p&gt;
+&lt;p&gt;For scraping content, because Yelp renders it’s content in AJAX callbacks, it required &lt;a href="http://phantomjs.org/"&gt;Phantom JS&lt;/a&gt; and Python with it’s awesome &lt;a href="http://beautiful-soup-4.readthedocs.org/en/latest/"&gt;beautifulsoup&lt;/a&gt; library.&lt;/p&gt;
+&lt;p&gt;If you’re trying it out from outside the UK, give it a go with
+Buckingham Palace’s postcode and see what coffee shops the Queen can
+escape to! SW1A 1AA&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Circumventing The Pirate Bay Blockade</title><link href="https://shanedowling.com/circumventing-the-pirate-bay-blockade-b85834c22679.html" rel="alternate"></link><published>2012-05-03T00:00:00+00:00</published><updated>2012-05-03T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-05-03:/circumventing-the-pirate-bay-blockade-b85834c22679.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.fucktimkuik.org" title="https://www.fucktimkuik.org"&gt;&lt;strong&gt;Fuck jou, Tim Kuik&lt;/strong&gt;
+_Edit description_www.fucktimkuik.org&lt;/a&gt;&lt;a href="https://www.fucktimkuik.org"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;will forward you to a number of viable options, but in case that goes down.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://thepiratebay.ee/" title="http://thepiratebay.ee/"&gt;&lt;strong&gt;Download music, movies, games, software! The Pirate Bay - The world's most resilient BitTorrent…&lt;/strong&gt;
+_Download music, movies, games, software and much more. The Pirate Bay is the …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://www.fucktimkuik.org" title="https://www.fucktimkuik.org"&gt;&lt;strong&gt;Fuck jou, Tim Kuik&lt;/strong&gt;
+_Edit description_www.fucktimkuik.org&lt;/a&gt;&lt;a href="https://www.fucktimkuik.org"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;will forward you to a number of viable options, but in case that goes down.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://thepiratebay.ee/" title="http://thepiratebay.ee/"&gt;&lt;strong&gt;Download music, movies, games, software! The Pirate Bay - The world's most resilient BitTorrent…&lt;/strong&gt;
+_Download music, movies, games, software and much more. The Pirate Bay is the world's largest bittorrent tracker._thepiratebay.ee&lt;/a&gt;&lt;a href="http://thepiratebay.ee/"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://malaysiabay.org/" title="http://malaysiabay.org/"&gt;&lt;strong&gt;Loading...&lt;/strong&gt;
+_Edit description_malaysiabay.org&lt;/a&gt;&lt;a href="http://malaysiabay.org/"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://lanunbay.org/" title="http://lanunbay.org/"&gt;&lt;strong&gt;Loading...&lt;/strong&gt;
+_Edit description_lanunbay.org&lt;/a&gt;&lt;a href="http://lanunbay.org/"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;And while you’re at it, could you be a doll and fill this in?&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://epetitions.direct.gov.uk/petitions/30063" title="http://epetitions.direct.gov.uk/petitions/30063"&gt;&lt;strong&gt;Archived Petition: Leave The Pirate Bay alone&lt;/strong&gt;
+_The Pirate Bay has done nothing wrong. It does not share illegal files, it does not host these files. People do not…_epetitions.direct.gov.uk&lt;/a&gt;&lt;a href="http://epetitions.direct.gov.uk/petitions/30063"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Screwed Server Checklist</title><link href="https://shanedowling.com/screwed-server-checklist-ef23820824c7.html" rel="alternate"></link><published>2012-04-28T00:00:00+00:00</published><updated>2012-04-28T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-04-28:/screwed-server-checklist-ef23820824c7.html</id><summary type="html">&lt;p&gt;My servers started getting unusably slow at peak hours lately and I
+decided, midst panic to vaguely attempt to document the various things I
+had to go through to narrow down the problem, anyway I’m sticking them
+up here so a) I don’t lose the list and b …&lt;/p&gt;</summary><content type="html">&lt;p&gt;My servers started getting unusably slow at peak hours lately and I
+decided, midst panic to vaguely attempt to document the various things I
+had to go through to narrow down the problem, anyway I’m sticking them
+up here so a) I don’t lose the list and b) it might be of use to someone
+else. Some are obvious, some less so. I’ve already forgotten half of
+what I did to fix it, so here’s the other half before I forget anything
+else.&lt;/p&gt;
+&lt;p&gt;Note:This is only meant to give you a pragmatic, last minute ditch
+attempt at diagnosing problems roughly. In essence, to give an idea of
+what to look for and dig when you come across signs of strangeness. I’m
+sure nagios, serverdensity, munin or whatever else can diagnose these
+things far quicker and better, so just assume we’re far beyond clever
+solutions. It’s essentially for the idiots like me who barely change any
+of their servers configuration to handle scaling at all well.&lt;/p&gt;
+&lt;p&gt;other handy tips I should be aware of, let me know here.&lt;/p&gt;
+&lt;p&gt;This is meant for a LAMP install(more specifically ubuntu), so may be
+slanted that way, but most of the tips should work depending on your
+distro of choice.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Processes&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;top/htop -&amp;gt; An obvious one, should be your first point of entry,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Memory&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;free -m -&amp;gt; Free ram, could there be a lot of IO to disk? Again, obvious.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hard-Disk&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;df -h -&amp;gt; Another obvious one, is your disk full?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Network&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;sudo iftop -&amp;gt; This one requires installation on ubuntu but it’s in apt
+so shouldn’t be a big deal(unless of course your network is in fact
+screwed). Anyway, check those numbers, check your b/w restrictions, then
+do the math.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DNS&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Does banging the servers ip into your local hosts file speed this up? If
+so, it could be a DNS issue.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;watch -n &lt;span class="m"&gt;1&lt;/span&gt; mysqladmin — &lt;span class="nv"&gt;user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;mysql_user — &lt;span class="nv"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;mysql_password processlist
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;-&amp;gt; This command will watch live mysql queries being executed. Noticing any crap queries running insanely long? This could be your issue.&lt;/p&gt;
+&lt;p&gt;And directly related to slow crap queries do you have an large tables
+that say might be causing a serious performance issue? Here’s a mysql
+query to grab the largest tables on your server.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;CONCAT&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;table_schema&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;table_name&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;CONCAT&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ROUND&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;table_rows&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;1000000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;CONCAT&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ROUND&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data_length&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="k"&gt;G&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;DATA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;CONCAT&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ROUND&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index_length&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="k"&gt;G&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;CONCAT&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ROUND&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt; &lt;span class="n"&gt;data_length&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;index_length&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="k"&gt;G&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;total_size&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ROUND&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index_length&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;data_length&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;idxfrac&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;information_schema&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TABLES&lt;/span&gt; &lt;span class="k"&gt;ORDER&lt;/span&gt; &lt;span class="k"&gt;BY&lt;/span&gt; &lt;span class="n"&gt;data_length&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;index_length&lt;/span&gt; &lt;span class="k"&gt;DESC&lt;/span&gt; &lt;span class="k"&gt;LIMIT&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Index your tables better or truncate crap you don’t need.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ps ax &lt;span class="p"&gt;|&lt;/span&gt; grep apache &lt;span class="p"&gt;|&lt;/span&gt; wc -l
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Let’s assume you didn’t change your ubuntu default apache configuration,
+if your MaxChild setting is at 150 and the value returned from the above
+command is stuck at over 150(wc will match the ps command too), then
+here’s your problem. It may “look” like your network is slow but in fact
+it’s apache being forced to queue requests.&lt;/p&gt;
+&lt;p&gt;Run ps aux | grep apache and see how much ram apache is taking on your
+server(you should see roughly what each concurrent connection is getting
+in terms of ram percentage). Do some math and see if you have the free
+ram to increase max childs, if you can, do so.&lt;/p&gt;
+&lt;p&gt;If not, reduce the keepalive value(essentially this isn’t as scary as it
+sounds, quite a few major sites run without a keepalive value at all),
+but this entirely depends on your sites usage. Altering keepalive will
+lose you some speed, you’re essentially cycling through the concurrent
+requests faster, so request 151 doesn’t have to wait as long. But, you
+need to decide whether less speed for more people is better than speed
+with a hard concurrent limit.&lt;/p&gt;
+&lt;p&gt;You can also enable some of apache’s new cleverer keepalive modules but
+again that goes beyond the scope of the post.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Diary.py future proof memories.</title><link href="https://shanedowling.com/diary-py-future-proof-memories-b097056bc350.html" rel="alternate"></link><published>2012-03-08T00:00:00+00:00</published><updated>2012-03-08T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-03-08:/diary-py-future-proof-memories-b097056bc350.html</id><summary type="html">&lt;p&gt;I’ve created a little command line diary script for anyone whose interested. It stores your diaries in separate txt files so you know all of your memories will always be accessible to you in a format you’ll always be able to read. It’s super quick and easy …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’ve created a little command line diary script for anyone whose interested. It stores your diaries in separate txt files so you know all of your memories will always be accessible to you in a format you’ll always be able to read. It’s super quick and easy to use. It’s based loosely on Gina Trapini’s &lt;a href="http://todotxt.com/"&gt;todotxt&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Documentation is &lt;a href="https://github.com/shanedowling/Diary.py"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Download is &lt;a href="https://github.com/shanedowling/Diary.py/downloads"&gt;here&lt;/a&gt;. Works really well with Dropbox too!&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Quick vhost script</title><link href="https://shanedowling.com/quick-vhost-script-6bdb6138fc10.html" rel="alternate"></link><published>2012-03-01T00:00:00+00:00</published><updated>2012-03-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-03-01:/quick-vhost-script-6bdb6138fc10.html</id><summary type="html">&lt;p&gt;Quick script to setup a new virtualhost entry for apache. Works for me
+on archlinux.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+ &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;subprocess&lt;/span&gt;
+
+&lt;span class="n"&gt;vhosts_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;httpd&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;extra&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;httpd&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;vhosts&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;
+ &lt;span class="n"&gt;hosts_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hosts&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;
+
+&lt;span class="n"&gt;domain_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+ &lt;span class="n"&gt;folder&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;usage&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Quick script to setup a new virtualhost entry for apache. Works for me
+on archlinux.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+ &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;subprocess&lt;/span&gt;
+
+&lt;span class="n"&gt;vhosts_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;httpd&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;extra&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;httpd&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;vhosts&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;
+ &lt;span class="n"&gt;hosts_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hosts&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;
+
+&lt;span class="n"&gt;domain_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+ &lt;span class="n"&gt;folder&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;usage&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+ &lt;span class="n"&gt;usage&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+ &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;currentUser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getoutput&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;whoami&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;currentUser&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+ &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;need&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;!”&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vhosts_file&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+ &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;Vhosts&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;doesn&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;exist&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exiting&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hosts_file&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+ &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;Hosts&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;doesn&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;exist&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exiting&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;folder&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+ &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;Web&lt;/span&gt; &lt;span class="n"&gt;folder&lt;/span&gt; &lt;span class="n"&gt;doesn&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;exist&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;attempting&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;makedirs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;folder&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;vhost_entry&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;nnntServerAdmin&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;@%&lt;/span&gt;&lt;span class="n"&gt;sntDocumentRoot&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="n"&gt;ntServerName&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;sntServerAlias&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;ntnttDirectoryIndex&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;htm&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;htmlnttAddHandler&lt;/span&gt; &lt;span class="n"&gt;cgi&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;script&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cgi&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plnttOptions&lt;/span&gt; &lt;span class="n"&gt;ExecCGI&lt;/span&gt; &lt;span class="n"&gt;Indexes&lt;/span&gt; &lt;span class="n"&gt;FollowSymLinks&lt;/span&gt; &lt;span class="n"&gt;MultiViews&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;IncludesnttAllowOverride&lt;/span&gt; &lt;span class="n"&gt;NonenttOrder&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;denynttallow&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;allntn&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;domain_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;folder&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;domain_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;domain_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;folder&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;vhosts_file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vhost_entry&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;host_entry&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;n127&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;sn&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;domain_name&lt;/span&gt;
+
+&lt;span class="n"&gt;vhosts_file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host_entry&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;httpd&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Easily remember linux commands</title><link href="https://shanedowling.com/easily-remember-linux-commands-44191f6843f6.html" rel="alternate"></link><published>2012-02-19T00:00:00+00:00</published><updated>2012-02-19T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-02-19:/easily-remember-linux-commands-44191f6843f6.html</id><summary type="html">&lt;p&gt;I use an absolute ton of awesome tools my various linux distros. The
+problem is I tend to forget a lot of the time how to use the tools, so I
+got a list of frequently used command with and a few examples of how to
+use them from &lt;a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/"&gt;here …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;I use an absolute ton of awesome tools my various linux distros. The
+problem is I tend to forget a lot of the time how to use the tools, so I
+got a list of frequently used command with and a few examples of how to
+use them from &lt;a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So here’s the file I use.&lt;/p&gt;
+&lt;p&gt;— Create a new tar archive
+ $ tar cvf archive_name.tar dirname/
+ — Extract from an existing tar archive.
+ $ tar xvf archive_name.tar
+ — Grep for a given string in a file (case in-sensitive search).
+ $ grep -i “the” demo_file
+ — Print the grep line, along with the 3 lines after it.
+ $ grep -A 3 -i “example” demo_text
+ — Grep for a given string in all files recursively
+ $ grep -r “ramesh” *
+ — Grep for a string that starts with $ char and contains what’s in $1
+ grep — color=auto -B 1 -E ‘^$.b’$1'b’ cmd_examples.txt
+ — Find files using file-name ( case in-sensitve find)
+ $ find -iname “MyCProgram.c”
+ — Execute commands on files found by the find command
+ $ find -iname “MyCProgram.c” -exec md5sum {} ;
+ — Find all empty files in home directory
+ $ find ~ -empty
+ — Converts the DOS file format to Unix file format using sed command.
+ $ sed ‘s/.$//’ filename
+ — Print file content in reverse order
+ $ sed -n ‘1!G;h;$p’ thegeekstuff.txt
+ — Add line number for all non-empty-lines in a file
+ $ sed ‘/./=’ thegeekstuff.txt | sed ‘N; s/n/ /’
+ — Remove duplicate lines using awk
+ $ awk ‘!($0 in array) { array[$0]; print }’ temp
+ — Print all lines from /etc/passwd that has the same uid and gid
+ $ awk -F ‘:’ ‘$3==$4’ passwd.txt
+ — Print only specific field from a file.
+ $ awk ‘{print $2,$5;}’ employee.txt
+ — Diff ignore white space while comparing.
+ $ diff -w name_list.txt name_list_new.txt
+ — Sort a file in ascending order
+ $ sort names.txt
+ — Sort a file in descending order
+ $ sort -r names.txt
+ — Sort passwd file by 3rd field.
+ — Xarg:Copy all images to external hard-drive
+ $ ls &lt;em&gt;.jpg | xargs -n1 -i cp {} /external-hard-drive/directory
+ — Xarg:Search all jpg images in the system and archive it.
+ $ find / -name &lt;/em&gt;.jpg -type f -print | xargs tar -cvzf images.tar.gz
+ — XargLDownload all the URLs mentioned in the url-list.txt file
+ $ cat url-list.txt | xargs wget –c
+ — LS:Order Files Based on Last Modified Time (In Reverse Order) Using ls -ltr
+ $ ls -ltr
+ — LS:Visual Classification of Files With Special Characters Using ls -F
+ $ ls -F
+ — Gzip:Display compression ratio of the compressed file using gzip -l
+ $ gzip -l &lt;em&gt;.gz
+ $ bzip2 test.txt
+ $ bzip2 -d test.txt.bz2
+ — UNZip:View the contents of &lt;/em&gt;.zip file (Without unzipping it):
+ $ unzip -l jasper.zip
+ — Shutdown the system after 10 minutes.
+ $ shutdown -h +10
+ — Force the filesystem check during reboot.
+ # shutdown -Fr now
+ — FTP:Both ftp and secure ftp (sftp) has similar commands. To connect to a remote server and download multiple files, do the following.
+ $ ftp IP/hostname
+ — FTP:To download a file
+ $ ftp&amp;gt; mget &lt;em&gt;.html
+ — To view the file names located on the remote server before downloading, mls ftp command as shown below.
+ $ ftp&amp;gt; mls &lt;/em&gt;.html -
+ — View crontab entry for a specific user
+ $ crontab -u john -l
+ — Schedule a cron job every 10 minutes.
+ $ &lt;em&gt;/10 * &lt;/em&gt; * &lt;em&gt; /home/ramesh/check-disk-cron
+ $ service ssh status
+ — Status:Check the status of all the services.
+ $ service — status-all
+ — Restart a service.
+ # service ssh restart
+ — To view current running processes.
+ $ ps -ef | more
+ — To view current running processes in a tree structure. H option stands for process hierarchy.
+ $ ps -efH | more
+ $ df -T
+ $ rm -i filename.txt
+ $ rm -i file&lt;/em&gt;
+ — Copy file1 to file2. if file2 exists prompt for confirmation before overwritting it.
+ $ cp -i file1 file2
+ — While displaying the file, following cat -n command will prepend the line number to each line of the output.
+ $ cat -n /etc/logrotate.conf
+ — Give full access to user and group (i.e read, write and execute ) on a specific file.
+ $ chmod ug+rwx file.txt
+ — Revoke all access for the group (i.e read, write and execute ) on a specific file.
+ $ chmod g-rwx file.txt
+ — Apply the file permissions recursively to all the files in the sub-directories.
+ $ chmod -R ug+rwx file.txt
+ — To change owner to oracle and group to db on a file. i.e Change both owner and group at the same time.
+ $ chown oracle:dba dbora.sh
+ — Create nested directories using one mkdir command.
+ $ mkdir -p dir1/dir2/dir3/dir4/
+ — Sample uname output from a Ubuntu laptop is shown below.
+ $ uname -a
+ — When you want to find out where a specific Unix command exists (for example, where does ls command exists?), you can execute the following command.
+ $ whereis ls
+ — This searches for the executable lsmk in the /tmp directory, and displays it, if it is available.
+ $ whereis -u -B /tmp -f lsmk
+ — Whatis command displays a single line description about a command.
+ $ whatis ls
+ — The example below shows all files in the system that contains the word crontab in it.
+ $ locate crontab
+ — Print the last 10 lines of a file by default.
+ $ tail filename.txt
+ — Print N number of lines from the file named filename.txt
+ $ tail -n N filename.txt
+ — View the content of the file in real time using tail -f. This is useful to view the log files, that keeps growing. The command can be terminated using CTRL-C.
+ $ tail -f log-file
+ — less is very efficient while viewing huge log files, as it doesn’t need to load the full file while opening.
+ $ less huge-log-file.log
+ — Ping a remote host by sending only 5 packets.
+ $ ping -c 5 gmail.com
+ — Download and store it with a different name.
+ $ wget -O taglist.zip &lt;a href="http://www.vim.org/scripts/download_script.php?src_id=7701"&gt;http://www.vim.org/scripts/download_script.php?src_id=7701&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then I use this command to search for the specific command and get back
+the examples with an explanation. Please note, to add your own examples,
+you need to save the same format of the command starting with a $ and
+the line above providing the explanation. When you do a search you must
+search for the command.&lt;/p&gt;
+&lt;p&gt;grep — color=auto -B 1 -E ‘^$.bpingb’ ~/cmd_examples.txt&lt;/p&gt;
+&lt;p&gt;And if you wish to use it in a bash alias, you’ll need to create a
+function&lt;/p&gt;
+&lt;p&gt;function exam() { grep — color=auto -B 1 -E ‘^$.b’”$*”’b’ ~/cmd_examples.txt ;}&lt;/p&gt;
+&lt;p&gt;Calling&lt;/p&gt;
+&lt;p&gt;$ exam ping&lt;/p&gt;
+&lt;p&gt;should return&lt;/p&gt;
+&lt;p&gt;— Ping a remote host by sending only 5 packets.&lt;/p&gt;
+&lt;p&gt;$ ping -c 5 gmail.com&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Simple ubuntu backup to S3</title><link href="https://shanedowling.com/simple-ubuntu-backup-to-s3-c3f3b7070208.html" rel="alternate"></link><published>2012-01-14T00:00:00+00:00</published><updated>2012-01-14T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-01-14:/simple-ubuntu-backup-to-s3-c3f3b7070208.html</id><summary type="html">&lt;p&gt;After browsing the web for ages to find a decent solution to backup my
 server to amazon s3 I finally came across one and I’m just throwing it
 up here. So basically all I need it to do was backup my sites(filesystem and mysql databases) and some config …&lt;/p&gt;</summary><content type="html">&lt;p&gt;After browsing the web for ages to find a decent solution to backup my
 server to amazon s3 I finally came across one and I’m just throwing it
@@ -24,11 +831,11 @@ databases.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &lt;span class="c1"&gt;# Export some ENV variables so you don’t have to type anything&lt;/span&gt;
- &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="se"&gt;\_&lt;/span&gt;ID&lt;span class="o"&gt;=&lt;/span&gt;
- &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;SECRET&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
  &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PASSPHRASE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
  &lt;span class="c1"&gt;# Your GPG key&lt;/span&gt;
- GPG&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+ &lt;span class="nv"&gt;GPG_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
  &lt;span class="c1"&gt;# The source of your backup&lt;/span&gt;
  &lt;span class="nv"&gt;SOURCE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/
  &lt;span class="c1"&gt;# The destination&lt;/span&gt;
@@ -38,18 +845,18 @@ databases.&lt;/p&gt;
  &lt;span class="nv"&gt;DEST&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;s3+http://
  &lt;span class="c1"&gt;# The duplicity command and options&lt;/span&gt;
  duplicity
- — encrypt-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
- — sign-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ — encrypt-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG_KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ — sign-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG_KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
  — &lt;span class="nv"&gt;volsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;250&lt;/span&gt;
  — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/www
  — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home
  — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/etc/lighttpd
  — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/lib/automysqlbackup
- — &lt;span class="nv"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/&lt;span class="se"&gt;\*\*&lt;/span&gt;
+ — &lt;span class="nv"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/**
  &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SOURCE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;DEST&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
  &lt;span class="c1"&gt;# Reset the ENV variables. Don’t need them sitting around&lt;/span&gt;
- &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="se"&gt;\_&lt;/span&gt;ID&lt;span class="o"&gt;=&lt;/span&gt;
- &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;SECRET&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
  &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PASSPHRASE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -62,7 +869,7 @@ databases.&lt;/p&gt;
 &lt;p&gt;Then add it to a cronjob&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; * * * /usr/sbin/automysqlbackup &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/s3&lt;span class="se"&gt;\_&lt;/span&gt;backup
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; * * * /usr/sbin/automysqlbackup &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/s3_backup
 &lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Simple git web interface</title><link href="https://shanedowling.com/simple-git-web-interface-999d0f685454.html" rel="alternate"></link><published>2012-01-07T00:00:00+00:00</published><updated>2012-01-07T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-01-07:/simple-git-web-interface-999d0f685454.html</id><summary type="html">&lt;p&gt;I decided instead of springing for a monthly github payed account I’d
 install git on a server and use a decent web interface that could be
 easily installed.&lt;/p&gt;
@@ -88,8 +895,7 @@ lighttpd catalyst tutorial would do the job.&lt;/p&gt;
 &lt;p&gt;Or on ubuntu I think you can use&lt;/p&gt;
 &lt;p&gt;sudo apt-get install libfcgi-perl libfcgi-procmanager-perl&lt;/p&gt;
 &lt;p&gt;Now attempt to execute this command&lt;/p&gt;
-&lt;p&gt;/var/www/gitalist/script/gitalist_fastcgi.pl — listen
- 127.0.0.1:55900 — nproc 5&lt;/p&gt;
+&lt;p&gt;/var/www/gitalist/script/gitalist_fastcgi.pl —listen 127.0.0.1:55900 —nproc 5&lt;/p&gt;
 &lt;p&gt;If your ubuntu install is anything like mine a bunch of errors with get
 thrown in relation is FCGI.pm(And the proc manager) not being found. If
 you do, run a locate for FCGI.pm, find which folder it’s under then make
@@ -105,7 +911,7 @@ Next step was to hook everything into lighttpd.&lt;/p&gt;
 &lt;p&gt;&gt; $HTTP[“host”] =~ “(^|.)git_repos.example.com$” {&lt;/p&gt;
 &lt;p&gt;fastcgi.server = (&lt;/p&gt;
 &lt;p&gt;“” =&amp;gt; (&lt;/p&gt;
-&lt;p&gt;# the extension is empty because we want to match on any extension&lt;/p&gt;
+&lt;h1&gt;the extension is empty because we want to match on any extension&lt;/h1&gt;
 &lt;p&gt;“127.0.0.1” =&amp;gt; (&lt;/p&gt;
 &lt;p&gt;“host” =&amp;gt; “127.0.0.1”,&lt;/p&gt;
 &lt;p&gt;“port” =&amp;gt; 55900,&lt;/p&gt;
@@ -190,7 +996,7 @@ and add this to ~/.eucarc&lt;/p&gt;
 
 &lt;span class="nv"&gt;EUCALYPTUS_CERT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/etc/ec2/amitools/cert-ec2.pem
 
-&lt;span class="nv"&gt;EC2_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;https://ec2.&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;EC2&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;REGION&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.amazonaws.com
+&lt;span class="nv"&gt;EC2_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;https://ec2.&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;EC2_REGION&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.amazonaws.com
 
 &lt;span class="nv"&gt;S3_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;https://s3.amazonaws.com:443
 &lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Music at work</title><link href="https://shanedowling.com/music-at-work-12aac3472110.html" rel="alternate"></link><published>2011-01-13T00:00:00+00:00</published><updated>2011-01-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-13:/music-at-work-12aac3472110.html</id><summary type="html">&lt;p&gt;For anyone bored of trying to decide what to listen to at work I’d
@@ -242,11 +1048,11 @@ weekly and monthly under /var/lib/automysqlbackup with the appropriate databases
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh&lt;/span&gt;
  &lt;span class="c1"&gt;# Export some ENV variables so you don’t have to type anything&lt;/span&gt;
- &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="se"&gt;\_&lt;/span&gt;ID&lt;span class="o"&gt;=&lt;/span&gt;
- &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;SECRET&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
  &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PASSPHRASE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
  &lt;span class="c1"&gt;# Your GPG key&lt;/span&gt;
- GPG&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+ &lt;span class="nv"&gt;GPG_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
  &lt;span class="c1"&gt;# The source of your backup&lt;/span&gt;
  &lt;span class="nv"&gt;SOURCE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/
  &lt;span class="c1"&gt;# The destination&lt;/span&gt;
@@ -256,18 +1062,18 @@ weekly and monthly under /var/lib/automysqlbackup with the appropriate databases
  &lt;span class="nv"&gt;DEST&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;s3+http://
  &lt;span class="c1"&gt;# The duplicity command and options&lt;/span&gt;
  duplicity
- — encrypt-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
- — sign-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ — encrypt-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG_KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ — sign-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG_KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
  — &lt;span class="nv"&gt;volsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;250&lt;/span&gt;
  — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/www
  — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home
  — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/etc/lighttpd
  — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/lib/automysqlbackup
- — &lt;span class="nv"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/&lt;span class="se"&gt;\*\*&lt;/span&gt;
+ — &lt;span class="nv"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/**
  &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SOURCE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;DEST&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
  &lt;span class="c1"&gt;# Reset the ENV variables. Don’t need them sitting around&lt;/span&gt;
- &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="se"&gt;\_&lt;/span&gt;ID&lt;span class="o"&gt;=&lt;/span&gt;
- &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;SECRET&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
  &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PASSPHRASE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -433,10 +1239,18 @@ it. Luckily I found a guy who clearly only has love for VIM. Before I
 watched the videos I basically knew a couple of shortcuts but still used
 the arrows key and ‘i’ to do 95% of my work. Things have changed
 drastically since then.&lt;/p&gt;
-&lt;p&gt;* Play with &lt;a href="http://www.vim.org/"&gt;vim&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;* Watch all of these &lt;a href="http://www.derekwyatt.org/vim/vim-tutorial-videos/vim-novice-tutorial-videos/"&gt;vim tutorials&lt;/a&gt;, a guy who has likely changed me forever!&lt;/p&gt;
-&lt;p&gt;* Feel free to use the mindmap I made, I find it easier to traverse
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Play with &lt;a href="http://www.vim.org/"&gt;vim&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Watch all of these &lt;a href="http://www.derekwyatt.org/vim/vim-tutorial-videos/vim-novice-tutorial-videos/"&gt;vim tutorials&lt;/a&gt;, a guy who has likely changed me forever!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Feel free to use the mindmap I made, I find it easier to traverse
 quickly over the flat cheatsheet(but that’s just me)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;You’ll find yourself working at a slow pace(even slower than normal) but
 fight through this as the productivity rewards are worth it!&lt;/p&gt;
 &lt;p&gt;Alsoit may be a little annoying but add these to your .vimrc to disable
@@ -491,7 +1305,7 @@ generate some cool stuff.&lt;/p&gt;
 &lt;p&gt;Note:I did this project to learn both python and google wave’s api, so
 apologies if the code sucks/is very PHPish.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Pseudocode Programming Process</title><link href="https://shanedowling.com/pseudocode-programming-process-ad198e7b0584.html" rel="alternate"></link><published>2009-11-23T00:00:00+00:00</published><updated>2009-11-23T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2009-11-23:/pseudocode-programming-process-ad198e7b0584.html</id><summary type="html">&lt;p&gt;So for the last while I’ve been experimenting with PPP as described in
 &lt;a href="http://cc2e.com/Page.aspx?hid=145"&gt;Code Complete&lt;/a&gt;. Jeff Atwood has a great description of it on &lt;a href="http://www.codinghorror.com/blog/archives/001264.html"&gt;coding horror&lt;/a&gt;. You should read the blog post the metaphor of pseudocode as tang is a good one. I’ve been using PPP for a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So for the last while I’ve been experimenting with PPP as described in
-&lt;a href="http://cc2e.com/Page.aspx?hid=145"&gt;Code Complete&lt;/a&gt;. Jeff Atwood has a great description of it on &lt;a href="http://www.codinghorror.com/blog/archives/001264.html"&gt;coding horror&lt;/a&gt;. You should read the blog post the metaphor of pseudocode as tang is a good one. I’ve been using PPP for a number of weeks now and so far it’s really been working. There have been several reasons why I found it worksbut for me the most important and useful part is purely that it **slows me down**.&lt;/p&gt;
+&lt;a href="http://cc2e.com/Page.aspx?hid=145"&gt;Code Complete&lt;/a&gt;. Jeff Atwood has a great description of it on &lt;a href="http://www.codinghorror.com/blog/archives/001264.html"&gt;coding horror&lt;/a&gt;. You should read the blog post the metaphor of pseudocode as tang is a good one. I’ve been using PPP for a number of weeks now and so far it’s really been working. There have been several reasons why I found it worksbut for me the most important and useful part is purely that it &lt;strong&gt;slows me down&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;One of Jeff’s arguments against PPP is that he ‘thinks in code’, and
 before I tried PPP I would have said the same. The problem is when I
 ‘think in code’, it sometimes results in poorly written code that
@@ -652,10 +1466,10 @@ dhcp over your wireless card.&lt;/p&gt;
     sleep &lt;span class="m"&gt;3&lt;/span&gt;
     &lt;span class="nb"&gt;echo&lt;/span&gt; “Killing all necessary stuff”
     sudo killall dhclient dhclient3
-    sudo killall wpa&lt;span class="se"&gt;\_&lt;/span&gt;supplicant
+    sudo killall wpa_supplicant
     sleep &lt;span class="m"&gt;3&lt;/span&gt;
     &lt;span class="nb"&gt;echo&lt;/span&gt; “Setting up WPA”
-    sudo wpa&lt;span class="se"&gt;\_&lt;/span&gt;supplicant -B -ieth1 -Dwext -c/etc/wpa&lt;span class="se"&gt;\_&lt;/span&gt;supplicant.conf
+    sudo wpa_supplicant -B -ieth1 -Dwext -c/etc/wpa_supplicant.conf
     sleep &lt;span class="m"&gt;3&lt;/span&gt;
     &lt;span class="nb"&gt;echo&lt;/span&gt; “Connecting to wireless”
     sudo iwconfig eth1 essid TCDwifi

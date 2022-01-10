@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -83,8 +84,7 @@ lighttpd catalyst tutorial would do the job.</p>
 <p>Or on ubuntu I think you can use</p>
 <p>sudo apt-get install libfcgi-perl libfcgi-procmanager-perl</p>
 <p>Now attempt to execute this command</p>
-<p>/var/www/gitalist/script/gitalist_fastcgi.pl — listen
- 127.0.0.1:55900 — nproc 5</p>
+<p>/var/www/gitalist/script/gitalist_fastcgi.pl —listen 127.0.0.1:55900 —nproc 5</p>
 <p>If your ubuntu install is anything like mine a bunch of errors with get
 thrown in relation is FCGI.pm(And the proc manager) not being found. If
 you do, run a locate for FCGI.pm, find which folder it’s under then make
@@ -100,7 +100,7 @@ Next step was to hook everything into lighttpd.</p>
 <p>> $HTTP[“host”] =~ “(^|.)git_repos.example.com$” {</p>
 <p>fastcgi.server = (</p>
 <p>“” =&gt; (</p>
-<p># the extension is empty because we want to match on any extension</p>
+<h1>the extension is empty because we want to match on any extension</h1>
 <p>“127.0.0.1” =&gt; (</p>
 <p>“host” =&gt; “127.0.0.1”,</p>
 <p>“port” =&gt; 55900,</p>

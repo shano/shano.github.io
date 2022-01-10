@@ -28,6 +28,7 @@
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -188,7 +189,7 @@ you’ll need this to add the core button array.</p>
  ‘type’ =&gt; ‘sidebartoggle’,
  ),
  );</p>
-<p>Note what I’ve stored at **array key 5**. This is the custom button that
+<p>Note what I’ve stored at <strong>array key 5</strong>. This is the custom button that
 will be rendered and the event button do\_some\_task will be called in
 the javacript file we’ll created. You can add this anywhere in the
 drop-down I just generally choose here.</p>
@@ -234,9 +235,9 @@ file like so</p>
  ),
  );
  }</p>
-<p>/**
+<p>/*<em>
  * Method to be used for my MyEndpoint/GetExample endpoint
- */
+ </em>/
  public function DoSomeTask($api, $args)
  {
  $id = $args[‘data’];</p>

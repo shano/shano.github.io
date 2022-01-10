@@ -92,7 +92,7 @@
 &lt;ul&gt;
 &lt;li&gt;When an incident occurs in the systems you maintain, are there several things you might check depending on the type of incident that occurs? Perhaps you could automate pulling out some key data on your local machine to save some critical time.&lt;/li&gt;
 &lt;li&gt;Rotating keys, setting up users, any other admin tasks you could use avoid logging into your cloud platform?&lt;/li&gt;
-&lt;li&gt;Are there parts of your job where the UI of your cloud-provider of choice is a total pain(*cough* Cloudwatch… *cough*)? Perhaps you could avoid it by programming a solution.&lt;/li&gt;
+&lt;li&gt;Are there parts of your job where the UI of your cloud-provider of choice is a total pain(&lt;em&gt;cough&lt;/em&gt; Cloudwatch… &lt;em&gt;cough&lt;/em&gt;)? Perhaps you could avoid it by programming a solution.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Resources&lt;/h3&gt;
 &lt;p&gt;In terms of resources you can use:&lt;/p&gt;
@@ -517,14 +517,14 @@ This goes as far as “There is no guide, no teacher, no authority. There is onl
  — — — — — — — — -&lt;/p&gt;
 &lt;p&gt;First thing to do is get our hands on a fast repair script. Thankfully FrancescaS on the SugarCRM forums came up with a tidy javascript focused version of a repair script(originally by Jeff Bikart. The whole thread is `here `__ but I’ll reproduce the code below for the lazy.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;/*
+&lt;p&gt;/&lt;em&gt;
  * Copyright 2013
  * Jeff Bickart
  * @bickart
  * jeff @ neposystems.com
  * modified by FrancescaS @ wolfram.com to repair/rebuild
  * only what absolutely necessary to work on js scripts
- */
+ &lt;/em&gt;/
  if(!defined(‘sugarEntry’))define(‘sugarEntry’, true);
  require_once(‘include/entryPoint.php’);
  require_once(‘modules/Administration/QuickRepairAndRebuild.php’);
@@ -736,10 +736,10 @@ def count_predecessors(T):
         var button_sel = '';
         var button_index = '';
         // find the buttons index for the share button
-        _.find(this.meta.buttons, function(bn, idx) {
+        &lt;em&gt;.find(this.meta.buttons, function(bn, idx) {
             if(bn.name == 'main_dropdown') {
                 button_sel = idx;
-                _.find(bn.buttons, function(bbn, idx_bbn) {
+                &lt;/em&gt;.find(bn.buttons, function(bbn, idx_bbn) {
                     if(bbn.name == name) {
                         button_index = idx_bbn;
                         return true;
@@ -795,7 +795,7 @@ def main():
  r = requests.get(‘http://ipinfo.io', headers=headers)
  ipdata = r.json()
  print(ipdata[‘city’] + ‘, ‘ + ipdata[‘region’] + ‘, ‘ + ipdata[‘country’])&lt;/p&gt;
-&lt;p&gt;if __name__ == “__main__”:
+&lt;p&gt;if &lt;strong&gt;name&lt;/strong&gt; == “&lt;strong&gt;main&lt;/strong&gt;”:
  main()&lt;/p&gt;
 &lt;p&gt;And here’s the conky configuration I use to call it.&lt;/p&gt;
 &lt;p&gt;${goto 40}Location: ${execpi 600 python ~/scripts/conky/location.py}&lt;/p&gt;
@@ -829,7 +829,7 @@ to the Create button for all modules.&lt;/p&gt;
 &lt;?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
-&lt;p&gt;/*
+&lt;p&gt;/&lt;em&gt;
  * Your installation or use of this SugarCRM file is subject to the applicable
  * terms available at
  * &lt;a href="http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/"&gt;http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/&lt;/a&gt;.
@@ -838,7 +838,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * install or use this SugarCRM file.
  *
  * Copyright (C) SugarCRM Inc. All rights reserved.
- */&lt;/p&gt;
+ &lt;/em&gt;/&lt;/p&gt;
 &lt;p&gt;$viewdefs['base']['view']['list-headerpane'] = array(
     'template' =&amp;gt; 'headerpane',
     'title' =&amp;gt; 'LBL_MODULE_NAME',
@@ -908,13 +908,13 @@ what custom/modules/Books/logic\_hooks.php might look like.&lt;/p&gt;
 &lt;?php
   // Do not store anything in this file that is not part of the array or the hook version.  This file will
   // be automatically rebuilt in the future.
-  $hook\_version = 1;
-  $hook\_array = Array();
+  $hook_version = 1;
+  $hook_array = Array();
   // position, file, function
-  $hook\_array\['before\_save'\] = Array();
-  $hook\_array\['before\_save'\]\[\] = Array(1, 'workflow', 'include/workflow/WorkFlowHandler.php','WorkFlowHandler', 'WorkFlowHandler');
-  $hook\_array\['before\_save'\]\[\] = Array(2, 'Custom Book Logic Hooks', 'custom/modules/Books/logic\_hooks\_class.php','books\_logic\_hooks', 'before\_save\_method');
-  $hook\_array\['after\_save'\]\[\] = Array(1, 'Custom Book Logic Hooks', 'custom/modules/Books/logic\_hooks\_class.php','books\_logic\_hooks', 'after\_save\_method');
+  $hook_array['before_save'] = Array();
+  $hook_array['before_save'][] = Array(1, 'workflow', 'include/workflow/WorkFlowHandler.php','WorkFlowHandler', 'WorkFlowHandler');
+  $hook_array['before_save'][] = Array(2, 'Custom Book Logic Hooks', 'custom/modules/Books/logic_hooks_class.php','books_logic_hooks', 'before_save_method');
+  $hook_array['after_save'][] = Array(1, 'Custom Book Logic Hooks', 'custom/modules/Books/logic_hooks_class.php','books_logic_hooks', 'after_save_method');
 ?&gt;
 
 &lt;p&gt;And the actual code to do the overriding would be in
@@ -931,14 +931,14 @@ if (!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
       self::$fetchedRow[$bean-&amp;gt;id] = $bean-&amp;gt;fetched_row;
     }
   }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
   * Called as process_record logic hook on the Books module
-  */&lt;/p&gt;
-&lt;p&gt;/**
+  &lt;/em&gt;/&lt;/p&gt;
+&lt;p&gt;/*&lt;em&gt;
   * &lt;a href="http://twitter.com/param" title="Twitter profile for @param"&gt;@param&lt;/a&gt; $bean
   * &lt;a href="http://twitter.com/param" title="Twitter profile for @param"&gt;@param&lt;/a&gt; $event
   * &lt;a href="http://twitter.com/param" title="Twitter profile for @param"&gt;@param&lt;/a&gt; $arguments
-  */
+  &lt;/em&gt;/
   function after_save_method(&amp;amp;$bean, $event, $arguments)
   {
     $custom_bean = new Books();
@@ -1022,25 +1022,25 @@ command like this.&lt;/p&gt;
 it. The script itself is here, I’m just going to reproduce it below.&lt;/p&gt;
 &lt;h1&gt;!/bin/sh&lt;/h1&gt;
 &lt;h1&gt;&lt;/h1&gt;
-&lt;p&gt;# An example hook script to log commit messages
-# as a 'daily highlight' in RescueTime Premium&lt;/p&gt;
+&lt;h1&gt;An example hook script to log commit messages&lt;/h1&gt;
+&lt;h1&gt;as a 'daily highlight' in RescueTime Premium&lt;/h1&gt;
 &lt;h1&gt;&lt;/h1&gt;
-&lt;p&gt;# See README.md for more information&lt;/p&gt;
+&lt;h1&gt;See README.md for more information&lt;/h1&gt;
 &lt;h1&gt;&lt;/h1&gt;
-&lt;p&gt;# To enable this hook:&lt;/p&gt;
+&lt;h1&gt;To enable this hook:&lt;/h1&gt;
 &lt;h1&gt;&lt;/h1&gt;
-&lt;p&gt;# 1. Place this file in .git/hooks and rename to "post-commit".&lt;/p&gt;
+&lt;h1&gt;1. Place this file in .git/hooks and rename to "post-commit".&lt;/h1&gt;
 &lt;h1&gt;&lt;/h1&gt;
-&lt;p&gt;# 2. Update the value of API_KEY below with a valid RescueTime API key.
-#    [ you can generate a key at &lt;a href="https://www.rescuetime.com/anapi/manage"&gt;https://www.rescuetime.com/anapi/manage&lt;/a&gt; ]&lt;/p&gt;
+&lt;h1&gt;2. Update the value of API_KEY below with a valid RescueTime API key.&lt;/h1&gt;
+&lt;h1&gt;[ you can generate a key at &lt;a href="https://www.rescuetime.com/anapi/manage"&gt;https://www.rescuetime.com/anapi/manage&lt;/a&gt; ]&lt;/h1&gt;
 &lt;p&gt;API_KEY=PUT_YOUR_API_KEY_HERE&lt;/p&gt;
-&lt;p&gt;# REQUIRED FIELDS - Today's date and commit message&lt;/p&gt;
+&lt;h1&gt;REQUIRED FIELDS - Today's date and commit message&lt;/h1&gt;
 &lt;p&gt;MESSAGE=$(git log -1 HEAD --pretty=format:%s)
 DATE_TODAY=$(date +"%Y-%m-%d")&lt;/p&gt;
-&lt;p&gt;# You can edit the LABEL value if you would rather
-# describe these commits differently.&lt;/p&gt;
+&lt;h1&gt;You can edit the LABEL value if you would rather&lt;/h1&gt;
+&lt;h1&gt;describe these commits differently.&lt;/h1&gt;
 &lt;p&gt;LABEL='Code Commit'&lt;/p&gt;
-&lt;p&gt;# See more filtering examples in README.md&lt;/p&gt;
+&lt;h1&gt;See more filtering examples in README.md&lt;/h1&gt;
 &lt;p&gt;if [[ ${#MESSAGE} -gt 16 ]]; then
   curl --data "key=$API_KEY&amp;amp;highlight_date=$DATE_TODAY&amp;amp;description=$MESSAGE&amp;amp;source=$LABEL" &lt;a href="https://www.rescuetime.com/anapi/highlights_post"&gt;https://www.rescuetime.com/anapi/highlights_post&lt;/a&gt;
 fi&lt;/p&gt;
@@ -1429,12 +1429,12 @@ SugarCRM 7’s new SugarQuery API.&lt;/p&gt;
 &lt;p&gt;This should go into custom/modules//YourNewLink.php and this
 class will act as the custom functionality that will build your link
 between the two records.&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/&lt;strong&gt;
  * Custom filtered link
  */
  class YourNewLink extends Link2
  {
- /**
+ /&lt;/strong&gt;
  * DB
  *
  * @var DBManager
@@ -1451,27 +1451,27 @@ between the two records.&lt;/p&gt;
  $this-&amp;gt;def = $linkDef;
  }
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Returns false if no relationship was found for this link
  *
  * @return bool
- */
+ &lt;/em&gt;/
  public function loadedSuccesfully()
  {
  // this link always loads successfully
  return true;
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * @see Link2::getRelatedModuleName()
- */
+ &lt;/em&gt;/
  public function getRelatedModuleName()
  {
  return ‘’;
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  *
  * @see Link2::buildJoinSugarQuery()
- */
+ &lt;/em&gt;/
  public function buildJoinSugarQuery($sugar_query, $options = array())
  {
  $joinParams = array(‘joinType’ =&amp;gt; isset($options[‘joinType’]) ? $options[‘joinType’] : ‘INNER’);
@@ -1482,11 +1482,11 @@ between the two records.&lt;/p&gt;
 &lt;p&gt;$sugar_query-&amp;gt;joinRaw($this-&amp;gt;getCustomJoin($options), $joinParams);
  return $sugar_query-&amp;gt;join[$jta];
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Builds main join subpanel
  * @param string $params
  * @return string JOIN clause
- */
+ &lt;/em&gt;/
  protected function getCustomJoin($params = array())
  {
  $bean_id = $this-&amp;gt;db-&amp;gt;quoted($this-&amp;gt;focus-&amp;gt;id);
@@ -1507,11 +1507,11 @@ how the core sugar team use this. I can confirm however that this does
 work with custom joins.&lt;/p&gt;
 &lt;p&gt;Here is the getEmailsJoin to help you understand what you can actually
 produce via this custom join.&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Builds main join for archived emails
  * @param string $params
  * @return string JOIN clause
- */
+ &lt;/em&gt;/
  protected function getEmailsJoin($params = array())
  {
  $bean_id = $this-&amp;gt;db-&amp;gt;quoted($this-&amp;gt;focus-&amp;gt;id);
@@ -1599,7 +1599,7 @@ get you started.&lt;/p&gt;
  return false;
  }
  });&lt;/p&gt;
-&lt;p&gt;**Note**: This leverages the existing SugarCRM API to populate this
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: This leverages the existing SugarCRM API to populate this
 data. You can customise the filter however you want, just load up
 firebug/a web inspector and do a few sample requests from Sugar’s core
 fieldset if you need sample requests to work with.&lt;/p&gt;
@@ -1647,9 +1647,9 @@ arguments.&lt;/p&gt;
  ),
  );
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Method to be used for my MyEndpoint/GetExample endpoint
- */
+ &lt;/em&gt;/
  public function doSomething($api, $args)
  {
  $arg1 = $args[‘arg1’];
@@ -1787,7 +1787,7 @@ you’ll need this to add the core button array.&lt;/p&gt;
  ‘type’ =&amp;gt; ‘sidebartoggle’,
  ),
  );&lt;/p&gt;
-&lt;p&gt;Note what I’ve stored at **array key 5**. This is the custom button that
+&lt;p&gt;Note what I’ve stored at &lt;strong&gt;array key 5&lt;/strong&gt;. This is the custom button that
 will be rendered and the event button do\_some\_task will be called in
 the javacript file we’ll created. You can add this anywhere in the
 drop-down I just generally choose here.&lt;/p&gt;
@@ -1833,9 +1833,9 @@ file like so&lt;/p&gt;
  ),
  );
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Method to be used for my MyEndpoint/GetExample endpoint
- */
+ &lt;/em&gt;/
  public function DoSomeTask($api, $args)
  {
  $id = $args[‘data’];&lt;/p&gt;
@@ -2047,7 +2047,7 @@ example I have here will essentially update the table colours based on a
 specific data value in each row. So say you have a drop-down with the
 values Red,Green,Orange and Yellow this will update the rows to the
 specified colour. The key call here is this.collection.on(‘data:sync:complete’), which essentially fires when the sidecar(read backbone), data sync is completed.&lt;/p&gt;
-&lt;p&gt;This code would go in custom/modules/&lt;YOUR\_MODULE&gt;/clients/base/views/recordlist/recordlist.js&lt;/p&gt;
+&lt;p&gt;This code would go in custom/modules/&lt;YOUR_MODULE&gt;/clients/base/views/recordlist/recordlist.js&lt;/p&gt;
 &lt;p&gt;({&lt;/p&gt;
 &lt;p&gt;this.collection.on(‘data:sync:complete’, function() {
  this.render_colors();
@@ -2140,8 +2140,8 @@ server that only allows read-only actions against it, like backups and
 reporting.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>SugarCRM 7 — Colour Code Rows based on data values</title><link href="https://shanedowling.com/sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html" rel="alternate"></link><published>2014-07-10T00:00:00+00:00</published><updated>2014-07-10T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-07-10:/sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html</id><summary type="html">&lt;p&gt;Add this into your recordlist javascript file.&lt;/p&gt;
 &lt;p&gt;render_colors : function() {
  console.log(‘here’);
- $(“tr[name^=’&lt;YOUR\_MODULE’\]”).each(function() { //loop over each row
- if($(this).find(‘div\[data-original-title=”Out”\]’).length &gt; 0) { //check value of TD
+ $(“tr[name^=’&lt;YOUR_MODULE’]”).each(function() { //loop over each row
+ if($(this).find(‘div[data-original-title=”Out”]’).length &gt; 0) { //check value of TD
  $(this).find($(‘td’)).each(function() {
  $(this).css(“background-color”, “#FFBABA”);
  });
@@ -2149,11 +2149,11 @@ reporting.&lt;/p&gt;</content><category term="posts"></category></entry><entry><
  $(this).find($(‘td’)).each(function() {
  $(this).css(“background-color”, “#C3F8B5”);
  });
- } else if($(this …&lt;/your\_module’\]”).each(function()&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Add this into your recordlist javascript file.&lt;/p&gt;
+ } else if($(this …&lt;/your_module’]”).each(function()&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Add this into your recordlist javascript file.&lt;/p&gt;
 &lt;p&gt;render_colors : function() {
  console.log(‘here’);
- $(“tr[name^=’&lt;YOUR\_MODULE’\]”).each(function() { //loop over each row
- if($(this).find(‘div\[data-original-title=”Out”\]’).length &gt; 0) { //check value of TD
+ $(“tr[name^=’&lt;YOUR_MODULE’]”).each(function() { //loop over each row
+ if($(this).find(‘div[data-original-title=”Out”]’).length &gt; 0) { //check value of TD
  $(this).find($(‘td’)).each(function() {
  $(this).css(“background-color”, “#FFBABA”);
  });
@@ -2315,7 +2315,7 @@ response.&lt;/p&gt;
  use GuzzleHttp\Subscriber\Mock;&lt;/p&gt;
 &lt;p&gt;$client = new Client();&lt;/p&gt;
 &lt;p&gt;$mock = new Mock();
- $mock-&amp;gt;addResponse(__DIR__.’/mockresponses/your_raw_file’);&lt;/p&gt;
+ $mock-&amp;gt;addResponse(&lt;strong&gt;DIR&lt;/strong&gt;.’/mockresponses/your_raw_file’);&lt;/p&gt;
 &lt;p&gt;$client-&amp;gt;getEmitter()-&amp;gt;attach($mock); // This is the key line, attaching the mock file response to your client.
  $response = $client-&amp;gt;get();
  echo $response-&amp;gt;getBody();&lt;/p&gt;
@@ -2439,14 +2439,14 @@ altered his code based on use cases I’ve come across.&lt;/p&gt;
      account has no contacts, hide that subpanel.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Place this code in
-custom/modules/&lt;YOUR\_MODULE&gt;/clients/base/layouts/subpanels/subpanels.js and
+custom/modules/&lt;YOUR_MODULE&gt;/clients/base/layouts/subpanels/subpanels.js and
 simply populate the hide_variables with whatever you wish to hide!&lt;/p&gt;
 &lt;p&gt;({&lt;/p&gt;
 &lt;p&gt;},
- /**
+ /*&lt;em&gt;
  * Show the subpanel for the given linkName and hide all others
  * @param {String} linkName name of subpanel link
- */
+ &lt;/em&gt;/
  var self = this,
  //this.layout is the filter layout which subpanels is child of; we
  //use it here as it has a last_state key in its meta
@@ -2471,10 +2471,10 @@ simply populate the hide_variables with whatever you wish to hide!&lt;/p&gt;
  });
  });
  },&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Check if the subpanel is on the hiding list and if the watched field has a specific value.
  * @param {Boolean} subpanel name of the module for the subpanel
- */
+ &lt;/em&gt;/
  var relationship = field_collection.link.name;
  var self = this;
  var hide_subpanel = false;
@@ -2535,9 +2535,9 @@ custom/modules/YOUR\_CUSTOM\_MODULE/clients/base/views/recordlist/recordlist.js&
  }, this);
  this._super(“bindDataChange”);
  },
- /**
+ /*&lt;em&gt;
  * Callback for before on(‘render’) event
- */
+ &lt;/em&gt;/
  this.collection.each(function(model) {
  app.api.call(‘GET’, app.api.buildURL(‘YOUR_CUSTOM_MODULE/YOUR_CUSTOM_FUNCTION/’+model.id), null, {
  model.set({
@@ -2577,9 +2577,9 @@ custom/modules/YOUR_CUSTOM_MODULE/clients/base/api/YOUR\_CUSTOM_FUNCTION.php&lt;
  ),
  );
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Method to be used for my MyEndpoint/GetExample endpoint
- */
+ &lt;/em&gt;/
  public function MyGetMethod($api, $args)
  {
  $id = $args;&lt;/p&gt;
@@ -2620,7 +2620,7 @@ custom/module/animals/clients/base/views/recordlist/recordlist.php&lt;/p&gt;
 &lt;p&gt;if (!defined(‘sugarEntry’) || !sugarEntry) {
  die(‘Not A Valid Entry Point’);
  }&lt;/p&gt;
-&lt;p&gt;/*********************************************************************************
+&lt;p&gt;/&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*
  * By installing or using this file, you are confirming on behalf of the entity
  * subscribed to the SugarCRM Inc. product (“Company”) that Company is bound by
  * &lt;a href="http://www.sugarcrm.com/master-subscription-agreement"&gt;http://www.sugarcrm.com/master-subscription-agreement&lt;/a&gt;
@@ -2630,7 +2630,7 @@ custom/module/animals/clients/base/views/recordlist/recordlist.php&lt;/p&gt;
  * certifying that you have authority to bind Company accordingly.
  *
  * Copyright © 2004–2014 SugarCRM Inc. All rights reserved.
- ********************************************************************************/&lt;/p&gt;
+ &lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;/&lt;/p&gt;
 &lt;p&gt;$viewdefs[‘CSTM_ANIMALS’][‘base’][‘view’][‘recordlist’] = array(
  ‘selection’ =&amp;gt; array(
  ‘type’ =&amp;gt; ‘multi’,
@@ -2944,8 +2944,8 @@ anymore.&lt;/p&gt;
  ],
  “require": {
  “php”: “&amp;gt;=5.3.2”,
- “yiisoft/yii”: “1.1.*”,
- “yiiext/migrate-command”: “0.7.*”
+ “yiisoft/yii”: “1.1.&lt;em&gt;”,
+ “yiiext/migrate-command”: “0.7.&lt;/em&gt;”
  },
  “config”: {
  “bin-dir”: “bin/”
@@ -2969,7 +2969,7 @@ anymore.&lt;/p&gt;
  ‘aliases’ =&amp;gt; array(
  ‘vendor’ =&amp;gt; ‘application.vendor’,
  ),
- ‘basePath’ =&amp;gt; dirname(__FILE__) . DIRECTORY_SEPARATOR .’..’,
+ ‘basePath’ =&amp;gt; dirname(&lt;strong&gt;FILE&lt;/strong&gt;) . DIRECTORY_SEPARATOR .’..’,
  ‘name’ =&amp;gt; ‘My Awesome Yii Site’,
  ‘components’ =&amp;gt; array(
  ‘db’ =&amp;gt; array(
@@ -2984,7 +2984,7 @@ anymore.&lt;/p&gt;
  ‘params’ =&amp;gt; array(
  ‘composer.callbacks’ =&amp;gt; array(
  // args for Yii command runner
- ‘yiisoft/yii-install’ =&amp;gt; array(‘yiic’, ‘webapp’, dirname(__FILE__).DIRECTORY_SEPARATOR.’..’.DIRECTORY_SEPARATOR.’..’),
+ ‘yiisoft/yii-install’ =&amp;gt; array(‘yiic’, ‘webapp’, dirname(&lt;strong&gt;FILE&lt;/strong&gt;).DIRECTORY_SEPARATOR.’..’.DIRECTORY_SEPARATOR.’..’),
  ‘post-update’ =&amp;gt; array(‘yiic’, ‘migrate’),
  ‘post-install’ =&amp;gt; array(‘yiic’, ‘migrate’),
  ),
@@ -2996,14 +2996,14 @@ anymore.&lt;/p&gt;
 &lt;p&gt;This is blantantly taken from phundaments &lt;a href="https://github.com/phundament/app/blob/yii-webapp/protected/config/ComposerCallback.php"&gt;ComposerCallback&lt;/a&gt;.
 I just thought I’d copy it here for completeness.&lt;/p&gt;
 &lt;p&gt;ComposerCallback.php&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Class file
  *
  * @author Tobias Munk
  * @link &lt;a href="http://www.phundament.com/"&gt;http://www.phundament.com/&lt;/a&gt;
  * @copyright Copyright © 2012 diemeisterei GmbH
  * @license &lt;a href="http://www.phundament.com/license"&gt;http://www.phundament.com/license&lt;/a&gt;
- */&lt;/p&gt;
+ &lt;/em&gt;/&lt;/p&gt;
 &lt;p&gt;namespace config;
  use Composer\Script\Event;&lt;/p&gt;
 &lt;p&gt;/**
@@ -3021,13 +3021,14 @@ I just thought I’d copy it here for completeness.&lt;/p&gt;
  ‘composer.callbacks’ =&amp;gt; array(
  ‘post-update’ =&amp;gt; array(‘yiic’, ‘migrate’),
  ‘post-install’ =&amp;gt; array(‘yiic’, ‘migrate’),
- ‘yiisoft/yii-install’ =&amp;gt; array(‘yiic’, ‘webapp’, realpath(dirname(__FILE__))),
+ ‘yiisoft/yii-install’ =&amp;gt; array(‘yiic’, ‘webapp’, realpath(dirname(&lt;strong&gt;FILE&lt;/strong&gt;))),
  ),
  )
  );&lt;/p&gt;
-&lt;p&gt;* composer.json
- * “scripts”: {
- * “pre-install-cmd”: “config\\ComposerCallback::preInstall”,
+&lt;ul&gt;
+&lt;li&gt;composer.json&lt;/li&gt;
+&lt;li&gt;“scripts”: {&lt;/li&gt;
+&lt;li&gt;“pre-install-cmd”: “config\\ComposerCallback::preInstall”,
  “post-install-cmd”: “config\\ComposerCallback::postInstall”,
  “pre-update-cmd”: “config\\ComposerCallback::preUpdate”,
  “post-update-cmd”: “config\\ComposerCallback::postUpdate”,
@@ -3037,22 +3038,23 @@ I just thought I’d copy it here for completeness.&lt;/p&gt;
  “post-package-update”: [
  “config\\ComposerCallback::postPackageUpdate”
  ]
- }&lt;/p&gt;
+ }&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;*
  *
  * @author Tobias Munk
  * @package phundament.app
  * @since 0.7.1
  */&lt;/p&gt;
-&lt;p&gt;defined(‘YII_PATH’) or define(‘YII_PATH’, dirname(__FILE__).’/../vendor/yiisoft/yii/framework’);
- defined(‘CONSOLE_CONFIG’) or define(‘CONSOLE_CONFIG’, dirname(__FILE__).’/console.php’);&lt;/p&gt;
+&lt;p&gt;defined(‘YII_PATH’) or define(‘YII_PATH’, dirname(&lt;strong&gt;FILE&lt;/strong&gt;).’/../vendor/yiisoft/yii/framework’);
+ defined(‘CONSOLE_CONFIG’) or define(‘CONSOLE_CONFIG’, dirname(&lt;strong&gt;FILE&lt;/strong&gt;).’/console.php’);&lt;/p&gt;
 &lt;p&gt;class ComposerCallback
  {
- /**
+ /*&lt;em&gt;
  * Displays welcome message
  * @static
  * @param ComposerScriptEvent $event
- */
+ &lt;/em&gt;/
  public static function preInstall(Event $event)
  {
  $composer = $event-&amp;gt;getComposer();
@@ -3066,78 +3068,78 @@ I just thought I’d copy it here for completeness.&lt;/p&gt;
  exit(“Installation aborted.n”);
  }
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Executes ./yiic migrate
  * @static
  * @param ComposerScriptEvent $event
- */
+ &lt;/em&gt;/
  public static function postInstall(Event $event)
  {
  self::runHook(‘post-install’);
  echo “nnInstallation completed.nnThank you for choosing Phundament 3!nn”;
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Displays welcome message
  *
  * @static
  * @param ComposerScriptEvent $event
- */
+ &lt;/em&gt;/
  public static function preUpdate(Event $event)
  {
  echo “Welcome to Phundament Installation 3 via composernnUpdating your application to the lastest available packages…n”;
  self::runHook(‘pre-update’);
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Executes ./yiic migrate
  *
  * @static
  * @param ComposerScriptEvent $event
- */
+ &lt;/em&gt;/
  public static function postUpdate(Event $event)
  {
  self::runHook(‘post-update’);
  echo “nnUpdate completed.nn”;
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Executes ./yiic -
  *
  * @static
  * @param ComposerScriptEvent $event
- */
+ &lt;/em&gt;/
  public static function postPackageInstall(Event $event)
  {
  $installedPackage = $event-&amp;gt;getOperation()-&amp;gt;getPackage();
  $hookName = $installedPackage-&amp;gt;getPrettyName().’-install’;
  self::runHook($hookName);
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Executes ./yiic -
  *
  * @static
  * @param ComposerScriptEvent $event
- */
+ &lt;/em&gt;/
  public static function postPackageUpdate(Event $event)
  {
  $installedPackage = $event-&amp;gt;getOperation()-&amp;gt;getTargetPackage();
  $commandName = $installedPackage-&amp;gt;getPrettyName().’-update’;
  self::runHook($commandName);
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Asks user to confirm by typing y or n.
  *
  * Credits to Yii CConsoleCommand
  *
  * @param string $message to echo out before waiting for user input
  * @return bool if user confirmed
- */
+ &lt;/em&gt;/
  public static function confirm($message)
  {
  echo $message . ‘ [yes|no] ‘;
  return !strncasecmp(trim(fgets(STDIN)), ‘y’, 1);
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Runs Yii command, if available (defined in config/console.php)
- */
+ &lt;/em&gt;/
  private static function runHook($name){
  $app = self::getYiiApplication();
  if ($app === null) return;&lt;/p&gt;
@@ -3147,9 +3149,9 @@ I just thought I’d copy it here for completeness.&lt;/p&gt;
  $app-&amp;gt;commandRunner-&amp;gt;run($args);
  }
  }&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Creates console application, if Yii is available
- */
+ &lt;/em&gt;/
  private static function getYiiApplication()
  {
  if (!is_file(YII_PATH.’/yii.php’))
@@ -3178,7 +3180,7 @@ might want to do is add more dependencies. Say you have a library you
 wish to add. Add the entry into composer.json run the update(which
 should call any migrations needed automatically), then you need to add
 this line to your index.php.&lt;/p&gt;
-&lt;p&gt;require_once(dirname(__FILE__).’/protected/vendor/autoload.php’);&lt;/p&gt;
+&lt;p&gt;require_once(dirname(&lt;strong&gt;FILE&lt;/strong&gt;).’/protected/vendor/autoload.php’);&lt;/p&gt;
 &lt;p&gt;And should be be good to access composers namespaces libraries. Very
 cool!&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>SugarCRM — Add a code-driven column to a list</title><link href="https://shanedowling.com/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1.html" rel="alternate"></link><published>2014-04-05T00:00:00+00:00</published><updated>2014-04-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-04-05:/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1.html</id><summary type="html">&lt;p&gt;Sometimes you might find that you want your users to make decisions based on ListViews and you need to pull in relational data beyond the immediately related objects. Example&lt;/p&gt;
 &lt;p&gt;So using the circus example say you have performers who are performing for a specific show. You might want to see …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Sometimes you might find that you want your users to make decisions based on ListViews and you need to pull in relational data beyond the immediately related objects. Example&lt;/p&gt;
@@ -3235,9 +3237,9 @@ that class name everywhere. It’ll cause a bunch of conflicts when it
 comes to saving related data, hence the name performers\_logic\_hooks.&lt;/p&gt;
 &lt;p&gt;class performers_logic_hooks
  {&lt;/p&gt;
-&lt;p&gt;/**
+&lt;p&gt;/*&lt;em&gt;
  * Called as process_record logic hook on the Performers module
- */
+ &lt;/em&gt;/
  public function list_record_process($bean, $event, $arguments)
  {
  //Do some code to get the related shows for the performer and store in the $other_shows variable&lt;/p&gt;
@@ -3315,8 +3317,8 @@ paste this line into the terminal and it should get things started.&lt;/p&gt;
      you wish to send email as. So for example change it from to jim.&lt;/li&gt;
 &lt;li&gt;In /srv/salt/mail/postfix/main.cf you need to change&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&amp;lt;`domain.com `__\ &amp;gt; to
- `mynewdomain.com `__.&lt;/p&gt;
+&lt;p&gt;&amp;lt;`domain.com `&lt;strong&gt;\ &amp;gt; to
+ `mynewdomain.com `&lt;/strong&gt;.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Under /srv/salt/top.sls ensure you have lines that look like this:&lt;/li&gt;
 &lt;/ul&gt;
@@ -3403,9 +3405,9 @@ examples.&lt;/p&gt;
 &lt;li&gt;Incloudibly Zurich based making it even safer, but also far more expensive.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Setting Up the Server&lt;/h3&gt;
-&lt;p&gt;`DigitalOcean `__
+&lt;p&gt;`DigitalOcean `&lt;strong&gt;
 themselves have a\ `great guide on setting up your first
-server `__
+server `&lt;/strong&gt;
 and do a great job of explaining what the settings mean and the effect
 they have. Even if you don’t go with DigitalOcean it’s a recommended read.
 In terms of settings I’d recommend using Ubuntu 12.04 LTS 32bit or 64bit
@@ -3593,7 +3595,7 @@ approach.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Research the best possible decaf coffee you can source and make sure it’s actually decaf. I use a Nespresso machine, so per cup I can
      accurately see I’ve moved from around 65mg of caffeine per cup to
-     about 0.4mg. The `caffeine database `__ and `overcaffeinated `__ should help with this.&lt;/li&gt;
+     about 0.4mg. The `caffeine database `&lt;strong&gt; and `overcaffeinated `&lt;/strong&gt; should help with this.&lt;/li&gt;
 &lt;li&gt;Simply replace caffeine beverages with decaf. I know it’s not the same, but for me, it’s close enough. I reduced my daily caffeinated coffee amount by one cup every week and that’s it. It’s fairly straight-forward. I’m primarily on decaf now and only tend to use caffeine only when I
     actually need the energy/productivity boost and wow, it’s a noticeable
     boost.&lt;/li&gt;
@@ -3724,20 +3726,20 @@ someone else.&lt;/p&gt;
  # open the existing maildir and the target mbox file
  maildir = mailbox.Maildir(maildirname, email.message_from_file)
  mbox = mailbox.mbox(mboxfilename)&lt;/p&gt;
-&lt;p&gt;# lock the mbox
- mbox.lock()&lt;/p&gt;
-&lt;p&gt;# iterate over messages in the maildir and add to the mbox
- mbox.add(msg)&lt;/p&gt;
-&lt;p&gt;# close and unlock
- mbox.close()
+&lt;h1&gt;lock the mbox&lt;/h1&gt;
+&lt;p&gt;mbox.lock()&lt;/p&gt;
+&lt;h1&gt;iterate over messages in the maildir and add to the mbox&lt;/h1&gt;
+&lt;p&gt;mbox.add(msg)&lt;/p&gt;
+&lt;h1&gt;close and unlock&lt;/h1&gt;
+&lt;p&gt;mbox.close()
  maildir.close()&lt;/p&gt;
 &lt;h1&gt;Creates the main mailbox&lt;/h1&gt;
 &lt;p&gt;dirname=sys.argv[-2]
  mboxname=sys.argv[-1]
  mboxdirname=mboxname+’.sbd’
  if not os.path.exists(mboxdirname): os.makedirs(mboxdirname)&lt;/p&gt;
-&lt;p&gt;# Iterate over all folders
- def folder_iterate(dirname, mboxname):
+&lt;h1&gt;Iterate over all folders&lt;/h1&gt;
+&lt;p&gt;def folder_iterate(dirname, mboxname):
  listofdirs=[dn for dn in os.walk(dirname).next()[1] if dn not in [‘new’, ‘cur’, ‘tmp’]]
  curlist=[mboxname]+curfold.split(‘.’)
  curpath=os.path.join(*[dn+’.sbd’ for dn in curlist if dn])
@@ -3928,407 +3930,7 @@ eventually shares the true reality and despair of her situation. It’s
 not too much of a downside, it all pays off eventually and this downside
 may simply mean the book needs a re-read.&lt;/p&gt;
 &lt;p&gt;I’d recommend this one to someone that can handle a harsh unrelenting
-book. You’ll be rewarded, but it comes at a price.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Switching to a dumbphone</title><link href="https://shanedowling.com/switching-to-a-dumbphone-3b090f8ad709.html" rel="alternate"></link><published>2014-01-18T00:00:00+00:00</published><updated>2014-01-18T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-18:/switching-to-a-dumbphone-3b090f8ad709.html</id><summary type="html">&lt;h3&gt;Why?&lt;/h3&gt;
-&lt;p&gt;I am aware, that while there is a trend towards smart-phones there are
-quite a few articles around on the subject of people swapping back to a
-dumb-phone or even &lt;a href="http://gizmodo.com/5991495/why-my-iphone-is-better-as-a-dumbphone"&gt;using your smartphone as a dumphone&lt;/a&gt;. Apparently it can &lt;a href="http://www.washingtonpost.com/blogs/innovations/wp/2013/10/31/why-i-dumped-my-smartphone-for-a-7-year-old-motorola-razr/"&gt;help your marriage&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I’m not that naive. Frankly, my …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Why?&lt;/h3&gt;
-&lt;p&gt;I am aware, that while there is a trend towards smart-phones there are
-quite a few articles around on the subject of people swapping back to a
-dumb-phone or even &lt;a href="http://gizmodo.com/5991495/why-my-iphone-is-better-as-a-dumbphone"&gt;using your smartphone as a dumphone&lt;/a&gt;. Apparently it can &lt;a href="http://www.washingtonpost.com/blogs/innovations/wp/2013/10/31/why-i-dumped-my-smartphone-for-a-7-year-old-motorola-razr/"&gt;help your marriage&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I’m not that naive. Frankly, my reasons for swapping away from my
-smartphone is pretty pragmatic, it was simply a persistent call to
-mindless action. That I carried around in my pocket. Everywhere.
-I found myself in a constant state of half-living, meaning half of my
-mind is on the present moment and the other half on a device. I’ve
-flipped to it when I’m communicating with people, commuting or even
-watching TV. Apparently TV is no longer enough of a distraction for this
-half-living brain I seem to have developed.&lt;/p&gt;
-&lt;p&gt;Sure I could just not use those features, like the Gizmodo article I
-linked to. I tried this, and cut pretty much everything but the useful
-stuff out of my phone, it boiled down to maps, public transport apps,
-RunKeeper and Whatsapp. However, I still constantly found myself in a
-tug of war where I would uninstall, then re-install browsers for an
-information fix. Just because it was easy and I could. It got to the
-point where I discovered a really small(100KB or so) browser so I could
-get my internet fix even faster. I realised my phone wasn’t giving me
-enough benefit for the mental costs. Maybe I’m particularly weak, I’m
-sure others can happily keep their smart-phones at a healthy distance,
-but I accepted that I simply couldn’t.&lt;/p&gt;
-&lt;h3&gt;How?&lt;/h3&gt;
-&lt;p&gt;As soon as I realised I hadn’t the ability to distance myself from my
-phone and that this was negatively effecting my mindfulness, I needed to figure out a way solve this. What I wanted to do was maintain some of the useful benefits of a smart-phone minus the distractions. Taking a
-cold hard look at the realistic benefits I got from my phone really helped.&lt;/p&gt;
-&lt;p&gt;The features I wanted(not needed) started with GPS-based maps of some sort. London is big, without GPS maps I knew I’d spend a lot of time getting lost, which isn’t so bad sometimes but maps are essential when I need to be at a place at a certain time, which happens quite often. I also use RunKeeper a lot and enjoyed looking at my stats and progress, it wasn’t a deal-breaker but I worried about my motivation to run. The same with can be said for using Sleep as Android which I used for logging sleep patterns. I like being able to view how many hours I’m sleeping each night, it’s a very useful to me and has generally improved my wellbeing. Finally, as I’m a contractor, I spend a lot of time taking photos of receipts for expenses etc, I’ve found Evernote really useful for this.
-Eventually, I decided to get myself a Symbian, so a half
-smart/dumb-phone. Specifically the Nokia 6730.
-Essentially because it supports 3G and GPS. Symbian also supported Whatsapp, Viber, Endomondo(no RunKeeper unfortunately) and even Evernote. I also picked up a FitBit One, for exercise and sleep logging.&lt;/p&gt;
-&lt;h3&gt;Results&lt;/h3&gt;
-&lt;h4&gt;Advantages&lt;/h4&gt;
-&lt;p&gt;- I don’t browse anymore, ever. Frankly, browsing the web is so painful
- to do on this phone I’ve tried once, got nowhere and never again.
-- The OVI store is terrible. It doesn’t even save my username and
- password, and typing those in on this device is enough of a reason
- never to install another app.
-- Google Maps/GPS has been better than I expected. Basically, there’s a
- little more typing but the GPS/maps combo has been spot on for me.
-- Endomondo has been terrific . Granted you can’t multi-task with it,
- so if you get lost you need to stop your run, check your map and
- start another run. I still thing it’s great. I even contributed some
- code to an app that allows you to convert your RunKeeper data to
- Endomondo. You can grab it &lt;a href="https://github.com/shano/runkeeper2endomondo"&gt;here&lt;/a&gt;.
-- I also discovered SoundHound is on here, a nice to have little
- discovery.
-- My phone is no longer a thing. It’s a boring piece of tech in the
- background. When I need to get in touch with someone, odds are I’ll
- just call them. No twitter, email or facebook. It is just a phone
- with a few bells and whistles.
-- The Fitbit sleep logging shows a little timer of how long I’ve slept,
- I found this quite useful if I’ve woken up too early.&lt;/p&gt;
-&lt;h3&gt;Disadvantages&lt;/h3&gt;
-&lt;p&gt;- The Fitbit hasn’t been very useful. I could’ve survived without the
- sleep logging and it doesn’t really capture runs properly. It’s
- trying more to be an overall health system and one that requires a
- smartphone so you can input a ton of data into. How much water you
- drink, what calories your taking in etc etc. I didn’t need any of
- this. In hindsight I wouldn’t have bothered with it.
-- The Evernote client also didn’t support my phone. This is quite
- annoying, it means I can’t in the moment grab useful data or take
- quick snapshots and have them backed up. But the phone’s camera is
- decent enough, so I’m hoping I’ll work out a different alternative.
-- Viber didn’t actually support my phone, not a big deal.
-That’s about it really. I’ve been using my dumb-phone for the last few
-weeks, and I haven’t really missed my Samsung SIII, other than Evernote
-really. Honestly, considering how distracted I was with the phone I
-thought it would be a much more difficult transition. I guess because
-I’d reduced my smart-phone down to the bare essentials as it was, I
-wasn’t losing a tremendous amount of features.
-It genuinely looks like the future of my phone tech is going to be a
-crappy 4 year old phone running an even crappier 13 year old operating
-system.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;February 28, 2014 –&lt;/strong&gt; Counterfeit Update - I’m still
-using my dumb-phone and loving it. In fact, one Saturday I trialled
-using my Samsung S3 for a day and couldn’t stand it, I constantly kept
-checking it and that drove my crazy. Giving it away as a gift.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Promoting mindfulness through the day</title><link href="https://shanedowling.com/promoting-mindfulness-through-the-day-e294cbc78843.html" rel="alternate"></link><published>2014-01-16T00:00:00+00:00</published><updated>2014-01-16T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-16:/promoting-mindfulness-through-the-day-e294cbc78843.html</id><summary type="html">&lt;p&gt;Over the last year I’ve been cultivating a mindfulness habit. Overall,
-it has delivered great results. One of the aspects I’ve been less than
-happy with however, is my ability to carry that mindful state with me
-throughout the day. I’m unsure if it’s because I …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Over the last year I’ve been cultivating a mindfulness habit. Overall,
-it has delivered great results. One of the aspects I’ve been less than
-happy with however, is my ability to carry that mindful state with me
-throughout the day. I’m unsure if it’s because I’m a programmer and my
-mind has to be so wrapped up in what I’m doing that mindfulness will
-inevitably get pushed out or if it’s simply that full-day mindfulness
-isn’t possible for me.&lt;/p&gt;
-&lt;p&gt;Lately I’ve been also trying to drink more water, so I figured I would attempt to combine both and see if there could be any benefits to. I do have to admit, the last few weeks that drinking water had led to more mindful triggers throughout the day. Having my own water bottle, drinking from it, re-filling it has led to me being more present at least during certain moments of the day. It’s been quite pleasing and am hoping to maintain this habit.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="images/1__ngn__AEEBDcU9udW96GF8YQ__2x.jpeg"&gt;&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Legitimate ways to support good movies</title><link href="https://shanedowling.com/legitimate-ways-to-support-good-movies-2fb11e565d2d.html" rel="alternate"></link><published>2014-01-11T00:00:00+00:00</published><updated>2014-01-11T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-11:/legitimate-ways-to-support-good-movies-2fb11e565d2d.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__xU2KVV__mC4quGix9krfh4A__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;Recently I watched Akira Kurosawa’s Ikiru, after reading
-through some of the Criterion info on Kurosawa I realised I’d watched a
-bunch of his movies, I’m a huge fan of Seven Samurai.&lt;/p&gt;
-&lt;p&gt;The Criterion Collection is a wonderful distribution company and I’m a
-huge fan of …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__xU2KVV__mC4quGix9krfh4A__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;Recently I watched Akira Kurosawa’s Ikiru, after reading
-through some of the Criterion info on Kurosawa I realised I’d watched a
-bunch of his movies, I’m a huge fan of Seven Samurai.&lt;/p&gt;
-&lt;p&gt;The Criterion Collection is a wonderful distribution company and I’m a
-huge fan of a number of their filmmakers, so much so that I wanted to
-try and support the service more. Since I live fairly lightly in terms
-of possessions I can’t really justify $40 on a DVD or Blu-Ray.
-Especially since I’ll probably have moved elsewhere and be forced to
-ditch the media before I can watch it a second time.
-It’s a shame when distribution companies haven’t really adopted digital
-distribution. I am aware that Criterion is on Hulu(now something else), but unfortunately as I’m not a US resident I can’t access/support it. If you are and can access it, I highly recommend checking out some of their movies.&lt;/p&gt;
-&lt;p&gt;Luckily I found a more old-school method to (in some small way) support Criterion movies. Near to where I work is a wonderful film-center called Close-Up that has a huge collection of both DVDs and books to rent. I’ll definitely be making use of it for the time being.
-If you know of another way I can access the Criterion movies in the
-EU(or just without a US credit-card), I’d love to know.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Sleep as the fundamental habit</title><link href="https://shanedowling.com/sleep-as-the-fundamental-habit-f9590f13c013.html" rel="alternate"></link><published>2014-01-09T00:00:00+00:00</published><updated>2014-01-09T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-09:/sleep-as-the-fundamental-habit-f9590f13c013.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__8iAA__DadoqBnceEck3kraw__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;Leo Babuta describes meditation as the fundamental habit, the underlying habits beneath all others. Personally, I disagree. I wrote recently on how I cope with meditation when you haven’t had a particularly good nights sleep.&lt;/p&gt;
-&lt;p&gt;Realistically washing your face is like taking painkillers after a
-serious injury, it’s …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__8iAA__DadoqBnceEck3kraw__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;Leo Babuta describes meditation as the fundamental habit, the underlying habits beneath all others. Personally, I disagree. I wrote recently on how I cope with meditation when you haven’t had a particularly good nights sleep.&lt;/p&gt;
-&lt;p&gt;Realistically washing your face is like taking painkillers after a
-serious injury, it’s only painting over the cracks of a deeper problem.
-Meditation and mindfulness truly can unlock the potential of your day,
-but a good nights rests can even more. Sleep is a physical process that
-underlies every waking moment. So to actively take the time to develop
-good sleep habits should improve every other aspect in your life,
-including meditation.&lt;/p&gt;
-&lt;p&gt;I only began to appreciate a good sleep routine when it was gone. Four
-months of hopping from towns, cities and countries has destroyed my good sleeping habits. I can’t remember the last time I slept in the same bedmore than two nights in a row. I return to a more permanent base soon enough but even now I’m trying to develop a rough sleep routine.&lt;/p&gt;
-&lt;p&gt;Analyzing your sleep patterns and logging how you feel is a great way to
-discover what works for you. How many hours do you need? When is your ideal wind-down time? Be curious about it. To help I found &lt;a href="https://play.google.com/store/apps/details?id=com.urbandroid.sleep"&gt;Sleep as Android&lt;/a&gt; and &lt;a href="https://pzizz.com/"&gt;Pzizz&lt;/a&gt;, they’re very helpful but just being curious and exploring your sleeping patterns can do wonders for your well-being. Nailing down a good sleeping habit has been one of the biggest fundamental improvements I’ve made, everything flows from there.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Make money mining a cryptocurrency</title><link href="https://shanedowling.com/make-money-mining-a-cryptocurrency-618d8f4727bf.html" rel="alternate"></link><published>2014-01-04T00:00:00+00:00</published><updated>2014-01-04T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-04:/make-money-mining-a-cryptocurrency-618d8f4727bf.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__gEF0IVFmJ4OZC__A9XrmnEA__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;A while back I wrote a post on my tech blog about using a tool called
-salt to configure your boxes to mine a crypto-currency. The currency I was mining was Anoncoin and I jokingly said it was a bit of fun that would make no money. Turns out, as …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__gEF0IVFmJ4OZC__A9XrmnEA__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;A while back I wrote a post on my tech blog about using a tool called
-salt to configure your boxes to mine a crypto-currency. The currency I was mining was Anoncoin and I jokingly said it was a bit of fun that would make no money. Turns out, as Anoncoin grew against Bitcoin which by itself was significantly increasing in value, I managed to make a nice little contribution towards the cost of my servers for the year.&lt;/p&gt;
-&lt;p&gt;Anyway, while I wasn’t really keeping an eye on things it looks like
-alternative currencies seem to be doing quite well. So I figured I put
-up a little guide here on things to help people get started with mining
-your own coins. It might look like your making only small amounts over
-time but you can’t really anticipate how the coin’s value might increase
-over time. Plus you’ll be contributing to one of the coolest aspects of
-these crypto-currencies, decentralized mining
-So here’s the steps:&lt;/p&gt;
-&lt;h3&gt;1. Get a server to run your miner.&lt;/h3&gt;
-&lt;p&gt;Amazon has a free usage tier which gives you a free small instance for a year. So sign up and give it a go. I’d suggest just going with Ubuntu if you’re new to things and make sure to use a 64 bit AMI.&lt;/p&gt;
-&lt;h3&gt;2. Choose the right currency.&lt;/h3&gt;
-&lt;p&gt;Do some research. Coins-e provides a lot of good information on the historical price of currency prices. Take a look at what the prospects are like for your currency and how they’ve performed against Bitcoin.&lt;/p&gt;
-&lt;p&gt;Reddit CryptoCurrencies– There’s a lot of disparate info here. I’d suggest deciding on a currency, then searching on this subreddit for related information.&lt;/p&gt;
-&lt;p&gt;Also take a look at trading volume as an indicator of future prospects:
-http://coinmarketcap.com/ or &lt;a href="https://www.cryptsy.com/"&gt;https://www.cryptsy.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;You should also look at computational difficultly and what you’d earn
-right now too. &lt;a href="http://dustcoin.com/mining"&gt;http://dustcoin.com/mining&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Basically the more established the currency, the harder it will be to
-mine as you’ll be competing with a lot of other miners. The sweet spot
-is to mine a currency in it’s infancy, while there’s not a lot of mining
-competition. Then win if it increases in value against Litecoin or
-Bitcoin, but it’s obviously a difficult one to predict. Two of the higher value currencies, Anoncoin and Protoshares might be a good starting point, but if you see any murmurings that another currency might make it big, go for that. For the purposes of this guide I’ll show you how to start on those two.&lt;/p&gt;
-&lt;h3&gt;3. Find a mining pool.&lt;/h3&gt;
-&lt;p&gt;A mining pool is where multiple clients come together and contribute to
-the mining of a currency. I won’t go into details, but unless you have
-serious hardware it’s going to be computationally too difficult to mine
-coins by yourself.&lt;/p&gt;
-&lt;p&gt;For Anoncoin I use coinpool.in and for Protoshares I’ve used ypool.net. All you need to do is sign up for an account and create a worker for the mining software you’ll run on your server to point to.&lt;/p&gt;
-&lt;h3&gt;4. Set up the miner on your server.&lt;/h3&gt;
-&lt;p&gt;Login to your server using ssh and run these commands. Replace
-username.worker and password with the worker details you created &lt;strong&gt;not your login details for the mining pool&lt;/strong&gt;.
-&lt;strong&gt;Note:&lt;/strong&gt; These are the details for using a cpuminer. If you’re running
-this on a server you should be using a cpu-based miner. GPU miners are
-better equipped for crypto-currencies in general, but that’s out of the
-scope of this article. If you want to skip the server steps and run this
-on your local machine, try out Guiminer for
-windows or Asteriod for OSX.
-For &lt;strong&gt;Protoshare&lt;/strong&gt;:&lt;/p&gt;
-&lt;p&gt;wget &lt;a href="http://www.theopeneffect.com/jhprotominer-yvg1900-M7c-linux64-core2.tgz"&gt;http://www.theopeneffect.com/jhprotominer-yvg1900-M7c-linux64-core2.tgz&lt;/a&gt;
- tar zxvf jhprotominer-yvg1900-M7c-linux64-core2.tgz
- cd jhprotominer-yvg1900-M7c-linux64-core2
- cd linux64-core2–256M
- ./jhprotominer -O `ypool.net `__ -u username.worker -p password -t 5&lt;/p&gt;
-&lt;p&gt;Note, 256M is the amount of memory per thread and 5 is the amount of
-threads that will run. So on these options you would need a box with
-256*5 MBs of memory which is 1280Mbs. Change these figures accordingly with how much memory your server has free. You can check this with free -m.&lt;/p&gt;
-&lt;p&gt;For &lt;strong&gt;Anoncoin&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;sudo apt-get install build-essential libcurl4-openssl-dev
- wget &lt;a href="http://sourceforge.net/projects/cpuminer/files/pooler-cpuminer-2.3.2.tar.gz"&gt;http://sourceforge.net/projects/cpuminer/files/pooler-cpuminer-2.3.2.tar.gz&lt;/a&gt;
- tar xzf pooler-cpuminer-\*.tar.gz
- cd cpuminer-\*
- ./configure CFLAGS=”-O3"
- make
- ./minerd - url=stratum+tcp://anc.coinpool.in:3333 –userpass=username.worker:password&lt;/p&gt;
-&lt;p&gt;Double check with your mining pool that your worker is connected and
-running. It’s also very similar steps for running many other crypto-currencies, I’m sure the mining pool you find will have better
-steps than these too.&lt;/p&gt;
-&lt;h3&gt;5. Leave it running for a few days/weeks/months/forever.&lt;/h3&gt;
-&lt;h3&gt;6. Converting to Bitcoin.&lt;/h3&gt;
-&lt;p&gt;Once you’ve mined a reasonable number of coins you can choose to cash
-them out. Firstly, you’ll need to convert the currency to Bitcoin. I
-would use coins-e.com for this. Create an account and generate a deposit address to receive the funds from your mining pool.
-Basically from your mining pools UI you should be able to Cash Out, enter the amount you’ve mined and the coins-e.com address. Wait a few minutes for the transfer to happen. Then on coin-e you easily be able to convert the deposited currency to Bitcoin. Don’t worry, you’re almost there.&lt;/p&gt;
-&lt;h3&gt;7. Cashing out&lt;/h3&gt;
-&lt;p&gt;Now that you have your Bitcoin it’s time to turn it into cold, hard
-cash. I use Bitstamp for this. You’ll need to enter bank account details etc. Now using the bitcoin wallet address you’ll get on Bitstamp, you should easily be able to trade the bitcoins for dollar cash monies. Then it’s simply a case of withdrawing it to your bank account. As soon as the money is in dollars, withdraw it. I’ve found these Bitcoin exchanges are ALWAYS less reliable than bank accounts. Due to poor quality exchanges I have frozen money sitting in several countries that I’ll probably never get back. Having dollars in these places isn’t secure, so make your transactions as fast as possible.&lt;/p&gt;
-&lt;p&gt;Anyway, that took longer than I’d hoped. If you happen to have any
-questions or improvements you think I could add, feel free to comment.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Fasting</title><link href="https://shanedowling.com/fasting-636565d35b97.html" rel="alternate"></link><published>2014-01-03T00:00:00+00:00</published><updated>2014-01-03T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-03:/fasting-636565d35b97.html</id><summary type="html">&lt;p&gt;So I’ve been looking into intermittent fasting lately for several
-reasons. Firstly, as a means to get a leaner physique, but also as I’m
-looking to do more research into leaner more efficient eating as it is.
-I’m also hoping a side effect of it will promote …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So I’ve been looking into intermittent fasting lately for several
-reasons. Firstly, as a means to get a leaner physique, but also as I’m
-looking to do more research into leaner more efficient eating as it is.
-I’m also hoping a side effect of it will promote generally more mindful
-eating habits. I came across quite a useful resource in www.precisionnutrition.com. They provide a trail fast plan, which I’m going to attempt once a week for the next few weeks to see how I react to fasting in general. During this time I’ll also do further research into fasting and hopefully work out a strategy that can work.&lt;/p&gt;
-&lt;p&gt;If you’re interested in the topic itself, I’d start with &lt;a href="https://www.precisionnutrition.com/intermittent-fasting"&gt;Experiments with Intermittent Fasting&lt;/a&gt; and &lt;a href="https://leangains.com/"&gt;www.leangains.com&lt;/a&gt;. It seems the whole topic lacks any hard and fast rules. From my reading the only approach you can take is just try it, log the net effects and make alterations as you see fit.&lt;/p&gt;
-&lt;p&gt;I’ll log how things progress up here.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Avoid anxiety with gratitude</title><link href="https://shanedowling.com/avoid-anxiety-with-gratitude-65eb140928a5.html" rel="alternate"></link><published>2014-01-02T00:00:00+00:00</published><updated>2014-01-02T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-02:/avoid-anxiety-with-gratitude-65eb140928a5.html</id><summary type="html">&lt;p&gt;The Christmas holidays are coming to an end. The flash of New Years
-fireworks are already beginning to dim in your memory. You might be
-returning to work or you’ve already returned. Maybe you’re feeling
-disgruntled and little sad that it all went by so fast and what …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The Christmas holidays are coming to an end. The flash of New Years
-fireworks are already beginning to dim in your memory. You might be
-returning to work or you’ve already returned. Maybe you’re feeling
-disgruntled and little sad that it all went by so fast and what do you
-even have to show for yourself?&lt;/p&gt;
-&lt;p&gt;Today while I was kicking off my morning writing routine, it was turning into a stream of conscious thought. Eventually I just happened to start creating list of all amazing things I’d done over the holidays. It came to a list of 21 events that I really and truly appreciated and there was certainly room for more if I’d thought about it. Looking back and forcing myself to remember them gave me an overwhelmingly contented feeling. The anxiety of returning to the post holiday work world and the fear of the Monday morning blues just faded into excitement about the future.&lt;/p&gt;
-&lt;p&gt;On top of that it’s also kicking off a new habit. Once a week while I’m
-doing my morning writing I’m going to write up a list of everything I’m
-grateful for over the last week.&lt;/p&gt;
-&lt;p&gt;I could not recommend doing this exercise more. Right now, just write
-out the list of things you’re thankful for over the holidays. It’ll only
-take a few minutes, I guarantee if you’re in the right frame of mind you
-won’t regret it.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>GYPYSs and unrealistic expectations</title><link href="https://shanedowling.com/gypyss-and-unrealistic-expectations-f67a4927d9d6.html" rel="alternate"></link><published>2014-01-01T00:00:00+00:00</published><updated>2014-01-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-01:/gypyss-and-unrealistic-expectations-f67a4927d9d6.html</id><summary type="html">&lt;p&gt;&lt;a href="http://www.huffingtonpost.com/wait-but-why/generation-y-unhappy_b_3930620.html"&gt;This article&lt;/a&gt; was shared with me recently, it’s an excellent read and provides some good reasoning for why people feel that vague sense of living an unaccomplished life. I’ll admit it, I am most definitely a Gypsy. My garden right now it full of flowers of unrealistic expectations …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://www.huffingtonpost.com/wait-but-why/generation-y-unhappy_b_3930620.html"&gt;This article&lt;/a&gt; was shared with me recently, it’s an excellent read and provides some good reasoning for why people feel that vague sense of living an unaccomplished life. I’ll admit it, I am most definitely a Gypsy. My garden right now it full of flowers of unrealistic expectations. I’d begun to discover this while meditating and watching my emotions daily.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="images/1__dgV1eOnLLrwiaafzuZ__klg__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;In &lt;a href="https://www.headspace.com/"&gt;Headspace&lt;/a&gt; there’s a section called the discovery series. You begin to focus on watching your emotions throughout the day and when your mind gets distracted and wanders. More specifically you watch the ways in which you wish things were different. You begin to notice the gulf between reality and fantasy.&lt;/p&gt;
-&lt;p&gt;At first I spotted the fantasties and dismissed them entirely. I was
-disappointed in myself for being so ridiculous and unrealistic. However,
-soon enough I realised that those fantasties had some utility. They
-could potentially shape long term goals. In &lt;a href="https://pragprog.com/book/ahptl/pragmatic-thinking-and-learning"&gt;Pragmatic Thinking and
-Learning&lt;/a&gt; (a book I’d highly recommend), there is a concept called the Pragmatic Investment Plan, where you essentially break down your longer term goals into where you want to be in say 5 years time and that’s broken down into where you want to be in a year and what tasks can you do right now.&lt;/p&gt;
-&lt;p&gt;Take a wild guess at where I found the inspiration for where I wanted to
-be in 5 years time? It’s pretty fun breaking down some of your dreams
-into a potentially attainable setting of SMART goals. Say you’ve started to get into drawing and you want others to see and possibly be moved by your work. Right now you still suck but you dream of the day when something you created was in a gallery or an exhibition.&lt;/p&gt;
-&lt;p&gt;Well, you’ve found your five year SMART goal. You could have year one be to create a blog and regularly publish a new piece of work. The thing right now you could do is grab that drawing book you held off buying. If nothing else, it’s a start. A few months down the line you might realise you’re not that into drawing or you’re totally into it. Either way to get to that point and either fulfill or dismiss the fantasy it starts with trying it on.&lt;/p&gt;
-&lt;p&gt;Sure, we all fantasise about about the craziest things and it’s
-sometimes even embarrassing, but there’s real insight there. Sit down
-with these fantasies and break them down into attainable chunks, then
-act on those chunks. You’ll get a hell of a lot farther than just
-sitting there wishing things were different.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Performance gains by altering your routine</title><link href="https://shanedowling.com/performance-gains-by-altering-your-routine-f44365b8972b.html" rel="alternate"></link><published>2013-12-30T00:00:00+00:00</published><updated>2013-12-30T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-30:/performance-gains-by-altering-your-routine-f44365b8972b.html</id><summary type="html">&lt;p&gt;In the mornings I had a very structured routine. The first thing I would
-do is meditate as for me, all other habits flow from this. Then after my
-meditation I would either go for a run or do some dumbbell based
-strength exercises. The reasoning being that as exercising …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In the mornings I had a very structured routine. The first thing I would
-do is meditate as for me, all other habits flow from this. Then after my
-meditation I would either go for a run or do some dumbbell based
-strength exercises. The reasoning being that as exercising was also a
-quiet periods, I could try extending the mindfulness and clarity gained
-from meditation into my exercises and have a better chance of remaining mindful throughout the day.&lt;/p&gt;
-&lt;p&gt;Typically, this routine has worked out exactly the same every time.
-Meaning that I would always feel somewhat tired while meditating and a niggling doubt would re-occur that I was too tired to perform my
-meditations effectively. You get a lot of space to dwell on these doubts
-while meditating.&lt;/p&gt;
-&lt;p&gt;As a response, for a few days I started to exercise before meditation
-and I must admit the effect were dramatic. Meditation after running is
-akin to trying to focus after taking a pile of happy pills. The
-meditation feels better, it seems easier and I’m very positive
-throughout the whole experience. I also discovered that meditation
-following exercise is a great way to generate ideas. Especially with
-writing, I permanently feel like I’m going to run out of ideas but when
-you fill yourself with positive energy and then try to sit and think,
-the ideas just seemed to flow. It could be simply a mixture of
-endorphines being positivity and physical tiredness taking away fears of
-having bad idea, whatever it is it seems to be the ideal mental state
-for idea generating.&lt;/p&gt;
-&lt;p&gt;Now, this all sounds very positive but I must admit this alteration of
-my routine will only be used sparingly. Firstly, I got distracted quite
-a lot with ideas during the meditation, forcing me to write them down
-and effectively breaking my focus. Some my my hand would be completely covered in pen marks after a meditation. That’s great, every so often but it got frustrating pretty quickly having to break focus over and over. Secondly, it’s wonderful to watch your breath while you’re full of positive “I love life” energy but that’s not exactly reflective of my
-mood throughout the day and when your hope is to extend mindfulness to the rest of your day you want to develop an expectation that you’re only mindful when your very positive.&lt;/p&gt;
-&lt;p&gt;Now, I do fully intend to use this ordering when I’m running low on
-ideas but I shall limit it only to then. I’m glad I made the discovery
-and intend to continually try new alterations and note the consequences.
-So if you’ve got some daily rituals or routines, mix them up and see if
-you can gain some unexpected performance gains.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>GSD 2 — Retaining Focus</title><link href="https://shanedowling.com/gsd-2-retaining-focus-98ffdabf2a75.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/gsd-2-retaining-focus-98ffdabf2a75.html</id><summary type="html">&lt;p&gt;&lt;a href="http://xmonad.org/"&gt;Xmonad&lt;/a&gt; — Xmonad is a Haskell based window
-manager for both Linux and Mac(sorry Windows users). It’s highly
-configurable but for me it’s lack of features and application bar crap
-is a real advantage. The application your currently working with takes
-up the entirety of the screen and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://xmonad.org/"&gt;Xmonad&lt;/a&gt; — Xmonad is a Haskell based window
-manager for both Linux and Mac(sorry Windows users). It’s highly
-configurable but for me it’s lack of features and application bar crap
-is a real advantage. The application your currently working with takes
-up the entirety of the screen and you navigate to other applications
-using keyboard shortcuts. Using this and disabling notifications in your
-IM/Email/whatever clients forces you to work on the task in front of
-you. It’s very pleasing to use after a while.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.focusatwill.com/"&gt;Focusatwill&lt;/a&gt; — I’ve been a big fan of using the Pomodoro technique and I use focusatwill as an extension to it. Effectively it’s a timer
-that plays music that apparently helps keep you focused. Personally I’ve found it quite effective. It pushes for 100 minute stints of focused work before taking a break. As a coder I’m a big fan of this. 25 minute pomodoros got really distracting and were a pain to maintain after a while. 100 minutes lets me keep my mind on whatever level of the coding stack I’m currently on for longer periods. Even focusatwill states that it can take 20 minutes to accumulate enough to begin focus. Plus, if you’re skeptical there’s a free trial period.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>GSD 3 — Keeping your habits in mind</title><link href="https://shanedowling.com/gsd-3-keeping-your-habits-in-mind-ded639ef1e39.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/gsd-3-keeping-your-habits-in-mind-ded639ef1e39.html</id><summary type="html">&lt;p&gt;So you’ve removed your distractions and figured out how to maintain
-focus. You’ve a set of good habits you’d like to being implementing.
-Well firstly, read &lt;a href="https://zenhabits.net/sticky/"&gt;this&lt;/a&gt;. Don’t jump head first into habits you’ve never gone through before. You’re expectations will be too high …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So you’ve removed your distractions and figured out how to maintain
-focus. You’ve a set of good habits you’d like to being implementing.
-Well firstly, read &lt;a href="https://zenhabits.net/sticky/"&gt;this&lt;/a&gt;. Don’t jump head first into habits you’ve never gone through before. You’re expectations will be too high and sadly, you’ll likely fail. Patience is a virtue.
-So, after you’ve chosen the habit you’d like to begin with, here are
-some tools to help keep you focused on those good habits.&lt;/p&gt;
-&lt;p&gt;- &lt;a href="https://play.google.com/store/apps/details?id=uk.amimetic.habits"&gt;Habit Streak&lt;/a&gt; — This app helps you achieve your goals with daily habit reminders. The focus here is on streaks. Define habits you can achieve everyday. Personally I find slightly vague is good. For example I don’t intend to run everyday(you need downtime from running), so instead I have a habit to exercise everyday. So I alternate running with strength exercises.
-- Cron-Jobs — Yup, straight up cron-jobs are a great way to remind you to keep your good habits in mind. Make sure you have zenity installed and add this to your local cron with crontab -e. I also use cronjobs to automatically shut down my computer in the evening to prevent me working late and to properly wind-down ensuring a good sleep habit.&lt;/p&gt;
-&lt;p&gt;*/10 * * * * export DISPLAY=:0 &amp;amp;&amp;amp; /usr/bin/zenity — info — text=”Don’t forget that uber important habit”&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>GSD 4 — Reviewing</title><link href="https://shanedowling.com/gsd-4-reviewing-8a7ab553a72f.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/gsd-4-reviewing-8a7ab553a72f.html</id><summary type="html">&lt;p&gt;So the final process I use to help me get shit done is reviewing. Each
-week I do a fairly lengthy review of the last week. I see what habits
-have been successful and which have been a struggle to maintain. I look
-to see if there are appropriate alterations …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So the final process I use to help me get shit done is reviewing. Each
-week I do a fairly lengthy review of the last week. I see what habits
-have been successful and which have been a struggle to maintain. I look
-to see if there are appropriate alterations I can use to help improve.
-Here’s a list of the things I tend to analyse while reviewing, and the
-questions I’ve asked.&lt;/p&gt;
-&lt;p&gt;- &lt;a href="https://www.rescuetime.com/"&gt;RescueTime&lt;/a&gt; — What have I procrastinated
- on this week? What peak times do I tend to be productive on my
- computer and when are the troughs? Can I replace this behavior with
- something slightly more useful?
-- &lt;a href="http://www.habitstreak.com/"&gt;Habit Streak&lt;/a&gt; — This one I find very important. What habits have I maintained and what have failed? I ask myself in a gentle self-analytical way why I couldn’t maintain certain habits and what conditions I can change to improve my chances. Maybe the habits are simply not maintainable? Do I need to stop others and make specific time for new ones? Should I change my schedule? Reviewing is key to maintaining habits like these and the app I use is really straight-forward, exactly what I need.
-- &lt;a href="https://play.google.com/store/apps/details?id=com.urbandroid.sleep"&gt;Sleep as Android&lt;/a&gt;— Am I still maintaining a good sleep habit? Sometimes I try alterations to my routine and work out if there’s a positive or negative effect to my day.
-- Todo List — I just use a notepad and sometimes just dump ideas into
- Evernote. At the end of the week I collect them up and add them to a
- todo list or ditch them. Saying no and not indulging ideas you simply
- don’t have time for it key to this.
-- &lt;a href="https://www.instapaper.com/"&gt;Instapaper&lt;/a&gt; — I do some gardening to
- my reading list and dump anything I felt may have been a valuable
- read at the time but on reflection isn’t. I have a tendency to throw
- everything and the kitchen sink at my reading list, so purging this
- down is essential.
-- Gratefulness — I add in the things that I’m grateful for from the
- last week. Typically I try write these moments down during the week.
- It helps to re-affirm the things you find important and appreciate.
- By doing it and keeping the things you’re grateful for in your mind
- it helps the review become a more decisive and straightforward
- process, especially when you have a tendency to hang on to those
- ideas or wandering thoughts that really have no value.
-- Projects — What progress have I made in the last week? How has it
- stacked up compared to other weeks? Did I have a fluid week or was
- there blockers, how can I approach these if they occur again?
-- Contacts — Are there contacts or people I’ve met recently that I wish
- to catch up or meet again?&lt;/p&gt;
-&lt;p&gt;Generally this is a rough list of what I look at and I’ve found the
-process very revealing and incredibly useful. It provides me with a
-framework that has kept me focused on my longer-term goals but also on my general health and how I can potentially make systematic improvements in smaller ways on a regular basis. These improvements will accrue and the benefits over time can be phenomenal.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>The Freedom of Limits</title><link href="https://shanedowling.com/the-freedom-of-limits-8677931d93e0.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/the-freedom-of-limits-8677931d93e0.html</id><summary type="html">&lt;p&gt;Over the course of this blog I intend to show how limitations can in
-many ways bring positive changes in your life. While limitations can
-appear under various guises(vegetarianism, minimalism) etc there is a
-huge number of aspects in your life where you can benefit from limits,
-just without …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Over the course of this blog I intend to show how limitations can in
-many ways bring positive changes in your life. While limitations can
-appear under various guises(vegetarianism, minimalism) etc there is a
-huge number of aspects in your life where you can benefit from limits,
-just without the grandiose terms behind them.&lt;/p&gt;
-&lt;h3&gt;Why?&lt;/h3&gt;
-&lt;p&gt;If you’ve ever attempted to meditate, you’ll realise that the human mind
-is insane. It’s cannot help but leap from one random thought to the
-next, like an irritated monkey in a cage. Seriously, just attempt to
-think about your breath for any extended period and you’ll realise how
-helpless you are to it(unless you’re trained of course). I recently watched a documentary by Adam Curtis called &lt;a href="https://youtu.be/eJ3RzGoQC4s"&gt;Century of the Self&lt;/a&gt;. If you haven’t watched it, I’d highly recommend it. Essentially it’s about the rise of the concept of the self and how corporations have sought to exploit it. I won’t go into too much detail but the important parts for this post are that during post-WW2 America, corporations had a genuine fear that they would run out of consumers.&lt;/p&gt;
-&lt;p&gt;That, eventually everyone would have say a car and that would be it,
-no-one else needs a car, or a washing machine or a winter coat(These
-days it sounds laughable). In the 60s people began a new ‘me-centric’
-way of behaving that both politicians and corporations had to adapt to.
-Politicians did so by pandering to the middle class and corporations by
-using market research, categorisation of consumers in lifestyles and
-overbearing choice(Appealing to our emotions through marketing/advertising came before this, but is still relevant).&lt;/p&gt;
-&lt;p&gt;As we all discovered we were very special ‘inner directed’ human beings,
-corporations realised pretty quickly that they could exploit our newly
-found desire by convincing people they could define themselves through
-spending. Think about this for a second, when you bought what you’re
-wearing right now what sort of questions did you ask. Is this durable?
-Is it well made? Is the corporation an ethical entity? Will it survive
-the elements? Heck even ‘Is this comfortable?’ can even get overlooked.
-The point is we probably bought what we did as we had an emotional
-response to the garment in question. It had a cool design or looked good on me, etc.&lt;/p&gt;
-&lt;p&gt;These are all perfectly valid things to want from a
-garment, we gain emotional satisfaction by feeling like we made a unique choice. I’m not going to harp on about spending habits and I’ve shown how you can apply `limits to what you own `__ but it’s good to keep in mind how we can gain an emotional pleasure(and it can be exploited) simply by making a choice and that building a good choice/limitation balance can be beneficial to your wellbeing.&lt;/p&gt;
-&lt;h3&gt;How?&lt;/h3&gt;
-&lt;p&gt;As you go throughout your day try to discover where you might have
-undermined yourself through excessive choice, don’t judge yourself just
-make a note of it. It might be a humungous todo list, or a wardrobe full
-of t-shirts you don’t wear. What about a bookshelf full of books you
-couldn’t string a sentence about, anything that hits you with a minor
-twang of guilt as you pass. Using the bookshelf as an example, why not
-just donate all the books and just start again, with a new limitation.
-‘I can’t buy a new book till I’ve finished this one’, and see if it fits
-or how about trying ‘I can only buy a book 7 days after I initially
-wanted it’, anything to keep the crazy monkey in your head from reaching for the credit card or the buy now button. Whilst I’ve focused heavily on spending limitations they may not be the case. Here’s a list of some of the limitations I’ve enacted.&lt;/p&gt;
-&lt;p&gt;- Follow a maximum of podcasts(Down from 30 that I never listened to)
-- Only two pages of apps on my iPhone(And no subfolders!)
-- Five news-feeds
-- Two books on my kindle at any one time&lt;/p&gt;
-&lt;p&gt;My 50 items goal generally keeps me from spending frivolously but that
-doesn’t help with digital purchases. One laptop can contain hundreds of
-distractions/guilts. I just got tired of seeing 500+ unread items in
-google reader or 100+ podcast episodes I never got around to listening
-to. We find it so easy to make a pleasing decision to better ourselves
-but not to realise that it might be far more beneficial to us to undo
-the original decision.&lt;/p&gt;
-&lt;h3&gt;Effects&lt;/h3&gt;
-&lt;p&gt;I listen to all of my podcasts, I can read through my news-feeds
-incredibly quickly. I don’t buy any old random app/book just because I
-can at the click of a button. Through limitations I can better evaluate
-what I truly want and as a result I value everything I have that much
-more. It’s also made me value my own time more that whatever the source ‘hey it may not actually be worth my valuable time’.&lt;/p&gt;
-&lt;h3&gt;Tips/Tricks&lt;/h3&gt;
-&lt;p&gt;Try to re-evaluate your limitations when you find things piling up
-again, I can’t stress this enough. I initially thought I could handle 20
-news-feeds, not so much. So if you’re still snowed under with say four
-podcasts, then try just one or maybe consider that you’re not a podcast
-person. Try a new limit and see if the shoe fits and just keep at it,
-eventually you’ll find the balance you’re looking for and maybe figure
-out who you are a bit more.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Vegetarian</title><link href="https://shanedowling.com/vegetarian-3c437a98aa85.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/vegetarian-3c437a98aa85.html</id><summary type="html">&lt;p&gt;Deciding to become vegetarian is not an easy step. I decided to dip my
+book. You’ll be rewarded, but it comes at a price.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Vegetarian</title><link href="https://shanedowling.com/vegetarian-3c437a98aa85.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/vegetarian-3c437a98aa85.html</id><summary type="html">&lt;p&gt;Deciding to become vegetarian is not an easy step. I decided to dip my
 toe in the water several years ago by trying a month of not eating meat,
 I would highly recommend everyone try this at least once just to see
 what it might be like. I enjoyed the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Deciding to become vegetarian is not an easy step. I decided to dip my
@@ -4402,850 +4004,7 @@ you’re craving you may realise that taste isn’t everything. Though it
 also helps that vegetarian fries are awesome.&lt;/p&gt;
 &lt;h3&gt;Tips&lt;/h3&gt;
 &lt;p&gt;I found when I first started looking for recipes I was overwhelmed by choice. Eventually I came across &lt;a href="https://www.bbcgoodfood.com"&gt;BBC’s good food site&lt;/a&gt;, which is just decided to awesome food, that’s rated by users. It has a really good vegetarian sections with some awesome recipes, I’ll share the ones that have worked for me at a later stage.&lt;/p&gt;
-&lt;p&gt;I often find myself with a ton of spare vegetables where recipes have annoyingly required two onions and I can only find a pack of three. If you find yourself with the same problem try a recipe that’s very loose with the ingredients. It might be a soup or a pasta dish with a nice sauce, for me because I like to use quinoa and lentils in a lot of my dishes I tried to find something that used both, with a lot of random vegetables.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Principles</title><link href="https://shanedowling.com/principles-5cdc28ff6843.html" rel="alternate"></link><published>2013-12-26T00:00:00+00:00</published><updated>2013-12-26T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-26:/principles-5cdc28ff6843.html</id><content type="html">&lt;p&gt;Going to spend St.Stephen’s day going over &lt;a href="http://www.bwater.com/Uploads/FileManager/Principles/Bridgewater-Associates-Ray-Dalio-Principles.pdf"&gt;Dalio’s Principles&lt;/a&gt;. I always find the holidays a good time to get a high-level view of things.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Thrashing your networks download with dispatch and axel</title><link href="https://shanedowling.com/thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html" rel="alternate"></link><published>2013-12-12T00:00:00+00:00</published><updated>2013-12-12T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-12:/thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html</id><summary type="html">&lt;p&gt;Say you need to grab a file as fast as possible and you also happen to
-have a few network connections knocking about. For example maybe a
-separate network for your wireless and ethernet. Maybe you have a phone
-with tethering or a 3g dongle. This little guide will get …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Say you need to grab a file as fast as possible and you also happen to
-have a few network connections knocking about. For example maybe a
-separate network for your wireless and ethernet. Maybe you have a phone
-with tethering or a 3g dongle. This little guide will get your download
-distributed across these connections and hopefully significantly speed
-things up.&lt;/p&gt;
-&lt;p&gt;Beforehand you’ll need &lt;a href="http://nodejs.org/download/"&gt;npm&lt;/a&gt;, &lt;a href="https://github.com/Morhaus/dispatch-proxy"&gt;dispatch&lt;/a&gt; and &lt;a href="http://axel.alioth.debian.org/"&gt;axel download manager&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Connect all of your network connections and get the IPs they have been
-allocated. I had some virtualbox connections appear as valid so make
-sure dispatch is using the right ones. You can actually use dispatch
-itself to list all potential connections.&lt;/p&gt;
-&lt;p&gt;dispatch list&lt;/p&gt;
-&lt;p&gt;Run dispatch with those IPs&lt;/p&gt;
-&lt;p&gt;dispatch start — http 192.168.111.68 192.168.111.223&lt;/p&gt;
-&lt;p&gt;Configure axel to use dispatch&lt;/p&gt;
-&lt;p&gt;~/.axelrc&lt;/p&gt;
-&lt;p&gt;http_proxy=http://localhost:8080&lt;/p&gt;
-&lt;p&gt;Download something&lt;/p&gt;
-&lt;p&gt;axel &lt;a href="http://cdimage.debian.org/debian-cd/7.2.0/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso"&gt;http://cdimage.debian.org/debian-cd/7.2.0/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Now axel should download across all of your devices but using multiple
-connections and a single file thread, so no slow file concatenation at
-the end.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Fixing a broken vagrant box</title><link href="https://shanedowling.com/fixing-a-broken-vagrant-box-cd6f169a62eb.html" rel="alternate"></link><published>2013-10-17T00:00:00+00:00</published><updated>2013-10-17T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-10-17:/fixing-a-broken-vagrant-box-cd6f169a62eb.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__TalXSpVG5yo__Lucbr1Wm6w.png"&gt;&lt;/p&gt;
-&lt;p&gt;The first time this happened I went into a cold sweat. My box with all
-dev versions of my companies live databases had died. Of course I had
-the box provisioned with salt so configuration wasn’t a problem, but
-grabbing all those databases, downloading, altering specific internal
-values and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__TalXSpVG5yo__Lucbr1Wm6w.png"&gt;&lt;/p&gt;
-&lt;p&gt;The first time this happened I went into a cold sweat. My box with all
-dev versions of my companies live databases had died. Of course I had
-the box provisioned with salt so configuration wasn’t a problem, but
-grabbing all those databases, downloading, altering specific internal
-values and inserting them was going to cost me hours. These steps
-should’ve been salted too but I hadn’t gotten round to it yet.&lt;/p&gt;
-&lt;p&gt;When I brought my vagrant box up, vagrant kept thinking that my original
-box had gone and kept trying to re-create a new one and provisioning it.
-Instead of starting from scratch I dug down and tried to figure out the
-problem. This issue has happened on several occasions for me so I
-figured I’d document the steps to fix it.&lt;/p&gt;
-&lt;p&gt;— — — — — — — — — — — — — — — — — — — — — — -&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Start up virtualbox and make sure the box is still there and working.&lt;/li&gt;
-&lt;li&gt;Sometimes I find that the .vbox file can get corrupted. This sucks but go into the folder that contains the vbox file and see if there’s a VM_NAME.vbox-prev and copy that back to VM_NAME.vbox and try to run it just via virtualbox to see if it picks back up. This was always my issue, I believe because my laptop sometimes ran out of space and virtualbox tries to write a new file it can’t and simply writes something corrupted.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Make sure Vagrant points to your working VirtualMachine
- — — — — — — — — — — — — — — — — — — — — — — — — — — — -&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;While trying to get vagrant up and running again it may have create a
-     bunch of similar boxes, get rid of those and retain the box you want
-     to keep.&lt;/li&gt;
-&lt;li&gt;Run this VBoxManage list vms and get the GUID of your newly fixed
-     box.&lt;/li&gt;
-&lt;li&gt;From the vagrant box directory go to .vagrant/machines/default/virtualbox and replace the contents of this
-     file with just the GUID. &lt;strong&gt;Make sure no newline exists at the end of this file.&lt;/strong&gt; This is key. A lot of editors will automatically add a newline here and won’t present it when you attempt to delete the newline. Try diffing this id file with the id file from another vagrant box to see if the newline still appears. Otherwise, vim will also state noeol in it’s statusbar to confirm there is no end of line.&lt;/li&gt;
-&lt;li&gt;Run vagrant status and see if it picks up your old box, if it doesn’t
-     make sure step 4 is correct.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Test your VM
- — — — — — —&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Make sure none of the other VMs are still running. I use the &lt;a href="https://github.com/joshmcarthur/vagrant-list"&gt;vagrant
-     list plugin&lt;/a&gt; for this. Once installed run vagrant list.&lt;/li&gt;
-&lt;li&gt;Then I shut down any that might conflict with my VM using VBoxManage
-     controlvm VM_NAME poweroff&lt;/li&gt;
-&lt;li&gt;Then vagrant reload my vagrant box to ensure everything works.&lt;/li&gt;
-&lt;/ol&gt;</content><category term="posts"></category></entry><entry><title>Using PPAs with Salt-States</title><link href="https://shanedowling.com/using-ppas-with-salt-states-dd60c32c1211.html" rel="alternate"></link><published>2013-10-10T00:00:00+00:00</published><updated>2013-10-10T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-10-10:/using-ppas-with-salt-states-dd60c32c1211.html</id><summary type="html">&lt;p&gt;I couldn’t seem to find a decent tutorial on using PPA’s to manage repos
-with salt states so I’m documenting it here.&lt;/p&gt;
-&lt;p&gt;Say you want to install golang using these&lt;/p&gt;
-&lt;p&gt;sudo add-apt-repository ppa:duh/golang
-sudo apt-get update
-sudo apt-get install golang&lt;/p&gt;
-&lt;p&gt;Well, to replicate this into …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I couldn’t seem to find a decent tutorial on using PPA’s to manage repos
-with salt states so I’m documenting it here.&lt;/p&gt;
-&lt;p&gt;Say you want to install golang using these&lt;/p&gt;
-&lt;p&gt;sudo add-apt-repository ppa:duh/golang
-sudo apt-get update
-sudo apt-get install golang&lt;/p&gt;
-&lt;p&gt;Well, to replicate this into a salt state it’s pretty straight-foward.
-This also ensures you always have an up-to-date version of go.&lt;/p&gt;
-&lt;p&gt;golang:
-pkg:
-- latest
-pkgrepo.managed:
-- name: ppa:duh/golang&lt;/p&gt;
-&lt;p&gt;That’s it, I just struggled to find that anyway.&lt;/p&gt;
-&lt;p&gt;Also, I’m aware &lt;a href="https://github.com/moovweb/gvm"&gt;gvm&lt;/a&gt; is awesome but I wanted to get something up and running quick and this was a nice example.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Making Drupal 6 Development Suck Less</title><link href="https://shanedowling.com/making-drupal-6-development-suck-less-ea6930df8056.html" rel="alternate"></link><published>2013-10-03T00:00:00+00:00</published><updated>2013-10-03T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-10-03:/making-drupal-6-development-suck-less-ea6930df8056.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__pyKonP__4TTO__P9guQ1lY9A.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;So you’re here. Like myself probably stuck developing for `Drupal
-6 `__. All the modules on-line are for
-the latest and greatest versions of Drupal and you’re scouring posts
-from 2009 to try find that deprecated module you really need. Well his
-post is dedicated to making your life …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__pyKonP__4TTO__P9guQ1lY9A.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;So you’re here. Like myself probably stuck developing for `Drupal
-6 `__. All the modules on-line are for
-the latest and greatest versions of Drupal and you’re scouring posts
-from 2009 to try find that deprecated module you really need. Well his
-post is dedicated to making your life that little bit less painful,
-because I too feel your pain.&lt;/p&gt;
-&lt;h3&gt;Better debugging with &lt;a href="https://drupal.org/project/devel"&gt;devel&lt;/a&gt;.&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Installation&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install &lt;a href="http://subversion.tigris.org/"&gt;subversion&lt;/a&gt; (to allow devel to download the firePHP extension code needed).&lt;/li&gt;
-&lt;li&gt;Make sure &lt;a href="http://drush.ws/"&gt;drush&lt;/a&gt; is installed.&lt;/li&gt;
-&lt;li&gt;drush dl devel &amp;amp;&amp;amp; drush en devel&lt;/li&gt;
-&lt;li&gt;Enable user permissions for devel&lt;/li&gt;
-&lt;li&gt;Enable what you need to at &lt;a href="http://root%5C_url.com/admin/settings/devel"&gt;http://rooturl.com/admin/settings/devel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Install &lt;a href="https://getfirebug.com/"&gt;FireBug&lt;/a&gt; and &lt;a href="http://firephp.org/"&gt;FirePHP&lt;/a&gt; on firefox and enable the Net Panel
-     in firebug&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Checkout watchdog output on firePHP, pretty cool eh?&lt;/li&gt;
-&lt;li&gt;You can see queries in the sidebar or if you’re logging them, here
-     &lt;a href="http://example.com/devel/queries"&gt;http://example.com/devel/queries&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Directly output to firephp with(alternate WARN with ERROR or INFO):&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;dfb($foo, ‘probably bad’, FirePHP::WARN);&lt;/p&gt;
-&lt;h3&gt;Drupal Specific Vim Config&lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://github.com/joonty/vim-sauce"&gt;&lt;strong&gt;VimSauce&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;I like to keep my vim configurations separate from each other so I don’t
-end up with huge messy config files with settings overlapping and
-breaking things. Before I used some shell aliases to alter symlinks to
-different vim configurations I had. Now, I use &lt;a href="https://github.com/joonty/vim-sauce"&gt;vimsauce&lt;/a&gt; to manage them. Once you got VimSauce installed(I’d recommend Vundle) create a new Drupal specific sauce with&lt;/p&gt;
-&lt;p&gt;:SauceNew drupal&lt;/p&gt;
-&lt;p&gt;then edit it with&lt;/p&gt;
-&lt;p&gt;:SauceEdit drupal&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://drupal.org/project/vimrc"&gt;&lt;strong&gt;Drupal Vimrc&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This project provides vimrc customisations for Drupal-specific editing. Exactly what&lt;/p&gt;
-&lt;p&gt;drush @none dl vimrc&lt;/p&gt;
-&lt;p&gt;This should install the file into ~/.drush/vimrc/bundle. Now you need to
-configure your new vimsauce file to work with the drupal vimrc
-customisations. The vimrc below should explain things. It’s a merge of
-the vimsauce default settings, a file I found under
-~/.drush/vimrc/examples/vimrc_timplunkett.vim and the pathogen
-settings.&lt;/p&gt;
-&lt;p&gt;set nocompatible call pathogen#infect(‘/home/user/.drush/vimrc/bundle’) call pathogen#infect(‘/home/user/.vimsauce/drupal/bundle’) “ End of vimrc-install additions.&lt;/p&gt;
-&lt;p&gt;let g:current_dir = “~/code/drupal” exec ‘cd ‘ . g:current_dir&lt;/p&gt;
-&lt;p&gt;“ Allow Vim-only settings even if they break vi keybindings. set nocompatible&lt;/p&gt;
-&lt;p&gt;“ Enable filetype detection filetype plugin on&lt;/p&gt;
-&lt;p&gt;“ General settings set incsearch “Find as you type set scrolloff=2 “Number of lines to keep above/below cursor set number “Show line numbers set wildmode=longest,list “Complete longest string, then list alternatives set pastetoggle= “Toggle paste mode set fileformats=unix “Use Unix line endings set history=300 “Number of commands to remember set showmode “Show whether in Visual, Replace, or Insert Mode set showmatch “Show matching brackets/parentheses set backspace=2 “Use standard backspace behavior set hlsearch “Highlight matches in search set ruler “Show line and column number set formatoptions=1 “Don’t wrap text after a one-letter word set linebreak “Break lines when appropriate&lt;/p&gt;
-&lt;p&gt;“ Persistent Undo (vim 7.3 and later) if exists(‘&amp;amp;undofile’) &amp;amp;&amp;amp; !&amp;amp;undofile set undodir=~/.vim_runtime/undodir set undofile endif&lt;/p&gt;
-&lt;p&gt;“ Enable syntax highlighting if &amp;amp;t_Co &amp;gt; 1 syntax enable endif syntax on&lt;/p&gt;
-&lt;p&gt;“ Custom key mapping map :redo map :tabn map :tabp&lt;/p&gt;
-&lt;p&gt;“ Uncomment the following to have Vim jump to the last position when “ reopening a file if has(“autocmd”) au BufReadPost * if line(“‘“”) &amp;gt; 0 &amp;amp;&amp;amp; line(“‘“”) &amp;lt;= line(“$”) | exe “normal! g’”” | endif endif&lt;/p&gt;
-&lt;h3&gt;Sticking to a Coding Standard&lt;/h3&gt;
-&lt;p&gt;So I try to always adhere to the coding standard of whatever system I’m
-using. Typically that’s easy but I’ve found getting my hands on a
-automated check that ensures my code is up to drupal’s standards a
-little difficult(especially with drupal 6). Firstly you need to install
-PHP’s codesniffer, which I did using PEAR.&lt;/p&gt;
-&lt;p&gt;sudo pear install PHP_CodeSniffer&lt;/p&gt;
-&lt;p&gt;In the end I was forced to use a Drupal 7 specific codesniffer. This
-project has actually been merged into the Coder project but as I’m using
-Drupal 6, the current version of coder that works with Drupal 6 doesn’t
-include the codesniffer. So I nabbed the latest standalone version of
-drupal codesniffer.&lt;/p&gt;
-&lt;p&gt;wget &lt;a href="http://ftp.drupal.org/files/projects/drupalcs-7.x-1.x-dev.tar.gz"&gt;http://ftp.drupal.org/files/projects/drupalcs-7.x-1.x-dev.tar.gz&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;I then extract it to my ~/.drush folder and symlink it to where pear has
-placed php codesniffers various syntax checking config files&lt;/p&gt;
-&lt;p&gt;sudo ln -sv ~/.drush/drupalcs/Drupal $(pear config-getphp_dir)/PHP/CodeSniffer/Standards&lt;/p&gt;
-&lt;p&gt;Now, this is the setting that I’ve come across that apparently changes
-phpcs to use Drupal as the standard which codesniffer adheres to.&lt;/p&gt;
-&lt;h3&gt;Use drupals codesniffer&lt;/h3&gt;
-&lt;p&gt;let g:syntastic_phpcs_conf=” — standard=Drupal — extensions=php,module,inc,install,test,profile,theme”&lt;/p&gt;
-&lt;p&gt;I could not get this to work. It simply refused to budge from the
-standard PSR syntax checker that is the default for PHP codesniffer. I
-was forced to just set the default to drupal’s.&lt;/p&gt;
-&lt;p&gt;sudo phpcs — config-set default_standard Drupal&lt;/p&gt;
-&lt;p&gt;This is a little annoying if you jump between standard PHP projects and
-Drupal projects, so I added a system command call to my various vim
-sauces to set php codesniffer to the correct standard. It should bug you
-to enter a sudo password, but I’d rather that than having to explicitly
-run these commands.&lt;/p&gt;
-&lt;p&gt;call system(“sudo phpcs — config-set default_standard Drupal”)&lt;/p&gt;
-&lt;p&gt;This post has already gotten very long but I’ll try to write something
-up on getting unit-testing up and running with Drupal 6 at a later
-stage. I can attest it is possible, just a bit of a pain in the ass.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Connect to routers anonymously</title><link href="https://shanedowling.com/connect-to-routers-anonymously-9287ec7e7951.html" rel="alternate"></link><published>2013-09-28T00:00:00+00:00</published><updated>2013-09-28T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-09-28:/connect-to-routers-anonymously-9287ec7e7951.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__2zYJ6QvnP__Z17B321DD7NQ.png"&gt;&lt;/p&gt;
-&lt;p&gt;I’ve created a little script that incorporates
-&lt;a href="https://launchpad.net/wicd"&gt;wicd&lt;/a&gt;, &lt;a href="https://github.com/alobbs/macchanger"&gt;macchanger&lt;/a&gt;, &lt;a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?hostname"&gt;hostname&lt;/a&gt; and &lt;a href="http://www.openwall.com/john/"&gt;john the ripper’s&lt;/a&gt; password list to randomise your mac address and hostname when connecting to the internet.&lt;/p&gt;
-&lt;p&gt;I’ve gone with wicd over network manager as network-manager has a
-tendency to store connection details, so while your …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__2zYJ6QvnP__Z17B321DD7NQ.png"&gt;&lt;/p&gt;
-&lt;p&gt;I’ve created a little script that incorporates
-&lt;a href="https://launchpad.net/wicd"&gt;wicd&lt;/a&gt;, &lt;a href="https://github.com/alobbs/macchanger"&gt;macchanger&lt;/a&gt;, &lt;a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?hostname"&gt;hostname&lt;/a&gt; and &lt;a href="http://www.openwall.com/john/"&gt;john the ripper’s&lt;/a&gt; password list to randomise your mac address and hostname when connecting to the internet.&lt;/p&gt;
-&lt;p&gt;I’ve gone with wicd over network manager as network-manager has a
-tendency to store connection details, so while your machine might id
-your hostname or mac address as something new, network-manager will
-actually connect using the original stored details.&lt;/p&gt;
-&lt;p&gt;I must admit I enjoyed writing this, it reminded me of the old days when
-linux network managers were all rubbish and you had to write bash
-scripts to connect to vaguely complex network configurations.&lt;/p&gt;
-&lt;h1&gt;!/bin/bash&lt;/h1&gt;
-&lt;p&gt;# Anonymise your machines internet connection&lt;/p&gt;
-&lt;p&gt;# Settings
- INTERFACE=wlan1
- HOSTS_FILE=”/etc/hosts”
- START_TOKEN=”## start-anon”
- END_TOKEN=”## end-anon”&lt;/p&gt;
-&lt;p&gt;# Must be run as root
- if [[ $EUID -ne 0 ]]; then
- printf “This script must be run as root\n” 1&amp;gt;&amp;amp;2
- exit 1
- fi&lt;/p&gt;
-&lt;p&gt;# Network restart function
- if [ “Linux” == `uname` ]; then
- restart_network=”/etc/init.d/networking restart”
- fi&lt;/p&gt;
-&lt;p&gt;# Function to clear old data and add new hosts entry
- function update_hosts()
- {
- # if no hosts file found…
- if [ ! -f $1 ]
- then
- printf \n”No hosts file found\n” 1&amp;gt;&amp;amp;2
- exit 1
- fi&lt;/p&gt;
-&lt;p&gt;file=$1
- host=$2&lt;/p&gt;
-&lt;p&gt;sed_script=”{
- s/$END_TOKEN/$END_TOKEN/
- t finished_sites&lt;/p&gt;
-&lt;p&gt;s/$START_TOKEN/$START_TOKEN/
- x
- t started_sites&lt;/p&gt;
-&lt;p&gt;s/$START_TOKEN/$START_TOKEN/
- x
- t started_sites&lt;/p&gt;
-&lt;p&gt;p
- b end
- : started_sites
- d
- : finished_sites
- x
- d
- : end
- d
- }”&lt;/p&gt;
-&lt;p&gt;hostname $host&lt;/p&gt;
-&lt;p&gt;sed — in-place -e “$sed_script” $file
- echo $START_TOKEN &amp;gt;&amp;gt; $file
- printf “\n127.0.1.1 $host\n” &amp;gt;&amp;gt; $file
- echo $END_TOKEN &amp;gt;&amp;gt; $file
- }&lt;/p&gt;
-&lt;p&gt;# Presenting original information
- printf “Starting to anonimise your data\n”&lt;/p&gt;
-&lt;p&gt;# Stop Wicd
- sudo service wicd stop
- sleep 1&lt;/p&gt;
-&lt;h1&gt;changing mac address to random&lt;/h1&gt;
-&lt;p&gt;ifconfig $INTERFACE down &amp;gt; /dev/null
- if [ $? == 0 ]; then
- printf “%snChanging mac address…\n”
- macchanger -r $INTERFACE
- else
- printf “%sScript encountered an error, sorry…\n”
- exit 1
- fi
- sleep 1&lt;/p&gt;
-&lt;p&gt;# Use john to supply new hostname to function
- OLDHOST=$(hostname)
- printf “%s\nChanging hostname…\n”
- printf “Current : $OLDHOST \n”
- FILE=/usr/share/john/password.lst
- WORD=$(sort -R $FILE | head -1)
- update_hosts $HOSTS_FILE $WORD
- NEWHOST=$(hostname)
- printf “New : $NEWHOST \n”
- sleep 1&lt;/p&gt;
-&lt;p&gt;# putting interface up
- ifconfig $INTERFACE up &amp;gt; /dev/null
- printf “\n”
- sleep 1&lt;/p&gt;
-&lt;p&gt;# Restart networking
- $restart_network&lt;/p&gt;
-&lt;p&gt;# Get wicd back up and running
- service wicd start
- sleep 1&lt;/p&gt;
-&lt;p&gt;wicd-gtk &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/p&gt;
-&lt;h1&gt;END&lt;/h1&gt;</content><category term="posts"></category></entry><entry><title>Explainshell</title><link href="https://shanedowling.com/explainshell-52cc1de7a71a.html" rel="alternate"></link><published>2013-09-13T00:00:00+00:00</published><updated>2013-09-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-09-13:/explainshell-52cc1de7a71a.html</id><content type="html">&lt;p&gt;&lt;a href="https://explainshell.com" title="https://explainshell.com"&gt;&lt;strong&gt;explainshell.com - &lt;em&gt;match command-line arguments to their help text&lt;/em&gt;&lt;/strong&gt;
-match command-line arguments to their help textexplainshell.com&lt;/a&gt;&lt;a href="https://explainshell.com"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;A very nice visualization of command line args.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Happy Programmers Day!</title><link href="https://shanedowling.com/happy-programmers-day-d14d9063b43f.html" rel="alternate"></link><published>2013-09-13T00:00:00+00:00</published><updated>2013-09-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-09-13:/happy-programmers-day-d14d9063b43f.html</id><content type="html">&lt;p&gt;Happy Programmers Day!&lt;/p&gt;
-&lt;p&gt;Have a productive one…&lt;/p&gt;
-&lt;p&gt;Or you’re sacked.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Salt Miner</title><link href="https://shanedowling.com/salt-miner-5d8c30f9d61f.html" rel="alternate"></link><published>2013-09-07T00:00:00+00:00</published><updated>2013-09-07T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-09-07:/salt-miner-5d8c30f9d61f.html</id><summary type="html">&lt;p&gt;I’ve just created a salt state that allows you to install a
-crypto-currency miner across your salt provisioned boxes. It’s only
-tested on Ubuntu and Debian, but I intend to extend it to
-Archlinux(there’s a lovely aur package that does all the work).
-Currently I’m …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’ve just created a salt state that allows you to install a
-crypto-currency miner across your salt provisioned boxes. It’s only
-tested on Ubuntu and Debian, but I intend to extend it to
-Archlinux(there’s a lovely aur package that does all the work).
-Currently I’m mining &lt;a href="https://anoncoin.net/"&gt;anoncoins&lt;/a&gt; as you have
-some chance of making tiny amounts of cash and it’s &lt;a href="https://www.cryptsy.com/markets/view/66"&gt;exchange rate
-against Bitcoins isn’t so bad&lt;/a&gt; but feel free to choose whatever coin you like.&lt;/p&gt;
-&lt;p&gt;Make literally pennies per day on your salt provisioned servers using a
-crappy unprofitable CPU-based miner! Yes, this was a labor of love, not
-profit. The git repo is &lt;a href="https://github.com/shano/salty-miner"&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;So when no one is visiting your blog and no one is using your web app at
-least you can be happy knowing your servers are doing something small
-towards paying themselves off.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Unit-testing unmanaged Django models</title><link href="https://shanedowling.com/unit-testing-unmanaged-django-models-bf2cb6837fec.html" rel="alternate"></link><published>2013-08-31T00:00:00+00:00</published><updated>2013-08-31T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-31:/unit-testing-unmanaged-django-models-bf2cb6837fec.html</id><summary type="html">&lt;p&gt;Say you have an app with a set of models that aren’t being managed by
-Django, you’re going to run into trouble when it comes time to run
-unit-tests against these. What I mean is if in the model meta you have
-something like this&lt;/p&gt;
-&lt;p&gt;app_label = ‘your …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Say you have an app with a set of models that aren’t being managed by
-Django, you’re going to run into trouble when it comes time to run
-unit-tests against these. What I mean is if in the model meta you have
-something like this&lt;/p&gt;
-&lt;p&gt;app_label = ‘your_app_label’
- managed = False
- db_table = u’your_table_name’&lt;/p&gt;
-&lt;p&gt;If you run unit-tests against these models the trouble occurs because
-django will ignore this model when creating tables in the test database
-and you’ll get a relation not defined error for ‘your_table_name’. The
-solution to this is to create an app specific TestRunner that will
-over-ride this setting and temporarily allow Django to manage your
-models, just for testing purposes.&lt;/p&gt;
-&lt;p&gt;from django.test.simple import DjangoTestSuiteRunner&lt;/p&gt;
-&lt;p&gt;class ManagedModelTestRunner(DjangoTestSuiteRunner):
- “””
- Test runner that automatically makes all unmanaged models in your Django
- project managed for the duration of the test run, so that one doesn’t need
- to execute the SQL manually to create them.
- “””
- def setup_test_environment(self, *args, **kwargs):
- from django.db.models.loading import get_models
- self.unmanaged_models = [m for m in get_models()
- if not m._meta.managed
- and m._meta.app_label is ‘your_app_label’]
- m._meta.managed = True
- super(ManagedModelTestRunner, self).setup_test_environment(*args,
- **kwargs)&lt;/p&gt;
-&lt;p&gt;def teardown_test_environment(self, *args, **kwargs):
- super(ManagedModelTestRunner, self).teardown_test_environment(*args,
- **kwargs)
- # reset unmanaged models
- m._meta.managed = False&lt;/p&gt;
-&lt;p&gt;This code was lovingly taken from &lt;a href="http://www.caktusgroup.com/blog/2010/09/24/simplifying-the-testing-of-unmanaged-database-models-in-django/"&gt;here&lt;/a&gt; and extending very slightly to only include models that exist under the my_app_label app. I don’t want my app’s test to go fudging around with others, unless it’s needed.&lt;/p&gt;
-&lt;p&gt;To then run tests with this testrunner, create a test_settings.py that
-looks something like this. This which basically tells Django to import
-your existing settings but to use your newly created TestRunner&lt;/p&gt;
-&lt;p&gt;from settings import *&lt;/p&gt;
-&lt;p&gt;TEST_RUNNER = ‘your_app_label.scripts.testrunner.ManagedModelTestRunner’&lt;/p&gt;
-&lt;p&gt;./manage.py test your_app_label settings=you_app_label.settings.test_settings&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Suppling test data to django-cities</title><link href="https://shanedowling.com/suppling-test-data-to-django-cities-6afd013f671d.html" rel="alternate"></link><published>2013-08-29T00:00:00+00:00</published><updated>2013-08-29T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-29:/suppling-test-data-to-django-cities-6afd013f671d.html</id><summary type="html">&lt;p&gt;&lt;a href="https://github.com/coderholic/django-cities"&gt;Django-Cities&lt;/a&gt;, is an awesome project that supplies easy to import worldwide location data and a set of very neat location models that you should really be using for any django project needing location information. I’ve been using it lately but ran into problems when I tried to run unit …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://github.com/coderholic/django-cities"&gt;Django-Cities&lt;/a&gt;, is an awesome project that supplies easy to import worldwide location data and a set of very neat location models that you should really be using for any django project needing location information. I’ve been using it lately but ran into problems when I tried to run unit tests that made use of the django-cities app.&lt;/p&gt;
-&lt;p&gt;As django-cities populates a load of data via it’s import command it can
-take a long time(over an hour) before a test database with all the data
-could be created. So I needed a stop-gap solution to quickly get a
-workable dataset up and running for a few small unit tests.&lt;/p&gt;
-&lt;p&gt;I find fixtures problematic, data may change over time and maintaining a
-bunch of JSON files to represent a few simple locations can be a pain.
-So here’s a very quick example of how I use the ORM to populate a single
-location hierarchy for your tests.py.&lt;/p&gt;
-&lt;p&gt;def setUp(self):&lt;/p&gt;
-&lt;p&gt;self.country = Country(name=”United Kingdom”, code=’UK’, tld=’co.uk’, population = 62740000)
- self.country.save()&lt;/p&gt;
-&lt;p&gt;self.region = Region(name = “London”, name_std=”London”, code=”LDN”, country=self.country)
- self.region.save()&lt;/p&gt;
-&lt;p&gt;self.city = City(name=’Camden’, name_std=’Camden’, region=self.region, country=self.country, population = 8174000, location=’POINT (3400000 6700010)’)
-   self.city.save()&lt;/p&gt;
-&lt;p&gt;The city POINT location is totally random, I’ll start populating real
-location values when I need distance based tests.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Archlinux Pacman Update Fix</title><link href="https://shanedowling.com/archlinux-pacman-update-fix-a99b2f157a2c.html" rel="alternate"></link><published>2013-08-25T00:00:00+00:00</published><updated>2013-08-25T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-25:/archlinux-pacman-update-fix-a99b2f157a2c.html</id><content type="html">&lt;p&gt;I’m writing this up as a quick solution to archlinux’s dreaded pacman
-update problem.&lt;/p&gt;
-&lt;p&gt;If you have yaourt installed simply update package-query through it and
-update pacman normally.&lt;/p&gt;
-&lt;p&gt;yaourt -S package-query
-pacman -Syu&lt;/p&gt;
-&lt;p&gt;Make sure also to delete the SyncFirst option from /etc/pacman.conf&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Zmap</title><link href="https://shanedowling.com/zmap-b25d89e8c1b5.html" rel="alternate"></link><published>2013-08-25T00:00:00+00:00</published><updated>2013-08-25T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-25:/zmap-b25d89e8c1b5.html</id><content type="html">&lt;p&gt;Zmap&lt;/p&gt;
-&lt;h4&gt;&lt;/h4&gt;
-&lt;p&gt;Woah! I should not know `this `__ exists.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Writing Django tests for PostGis</title><link href="https://shanedowling.com/writing-django-tests-for-postgis-9eefe47fd368.html" rel="alternate"></link><published>2013-08-24T00:00:00+00:00</published><updated>2013-08-24T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-24:/writing-django-tests-for-postgis-9eefe47fd368.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;PostGis is awesome, I think I already established this in &lt;a href="http://shanedowling.com/index.php/postgis/"&gt;this post&lt;/a&gt;. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you’ve failed to create a proper postgres_template database for your test database to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;PostGis is awesome, I think I already established this in &lt;a href="http://shanedowling.com/index.php/postgis/"&gt;this post&lt;/a&gt;. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you’ve failed to create a proper postgres_template database for your test database to work with. Run these commands in your postgres prompt to create the appropriate template.&lt;/p&gt;
-&lt;p&gt;CREATE DATABASE template_postgis ENCODING=’utf-8';
-UPDATE pg_database SET datistemplate=’true’ WHERE datname=’template_postgis’;
-q&lt;/p&gt;
-&lt;p&gt;sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-1.5/postgis.sql
- sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-1.5/spatial_ref_sys.sql
- sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis_comments.sql
- sudo -u postgres psql -d template_postgis -c “GRANT ALL ON geometry_columns TO PUBLIC;”
- sudo -u postgres psql -d template_postgis -c “GRANT ALL ON geography_columns TO PUBLIC;”
- sudo -u postgres psql -d template_postgis -c “GRANT ALL ON spatial_ref_sys TO PUBLIC;”&lt;/p&gt;
-&lt;p&gt;If you decide to name your postgis template something other than
-template_postgis, make sure you tell Django by putting the below into
-settings.py&lt;/p&gt;
-&lt;p&gt;POSTGIS_TEMPLATE = ‘my_other_database_template’&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I ran all of these commands on my Ubuntu 12.04 LTS vagrant
-box. If you get encoding errors you might need to set UTF-8 as the
-template DB encoding, see this &lt;a href="http://stackoverflow.com/a/16737776/108396"&gt;SO answer&lt;/a&gt;.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Install nzbget using salt</title><link href="https://shanedowling.com/install-nzbget-using-salt-7cc40711adb6.html" rel="alternate"></link><published>2013-08-23T00:00:00+00:00</published><updated>2013-08-23T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-23:/install-nzbget-using-salt-7cc40711adb6.html</id><summary type="html">&lt;p&gt;Recently I’ve been using vagrant to configure more and more of the local webapps I’m using day to day, simply as I find sticking all the apps I use on my host machine a little messy. I’ve also been picking up &lt;a href="http://saltstack.com/"&gt;salt-stack&lt;/a&gt; with salt-states as the provisioner …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Recently I’ve been using vagrant to configure more and more of the local webapps I’m using day to day, simply as I find sticking all the apps I use on my host machine a little messy. I’ve also been picking up &lt;a href="http://saltstack.com/"&gt;salt-stack&lt;/a&gt; with salt-states as the provisioner as I personally prefer it a lot more than puppet/chef.&lt;/p&gt;
-&lt;p&gt;As a learning exercise I figured I’d setup nzbget using salt, it’s good because it requires a few config files and some compiling. You can find the repo &lt;a href="https://github.com/shano/salt-nzbget"&gt;here&lt;/a&gt;. Should be fairly self explanatory, but there’s more details in the README. If you’ve any questions just ask in the comments.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Octopress back to Wordpress</title><link href="https://shanedowling.com/octopress-back-to-wordpress-6740efc31eb9.html" rel="alternate"></link><published>2013-08-22T00:00:00+00:00</published><updated>2013-08-22T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-22:/octopress-back-to-wordpress-6740efc31eb9.html</id><summary type="html">&lt;p&gt;I’ve been using &lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; for the last while
-and it felt good having a nice fast static blog as opposed to heavy-old
-&lt;a href="https://wordpress.com/"&gt;Wordpress&lt;/a&gt;. After time passed however, I noticed I wrote less. Having to grab my laptop and pull up vim to write something, then play around with git …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’ve been using &lt;a href="http://octopress.org/"&gt;Octopress&lt;/a&gt; for the last while
-and it felt good having a nice fast static blog as opposed to heavy-old
-&lt;a href="https://wordpress.com/"&gt;Wordpress&lt;/a&gt;. After time passed however, I noticed I wrote less. Having to grab my laptop and pull up vim to write something, then play around with git or a sometimes having dodgy rsync problems it made the whole process less seamless. Jumping straight onto Wordpress anywhere I felt like(even my phone), has made the ability to write much more present during my day and naturally as a result I’m writing more.&lt;/p&gt;
-&lt;p&gt;Anyway, I found a nice little project that pushed a folder of Octopress
-markdown to a Wordpress XML-RPC endpoint &lt;a href="https://github.com/collindonnell/octo-2-wp"&gt;here&lt;/a&gt;. It was a struggle
-to find, if you search for anything vaguely related to Octopress and
-Wordpress you’ll get a million tutorials pushing you out of nasty old
-Wordpress, not back into. The script didn’t work out of the box for me
-so I added a couple of fixes, which the author nicely accepted. Hope it
-helps!&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Postgis</title><link href="https://shanedowling.com/postgis-31e5d7e13bff.html" rel="alternate"></link><published>2013-08-19T00:00:00+00:00</published><updated>2013-08-19T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-19:/postgis-31e5d7e13bff.html</id><summary type="html">&lt;p&gt;from cities.models import City
- cape_town = City.objects.filter(country__name=’South Africa’).get(name=’Cape Town’)
- nearest = City.objects.distance(cape_town.location).exclude(id=cape_town.id).order_by(‘distance’)[:10000]&lt;/p&gt;
-&lt;p&gt;I must be very damaged from location data being badly implemented in MySQL. I’m still …&lt;/p&gt;</summary><content type="html">&lt;p&gt;from cities.models import City
- cape_town = City.objects.filter(country__name=’South Africa’).get(name=’Cape Town’)
- nearest = City.objects.distance(cape_town.location).exclude(id=cape_town.id).order_by(‘distance’)[:10000]&lt;/p&gt;
-&lt;p&gt;I must be very damaged from location data being badly implemented in MySQL. I’m still amazed that this request could be under a second, let alone be pretty much instant. &lt;a href="http://postgis.net/"&gt;Postgis&lt;/a&gt; is basically the coolest thing ever.&lt;/p&gt;
-&lt;p&gt;Oh and in case you were curious(which you weren’t), &lt;a href="https://en.wikipedia.org/wiki/Rocca_di_Papa"&gt;this place&lt;/a&gt; is in terms of
-distance the 10000th closest place to Cape Town.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>GSD 1 — Reducing Distractions</title><link href="https://shanedowling.com/gsd-1-reducing-distractions-a42c7b164ce0.html" rel="alternate"></link><published>2013-08-03T00:00:00+00:00</published><updated>2013-08-03T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-03:/gsd-1-reducing-distractions-a42c7b164ce0.html</id><summary type="html">&lt;p&gt;Most of my distractions currently come from within. I hit up social
-media or news sites. Also my email is a big time waster. I needed a way
-to remain connected but while preventing regular access. Here’s what
-helped.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/viccherubini/get-shit-done"&gt;Get Shit Done&lt;/a&gt; — A cross platform OS level site blocker …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Most of my distractions currently come from within. I hit up social
-media or news sites. Also my email is a big time waster. I needed a way
-to remain connected but while preventing regular access. Here’s what
-helped.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/viccherubini/get-shit-done"&gt;Get Shit Done&lt;/a&gt; — A cross platform OS level site blocker. Simply install the script, add your distracting sites and run ‘get-shit-done work’ in a terminal. You only notice sheer number of times you find yourself flicking to those distracting sites when a big error is thrown that the site is unavailable. It’s a learning experience. Your browser however, may cache URL lookups and you may still access distracting sites when I shouldn’t and visa-versa. On Firefox there is an extension called &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/dns-cache/"&gt;DNS
-Cache&lt;/a&gt;. It allows you to prevent Firefox caching DNS entries, I presume this slows down URL requests but I barely noticed a difference and GSD now works as it should.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://status.constantcontact.com/nutshellmail/"&gt;Nutshellmail&lt;/a&gt;— Sends an email as often
-as you’d like with all your Facebook/Twitter updates. You know you’ll
-get an social media update at some point so why bother flicking over to
-Facebook now?&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Getting Shit Done</title><link href="https://shanedowling.com/getting-shit-done-99303b405d8c.html" rel="alternate"></link><published>2013-08-01T00:00:00+00:00</published><updated>2013-08-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-01:/getting-shit-done-99303b405d8c.html</id><summary type="html">&lt;p&gt;I created a number of long term goals recently and have been trying to
-work out a system within which I can continue to keep my focus on those long term goals and reduce procrastination. I try to promote a daily focus on long term tasks through reminders and regular …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I created a number of long term goals recently and have been trying to
-work out a system within which I can continue to keep my focus on those long term goals and reduce procrastination. I try to promote a daily focus on long term tasks through reminders and regular reviews while reducing procrastination through a set of core tools. I tried multiple tools/tricks and what I’ll post a series on the tools and tricks I used.&lt;/p&gt;
-&lt;p&gt;Here are the topics I’ll post on(and link here):&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://medium.com/brightpin/gsd-1-reducing-distractions-a42c7b164ce0?source=linkShare-c3fb4f3f97d3-1515858383"&gt;Reducing Distractions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://medium.com/p/98ffdabf2a75?source=linkShare-c3fb4f3f97d3-1515858422"&gt;Retaining Focus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://medium.com/p/ded639ef1e39?source=linkShare-c3fb4f3f97d3-1515858463"&gt;Keeping your habits in mind&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://medium.com/p/8a7ab553a72f?source=linkShare-c3fb4f3f97d3-1515858504"&gt;Reviewing&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="posts"></category></entry><entry><title>Writing Less</title><link href="https://shanedowling.com/writing-less-2757f83c3a48.html" rel="alternate"></link><published>2013-07-29T00:00:00+00:00</published><updated>2013-07-29T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-07-29:/writing-less-2757f83c3a48.html</id><summary type="html">&lt;blockquote&gt;
-&lt;p&gt;“I didn’t have time to write a short letter, so I wrote a long one
-instead.” — Mark Twain&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Lately I’ve been struggling with consistently writing. I find it
-difficult to sit down in the morning and begin to write. Usually ideas
-fall out of my head and I …&lt;/p&gt;</summary><content type="html">&lt;blockquote&gt;
-&lt;p&gt;“I didn’t have time to write a short letter, so I wrote a long one
-instead.” — Mark Twain&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Lately I’ve been struggling with consistently writing. I find it
-difficult to sit down in the morning and begin to write. Usually ideas
-fall out of my head and I get into a flow quite quickly but recently,
-without a clear idea sitting in my head for a period of time I simply
-can’t put pen to paper.&lt;/p&gt;
-&lt;p&gt;I also just finished reading Charlie Brooker’s article on “`Reducing
-my word emissions“ and I must admit some of his points are pretty convincing. There is a lot of noise on the internet and I suspect a lot of my unwillingness to return to writing is due to this.
-I’m also working on a project similar to stackoverflow and I’m truly beginning to appreciate the format of the site. The internet simply has too much noise to signal.&lt;/p&gt;
-&lt;p&gt;I’m going to try keep a hard limit on my posts of 200 words and see
-if the limit can’t help the writers block.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Tired meditation</title><link href="https://shanedowling.com/tired-meditation-47ed1f094c04.html" rel="alternate"></link><published>2013-07-25T00:00:00+00:00</published><updated>2013-07-25T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-07-25:/tired-meditation-47ed1f094c04.html</id><summary type="html">&lt;p&gt;When I imagine myself doing meditation, I see myself almost leaping out of bed with boundless energy, followed by a full and focused period of breathing exercises. Nothing could be further from the truth. Right now I’m working through the Discovery Series on Headspace and it’s focusing more …&lt;/p&gt;</summary><content type="html">&lt;p&gt;When I imagine myself doing meditation, I see myself almost leaping out of bed with boundless energy, followed by a full and focused period of breathing exercises. Nothing could be further from the truth. Right now I’m working through the Discovery Series on Headspace and it’s focusing more on looking at your body and how it feels. Now, a lot of what the meditation suggests is, is to use focus to alleviate the negative
-feelings that occur in your body. This is great and it does help a lot but I have a fairly recurring and distracting problem when meditation.&lt;/p&gt;
-&lt;p&gt;You see, because I see meditation as a fundamental habit I always start
-my day with it. The problem is that a lot of the time I feel like utter
-crap getting out of bed. I’m not the type to leap out of bed, it’s a struggle. When I’m sitting and focused internally I notice each and every miserable feeling my body goes through at the start of the day. Say I haven’t gotten a good nights sleep, my eyes feel like they’re on fire, I get random pains everywhere or sometimes I want to throw up. Oh, and my entire body just wants to slide back to being horizontal just for a few more minutes. This is the ugly side of meditation you don’t imagine when you conjure up the image of a yogi sitting cross-legged focused intensely on nothing.&lt;/p&gt;
-&lt;p&gt;My tactics for this are really straight-forward, before I start on the
-fundamental habit, I now do two things. A few quick stretches for just a
-minute or two and I wash my face. It sounds so simple but the effects
-are drastic. It seems to start the waking cycle a little faster, I’m
-that little bit more alert and awake. The focus of the meditation moves
-from post-bed pains to the more of the legitmate pains/pleasures I’m
-more likely to feel during the day. On top of that, the combination
-builds up more of the relaxed focus that meditation tries to teach you.
-So if you’re struggling with meditation in the morning give that a
-shot. Also, if there’s persistent pains that occur during meditation and
-they can be alleviated, do so.&lt;/p&gt;
-&lt;p&gt;It may be worth going to see a physio/doctor and if you’re really
-struggling to alleviate pain. Sometimes the solution can be a yoga
-routine, which is simply another form of meditation. Focus is all well and good, but when solvable problems take over your meditation completely, it’s a no-brainer. Solve them and
-move onto other more difficult issues.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>South Africa</title><link href="https://shanedowling.com/south-africa-c688b9070707.html" rel="alternate"></link><published>2013-07-20T00:00:00+00:00</published><updated>2013-07-20T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-07-20:/south-africa-c688b9070707.html</id><summary type="html">&lt;p&gt;I’d been in Cape Town for two weeks beforehand, just remotely working
-and doing some sightseeing around the area. So I had plenty of time for
-prep for the trip and was pretty relaxed arriving at Ashanti Logde(where
-the trip starts). The trip was booked through African Budget …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’d been in Cape Town for two weeks beforehand, just remotely working
-and doing some sightseeing around the area. So I had plenty of time for
-prep for the trip and was pretty relaxed arriving at Ashanti Logde(where
-the trip starts). The trip was booked through African Budget
-Safari’s which seemed to the cheapest option around. The dates I had originally planned to travel with(and booked) were unavailable and ABS happily changed my dates and gave me a heavy discount(about 25%). On top of that I declined the free activities in Cape Town, so I was given free upgrade at Ashanti to my own room. So I can definitely recommend African Budget Safari’s as an agent and also chance your arm and see what discounts you can get.&lt;/p&gt;
-&lt;p&gt;We met up with others on the trip and waited for the trip leaders. The
-group was mostly mid-to-late twenties with two outliers in the
-forties/fifties. Still an excellent result as I was worried the group
-would have a much older average age. As I traveled I noticed the more
-expensive tour groups had a lot of older people traveling and it sounded
-like an awful time for younger folk traveling with them. I would highly
-recommend finding out a rough average age of the people going on the
-trip beforehand, our group was wonderful so living in each other’s
-pockets really wasn’t a problem. However, if you get a bad group,
-there’s not a lot you can do for 6–8 weeks.&lt;/p&gt;
-&lt;p&gt;The group was 16 in total, about 8 of which were going the whole 42
-days(and then some) to Kenya, so there wasn’t a lot of swapping around
-of the group. The trip is split into 3 main sub-trips(but there’s
-shorter trips within this also), so I was glad the group remained
-consistent.&lt;/p&gt;
-&lt;p&gt;Eventually trip crew arrives, three guys from Zimbabwe. A chef, a driver
-and the trip leader. It’s usually those three guys, but we had a trainee
-driver with us on this trip(to get his head around the route to
-Zimbabwe). They all seemed lovely. We made out local payments and a run through the next few days was done.&lt;/p&gt;
-&lt;h3&gt;Cash&lt;/h3&gt;
-&lt;p&gt;One of the things I was sweating about was having access to local
-money. How it was relayed to me was that I would need to have all of my spending money at the start of the trip. This seemed dubious as I really didn’t want to have a ton of cash with me while traveling. The trip
-leader alleviated these fears by explaining that there was tons of ATMs
-on the way and you can take out as much Rand as you wanted as South
-Africa, Namibia, Zimbabwe and most campsites in Botswana would all
-accept it. I’d recommend getting a ton of Rand and don’t bother with
-Namibian dollars at all(it’s a straight one-to-one currency rate so
-there’s no disadvantage and the Rand is more widely accepted). That
-seems a lot less complicated. Make sure you have enough USD for Visa’s
-and certain activities, most take USD but some(like the Serengeti)
-require it, try get this USD in Cape Town as they’ll provide reliable
-bills. You can get USD out in Zimbabwe but the quality of the bills can
-be really poor and all countries(other than Zimbabwe), won’t accept
-dirty bills. Most people on the trip seemed to struggle to get money
-converted in Cape Town, that they were residents or that they were
-leaving the country in less than 24 hours. It’s tough to find cash,
-especially on a Sunday the day before we were leaving. However, I was
-recommended a currency exchange place at the V &amp;amp; A Waterfront, that
-would convert money. Make sure if you get Rand out of the bank to take a receipt to prove the cash you’re bringing is legit. I didn’t and had to
-keep the Rand I’d just taken out and get more USD on my credit card.
-Again, wasn’t an issue as everywhere takes Rand, but just to bear this
-in mind.&lt;/p&gt;
-&lt;p&gt;Other than that, the trip leader simply explained that the first few
-day. A nervous feeling came over me when he mentioned ‘It’s okay, we
-have a late wake-up. We just need to be gone by 7am’. I could see there
-was going to be a lot of early starts in my future… So we were all up and out early for day one. We had a huge orange monster of a truck(not bus, truck) for transport. Bags, camping gear and tents go into the bottom, small bags up top where you sit/sleep/drink/live. Each seat had a personal locker where you can lock your stuff with, which was nice, but note that this is not available in all(or even most) of the trucks.&lt;/p&gt;
-&lt;p&gt;We were recommended to leave all valuables on the truck, money, passport etc. Our driver slept in the cab of the truck and the crew always kept it secure and I noticed they also keep their own valuables on there, so it certainly seemed a lot safer than on my person or in a tent. The truck itself was pretty chunky but comfortable, which is great considering how long you’ll be in it.&lt;/p&gt;
-&lt;p&gt;Without much ceremony we were off.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Overlanding</title><link href="https://shanedowling.com/overlanding-ac775c297d46.html" rel="alternate"></link><published>2013-07-18T00:00:00+00:00</published><updated>2013-07-18T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-07-18:/overlanding-ac775c297d46.html</id><summary type="html">&lt;p&gt;So, for the last 6 weeks I’ve been over-landing from Cape Town to
-Nairobi. I decided to ditch almost all of my tech for the trip. My
-Samsung Galaxy S3 and my Thinkpad were replaced with an old school phone
-and a notepad. I also picked up a tiny …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So, for the last 6 weeks I’ve been over-landing from Cape Town to
-Nairobi. I decided to ditch almost all of my tech for the trip. My
-Samsung Galaxy S3 and my Thinkpad were replaced with an old school phone
-and a notepad. I also picked up a tiny little Sandisk Sansa Clip MP3
-player for the trip. For reading I had my Kindle and a few USB keys for
-storing files and for Portableapps(which was a disaster I’ll write about
-another time). The decision for ditching was simply a need to be away
-from the tech and connectedness. I’m in Africa for a reason, and I
-simply didn’t want the constant distractions a phone brings me. I
-couldn’t help but notice on the way others were clamouring for internet
-when they thought it was an option. I appreciated having that option.
-Anyway, as a result I have a lot of time to write with the long journeys
-during the day and frankly I wish I had more information on the trip to
-see where the land lies before starting, so I figured I write this blog
-to give others a heads up and I’ve split things up into each
-destination.
-Here’s the skinny on countries I hit
-| — South Africa
-| — Namibia
-| — Bostswana
-| — Zimbabwe
-| — Zambia
-| — Malawi
-| — Tanzania(and Zanzibar)
-| — Kenya
-I’ll fill these in as links when the posts are written.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>worksly.com — Find workspaces in the UK</title><link href="https://shanedowling.com/worksly-com-find-workspaces-in-the-uk-ee31e3f6b1b3.html" rel="alternate"></link><published>2013-05-22T00:00:00+00:00</published><updated>2013-05-22T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-05-22:/worksly-com-find-workspaces-in-the-uk-ee31e3f6b1b3.html</id><summary type="html">&lt;p&gt;It’s online &lt;a href="http://www.worksly.com/"&gt;here&lt;/a&gt;. Hopefully people find it useful, it’s got data from Foursquare, Yelp and a few other sources.&lt;/p&gt;
-&lt;p&gt;The site itself is built in Python, Bottle, Bootstrap and MySQL, though I hope to upgrade to Postgres with PostGIS when I get the time. I also want to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It’s online &lt;a href="http://www.worksly.com/"&gt;here&lt;/a&gt;. Hopefully people find it useful, it’s got data from Foursquare, Yelp and a few other sources.&lt;/p&gt;
-&lt;p&gt;The site itself is built in Python, Bottle, Bootstrap and MySQL, though I hope to upgrade to Postgres with PostGIS when I get the time. I also want to make it look a lot less bootstrappy.&lt;/p&gt;
-&lt;p&gt;For scraping content, because Yelp renders it’s content in AJAX callbacks, it required &lt;a href="http://phantomjs.org/"&gt;Phantom JS&lt;/a&gt; and Python with it’s awesome &lt;a href="http://beautiful-soup-4.readthedocs.org/en/latest/"&gt;beautifulsoup&lt;/a&gt; library.&lt;/p&gt;
-&lt;p&gt;If you’re trying it out from outside the UK, give it a go with
-Buckingham Palace’s postcode and see what coffee shops the Queen can
-escape to! SW1A 1AA&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Why Study Philosophy</title><link href="https://shanedowling.com/why-study-philosophy-1aba210c328b.html" rel="alternate"></link><published>2012-06-26T00:00:00+00:00</published><updated>2012-06-26T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-06-26:/why-study-philosophy-1aba210c328b.html</id><summary type="html">&lt;p&gt;Yesterday I finished my final exam in a course I was taking in
-philosophy and I figured now was a good time to explain the question
-everyone asks when I tell him what I’m studying. Why study philosophy?
-To be honest, my answers were always pretty poor, mostly I …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Yesterday I finished my final exam in a course I was taking in
-philosophy and I figured now was a good time to explain the question
-everyone asks when I tell him what I’m studying. Why study philosophy?
-To be honest, my answers were always pretty poor, mostly I’d say it was
-just an interest, but that never really explained the value I got from
-it.&lt;/p&gt;
-&lt;p&gt;When I started studying it began as a need to understand the structures
-of our society, what drove capitalism or democracy, are there even valid
-alternatives to them? Were they actually implemented and if so did they
-last long? &lt;a href="http://en.wikipedia.org/wiki/Paris_Commune"&gt;The Paris Commune&lt;/a&gt;, a period in 1871 when Paris was run entirely by anarchists, stuck in my mind. How did anarchists run anything? Clearly whatever I thought an anarchist was, was incorrect. On top of that I also wanted to challenge the religious dogmatism around me and needed rational arguments to give a sort of structure to what was angering me in society, this was the basic initial drive towards philosophy.&lt;/p&gt;
-&lt;p&gt;Philosophy is simply a formal combination of challenging what’s around
-you within a historical context. A lot of philosophy books read like
-history books, you have a huge list of eras, within which is a huge list
-of thinkers and you follow and progress through the theories supplied
-through the ages. You pick up the terminology, the great thinkers and
-most importantly the evolving theories, you begin to see how human
-thought evolved through the ages. It’s incredibly interesting, but
-what’s most important is how it shapes your view of the world.&lt;/p&gt;
-&lt;p&gt;I’m going to try show this using the abstract topic of the self. Bear
-with me here. What interested philosophers around the 16th Century was
-the dilemmas of morality, and one issue with that was the notion of the
-self, which was something tackled by &lt;a href="http://en.wikipedia.org/wiki/John_Locke"&gt;John Locke&lt;/a&gt;. If you did something
-bad many years ago, should you be punished now for it? The problem was
-to do with the self over time, did it exist, how so, how do we handle it
-in our day-to-day thought? I thought it sounded meaningless and crazy
-too. But upon reading into this, great thinkers have actually altered
-how I view the world, in surprising ways. For me, it was a philosopher
-named &lt;a href="http://en.wikipedia.org/wiki/Derek_Parfit"&gt;Derek Parfit&lt;/a&gt;, who showed using a few thought experiments, that the idea of you being the same self over time is crazy. He argued that even if you met yourself twenty years from now, other than this preconceived notion of the self you wouldn’t be much like this person and in reality you wouldn’t really care about them. Frankly, I’m explaining it badly(I highly recommend
-reading Parfit if you can), but once I read through most of Parfit’s work, some set of internal views I had on the world shifted. It’s hard to describe the sensation of having a fundamental view change within, but I can describe the effect. Things like worrying about the future or acquiring things “in case I need it”, become completely irrelevant. I cared less and less about making long term investments that only pay off years later, don’t get me wrong I plan for the future, but I don’t lock myself down into anything I might regret later on. Everything had a more temporary feel about it. More extremely, it actually provided a more comforting view of death in general. Why worry, whoever that person is on his death bed, won’t be much like me, so why care? I’ve heard the Buddist mindset of “now-ness”, being mindful and in the moment, but hearing these empty phrases from these supposed Zen-masters without any rationality just washed over me. The rational argument supplied a belief and it took root, I can’t shake it, maybe I’ll discover someone who trounces Parfit, I’ll look forward to reading it.&lt;/p&gt;
-&lt;p&gt;This was just one of those epiphanies I’ve had while studying philosophy. I wanted to keep this fairly short, but there have been several. For morality, I moved from being a libertarian, to Mill’s rule utilitarian, to Kant’s universalizability, to Rawl’s Egalitarianism and finally to Luck Egalitarianism. You don’t need to know any of these terms but this is just to highlight how much a single view of the world can evolve. This effects how I vote, what causes I support, the charities I give to and countless other important choices I make in my life. I’ve had similar changes across other branches of philosophy too. The notion of philosophy may appear dry, dull and pointless but it’s effects aren’t. It’s hard to explain without simply trying it out for a while. If you can, take a course or pick up a book and see if it takes root. If it doesn’t, what have you lost?&lt;/p&gt;
-&lt;p&gt;In the end, philosophy is a way to challenge the beliefs you’re culturally imbued with. Admittedly, it may not make radical changes in your life but the next decision you make may be done with a little bit more reflection, and as Plato says(and what is probably at the start/end of every article supporting study of philosophy), “the unexamined life is not worth living”.&lt;/p&gt;
-&lt;p&gt;Some books I’d recommend are Bertrand Russell’s History of Western
-Philosophy or if you can manage it, John Cottingham’s Western
-Sophie’s World by Jostein Gaarder or the excellent Zen and the Art of
-Motorcycle Maintenance by Pirsig.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Circumventing The Pirate Bay Blockade</title><link href="https://shanedowling.com/circumventing-the-pirate-bay-blockade-b85834c22679.html" rel="alternate"></link><published>2012-05-03T00:00:00+00:00</published><updated>2012-05-03T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-05-03:/circumventing-the-pirate-bay-blockade-b85834c22679.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.fucktimkuik.org" title="https://www.fucktimkuik.org"&gt;&lt;strong&gt;Fuck jou, Tim Kuik&lt;/strong&gt;
-_Edit description_www.fucktimkuik.org&lt;/a&gt;&lt;a href="https://www.fucktimkuik.org"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;will forward you to a number of viable options, but in case that goes down.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://thepiratebay.ee/" title="http://thepiratebay.ee/"&gt;&lt;strong&gt;Download music, movies, games, software! The Pirate Bay - The world's most resilient BitTorrent…&lt;/strong&gt;
-_Download music, movies, games, software and much more. The Pirate Bay is the …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://www.fucktimkuik.org" title="https://www.fucktimkuik.org"&gt;&lt;strong&gt;Fuck jou, Tim Kuik&lt;/strong&gt;
-_Edit description_www.fucktimkuik.org&lt;/a&gt;&lt;a href="https://www.fucktimkuik.org"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;will forward you to a number of viable options, but in case that goes down.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://thepiratebay.ee/" title="http://thepiratebay.ee/"&gt;&lt;strong&gt;Download music, movies, games, software! The Pirate Bay - The world's most resilient BitTorrent…&lt;/strong&gt;
-_Download music, movies, games, software and much more. The Pirate Bay is the world's largest bittorrent tracker._thepiratebay.ee&lt;/a&gt;&lt;a href="http://thepiratebay.ee/"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://malaysiabay.org/" title="http://malaysiabay.org/"&gt;&lt;strong&gt;Loading...&lt;/strong&gt;
-_Edit description_malaysiabay.org&lt;/a&gt;&lt;a href="http://malaysiabay.org/"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://lanunbay.org/" title="http://lanunbay.org/"&gt;&lt;strong&gt;Loading...&lt;/strong&gt;
-_Edit description_lanunbay.org&lt;/a&gt;&lt;a href="http://lanunbay.org/"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;And while you’re at it, could you be a doll and fill this in?&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://epetitions.direct.gov.uk/petitions/30063" title="http://epetitions.direct.gov.uk/petitions/30063"&gt;&lt;strong&gt;Archived Petition: Leave The Pirate Bay alone&lt;/strong&gt;
-_The Pirate Bay has done nothing wrong. It does not share illegal files, it does not host these files. People do not…_epetitions.direct.gov.uk&lt;/a&gt;&lt;a href="http://epetitions.direct.gov.uk/petitions/30063"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Screwed Server Checklist</title><link href="https://shanedowling.com/screwed-server-checklist-ef23820824c7.html" rel="alternate"></link><published>2012-04-28T00:00:00+00:00</published><updated>2012-04-28T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-04-28:/screwed-server-checklist-ef23820824c7.html</id><summary type="html">&lt;p&gt;My servers started getting unusably slow at peak hours lately and I
-decided, midst panic to vaguely attempt to document the various things I
-had to go through to narrow down the problem, anyway I’m sticking them
-up here so a) I don’t lose the list and b …&lt;/p&gt;</summary><content type="html">&lt;p&gt;My servers started getting unusably slow at peak hours lately and I
-decided, midst panic to vaguely attempt to document the various things I
-had to go through to narrow down the problem, anyway I’m sticking them
-up here so a) I don’t lose the list and b) it might be of use to someone
-else. Some are obvious, some less so. I’ve already forgotten half of
-what I did to fix it, so here’s the other half before I forget anything
-else.&lt;/p&gt;
-&lt;p&gt;Note:This is only meant to give you a pragmatic, last minute ditch
-attempt at diagnosing problems roughly. In essence, to give an idea of
-what to look for and dig when you come across signs of strangeness. I’m
-sure nagios, serverdensity, munin or whatever else can diagnose these
-things far quicker and better, so just assume we’re far beyond clever
-solutions. It’s essentially for the idiots like me who barely change any
-of their servers configuration to handle scaling at all well.&lt;/p&gt;
-&lt;p&gt;other handy tips I should be aware of, let me know here.&lt;/p&gt;
-&lt;p&gt;This is meant for a LAMP install(more specifically ubuntu), so may be
-slanted that way, but most of the tips should work depending on your
-distro of choice.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Processes&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;top/htop -&amp;gt; An obvious one, should be your first point of entry,&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Memory&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;free -m -&amp;gt; Free ram, could there be a lot of IO to disk? Again, obvious.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Hard-Disk&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;df -h -&amp;gt; Another obvious one, is your disk full?&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Network&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;sudo iftop -&amp;gt; This one requires installation on ubuntu but it’s in apt
-so shouldn’t be a big deal(unless of course your network is in fact
-screwed). Anyway, check those numbers, check your b/w restrictions, then
-do the math.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;DNS&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Does banging the servers ip into your local hosts file speed this up? If
-so, it could be a DNS issue.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;watch -n 1 mysqladmin — user=mysql_user — password=mysql_password processlist&lt;/p&gt;
-&lt;p&gt;-&amp;gt; This command will watch live mysql queries being executed. Noticing any crap queries running insanely long? This could be your issue.&lt;/p&gt;
-&lt;p&gt;And directly related to slow crap queries do you have an large tables
-that say might be causing a serious performance issue? Here’s a mysql
-query to grab the largest tables on your server.&lt;/p&gt;
-&lt;p&gt;SELECT CONCAT(table_schema, ‘.’, table_name), CONCAT(ROUND(table_rows / 1000000, 2), ‘M’) rows, CONCAT(ROUND(data_length / ( 1024 * 1024 * 1024 ), 2), ‘G’) DATA, CONCAT(ROUND(index_length / ( 1024 * 1024 * 1024 ), 2), ‘G’) idx, CONCAT(ROUND(( data_length + index_length ) / ( 1024 * 1024 * 1024 ), 2), ‘G’) total_size, ROUND(index_length / data_length, 2) idxfrac FROM information_schema.TABLES ORDER BY data_length + index_length DESC LIMIT 10;&lt;/p&gt;
-&lt;p&gt;Index your tables better or truncate crap you don’t need.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;ps ax | grep apache | wc -l&lt;/p&gt;
-&lt;p&gt;Let’s assume you didn’t change your ubuntu default apache configuration,
-if your MaxChild setting is at 150 and the value returned from the above
-command is stuck at over 150(wc will match the ps command too), then
-here’s your problem. It may “look” like your network is slow but in fact
-it’s apache being forced to queue requests.&lt;/p&gt;
-&lt;p&gt;Run ps aux | grep apache and see how much ram apache is taking on your
-server(you should see roughly what each concurrent connection is getting
-in terms of ram percentage). Do some math and see if you have the free
-ram to increase max childs, if you can, do so.&lt;/p&gt;
-&lt;p&gt;If not, reduce the keepalive value(essentially this isn’t as scary as it
-sounds, quite a few major sites run without a keepalive value at all),
-but this entirely depends on your sites usage. Altering keepalive will
-lose you some speed, you’re essentially cycling through the concurrent
-requests faster, so request 151 doesn’t have to wait as long. But, you
-need to decide whether less speed for more people is better than speed
-with a hard concurrent limit.&lt;/p&gt;
-&lt;p&gt;You can also enable some of apache’s new cleverer keepalive modules but
-again that goes beyond the scope of the post.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Diary.py future proof memories.</title><link href="https://shanedowling.com/diary-py-future-proof-memories-b097056bc350.html" rel="alternate"></link><published>2012-03-08T00:00:00+00:00</published><updated>2012-03-08T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-03-08:/diary-py-future-proof-memories-b097056bc350.html</id><summary type="html">&lt;p&gt;I’ve created a little command line diary script for anyone whose interested. It stores your diaries in separate txt files so you know all of your memories will always be accessible to you in a format you’ll always be able to read. It’s super quick and easy …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’ve created a little command line diary script for anyone whose interested. It stores your diaries in separate txt files so you know all of your memories will always be accessible to you in a format you’ll always be able to read. It’s super quick and easy to use. It’s based loosely on Gina Trapini’s &lt;a href="http://todotxt.com/"&gt;todotxt&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Documentation is &lt;a href="https://github.com/shanedowling/Diary.py"&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Download is &lt;a href="https://github.com/shanedowling/Diary.py/downloads"&gt;here&lt;/a&gt;. Works really well with Dropbox too!&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Quick vhost script</title><link href="https://shanedowling.com/quick-vhost-script-6bdb6138fc10.html" rel="alternate"></link><published>2012-03-01T00:00:00+00:00</published><updated>2012-03-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-03-01:/quick-vhost-script-6bdb6138fc10.html</id><summary type="html">&lt;p&gt;Quick script to setup a new virtualhost entry for apache. Works for me
-on archlinux.&lt;/p&gt;
-&lt;h1&gt;!/usr/bin/python&lt;/h1&gt;
-&lt;p&gt;import sys, os, subprocess&lt;/p&gt;
-&lt;p&gt;vhosts_file = “/etc/httpd/conf/extra/httpd-vhosts.conf”
- hosts_file = “/etc/hosts”&lt;/p&gt;
-&lt;p&gt;domain_name=sys.argv[1]
- folder=sys.argv[2]&lt;/p&gt;
-&lt;p&gt;def usage():&lt;/p&gt;
-&lt;p&gt;if (len(sys.argv) != 3 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Quick script to setup a new virtualhost entry for apache. Works for me
-on archlinux.&lt;/p&gt;
-&lt;h1&gt;!/usr/bin/python&lt;/h1&gt;
-&lt;p&gt;import sys, os, subprocess&lt;/p&gt;
-&lt;p&gt;vhosts_file = “/etc/httpd/conf/extra/httpd-vhosts.conf”
- hosts_file = “/etc/hosts”&lt;/p&gt;
-&lt;p&gt;domain_name=sys.argv[1]
- folder=sys.argv[2]&lt;/p&gt;
-&lt;p&gt;def usage():&lt;/p&gt;
-&lt;p&gt;if (len(sys.argv) != 3):
- usage()
- sys.exit()&lt;/p&gt;
-&lt;p&gt;currentUser = subprocess.getoutput(“whoami”)
- if currentUser != ‘root’:
- print(“You need to be root!”)
- sys.exit()&lt;/p&gt;
-&lt;p&gt;if not os.path.exists(vhosts_file):
- print(“Vhosts file doesn’t exist, exiting”)
- sys.exit()&lt;/p&gt;
-&lt;p&gt;if not os.path.exists(hosts_file):
- print(“Hosts file doesn’t exist, exiting”)
- sys.exit()&lt;/p&gt;
-&lt;p&gt;if not os.path.exists(folder):
- print(“Web folder doesn’t exist, attempting to create”)
- os.makedirs(folder)&lt;/p&gt;
-&lt;p&gt;vhost_entry = “nnntServerAdmin your@%sntDocumentRoot “%s”ntServerName %sntServerAlias %s ntnttDirectoryIndex index.php index.htm index.htmlnttAddHandler cgi-script .cgi .plnttOptions ExecCGI Indexes FollowSymLinks MultiViews +IncludesnttAllowOverride NonenttOrder allow,denynttallow from allntn” % (domain_name, folder, domain_name, domain_name, folder)&lt;/p&gt;
-&lt;p&gt;vhosts_file.write(vhost_entry)&lt;/p&gt;
-&lt;p&gt;host_entry = “n127.0.0.1 %sn” % domain_name&lt;/p&gt;
-&lt;p&gt;vhosts_file.write(host_entry)&lt;/p&gt;
-&lt;p&gt;subprocess.call(‘/etc/rc.d/httpd restart’, shell=True)&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Easily remember linux commands</title><link href="https://shanedowling.com/easily-remember-linux-commands-44191f6843f6.html" rel="alternate"></link><published>2012-02-19T00:00:00+00:00</published><updated>2012-02-19T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-02-19:/easily-remember-linux-commands-44191f6843f6.html</id><summary type="html">&lt;p&gt;I use an absolute ton of awesome tools my various linux distros. The
-problem is I tend to forget a lot of the time how to use the tools, so I
-got a list of frequently used command with and a few examples of how to
-use them from &lt;a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/"&gt;here …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;I use an absolute ton of awesome tools my various linux distros. The
-problem is I tend to forget a lot of the time how to use the tools, so I
-got a list of frequently used command with and a few examples of how to
-use them from &lt;a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/"&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;So here’s the file I use.&lt;/p&gt;
-&lt;p&gt;— Create a new tar archive
- $ tar cvf archive_name.tar dirname/
- — Extract from an existing tar archive.
- $ tar xvf archive_name.tar
- — Grep for a given string in a file (case in-sensitive search).
- $ grep -i “the” demo_file
- — Print the grep line, along with the 3 lines after it.
- $ grep -A 3 -i “example” demo_text
- — Grep for a given string in all files recursively
- $ grep -r “ramesh” *
- — Grep for a string that starts with $ char and contains what’s in $1
- grep — color=auto -B 1 -E ‘^$.b’$1'b’ cmd_examples.txt
- — Find files using file-name ( case in-sensitve find)
- $ find -iname “MyCProgram.c”
- — Execute commands on files found by the find command
- $ find -iname “MyCProgram.c” -exec md5sum {} ;
- — Find all empty files in home directory
- $ find ~ -empty
- — Converts the DOS file format to Unix file format using sed command.
- $ sed ‘s/.$//’ filename
- — Print file content in reverse order
- $ sed -n ‘1!G;h;$p’ thegeekstuff.txt
- — Add line number for all non-empty-lines in a file
- $ sed ‘/./=’ thegeekstuff.txt | sed ‘N; s/n/ /’
- — Remove duplicate lines using awk
- $ awk ‘!($0 in array) { array[$0]; print }’ temp
- — Print all lines from /etc/passwd that has the same uid and gid
- $ awk -F ‘:’ ‘$3==$4’ passwd.txt
- — Print only specific field from a file.
- $ awk ‘{print $2,$5;}’ employee.txt
- — Diff ignore white space while comparing.
- $ diff -w name_list.txt name_list_new.txt
- — Sort a file in ascending order
- $ sort names.txt
- — Sort a file in descending order
- $ sort -r names.txt
- — Sort passwd file by 3rd field.
- — Xarg:Copy all images to external hard-drive
- $ ls *.jpg | xargs -n1 -i cp {} /external-hard-drive/directory
- — Xarg:Search all jpg images in the system and archive it.
- $ find / -name *.jpg -type f -print | xargs tar -cvzf images.tar.gz
- — XargLDownload all the URLs mentioned in the url-list.txt file
- $ cat url-list.txt | xargs wget –c
- — LS:Order Files Based on Last Modified Time (In Reverse Order) Using ls -ltr
- $ ls -ltr
- — LS:Visual Classification of Files With Special Characters Using ls -F
- $ ls -F
- — Gzip:Display compression ratio of the compressed file using gzip -l
- $ gzip -l *.gz
- $ bzip2 test.txt
- $ bzip2 -d test.txt.bz2
- — UNZip:View the contents of *.zip file (Without unzipping it):
- $ unzip -l jasper.zip
- — Shutdown the system after 10 minutes.
- $ shutdown -h +10
- — Force the filesystem check during reboot.
- # shutdown -Fr now
- — FTP:Both ftp and secure ftp (sftp) has similar commands. To connect to a remote server and download multiple files, do the following.
- $ ftp IP/hostname
- — FTP:To download a file
- $ ftp&amp;gt; mget *.html
- — To view the file names located on the remote server before downloading, mls ftp command as shown below.
- $ ftp&amp;gt; mls *.html -
- — View crontab entry for a specific user
- $ crontab -u john -l
- — Schedule a cron job every 10 minutes.
- $ */10 * * * * /home/ramesh/check-disk-cron
- $ service ssh status
- — Status:Check the status of all the services.
- $ service — status-all
- — Restart a service.
- # service ssh restart
- — To view current running processes.
- $ ps -ef | more
- — To view current running processes in a tree structure. H option stands for process hierarchy.
- $ ps -efH | more
- $ df -T
- $ rm -i filename.txt
- $ rm -i file*
- — Copy file1 to file2. if file2 exists prompt for confirmation before overwritting it.
- $ cp -i file1 file2
- — While displaying the file, following cat -n command will prepend the line number to each line of the output.
- $ cat -n /etc/logrotate.conf
- — Give full access to user and group (i.e read, write and execute ) on a specific file.
- $ chmod ug+rwx file.txt
- — Revoke all access for the group (i.e read, write and execute ) on a specific file.
- $ chmod g-rwx file.txt
- — Apply the file permissions recursively to all the files in the sub-directories.
- $ chmod -R ug+rwx file.txt
- — To change owner to oracle and group to db on a file. i.e Change both owner and group at the same time.
- $ chown oracle:dba dbora.sh
- — Create nested directories using one mkdir command.
- $ mkdir -p dir1/dir2/dir3/dir4/
- — Sample uname output from a Ubuntu laptop is shown below.
- $ uname -a
- — When you want to find out where a specific Unix command exists (for example, where does ls command exists?), you can execute the following command.
- $ whereis ls
- — This searches for the executable lsmk in the /tmp directory, and displays it, if it is available.
- $ whereis -u -B /tmp -f lsmk
- — Whatis command displays a single line description about a command.
- $ whatis ls
- — The example below shows all files in the system that contains the word crontab in it.
- $ locate crontab
- — Print the last 10 lines of a file by default.
- $ tail filename.txt
- — Print N number of lines from the file named filename.txt
- $ tail -n N filename.txt
- — View the content of the file in real time using tail -f. This is useful to view the log files, that keeps growing. The command can be terminated using CTRL-C.
- $ tail -f log-file
- — less is very efficient while viewing huge log files, as it doesn’t need to load the full file while opening.
- $ less huge-log-file.log
- — Ping a remote host by sending only 5 packets.
- $ ping -c 5 gmail.com
- — Download and store it with a different name.
- $ wget -O taglist.zip &lt;a href="http://www.vim.org/scripts/download_script.php?src_id=7701"&gt;http://www.vim.org/scripts/download_script.php?src_id=7701&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Then I use this command to search for the specific command and get back
-the examples with an explanation. Please note, to add your own examples,
-you need to save the same format of the command starting with a $ and
-the line above providing the explanation. When you do a search you must
-search for the command.&lt;/p&gt;
-&lt;p&gt;grep — color=auto -B 1 -E ‘^$.bpingb’ ~/cmd_examples.txt&lt;/p&gt;
-&lt;p&gt;And if you wish to use it in a bash alias, you’ll need to create a
-function&lt;/p&gt;
-&lt;p&gt;function exam() { grep — color=auto -B 1 -E ‘^$.b’”$*”’b’ ~/cmd_examples.txt ;}&lt;/p&gt;
-&lt;p&gt;Calling&lt;/p&gt;
-&lt;p&gt;$ exam ping&lt;/p&gt;
-&lt;p&gt;should return&lt;/p&gt;
-&lt;p&gt;— Ping a remote host by sending only 5 packets.&lt;/p&gt;
-&lt;p&gt;$ ping -c 5 gmail.com&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Reducing my possesions</title><link href="https://shanedowling.com/reducing-my-possesions-e8ccf43e94ba.html" rel="alternate"></link><published>2011-04-29T00:00:00+00:00</published><updated>2011-04-29T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-04-29:/reducing-my-possesions-e8ccf43e94ba.html</id><summary type="html">&lt;p&gt;I decided at the start of the year to reduce my possesions purely as I
+&lt;p&gt;I often find myself with a ton of spare vegetables where recipes have annoyingly required two onions and I can only find a pack of three. If you find yourself with the same problem try a recipe that’s very loose with the ingredients. It might be a soup or a pasta dish with a nice sauce, for me because I like to use quinoa and lentils in a lot of my dishes I tried to find something that used both, with a lot of random vegetables.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Reducing my possesions</title><link href="https://shanedowling.com/reducing-my-possesions-e8ccf43e94ba.html" rel="alternate"></link><published>2011-04-29T00:00:00+00:00</published><updated>2011-04-29T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-04-29:/reducing-my-possesions-e8ccf43e94ba.html</id><summary type="html">&lt;p&gt;I decided at the start of the year to reduce my possesions purely as I
 found myself incredibly weighted down by what I owned. Unwatched DVDs,
 unplayed video games, unread books even unworn clothes do take a mental
 toll when deciding what to do with your day, it’s pointless …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I decided at the start of the year to reduce my possesions purely as I
