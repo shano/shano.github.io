@@ -87,26 +87,45 @@ need wpa_supplicant installed and modify it’s config file
 there’s no MAC address filtering so no stupid registering stuff. Place
 this in your /etc/network/interfaces if its not already there so you can
 dhcp over your wireless card.</p>
-<h1>!bash</h1>
-<p>auto eth1
- iface eth1 inet dhcp</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>auto eth1
+iface eth1 inet dhcp
+</pre></div>
+</td></tr></table>
+
 <p>And finally all of this stuff into a script, say tcd.sh</p>
-<h1>!bash</h1>
-<p>echo “Putting the wifi card up and down”
- sudo ifconfig eth1 down
- sudo ifconfig eth1 up
- sleep 3
- echo “Killing all necessary stuff”
- sudo killall dhclient dhclient3
- sudo killall wpa_supplicant
- sleep 3
- echo “Setting up WPA”
- sudo wpa_supplicant -B -ieth1 -Dwext -c/etc/wpa_supplicant.conf
- sleep 3
- echo “Connecting to wireless”
- sudo iwconfig eth1 essid TCDwifi
- sleep 3
- sudo dhclient eth1</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">echo</span> “Putting the wifi card up and down”
+sudo ifconfig eth1 down
+sudo ifconfig eth1 up
+sleep <span class="m">3</span>
+<span class="nb">echo</span> “Killing all necessary stuff”
+sudo killall dhclient dhclient3
+sudo killall wpa<span class="se">\_</span>supplicant
+sleep <span class="m">3</span>
+<span class="nb">echo</span> “Setting up WPA”
+sudo wpa<span class="se">\_</span>supplicant -B -ieth1 -Dwext -c/etc/wpa<span class="se">\_</span>supplicant.conf
+sleep <span class="m">3</span>
+<span class="nb">echo</span> “Connecting to wireless”
+sudo iwconfig eth1 essid TCDwifi
+sleep <span class="m">3</span>
+sudo dhclient eth1
+</pre></div>
+</td></tr></table>
+
 <p>Then run sh tcd.sh and enter your root password, it may not work
 sometimes, this seems to be due to the wireless networks being hidden.
 If you want add this to the start of your script. iwlist scanning \|
