@@ -5273,46 +5273,65 @@ up here. So basically all I need it to do was backup my sites(filesystem and mys
 server to amazon s3 I finally came across one and I’m just throwing it
 up here. So basically all I need it to do was backup my sites(filesystem and mysql databases) and some config for lighttpd.&lt;/p&gt;
 &lt;p&gt;The post I’m basing this off is &lt;a href="http://sdykman.com/blog/backing-drupal-sites-automysqlbackup-and-duplicity"&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;1. Install automysqlbackup using apt&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install automysqlbackup using apt&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;sudo apt-get install automysqlbackup&lt;/p&gt;
-&lt;p&gt;2. Run automysqlbackup as root(just to give it a test)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Run automysqlbackup as root(just to give it a test)&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;sudo automysqlbackup&lt;/p&gt;
-&lt;p&gt;3. Double check the databases are being backed up you should see daily,
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Double check the databases are being backed up you should see daily,
 weekly and monthly under /var/lib/automysqlbackup with the appropriate
 databases.&lt;/p&gt;
-&lt;p&gt;4. Now use this script to backup all the specific folders you want.&lt;/p&gt;
-&lt;h1&gt;!/bin/sh&lt;/h1&gt;
-&lt;p&gt;# Export some ENV variables so you don’t have to type anything
- export AWS_ACCESS_KEY_ID=
- export AWS_SECRET_ACCESS_KEY=
- export PASSPHRASE=
- # Your GPG key
- GPG_KEY=;
- # The source of your backup
- SOURCE=/
- # The destination
- # Note that the bucket need not exist
- # but does need to be unique amongst all
- # Amazon S3 users. So, choose wisely.
- DEST=s3+http://
- # The duplicity command and options
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now use this script to backup all the specific folders you want.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &lt;span class="c1"&gt;# Export some ENV variables so you don’t have to type anything&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="se"&gt;\_&lt;/span&gt;ID&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;SECRET&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PASSPHRASE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="c1"&gt;# Your GPG key&lt;/span&gt;
+ GPG&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+ &lt;span class="c1"&gt;# The source of your backup&lt;/span&gt;
+ &lt;span class="nv"&gt;SOURCE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/
+ &lt;span class="c1"&gt;# The destination&lt;/span&gt;
+ &lt;span class="c1"&gt;# Note that the bucket need not exist&lt;/span&gt;
+ &lt;span class="c1"&gt;# but does need to be unique amongst all&lt;/span&gt;
+ &lt;span class="c1"&gt;# Amazon S3 users. So, choose wisely.&lt;/span&gt;
+ &lt;span class="nv"&gt;DEST&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;s3+http://
+ &lt;span class="c1"&gt;# The duplicity command and options&lt;/span&gt;
  duplicity
- — encrypt-key=${GPG_KEY}
- — sign-key=${GPG_KEY}
- — volsize=250
- — include=/var/www
- — include=/home
- — include=/etc/lighttpd
- — include=/var/lib/automysqlbackup
- — exclude=/**
- ${SOURCE} ${DEST}
- # Reset the ENV variables. Don’t need them sitting around
- export AWS_ACCESS_KEY_ID=
- export AWS_SECRET_ACCESS_KEY=
- export PASSPHRASE=&lt;/p&gt;
-&lt;p&gt;5. Add your own specific access key stuff and give it a test&lt;/p&gt;
-&lt;p&gt;6. Then add it to a cronjob&lt;/p&gt;
-&lt;p&gt;0 0 * * * /usr/sbin/automysqlbackup &amp;amp;&amp;amp; /root/s3_backup&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Simple git web interface</title><link href="https://shanedowling.com/simple-git-web-interface-999d0f685454.html" rel="alternate"></link><published>2012-01-07T00:00:00+00:00</published><updated>2012-01-07T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-01-07:/simple-git-web-interface-999d0f685454.html</id><summary type="html">&lt;p&gt;I decided instead of springing for a monthly github payed account I’d
+ — encrypt-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ — sign-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ — &lt;span class="nv"&gt;volsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;250&lt;/span&gt;
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/www
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/etc/lighttpd
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/lib/automysqlbackup
+ — &lt;span class="nv"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/&lt;span class="se"&gt;\*\*&lt;/span&gt;
+ &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SOURCE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;DEST&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ &lt;span class="c1"&gt;# Reset the ENV variables. Don’t need them sitting around&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="se"&gt;\_&lt;/span&gt;ID&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;SECRET&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PASSPHRASE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Add your own specific access key stuff and give it a test&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then add it to a cronjob&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; * * * /usr/sbin/automysqlbackup &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/s3&lt;span class="se"&gt;\_&lt;/span&gt;backup
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Simple git web interface</title><link href="https://shanedowling.com/simple-git-web-interface-999d0f685454.html" rel="alternate"></link><published>2012-01-07T00:00:00+00:00</published><updated>2012-01-07T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-01-07:/simple-git-web-interface-999d0f685454.html</id><summary type="html">&lt;p&gt;I decided instead of springing for a monthly github payed account I’d
 install git on a server and use a decent web interface that could be
 easily installed.&lt;/p&gt;
 &lt;p&gt;So for this little guide I’m rocking ubuntu 10.04 with git and lighttpd
@@ -5366,7 +5385,7 @@ Next step was to hook everything into lighttpd.&lt;/p&gt;
 &lt;p&gt;server.errorlog = “/var/log/lighttpd/gitalist/error.log”&lt;/p&gt;
 &lt;p&gt;accesslog.filename = “/var/log/lighttpd/gitalist/access.log”&lt;/p&gt;
 &lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;Give lighttpd a restart and it should all hopefully work just fine.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>CLI Dash</title><link href="https://shanedowling.com/cli-dash-b7f2766a53c9.html" rel="alternate"></link><published>2011-12-31T00:00:00+00:00</published><updated>2011-12-31T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-12-31:/cli-dash-b7f2766a53c9.html</id><summary type="html">&lt;p&gt;Due to being flu-ridden for the entire holiday period, I decided to
+&lt;p&gt;Give lighttpd a restart and it should all hopefully work just fine.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>CLI Dash</title><link href="https://shanedowling.com/cli-dash-b7f2766a53c9.html" rel="alternate"></link><published>2011-12-31T00:00:00+00:00</published><updated>2011-12-31T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-12-31:/cli-dash-b7f2766a53c9.html</id><summary type="html">&lt;p&gt;Due to being flu-ridden for the entire holiday period, I decided to
 write up a quick tool I’ve been wanting to write for ages. It’s written
 in Python, so go easy, I’m no Python expert and I’m sick.&lt;/p&gt;
 &lt;p&gt;The tool is essentially a wee-little dashboard for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Due to being flu-ridden for the entire holiday period, I decided to

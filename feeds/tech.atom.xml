@@ -1,5 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Tech</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/tech.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2011-12-31T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>CLI Dash</title><link href="https://shanedowling.com/cli-dash-b7f2766a53c9.html" rel="alternate"></link><published>2011-12-31T00:00:00+00:00</published><updated>2011-12-31T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-12-31:/cli-dash-b7f2766a53c9.html</id><summary type="html">&lt;p&gt;Due to being flu-ridden for the entire holiday period, I decided to
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Tech</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/tech.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2012-01-14T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Simple ubuntu backup to S3</title><link href="https://shanedowling.com/simple-ubuntu-backup-to-s3-c3f3b7070208.html" rel="alternate"></link><published>2012-01-14T00:00:00+00:00</published><updated>2012-01-14T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-01-14:/simple-ubuntu-backup-to-s3-c3f3b7070208.html</id><summary type="html">&lt;p&gt;After browsing the web for ages to find a decent solution to backup my
+server to amazon s3 I finally came across one and I’m just throwing it
+up here. So basically all I need it to do was backup my sites(filesystem and mysql databases) and some config …&lt;/p&gt;</summary><content type="html">&lt;p&gt;After browsing the web for ages to find a decent solution to backup my
+server to amazon s3 I finally came across one and I’m just throwing it
+up here. So basically all I need it to do was backup my sites(filesystem and mysql databases) and some config for lighttpd.&lt;/p&gt;
+&lt;p&gt;The post I’m basing this off is &lt;a href="http://sdykman.com/blog/backing-drupal-sites-automysqlbackup-and-duplicity"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install automysqlbackup using apt&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;sudo apt-get install automysqlbackup&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Run automysqlbackup as root(just to give it a test)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;sudo automysqlbackup&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Double check the databases are being backed up you should see daily,
+weekly and monthly under /var/lib/automysqlbackup with the appropriate
+databases.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now use this script to backup all the specific folders you want.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &lt;span class="c1"&gt;# Export some ENV variables so you don’t have to type anything&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="se"&gt;\_&lt;/span&gt;ID&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;SECRET&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PASSPHRASE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="c1"&gt;# Your GPG key&lt;/span&gt;
+ GPG&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+ &lt;span class="c1"&gt;# The source of your backup&lt;/span&gt;
+ &lt;span class="nv"&gt;SOURCE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/
+ &lt;span class="c1"&gt;# The destination&lt;/span&gt;
+ &lt;span class="c1"&gt;# Note that the bucket need not exist&lt;/span&gt;
+ &lt;span class="c1"&gt;# but does need to be unique amongst all&lt;/span&gt;
+ &lt;span class="c1"&gt;# Amazon S3 users. So, choose wisely.&lt;/span&gt;
+ &lt;span class="nv"&gt;DEST&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;s3+http://
+ &lt;span class="c1"&gt;# The duplicity command and options&lt;/span&gt;
+ duplicity
+ — encrypt-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ — sign-key&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GPG&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;KEY&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ — &lt;span class="nv"&gt;volsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;250&lt;/span&gt;
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/www
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/etc/lighttpd
+ — &lt;span class="nv"&gt;include&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/lib/automysqlbackup
+ — &lt;span class="nv"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/&lt;span class="se"&gt;\*\*&lt;/span&gt;
+ &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;SOURCE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;DEST&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+ &lt;span class="c1"&gt;# Reset the ENV variables. Don’t need them sitting around&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="se"&gt;\_&lt;/span&gt;ID&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; AWS&lt;span class="se"&gt;\_&lt;/span&gt;SECRET&lt;span class="se"&gt;\_&lt;/span&gt;ACCESS&lt;span class="se"&gt;\_&lt;/span&gt;KEY&lt;span class="o"&gt;=&lt;/span&gt;
+ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PASSPHRASE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Add your own specific access key stuff and give it a test&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then add it to a cronjob&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; * * * /usr/sbin/automysqlbackup &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/s3&lt;span class="se"&gt;\_&lt;/span&gt;backup
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Simple git web interface</title><link href="https://shanedowling.com/simple-git-web-interface-999d0f685454.html" rel="alternate"></link><published>2012-01-07T00:00:00+00:00</published><updated>2012-01-07T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2012-01-07:/simple-git-web-interface-999d0f685454.html</id><summary type="html">&lt;p&gt;I decided instead of springing for a monthly github payed account I’d
+install git on a server and use a decent web interface that could be
+easily installed.&lt;/p&gt;
+&lt;p&gt;So for this little guide I’m rocking ubuntu 10.04 with git and lighttpd
+already installed.&lt;/p&gt;
+&lt;p&gt;It was a Goldilocks …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I decided instead of springing for a monthly github payed account I’d
+install git on a server and use a decent web interface that could be
+easily installed.&lt;/p&gt;
+&lt;p&gt;So for this little guide I’m rocking ubuntu 10.04 with git and lighttpd
+already installed.&lt;/p&gt;
+&lt;p&gt;It was a Goldilocks search for ease of installation vs web interfaces
+usefulness. I tried a number of options, gitweb looked a little rough
+for my liking and Gitorious and InDeferno were just an utter pain to
+install. Eventually I came across gitalist and decided I would give it’s
+incredibly simple to installation go(http://www.gitalist.com/install/).
+By simply following the directions I managed to get it running without
+any thought. The problem was it was running on port 3000, I wanted it to
+hook it into lighttpd and have it run under a subdomain.&lt;/p&gt;
+&lt;p&gt;Since Gitalist is built with the catalyst framework, I figured using a
+lighttpd catalyst tutorial would do the job.&lt;/p&gt;
+&lt;p&gt;Firstly you need to install FCGI and FCGI Process Manager for perl, so&lt;/p&gt;
+&lt;p&gt;sudo cpan FCGI FCGI::ProcManager&lt;/p&gt;
+&lt;p&gt;Or on ubuntu I think you can use&lt;/p&gt;
+&lt;p&gt;sudo apt-get install libfcgi-perl libfcgi-procmanager-perl&lt;/p&gt;
+&lt;p&gt;Now attempt to execute this command&lt;/p&gt;
+&lt;p&gt;/var/www/gitalist/script/gitalist_fastcgi.pl — listen
+ 127.0.0.1:55900 — nproc 5&lt;/p&gt;
+&lt;p&gt;If your ubuntu install is anything like mine a bunch of errors with get
+thrown in relation is FCGI.pm(And the proc manager) not being found. If
+you do, run a locate for FCGI.pm, find which folder it’s under then make
+sure the folder FCGI.pm is in is in perl’s @INC variable(this list of
+folders should have been printed out when the above command executed and
+failed). Then add them to the @INC in gitalist.&lt;/p&gt;
+&lt;p&gt;So for me, I simply edited lib/Gitalist/Script/FastCGI.pm and added
+these 2 lines.&lt;/p&gt;
+&lt;p&gt;&gt; push(@INC, “/usr/local/lib/perl/5.10.1/”);&lt;/p&gt;
+&lt;p&gt;push(@INC, “/usr/local/share/perl/5.10.1/”);&lt;/p&gt;
+&lt;p&gt;Once these were added executing the gitalist_fastcgi.pl worked fine.
+Next step was to hook everything into lighttpd.&lt;/p&gt;
+&lt;p&gt;&gt; $HTTP[“host”] =~ “(^|.)git_repos.example.com$” {&lt;/p&gt;
+&lt;p&gt;fastcgi.server = (&lt;/p&gt;
+&lt;p&gt;“” =&amp;gt; (&lt;/p&gt;
+&lt;p&gt;# the extension is empty because we want to match on any extension&lt;/p&gt;
+&lt;p&gt;“127.0.0.1” =&amp;gt; (&lt;/p&gt;
+&lt;p&gt;“host” =&amp;gt; “127.0.0.1”,&lt;/p&gt;
+&lt;p&gt;“port” =&amp;gt; 55900,&lt;/p&gt;
+&lt;p&gt;“check-local” =&amp;gt; “disable”&lt;/p&gt;
+&lt;p&gt;)&lt;/p&gt;
+&lt;p&gt;)&lt;/p&gt;
+&lt;p&gt;),&lt;/p&gt;
+&lt;h1&gt;make sure these folders exist&lt;/h1&gt;
+&lt;p&gt;server.errorlog = “/var/log/lighttpd/gitalist/error.log”&lt;/p&gt;
+&lt;p&gt;accesslog.filename = “/var/log/lighttpd/gitalist/access.log”&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;Give lighttpd a restart and it should all hopefully work just fine.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>CLI Dash</title><link href="https://shanedowling.com/cli-dash-b7f2766a53c9.html" rel="alternate"></link><published>2011-12-31T00:00:00+00:00</published><updated>2011-12-31T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-12-31:/cli-dash-b7f2766a53c9.html</id><summary type="html">&lt;p&gt;Due to being flu-ridden for the entire holiday period, I decided to
 write up a quick tool I’ve been wanting to write for ages. It’s written
 in Python, so go easy, I’m no Python expert and I’m sick.&lt;/p&gt;
 &lt;p&gt;The tool is essentially a wee-little dashboard for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Due to being flu-ridden for the entire holiday period, I decided to
