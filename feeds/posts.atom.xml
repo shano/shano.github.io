@@ -653,14 +653,14 @@ workon khal&lt;/p&gt;
 &lt;p&gt;Here’s a quick javascript function that’ll iterate over all sidecar metadata panels and flag every field on the UI. Simply add in a conditional to flag only certain fields and wrap it in whatever checks you need to make. Stick this in your record.js.&lt;/p&gt;
 &lt;h1&gt;!javascript&lt;/h1&gt;
 &lt;p&gt;if(this.readOnly) {
- // set fields to read-only
- _.each(this.meta.panels, function(panel) {
-   _.each(panel.fields, function(field) {
-     field.readonly=true;
-   });
-   });
-  }
- },&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>NetworkX — Get all Paths from all sources to sinks</title><link href="https://shanedowling.com/networkx-get-all-paths-from-all-sources-to-sinks-825e3787b458.html" rel="alternate"></link><published>2015-11-04T00:00:00+00:00</published><updated>2015-11-04T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2015-11-04:/networkx-get-all-paths-from-all-sources-to-sinks-825e3787b458.html</id><summary type="html">&lt;p&gt;Often when I’m working with graphs and a set of masses in a spectrum I need to be able to iterate over all paths for all sources and sinks in that graph. Especially if I’m looking to compare multiple ideal spectrums against a given spectrum. Here’s some …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Often when I’m working with graphs and a set of masses in a spectrum I need to be able to iterate over all paths for all sources and sinks in that graph. Especially if I’m looking to compare multiple ideal spectrums against a given spectrum. Here’s some code that will allow me to quickly iterate over all source-&amp;gt;sink paths in a given graph G.&lt;/p&gt;
+  // set fields to read-only
+  _.each(this.meta.panels, function(panel) {
+    _.each(panel.fields, function(field) {
+      field.readonly=true;
+    });
+    });
+    }
+  },&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>NetworkX — Get all Paths from all sources to sinks</title><link href="https://shanedowling.com/networkx-get-all-paths-from-all-sources-to-sinks-825e3787b458.html" rel="alternate"></link><published>2015-11-04T00:00:00+00:00</published><updated>2015-11-04T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2015-11-04:/networkx-get-all-paths-from-all-sources-to-sinks-825e3787b458.html</id><summary type="html">&lt;p&gt;Often when I’m working with graphs and a set of masses in a spectrum I need to be able to iterate over all paths for all sources and sinks in that graph. Especially if I’m looking to compare multiple ideal spectrums against a given spectrum. Here’s some …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Often when I’m working with graphs and a set of masses in a spectrum I need to be able to iterate over all paths for all sources and sinks in that graph. Especially if I’m looking to compare multiple ideal spectrums against a given spectrum. Here’s some code that will allow me to quickly iterate over all source-&amp;gt;sink paths in a given graph G.&lt;/p&gt;
 &lt;h1&gt;!/usr/bin/env python&lt;/h1&gt;
 &lt;p&gt;“””
  Shane Dowling, 04 Nov 2015

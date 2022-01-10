@@ -65,14 +65,14 @@
 <p>Here’s a quick javascript function that’ll iterate over all sidecar metadata panels and flag every field on the UI. Simply add in a conditional to flag only certain fields and wrap it in whatever checks you need to make. Stick this in your record.js.</p>
 <h1>!javascript</h1>
 <p>if(this.readOnly) {
- // set fields to read-only
- _.each(this.meta.panels, function(panel) {
-   _.each(panel.fields, function(field) {
-     field.readonly=true;
-   });
-   });
-  }
- },</p>
+  // set fields to read-only
+  _.each(this.meta.panels, function(panel) {
+    _.each(panel.fields, function(field) {
+      field.readonly=true;
+    });
+    });
+    }
+  },</p>
     </div>
 
     <footer>
