@@ -1,5 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Tech</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/tech.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2010-11-22T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Simple ubuntu backup to S3</title><link href="https://shanedowling.com/simple-ubuntu-backup-to-s3-d8a52b123d12.html" rel="alternate"></link><published>2010-11-22T00:00:00+00:00</published><updated>2010-11-22T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-11-22:/simple-ubuntu-backup-to-s3-d8a52b123d12.html</id><summary type="html">&lt;p&gt;After browsing the web for ages to find a decent solution to
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Tech</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/tech.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2011-12-31T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>CLI Dash</title><link href="https://shanedowling.com/cli-dash-b7f2766a53c9.html" rel="alternate"></link><published>2011-12-31T00:00:00+00:00</published><updated>2011-12-31T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-12-31:/cli-dash-b7f2766a53c9.html</id><summary type="html">&lt;p&gt;Due to being flu-ridden for the entire holiday period, I decided to
+write up a quick tool I’ve been wanting to write for ages. It’s written
+in Python, so go easy, I’m no Python expert and I’m sick.&lt;/p&gt;
+&lt;p&gt;The tool is essentially a wee-little dashboard for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Due to being flu-ridden for the entire holiday period, I decided to
+write up a quick tool I’ve been wanting to write for ages. It’s written
+in Python, so go easy, I’m no Python expert and I’m sick.&lt;/p&gt;
+&lt;p&gt;The tool is essentially a wee-little dashboard for your linux server.&lt;/p&gt;
+&lt;p&gt;It only supports a few system details at present(essentially handy
+little things python does) but I’ll add more as I get the time, if
+you’ve any suggestions let me know.&lt;/p&gt;
+&lt;p&gt;Heres what it will check.&lt;/p&gt;
+&lt;p&gt;- If a process you’re interested in is running. I use this for lighttpd
+ and mysql.&lt;/p&gt;
+&lt;p&gt;- CPU Use&lt;/p&gt;
+&lt;p&gt;- Memory Use&lt;/p&gt;
+&lt;p&gt;- Internal IP&lt;/p&gt;
+&lt;p&gt;- External IP&lt;/p&gt;
+&lt;p&gt;- Free/Total Disk Space&lt;/p&gt;
+&lt;p&gt;Basically alter the sample config file, put it somewhere then point to
+the config file from the main code. I actually execute it from my bashrc
+file, reason being is that typically when I need to ssh into my server
+it’s to pull up one of the details this tool presents.&lt;/p&gt;
+&lt;p&gt;Anyhoo the git repo is &lt;a href="https://github.com/shano/CLI-Dash"&gt;here&lt;/a&gt;.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Good Coding Practice Snippets</title><link href="https://shanedowling.com/good-coding-practice-snippets-60b75db22e57.html" rel="alternate"></link><published>2011-12-24T00:00:00+00:00</published><updated>2011-12-24T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-12-24:/good-coding-practice-snippets-60b75db22e57.html</id><summary type="html">&lt;p&gt;After reading through Code Complete I decided to make up mind-maps on
+each topic in the hope that I would peruse them every so often to brush
+up on my programming best practice. Recently I decided take a look over
+them and was dismayed at the amount of knowledge from …&lt;/p&gt;</summary><content type="html">&lt;p&gt;After reading through Code Complete I decided to make up mind-maps on
+each topic in the hope that I would peruse them every so often to brush
+up on my programming best practice. Recently I decided take a look over
+them and was dismayed at the amount of knowledge from the book I’d
+forgotten or that hadn’t become habit. Sure I’d remember a decent chunk
+of the good stuff and it has certainly improved my programming ability
+but there was so much I’d missed, even from the tiny mind-maps I’d made.&lt;/p&gt;
+&lt;p&gt;I was trying to figure out a way to embed some of the ‘good practices’
+into my programming, in a way to force myself to review them in the hope
+they would become habit. Luckily I’d recently come across the awesome &lt;a href="https://github.com/garbas/vim-snipmate"&gt;snipMate&lt;/a&gt; plug-in for vim so I decided to include a number of good programming practices into the snippets themselves and while I could only really get in a tiny percentage of it I feel these tips will enhance my ability at
+the lowest level of programming.&lt;/p&gt;
+&lt;p&gt;It will probably really grate having to delete all of these dumped
+comments from my snippets, but I figure by having the text front of me
+every-time I create a new if statement or a new function I expect my
+coding standards to increase significantly. I will also start creating
+snippets that represent explanations of certain programming concepts,
+with actual pseudo-code.&lt;/p&gt;
+&lt;p&gt;Anyway, feel free to check-out the PHP snippet file &lt;a href="https://github.com/shano/Vim-SnipMate-Coding-Standards"&gt;here&lt;/a&gt;, will add to it as I find missing things/enhancements&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Very Simple EC2 Snapshot Management</title><link href="https://shanedowling.com/very-simple-ec2-snapshot-management-6bcca8bd28fb.html" rel="alternate"></link><published>2011-04-01T00:00:00+00:00</published><updated>2011-04-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-04-01:/very-simple-ec2-snapshot-management-6bcca8bd28fb.html</id><summary type="html">&lt;p&gt;I’ve been pulling my hair out trying to get a handy ec2 snapshot
+backup/management working. My google results have ranged from broken
+libraries to using bash scripts to do one aspect and php scripts to do
+another, all of the solutions seem to have serious issues with regions …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’ve been pulling my hair out trying to get a handy ec2 snapshot
+backup/management working. My google results have ranged from broken
+libraries to using bash scripts to do one aspect and php scripts to do
+another, all of the solutions seem to have serious issues with regions.&lt;/p&gt;
+&lt;p&gt;Anyway I’ve coded up a very very stupidly simple bash script that’s
+based on the ec2-api-tools. Ubuntu based info &lt;a href="https://help.ubuntu.com/community/EC2StartersGuide"&gt;here&lt;/a&gt;. Essentially sudo apt-get install ec2-api-tools should get the required tools.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What it does:&lt;/strong&gt; Backs up all instances and deletes all snapshots older
+than 7 days.&lt;/p&gt;
+&lt;p&gt;You can find it &lt;a href="http://pastebin.com/xMHQUbmH"&gt;here&lt;/a&gt;, hope it helps.&lt;/p&gt;
+&lt;p&gt;Due to major problems with ec2-api-tools I’ve done a quick rewrite for
+to support &lt;a href="http://open.eucalyptus.com/wiki/Euca2oolsGuide"&gt;euca2ools&lt;/a&gt;. Essentially I had this script running on a micro instance and due to bugs with the ubuntu kernel and java it would tank my server so I’ve switched to the python-based euca2ools.&lt;/p&gt;
+&lt;p&gt;You can find this script &lt;a href="http://pastebin.com/CCmJyULN"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To get euca2ools work simply install via sudo apt-get install euca2ools
+and add this to ~/.eucarc&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;EC2_REGION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;”&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;EC2_REGION&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;eu&lt;/span&gt;&lt;span class="p"&gt;-west-1&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;”
+
+&lt;span class="nv"&gt;EC2_CERT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;HOME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/cert.pem
+
+&lt;span class="nv"&gt;EC2_PRIVATE_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;HOME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/pk.pem
+
+&lt;span class="nv"&gt;EC2_ACCESS_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;AAAAAAAAAAAAAAAAAAA
+
+&lt;span class="nv"&gt;EC2_SECRET_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;+AAAAAAAAAAAAAAaaaaaaaaaaa
+
+&lt;span class="nv"&gt;EC2_USER_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1234567890&lt;/span&gt;
+
+&lt;span class="nv"&gt;EUCALYPTUS_CERT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/etc/ec2/amitools/cert-ec2.pem
+
+&lt;span class="nv"&gt;EC2_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;https://ec2.&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;EC2&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;REGION&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.amazonaws.com
+
+&lt;span class="nv"&gt;S3_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;https://s3.amazonaws.com:443
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Music at work</title><link href="https://shanedowling.com/music-at-work-12aac3472110.html" rel="alternate"></link><published>2011-01-13T00:00:00+00:00</published><updated>2011-01-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-13:/music-at-work-12aac3472110.html</id><summary type="html">&lt;p&gt;For anyone bored of trying to decide what to listen to at work I’d
+recommend indie 103.1. Decent music and as it’s in La it’s 8 hours
+behind, so no annoying presenters during the work day(If you’re in the
+timezone of course).&lt;/p&gt;
+&lt;p&gt;Anyway, for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;For anyone bored of trying to decide what to listen to at work I’d
+recommend indie 103.1. Decent music and as it’s in La it’s 8 hours
+behind, so no annoying presenters during the work day(If you’re in the
+timezone of course).&lt;/p&gt;
+&lt;p&gt;Anyway, for anyone rocking mplayer a bash alias for ya. I guess for
+those who don’t you can just the url….&lt;/p&gt;
+&lt;p&gt;alias listen_indie1031="mplayer &lt;a href="http://208.80.52.108:80/KDLDFMCMP3%5C"&gt;http://208.80.52.108:80/KDLDFMCMP3&lt;/a&gt;"&lt;/p&gt;
+&lt;p&gt;The stream even pulls down artist/trackname.&lt;/p&gt;
+&lt;p&gt;Right now the only thing I listen to.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Daily WTF — Shopping Carts</title><link href="https://shanedowling.com/daily-wtf-shopping-carts-bbcfbdade962.html" rel="alternate"></link><published>2011-01-12T00:00:00+00:00</published><updated>2011-01-12T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-12:/daily-wtf-shopping-carts-bbcfbdade962.html</id><content type="html">&lt;p&gt;&lt;a href="http://thedailywtf.com/Articles/Confessions-The-Shopping-Cart.aspx"&gt;Daily WTF — Shopping Carts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Really entertaining how the writer “thought” through this solution.&lt;/p&gt;
+&lt;p&gt;Amazing.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Software Engineer</title><link href="https://shanedowling.com/software-engineer-ddc413164c2c.html" rel="alternate"></link><published>2011-01-08T00:00:00+00:00</published><updated>2011-01-08T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-08:/software-engineer-ddc413164c2c.html</id><content type="html">&lt;p&gt;&lt;a href="http://www.reddit.com/r/programming/comments/ey7wm/software_engineering_is_the_best_job_of_2011/"&gt;Best job of 2011&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Apparently.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Intel Insider — Now hardware can screw you with copy protection.</title><link href="https://shanedowling.com/intel-insider-now-hardware-can-screw-you-with-copy-protection-723284f48a80.html" rel="alternate"></link><published>2011-01-06T00:00:00+00:00</published><updated>2011-01-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-06:/intel-insider-now-hardware-can-screw-you-with-copy-protection-723284f48a80.html</id><content type="html">&lt;p&gt;&lt;a href="http://www.wired.com/gadgetlab/2011/01/intel-cpu/"&gt;Intel Insider — Now hardware can screw you with copy protection.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Another product I have to remember never to buy. Companies should be
+punished for this behaviour.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>PHP and big numbers</title><link href="https://shanedowling.com/php-and-big-numbers-4605875d1635.html" rel="alternate"></link><published>2011-01-05T00:00:00+00:00</published><updated>2011-01-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-05:/php-and-big-numbers-4605875d1635.html</id><content type="html">&lt;p&gt;&lt;a href="http://www.exploringbinary.com/php-hangs-on-numeric-value-2-2250738585072011e-308/"&gt;PHP isn’t friends with big numbers.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Wonder where I can stick this number to cause some serious problems.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Worryingly accurate — This is your brain on vim</title><link href="https://shanedowling.com/worryingly-accurate-this-is-your-brain-on-vim-7583add32743.html" rel="alternate"></link><published>2011-01-05T00:00:00+00:00</published><updated>2011-01-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-05:/worryingly-accurate-this-is-your-brain-on-vim-7583add32743.html</id><content type="html">&lt;p&gt;&lt;a href="https://kev.town/2010/12/15/this-is-your-brain-on-vim/" title="https://kev.town/2010/12/15/this-is-your-brain-on-vim/"&gt;&lt;strong&gt;This is Your Brain on Vim&lt;/strong&gt;
+_la casa de kev en Interweb_kev.town&lt;/a&gt;&lt;a href="https://kev.town/2010/12/15/this-is-your-brain-on-vim/"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Simple ubuntu backup to S3</title><link href="https://shanedowling.com/simple-ubuntu-backup-to-s3-d8a52b123d12.html" rel="alternate"></link><published>2010-11-22T00:00:00+00:00</published><updated>2010-11-22T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-11-22:/simple-ubuntu-backup-to-s3-d8a52b123d12.html</id><summary type="html">&lt;p&gt;After browsing the web for ages to find a decent solution to
 backup my server to amazon s3 I finally came across one and I’m just
 throwing it up here.&lt;/p&gt;
 &lt;h3&gt;Reqs:&lt;/h3&gt;

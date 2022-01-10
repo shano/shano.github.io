@@ -5388,7 +5388,7 @@ you’ve any suggestions let me know.&lt;/p&gt;
 the config file from the main code. I actually execute it from my bashrc
 file, reason being is that typically when I need to ssh into my server
 it’s to pull up one of the details this tool presents.&lt;/p&gt;
-&lt;p&gt;Anyhoo the git repo is &lt;a href="https://github.com/shano/CLI-Dash"&gt;here&lt;/a&gt;.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Good Coding Practice Snippets</title><link href="https://shanedowling.com/good-coding-practice-snippets-60b75db22e57.html" rel="alternate"></link><published>2011-12-24T00:00:00+00:00</published><updated>2011-12-24T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-12-24:/good-coding-practice-snippets-60b75db22e57.html</id><summary type="html">&lt;p&gt;After reading through Code Complete I decided to make up mind-maps on
+&lt;p&gt;Anyhoo the git repo is &lt;a href="https://github.com/shano/CLI-Dash"&gt;here&lt;/a&gt;.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Good Coding Practice Snippets</title><link href="https://shanedowling.com/good-coding-practice-snippets-60b75db22e57.html" rel="alternate"></link><published>2011-12-24T00:00:00+00:00</published><updated>2011-12-24T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-12-24:/good-coding-practice-snippets-60b75db22e57.html</id><summary type="html">&lt;p&gt;After reading through Code Complete I decided to make up mind-maps on
 each topic in the hope that I would peruse them every so often to brush
 up on my programming best practice. Recently I decided take a look over
 them and was dismayed at the amount of knowledge from …&lt;/p&gt;</summary><content type="html">&lt;p&gt;After reading through Code Complete I decided to make up mind-maps on
@@ -5408,7 +5408,7 @@ every-time I create a new if statement or a new function I expect my
 coding standards to increase significantly. I will also start creating
 snippets that represent explanations of certain programming concepts,
 with actual pseudo-code.&lt;/p&gt;
-&lt;p&gt;Anyway, feel free to check-out the PHP snippet file &lt;a href="https://github.com/shano/Vim-SnipMate-Coding-Standards"&gt;here&lt;/a&gt;, will add to it as I find missing things/enhancements&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Vegetarian</title><link href="https://shanedowling.com/vegetarian-9bb1abb30879.html" rel="alternate"></link><published>2011-05-07T00:00:00+00:00</published><updated>2011-05-07T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-05-07:/vegetarian-9bb1abb30879.html</id><summary type="html">&lt;p&gt;Deciding to become vegetarian is not an easy step. I decided to dip my
+&lt;p&gt;Anyway, feel free to check-out the PHP snippet file &lt;a href="https://github.com/shano/Vim-SnipMate-Coding-Standards"&gt;here&lt;/a&gt;, will add to it as I find missing things/enhancements&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Vegetarian</title><link href="https://shanedowling.com/vegetarian-9bb1abb30879.html" rel="alternate"></link><published>2011-05-07T00:00:00+00:00</published><updated>2011-05-07T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-05-07:/vegetarian-9bb1abb30879.html</id><summary type="html">&lt;p&gt;Deciding to become vegetarian is not an easy step. I decided to dip my
 toe in the water at the start of the year by trying a month of not
 eating meat, I would highly recommend everyone try this at least once
 just to see what it might be like …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Deciding to become vegetarian is not an easy step. I decided to dip my
@@ -5514,7 +5514,7 @@ sauce, for me because I like to use quinoa and lentils in a lot of my
 dishes I tried to find something that used both, with a lot of random
 vegetables. Eventually I came across this &lt;a href="http://vegweb.com/index.php?topic=39142.0"&gt;recipe&lt;/a&gt;, its super
 healthy and really filling. I’d highly recommend a spicy pasta sauce
-with it.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Reducing my possesions</title><link href="https://shanedowling.com/reducing-my-possesions-e8ccf43e94ba.html" rel="alternate"></link><published>2011-04-29T00:00:00+00:00</published><updated>2011-04-29T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-04-29:/reducing-my-possesions-e8ccf43e94ba.html</id><summary type="html">&lt;p&gt;I decided at the start of the year to reduce my possesions purely as I
+with it.&lt;/p&gt;</content><category term="Random"></category></entry><entry><title>Reducing my possesions</title><link href="https://shanedowling.com/reducing-my-possesions-e8ccf43e94ba.html" rel="alternate"></link><published>2011-04-29T00:00:00+00:00</published><updated>2011-04-29T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-04-29:/reducing-my-possesions-e8ccf43e94ba.html</id><summary type="html">&lt;p&gt;I decided at the start of the year to reduce my possesions purely as I
 found myself incredibly weighted down by what I owned. Unwatched DVDs,
 unplayed video games, unread books even unworn clothes do take a mental
 toll when deciding what to do with your day, it’s pointless …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I decided at the start of the year to reduce my possesions purely as I
@@ -5530,15 +5530,13 @@ in my wardrobe and see only a few t-shirts all of which I’m happy to
 wear.&lt;/p&gt;
 &lt;p&gt;Here’s my list. It doesn’t include things that are apart of the
 house(TV, shredders etc).&lt;/p&gt;
-&lt;p&gt;Tech
- — —&lt;/p&gt;
+&lt;h3&gt;Tech&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Lumux TZ10 Camera&lt;/li&gt;
 &lt;li&gt;Android Phone&lt;/li&gt;
 &lt;li&gt;Philips 21 inch monitor&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Clothes
- — — — -&lt;/p&gt;
+&lt;h3&gt;Clothes&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Slazenger T-Shirt(Navy)&lt;/li&gt;
 &lt;li&gt;Slazenger T-Shirt(Navy)&lt;/li&gt;
@@ -5569,8 +5567,7 @@ house(TV, shredders etc).&lt;/p&gt;
 &lt;li&gt;Pyjamas Shorts&lt;/li&gt;
 &lt;li&gt;Fleecy Jumper Black&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Misc
- — —&lt;/p&gt;
+&lt;h2&gt;Misc&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Umbrella&lt;/li&gt;
 &lt;li&gt;Chessboard&lt;/li&gt;
@@ -5586,8 +5583,7 @@ house(TV, shredders etc).&lt;/p&gt;
 &lt;li&gt;Spongebob Moneybox&lt;/li&gt;
 &lt;li&gt;Family Photo-Album&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Bonsai
- — — —&lt;/p&gt;
+&lt;h2&gt;Bonsai&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Tree&lt;/li&gt;
 &lt;li&gt;Wire&lt;/li&gt;
@@ -5597,27 +5593,23 @@ house(TV, shredders etc).&lt;/p&gt;
 &lt;li&gt;Watering Can&lt;/li&gt;
 &lt;li&gt;Sprayer&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Drawing
- — — — -&lt;/p&gt;
+&lt;h2&gt;Drawing&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Notepad(Large)&lt;/li&gt;
 &lt;li&gt;Pencil-Set&lt;/li&gt;
 &lt;li&gt;Charcoal-Set&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Travel
- — — —&lt;/p&gt;
+&lt;h2&gt;Travel&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Rolling Bag&lt;/li&gt;
 &lt;li&gt;Toiletries Case&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Toiletries
- — — — — —&lt;/p&gt;
+&lt;h2&gt;Toiletries&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Gilette Tech Ball DE Razor&lt;/li&gt;
 &lt;li&gt;Shaving Brush&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Books
- — — -&lt;/p&gt;
+&lt;h2&gt;Books&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Left Hand Side of the Brain&lt;/li&gt;
 &lt;li&gt;Oxford Dictionary of Philosophy&lt;/li&gt;
@@ -5631,8 +5623,7 @@ house(TV, shredders etc).&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;I’ll keep updating this as I decide to get rid of more. Hopefully by the
 end of the year I’ll be down to the magic number.&lt;/p&gt;
-&lt;p&gt;Removed
- — — — -&lt;/p&gt;
+&lt;h2&gt;Removed&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Oxford English Dictionary&lt;/li&gt;
 &lt;li&gt;Walden&lt;/li&gt;
@@ -5641,12 +5632,12 @@ end of the year I’ll be down to the magic number.&lt;/p&gt;
 &lt;li&gt;Wireless Keyboard&lt;/li&gt;
 &lt;li&gt;1TB Iomega Hard Disk&lt;/li&gt;
 &lt;li&gt;Short-Sleeved Shirt White&lt;/li&gt;
-&lt;li&gt;Shirt — Green Check&lt;/li&gt;
+&lt;li&gt;Shirt-Green Check&lt;/li&gt;
 &lt;li&gt;Long black coat&lt;/li&gt;
 &lt;li&gt;Travel Pillow&lt;/li&gt;
 &lt;li&gt;Dune&lt;/li&gt;
 &lt;li&gt;Filio&lt;/li&gt;
-&lt;li&gt;Shorts — Blue&lt;/li&gt;
+&lt;li&gt;Shorts-Blue&lt;/li&gt;
 &lt;li&gt;Notepad(Small)&lt;/li&gt;
 &lt;li&gt;Sleeping Sheet&lt;/li&gt;
 &lt;li&gt;Bosch&lt;/li&gt;
@@ -5666,8 +5657,7 @@ end of the year I’ll be down to the magic number.&lt;/p&gt;
 &lt;li&gt;Jumper Black&lt;/li&gt;
 &lt;li&gt;Walnut Desk&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Books
-\=====&lt;/p&gt;
+&lt;h1&gt;Books&lt;/h1&gt;
 &lt;p&gt;You’ll notice quite a few books, I find that while the kindle is great
 for reading novels, when studying I tend to scribble all over my books
 and the kindle really wasn’t a suitable replacement. I also use a lot of
@@ -5678,8 +5668,7 @@ hearts content! I do still intend to get rid of more books though, in
 the end I always try to retain the message of a book in a mindmap, so
 really keeping the book long after it’s been read is pointless. If I
 need to re-read a book I own I can grab a digital copy.&lt;/p&gt;
-&lt;p&gt;Benefits
-\========&lt;/p&gt;
+&lt;h1&gt;Benefits&lt;/h1&gt;
 &lt;p&gt;Other than a pleasant feeling of lightness from minimising your
 possesions, you begin to value your purchasing decisions more. For
 example instead of thoughtless buying another video game that’d I never
@@ -5698,8 +5687,7 @@ to take as much of the money I was needlessly spending and put it to
 charity. If you’re considering doing the same I’d stronly suggest
 checking out &lt;a href="https://www.givewell.org"&gt;givewell&lt;/a&gt; a fantastic charity review site and the &lt;a href="https://www.thelifeyoucansave.org"&gt;life you can
 save&lt;/a&gt;, they might just inspire you to do something very cool!&lt;/p&gt;
-&lt;p&gt;Tips/Tricks
-\===========&lt;/p&gt;
+&lt;h1&gt;Tips/Tricks&lt;/h1&gt;
 &lt;p&gt;I’ve found that whilst I’ve managed to cut down on my superfluous items
 I always came across more useless junk. I’ve started place all these
 junk items on a shelf near the door, once I’d collected enough stuff I
@@ -5731,19 +5719,34 @@ inspires me that day and do it. If I miss a run or am missing something
 that’s barely preventing me from doing my task, it’s irrelevant. It’s
 the next opportunity that’s important.&lt;/p&gt;
 &lt;p&gt;Although a few months in these are my overall goals for 2011&lt;/p&gt;
-&lt;p&gt;- Become an early riser&lt;/p&gt;
-&lt;p&gt;- Reduce my possesions(50 or less)&lt;/p&gt;
-&lt;p&gt;- Weekly blog post here&lt;/p&gt;
-&lt;p&gt;- Donate more money and time to charity&lt;/p&gt;
-&lt;p&gt;- Attempt a major philosophical write-up, with intention to apply for a
- Masters&lt;/p&gt;
-&lt;p&gt;- Become a vegetarian&lt;/p&gt;
-&lt;p&gt;- Run a 10k(Yeah I’m unfit)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Become an early riser&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reduce my possesions(50 or less)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Weekly blog post here&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Donate more money and time to charity&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Attempt a major philosophical write-up, with intention to apply for a Masters&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Become a vegetarian&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run a 10k(Yeah I’m unfit)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;I’ll expand on each of these as the weeks go on. I don’t doubt that this
 will be difficult, right now I hold down two jobs which sucks up a huge
 amount of time, but by documenting how I’m progressing and the
 techniques I use to maintain motivation and find time I hope it’ll help
-me and others.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Very Simple EC2 Snapshot Management</title><link href="https://shanedowling.com/very-simple-ec2-snapshot-management-6bcca8bd28fb.html" rel="alternate"></link><published>2011-04-01T00:00:00+00:00</published><updated>2011-04-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-04-01:/very-simple-ec2-snapshot-management-6bcca8bd28fb.html</id><summary type="html">&lt;p&gt;I’ve been pulling my hair out trying to get a handy ec2 snapshot
+me and others.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Very Simple EC2 Snapshot Management</title><link href="https://shanedowling.com/very-simple-ec2-snapshot-management-6bcca8bd28fb.html" rel="alternate"></link><published>2011-04-01T00:00:00+00:00</published><updated>2011-04-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-04-01:/very-simple-ec2-snapshot-management-6bcca8bd28fb.html</id><summary type="html">&lt;p&gt;I’ve been pulling my hair out trying to get a handy ec2 snapshot
 backup/management working. My google results have ranged from broken
 libraries to using bash scripts to do one aspect and php scripts to do
 another, all of the solutions seem to have serious issues with regions …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’ve been pulling my hair out trying to get a handy ec2 snapshot
@@ -5760,15 +5763,24 @@ to support &lt;a href="http://open.eucalyptus.com/wiki/Euca2oolsGuide"&gt;euca2o
 &lt;p&gt;You can find this script &lt;a href="http://pastebin.com/CCmJyULN"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;To get euca2ools work simply install via sudo apt-get install euca2ools
 and add this to ~/.eucarc&lt;/p&gt;
-&lt;p&gt;EC2_REGION=”${EC2_REGION:-eu-west-1}”&lt;/p&gt;
-&lt;p&gt;EC2_CERT=${HOME}/cert.pem&lt;/p&gt;
-&lt;p&gt;EC2_PRIVATE_KEY=${HOME}/pk.pem&lt;/p&gt;
-&lt;p&gt;EC2_ACCESS_KEY=AAAAAAAAAAAAAAAAAAA&lt;/p&gt;
-&lt;p&gt;EC2_SECRET_KEY=+AAAAAAAAAAAAAAaaaaaaaaaaa&lt;/p&gt;
-&lt;p&gt;EC2_USER_ID=1234567890&lt;/p&gt;
-&lt;p&gt;EUCALYPTUS_CERT=/etc/ec2/amitools/cert-ec2.pem&lt;/p&gt;
-&lt;p&gt;EC2_URL=https://ec2.${EC2_REGION}.amazonaws.com&lt;/p&gt;
-&lt;p&gt;S3_URL=https://s3.amazonaws.com:443&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Music at work</title><link href="https://shanedowling.com/music-at-work-12aac3472110.html" rel="alternate"></link><published>2011-01-13T00:00:00+00:00</published><updated>2011-01-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-13:/music-at-work-12aac3472110.html</id><summary type="html">&lt;p&gt;For anyone bored of trying to decide what to listen to at work I’d
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;EC2_REGION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;”&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;EC2_REGION&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;eu&lt;/span&gt;&lt;span class="p"&gt;-west-1&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;”
+
+&lt;span class="nv"&gt;EC2_CERT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;HOME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/cert.pem
+
+&lt;span class="nv"&gt;EC2_PRIVATE_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;HOME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/pk.pem
+
+&lt;span class="nv"&gt;EC2_ACCESS_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;AAAAAAAAAAAAAAAAAAA
+
+&lt;span class="nv"&gt;EC2_SECRET_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;+AAAAAAAAAAAAAAaaaaaaaaaaa
+
+&lt;span class="nv"&gt;EC2_USER_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1234567890&lt;/span&gt;
+
+&lt;span class="nv"&gt;EUCALYPTUS_CERT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/etc/ec2/amitools/cert-ec2.pem
+
+&lt;span class="nv"&gt;EC2_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;https://ec2.&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;EC2&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="nv"&gt;REGION&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.amazonaws.com
+
+&lt;span class="nv"&gt;S3_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;https://s3.amazonaws.com:443
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Music at work</title><link href="https://shanedowling.com/music-at-work-12aac3472110.html" rel="alternate"></link><published>2011-01-13T00:00:00+00:00</published><updated>2011-01-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-13:/music-at-work-12aac3472110.html</id><summary type="html">&lt;p&gt;For anyone bored of trying to decide what to listen to at work I’d
 recommend indie 103.1. Decent music and as it’s in La it’s 8 hours
 behind, so no annoying presenters during the work day(If you’re in the
 timezone of course).&lt;/p&gt;
@@ -5780,14 +5792,14 @@ timezone of course).&lt;/p&gt;
 those who don’t you can just the url….&lt;/p&gt;
 &lt;p&gt;alias listen_indie1031="mplayer &lt;a href="http://208.80.52.108:80/KDLDFMCMP3%5C"&gt;http://208.80.52.108:80/KDLDFMCMP3&lt;/a&gt;"&lt;/p&gt;
 &lt;p&gt;The stream even pulls down artist/trackname.&lt;/p&gt;
-&lt;p&gt;Right now the only thing I listen to.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Daily WTF — Shopping Carts</title><link href="https://shanedowling.com/daily-wtf-shopping-carts-bbcfbdade962.html" rel="alternate"></link><published>2011-01-12T00:00:00+00:00</published><updated>2011-01-12T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-12:/daily-wtf-shopping-carts-bbcfbdade962.html</id><content type="html">&lt;p&gt;&lt;a href="http://thedailywtf.com/Articles/Confessions-The-Shopping-Cart.aspx"&gt;Daily WTF — Shopping Carts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Right now the only thing I listen to.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Daily WTF — Shopping Carts</title><link href="https://shanedowling.com/daily-wtf-shopping-carts-bbcfbdade962.html" rel="alternate"></link><published>2011-01-12T00:00:00+00:00</published><updated>2011-01-12T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-12:/daily-wtf-shopping-carts-bbcfbdade962.html</id><content type="html">&lt;p&gt;&lt;a href="http://thedailywtf.com/Articles/Confessions-The-Shopping-Cart.aspx"&gt;Daily WTF — Shopping Carts&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Really entertaining how the writer “thought” through this solution.&lt;/p&gt;
-&lt;p&gt;Amazing.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Software Engineer</title><link href="https://shanedowling.com/software-engineer-ddc413164c2c.html" rel="alternate"></link><published>2011-01-08T00:00:00+00:00</published><updated>2011-01-08T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-08:/software-engineer-ddc413164c2c.html</id><content type="html">&lt;p&gt;&lt;a href="http://www.reddit.com/r/programming/comments/ey7wm/software_engineering_is_the_best_job_of_2011/"&gt;Best job of 2011&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Apparently.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Intel Insider — Now hardware can screw you with copy protection.</title><link href="https://shanedowling.com/intel-insider-now-hardware-can-screw-you-with-copy-protection-723284f48a80.html" rel="alternate"></link><published>2011-01-06T00:00:00+00:00</published><updated>2011-01-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-06:/intel-insider-now-hardware-can-screw-you-with-copy-protection-723284f48a80.html</id><content type="html">&lt;p&gt;&lt;a href="http://www.wired.com/gadgetlab/2011/01/intel-cpu/"&gt;Intel Insider — Now hardware can screw you with copy protection.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Amazing.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Software Engineer</title><link href="https://shanedowling.com/software-engineer-ddc413164c2c.html" rel="alternate"></link><published>2011-01-08T00:00:00+00:00</published><updated>2011-01-08T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-08:/software-engineer-ddc413164c2c.html</id><content type="html">&lt;p&gt;&lt;a href="http://www.reddit.com/r/programming/comments/ey7wm/software_engineering_is_the_best_job_of_2011/"&gt;Best job of 2011&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Apparently.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Intel Insider — Now hardware can screw you with copy protection.</title><link href="https://shanedowling.com/intel-insider-now-hardware-can-screw-you-with-copy-protection-723284f48a80.html" rel="alternate"></link><published>2011-01-06T00:00:00+00:00</published><updated>2011-01-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-06:/intel-insider-now-hardware-can-screw-you-with-copy-protection-723284f48a80.html</id><content type="html">&lt;p&gt;&lt;a href="http://www.wired.com/gadgetlab/2011/01/intel-cpu/"&gt;Intel Insider — Now hardware can screw you with copy protection.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Another product I have to remember never to buy. Companies should be
-punished for this behaviour.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>PHP and big numbers</title><link href="https://shanedowling.com/php-and-big-numbers-4605875d1635.html" rel="alternate"></link><published>2011-01-05T00:00:00+00:00</published><updated>2011-01-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-05:/php-and-big-numbers-4605875d1635.html</id><content type="html">&lt;p&gt;&lt;a href="http://www.exploringbinary.com/php-hangs-on-numeric-value-2-2250738585072011e-308/"&gt;PHP isn’t friends with big numbers.&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Wonder where I can stick this number to cause some serious problems.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Worryingly accurate — This is your brain on vim</title><link href="https://shanedowling.com/worryingly-accurate-this-is-your-brain-on-vim-7583add32743.html" rel="alternate"></link><published>2011-01-05T00:00:00+00:00</published><updated>2011-01-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-05:/worryingly-accurate-this-is-your-brain-on-vim-7583add32743.html</id><content type="html">&lt;p&gt;&lt;a href="https://kev.town/2010/12/15/this-is-your-brain-on-vim/" title="https://kev.town/2010/12/15/this-is-your-brain-on-vim/"&gt;&lt;strong&gt;This is Your Brain on Vim&lt;/strong&gt;
-_la casa de kev en Interweb_kev.town&lt;/a&gt;&lt;a href="https://kev.town/2010/12/15/this-is-your-brain-on-vim/"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>The Power of Nightmares</title><link href="https://shanedowling.com/the-power-of-nightmares-5717f5a92295.html" rel="alternate"></link><published>2010-12-28T00:00:00+00:00</published><updated>2010-12-28T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-12-28:/the-power-of-nightmares-5717f5a92295.html</id><summary type="html">&lt;p&gt;I always wondered why, if the UK/US were at war with terrorism, why they
+punished for this behaviour.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>PHP and big numbers</title><link href="https://shanedowling.com/php-and-big-numbers-4605875d1635.html" rel="alternate"></link><published>2011-01-05T00:00:00+00:00</published><updated>2011-01-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-05:/php-and-big-numbers-4605875d1635.html</id><content type="html">&lt;p&gt;&lt;a href="http://www.exploringbinary.com/php-hangs-on-numeric-value-2-2250738585072011e-308/"&gt;PHP isn’t friends with big numbers.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Wonder where I can stick this number to cause some serious problems.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Worryingly accurate — This is your brain on vim</title><link href="https://shanedowling.com/worryingly-accurate-this-is-your-brain-on-vim-7583add32743.html" rel="alternate"></link><published>2011-01-05T00:00:00+00:00</published><updated>2011-01-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-01-05:/worryingly-accurate-this-is-your-brain-on-vim-7583add32743.html</id><content type="html">&lt;p&gt;&lt;a href="https://kev.town/2010/12/15/this-is-your-brain-on-vim/" title="https://kev.town/2010/12/15/this-is-your-brain-on-vim/"&gt;&lt;strong&gt;This is Your Brain on Vim&lt;/strong&gt;
+_la casa de kev en Interweb_kev.town&lt;/a&gt;&lt;a href="https://kev.town/2010/12/15/this-is-your-brain-on-vim/"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>The Power of Nightmares</title><link href="https://shanedowling.com/the-power-of-nightmares-5717f5a92295.html" rel="alternate"></link><published>2010-12-28T00:00:00+00:00</published><updated>2010-12-28T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-12-28:/the-power-of-nightmares-5717f5a92295.html</id><summary type="html">&lt;p&gt;I always wondered why, if the UK/US were at war with terrorism, why they
 always made such fantastic declarations about how powerful terrorists
 were and that they had infiltrated all elements of society? Surely this
 would simply add more gas to the fire and prolong the effect of the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I always wondered why, if the UK/US were at war with terrorism, why they

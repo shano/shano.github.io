@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -43,7 +43,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2011-04-01T00:00:00+00:00">Fri 01 April 2011</abbr>
@@ -77,15 +77,24 @@ to support <a href="http://open.eucalyptus.com/wiki/Euca2oolsGuide">euca2ools</a
 <p>You can find this script <a href="http://pastebin.com/CCmJyULN">here</a>.</p>
 <p>To get euca2ools work simply install via sudo apt-get install euca2ools
 and add this to ~/.eucarc</p>
-<p>EC2_REGION=”${EC2_REGION:-eu-west-1}”</p>
-<p>EC2_CERT=${HOME}/cert.pem</p>
-<p>EC2_PRIVATE_KEY=${HOME}/pk.pem</p>
-<p>EC2_ACCESS_KEY=AAAAAAAAAAAAAAAAAAA</p>
-<p>EC2_SECRET_KEY=+AAAAAAAAAAAAAAaaaaaaaaaaa</p>
-<p>EC2_USER_ID=1234567890</p>
-<p>EUCALYPTUS_CERT=/etc/ec2/amitools/cert-ec2.pem</p>
-<p>EC2_URL=https://ec2.${EC2_REGION}.amazonaws.com</p>
-<p>S3_URL=https://s3.amazonaws.com:443</p>
+<div class="highlight"><pre><span></span><span class="nv">EC2_REGION</span><span class="o">=</span>”<span class="si">${</span><span class="nv">EC2_REGION</span><span class="k">:-</span><span class="nv">eu</span><span class="p">-west-1</span><span class="si">}</span>”
+
+<span class="nv">EC2_CERT</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/cert.pem
+
+<span class="nv">EC2_PRIVATE_KEY</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/pk.pem
+
+<span class="nv">EC2_ACCESS_KEY</span><span class="o">=</span>AAAAAAAAAAAAAAAAAAA
+
+<span class="nv">EC2_SECRET_KEY</span><span class="o">=</span>+AAAAAAAAAAAAAAaaaaaaaaaaa
+
+<span class="nv">EC2_USER_ID</span><span class="o">=</span><span class="m">1234567890</span>
+
+<span class="nv">EUCALYPTUS_CERT</span><span class="o">=</span>/etc/ec2/amitools/cert-ec2.pem
+
+<span class="nv">EC2_URL</span><span class="o">=</span>https://ec2.<span class="si">${</span><span class="nv">EC2</span><span class="se">\_</span><span class="nv">REGION</span><span class="si">}</span>.amazonaws.com
+
+<span class="nv">S3_URL</span><span class="o">=</span>https://s3.amazonaws.com:443
+</pre></div>
     </div>
 
     <footer>
