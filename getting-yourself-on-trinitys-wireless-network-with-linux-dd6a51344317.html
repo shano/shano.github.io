@@ -65,27 +65,33 @@ banged up a guide on how to get onto it with Linux. I’m using Ubuntu so
 things may need to be changed depending on your distro. :D Right, you
 need wpa_supplicant installed and modify it’s config file
 /etc/wpa_supplicant.conf</p>
-<p>ctrl_interface=/var/run/wpa_supplicant
- ctrl_interface_group=0
- eapol_version=1
- ap_scan=1
- fast_reauth=1
-network={
- ssid=”TCDwifi”
- scan_ssid=1
- key_mgmt=IEEE8021X
- eap=LEAP
- identity=”username”
- password=”password”
- phase2=”MSCHAPV2"
- }</p>
+<h1>!bash</h1>
+<div class="highlight"><pre><span></span><span class="n">ctrl</span>\<span class="n">_interface</span><span class="o">=/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wpa</span>\<span class="n">_supplicant</span>
+<span class="n">ctrl</span>\<span class="n">_interface</span>\<span class="n">_group</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">eapol</span>\<span class="n">_version</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">ap</span>\<span class="n">_scan</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">fast</span>\<span class="n">_reauth</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">network</span><span class="o">=</span><span class="p">{</span>
+<span class="n">ssid</span><span class="o">=</span><span class="err">”</span><span class="n">TCDwifi</span><span class="err">”</span>
+<span class="n">scan</span>\<span class="n">_ssid</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">key</span>\<span class="n">_mgmt</span><span class="o">=</span><span class="n">IEEE8021X</span>
+<span class="n">eap</span><span class="o">=</span><span class="n">LEAP</span>
+<span class="n">identity</span><span class="o">=</span><span class="err">”</span><span class="n">username</span><span class="err">”</span>
+<span class="n">password</span><span class="o">=</span><span class="err">”</span><span class="n">password</span><span class="err">”</span>
+<span class="n">phase2</span><span class="o">=</span><span class="err">”</span><span class="n">MSCHAPV2</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
 <p>If you’re in Computer Science you can also use COMPSCIwireless2 and
 there’s no MAC address filtering so no stupid registering stuff. Place
 this in your /etc/network/interfaces if its not already there so you can
 dhcp over your wireless card.</p>
+<h1>!bash</h1>
 <p>auto eth1
  iface eth1 inet dhcp</p>
 <p>And finally all of this stuff into a script, say tcd.sh</p>
+<h1>!bash</h1>
 <p>echo “Putting the wifi card up and down”
  sudo ifconfig eth1 down
  sudo ifconfig eth1 up

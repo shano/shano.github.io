@@ -6524,27 +6524,33 @@ banged up a guide on how to get onto it with Linux. I’m using Ubuntu so
 things may need to be changed depending on your distro. :D Right, you
 need wpa_supplicant installed and modify it’s config file
 /etc/wpa_supplicant.conf&lt;/p&gt;
-&lt;p&gt;ctrl_interface=/var/run/wpa_supplicant
- ctrl_interface_group=0
- eapol_version=1
- ap_scan=1
- fast_reauth=1
-network={
- ssid=”TCDwifi”
- scan_ssid=1
- key_mgmt=IEEE8021X
- eap=LEAP
- identity=”username”
- password=”password”
- phase2=”MSCHAPV2"
- }&lt;/p&gt;
+&lt;h1&gt;!bash&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ctrl&lt;/span&gt;\&lt;span class="n"&gt;_interface&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;wpa&lt;/span&gt;\&lt;span class="n"&gt;_supplicant&lt;/span&gt;
+&lt;span class="n"&gt;ctrl&lt;/span&gt;\&lt;span class="n"&gt;_interface&lt;/span&gt;\&lt;span class="n"&gt;_group&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;eapol&lt;/span&gt;\&lt;span class="n"&gt;_version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;ap&lt;/span&gt;\&lt;span class="n"&gt;_scan&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;fast&lt;/span&gt;\&lt;span class="n"&gt;_reauth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;network&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="n"&gt;ssid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="n"&gt;TCDwifi&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;
+&lt;span class="n"&gt;scan&lt;/span&gt;\&lt;span class="n"&gt;_ssid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;key&lt;/span&gt;\&lt;span class="n"&gt;_mgmt&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;IEEE8021X&lt;/span&gt;
+&lt;span class="n"&gt;eap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;LEAP&lt;/span&gt;
+&lt;span class="n"&gt;identity&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;
+&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;
+&lt;span class="n"&gt;phase2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="n"&gt;MSCHAPV2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;If you’re in Computer Science you can also use COMPSCIwireless2 and
 there’s no MAC address filtering so no stupid registering stuff. Place
 this in your /etc/network/interfaces if its not already there so you can
 dhcp over your wireless card.&lt;/p&gt;
+&lt;h1&gt;!bash&lt;/h1&gt;
 &lt;p&gt;auto eth1
  iface eth1 inet dhcp&lt;/p&gt;
 &lt;p&gt;And finally all of this stuff into a script, say tcd.sh&lt;/p&gt;
+&lt;h1&gt;!bash&lt;/h1&gt;
 &lt;p&gt;echo “Putting the wifi card up and down”
  sudo ifconfig eth1 down
  sudo ifconfig eth1 up
