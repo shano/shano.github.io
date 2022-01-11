@@ -1,69 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Productivity</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/productivity.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2014-01-18T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Switching to a dumbphone</title><link href="https://shanedowling.com/switching-to-a-dumbphone-3b090f8ad709.html" rel="alternate"></link><published>2014-01-18T00:00:00+00:00</published><updated>2014-01-18T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-18:/switching-to-a-dumbphone-3b090f8ad709.html</id><summary type="html">&lt;h3&gt;Why?&lt;/h3&gt;
-&lt;p&gt;I am aware, that while there is a trend towards smart-phones there are
-quite a few articles around on the subject of people swapping back to a
-dumb-phone or even &lt;a href="http://gizmodo.com/5991495/why-my-iphone-is-better-as-a-dumbphone"&gt;using your smartphone as a dumphone&lt;/a&gt;. Apparently it can &lt;a href="http://www.washingtonpost.com/blogs/innovations/wp/2013/10/31/why-i-dumped-my-smartphone-for-a-7-year-old-motorola-razr/"&gt;help your marriage&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I’m not that naive. Frankly, my …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Why?&lt;/h3&gt;
-&lt;p&gt;I am aware, that while there is a trend towards smart-phones there are
-quite a few articles around on the subject of people swapping back to a
-dumb-phone or even &lt;a href="http://gizmodo.com/5991495/why-my-iphone-is-better-as-a-dumbphone"&gt;using your smartphone as a dumphone&lt;/a&gt;. Apparently it can &lt;a href="http://www.washingtonpost.com/blogs/innovations/wp/2013/10/31/why-i-dumped-my-smartphone-for-a-7-year-old-motorola-razr/"&gt;help your marriage&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I’m not that naive. Frankly, my reasons for swapping away from my
-smartphone is pretty pragmatic, it was simply a persistent call to
-mindless action. That I carried around in my pocket. Everywhere.
-I found myself in a constant state of half-living, meaning half of my
-mind is on the present moment and the other half on a device. I’ve
-flipped to it when I’m communicating with people, commuting or even
-watching TV. Apparently TV is no longer enough of a distraction for this
-half-living brain I seem to have developed.&lt;/p&gt;
-&lt;p&gt;Sure I could just not use those features, like the Gizmodo article I
-linked to. I tried this, and cut pretty much everything but the useful
-stuff out of my phone, it boiled down to maps, public transport apps,
-RunKeeper and Whatsapp. However, I still constantly found myself in a
-tug of war where I would uninstall, then re-install browsers for an
-information fix. Just because it was easy and I could. It got to the
-point where I discovered a really small(100KB or so) browser so I could
-get my internet fix even faster. I realised my phone wasn’t giving me
-enough benefit for the mental costs. Maybe I’m particularly weak, I’m
-sure others can happily keep their smart-phones at a healthy distance,
-but I accepted that I simply couldn’t.&lt;/p&gt;
-&lt;h3&gt;How?&lt;/h3&gt;
-&lt;p&gt;As soon as I realised I hadn’t the ability to distance myself from my
-phone and that this was negatively effecting my mindfulness, I needed to figure out a way solve this. What I wanted to do was maintain some of the useful benefits of a smart-phone minus the distractions. Taking a
-cold hard look at the realistic benefits I got from my phone really helped.&lt;/p&gt;
-&lt;p&gt;The features I wanted(not needed) started with GPS-based maps of some sort. London is big, without GPS maps I knew I’d spend a lot of time getting lost, which isn’t so bad sometimes but maps are essential when I need to be at a place at a certain time, which happens quite often. I also use RunKeeper a lot and enjoyed looking at my stats and progress, it wasn’t a deal-breaker but I worried about my motivation to run. The same with can be said for using Sleep as Android which I used for logging sleep patterns. I like being able to view how many hours I’m sleeping each night, it’s a very useful to me and has generally improved my wellbeing. Finally, as I’m a contractor, I spend a lot of time taking photos of receipts for expenses etc, I’ve found Evernote really useful for this.
-Eventually, I decided to get myself a Symbian, so a half
-smart/dumb-phone. Specifically the Nokia 6730.
-Essentially because it supports 3G and GPS. Symbian also supported Whatsapp, Viber, Endomondo(no RunKeeper unfortunately) and even Evernote. I also picked up a FitBit One, for exercise and sleep logging.&lt;/p&gt;
-&lt;h3&gt;Results&lt;/h3&gt;
-&lt;h4&gt;Advantages&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;I don’t browse anymore, ever. Frankly, browsing the web is so painful to do on this phone I’ve tried once, got nowhere and never again.&lt;/li&gt;
-&lt;li&gt;The OVI store is terrible. It doesn’t even save my username and password, and typing those in on this device is enough of a reason never to install another app.&lt;/li&gt;
-&lt;li&gt;Google Maps/GPS has been better than I expected. Basically, there’s a little more typing but the GPS/maps combo has been spot on for me.&lt;/li&gt;
-&lt;li&gt;Endomondo has been terrific. Granted you can’t multi-task with it, so if you get lost you need to stop your run, check your map and start another run. I still thing it’s great. I even contributed some code to an app that allows you to convert your RunKeeper data to Endomondo. You can grab it &lt;a href="https://github.com/shano/runkeeper2endomondo"&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;I also discovered SoundHound is on here, a nice to have little discovery.&lt;/li&gt;
-&lt;li&gt;My phone is no longer a thing. It’s a boring piece of tech in the background. When I need to get in touch with someone, odds are I’ll just call them. No twitter, email or facebook. It is just a phone with a few bells and whistles.&lt;/li&gt;
-&lt;li&gt;The Fitbit sleep logging shows a little timer of how long I’ve slept, I found this quite useful if I’ve woken up too early.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Disadvantages&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;The Fitbit hasn’t been very useful. I could’ve survived without the sleep logging and it doesn’t really capture runs properly. It’s trying more to be an overall health system and one that requires a smartphone so you can input a ton of data into. How much water you drink, what calories your taking in etc etc. I didn’t need any of this. In hindsight I wouldn’t have bothered with it.&lt;/li&gt;
-&lt;li&gt;The Evernote client also didn’t support my phone. This is quite annoying, it means I can’t in the moment grab useful data or take quick snapshots and have them backed up. But the phone’s camera is decent enough, so I’m hoping I’ll work out a different alternative.&lt;/li&gt;
-&lt;li&gt;Viber didn’t actually support my phone, not a big deal.
-That’s about it really. I’ve been using my dumb-phone for the last few
-weeks, and I haven’t really missed my Samsung SIII, other than Evernote
-really. Honestly, considering how distracted I was with the phone I
-thought it would be a much more difficult transition. I guess because
-I’d reduced my smart-phone down to the bare essentials as it was, I
-wasn’t losing a tremendous amount of features.
-It genuinely looks like the future of my phone tech is going to be a
-crappy 4 year old phone running an even crappier 13 year old operating
-system.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;February 28, 2014 –&lt;/strong&gt; Counterfeit Update - I’m still
-using my dumb-phone and loving it. In fact, one Saturday I trialled
-using my Samsung S3 for a day and couldn’t stand it, I constantly kept
-checking it and that drove my crazy. Giving it away as a gift.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Sleep as the fundamental habit</title><link href="https://shanedowling.com/sleep-as-the-fundamental-habit-f9590f13c013.html" rel="alternate"></link><published>2014-01-09T00:00:00+00:00</published><updated>2014-01-09T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-09:/sleep-as-the-fundamental-habit-f9590f13c013.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__8iAA__DadoqBnceEck3kraw__2x.jpeg"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Productivity</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/productivity.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2014-02-13T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>A tip for introducing new habits</title><link href="https://shanedowling.com/a-tip-for-introducing-new-habits-79186124433a.html" rel="alternate"></link><published>2014-02-13T00:00:00+00:00</published><updated>2014-02-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-13:/a-tip-for-introducing-new-habits-79186124433a.html</id><summary type="html">&lt;p&gt;After reading up on &lt;a href="https://pragprog.com/book/ahptl/pragmatic-thinking-and-learning"&gt;Pragmatic Thinking and Learning&lt;/a&gt;
+I decided I would implement a habit called Morning Pages. Effectively
+you commit to writing several pages of writing each and every morning,
+for me I intended to write a blog post unit each day, and decide which
+ones were worthy enough …&lt;/p&gt;</summary><content type="html">&lt;p&gt;After reading up on &lt;a href="https://pragprog.com/book/ahptl/pragmatic-thinking-and-learning"&gt;Pragmatic Thinking and Learning&lt;/a&gt;
+I decided I would implement a habit called Morning Pages. Effectively
+you commit to writing several pages of writing each and every morning,
+for me I intended to write a blog post unit each day, and decide which
+ones were worthy enough of sharing towards the end of the week. I was
+building up a healthy morning routine and figured one more habit
+wouldn’t be too much to ask of myself.&lt;/p&gt;
+&lt;p&gt;I failed. Repeatedly. Two months in and I’d managed about five totally
+random mornings of writing. All of them on weekends. It kept feeling
+non-essential compared to my other habits and I felt like the pressure
+of getting to work at a reasonable hour build up as I sat down to try
+and write. I simply couldn’t commit and I couldn’t focus on writing.
+So, in this sorry state I figured out a great way to introduce new
+habits that actually immediately worked for me. &lt;strong&gt;All new habits are
+done first.&lt;/strong&gt; Simple as that, whenever you have a routine or when you’re about to knuckle down and be productive always start with your newest
+habit. It’s the one you have the most tenuous hold on and should be
+prioritised accordingly until it can become an establish part of your
+routine. I’ve been writing every morning for about a month and a half
+now and I’ve only missed one day(due to extreme tiredness). Also because it’s the first thing I do when I wake, I’ve started to incorporate
+dreams into creative writing, it’s been very rewarding actually. I think
+this habit is here to stay.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Precision Nutrition Trail Fast</title><link href="https://shanedowling.com/precision-nutrition-trail-fast-88a4c01976d5.html" rel="alternate"></link><published>2014-02-06T00:00:00+00:00</published><updated>2014-02-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-06:/precision-nutrition-trail-fast-88a4c01976d5.html</id><summary type="html">&lt;p&gt;I went through the &lt;a href="https://www.precisionnutrition.com/intermittent-fasting/chapter-1"&gt;precision nutrition trial fast last&lt;/a&gt; Sunday, here’s a low-down on how things went through each of the steps. I had trialled this while out and about in central London, but failed at around 5pm, I was disorganised and feeling incredibly dizzy from the crowds and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I went through the &lt;a href="https://www.precisionnutrition.com/intermittent-fasting/chapter-1"&gt;precision nutrition trial fast last&lt;/a&gt; Sunday, here’s a low-down on how things went through each of the steps. I had trialled this while out and about in central London, but failed at around 5pm, I was disorganised and feeling incredibly dizzy from the crowds and noise, so this time I planned ahead and did this from home.&lt;/p&gt;
+&lt;h3&gt;10 PM Saturday&lt;/h3&gt;
+&lt;p&gt;Had a late dinner at the wonderful Chaat on RedChurch Street in Shoreditch. May as well have an epic last meal, right? The advantage of the late final meal was that I actually managed to ramble in from the street and only waited a minute for a table. I didn’t over-do it in terms of food. I often get hungrier the next morning if I eat a huge meal the night before.&lt;/p&gt;
+&lt;h3&gt;9 AM Saturday&lt;/h3&gt;
+&lt;p&gt;- Ran a 10k. This is the part I’m a little apprehensive about. I’m doing a training program to build up to my next half marathon, which includes 10k-15k runs on Sundays. I’m always starving after a run(naturally), so I’m curious to know how my body will tackle this. I also figure if this is a trial fast I should trial it during real life conditions, which would regularly include running.&lt;/p&gt;
+&lt;h3&gt;10 AM&lt;/h3&gt;
+&lt;p&gt;- The post-run hunger has come over me, but the “breakfast” while not
+ the most satisfying I’ve ever has taken the edge off.
+ mL (1 cup) of green tea and 5 grams BCAA (branched chain amino acids) powder (or take 5 capsules).&lt;/p&gt;
+&lt;h3&gt;1PM&lt;/h3&gt;
+&lt;p&gt;- Hunger cravings are on the up causing me to feel a little tender, but
+ short breathing exercise and keeping busy seem to help.&lt;/p&gt;
+&lt;h3&gt;2PM&lt;/h3&gt;
+&lt;p&gt;- I’ve been a vegetarian for over three years, why do I still imagine
+ greasy burgers when I get hunger pains?
+- Had a cigar to help things along. Is that cheating?&lt;/p&gt;
+&lt;h3&gt;2:30PM&lt;/h3&gt;
+&lt;p&gt;Beginning to get dizzy/spacy, the cigar may be the source. I’ve been using my standing desk and been walking constantly since the morning but now I seem to want prolonged sitting.&lt;/p&gt;
+&lt;h3&gt;3PM&lt;/h3&gt;
+&lt;p&gt;I guess you’d call this lunchtime, same intake as breakfast. It takes
+ the edge off a little. Can’t really sit still anymore, I’m just pacing around but feeling light-headed at the same time.&lt;/p&gt;
+&lt;h3&gt;6PM&lt;/h3&gt;
+&lt;p&gt;Watching movies at the moment which seems to keep the hunger at bay. It’s very much hitting a wall then finding energy from somewhere.&lt;/p&gt;
+&lt;h3&gt;9PM&lt;/h3&gt;
+&lt;p&gt;Bailing an hour early and having a small cup of soup. Put frankly, I felt like I’ve had a temperature for the last few hours and all my body wanted was something wholesome in it, my resistance has totally fallen apart. I felt like I was coming down with an illness and I was worried the lack of food may have brought down my immune system.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;The illness effect was probably entirely psychosomatic, but I did feel
+terrible the last few hours, the light spacious feeling I had earlier in
+the day turned pretty horrible. I’d like to repeat this experiment
+without the 10km run beforehand and see how it goes. One thing is for
+sure, I have a completely new respect for anyone who can regularly fast.
+The ways in which this hit my willpower were completely surprising.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Sleep as the fundamental habit</title><link href="https://shanedowling.com/sleep-as-the-fundamental-habit-f9590f13c013.html" rel="alternate"></link><published>2014-01-09T00:00:00+00:00</published><updated>2014-01-09T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-09:/sleep-as-the-fundamental-habit-f9590f13c013.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__8iAA__DadoqBnceEck3kraw__2x.jpeg"&gt;&lt;/p&gt;
 &lt;p&gt;Leo Babuta describes meditation as the fundamental habit, the underlying habits beneath all others. Personally, I disagree. I wrote recently on how I cope with meditation when you haven’t had a particularly good nights sleep.&lt;/p&gt;
 &lt;p&gt;Realistically washing your face is like taking painkillers after a
 serious injury, it’s …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__8iAA__DadoqBnceEck3kraw__2x.jpeg"&gt;&lt;/p&gt;
@@ -78,7 +69,23 @@ including meditation.&lt;/p&gt;
 &lt;p&gt;I only began to appreciate a good sleep routine when it was gone. Four
 months of hopping from towns, cities and countries has destroyed my good sleeping habits. I can’t remember the last time I slept in the same bedmore than two nights in a row. I return to a more permanent base soon enough but even now I’m trying to develop a rough sleep routine.&lt;/p&gt;
 &lt;p&gt;Analyzing your sleep patterns and logging how you feel is a great way to
-discover what works for you. How many hours do you need? When is your ideal wind-down time? Be curious about it. To help I found &lt;a href="https://play.google.com/store/apps/details?id=com.urbandroid.sleep"&gt;Sleep as Android&lt;/a&gt; and &lt;a href="https://pzizz.com/"&gt;Pzizz&lt;/a&gt;, they’re very helpful but just being curious and exploring your sleeping patterns can do wonders for your well-being. Nailing down a good sleeping habit has been one of the biggest fundamental improvements I’ve made, everything flows from there.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Performance gains by altering your routine</title><link href="https://shanedowling.com/performance-gains-by-altering-your-routine-f44365b8972b.html" rel="alternate"></link><published>2013-12-30T00:00:00+00:00</published><updated>2013-12-30T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-30:/performance-gains-by-altering-your-routine-f44365b8972b.html</id><summary type="html">&lt;p&gt;In the mornings I had a very structured routine. The first thing I would
+discover what works for you. How many hours do you need? When is your ideal wind-down time? Be curious about it. To help I found &lt;a href="https://play.google.com/store/apps/details?id=com.urbandroid.sleep"&gt;Sleep as Android&lt;/a&gt; and &lt;a href="https://pzizz.com/"&gt;Pzizz&lt;/a&gt;, they’re very helpful but just being curious and exploring your sleeping patterns can do wonders for your well-being. Nailing down a good sleeping habit has been one of the biggest fundamental improvements I’ve made, everything flows from there.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GYPYSs and unrealistic expectations</title><link href="https://shanedowling.com/gypyss-and-unrealistic-expectations-f67a4927d9d6.html" rel="alternate"></link><published>2014-01-01T00:00:00+00:00</published><updated>2014-01-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-01:/gypyss-and-unrealistic-expectations-f67a4927d9d6.html</id><summary type="html">&lt;p&gt;&lt;a href="http://www.huffingtonpost.com/wait-but-why/generation-y-unhappy_b_3930620.html"&gt;This article&lt;/a&gt; was shared with me recently, it’s an excellent read and provides some good reasoning for why people feel that vague sense of living an unaccomplished life. I’ll admit it, I am most definitely a Gypsy. My garden right now it full of flowers of unrealistic expectations …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://www.huffingtonpost.com/wait-but-why/generation-y-unhappy_b_3930620.html"&gt;This article&lt;/a&gt; was shared with me recently, it’s an excellent read and provides some good reasoning for why people feel that vague sense of living an unaccomplished life. I’ll admit it, I am most definitely a Gypsy. My garden right now it full of flowers of unrealistic expectations. I’d begun to discover this while meditating and watching my emotions daily.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="images/1__dgV1eOnLLrwiaafzuZ__klg__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;In &lt;a href="https://www.headspace.com/"&gt;Headspace&lt;/a&gt; there’s a section called the discovery series. You begin to focus on watching your emotions throughout the day and when your mind gets distracted and wanders. More specifically you watch the ways in which you wish things were different. You begin to notice the gulf between reality and fantasy.&lt;/p&gt;
+&lt;p&gt;At first I spotted the fantasties and dismissed them entirely. I was
+disappointed in myself for being so ridiculous and unrealistic. However,
+soon enough I realised that those fantasties had some utility. They
+could potentially shape long term goals. In &lt;a href="https://pragprog.com/book/ahptl/pragmatic-thinking-and-learning"&gt;Pragmatic Thinking and
+Learning&lt;/a&gt; (a book I’d highly recommend), there is a concept called the Pragmatic Investment Plan, where you essentially break down your longer term goals into where you want to be in say 5 years time and that’s broken down into where you want to be in a year and what tasks can you do right now.&lt;/p&gt;
+&lt;p&gt;Take a wild guess at where I found the inspiration for where I wanted to
+be in 5 years time? It’s pretty fun breaking down some of your dreams
+into a potentially attainable setting of SMART goals. Say you’ve started to get into drawing and you want others to see and possibly be moved by your work. Right now you still suck but you dream of the day when something you created was in a gallery or an exhibition.&lt;/p&gt;
+&lt;p&gt;Well, you’ve found your five year SMART goal. You could have year one be to create a blog and regularly publish a new piece of work. The thing right now you could do is grab that drawing book you held off buying. If nothing else, it’s a start. A few months down the line you might realise you’re not that into drawing or you’re totally into it. Either way to get to that point and either fulfill or dismiss the fantasy it starts with trying it on.&lt;/p&gt;
+&lt;p&gt;Sure, we all fantasise about about the craziest things and it’s
+sometimes even embarrassing, but there’s real insight there. Sit down
+with these fantasies and break them down into attainable chunks, then
+act on those chunks. You’ll get a hell of a lot farther than just
+sitting there wishing things were different.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Performance gains by altering your routine</title><link href="https://shanedowling.com/performance-gains-by-altering-your-routine-f44365b8972b.html" rel="alternate"></link><published>2013-12-30T00:00:00+00:00</published><updated>2013-12-30T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-30:/performance-gains-by-altering-your-routine-f44365b8972b.html</id><summary type="html">&lt;p&gt;In the mornings I had a very structured routine. The first thing I would
 do is meditate as for me, all other habits flow from this. Then after my
 meditation I would either go for a run or do some dumbbell based
 strength exercises. The reasoning being that as exercising …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In the mornings I had a very structured routine. The first thing I would

@@ -3635,19 +3635,16 @@ tutorial and came across &lt;a href="http://dbpmail.net/essays/2013-06-29-hacker
 &lt;p&gt;There is a few differences between my salt-stack and the linked article.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Primarily, I didn’t need notmuch or any fancy indexing on my server.&lt;/li&gt;
-&lt;li&gt;Personally, for security I grab all of my mail on Thunderbird and
-     keep it offline with backups. So my server is pretty thin.&lt;/li&gt;
-&lt;li&gt;I completely ignored his exim4 guide and only went with postfix and
-     dovecot for security.&lt;/li&gt;
-&lt;li&gt;I needed to add in some more security settings to get postfix up and
-     running nicely.&lt;/li&gt;
+&lt;li&gt;Personally, for security I grab all of my mail on Thunderbird and keep it offline with backups. So my server is pretty thin.&lt;/li&gt;
+&lt;li&gt;I completely ignored his exim4 guide and only went with postfix and dovecot for security.&lt;/li&gt;
+&lt;li&gt;I needed to add in some more security settings to get postfix up and running nicely.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Anyway the salt-stack is &lt;a href="https://github.com/shano/salty-mailer"&gt;here&lt;/a&gt; and there should be
 very few changes in getting it up and running. Basically change with
 your server’s username and with the domain you wish to email out from.
 I’ve only tested it with Debian 7 and Thunderbird as a client but it all
 worked.&lt;/p&gt;
-&lt;p&gt;If anyone has any improvements, just let me know.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Keep up to date</title><link href="https://shanedowling.com/keep-up-to-date-b90ee98640d4.html" rel="alternate"></link><published>2014-02-15T00:00:00+00:00</published><updated>2014-02-15T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-15:/keep-up-to-date-b90ee98640d4.html</id><summary type="html">&lt;p&gt;I love keeping up to date with all the latest tech news, but I find
+&lt;p&gt;If anyone has any improvements, just let me know.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Keep up to date</title><link href="https://shanedowling.com/keep-up-to-date-b90ee98640d4.html" rel="alternate"></link><published>2014-02-15T00:00:00+00:00</published><updated>2014-02-15T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-15:/keep-up-to-date-b90ee98640d4.html</id><summary type="html">&lt;p&gt;I love keeping up to date with all the latest tech news, but I find
 that when I follow numerous blogs there’s a heavy noise to signal ratio
 and eventually I get bogged down with all the blog posts coming at me.
 On top of that I don’t …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I love keeping up to date with all the latest tech news, but I find
@@ -3660,9 +3657,11 @@ As a result of these two needs I came up with a neat solution that
 allows me to retrieve all relevant tech news each day, that I can read
 offline whenever I want.
 It requires:&lt;/p&gt;
-&lt;p&gt;1. A Kindle
-2. A &lt;a href="https://kindle4rss.com/"&gt;Kindle4RSS&lt;/a&gt; Account
-3. &lt;a href="http://fivefilters.org/content-only/"&gt;Full-Text RSS&lt;/a&gt; (I use the self-hosted service).&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A Kindle&lt;/li&gt;
+&lt;li&gt;A &lt;a href="https://kindle4rss.com/"&gt;Kindle4RSS&lt;/a&gt; Account&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://fivefilters.org/content-only/"&gt;Full-Text RSS&lt;/a&gt; (I use the self-hosted service).&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;Kindle4RSS is a terrific service that allows you to deliver RSS
 feeds to your kindle on a scheduled basis. The one downside is that a
 number of RSS feeds only supply a stub of their content and this isn’t very useful if you wish to read articles on your kindle. This is where
@@ -3671,7 +3670,7 @@ full-text RSS and it will generate a new link that should supply
 a full-text alternative to your RSS feed. In general this is a great
 compliment to kindlefeeder, you can now read any of your favourite blogs that happen to supply a teaser only in their RSS feed.
 So now, how do we supply our kindle with only relevant technical news?&lt;/p&gt;
-&lt;p&gt;Thankfully `here `__ is a service that supplies an RSS feed of hacker news articles with a score threshold. Meaning, depending on how many(or few) articles you want to read you choose the minimum score threshold. Thereby holding off the onslaught of low scoring articles. Plug that RSS feed into full-text RSS, then plug that URL into kindlefeeder and you can read all the relevant tech each day wherever and whenever you like.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>A tip for introducing new habits</title><link href="https://shanedowling.com/a-tip-for-introducing-new-habits-79186124433a.html" rel="alternate"></link><published>2014-02-13T00:00:00+00:00</published><updated>2014-02-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-13:/a-tip-for-introducing-new-habits-79186124433a.html</id><summary type="html">&lt;p&gt;After reading up on &lt;a href="https://pragprog.com/book/ahptl/pragmatic-thinking-and-learning"&gt;Pragmatic Thinking and Learning&lt;/a&gt;
+&lt;p&gt;Thankfully &lt;code&gt;here&lt;/code&gt;__ is a service that supplies an RSS feed of hacker news articles with a score threshold. Meaning, depending on how many(or few) articles you want to read you choose the minimum score threshold. Thereby holding off the onslaught of low scoring articles. Plug that RSS feed into full-text RSS, then plug that URL into kindlefeeder and you can read all the relevant tech each day wherever and whenever you like.&lt;/p&gt;</content><category term="Digital Minimalism"></category></entry><entry><title>A tip for introducing new habits</title><link href="https://shanedowling.com/a-tip-for-introducing-new-habits-79186124433a.html" rel="alternate"></link><published>2014-02-13T00:00:00+00:00</published><updated>2014-02-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-13:/a-tip-for-introducing-new-habits-79186124433a.html</id><summary type="html">&lt;p&gt;After reading up on &lt;a href="https://pragprog.com/book/ahptl/pragmatic-thinking-and-learning"&gt;Pragmatic Thinking and Learning&lt;/a&gt;
 I decided I would implement a habit called Morning Pages. Effectively
 you commit to writing several pages of writing each and every morning,
 for me I intended to write a blog post unit each day, and decide which
@@ -3695,7 +3694,7 @@ prioritised accordingly until it can become an establish part of your
 routine. I’ve been writing every morning for about a month and a half
 now and I’ve only missed one day(due to extreme tiredness). Also because it’s the first thing I do when I wake, I’ve started to incorporate
 dreams into creative writing, it’s been very rewarding actually. I think
-this habit is here to stay.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>OfflineImap to Thunderbird</title><link href="https://shanedowling.com/offlineimap-to-thunderbird-152bb02286f.html" rel="alternate"></link><published>2014-02-08T00:00:00+00:00</published><updated>2014-02-08T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-08:/offlineimap-to-thunderbird-152bb02286f.html</id><summary type="html">&lt;p&gt;Last week I moved from Debian to Linux Mint and setup Thunderbird as my
+this habit is here to stay.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>OfflineImap to Thunderbird</title><link href="https://shanedowling.com/offlineimap-to-thunderbird-152bb02286f.html" rel="alternate"></link><published>2014-02-08T00:00:00+00:00</published><updated>2014-02-08T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-08:/offlineimap-to-thunderbird-152bb02286f.html</id><summary type="html">&lt;p&gt;Last week I moved from Debian to Linux Mint and setup Thunderbird as my
 new mail client(replacing mutt). Sadly for some reason Thunderbird
 started tanking and wiped all the mails from my mailserver without
 actually downloading anything.&lt;/p&gt;
@@ -3711,83 +3710,103 @@ OfflineImap uses the MailDir format and Thunderbird didn’t support it.&lt;/p&g
 MailDir to Mbox converter written in Python to work with Offlineimaps
 potentially infinitely recursive folder format. Hopefully it helps
 someone else.&lt;/p&gt;
-&lt;h1&gt;!/usr/bin/env python&lt;/h1&gt;
-&lt;p&gt;“””
- Shane Dowling, 8 Feb 2013
- Frédéric Grosshans, 19 January 2012
- Nathan R. Yergler, 6 June 2010&lt;/p&gt;
-&lt;p&gt;This file does not contain sufficient creative expression to invoke
- assertion of copyright. No warranty is expressed or implied; use at
- your own risk.&lt;/p&gt;
-&lt;p&gt;— -&lt;/p&gt;
-&lt;p&gt;Uses Python’s included mailbox library to convert mail archives from
- maildir [http://en.wikipedia.org/wiki/Maildir] to
- mbox [http://en.wikipedia.org/wiki/Mbox] format, icluding subfolder.&lt;/p&gt;
-&lt;p&gt;See &lt;a href="http://docs.python.org/library/mailbox.html#mailbox.Mailbox"&gt;http://docs.python.org/library/mailbox.html#mailbox.Mailbox&lt;/a&gt; for
- full documentation on this library.&lt;/p&gt;
-&lt;p&gt;— -&lt;/p&gt;
-&lt;p&gt;$ python md2mb.py [maildir_path] [mbox_filename]&lt;/p&gt;
-&lt;p&gt;[maildir_path] should be the the path to the actual maildir (containing new,
- cur, tmp, and the subfolders, which are hidden directories with names like
- .subfolde.subsubfolder.subsubsbfolder);&lt;/p&gt;
-&lt;p&gt;[mbox_filename] will be newly created, as well as a [mbox_filename].sbd the
- directory.
- “””&lt;/p&gt;
-&lt;p&gt;import mailbox
- import sys
- import email
- import os&lt;/p&gt;
-&lt;p&gt;def maildir2mailbox(maildirname, mboxfilename):
- “””
- slightly adapted from maildir2mbox.py,
- Nathan R. Yergler, 6 June 2010
- &lt;a href="http://yergler.net/blog/2010/06/06/batteries-included-or-maildir-to-mbox-again/"&gt;http://yergler.net/blog/2010/06/06/batteries-included-or-maildir-to-mbox-again/&lt;/a&gt;
- and Frédéric Grosshans, 19 January 2012
- &lt;a href="http://stackoverflow.com/questions/2501182/convert-maildir-to-mbox"&gt;http://stackoverflow.com/questions/2501182/convert-maildir-to-mbox&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;“””
- # open the existing maildir and the target mbox file
- maildir = mailbox.Maildir(maildirname, email.message_from_file)
- mbox = mailbox.mbox(mboxfilename)&lt;/p&gt;
-&lt;h1&gt;lock the mbox&lt;/h1&gt;
-&lt;p&gt;mbox.lock()&lt;/p&gt;
-&lt;h1&gt;iterate over messages in the maildir and add to the mbox&lt;/h1&gt;
-&lt;p&gt;mbox.add(msg)&lt;/p&gt;
-&lt;h1&gt;close and unlock&lt;/h1&gt;
-&lt;p&gt;mbox.close()
- maildir.close()&lt;/p&gt;
-&lt;h1&gt;Creates the main mailbox&lt;/h1&gt;
-&lt;p&gt;dirname=sys.argv[-2]
- mboxname=sys.argv[-1]
- mboxdirname=mboxname+’.sbd’
- if not os.path.exists(mboxdirname): os.makedirs(mboxdirname)&lt;/p&gt;
-&lt;h1&gt;Iterate over all folders&lt;/h1&gt;
-&lt;p&gt;def folder_iterate(dirname, mboxname):
- listofdirs=[dn for dn in os.walk(dirname).next()[1] if dn not in [‘new’, ‘cur’, ‘tmp’]]
- curlist=[mboxname]+curfold.split(‘.’)
- curpath=os.path.join(*[dn+’.sbd’ for dn in curlist if dn])
- if not os.path.exists(curpath): os.makedirs(curpath)
- maildir2mailbox(os.path.join(dirname,curfold),curpath[:-4])
- print(‘no maildir folders’)
- folder_iterate(os.path.join(dirname,curfold), mboxname)&lt;/p&gt;
-&lt;p&gt;folder_iterate(dirname, mboxname)
- print(‘Done’)&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>On wanting</title><link href="https://shanedowling.com/on-wanting-8c4ca2f2d314.html" rel="alternate"></link><published>2014-02-08T00:00:00+00:00</published><updated>2014-02-08T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-08:/on-wanting-8c4ca2f2d314.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__yqRgbrg76yhiaKeopwA06g__2x.jpeg"&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+ &lt;span class="err"&gt;“””&lt;/span&gt;
+ &lt;span class="n"&gt;Shane&lt;/span&gt; &lt;span class="n"&gt;Dowling&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="n"&gt;Feb&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;
+ &lt;span class="n"&gt;Frédéric&lt;/span&gt; &lt;span class="n"&gt;Grosshans&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;January&lt;/span&gt; &lt;span class="mi"&gt;2012&lt;/span&gt;
+ &lt;span class="n"&gt;Nathan&lt;/span&gt; &lt;span class="n"&gt;R&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Yergler&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="n"&gt;June&lt;/span&gt; &lt;span class="mi"&gt;2010&lt;/span&gt;
+
+&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;does&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;contain&lt;/span&gt; &lt;span class="n"&gt;sufficient&lt;/span&gt; &lt;span class="n"&gt;creative&lt;/span&gt; &lt;span class="n"&gt;expression&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;invoke&lt;/span&gt;
+ &lt;span class="n"&gt;assertion&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;copyright&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;warranty&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;expressed&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;implied&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt;
+ &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;own&lt;/span&gt; &lt;span class="n"&gt;risk&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+
+&lt;span class="err"&gt;—&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;
+
+&lt;span class="n"&gt;Uses&lt;/span&gt; &lt;span class="n"&gt;Python&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;included&lt;/span&gt; &lt;span class="n"&gt;mailbox&lt;/span&gt; &lt;span class="n"&gt;library&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;convert&lt;/span&gt; &lt;span class="n"&gt;mail&lt;/span&gt; &lt;span class="n"&gt;archives&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt;
+ &lt;span class="nn"&gt;maildir&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;en&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;wikipedia&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;wiki&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Maildir&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt;
+ &lt;span class="n"&gt;mbox&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;en&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;wikipedia&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;wiki&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Mbox&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="nb"&gt;format&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;icluding&lt;/span&gt; &lt;span class="n"&gt;subfolder&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+
+&lt;span class="n"&gt;See&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;docs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;library&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mailbox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="c1"&gt;#mailbox.Mailbox](http://docs.python.org/library/mailbox.html#mailbox.Mailbox) for&lt;/span&gt;
+ &lt;span class="n"&gt;full&lt;/span&gt; &lt;span class="n"&gt;documentation&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;library&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+
+&lt;span class="err"&gt;—&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;
+
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;md2mb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;maildir_path&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;mbox_filename&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;maildir_path&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;actual&lt;/span&gt; &lt;span class="n"&gt;maildir&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;containing&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="n"&gt;cur&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;subfolders&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;which&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;hidden&lt;/span&gt; &lt;span class="n"&gt;directories&lt;/span&gt; &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;names&lt;/span&gt; &lt;span class="n"&gt;like&lt;/span&gt;
+ &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subfolde&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subsubfolder&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subsubsbfolder&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;mbox_filename&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;newly&lt;/span&gt; &lt;span class="n"&gt;created&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;well&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;mbox_filename&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sbd&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;
+ &lt;span class="n"&gt;directory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+ &lt;span class="err"&gt;“””&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;mailbox&lt;/span&gt;
+ &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+ &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;email&lt;/span&gt;
+ &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;maildir2mailbox&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;maildirname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mboxfilename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+ &lt;span class="err"&gt;“””&lt;/span&gt;
+ &lt;span class="n"&gt;slightly&lt;/span&gt; &lt;span class="n"&gt;adapted&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;maildir2mbox.py&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="n"&gt;Nathan&lt;/span&gt; &lt;span class="n"&gt;R&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Yergler&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="n"&gt;June&lt;/span&gt; &lt;span class="mi"&gt;2010&lt;/span&gt;
+ &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;yergler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2010&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;06&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;06&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;batteries&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;included&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="ow"&gt;or&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;maildir&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mbox&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;again&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;yergler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2010&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;06&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;06&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;batteries&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;included&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="ow"&gt;or&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;maildir&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mbox&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;again&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;Frédéric&lt;/span&gt; &lt;span class="n"&gt;Grosshans&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;January&lt;/span&gt; &lt;span class="mi"&gt;2012&lt;/span&gt;
+ &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;stackoverflow&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;questions&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2501182&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;convert&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;maildir&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mbox&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;stackoverflow&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;questions&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2501182&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;convert&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;maildir&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mbox&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="err"&gt;“””&lt;/span&gt;
+ &lt;span class="c1"&gt;# open the existing maildir and the target mbox file&lt;/span&gt;
+ &lt;span class="n"&gt;maildir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mailbox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Maildir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;maildirname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;message_from_file&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="n"&gt;mbox&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mailbox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mbox&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mboxfilename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# lock the mbox&lt;/span&gt;
+ &lt;span class="n"&gt;mbox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lock&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# iterate over messages in the maildir and add to the mbox&lt;/span&gt;
+ &lt;span class="n"&gt;mbox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# close and unlock&lt;/span&gt;
+ &lt;span class="n"&gt;mbox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+ &lt;span class="n"&gt;maildir&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;#Creates the main mailbox&lt;/span&gt;
+ &lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+ &lt;span class="n"&gt;mboxname&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+ &lt;span class="n"&gt;mboxdirname&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;mboxname&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sbd&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;
+ &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mboxdirname&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;makedirs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mboxdirname&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Iterate over all folders&lt;/span&gt;
+ &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;folder_iterate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mboxname&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+ &lt;span class="n"&gt;listofdirs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;dn&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;dn&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;walk&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;dn&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="n"&gt;cur&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+ &lt;span class="n"&gt;curlist&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;mboxname&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;curfold&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="n"&gt;curpath&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;dn&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sbd&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;dn&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;curlist&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;dn&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+ &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;curpath&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;makedirs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;curpath&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="n"&gt;maildir2mailbox&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;curfold&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;curpath&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+ &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;maildir&lt;/span&gt; &lt;span class="n"&gt;folders&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="n"&gt;folder_iterate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;curfold&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;mboxname&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;folder_iterate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mboxname&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;‘&lt;/span&gt;&lt;span class="n"&gt;Done&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>On wanting</title><link href="https://shanedowling.com/on-wanting-8c4ca2f2d314.html" rel="alternate"></link><published>2014-02-08T00:00:00+00:00</published><updated>2014-02-08T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-08:/on-wanting-8c4ca2f2d314.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__yqRgbrg76yhiaKeopwA06g__2x.jpeg"&gt;&lt;/p&gt;
 &lt;p&gt;Recently I moved jobs and the new company I work for was nice enough to give me a brand new, high-end, retina Macbook Pro. It’s a great machineand I’ve been reminded how great an operating system OSX actually is. Naturally, I’ve been looking at my own machine …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__yqRgbrg76yhiaKeopwA06g__2x.jpeg"&gt;&lt;/p&gt;
 &lt;p&gt;Recently I moved jobs and the new company I work for was nice enough to give me a brand new, high-end, retina Macbook Pro. It’s a great machineand I’ve been reminded how great an operating system OSX actually is. Naturally, I’ve been looking at my own machine a little differently. It’s a Lenovo Thinkpad X230 with an SSD and 16GBs of RAM. Generally it’s faster than I’ll need for a long time and I’ve had no real issues with it, but after starting to use the Macbook and the terrific software built with it, I wanted it bad. One evening I started looking at
 pricing/portability and found one I wanted. I also started looking at
 software I could use I got excited, about to make a purchase. Then I
 stopped. I stopped and forced myself to make a list of all the reasons I
 wanted the Macbook that I couldn’t get on my currently machine. I made the list as specific as possible, not just “it’s pretty” or “all the apps are better”, here’s what I came up with.&lt;/p&gt;
-&lt;p&gt;- &lt;a href="https://selfcontrolapp.com/"&gt;Self-Control&lt;/a&gt; allows me to completely block websites for hours on end, this gives a nice feeling that the computer is purely for productivity and allows me to focus much better. It helped put my machine at arms length, purely for specific tasks and nothing more.
-- &lt;a href="https://alternativeto.net/software/concentrate/?platform=mac"&gt;Concentrate&lt;/a&gt; allows me to define specific tasks that automatically runs apps and quit others. I seem to be able to “wire-in” faster than my general process of having to run X,Y,Z before I can start into something. It promotes single-tasking on my machine.
-- &lt;a href="http://www.42burnside.com/mindfulmynah/"&gt;Mindful Mynah&lt;/a&gt; has been a nice tool that does seem to help me maintain mindfulness during the day.
-- A nice background pomodoro app.
-- The Productivity focused mail client &lt;a href="http://mindsensehq.com/mailpilot/"&gt;Mail Pilot&lt;/a&gt; has kept my Inbox at zero for the last few weeks.
-- &lt;a href="https://ommwriter.com/"&gt;Ommwriter&lt;/a&gt; is another great tool that allows me to focus on this time specifically on writing.
-- An &lt;a href="https://evernote.com/"&gt;Evernote&lt;/a&gt; client. This one is really significant, all of the linux-based clients are severely lacking. I have serious problems with NeverNote screwing up syncs/losing data. The Mac one is really good and just works.
-- Things like hiberation/suspend actually work and don’t break/screw up on a regular basis.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://selfcontrolapp.com/"&gt;Self-Control&lt;/a&gt; allows me to completely block websites for hours on end, this gives a nice feeling that the computer is purely for productivity and allows me to focus much better. It helped put my machine at arms length, purely for specific tasks and nothing more.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://alternativeto.net/software/concentrate/?platform=mac"&gt;Concentrate&lt;/a&gt; allows me to define specific tasks that automatically runs apps and quit others. I seem to be able to “wire-in” faster than my general process of having to run X,Y,Z before I can start into something. It promotes single-tasking on my machine.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.42burnside.com/mindfulmynah/"&gt;Mindful Mynah&lt;/a&gt; has been a nice tool that does seem to help me maintain mindfulness during the day.&lt;/li&gt;
+&lt;li&gt;A nice background pomodoro app.&lt;/li&gt;
+&lt;li&gt;The Productivity focused mail client &lt;a href="http://mindsensehq.com/mailpilot/"&gt;Mail Pilot&lt;/a&gt; has kept my Inbox at zero for the last few weeks.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ommwriter.com/"&gt;Ommwriter&lt;/a&gt; is another great tool that allows me to focus on this time specifically on writing.&lt;/li&gt;
+&lt;li&gt;An &lt;a href="https://evernote.com/"&gt;Evernote&lt;/a&gt; client. This one is really significant, all of the linux-based clients are severely lacking. I have serious problems with NeverNote screwing up syncs/losing data. The Mac one is really good and just works.&lt;/li&gt;
+&lt;li&gt;Things like hiberation/suspend actually work and don’t break/screw up on a regular basis.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Anyway I decided that instead of just paying hand over fist for a new
 Macbook that I’d try to replicate my needs using my existing hardware.&lt;/p&gt;
-&lt;h3&gt;A Taste of Mint&lt;/h3&gt;
+&lt;h3&gt;A Taste of Mint&lt;/h3&gt;
 &lt;p&gt;In the end I decided to ditch Debian in lieu of &lt;a href="https://linuxmint.com/"&gt;Mint&lt;/a&gt;. I wanted something I could setup quickly as I didn’t want to invest a lot of time in this. Ubuntu is in theory a good choice, it has better hardware support over Debian and a wider range of apps available. The problem is I greatly dislike Ubuntu for it’s privacy invading actions and for unity, which I still think is a terrible UI. I figured Mint made sense. It’s definitely appeased my “It’s so pretty” lizard brain and it’s clearly stolen a bunch of nice UI stuff from Mac. I actually find Cinnamon a really well designed interface. So on the specific tasks, here’s how Mint fared.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/zengargoyle/selfcontrol"&gt;Self-Control&lt;/a&gt;. Self-control for Linux turns out to only half work. It blocks the sites, but then crashes and doesn’t automatically unblock them. I shall take a look at fixing this if I stick with Mint. I’ll see if I can get by with some shell aliases that run the commands I need instead either.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.mozilla.org/en-US/thunderbird/"&gt;Thunderbird&lt;/a&gt;. As a replacement for Mail Pilot, sucked. Firstly, for some reason when I pointed it at my mail server it wiped ALL of my emails without download them, luckily I had a backup…. Anyway, after some playing around I got it working, but no, Mail Pilot it isn’t.&lt;/p&gt;
@@ -3798,7 +3817,7 @@ polished experience and I worry that productivy hits I’ll take getting
 stuff working will cost me more in the long run but for now I’m happy to
 give it a good honest trial, put some cash aside over the next few
 months and see how I feel later on. Either way I’m glad I’m making a
-patient decision over another rushed tech purchase.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Precision Nutrition Trail Fast</title><link href="https://shanedowling.com/precision-nutrition-trail-fast-88a4c01976d5.html" rel="alternate"></link><published>2014-02-06T00:00:00+00:00</published><updated>2014-02-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-06:/precision-nutrition-trail-fast-88a4c01976d5.html</id><summary type="html">&lt;p&gt;I went through the &lt;a href="https://www.precisionnutrition.com/intermittent-fasting/chapter-1"&gt;precision nutrition trial fast last&lt;/a&gt; Sunday, here’s a low-down on how things went through each of the steps. I had trialled this while out and about in central London, but failed at around 5pm, I was disorganised and feeling incredibly dizzy from the crowds and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I went through the &lt;a href="https://www.precisionnutrition.com/intermittent-fasting/chapter-1"&gt;precision nutrition trial fast last&lt;/a&gt; Sunday, here’s a low-down on how things went through each of the steps. I had trialled this while out and about in central London, but failed at around 5pm, I was disorganised and feeling incredibly dizzy from the crowds and noise, so this time I planned ahead and did this from home.&lt;/p&gt;
+patient decision over another rushed tech purchase.&lt;/p&gt;</content><category term="Digital Minimalism"></category></entry><entry><title>Precision Nutrition Trail Fast</title><link href="https://shanedowling.com/precision-nutrition-trail-fast-88a4c01976d5.html" rel="alternate"></link><published>2014-02-06T00:00:00+00:00</published><updated>2014-02-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-06:/precision-nutrition-trail-fast-88a4c01976d5.html</id><summary type="html">&lt;p&gt;I went through the &lt;a href="https://www.precisionnutrition.com/intermittent-fasting/chapter-1"&gt;precision nutrition trial fast last&lt;/a&gt; Sunday, here’s a low-down on how things went through each of the steps. I had trialled this while out and about in central London, but failed at around 5pm, I was disorganised and feeling incredibly dizzy from the crowds and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I went through the &lt;a href="https://www.precisionnutrition.com/intermittent-fasting/chapter-1"&gt;precision nutrition trial fast last&lt;/a&gt; Sunday, here’s a low-down on how things went through each of the steps. I had trialled this while out and about in central London, but failed at around 5pm, I was disorganised and feeling incredibly dizzy from the crowds and noise, so this time I planned ahead and did this from home.&lt;/p&gt;
 &lt;h3&gt;10 PM Saturday&lt;/h3&gt;
 &lt;p&gt;Had a late dinner at the wonderful Chaat on RedChurch Street in Shoreditch. May as well have an epic last meal, right? The advantage of the late final meal was that I actually managed to ramble in from the street and only waited a minute for a table. I didn’t over-do it in terms of food. I often get hungrier the next morning if I eat a huge meal the night before.&lt;/p&gt;
 &lt;h3&gt;9 AM Saturday&lt;/h3&gt;
@@ -3829,7 +3848,7 @@ terrible the last few hours, the light spacious feeling I had earlier in
 the day turned pretty horrible. I’d like to repeat this experiment
 without the 10km run beforehand and see how it goes. One thing is for
 sure, I have a completely new respect for anyone who can regularly fast.
-The ways in which this hit my willpower were completely surprising.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>De-activating facebook for a month</title><link href="https://shanedowling.com/de-activating-facebook-for-a-month-f91b49da00a4.html" rel="alternate"></link><published>2014-02-01T00:00:00+00:00</published><updated>2014-02-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-01:/de-activating-facebook-for-a-month-f91b49da00a4.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__nNdLICwvbMSn__IhaHVHYRg__2x.jpeg"&gt;&lt;/p&gt;
+The ways in which this hit my willpower were completely surprising.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>De-activating facebook for a month</title><link href="https://shanedowling.com/de-activating-facebook-for-a-month-f91b49da00a4.html" rel="alternate"></link><published>2014-02-01T00:00:00+00:00</published><updated>2014-02-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-01:/de-activating-facebook-for-a-month-f91b49da00a4.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__nNdLICwvbMSn__IhaHVHYRg__2x.jpeg"&gt;&lt;/p&gt;
 &lt;p&gt;I’ll keep this one short, because there’s a million and one articles about people walking away from the social network. People are writing like they’re revolutionaries leading the mass exodus. I even poked fun at it in my &lt;a href="http://139.59.171.97/2014/01/25/internet-predictions-2014/"&gt;internet predictions&lt;/a&gt;. Anyway, at the start of the year …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__nNdLICwvbMSn__IhaHVHYRg__2x.jpeg"&gt;&lt;/p&gt;
 &lt;p&gt;I’ll keep this one short, because there’s a million and one articles about people walking away from the social network. People are writing like they’re revolutionaries leading the mass exodus. I even poked fun at it in my &lt;a href="http://139.59.171.97/2014/01/25/internet-predictions-2014/"&gt;internet predictions&lt;/a&gt;. Anyway, at the start of the year I figured I’d give a month away from facebook a try, partially inspired by Leo Babuta’s &lt;a href="https://zenhabits.net/without/"&gt;A Year of Living Without&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;Why&lt;/h3&gt;
@@ -3849,13 +3868,15 @@ my life just gained a little more space. If you’re still on the fence
 consider de-activating for a month and seeing how much you really miss
 it. You can easily re-activate your account any time you want. For me,
 put simply I won’t be going back.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;February 28, 2014&lt;/strong&gt; - Counterfeit Update — Still off
+&lt;p&gt;&lt;strong&gt;February 28, 2014&lt;/strong&gt; - Counterfeit Update - Still off
 Facebook, still not regretting the decision.
 &lt;strong&gt;February 14, 2015&lt;/strong&gt; - Still haven’t touched the site. Much to my
-benefit.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Numbers to replace that smartphone(London Edition)</title><link href="https://shanedowling.com/numbers-to-replace-that-smartphone-london-edition-b121face9106.html" rel="alternate"></link><published>2014-01-30T00:00:00+00:00</published><updated>2014-01-30T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-30:/numbers-to-replace-that-smartphone-london-edition-b121face9106.html</id><summary type="html">&lt;p&gt;I made this list of useful phone numbers to replace the apps I used on
+benefit.&lt;/p&gt;</content><category term="Digital Minimalism"></category></entry><entry><title>Numbers to replace that smartphone(London Edition)</title><link href="https://shanedowling.com/numbers-to-replace-that-smartphone-london-edition-b121face9106.html" rel="alternate"></link><published>2014-01-30T00:00:00+00:00</published><updated>2014-01-30T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-30:/numbers-to-replace-that-smartphone-london-edition-b121face9106.html</id><summary type="html">&lt;p&gt;category Digital Minimalism&lt;/p&gt;
+&lt;p&gt;I made this list of useful phone numbers to replace the apps I used on
 my smartphone. However it could also be considered useful for anyone
 travelling to London that doesn’t want to get screwed with data roaming.
-Just use these numbers at any payphone around town. You know …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I made this list of useful phone numbers to replace the apps I used on
+Just use these numbers at any payphone around …&lt;/p&gt;</summary><content type="html">&lt;p&gt;category Digital Minimalism&lt;/p&gt;
+&lt;p&gt;I made this list of useful phone numbers to replace the apps I used on
 my smartphone. However it could also be considered useful for anyone
 travelling to London that doesn’t want to get screwed with data roaming.
 Just use these numbers at any payphone around town. You know, the big red things tourists take photos next to.&lt;/p&gt;
@@ -3919,11 +3940,10 @@ to seeing how far I can push this.&lt;/p&gt;</content><category term="posts"></c
 &lt;ul&gt;
 &lt;li&gt;Bitcoin finally crashes forcing the Winklevoss twins to play themselves in a movie where viewers can watch a hooded Jessie Eisenberg slowly turn pale and descend to evil ala the Emperor from Star Wars.&lt;/li&gt;
 &lt;li&gt;The UK’s porn blocking bill forces teens to re-learn the lost art of the forged parental signature. Mass confusion arises when it’s discovered the unblock has already been requested by Dad. Millions of shame-filled Dads are suddenly forced to claim to be major supporters of net-neutrality leading Anonymous membership numbers to swell with ‘red-faced’ Dads who ‘can totally hack’ as they ‘once set-up the DVD player without the manual’.&lt;/li&gt;
-&lt;li&gt;“Oh, I deleted my facebook account” becomes the new most annoying
-     smug response, finally replacing “Oh I got rid of my TV ages ago”.&lt;/li&gt;
+&lt;li&gt;“Oh, I deleted my facebook account” becomes the new most annoying smug response, finally replacing “Oh I got rid of my TV ages ago”.&lt;/li&gt;
 &lt;li&gt;Social networks embrace 3d printing and inadvertently bring about a new era(and dimension) to the sending of unrequested dick-picks. Perverts rejoice.&lt;/li&gt;
 &lt;li&gt;Finally, Anonymous give up trying to circumvent NSA spying using encryption and instead attempt to fill social networks with pointless content using automated bots, hoping to overrun the NSA data capturing systems in an operation codenamed, ‘Clogged Pipes’. The bots strategies include retweeting infographics from 2011 and using trending topics as a call to arms to post inane ‘me too’ style tweets. Surprisingly the overall quality of content actually increases due to the bot’s basic understanding of grammar.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="posts"></category></entry><entry><title>Review of The Woman Who Walked Into Doors</title><link href="https://shanedowling.com/review-of-the-woman-who-walked-into-doors-7aec5acb710c.html" rel="alternate"></link><published>2014-01-23T00:00:00+00:00</published><updated>2014-01-23T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-23:/review-of-the-woman-who-walked-into-doors-7aec5acb710c.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__6XmyAy6zsOLl0UDSPzgn1A.jpeg"&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><category term="random"></category></entry><entry><title>Review of The Woman Who Walked Into Doors</title><link href="https://shanedowling.com/review-of-the-woman-who-walked-into-doors-7aec5acb710c.html" rel="alternate"></link><published>2014-01-23T00:00:00+00:00</published><updated>2014-01-23T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-23:/review-of-the-woman-who-walked-into-doors-7aec5acb710c.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__6XmyAy6zsOLl0UDSPzgn1A.jpeg"&gt;&lt;/p&gt;
 &lt;p&gt;Last night I finished Roddy Doyle’s The Woman Who Walked Into Doors and
 I figured I’d write a quick review on it. It’s a book on the life of an
 Irish working-class woman named Paula who is struggling with an abusive
@@ -3952,7 +3972,7 @@ eventually shares the true reality and despair of her situation. It’s
 not too much of a downside, it all pays off eventually and this downside
 may simply mean the book needs a re-read.&lt;/p&gt;
 &lt;p&gt;I’d recommend this one to someone that can handle a harsh unrelenting
-book. You’ll be rewarded, but it comes at a price.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Switching to a dumbphone</title><link href="https://shanedowling.com/switching-to-a-dumbphone-3b090f8ad709.html" rel="alternate"></link><published>2014-01-18T00:00:00+00:00</published><updated>2014-01-18T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-18:/switching-to-a-dumbphone-3b090f8ad709.html</id><summary type="html">&lt;h3&gt;Why?&lt;/h3&gt;
+book. You’ll be rewarded, but it comes at a price.&lt;/p&gt;</content><category term="Random"></category></entry><entry><title>Switching to a dumbphone</title><link href="https://shanedowling.com/switching-to-a-dumbphone-3b090f8ad709.html" rel="alternate"></link><published>2014-01-18T00:00:00+00:00</published><updated>2014-01-18T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-18:/switching-to-a-dumbphone-3b090f8ad709.html</id><summary type="html">&lt;h3&gt;Why?&lt;/h3&gt;
 &lt;p&gt;I am aware, that while there is a trend towards smart-phones there are
 quite a few articles around on the subject of people swapping back to a
 dumb-phone or even &lt;a href="http://gizmodo.com/5991495/why-my-iphone-is-better-as-a-dumbphone"&gt;using your smartphone as a dumphone&lt;/a&gt;. Apparently it can &lt;a href="http://www.washingtonpost.com/blogs/innovations/wp/2013/10/31/why-i-dumped-my-smartphone-for-a-7-year-old-motorola-razr/"&gt;help your marriage&lt;/a&gt;.&lt;/p&gt;
@@ -4016,7 +4036,7 @@ system.&lt;/li&gt;
 &lt;p&gt;&lt;strong&gt;February 28, 2014 –&lt;/strong&gt; Counterfeit Update - I’m still
 using my dumb-phone and loving it. In fact, one Saturday I trialled
 using my Samsung S3 for a day and couldn’t stand it, I constantly kept
-checking it and that drove my crazy. Giving it away as a gift.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Promoting mindfulness through the day</title><link href="https://shanedowling.com/promoting-mindfulness-through-the-day-e294cbc78843.html" rel="alternate"></link><published>2014-01-16T00:00:00+00:00</published><updated>2014-01-16T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-16:/promoting-mindfulness-through-the-day-e294cbc78843.html</id><summary type="html">&lt;p&gt;Over the last year I’ve been cultivating a mindfulness habit. Overall,
+checking it and that drove my crazy. Giving it away as a gift.&lt;/p&gt;</content><category term="Digital Minimalism"></category></entry><entry><title>Promoting mindfulness through the day</title><link href="https://shanedowling.com/promoting-mindfulness-through-the-day-e294cbc78843.html" rel="alternate"></link><published>2014-01-16T00:00:00+00:00</published><updated>2014-01-16T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-16:/promoting-mindfulness-through-the-day-e294cbc78843.html</id><summary type="html">&lt;p&gt;Over the last year I’ve been cultivating a mindfulness habit. Overall,
 it has delivered great results. One of the aspects I’ve been less than
 happy with however, is my ability to carry that mindful state with me
 throughout the day. I’m unsure if it’s because I …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Over the last year I’ve been cultivating a mindfulness habit. Overall,
@@ -4027,7 +4047,7 @@ mind has to be so wrapped up in what I’m doing that mindfulness will
 inevitably get pushed out or if it’s simply that full-day mindfulness
 isn’t possible for me.&lt;/p&gt;
 &lt;p&gt;Lately I’ve been also trying to drink more water, so I figured I would attempt to combine both and see if there could be any benefits to. I do have to admit, the last few weeks that drinking water had led to more mindful triggers throughout the day. Having my own water bottle, drinking from it, re-filling it has led to me being more present at least during certain moments of the day. It’s been quite pleasing and am hoping to maintain this habit.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="images/1__ngn__AEEBDcU9udW96GF8YQ__2x.jpeg"&gt;&lt;/p&gt;</content><category term="Random"></category></entry><entry><title>Legitimate ways to support good movies</title><link href="https://shanedowling.com/legitimate-ways-to-support-good-movies-2fb11e565d2d.html" rel="alternate"></link><published>2014-01-11T00:00:00+00:00</published><updated>2014-01-11T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-11:/legitimate-ways-to-support-good-movies-2fb11e565d2d.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__xU2KVV__mC4quGix9krfh4A__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="images/1__ngn__AEEBDcU9udW96GF8YQ__2x.jpeg"&gt;&lt;/p&gt;</content><category term="Mindfulness"></category></entry><entry><title>Legitimate ways to support good movies</title><link href="https://shanedowling.com/legitimate-ways-to-support-good-movies-2fb11e565d2d.html" rel="alternate"></link><published>2014-01-11T00:00:00+00:00</published><updated>2014-01-11T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-11:/legitimate-ways-to-support-good-movies-2fb11e565d2d.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__xU2KVV__mC4quGix9krfh4A__2x.jpeg"&gt;&lt;/p&gt;
 &lt;p&gt;Recently I watched Akira Kurosawa’s Ikiru, after reading
 through some of the Criterion info on Kurosawa I realised I’d watched a
 bunch of his movies, I’m a huge fan of Seven Samurai.&lt;/p&gt;
@@ -4175,7 +4195,7 @@ into a potentially attainable setting of SMART goals. Say you’ve started to ge
 sometimes even embarrassing, but there’s real insight there. Sit down
 with these fantasies and break them down into attainable chunks, then
 act on those chunks. You’ll get a hell of a lot farther than just
-sitting there wishing things were different.&lt;/p&gt;</content><category term="Random"></category></entry><entry><title>Performance gains by altering your routine</title><link href="https://shanedowling.com/performance-gains-by-altering-your-routine-f44365b8972b.html" rel="alternate"></link><published>2013-12-30T00:00:00+00:00</published><updated>2013-12-30T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-30:/performance-gains-by-altering-your-routine-f44365b8972b.html</id><summary type="html">&lt;p&gt;In the mornings I had a very structured routine. The first thing I would
+sitting there wishing things were different.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Performance gains by altering your routine</title><link href="https://shanedowling.com/performance-gains-by-altering-your-routine-f44365b8972b.html" rel="alternate"></link><published>2013-12-30T00:00:00+00:00</published><updated>2013-12-30T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-30:/performance-gains-by-altering-your-routine-f44365b8972b.html</id><summary type="html">&lt;p&gt;In the mornings I had a very structured routine. The first thing I would
 do is meditate as for me, all other habits flow from this. Then after my
 meditation I would either go for a run or do some dumbbell based
 strength exercises. The reasoning being that as exercising …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In the mornings I had a very structured routine. The first thing I would
@@ -4324,7 +4344,7 @@ news-feeds, not so much. So if you’re still snowed under with say four
 podcasts, then try just one or maybe consider that you’re not a podcast
 person. Try a new limit and see if the shoe fits and just keep at it,
 eventually you’ll find the balance you’re looking for and maybe figure
-out who you are a bit more.&lt;/p&gt;</content><category term="Random"></category></entry><entry><title>Vegetarian</title><link href="https://shanedowling.com/vegetarian-3c437a98aa85.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/vegetarian-3c437a98aa85.html</id><summary type="html">&lt;p&gt;Deciding to become vegetarian is not an easy step. I decided to dip my
+out who you are a bit more.&lt;/p&gt;</content><category term="Digital Minimalism"></category></entry><entry><title>Vegetarian</title><link href="https://shanedowling.com/vegetarian-3c437a98aa85.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/vegetarian-3c437a98aa85.html</id><summary type="html">&lt;p&gt;Deciding to become vegetarian is not an easy step. I decided to dip my
 toe in the water several years ago by trying a month of not eating meat,
 I would highly recommend everyone try this at least once just to see
 what it might be like. I enjoyed the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Deciding to become vegetarian is not an easy step. I decided to dip my

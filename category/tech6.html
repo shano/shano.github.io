@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="../category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="../category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">Random</a></li>
+                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">random</a></li>
                         <li class="main-nav-item"><a href="../category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="../category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="../category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -51,6 +51,59 @@
 
 
 
+    <div class="pure-g article-row">
+        <div class="pure-u-1 article-info">
+           <div class="col">
+
+               <h1><a href="../diary-py-future-proof-memories-b097056bc350.html">Diary.py future proof memories.</a></h1>
+
+               <p>I’ve created a little command line diary script for anyone whose interested. It stores your diaries in separate txt files so you know all of your memories will always be accessible to you in a format you’ll always be able to read. It’s super quick and easy …</p>
+
+               <div class="post-meta pure-g">
+                   <div class="pure-u-3-4 meta-data">
+                       <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
+                       &mdash; <abbr title="2012-03-08T00:00:00+00:00">Thu 08 March 2012</abbr>
+                   </div>
+               </div>
+
+           </div>
+
+        </div>
+
+    </div>
+    <div class="pure-g article-row">
+        <div class="pure-u-1 article-info">
+           <div class="col">
+
+               <h1><a href="../quick-vhost-script-6bdb6138fc10.html">Quick vhost script</a></h1>
+
+               <p>Quick script to setup a new virtualhost entry for apache. Works for me
+on archlinux.</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+ <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">subprocess</span>
+
+<span class="n">vhosts_file</span> <span class="o">=</span> <span class="err">“</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="o">/</span><span class="n">conf</span><span class="o">/</span><span class="n">extra</span><span class="o">/</span><span class="n">httpd</span><span class="o">-</span><span class="n">vhosts</span><span class="o">.</span><span class="n">conf</span><span class="err">”</span>
+ <span class="n">hosts_file</span> <span class="o">=</span> <span class="err">“</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span><span class="err">”</span>
+
+<span class="n">domain_name</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+ <span class="n">folder</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">usage</span><span class="p">():</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv …</span></pre></div>
+
+               <div class="post-meta pure-g">
+                   <div class="pure-u-3-4 meta-data">
+                       <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
+                       &mdash; <abbr title="2012-03-01T00:00:00+00:00">Thu 01 March 2012</abbr>
+                   </div>
+               </div>
+
+           </div>
+
+        </div>
+
+    </div>
     <div class="pure-g article-row">
         <div class="pure-u-1 article-info">
            <div class="col">
@@ -88,54 +141,6 @@ up here. So basically all I need it to do was backup my sites(filesystem and mys
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
                        &mdash; <abbr title="2012-01-14T00:00:00+00:00">Sat 14 January 2012</abbr>
-                   </div>
-               </div>
-
-           </div>
-
-        </div>
-
-    </div>
-    <div class="pure-g article-row">
-        <div class="pure-u-1 article-info">
-           <div class="col">
-
-               <h1><a href="../simple-git-web-interface-999d0f685454.html">Simple git web interface</a></h1>
-
-               <p>I decided instead of springing for a monthly github payed account I’d
-install git on a server and use a decent web interface that could be
-easily installed.</p>
-<p>So for this little guide I’m rocking ubuntu 10.04 with git and lighttpd
-already installed.</p>
-<p>It was a Goldilocks …</p>
-
-               <div class="post-meta pure-g">
-                   <div class="pure-u-3-4 meta-data">
-                       <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2012-01-07T00:00:00+00:00">Sat 07 January 2012</abbr>
-                   </div>
-               </div>
-
-           </div>
-
-        </div>
-
-    </div>
-    <div class="pure-g article-row">
-        <div class="pure-u-1 article-info">
-           <div class="col">
-
-               <h1><a href="../cli-dash-b7f2766a53c9.html">CLI Dash</a></h1>
-
-               <p>Due to being flu-ridden for the entire holiday period, I decided to
-write up a quick tool I’ve been wanting to write for ages. It’s written
-in Python, so go easy, I’m no Python expert and I’m sick.</p>
-<p>The tool is essentially a wee-little dashboard for …</p>
-
-               <div class="post-meta pure-g">
-                   <div class="pure-u-3-4 meta-data">
-                       <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2011-12-31T00:00:00+00:00">Sat 31 December 2011</abbr>
                    </div>
                </div>
 
