@@ -56,16 +56,17 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../owning-your-data-replacing-dropbox-fdaa13df41ad.html">Owning Your Data — Replacing Dropbox</a></h1>
+               <h1><a href="../sugarcrm-7-hiding-subpanels-based-on-specific-criteria-eee6aacb95e1.html">SugarCRM 7 — Hiding subpanels based on specific criteria</a></h1>
 
-               <p><img alt="" src="images/1__rUmmXptV__9zX6WkBjTLJEw.jpeg"></p>
-<p>Dropbox as late has come under a fair bit of fire. They've added DMCA
-takedowns to personal folders, scan/open personal files and have appointed Condelleza Rice as a member of their board of directors. Which has kicked off quite a bit of backlash including a #dropdropbox tag that's gaining …</p>
+               <p>The new Sugar subpanels look great but they do take up quite a lot
+space, without any ability to remove Subpanels via studio I've had to
+come up with a few ways to hide them.</p>
+<p><strong>Note: Original Props go to Robin Larsson who wrote the</strong> <a href="https://community.sugarcrm.com/sugarcrm/topics/dynamically_hiding_showing_subpanels_based_on_record_values_in_sugar_7"><strong>original</strong></a> <strong>on the Sugar Community …</strong></p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-04-24T00:00:00+00:00">Thu 24 April 2014</abbr>
+                       &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
                    </div>
                </div>
 
@@ -78,14 +79,17 @@ takedowns to personal folders, scan/open personal files and have appointed Conde
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../sugarcrm-search-for-records-related-to-the-current-record-4c0086341c14.html">SugarCRM — Search for records related to the current record</a></h1>
+               <h1><a href="../super-simple-folder-backup-one-liner-de43a969cb0d.html">Super simple folder backup one-liner</a></h1>
 
-               <p>Say you have two modules in Sugar: Animals and Ringmasters and they aren't directly related via a standard relationship but they are related through some convoluted means. Now, imagine if you want to override the SugarCRM search to allow you to search for all Animals indirectly related to a Ringmaster …</p>
+               <p>I needed a simple cron job, that just took backups of my project
+folders, should the worst happen to my laptop. Google brought up nothing
+obvious, so I figured I'd share it here.</p>
+<div class="highlight"><pre><span></span>tar zcvf /tmp/snap.tgz ~/Projects <span class="o">&amp;&amp;</span> rsync /tmp/snap.tgz user@remotebox:/home/backups/snap_<span class="sb">`</span>date +%F …</pre></div>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-04-20T00:00:00+00:00">Sun 20 April 2014</abbr>
+                       &mdash; <abbr title="2014-06-06T00:00:00+00:00">Fri 06 June 2014</abbr>
                    </div>
                </div>
 
@@ -98,17 +102,16 @@ takedowns to personal folders, scan/open personal files and have appointed Conde
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../sugarcrm-searches-with-data-from-indirectly-related-modules-ec204005f7b3.html">SugarCRM — Searches with data from indirectly related modules</a></h1>
+               <h1><a href="../sugarcrm-7-adding-a-custom-column-to-a-list-1370ce1fbdb2.html">SugarCRM 7 — Adding a custom column to a list</a></h1>
 
-               <p>Building modules in SugarCRM can cause you to create a boatload of
-unnecessary relationships, simply because it's convenient to do so.
-Maybe you'd have a relationship where A relates to B and B to C but
-you'd like to search for all A module records that relate to C. One …</p>
+               <p>This is the SugarCRM 7 equivalent to this post <a href="https://medium.com/shanes-tech-tips/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1">here</a>, because Sugar has dropped the process record logic hook, we need to come up with a new solution.</p>
+<p>Here's how you can add a new column to a list view, I have to admit this
+is one of the really …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-04-17T00:00:00+00:00">Thu 17 April 2014</abbr>
+                       &mdash; <abbr title="2014-05-22T00:00:00+00:00">Thu 22 May 2014</abbr>
                    </div>
                </div>
 
@@ -121,19 +124,19 @@ you'd like to search for all A module records that relate to C. One …</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../build-yii-1-with-composer-d8ee634e3f3e.html">Build Yii 1.* with composer</a></h1>
+               <h1><a href="../sugarcrm-7-adding-an-action-to-the-listview-436f18c039e6.html">SugarCRM 7 — Adding an action to the listview</a></h1>
 
-               <p><img alt="" src="images/1__l9C5aZ3qEUjpuOr__ZRZtbw.png"></p>
-<p>While we're looking forward to Yii 2 coming alive, all of the posts on
-please do not use it for production**. So it might be a little while
-before we have in-built composer awesomeness with Yii. <a href="http://www.yiiframework.com/wiki/392/creating-yii-applications-with-composer/">The guide
-online</a> on integrating composer with yii does not seem particularly
-straight-forward and …</p>
+               <p><img alt="" src="images/1__O0TIZQumvouoJ6ZCn8__s3g.jpeg"></p>
+<p>There doesn't appear to be a documented way to do this but in SugarCRM 7
+this is how I've added actions to the listview. For this example it's
+showing how to add a button to an animal module, which adds the animal
+to a related circus event.</p>
+<h3>1. Adding thebutton …</h3>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-04-08T00:00:00+00:00">Tue 08 April 2014</abbr>
+                       &mdash; <abbr title="2014-05-18T00:00:00+00:00">Sun 18 May 2014</abbr>
                    </div>
                </div>
 

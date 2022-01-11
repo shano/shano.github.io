@@ -56,17 +56,15 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../super-simple-folder-backup-one-liner-de43a969cb0d.html">Super simple folder backup one-liner</a></h1>
+               <h1><a href="../manage-background-tasks-with-php-resque-and-supervisor-93d14234b703.html">Manage background tasks with PHP-Resque and Supervisor</a></h1>
 
-               <p>I needed a simple cron job, that just took backups of my project
-folders, should the worst happen to my laptop. Google brought up nothing
-obvious, so I figured I'd share it here.</p>
-<div class="highlight"><pre><span></span>tar zcvf /tmp/snap.tgz ~/Projects <span class="o">&amp;&amp;</span> rsync /tmp/snap.tgz user@remotebox:/home/backups/snap_<span class="sb">`</span>date +%F …</pre></div>
+               <p><img alt="" src="images/1__DDS7CsAlPK7wTEEbPFLRAQ.jpeg"></p>
+<p><a href="https://github.com/chrisboulton/php-resque">PHP-Resque</a>, the PHP equivalent to Ruby's really nice background process runner is a great way to execute long running PHP processes. <a href="http://supervisord.org/">Supervisor</a> is a python-based process control system, essentially it's a convenient way to manage custom system processes you need to handle. Combining the two to manage long running PHP …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-06-06T00:00:00+00:00">Fri 06 June 2014</abbr>
+                       &mdash; <abbr title="2014-07-03T00:00:00+00:00">Thu 03 July 2014</abbr>
                    </div>
                </div>
 
@@ -79,16 +77,18 @@ obvious, so I figured I'd share it here.</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../sugarcrm-7-adding-a-custom-column-to-a-list-1370ce1fbdb2.html">SugarCRM 7 — Adding a custom column to a list</a></h1>
+               <h1><a href="../simple-api-mocking-with-guzzle-and-charles-e5fdabe8b9fd.html">Simple API Mocking with Guzzle and Charles</a></h1>
 
-               <p>This is the SugarCRM 7 equivalent to this post <a href="https://medium.com/shanes-tech-tips/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1">here</a>, because Sugar has dropped the process record logic hook, we need to come up with a new solution.</p>
-<p>Here's how you can add a new column to a list view, I have to admit this
-is one of the really …</p>
+               <p>If you've ever had to try unit test code that's dependent on external
+services, you'll know the pain of trying to mock-up fake API requests by
+hand. It's painful to setup and painful to maintain, this little
+tutorial attempts to make the whole process as easy as possible.</p>
+<h3><strong>Step 1 …</strong></h3>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-05-22T00:00:00+00:00">Thu 22 May 2014</abbr>
+                       &mdash; <abbr title="2014-06-26T00:00:00+00:00">Thu 26 June 2014</abbr>
                    </div>
                </div>
 
@@ -101,19 +101,15 @@ is one of the really …</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../sugarcrm-7-adding-an-action-to-the-listview-436f18c039e6.html">SugarCRM 7 — Adding an action to the listview</a></h1>
+               <h1><a href="../sugarcrm-permissions-script-6b7031eb0eef.html">SugarCRM — Permissions Script</a></h1>
 
-               <p><img alt="" src="images/1__O0TIZQumvouoJ6ZCn8__s3g.jpeg"></p>
-<p>There doesn't appear to be a documented way to do this but in SugarCRM 7
-this is how I've added actions to the listview. For this example it's
-showing how to add a button to an animal module, which adds the animal
-to a related circus event.</p>
-<h3>1. Adding thebutton …</h3>
+               <p>I use <a href="http://www.saltstack.com/">salt</a> quite extensively to deploy SugarCRM installs and I wanted a scriptable way to setup the correct permissions for Sugar running on a linux box. This script is based on the <a href="http://support.sugarcrm.com/04_Find_Answers/02KB/02Administration/100Install/Required_File_System_Permissions_on_Linux/">Sugar documentation</a> and this handy post <a href="http://developer.sugarcrm.com/2012/07/19/a-newbies-guide-to-getting-your-sugarcrm-instances-permissions-right/">here</a>.</p>
+<p>Simply fill in your apache user details and the path …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-05-18T00:00:00+00:00">Sun 18 May 2014</abbr>
+                       &mdash; <abbr title="2014-06-21T00:00:00+00:00">Sat 21 June 2014</abbr>
                    </div>
                </div>
 
@@ -126,19 +122,20 @@ to a related circus event.</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../find-my-run-my-first-iphone-app-4e1ec62b32b3.html">Find My Run — My first iPhone app</a></h1>
+               <h1><a href="../quick-salt-minion-setup-354516c0ff63.html">Quick Salt Minion Setup</a></h1>
 
-               <p><img alt="" src="images/1__x40lnN3JZF6V7gOMbo3Imw.png"></p>
-<p>It's a pretty basic app that lists the ten nearest running events in
-your area. There was a few new pieces of tech(for me) involved. The app
-was built with <a href="http://www.appcelerator.com/platform/alloy/">Appcelerator's Alloy framework</a>, which I must
-admit I quite like for rapid development of cross platform mobile
-apps(hopefully …</p>
+               <p>I find myself setting up salt minions a LOT. So I figured I'd write down
+the steps in this concise format.</p>
+<h3>On the minion</h3>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:saltstack/salt
+sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install salt-minion
+sudo <span class="nb">echo</span> <span class="s1">&#39; salt&#39;</span> &gt;&gt; /etc/hosts //Or whatever the salt master is
+sudo salt-call -l …</pre></div>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-05-17T00:00:00+00:00">Sat 17 May 2014</abbr>
+                       &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
                    </div>
                </div>
 

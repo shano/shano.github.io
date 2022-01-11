@@ -56,17 +56,14 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../screwed-server-checklist-ef23820824c7.html">Screwed Server Checklist</a></h1>
+               <h1><a href="../install-nzbget-using-salt-7cc40711adb6.html">Install nzbget using salt</a></h1>
 
-               <p>My servers started getting unusably slow at peak hours lately and I
-decided, midst panic to vaguely attempt to document the various things I
-had to go through to narrow down the problem, anyway I'm sticking them
-up here so a) I don't lose the list and b) it might …</p>
+               <p>Recently I've been using vagrant to configure more and more of the local webapps I'm using day to day, simply as I find sticking all the apps I use on my host machine a little messy. I've also been picking up <a href="http://saltstack.com/">salt-stack</a> with salt-states as the provisioner as I personally …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2012-04-28T00:00:00+00:00">Sat 28 April 2012</abbr>
+                       &mdash; <abbr title="2013-08-23T00:00:00+00:00">Fri 23 August 2013</abbr>
                    </div>
                </div>
 
@@ -79,14 +76,16 @@ up here so a) I don't lose the list and b) it might …</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../diary-py-future-proof-memories-b097056bc350.html">Diary.py future proof memories.</a></h1>
+               <h1><a href="../octopress-back-to-wordpress-6740efc31eb9.html">Octopress back to Wordpress</a></h1>
 
-               <p>I've created a little command line diary script for anyone whose interested. It stores your diaries in separate txt files so you know all of your memories will always be accessible to you in a format you'll always be able to read. It's super quick and easy to use. It's …</p>
+               <p>I've been using <a href="http://octopress.org/">Octopress</a> for the last while
+and it felt good having a nice fast static blog as opposed to heavy-old
+<a href="https://wordpress.com/">Wordpress</a>. After time passed however, I noticed I wrote less. Having to grab my laptop and pull up vim to write something, then play around with git or …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2012-03-08T00:00:00+00:00">Thu 08 March 2012</abbr>
+                       &mdash; <abbr title="2013-08-22T00:00:00+00:00">Thu 22 August 2013</abbr>
                    </div>
                </div>
 
@@ -99,27 +98,17 @@ up here so a) I don't lose the list and b) it might …</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../quick-vhost-script-6bdb6138fc10.html">Quick vhost script</a></h1>
+               <h1><a href="../postgis-31e5d7e13bff.html">Postgis</a></h1>
 
-               <p>Quick script to setup a new virtualhost entry for apache. Works for me
-on archlinux.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
- <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">subprocess</span>
-
-<span class="n">vhosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/httpd/conf/extra/httpd-vhosts.conf&quot;</span>
- <span class="n">hosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/hosts&quot;</span>
-
-<span class="n">domain_name</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
- <span class="n">folder</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">usage</span><span class="p">():</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3 …</span></pre></div>
+               <p>from cities.models import City
+ cape_town = City.objects.filter(country__name='South Africa').get(name='Cape Town')
+ nearest = City.objects.distance(cape_town.location).exclude(id=cape_town.id).order_by('distance')[:10000]</p>
+<p>I must be very damaged from location data being badly implemented in MySQL. I'm still amazed …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2012-03-01T00:00:00+00:00">Thu 01 March 2012</abbr>
+                       &mdash; <abbr title="2013-08-19T00:00:00+00:00">Mon 19 August 2013</abbr>
                    </div>
                </div>
 
@@ -132,17 +121,15 @@ on archlinux.</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../easily-remember-linux-commands-44191f6843f6.html">Easily remember linux commands</a></h1>
+               <h1><a href="../worksly-com-find-workspaces-in-the-uk-ee31e3f6b1b3.html">worksly.com — Find workspaces in the UK</a></h1>
 
-               <p>I use an absolute ton of awesome tools my various linux distros. The
-problem is I tend to forget a lot of the time how to use the tools, so I
-got a list of frequently used command with and a few examples of how to
-use them from <a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">here …</a></p>
+               <p>It's online <a href="http://www.worksly.com/">here</a>. Hopefully people find it useful, it's got data from Foursquare, Yelp and a few other sources.</p>
+<p>The site itself is built in Python, Bottle, Bootstrap and MySQL, though I hope to upgrade to Postgres with PostGIS when I get the time. I also want to make it …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2012-02-19T00:00:00+00:00">Sun 19 February 2012</abbr>
+                       &mdash; <abbr title="2013-05-22T00:00:00+00:00">Wed 22 May 2013</abbr>
                    </div>
                </div>
 

@@ -56,97 +56,18 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../shellshock-am-i-vulnerable-and-what-do-i-do-4368762a4c94.html">Shellshock — Am I vulnerable and what do I do?</a></h1>
+               <h1><a href="../useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html">Useful bit of SQL to update many records in SugarCRM</a></h1>
 
-               <p><img alt="" src="images/1__9ehFHvJtYiV__mH5tFVI9OQ.png"></p>
-<p>`Shellshock `__ is the
-latest Heartbleed level vulnerability to be discovered. It's a pretty
-long running exploit in how bash handles environment variables. It's a
-good thing to fix asap, especially if you're running any old services
-like telnet, ftp or an old version of apache.</p>
-<h3>Is my server vulnerable?</h3>
-<p>Run …</p>
+               <div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">clowns</span> <span class="k">SET</span> <span class="n">deleted</span><span class="o">=</span><span class="mi">1</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="k">IN</span>
+ <span class="p">(</span><span class="k">SELECT</span> <span class="n">id</span> <span class="k">FROM</span> <span class="p">(</span>
+ <span class="k">SELECT</span> <span class="n">id</span> <span class="k">FROM</span> <span class="n">clowns</span> <span class="k">WHERE</span> <span class="n">deleted</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span> <span class="k">ASC</span> <span class="k">LIMIT</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
+ <span class="n">tmp</span> <span class="p">);</span>
+</pre></div>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-09-25T00:00:00+00:00">Thu 25 September 2014</abbr>
-                   </div>
-               </div>
-
-           </div>
-
-        </div>
-
-    </div>
-    <div class="pure-g article-row">
-        <div class="pure-u-1 article-info">
-           <div class="col">
-
-               <h1><a href="../dompdf-failing-to-render-certain-accented-characters-9be35f0c13a6.html">DOMpdf failing to render certain accented characters</a></h1>
-
-               <p>I've noticed some issues with DOMpdf when trying to generate PDFs using
-their internal Helvetica font. After banging my head against a wall for
-a few hours trying to "fix" UTF-8 support, it turned out UTF-8 support
-was working fine. Essentially DOMpdf's internal Helvetica font didn't
-support a few polish …</p>
-
-               <div class="post-meta pure-g">
-                   <div class="pure-u-3-4 meta-data">
-                       <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-08-21T00:00:00+00:00">Thu 21 August 2014</abbr>
-                   </div>
-               </div>
-
-           </div>
-
-        </div>
-
-    </div>
-    <div class="pure-g article-row">
-        <div class="pure-u-1 article-info">
-           <div class="col">
-
-               <h1><a href="../yii-convert-database-to-migrations-998a6277c968.html">Yii — Convert database to migrations</a></h1>
-
-               <p>It happens to be best of us. You start a new Yii project, generate a few
-tables and fields, create the models in Gii and totally forget to use
-any migrations.</p>
-<p>There's an easy way to move yourself to a db backed migration.</p>
-<ul>
-<li>Put txDbMigration in your codebase.</li>
-<li>Create a …</li></ul>
-
-               <div class="post-meta pure-g">
-                   <div class="pure-u-3-4 meta-data">
-                       <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-08-21T00:00:00+00:00">Thu 21 August 2014</abbr>
-                   </div>
-               </div>
-
-           </div>
-
-        </div>
-
-    </div>
-    <div class="pure-g article-row">
-        <div class="pure-u-1 article-info">
-           <div class="col">
-
-               <h1><a href="../sugarcrm-7-custom-subpanels-a75e66374a5b.html">SugarCRM 7 — Custom subpanels</a></h1>
-
-               <p><img alt="" src="images/1__g70Q0ojQdUFPYP4a__sPE5w.png"></p>
-<p>This tutorial should hopefully help you to create a new subpanel under
-the Contacts module in Sugar using a custom link class and driven by
-SugarCRM 7's new SugarQuery API.</p>
-<h3>1. Create a new link class</h3>
-<p>This should go into custom/modules//YourNewLink.php and this
-class will act as …</p>
-
-               <div class="post-meta pure-g">
-                   <div class="pure-u-3-4 meta-data">
-                       <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2014-08-13T00:00:00+00:00">Wed 13 August 2014</abbr>
+                       &mdash; <abbr title="2014-03-27T00:00:00+00:00">Thu 27 March 2014</abbr>
                    </div>
                </div>
 
@@ -160,9 +81,6 @@ class will act as …</p>
 
 <div class="pagination">
     <div class="post-meta pure-g">
-        <div class="pure-u-1-2 right">
-            <a href="../category/posts2.html">More articles</a>
-        </div>
     </div>
 </div>
 </div>

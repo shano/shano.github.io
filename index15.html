@@ -49,7 +49,7 @@
 
 
                     <div class="pure-u-3-4 meta-data">
-                        <a href="./category/posts.html" class="category">posts</a><br />
+                        <a href="./category/tech.html" class="category">Tech</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                         &mdash; <abbr title="2014-07-10T00:00:00+00:00">Thu 10 July 2014</abbr>
@@ -58,18 +58,15 @@
                 <h2><a href="./sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html" rel="bookmark" title="Permalink to SugarCRM 7 — Colour Code Rows based on data values">SugarCRM 7 — Colour Code Rows based on data values</a></h2>
                 <div class="post-content">
                     <p>Add this into your recordlist javascript file.</p>
-<p>render_colors : function() {
+<p><code>javascript
+render_colors : function() {
  console.log('here');
- $("tr[name^='<YOUR_MODULE']").each(function() { //loop over each row
- if($(this).find('div[data-original-title="Out"]').length > 0) { //check value of TD
+ $("tr[name^='&lt;YOUR_MODULE']").each(function() { //loop over each row
+ if($(this).find('div[data-original-title="Out"]').length &gt; 0) { //check value of TD
  $(this).find($('td')).each(function() {
  $(this).css("background-color", "#FFBABA");
  });
- } else if($(this).find('div[data-original-title="In"]').length &gt; 0) {
- $(this).find($('td')).each(function() {
- $(this).css("background-color", "#C3F8B5");
- });
- } else if($(this …</your_module']").each(function()></p>
+ } else if($(this).find('div …</code></p>
                 </div>
                 <div class="post-footer">
                     <a href="./sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html">Read more</a>

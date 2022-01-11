@@ -1412,7 +1412,7 @@ you need to update.&lt;/p&gt;
 
 
 &lt;p&gt;Finally reboot!&lt;/p&gt;
-&lt;p&gt;Keep an eye on these solutions as time goes on as I fear these patches might not solve the whole problem.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>SugarCRM 7 — Fix to re-enable ElasticSearch on custom modules</title><link href="https://shanedowling.com/sugarcrm-7-fix-to-re-enable-elasticsearch-on-custom-modules-f669c97ca480.html" rel="alternate"></link><published>2014-09-18T00:00:00+00:00</published><updated>2014-09-18T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-09-18:/sugarcrm-7-fix-to-re-enable-elasticsearch-on-custom-modules-f669c97ca480.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__HOS9Snvhcd__NSa6OnO__ksQ.png"&gt;&lt;/p&gt;
+&lt;p&gt;Keep an eye on these solutions as time goes on as I fear these patches might not solve the whole problem.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>SugarCRM 7 — Fix to re-enable ElasticSearch on custom modules</title><link href="https://shanedowling.com/sugarcrm-7-fix-to-re-enable-elasticsearch-on-custom-modules-f669c97ca480.html" rel="alternate"></link><published>2014-09-18T00:00:00+00:00</published><updated>2014-09-18T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-09-18:/sugarcrm-7-fix-to-re-enable-elasticsearch-on-custom-modules-f669c97ca480.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__HOS9Snvhcd__NSa6OnO__ksQ.png"&gt;&lt;/p&gt;
 &lt;p&gt;I had an issue in Sugar where some custom modules refused to appear in
 the Global Search settings, meaning I couldn't index them in
 ElasticSearch.&lt;/p&gt;
@@ -1545,7 +1545,7 @@ variable with your own def, referencing the new folder location.&lt;/p&gt;
 
 
 &lt;p&gt;This means you shouldn't need to rely on dodgy customisations to the
-vendor folder.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Yii — Convert database to migrations</title><link href="https://shanedowling.com/yii-convert-database-to-migrations-998a6277c968.html" rel="alternate"></link><published>2014-08-21T00:00:00+00:00</published><updated>2014-08-21T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-08-21:/yii-convert-database-to-migrations-998a6277c968.html</id><summary type="html">&lt;p&gt;It happens to be best of us. You start a new Yii project, generate a few
+vendor folder.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Yii — Convert database to migrations</title><link href="https://shanedowling.com/yii-convert-database-to-migrations-998a6277c968.html" rel="alternate"></link><published>2014-08-21T00:00:00+00:00</published><updated>2014-08-21T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-08-21:/yii-convert-database-to-migrations-998a6277c968.html</id><summary type="html">&lt;p&gt;It happens to be best of us. You start a new Yii project, generate a few
 tables and fields, create the models in Gii and totally forget to use
 any migrations.&lt;/p&gt;
 &lt;p&gt;There's an easy way to move yourself to a db backed migration.&lt;/p&gt;
@@ -1560,7 +1560,7 @@ any migrations.&lt;/p&gt;
 &lt;li&gt;Create a new seed migration file&lt;/li&gt;
 &lt;li&gt;Update your console config file&lt;/li&gt;
 &lt;li&gt;Only use migrations from now on.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="posts"></category></entry><entry><title>SugarCRM 7 — Custom subpanels</title><link href="https://shanedowling.com/sugarcrm-7-custom-subpanels-a75e66374a5b.html" rel="alternate"></link><published>2014-08-13T00:00:00+00:00</published><updated>2014-08-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-08-13:/sugarcrm-7-custom-subpanels-a75e66374a5b.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__g70Q0ojQdUFPYP4a__sPE5w.png"&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><category term="Tech"></category></entry><entry><title>SugarCRM 7 — Custom subpanels</title><link href="https://shanedowling.com/sugarcrm-7-custom-subpanels-a75e66374a5b.html" rel="alternate"></link><published>2014-08-13T00:00:00+00:00</published><updated>2014-08-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-08-13:/sugarcrm-7-custom-subpanels-a75e66374a5b.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__g70Q0ojQdUFPYP4a__sPE5w.png"&gt;&lt;/p&gt;
 &lt;p&gt;This tutorial should hopefully help you to create a new subpanel under
 the Contacts module in Sugar using a custom link class and driven by
 SugarCRM 7's new SugarQuery API.&lt;/p&gt;
@@ -1735,7 +1735,7 @@ needed to do to get a working INNER JOIN statement.&lt;/p&gt;
 &lt;p&gt;I've found this to be a surprisingly powerful solution, it means that if
 you need to show information related to a module that might be a few
 joins away, this allows you to create the links manually without having
-to create pointless related fields in-between the two.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>SugarCRM 7 — Making Ajax Requests</title><link href="https://shanedowling.com/sugarcrm-7-making-ajax-requests-7bf1bd0c71a5.html" rel="alternate"></link><published>2014-08-09T00:00:00+00:00</published><updated>2014-08-09T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-08-09:/sugarcrm-7-making-ajax-requests-7bf1bd0c71a5.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__cu8y__JHqBRKgm37dccl0Pg.png"&gt;&lt;/p&gt;
+to create pointless related fields in-between the two.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>SugarCRM 7 — Making Ajax Requests</title><link href="https://shanedowling.com/sugarcrm-7-making-ajax-requests-7bf1bd0c71a5.html" rel="alternate"></link><published>2014-08-09T00:00:00+00:00</published><updated>2014-08-09T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-08-09:/sugarcrm-7-making-ajax-requests-7bf1bd0c71a5.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__cu8y__JHqBRKgm37dccl0Pg.png"&gt;&lt;/p&gt;
 &lt;p&gt;SugarCRM has a pretty great API if you know how to poll it. Today I'm
 sharing two examples of where I've needed to poll SugarCRM's API with
 some sample jQuery code.&lt;/p&gt;
@@ -2348,22 +2348,20 @@ reporting users to hit live databases, they could really kill the system
 for live users. Ideally, you would do all of this on a replicated MySQL
 server that only allows read-only actions against it, like backups and
 reporting.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>SugarCRM 7 — Colour Code Rows based on data values</title><link href="https://shanedowling.com/sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html" rel="alternate"></link><published>2014-07-10T00:00:00+00:00</published><updated>2014-07-10T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-07-10:/sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html</id><summary type="html">&lt;p&gt;Add this into your recordlist javascript file.&lt;/p&gt;
-&lt;p&gt;render_colors : function() {
+&lt;p&gt;&lt;code&gt;javascript
+render_colors : function() {
  console.log('here');
- $("tr[name^='&lt;YOUR_MODULE']").each(function() { //loop over each row
- if($(this).find('div[data-original-title="Out"]').length &gt; 0) { //check value of TD
+ $("tr[name^='&amp;lt;YOUR_MODULE']").each(function() { //loop over each row
+ if($(this).find('div[data-original-title="Out"]').length &amp;gt; 0) { //check value of TD
  $(this).find($('td')).each(function() {
  $(this).css("background-color", "#FFBABA");
  });
- } else if($(this).find('div[data-original-title="In"]').length &amp;gt; 0) {
- $(this).find($('td')).each(function() {
- $(this).css("background-color", "#C3F8B5");
- });
- } else if($(this …&lt;/your_module']").each(function()&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Add this into your recordlist javascript file.&lt;/p&gt;
-&lt;p&gt;render_colors : function() {
+ } else if($(this).find('div …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Add this into your recordlist javascript file.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;javascript
+render_colors : function() {
  console.log('here');
- $("tr[name^='&lt;YOUR_MODULE']").each(function() { //loop over each row
- if($(this).find('div[data-original-title="Out"]').length &gt; 0) { //check value of TD
+ $("tr[name^='&amp;lt;YOUR_MODULE']").each(function() { //loop over each row
+ if($(this).find('div[data-original-title="Out"]').length &amp;gt; 0) { //check value of TD
  $(this).find($('td')).each(function() {
  $(this).css("background-color", "#FFBABA");
  });
@@ -2381,7 +2379,7 @@ reporting.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><t
  });
  }
  });
- }&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Your brain on stoicism</title><link href="https://shanedowling.com/your-brain-on-stoicism-783d1cd1995c.html" rel="alternate"></link><published>2014-07-10T00:00:00+00:00</published><updated>2014-07-10T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-07-10:/your-brain-on-stoicism-783d1cd1995c.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__SOaZJ4BwYNtsm0SoctZl7A.jpeg"&gt;&lt;/p&gt;
+ }&lt;/code&gt;&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Your brain on stoicism</title><link href="https://shanedowling.com/your-brain-on-stoicism-783d1cd1995c.html" rel="alternate"></link><published>2014-07-10T00:00:00+00:00</published><updated>2014-07-10T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-07-10:/your-brain-on-stoicism-783d1cd1995c.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__SOaZJ4BwYNtsm0SoctZl7A.jpeg"&gt;&lt;/p&gt;
 &lt;p&gt;For the last few months I've been attempting to practice Stoicism and
 wanted to share the effects of what regular stoic practice has had. If
 you've never heard of Stoicism I'd recommend &lt;a href="https://tim.blog/2009/04/13/stoicism-101-a-practical-guide-for-entrepreneurs/"&gt;fourhourworkweek.com's introduction&lt;/a&gt;, which is very pragmatic. Essentially, what happens after several weeks of watching your emotional reactions …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__SOaZJ4BwYNtsm0SoctZl7A.jpeg"&gt;&lt;/p&gt;
@@ -4163,12 +4161,10 @@ put simply I won't be going back.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;February 28, 2014&lt;/strong&gt; - Counterfeit Update - Still off
 Facebook, still not regretting the decision.
 &lt;strong&gt;February 14, 2015&lt;/strong&gt; - Still haven't touched the site. Much to my
-benefit.&lt;/p&gt;</content><category term="Digital Minimalism"></category></entry><entry><title>Numbers to replace that smartphone(London Edition)</title><link href="https://shanedowling.com/numbers-to-replace-that-smartphone-london-edition-b121face9106.html" rel="alternate"></link><published>2014-01-30T00:00:00+00:00</published><updated>2014-01-30T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-30:/numbers-to-replace-that-smartphone-london-edition-b121face9106.html</id><summary type="html">&lt;p&gt;category Digital Minimalism&lt;/p&gt;
-&lt;p&gt;I made this list of useful phone numbers to replace the apps I used on
+benefit.&lt;/p&gt;</content><category term="Digital Minimalism"></category></entry><entry><title>Numbers to replace that smartphone(London Edition)</title><link href="https://shanedowling.com/numbers-to-replace-that-smartphone-london-edition-b121face9106.html" rel="alternate"></link><published>2014-01-30T00:00:00+00:00</published><updated>2014-01-30T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-30:/numbers-to-replace-that-smartphone-london-edition-b121face9106.html</id><summary type="html">&lt;p&gt;I made this list of useful phone numbers to replace the apps I used on
 my smartphone. However it could also be considered useful for anyone
 travelling to London that doesn't want to get screwed with data roaming.
-Just use these numbers at any payphone around town …&lt;/p&gt;</summary><content type="html">&lt;p&gt;category Digital Minimalism&lt;/p&gt;
-&lt;p&gt;I made this list of useful phone numbers to replace the apps I used on
+Just use these numbers at any payphone around town. You know, the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I made this list of useful phone numbers to replace the apps I used on
 my smartphone. However it could also be considered useful for anyone
 travelling to London that doesn't want to get screwed with data roaming.
 Just use these numbers at any payphone around town. You know, the big red things tourists take photos next to.&lt;/p&gt;
@@ -4225,7 +4221,7 @@ phone. I'm sure you could do something similar for your own city. I'll
 maintain this list as I discover new numbers worth putting up. In
 particular I'm looking for a service to recommend events around the
 city, like a timeout magazine, but a phone number. I'm looking forward
-to seeing how far I can push this.&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Internet Predictions for 2014 that didn't make it</title><link href="https://shanedowling.com/internet-predictions-for-2014-that-didnt-make-it-ac552337f3a0.html" rel="alternate"></link><published>2014-01-25T00:00:00+00:00</published><updated>2014-01-25T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-25:/internet-predictions-for-2014-that-didnt-make-it-ac552337f3a0.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__nhvDe6sbdxDYdqb03gItVQ.jpeg"&gt;&lt;/p&gt;
+to seeing how far I can push this.&lt;/p&gt;</content><category term="Digital Minimalism"></category></entry><entry><title>Internet Predictions for 2014 that didn't make it</title><link href="https://shanedowling.com/internet-predictions-for-2014-that-didnt-make-it-ac552337f3a0.html" rel="alternate"></link><published>2014-01-25T00:00:00+00:00</published><updated>2014-01-25T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-25:/internet-predictions-for-2014-that-didnt-make-it-ac552337f3a0.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__nhvDe6sbdxDYdqb03gItVQ.jpeg"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Bitcoin finally crashes forcing the Winklevoss twins to play themselves in a movie where viewers can watch a hooded Jessie Eisenberg slowly turn pale and descend to evil ala the Emperor from Star Wars.&lt;/li&gt;
 &lt;li&gt;The UK's porn blocking bill forces teens to re-learn the lost art of the forged parental …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__nhvDe6sbdxDYdqb03gItVQ.jpeg"&gt;&lt;/p&gt;
@@ -6087,7 +6083,7 @@ junk items on a shelf near the door, once I'd collected enough stuff I
 go to the charity shop or recycling depo and get rid of everything. I
 found it much easier to put things on the shelf than to immediately give
 it away, if you find yourself attached to things unnecessarily it might
-be a useful step to take&lt;/p&gt;</content><category term="posts"></category></entry><entry><title>Just Keep Going</title><link href="https://shanedowling.com/just-keep-going-eebcba9f4076.html" rel="alternate"></link><published>2011-04-19T00:00:00+00:00</published><updated>2011-04-19T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-04-19:/just-keep-going-eebcba9f4076.html</id><summary type="html">&lt;p&gt;Productivity has never been my strong point. I'm the ultimate
+be a useful step to take&lt;/p&gt;</content><category term="Mindfulness"></category></entry><entry><title>Just Keep Going</title><link href="https://shanedowling.com/just-keep-going-eebcba9f4076.html" rel="alternate"></link><published>2011-04-19T00:00:00+00:00</published><updated>2011-04-19T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-04-19:/just-keep-going-eebcba9f4076.html</id><summary type="html">&lt;p&gt;Productivity has never been my strong point. I'm the ultimate
 procrastinator. I will literally do anything other than the task at
 hand. In fact this post is likely being written purely as I don't want
 to study. But, the post itself is useful in it's function to push me

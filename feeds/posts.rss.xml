@@ -1,48 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Shane Dowling - posts</title><link>https://shanedowling.com/</link><description>Shane Dowling</description><lastBuildDate>Thu, 25 Sep 2014 00:00:00 +0000</lastBuildDate><item><title>Shellshock — Am I vulnerable and what do I do?</title><link>https://shanedowling.com/shellshock-am-i-vulnerable-and-what-do-i-do-4368762a4c94.html</link><description>&lt;p&gt;&lt;img alt="" src="images/1__9ehFHvJtYiV__mH5tFVI9OQ.png"&gt;&lt;/p&gt;
-&lt;p&gt;`Shellshock `__ is the
-latest Heartbleed level vulnerability to be discovered. It's a pretty
-long running exploit in how bash handles environment variables. It's a
-good thing to fix asap, especially if you're running any old services
-like telnet, ftp or an old version of apache.&lt;/p&gt;
-&lt;h3&gt;Is my server vulnerable?&lt;/h3&gt;
-&lt;p&gt;Run …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate><guid isPermaLink="false">tag:shanedowling.com,2014-09-25:/shellshock-am-i-vulnerable-and-what-do-i-do-4368762a4c94.html</guid><category>posts</category></item><item><title>DOMpdf failing to render certain accented characters</title><link>https://shanedowling.com/dompdf-failing-to-render-certain-accented-characters-9be35f0c13a6.html</link><description>&lt;p&gt;I've noticed some issues with DOMpdf when trying to generate PDFs using
-their internal Helvetica font. After banging my head against a wall for
-a few hours trying to "fix" UTF-8 support, it turned out UTF-8 support
-was working fine. Essentially DOMpdf's internal Helvetica font didn't
-support a few polish …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Thu, 21 Aug 2014 00:00:00 +0000</pubDate><guid isPermaLink="false">tag:shanedowling.com,2014-08-21:/dompdf-failing-to-render-certain-accented-characters-9be35f0c13a6.html</guid><category>posts</category></item><item><title>Yii — Convert database to migrations</title><link>https://shanedowling.com/yii-convert-database-to-migrations-998a6277c968.html</link><description>&lt;p&gt;It happens to be best of us. You start a new Yii project, generate a few
-tables and fields, create the models in Gii and totally forget to use
-any migrations.&lt;/p&gt;
-&lt;p&gt;There's an easy way to move yourself to a db backed migration.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Put txDbMigration in your codebase.&lt;/li&gt;
-&lt;li&gt;Create a …&lt;/li&gt;&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Thu, 21 Aug 2014 00:00:00 +0000</pubDate><guid isPermaLink="false">tag:shanedowling.com,2014-08-21:/yii-convert-database-to-migrations-998a6277c968.html</guid><category>posts</category></item><item><title>SugarCRM 7 — Custom subpanels</title><link>https://shanedowling.com/sugarcrm-7-custom-subpanels-a75e66374a5b.html</link><description>&lt;p&gt;&lt;img alt="" src="images/1__g70Q0ojQdUFPYP4a__sPE5w.png"&gt;&lt;/p&gt;
-&lt;p&gt;This tutorial should hopefully help you to create a new subpanel under
-the Contacts module in Sugar using a custom link class and driven by
-SugarCRM 7's new SugarQuery API.&lt;/p&gt;
-&lt;h3&gt;1. Create a new link class&lt;/h3&gt;
-&lt;p&gt;This should go into custom/modules//YourNewLink.php and this
-class will act as …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Wed, 13 Aug 2014 00:00:00 +0000</pubDate><guid isPermaLink="false">tag:shanedowling.com,2014-08-13:/sugarcrm-7-custom-subpanels-a75e66374a5b.html</guid><category>posts</category></item><item><title>SugarCRM 7 — Colour Code Rows based on data values</title><link>https://shanedowling.com/sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html</link><description>&lt;p&gt;Add this into your recordlist javascript file.&lt;/p&gt;
-&lt;p&gt;render_colors : function() {
- console.log('here');
- $("tr[name^='&lt;YOUR_MODULE']").each(function() { //loop over each row
- if($(this).find('div[data-original-title="Out"]').length &gt; 0) { //check value of TD
- $(this).find($('td')).each(function() {
- $(this).css("background-color", "#FFBABA");
- });
- } else if($(this).find('div[data-original-title="In"]').length &amp;gt; 0) {
- $(this).find($('td')).each(function() {
- $(this).css("background-color", "#C3F8B5");
- });
- } else if($(this …&lt;/your_module']").each(function()&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Thu, 10 Jul 2014 00:00:00 +0000</pubDate><guid isPermaLink="false">tag:shanedowling.com,2014-07-10:/sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html</guid><category>posts</category></item><item><title>Useful bit of SQL to update many records in SugarCRM</title><link>https://shanedowling.com/useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html</link><description>&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;UPDATE&lt;/span&gt; &lt;span class="n"&gt;clowns&lt;/span&gt; &lt;span class="k"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;deleted&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="k"&gt;IN&lt;/span&gt;
+<rss version="2.0"><channel><title>Shane Dowling - posts</title><link>https://shanedowling.com/</link><description>Shane Dowling</description><lastBuildDate>Thu, 27 Mar 2014 00:00:00 +0000</lastBuildDate><item><title>Useful bit of SQL to update many records in SugarCRM</title><link>https://shanedowling.com/useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html</link><description>&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;UPDATE&lt;/span&gt; &lt;span class="n"&gt;clowns&lt;/span&gt; &lt;span class="k"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;deleted&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="k"&gt;IN&lt;/span&gt;
  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
  &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;clowns&lt;/span&gt; &lt;span class="k"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;deleted&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;ORDER&lt;/span&gt; &lt;span class="k"&gt;BY&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="k"&gt;ASC&lt;/span&gt; &lt;span class="k"&gt;LIMIT&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;800&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
  &lt;span class="n"&gt;tmp&lt;/span&gt; &lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Thu, 27 Mar 2014 00:00:00 +0000</pubDate><guid isPermaLink="false">tag:shanedowling.com,2014-03-27:/useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html</guid><category>posts</category></item><item><title>Numbers to replace that smartphone(London Edition)</title><link>https://shanedowling.com/numbers-to-replace-that-smartphone-london-edition-b121face9106.html</link><description>&lt;p&gt;category Digital Minimalism&lt;/p&gt;
-&lt;p&gt;I made this list of useful phone numbers to replace the apps I used on
-my smartphone. However it could also be considered useful for anyone
-travelling to London that doesn't want to get screwed with data roaming.
-Just use these numbers at any payphone around town …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Thu, 30 Jan 2014 00:00:00 +0000</pubDate><guid isPermaLink="false">tag:shanedowling.com,2014-01-30:/numbers-to-replace-that-smartphone-london-edition-b121face9106.html</guid><category>posts</category></item><item><title>Reducing my possesions</title><link>https://shanedowling.com/reducing-my-possesions-e8ccf43e94ba.html</link><description>&lt;p&gt;I decided at the start of the year to reduce my possesions purely as I
-found myself incredibly weighted down by what I owned. Unwatched DVDs,
-unplayed video games, unread books even unworn clothes do take a mental
-toll when deciding what to do with your day, it's pointless guilt …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Fri, 29 Apr 2011 00:00:00 +0000</pubDate><guid isPermaLink="false">tag:shanedowling.com,2011-04-29:/reducing-my-possesions-e8ccf43e94ba.html</guid><category>posts</category></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Thu, 27 Mar 2014 00:00:00 +0000</pubDate><guid isPermaLink="false">tag:shanedowling.com,2014-03-27:/useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html</guid><category>posts</category></item></channel></rss>
