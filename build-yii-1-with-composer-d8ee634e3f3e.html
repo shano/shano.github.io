@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-04-08T00:00:00+00:00">Tue 08 April 2014</abbr>
@@ -65,264 +65,307 @@
 
     <div class="entry-content">
         <p><img alt="" src="images/1__l9C5aZ3qEUjpuOr__ZRZtbw.png"></p>
-<p>While we’re looking forward to Yii 2 coming alive, all of the posts on
+<p>While we're looking forward to Yii 2 coming alive, all of the posts on
 please do not use it for production**. So it might be a little while
 before we have in-built composer awesomeness with Yii. <a href="http://www.yiiframework.com/wiki/392/creating-yii-applications-with-composer/">The guide
 online</a> on integrating composer with yii does not seem particularly
 straight-forward and misses out on a lot of steps, hence this post. You
 basically need to have the right folder structure or things will start
 to break. This guide relies on some of phundaments packages to get
-things up and running, as the official yii composer project doesn’t work
+things up and running, as the official yii composer project doesn't work
 anymore.</p>
-<p>- Create the root folder my_yii_install.
-- mkdir -p my_yii_install/protected/config
-- In my_yii_install/protected/ <a href="https://getcomposer.org/download/">download the composer.phar</a> and create a composer.json like so.</p>
-<p>{
- “repositories”: [
- {
- “type”:”composer”,
- “url”: “http://packages.phundament.com”
- }
- ],
- “require": {
- “php”: “&gt;=5.3.2”,
- “yiisoft/yii”: “1.1.<em>”,
- “yiiext/migrate-command”: “0.7.</em>”
- },
- “config”: {
- “bin-dir”: “bin/”
- },
- “autoload”: {
- “psr-0”: {
- “config”: “./”
- }
- },
- “scripts”: {
- “pre-install-cmd”: “config\\ComposerCallback::preInstall”,
- “post-install-cmd”: “config\\ComposerCallback::postInstall”,
- “pre-update-cmd”: “config\\ComposerCallback::preUpdate”,
- “post-update-cmd”: “config\\ComposerCallback::postUpdate”,
- “post-package-install”: [“config\\ComposerCallback::postPackageInstall”],
- “post-package-update”: [“config\\ComposerCallback::postPackageUpdate”]
- }
- }</p>
-<p>- In my_yii_install/config add console.php</p>
-<p>return array(
- ‘aliases’ =&gt; array(
- ‘vendor’ =&gt; ‘application.vendor’,
- ),
- ‘basePath’ =&gt; dirname(<strong>FILE</strong>) . DIRECTORY_SEPARATOR .’..’,
- ‘name’ =&gt; ‘My Awesome Yii Site’,
- ‘components’ =&gt; array(
- ‘db’ =&gt; array(
- // MySQL
- ‘connectionString’ =&gt; ‘mysql:host=localhost;dbname=my_yii_database’,
- ‘emulatePrepare’ =&gt; true,
- ‘username’ =&gt; ‘root’,
- ‘password’ =&gt; ‘root’,
- ‘charset’ =&gt; ‘utf8’,
- ),
- ),
- ‘params’ =&gt; array(
- ‘composer.callbacks’ =&gt; array(
- // args for Yii command runner
- ‘yiisoft/yii-install’ =&gt; array(‘yiic’, ‘webapp’, dirname(<strong>FILE</strong>).DIRECTORY_SEPARATOR.’..’.DIRECTORY_SEPARATOR.’..’),
- ‘post-update’ =&gt; array(‘yiic’, ‘migrate’),
- ‘post-install’ =&gt; array(‘yiic’, ‘migrate’),
- ),
- ),
- );</p>
-<p>- Now you’ll need to add a file like the below to actually handle the
- new composer hooks you’ve created. This will basically run migrations
- once your dependencies have installed.</p>
+<ul>
+<li>Create the root folder my_yii_install.</li>
+<li>mkdir -p my_yii_install/protected/config</li>
+<li>In my_yii_install/protected/ <a href="https://getcomposer.org/download/">download the composer.phar</a> and create a composer.json like so.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="nt">&quot;repositories&quot;</span><span class="p">:</span> <span class="p">[</span>
+ <span class="p">{</span>
+ <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;composer&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://packages.phundament.com&quot;</span>
+ <span class="p">}</span>
+ <span class="p">],</span>
+ <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+ <span class="nt">&quot;php&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;=5.3.2&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;yiisoft/yii&quot;</span><span class="p">:</span> <span class="s2">&quot;1.1.*&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;yiiext/migrate-command&quot;</span><span class="p">:</span> <span class="s2">&quot;0.7.*&quot;</span>
+ <span class="p">},</span>
+ <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
+ <span class="nt">&quot;bin-dir&quot;</span><span class="p">:</span> <span class="s2">&quot;bin/&quot;</span>
+ <span class="p">},</span>
+ <span class="nt">&quot;autoload&quot;</span><span class="p">:</span> <span class="p">{</span>
+ <span class="nt">&quot;psr-0&quot;</span><span class="p">:</span> <span class="p">{</span>
+ <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="s2">&quot;./&quot;</span>
+ <span class="p">}</span>
+ <span class="p">},</span>
+ <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
+ <span class="nt">&quot;pre-install-cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;config\\\\ComposerCallback::preInstall&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;post-install-cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;config\\\\ComposerCallback::postInstall&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;pre-update-cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;config\\\\ComposerCallback::preUpdate&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;post-update-cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;config\\\\ComposerCallback::postUpdate&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;post-package-install&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;config\\\\ComposerCallback::postPackageInstall&quot;</span><span class="p">],</span>
+ <span class="nt">&quot;post-package-update&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;config\\\\ComposerCallback::postPackageUpdate&quot;</span><span class="p">]</span>
+ <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>In my_yii_install/config add console.php</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="x">return array(</span>
+<span class="x"> &#39;aliases&#39; =&gt; array(</span>
+<span class="x"> &#39;vendor&#39; =&gt; &#39;application.vendor&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> &#39;basePath&#39; =&gt; dirname(__FILE__) . DIRECTORY_SEPARATOR .&#39;..&#39;,</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;My Awesome Yii Site&#39;,</span>
+<span class="x"> &#39;components&#39; =&gt; array(</span>
+<span class="x"> &#39;db&#39; =&gt; array(</span>
+<span class="x"> // MySQL</span>
+<span class="x"> &#39;connectionString&#39; =&gt; &#39;mysql:host=localhost;dbname=my_yii_database&#39;,</span>
+<span class="x"> &#39;emulatePrepare&#39; =&gt; true,</span>
+<span class="x"> &#39;username&#39; =&gt; &#39;root&#39;,</span>
+<span class="x"> &#39;password&#39; =&gt; &#39;root&#39;,</span>
+<span class="x"> &#39;charset&#39; =&gt; &#39;utf8&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> ),</span>
+<span class="x"> &#39;params&#39; =&gt; array(</span>
+<span class="x"> &#39;composer.callbacks&#39; =&gt; array(</span>
+<span class="x"> // args for Yii command runner</span>
+<span class="x"> &#39;yiisoft/yii-install&#39; =&gt; array(&#39;yiic&#39;, &#39;webapp&#39;, dirname(__FILE__).DIRECTORY_SEPARATOR.&#39;..&#39;.DIRECTORY_SEPARATOR.&#39;..&#39;),</span>
+<span class="x"> &#39;post-update&#39; =&gt; array(&#39;yiic&#39;, &#39;migrate&#39;),</span>
+<span class="x"> &#39;post-install&#39; =&gt; array(&#39;yiic&#39;, &#39;migrate&#39;),</span>
+<span class="x"> ),</span>
+<span class="x"> ),</span>
+<span class="x"> );</span>
+</pre></div>
+
+
+<ul>
+<li>Now you'll need to add a file like the below to actually handle the new composer hooks you've created. This will basically run migrations once your dependencies have installed.</li>
+</ul>
 <p>This is blantantly taken from phundaments <a href="https://github.com/phundament/app/blob/yii-webapp/protected/config/ComposerCallback.php">ComposerCallback</a>.
-I just thought I’d copy it here for completeness.</p>
+I just thought I'd copy it here for completeness.</p>
 <p>ComposerCallback.php</p>
-<p>/*<em>
- * Class file
- *
- * @author Tobias Munk
- * @link <a href="http://www.phundament.com/">http://www.phundament.com/</a>
- * @copyright Copyright © 2012 diemeisterei GmbH
- * @license <a href="http://www.phundament.com/license">http://www.phundament.com/license</a>
- </em>/</p>
-<p>namespace config;
- use Composer\Script\Event;</p>
-<p>/**
- * ComposerCallback provides composer hooks
- *
- * This setup class triggers `./yiic migrate` at post-install and post-update.
- * For a package the class triggers `./yiic -` at post-package-install and
- * post-package-update.
- * See composer manual (http://getcomposer.org/doc/articles/scripts.md)
- *
- * Usage example
- *
- * config.php
- * ‘params’ =&gt; array(
- ‘composer.callbacks’ =&gt; array(
- ‘post-update’ =&gt; array(‘yiic’, ‘migrate’),
- ‘post-install’ =&gt; array(‘yiic’, ‘migrate’),
- ‘yiisoft/yii-install’ =&gt; array(‘yiic’, ‘webapp’, realpath(dirname(<strong>FILE</strong>))),
- ),
- )
- );</p>
+<div class="highlight"><pre><span></span><span class="x">/**</span>
+<span class="x"> * Class file</span>
+<span class="x"> *“</span>
+<span class="x"> * @author Tobias Munk</span>
+<span class="x"> * @link [http://www.phundament.com/](http://www.phundament.com/)</span>
+<span class="x"> * @copyright Copyright © 2012 diemeisterei GmbH</span>
+<span class="x"> * @license [http://www.phundament.com/license](http://www.phundament.com/license)</span>
+<span class="x"> */</span>
+
+<span class="x">namespace config;</span>
+<span class="x"> use Composer\\Script\\Event;</span>
+
+<span class="x">/**</span>
+<span class="x"> * ComposerCallback provides composer hooks</span>
+<span class="x"> *</span>
+<span class="x"> * This setup class triggers \`./yiic migrate\` at post-install and post-update.</span>
+<span class="x"> * For a package the class triggers \`./yiic -\` at post-package-install and</span>
+<span class="x"> * post-package-update.</span>
+<span class="x"> * See composer manual (http://getcomposer.org/doc/articles/scripts.md)</span>
+<span class="x"> *</span>
+<span class="x"> * Usage example</span>
+<span class="x"> *</span>
+<span class="x"> * config.php</span>
+<span class="x"> * &#39;params&#39; =&gt; array(</span>
+<span class="x"> * &#39;composer.callbacks&#39; =&gt; array(</span>
+<span class="x"> * &#39;post-update&#39; =&gt; array(&#39;yiic&#39;, &#39;migrate&#39;),</span>
+<span class="x"> * &#39;post-install&#39; =&gt; array(&#39;yiic&#39;, &#39;migrate&#39;),</span>
+<span class="x"> * &#39;yiisoft/yii-install&#39; =&gt; array(&#39;yiic&#39;, &#39;webapp&#39;, realpath(dirname(__FILE__))),</span>
+<span class="x"> * ),</span>
+<span class="x"> * )</span>
+<span class="x"> * );</span>
+</pre></div>
+
+
 <ul>
 <li>composer.json</li>
-<li>“scripts”: {</li>
-<li>“pre-install-cmd”: “config\\ComposerCallback::preInstall”,
- “post-install-cmd”: “config\\ComposerCallback::postInstall”,
- “pre-update-cmd”: “config\\ComposerCallback::preUpdate”,
- “post-update-cmd”: “config\\ComposerCallback::postUpdate”,
- “post-package-install”: [
- “config\\ComposerCallback::postPackageInstall”
- ],
- “post-package-update”: [
- “config\\ComposerCallback::postPackageUpdate”
- ]
- }</li>
 </ul>
-<p>*
- *
- * @author Tobias Munk
- * @package phundament.app
- * @since 0.7.1
- */</p>
-<p>defined(‘YII_PATH’) or define(‘YII_PATH’, dirname(<strong>FILE</strong>).’/../vendor/yiisoft/yii/framework’);
- defined(‘CONSOLE_CONFIG’) or define(‘CONSOLE_CONFIG’, dirname(<strong>FILE</strong>).’/console.php’);</p>
-<p>class ComposerCallback
- {
- /*<em>
- * Displays welcome message
- * @static
- * @param ComposerScriptEvent $event
- </em>/
- public static function preInstall(Event $event)
- {
- $composer = $event-&gt;getComposer();
- // do stuff
- echo “Phundament 3 Installernn”;
- echo “ * download packages specified in composer.json
- * trigger composer callbacksnn”;
- if (self::confirm(“Start Installation?”)) {
- self::runHook(‘pre-install’);
- } else {
- exit(“Installation aborted.n”);
- }
- }</p>
-<p>/*<em>
- * Executes ./yiic migrate
- * @static
- * @param ComposerScriptEvent $event
- </em>/
- public static function postInstall(Event $event)
- {
- self::runHook(‘post-install’);
- echo “nnInstallation completed.nnThank you for choosing Phundament 3!nn”;
- }</p>
-<p>/*<em>
- * Displays welcome message
- *
- * @static
- * @param ComposerScriptEvent $event
- </em>/
- public static function preUpdate(Event $event)
- {
- echo “Welcome to Phundament Installation 3 via composernnUpdating your application to the lastest available packages…n”;
- self::runHook(‘pre-update’);
- }</p>
-<p>/*<em>
- * Executes ./yiic migrate
- *
- * @static
- * @param ComposerScriptEvent $event
- </em>/
- public static function postUpdate(Event $event)
- {
- self::runHook(‘post-update’);
- echo “nnUpdate completed.nn”;
- }</p>
-<p>/*<em>
- * Executes ./yiic -
- *
- * @static
- * @param ComposerScriptEvent $event
- </em>/
- public static function postPackageInstall(Event $event)
- {
- $installedPackage = $event-&gt;getOperation()-&gt;getPackage();
- $hookName = $installedPackage-&gt;getPrettyName().’-install’;
- self::runHook($hookName);
- }</p>
-<p>/*<em>
- * Executes ./yiic -
- *
- * @static
- * @param ComposerScriptEvent $event
- </em>/
- public static function postPackageUpdate(Event $event)
- {
- $installedPackage = $event-&gt;getOperation()-&gt;getTargetPackage();
- $commandName = $installedPackage-&gt;getPrettyName().’-update’;
- self::runHook($commandName);
- }</p>
-<p>/*<em>
- * Asks user to confirm by typing y or n.
- *
- * Credits to Yii CConsoleCommand
- *
- * @param string $message to echo out before waiting for user input
- * @return bool if user confirmed
- </em>/
- public static function confirm($message)
- {
- echo $message . ‘ [yes|no] ‘;
- return !strncasecmp(trim(fgets(STDIN)), ‘y’, 1);
- }</p>
-<p>/*<em>
- * Runs Yii command, if available (defined in config/console.php)
- </em>/
- private static function runHook($name){
- $app = self::getYiiApplication();
- if ($app === null) return;</p>
-<p>if (isset($app-&gt;params[‘composer.callbacks’][$name])) {
- $args = $app-&gt;params[‘composer.callbacks’][$name];
- $app-&gt;commandRunner-&gt;addCommands(Yii::getPathOfAlias(‘system.cli.commands’));
- $app-&gt;commandRunner-&gt;run($args);
- }
- }</p>
-<p>/*<em>
- * Creates console application, if Yii is available
- </em>/
- private static function getYiiApplication()
- {
- if (!is_file(YII_PATH.’/yii.php’))
- {
- return null;
- }</p>
-<p>require_once(YII_PATH.’/yii.php’);
- spl_autoload_register(array(‘YiiBase’, ‘autoload’));</p>
-<p>if (Yii::app() === null) {
- if (is_file(CONSOLE_CONFIG)) {
- $app = Yii::createConsoleApplication(CONSOLE_CONFIG);
- } else {
- throw new Exception(“File from CONSOLE_CONFIG not found”);
- }
- } else {
- $app = Yii::app();
- }
- return $app;
- }</p>
-<p>}</p>
-<p>- Now you should be able to run</p>
-<p>php composer.phar install</p>
+<div class="highlight"><pre><span></span> <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
+ <span class="nt">&quot;pre-install-cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;config\\\\ComposerCallback::preInstall&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;post-install-cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;config\\\\ComposerCallback::postInstall&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;pre-update-cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;config\\\\ComposerCallback::preUpdate&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;post-update-cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;config\\\\ComposerCallback::postUpdate&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;post-package-install&quot;</span><span class="p">:</span> <span class="p">[</span>
+ <span class="s2">&quot;config\\\\ComposerCallback::postPackageInstall&quot;</span>
+ <span class="p">],</span>
+ <span class="nt">&quot;post-package-update&quot;</span><span class="p">:</span> <span class="p">[</span>
+ <span class="s2">&quot;config\\\\ComposerCallback::postPackageUpdate&quot;</span>
+ <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="x">*</span>
+<span class="x"> *</span>
+<span class="x"> * @author Tobias Munk</span>
+<span class="x"> * @package phundament.app</span>
+<span class="x"> * @since 0.7.1</span>
+<span class="x"> */</span>
+
+<span class="x">defined(&#39;YII_PATH&#39;) or define(&#39;YII_PATH&#39;, dirname(__FILE__).&#39;/../vendor/yiisoft/yii/framework&#39;);</span>
+<span class="x"> defined(&#39;CONSOLE_CONFIG&#39;) or define(&#39;CONSOLE_CONFIG&#39;, dirname(__FILE__).&#39;/console.php&#39;);</span>
+
+<span class="x">class ComposerCallback</span>
+<span class="x"> {</span>
+<span class="x"> /**</span>
+<span class="x"> * Displays welcome message</span>
+<span class="x"> * @static</span>
+<span class="x"> * @param ComposerScriptEvent $event</span>
+<span class="x"> */</span>
+<span class="x"> public static function preInstall(Event $event)</span>
+<span class="x"> {</span>
+<span class="x"> $composer = $event-&gt;getComposer();</span>
+<span class="x"> // do stuff</span>
+<span class="x"> echo &quot;Phundament 3 Installernn&quot;;</span>
+<span class="x"> echo &quot; * download packages specified in composer.json</span>
+<span class="x"> * trigger composer callbacksnn&quot;;</span>
+<span class="x"> if (self::confirm(&quot;Start Installation?&quot;)) {</span>
+<span class="x"> self::runHook(&#39;pre-install&#39;);</span>
+<span class="x"> } else {</span>
+<span class="x"> exit(&quot;Installation aborted.n&quot;);</span>
+<span class="x"> }</span>
+<span class="x"> }</span>
+
+<span class="x">/**</span>
+<span class="x"> * Executes ./yiic migrate</span>
+<span class="x"> * @static</span>
+<span class="x"> * @param ComposerScriptEvent $event</span>
+<span class="x"> */</span>
+<span class="x"> public static function postInstall(Event $event)</span>
+<span class="x"> {</span>
+<span class="x"> self::runHook(&#39;post-install&#39;);</span>
+<span class="x"> echo &quot;nnInstallation completed.nnThank you for choosing Phundament 3!nn&quot;;</span>
+<span class="x"> }</span>
+
+<span class="x">/**</span>
+<span class="x"> * Displays welcome message</span>
+<span class="x"> *</span>
+<span class="x"> * @static</span>
+<span class="x"> * @param ComposerScriptEvent $event</span>
+<span class="x"> */</span>
+<span class="x"> public static function preUpdate(Event $event)</span>
+<span class="x"> {</span>
+<span class="x"> echo &quot;Welcome to Phundament Installation 3 via composernnUpdating your application to the lastest available packages…n&quot;;</span>
+<span class="x"> self::runHook(&#39;pre-update&#39;);</span>
+<span class="x"> }</span>
+
+<span class="x">/**</span>
+<span class="x"> * Executes ./yiic migrate</span>
+<span class="x"> *</span>
+<span class="x"> * @static</span>
+<span class="x"> * @param ComposerScriptEvent $event</span>
+<span class="x"> */</span>
+<span class="x"> public static function postUpdate(Event $event)</span>
+<span class="x"> {</span>
+<span class="x"> self::runHook(&#39;post-update&#39;);</span>
+<span class="x"> echo &quot;nnUpdate completed.nn&quot;;</span>
+<span class="x"> }</span>
+
+<span class="x">/**</span>
+<span class="x"> * Executes ./yiic -</span>
+<span class="x"> *</span>
+<span class="x"> * @static</span>
+<span class="x"> * @param ComposerScriptEvent $event</span>
+<span class="x"> */</span>
+<span class="x"> public static function postPackageInstall(Event $event)</span>
+<span class="x"> {</span>
+<span class="x"> $installedPackage = $event-&gt;getOperation()-&gt;getPackage();</span>
+<span class="x"> $hookName = $installedPackage-&gt;getPrettyName().&#39;-install&#39;;</span>
+<span class="x"> self::runHook($hookName);</span>
+<span class="x"> }</span>
+
+<span class="x">/**</span>
+<span class="x"> * Executes ./yiic -</span>
+<span class="x"> *</span>
+<span class="x"> * @static</span>
+<span class="x"> * @param ComposerScriptEvent $event</span>
+<span class="x"> */</span>
+<span class="x"> public static function postPackageUpdate(Event $event)</span>
+<span class="x"> {</span>
+<span class="x"> $installedPackage = $event-&gt;getOperation()-&gt;getTargetPackage();</span>
+<span class="x"> $commandName = $installedPackage-&gt;getPrettyName().&#39;-update&#39;;</span>
+<span class="x"> self::runHook($commandName);</span>
+<span class="x"> }</span>
+
+<span class="x">/**</span>
+<span class="x"> * Asks user to confirm by typing y or n.</span>
+<span class="x"> *</span>
+<span class="x"> * Credits to Yii CConsoleCommand</span>
+<span class="x"> *</span>
+<span class="x"> * @param string $message to echo out before waiting for user input</span>
+<span class="x"> * @return bool if user confirmed</span>
+<span class="x"> */</span>
+<span class="x"> public static function confirm($message)</span>
+<span class="x"> {</span>
+<span class="x"> echo $message . &#39; [yes|no] &#39;;</span>
+<span class="x"> return !strncasecmp(trim(fgets(STDIN)), &#39;y&#39;, 1);</span>
+<span class="x"> }</span>
+
+<span class="x">/**</span>
+<span class="x"> * Runs Yii command, if available (defined in config/console.php)</span>
+<span class="x"> */</span>
+<span class="x"> private static function runHook($name){</span>
+<span class="x"> $app = self::getYiiApplication();</span>
+<span class="x"> if ($app === null) return;</span>
+
+<span class="x">if (isset($app-&gt;params[&#39;composer.callbacks&#39;][$name])) {</span>
+<span class="x"> $args = $app-&gt;params[&#39;composer.callbacks&#39;][$name];</span>
+<span class="x"> $app-&gt;commandRunner-&gt;addCommands(Yii::getPathOfAlias(&#39;system.cli.commands&#39;));</span>
+<span class="x"> $app-&gt;commandRunner-&gt;run($args);</span>
+<span class="x"> }</span>
+<span class="x"> }</span>
+
+<span class="x">/**</span>
+<span class="x"> * Creates console application, if Yii is available</span>
+<span class="x"> */</span>
+<span class="x"> private static function getYiiApplication()</span>
+<span class="x"> {</span>
+<span class="x"> if (!is_file(YII_PATH.&#39;/yii.php&#39;))</span>
+<span class="x"> {</span>
+<span class="x"> return null;</span>
+<span class="x"> }</span>
+
+<span class="x">require_once(YII_PATH.&#39;/yii.php&#39;);</span>
+<span class="x"> spl_autoload_register(array(&#39;YiiBase&#39;, &#39;autoload&#39;));</span>
+
+<span class="x">if (Yii::app() === null) {</span>
+<span class="x"> if (is_file(CONSOLE_CONFIG)) {</span>
+<span class="x"> $app = Yii::createConsoleApplication(CONSOLE_CONFIG);</span>
+<span class="x"> } else {</span>
+<span class="x"> throw new Exception(&quot;File from CONSOLE_CONFIG not found&quot;);</span>
+<span class="x"> }</span>
+<span class="x"> } else {</span>
+<span class="x"> $app = Yii::app();</span>
+<span class="x"> }</span>
+<span class="x"> return $app;</span>
+<span class="x"> }</span>
+
+<span class="x">}</span>
+</pre></div>
+
+
+<ul>
+<li>Now you should be able to run</li>
+</ul>
+<div class="highlight"><pre><span></span>php composer.phar install
+</pre></div>
+
+
 <p>and it should ask do you want to setup your yii project and all of the
 required folders, which is pretty awesome. The only other thing you
 might want to do is add more dependencies. Say you have a library you
 wish to add. Add the entry into composer.json run the update(which
 should call any migrations needed automatically), then you need to add
 this line to your index.php.</p>
-<p>require_once(dirname(<strong>FILE</strong>).’/protected/vendor/autoload.php’);</p>
+<div class="highlight"><pre><span></span><span class="x">require_once(dirname(__FILE__).&#39;/protected/vendor/autoload.php&#39;);</span>
+</pre></div>
+
+
 <p>And should be be good to access composers namespaces libraries. Very
 cool!</p>
     </div>

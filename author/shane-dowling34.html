@@ -23,7 +23,7 @@
 
                         <li class="main-nav-item"><a href="../category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="../category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="../category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="../category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="../category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -55,33 +55,12 @@
                 <a href="../category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2012-04-28T00:00:00+00:00">Sat 28 April 2012</abbr>
-            </div>
-        </div>
-        <h2><a href="../screwed-server-checklist-ef23820824c7.html" rel="bookmark" title="Permalink to Screwed Server Checklist">Screwed Server Checklist</a></h2>
-        <div class="post-content">
-            <p>My servers started getting unusably slow at peak hours lately and I
-decided, midst panic to vaguely attempt to document the various things I
-had to go through to narrow down the problem, anyway I’m sticking them
-up here so a) I don’t lose the list and b …</p>
-        </div>
-        <div class="post-footer">
-            <a href="../screwed-server-checklist-ef23820824c7.html">Read more</a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-meta pure-g">
-
-            <div class="pure-u-3-4 meta-data">
-                <a href="../category/tech.html" class="category">Tech</a><br />
-
-                <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2012-03-08T00:00:00+00:00">Thu 08 March 2012</abbr>
             </div>
         </div>
         <h2><a href="../diary-py-future-proof-memories-b097056bc350.html" rel="bookmark" title="Permalink to Diary.py future proof memories.">Diary.py future proof memories.</a></h2>
         <div class="post-content">
-            <p>I’ve created a little command line diary script for anyone whose interested. It stores your diaries in separate txt files so you know all of your memories will always be accessible to you in a format you’ll always be able to read. It’s super quick and easy …</p>
+            <p>I've created a little command line diary script for anyone whose interested. It stores your diaries in separate txt files so you know all of your memories will always be accessible to you in a format you'll always be able to read. It's super quick and easy to use. It's …</p>
         </div>
         <div class="post-footer">
             <a href="../diary-py-future-proof-memories-b097056bc350.html">Read more</a>
@@ -104,15 +83,15 @@ on archlinux.</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
  <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">subprocess</span>
 
-<span class="n">vhosts_file</span> <span class="o">=</span> <span class="err">“</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="o">/</span><span class="n">conf</span><span class="o">/</span><span class="n">extra</span><span class="o">/</span><span class="n">httpd</span><span class="o">-</span><span class="n">vhosts</span><span class="o">.</span><span class="n">conf</span><span class="err">”</span>
- <span class="n">hosts_file</span> <span class="o">=</span> <span class="err">“</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span><span class="err">”</span>
+<span class="n">vhosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/httpd/conf/extra/httpd-vhosts.conf&quot;</span>
+ <span class="n">hosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/hosts&quot;</span>
 
 <span class="n">domain_name</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
  <span class="n">folder</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">usage</span><span class="p">():</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv …</span></pre></div>
+<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3 …</span></pre></div>
         </div>
         <div class="post-footer">
             <a href="../quick-vhost-script-6bdb6138fc10.html">Read more</a>
@@ -137,6 +116,26 @@ use them from <a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">h
         </div>
         <div class="post-footer">
             <a href="../easily-remember-linux-commands-44191f6843f6.html">Read more</a>
+        </div>
+    </div>
+    <div class="post">
+        <div class="post-meta pure-g">
+
+            <div class="pure-u-3-4 meta-data">
+                <a href="../category/tech.html" class="category">Tech</a><br />
+
+                <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2012-01-14T00:00:00+00:00">Sat 14 January 2012</abbr>
+            </div>
+        </div>
+        <h2><a href="../simple-ubuntu-backup-to-s3-c3f3b7070208.html" rel="bookmark" title="Permalink to Simple ubuntu backup to S3">Simple ubuntu backup to S3</a></h2>
+        <div class="post-content">
+            <p>After browsing the web for ages to find a decent solution to backup my
+server to amazon s3 I finally came across one and I'm just throwing it
+up here. So basically all I need it to do was backup my sites(filesystem and mysql databases) and some config for …</p>
+        </div>
+        <div class="post-footer">
+            <a href="../simple-ubuntu-backup-to-s3-c3f3b7070208.html">Read more</a>
         </div>
     </div>
 

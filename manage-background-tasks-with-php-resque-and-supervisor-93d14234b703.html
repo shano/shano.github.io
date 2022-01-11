@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-07-03T00:00:00+00:00">Thu 03 July 2014</abbr>
@@ -65,34 +65,30 @@
 
     <div class="entry-content">
         <p><img alt="" src="images/1__DDS7CsAlPK7wTEEbPFLRAQ.jpeg"></p>
-<p><a href="https://github.com/chrisboulton/php-resque">PHP-Resque</a>, the PHP equivalent to Ruby’s really nice background process runner is a great way to execute long running PHP processes. <a href="http://supervisord.org/">Supervisor</a> is a python-based process control system, essentially it’s a convenient way to manage custom system processes you need to handle. Combining the two to manage long running PHP jobs makes a lot of sense but it takes a little bit of work to get them talking.</p>
-<p>Once you’ve gotten PHP-Resque <a href="https://github.com/chrisboulton/php-resque#getting-started">installed on your project</a>,
-you’ve <a href="https://github.com/chrisboulton/php-resque#queueing-jobs">added items to your queue</a> and <a href="https://github.com/chrisboulton/php-resque#defining-jobs">written the workers to handle the background tasks</a>.
-You’ll need to plug PHP-Resque into supervisor. Here’s a sample config
+<p><a href="https://github.com/chrisboulton/php-resque">PHP-Resque</a>, the PHP equivalent to Ruby's really nice background process runner is a great way to execute long running PHP processes. <a href="http://supervisord.org/">Supervisor</a> is a python-based process control system, essentially it's a convenient way to manage custom system processes you need to handle. Combining the two to manage long running PHP jobs makes a lot of sense but it takes a little bit of work to get them talking.</p>
+<p>Once you've gotten PHP-Resque <a href="https://github.com/chrisboulton/php-resque#getting-started">installed on your project</a>,
+you've <a href="https://github.com/chrisboulton/php-resque#queueing-jobs">added items to your queue</a> and <a href="https://github.com/chrisboulton/php-resque#defining-jobs">written the workers to handle the background tasks</a>.
+You'll need to plug PHP-Resque into supervisor. Here's a sample config
 file I used to manage php resque queues within Yii projects but it
-should work with anything that’s using php-resque.</p>
-<p>[program:my_resque]
+should work with anything that's using php-resque.</p>
+<div class="highlight"><pre><span></span>[program:my_resque]
  directory=/var/www/website
  command=php vendor/chrisboulton/php-resque/bin/resque
  numprocs=2
- environment=QUEUE=’myresquequeue’,BLOCKING=1,COUNT=1,APP_INCLUDE=’models/UsefulClasses.php’
+ environment=QUEUE=&#39;myresquequeue&#39;,BLOCKING=1,COUNT=1,APP_INCLUDE=&#39;models/UsefulClasses.php&#39;
  autostart=true
  autorestart=true
  stopsignal=QUIT
- process_name = %(program_name)s-%(process_num)s</p>
+ process_name = %(program_name)s-%(process_num)s
+</pre></div>
+
+
 <p>A few things to note.</p>
 <ol>
-<li>Firstly the APP_INCLUDE should include the set of classes you intent
-     to use to handle the worker jobs. Meaning something that has a
-     perform action that does something, as described <a href="https://github.com/chrisboulton/php-resque#defining-jobs">here</a>.</li>
-<li>You’ll notice the COUNT=1 argument being set in the resque
-     environment. This is essential, if you fork more than one job using
-     php-resque it’ll background both and supervisor will not be able to
-     manage that process(and will continually try to spawn more processes
-     till it gives up). If you wish to have multiple workers, <strong>use the
-     numprocs argument</strong>.</li>
+<li>Firstly the APP_INCLUDE should include the set of classes you intent to use to handle the worker jobs. Meaning something that has a perform action that does something, as described <a href="https://github.com/chrisboulton/php-resque#defining-jobs">here</a>.</li>
+<li>You'll notice the COUNT=1 argument being set in the resque environment. This is essential, if you fork more than one job using php-resque it'll background both and supervisor will not be able to manage that process(and will continually try to spawn more processes till it gives up). If you wish to have multiple workers, <strong>use the numprocs argument</strong>.</li>
 </ol>
-<p>And that’s it really.</p>
+<p>And that's it really.</p>
 <p>Happy forking!</p>
     </div>
 

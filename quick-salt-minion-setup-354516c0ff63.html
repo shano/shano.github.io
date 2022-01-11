@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
@@ -64,18 +64,24 @@
     </div>
 
     <div class="entry-content">
-        <p>I find myself setting up salt minions a LOT. So I figured I’d write down
+        <p>I find myself setting up salt minions a LOT. So I figured I'd write down
 the steps in this concise format.</p>
-<h3>On the minion</h3>
-<p>sudo add-apt-repository ppa:saltstack/salt
-sudo apt-get update &amp;&amp; sudo apt-get install salt-minion
-sudo echo ‘ salt’ &gt;&gt; /etc/hosts //Or whatever the salt master is
-sudo salt-call -l debug state.highstate</p>
-<h3>Then on the master</h3>
-<p>sudo salt-key -L
-sudo salt-key -a</p>
-<h3>Then back on the minion</h3>
-<p>sudo salt-call -l debug state.highstate</p>
+<h3>On the minion</h3>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:saltstack/salt
+sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install salt-minion
+sudo <span class="nb">echo</span> <span class="s1">&#39; salt&#39;</span> &gt;&gt; /etc/hosts //Or whatever the salt master is
+sudo salt-call -l debug state.highstate
+</pre></div>
+
+
+<h3>Then on the master</h3>
+<div class="highlight"><pre><span></span>sudo salt-key -L
+sudo salt-key -a
+</pre></div>
+
+
+<h3>Then back on the minion</h3>
+<p><code>sudo salt-call -l debug state.highstate</code></p>
 <p>It also shows just how fast it is to get a box up and running with salt!</p>
     </div>
 

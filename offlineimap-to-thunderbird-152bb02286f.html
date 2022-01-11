@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -68,44 +68,44 @@
 new mail client(replacing mutt). Sadly for some reason Thunderbird
 started tanking and wiped all the mails from my mailserver without
 actually downloading anything.</p>
-<p>I could’ve restored the mails from a backup but instead I figured I’d
+<p>I could've restored the mails from a backup but instead I figured I'd
 take my emails offline and use Thunderbird as my primary mail client. I
 had a backup of my mails from OfflineImap but the problem was that
-OfflineImap uses the MailDir format and Thunderbird didn’t support it.</p>
+OfflineImap uses the MailDir format and Thunderbird didn't support it.</p>
 <p>Luckily Thunderbird did support maildir and I modified an existing
 MailDir to Mbox converter written in Python to work with Offlineimaps
 potentially infinitely recursive folder format. Hopefully it helps
 someone else.</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
- <span class="err">“””</span>
- <span class="n">Shane</span> <span class="n">Dowling</span><span class="p">,</span> <span class="mi">8</span> <span class="n">Feb</span> <span class="mi">2013</span>
- <span class="n">Frédéric</span> <span class="n">Grosshans</span><span class="p">,</span> <span class="mi">19</span> <span class="n">January</span> <span class="mi">2012</span>
- <span class="n">Nathan</span> <span class="n">R</span><span class="o">.</span> <span class="n">Yergler</span><span class="p">,</span> <span class="mi">6</span> <span class="n">June</span> <span class="mi">2010</span>
+ <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Shane Dowling, 8 Feb 2013</span>
+<span class="sd"> Frédéric Grosshans, 19 January 2012</span>
+<span class="sd"> Nathan R. Yergler, 6 June 2010</span>
 
-<span class="n">This</span> <span class="n">file</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">contain</span> <span class="n">sufficient</span> <span class="n">creative</span> <span class="n">expression</span> <span class="n">to</span> <span class="n">invoke</span>
- <span class="n">assertion</span> <span class="n">of</span> <span class="n">copyright</span><span class="o">.</span> <span class="n">No</span> <span class="n">warranty</span> <span class="ow">is</span> <span class="n">expressed</span> <span class="ow">or</span> <span class="n">implied</span><span class="p">;</span> <span class="n">use</span> <span class="n">at</span>
- <span class="n">your</span> <span class="n">own</span> <span class="n">risk</span><span class="o">.</span>
+<span class="sd">This file does not contain sufficient creative expression to invoke</span>
+<span class="sd"> assertion of copyright. No warranty is expressed or implied; use at</span>
+<span class="sd"> your own risk.</span>
 
-<span class="err">—</span> <span class="o">-</span>
+<span class="sd">— -</span>
 
-<span class="n">Uses</span> <span class="n">Python</span><span class="err">’</span><span class="n">s</span> <span class="n">included</span> <span class="n">mailbox</span> <span class="n">library</span> <span class="n">to</span> <span class="n">convert</span> <span class="n">mail</span> <span class="n">archives</span> <span class="kn">from</span>
- <span class="nn">maildir</span> <span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">en</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">Maildir</span><span class="p">]</span> <span class="n">to</span>
- <span class="n">mbox</span> <span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">en</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">Mbox</span><span class="p">]</span> <span class="nb">format</span><span class="p">,</span> <span class="n">icluding</span> <span class="n">subfolder</span><span class="o">.</span>
+<span class="sd">Uses Python&#39;s included mailbox library to convert mail archives from</span>
+<span class="sd"> maildir [http://en.wikipedia.org/wiki/Maildir] to</span>
+<span class="sd"> mbox [http://en.wikipedia.org/wiki/Mbox] format, icluding subfolder.</span>
 
-<span class="n">See</span> <span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">library</span><span class="o">/</span><span class="n">mailbox</span><span class="o">.</span><span class="n">html</span><span class="c1">#mailbox.Mailbox](http://docs.python.org/library/mailbox.html#mailbox.Mailbox) for</span>
- <span class="n">full</span> <span class="n">documentation</span> <span class="n">on</span> <span class="n">this</span> <span class="n">library</span><span class="o">.</span>
+<span class="sd">See [http://docs.python.org/library/mailbox.html#mailbox.Mailbox](http://docs.python.org/library/mailbox.html#mailbox.Mailbox) for</span>
+<span class="sd"> full documentation on this library.</span>
 
-<span class="err">—</span> <span class="o">-</span>
+<span class="sd">— -</span>
 
-<span class="err">$</span> <span class="n">python</span> <span class="n">md2mb</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="n">maildir_path</span><span class="p">]</span> <span class="p">[</span><span class="n">mbox_filename</span><span class="p">]</span>
+<span class="sd">$ python md2mb.py [maildir_path] [mbox_filename]</span>
 
-<span class="p">[</span><span class="n">maildir_path</span><span class="p">]</span> <span class="n">should</span> <span class="n">be</span> <span class="n">the</span> <span class="n">the</span> <span class="n">path</span> <span class="n">to</span> <span class="n">the</span> <span class="n">actual</span> <span class="n">maildir</span> <span class="p">(</span><span class="n">containing</span> <span class="n">new</span><span class="p">,</span>
- <span class="n">cur</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">subfolders</span><span class="p">,</span> <span class="n">which</span> <span class="n">are</span> <span class="n">hidden</span> <span class="n">directories</span> <span class="k">with</span> <span class="n">names</span> <span class="n">like</span>
- <span class="o">.</span><span class="n">subfolde</span><span class="o">.</span><span class="n">subsubfolder</span><span class="o">.</span><span class="n">subsubsbfolder</span><span class="p">);</span>
+<span class="sd">[maildir_path] should be the the path to the actual maildir (containing new,</span>
+<span class="sd"> cur, tmp, and the subfolders, which are hidden directories with names like</span>
+<span class="sd"> .subfolde.subsubfolder.subsubsbfolder);</span>
 
-<span class="p">[</span><span class="n">mbox_filename</span><span class="p">]</span> <span class="n">will</span> <span class="n">be</span> <span class="n">newly</span> <span class="n">created</span><span class="p">,</span> <span class="k">as</span> <span class="n">well</span> <span class="k">as</span> <span class="n">a</span> <span class="p">[</span><span class="n">mbox_filename</span><span class="p">]</span><span class="o">.</span><span class="n">sbd</span> <span class="n">the</span>
- <span class="n">directory</span><span class="o">.</span>
- <span class="err">“””</span>
+<span class="sd">[mbox_filename] will be newly created, as well as a [mbox_filename].sbd the</span>
+<span class="sd"> directory.</span>
+<span class="sd"> &quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">mailbox</span>
  <span class="kn">import</span> <span class="nn">sys</span>
@@ -113,14 +113,14 @@ someone else.</p>
  <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="k">def</span> <span class="nf">maildir2mailbox</span><span class="p">(</span><span class="n">maildirname</span><span class="p">,</span> <span class="n">mboxfilename</span><span class="p">):</span>
- <span class="err">“””</span>
- <span class="n">slightly</span> <span class="n">adapted</span> <span class="kn">from</span> <span class="nn">maildir2mbox.py</span><span class="p">,</span>
- <span class="n">Nathan</span> <span class="n">R</span><span class="o">.</span> <span class="n">Yergler</span><span class="p">,</span> <span class="mi">6</span> <span class="n">June</span> <span class="mi">2010</span>
- <span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">yergler</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="mi">2010</span><span class="o">/</span><span class="mi">06</span><span class="o">/</span><span class="mi">06</span><span class="o">/</span><span class="n">batteries</span><span class="o">-</span><span class="n">included</span><span class="o">-</span><span class="ow">or</span><span class="o">-</span><span class="n">maildir</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">mbox</span><span class="o">-</span><span class="n">again</span><span class="o">/</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">yergler</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="mi">2010</span><span class="o">/</span><span class="mi">06</span><span class="o">/</span><span class="mi">06</span><span class="o">/</span><span class="n">batteries</span><span class="o">-</span><span class="n">included</span><span class="o">-</span><span class="ow">or</span><span class="o">-</span><span class="n">maildir</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">mbox</span><span class="o">-</span><span class="n">again</span><span class="o">/</span><span class="p">)</span>
- <span class="ow">and</span> <span class="n">Frédéric</span> <span class="n">Grosshans</span><span class="p">,</span> <span class="mi">19</span> <span class="n">January</span> <span class="mi">2012</span>
- <span class="p">[</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">stackoverflow</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">questions</span><span class="o">/</span><span class="mi">2501182</span><span class="o">/</span><span class="n">convert</span><span class="o">-</span><span class="n">maildir</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">mbox</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">stackoverflow</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">questions</span><span class="o">/</span><span class="mi">2501182</span><span class="o">/</span><span class="n">convert</span><span class="o">-</span><span class="n">maildir</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">mbox</span><span class="p">)</span>
+ <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> slightly adapted from maildir2mbox.py,</span>
+<span class="sd"> Nathan R. Yergler, 6 June 2010</span>
+<span class="sd"> [http://yergler.net/blog/2010/06/06/batteries-included-or-maildir-to-mbox-again/](http://yergler.net/blog/2010/06/06/batteries-included-or-maildir-to-mbox-again/)</span>
+<span class="sd"> and Frédéric Grosshans, 19 January 2012</span>
+<span class="sd"> [http://stackoverflow.com/questions/2501182/convert-maildir-to-mbox](http://stackoverflow.com/questions/2501182/convert-maildir-to-mbox)</span>
 
-<span class="err">“””</span>
+<span class="sd">&quot;&quot;&quot;</span>
  <span class="c1"># open the existing maildir and the target mbox file</span>
  <span class="n">maildir</span> <span class="o">=</span> <span class="n">mailbox</span><span class="o">.</span><span class="n">Maildir</span><span class="p">(</span><span class="n">maildirname</span><span class="p">,</span> <span class="n">email</span><span class="o">.</span><span class="n">message_from_file</span><span class="p">)</span>
  <span class="n">mbox</span> <span class="o">=</span> <span class="n">mailbox</span><span class="o">.</span><span class="n">mbox</span><span class="p">(</span><span class="n">mboxfilename</span><span class="p">)</span>
@@ -138,21 +138,21 @@ someone else.</p>
 <span class="c1">#Creates the main mailbox</span>
  <span class="n">dirname</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
  <span class="n">mboxname</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
- <span class="n">mboxdirname</span><span class="o">=</span><span class="n">mboxname</span><span class="o">+</span><span class="err">’</span><span class="o">.</span><span class="n">sbd</span><span class="err">’</span>
+ <span class="n">mboxdirname</span><span class="o">=</span><span class="n">mboxname</span><span class="o">+</span><span class="s1">&#39;.sbd&#39;</span>
  <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">mboxdirname</span><span class="p">):</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">mboxdirname</span><span class="p">)</span>
 
 <span class="c1"># Iterate over all folders</span>
  <span class="k">def</span> <span class="nf">folder_iterate</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">mboxname</span><span class="p">):</span>
- <span class="n">listofdirs</span><span class="o">=</span><span class="p">[</span><span class="n">dn</span> <span class="k">for</span> <span class="n">dn</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">dn</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="err">‘</span><span class="n">new</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">cur</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">tmp</span><span class="err">’</span><span class="p">]]</span>
- <span class="n">curlist</span><span class="o">=</span><span class="p">[</span><span class="n">mboxname</span><span class="p">]</span><span class="o">+</span><span class="n">curfold</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="err">‘</span><span class="o">.</span><span class="err">’</span><span class="p">)</span>
- <span class="n">curpath</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">dn</span><span class="o">+</span><span class="err">’</span><span class="o">.</span><span class="n">sbd</span><span class="err">’</span> <span class="k">for</span> <span class="n">dn</span> <span class="ow">in</span> <span class="n">curlist</span> <span class="k">if</span> <span class="n">dn</span><span class="p">])</span>
+ <span class="n">listofdirs</span><span class="o">=</span><span class="p">[</span><span class="n">dn</span> <span class="k">for</span> <span class="n">dn</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">dn</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">,</span> <span class="s1">&#39;cur&#39;</span><span class="p">,</span> <span class="s1">&#39;tmp&#39;</span><span class="p">]]</span>
+ <span class="n">curlist</span><span class="o">=</span><span class="p">[</span><span class="n">mboxname</span><span class="p">]</span><span class="o">+</span><span class="n">curfold</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+ <span class="n">curpath</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">dn</span><span class="o">+</span><span class="s1">&#39;.sbd&#39;</span> <span class="k">for</span> <span class="n">dn</span> <span class="ow">in</span> <span class="n">curlist</span> <span class="k">if</span> <span class="n">dn</span><span class="p">])</span>
  <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">curpath</span><span class="p">):</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">curpath</span><span class="p">)</span>
  <span class="n">maildir2mailbox</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span><span class="n">curfold</span><span class="p">),</span><span class="n">curpath</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
- <span class="nb">print</span><span class="p">(</span><span class="err">‘</span><span class="n">no</span> <span class="n">maildir</span> <span class="n">folders</span><span class="err">’</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;no maildir folders&#39;</span><span class="p">)</span>
  <span class="n">folder_iterate</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span><span class="n">curfold</span><span class="p">),</span> <span class="n">mboxname</span><span class="p">)</span>
 
 <span class="n">folder_iterate</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">mboxname</span><span class="p">)</span>
- <span class="nb">print</span><span class="p">(</span><span class="err">‘</span><span class="n">Done</span><span class="err">’</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span>
 </pre></div>
     </div>
 

@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -69,8 +69,8 @@ on archlinux.</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
  <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">subprocess</span>
 
-<span class="n">vhosts_file</span> <span class="o">=</span> <span class="err">“</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="o">/</span><span class="n">conf</span><span class="o">/</span><span class="n">extra</span><span class="o">/</span><span class="n">httpd</span><span class="o">-</span><span class="n">vhosts</span><span class="o">.</span><span class="n">conf</span><span class="err">”</span>
- <span class="n">hosts_file</span> <span class="o">=</span> <span class="err">“</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span><span class="err">”</span>
+<span class="n">vhosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/httpd/conf/extra/httpd-vhosts.conf&quot;</span>
+ <span class="n">hosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/hosts&quot;</span>
 
 <span class="n">domain_name</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
  <span class="n">folder</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -81,32 +81,32 @@ on archlinux.</p>
  <span class="n">usage</span><span class="p">()</span>
  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-<span class="n">currentUser</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="err">“</span><span class="n">whoami</span><span class="err">”</span><span class="p">)</span>
- <span class="k">if</span> <span class="n">currentUser</span> <span class="o">!=</span> <span class="err">‘</span><span class="n">root</span><span class="err">’</span><span class="p">:</span>
- <span class="nb">print</span><span class="p">(</span><span class="err">“</span><span class="n">You</span> <span class="n">need</span> <span class="n">to</span> <span class="n">be</span> <span class="n">root</span><span class="err">!”</span><span class="p">)</span>
+<span class="n">currentUser</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="s2">&quot;whoami&quot;</span><span class="p">)</span>
+ <span class="k">if</span> <span class="n">currentUser</span> <span class="o">!=</span> <span class="s1">&#39;root&#39;</span><span class="p">:</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You need to be root!&quot;</span><span class="p">)</span>
  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">vhosts_file</span><span class="p">):</span>
- <span class="nb">print</span><span class="p">(</span><span class="err">“</span><span class="n">Vhosts</span> <span class="n">file</span> <span class="n">doesn</span><span class="err">’</span><span class="n">t</span> <span class="n">exist</span><span class="p">,</span> <span class="n">exiting</span><span class="err">”</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vhosts file doesn&#39;t exist, exiting&quot;</span><span class="p">)</span>
  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">hosts_file</span><span class="p">):</span>
- <span class="nb">print</span><span class="p">(</span><span class="err">“</span><span class="n">Hosts</span> <span class="n">file</span> <span class="n">doesn</span><span class="err">’</span><span class="n">t</span> <span class="n">exist</span><span class="p">,</span> <span class="n">exiting</span><span class="err">”</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hosts file doesn&#39;t exist, exiting&quot;</span><span class="p">)</span>
  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
- <span class="nb">print</span><span class="p">(</span><span class="err">“</span><span class="n">Web</span> <span class="n">folder</span> <span class="n">doesn</span><span class="err">’</span><span class="n">t</span> <span class="n">exist</span><span class="p">,</span> <span class="n">attempting</span> <span class="n">to</span> <span class="n">create</span><span class="err">”</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Web folder doesn&#39;t exist, attempting to create&quot;</span><span class="p">)</span>
  <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
 
-<span class="n">vhost_entry</span> <span class="o">=</span> <span class="err">“</span><span class="n">nnntServerAdmin</span> <span class="n">your</span><span class="o">@%</span><span class="n">sntDocumentRoot</span> <span class="err">“</span><span class="o">%</span><span class="n">s</span><span class="err">”</span><span class="n">ntServerName</span> <span class="o">%</span><span class="n">sntServerAlias</span> <span class="o">%</span><span class="n">s</span> <span class="n">ntnttDirectoryIndex</span> <span class="n">index</span><span class="o">.</span><span class="n">php</span> <span class="n">index</span><span class="o">.</span><span class="n">htm</span> <span class="n">index</span><span class="o">.</span><span class="n">htmlnttAddHandler</span> <span class="n">cgi</span><span class="o">-</span><span class="n">script</span> <span class="o">.</span><span class="n">cgi</span> <span class="o">.</span><span class="n">plnttOptions</span> <span class="n">ExecCGI</span> <span class="n">Indexes</span> <span class="n">FollowSymLinks</span> <span class="n">MultiViews</span> <span class="o">+</span><span class="n">IncludesnttAllowOverride</span> <span class="n">NonenttOrder</span> <span class="n">allow</span><span class="p">,</span><span class="n">denynttallow</span> <span class="kn">from</span> <span class="nn">allntn</span><span class="err">”</span> <span class="o">%</span> <span class="p">(</span><span class="n">domain_name</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">domain_name</span><span class="p">,</span> <span class="n">domain_name</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
+<span class="n">vhost_entry</span> <span class="o">=</span> <span class="s2">&quot;nnntServerAdmin your@</span><span class="si">%s</span><span class="s2">ntDocumentRoot &quot;</span><span class="o">%</span><span class="n">s</span><span class="s2">&quot;ntServerName </span><span class="si">%s</span><span class="s2">ntServerAlias </span><span class="si">%s</span><span class="s2"> ntnttDirectoryIndex index.php index.htm index.htmlnttAddHandler cgi-script .cgi .plnttOptions ExecCGI Indexes FollowSymLinks MultiViews +IncludesnttAllowOverride NonenttOrder allow,denynttallow from allntn&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">domain_name</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">domain_name</span><span class="p">,</span> <span class="n">domain_name</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
 
 <span class="n">vhosts_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">vhost_entry</span><span class="p">)</span>
 
-<span class="n">host_entry</span> <span class="o">=</span> <span class="err">“</span><span class="n">n127</span><span class="o">.</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span> <span class="o">%</span><span class="n">sn</span><span class="err">”</span> <span class="o">%</span> <span class="n">domain_name</span>
+<span class="n">host_entry</span> <span class="o">=</span> <span class="s2">&quot;n127.0.0.1 </span><span class="si">%s</span><span class="s2">n&quot;</span> <span class="o">%</span> <span class="n">domain_name</span>
 
 <span class="n">vhosts_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">host_entry</span><span class="p">)</span>
 
-<span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="err">‘</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rc</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">httpd</span> <span class="n">restart</span><span class="err">’</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;/etc/rc.d/httpd restart&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
     </div>
 

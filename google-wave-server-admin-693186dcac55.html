@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -73,34 +73,34 @@
 need it to be able to kill processes nicely.</p>
 <p>Fill in the details required <a href="http://github.com/shanedowling/Wave-ServerAdmin">here</a>. Deploy it to your own google app engine deployment and continue on the easy option.</p>
 <h3>How it works</h3>
-<p>Using google wave’s api and google’s datastore, when a blip is submitted
+<p>Using google wave's api and google's datastore, when a blip is submitted
 an <a href="http://www.python.org/doc/2.5.2/lib/module-xmlrpclib.html">xmlrpc</a> request is sent to your server, along with your hashed password for
 authentication. The python code running on the server is then executed
 as a sub process and the output is returned. If the server subprocess
 lasts more than 3 seconds it is killed and that output is returned, I
-can’t seem to be able to wait any longer before the request times out.</p>
+can't seem to be able to wait any longer before the request times out.</p>
 <p>As I mentioned the data is stored on google datastore. All passwords
-are hashed as soon as they’re entered.</p>
+are hashed as soon as they're entered.</p>
 <p>If you need any further details, check the <a href="http://github.com/shanedowling/Wave-ServerAdmin">source</a>.</p>
 <h3>Why</h3>
 <p>Generating ideas with what you can do with wave mostly. Obviously this
-script needs locking down to be useful, I’m doubting very many want to
+script needs locking down to be useful, I'm doubting very many want to
 run ls -alh from google wave a lot. But if you start extending the code
 you can write some cool things into waves.</p>
 <p><a href="http://o2sms.sourceforge.net/">o2sms</a> it allows me to send text
-messages from the command line for free using my mobile phone operator’s
+messages from the command line for free using my mobile phone operator's
 web-account(this tool only works in Ireland however). So for me to send
-a text message I would type. o2sms sender_in_phonebook -M ‘a message’</p>
-<p>o2sms mum -M ‘Hi I am sending you a message’</p>
+a text message I would type. o2sms sender_in_phonebook -M 'a message'</p>
+<p>o2sms mum -M 'Hi I am sending you a message'</p>
 <p>So with a few changes to my script I can create a new wave add the robot
 participant and type</p>
 <p>mum Hi I am sending you a message</p>
-<p>And presto I’m sending texts from my google wave, for free.</p>
+<p>And presto I'm sending texts from my google wave, for free.</p>
 <p>Happys Days!</p>
-<p>And I’m sure there is a truck load of ideas that can be done around
+<p>And I'm sure there is a truck load of ideas that can be done around
 this, the project itself is purely a proof of concept that I hope will
 generate some cool stuff.</p>
-<p>Note:I did this project to learn both python and google wave’s api, so
+<p>Note:I did this project to learn both python and google wave's api, so
 apologies if the code sucks/is very PHPish.</p>
     </div>
 

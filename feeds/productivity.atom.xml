@@ -1,5 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Productivity</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/productivity.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2014-02-13T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>A tip for introducing new habits</title><link href="https://shanedowling.com/a-tip-for-introducing-new-habits-79186124433a.html" rel="alternate"></link><published>2014-02-13T00:00:00+00:00</published><updated>2014-02-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-13:/a-tip-for-introducing-new-habits-79186124433a.html</id><summary type="html">&lt;p&gt;After reading up on &lt;a href="https://pragprog.com/book/ahptl/pragmatic-thinking-and-learning"&gt;Pragmatic Thinking and Learning&lt;/a&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Productivity</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/productivity.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2014-06-15T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Engineers Log</title><link href="https://shanedowling.com/engineers-log-69525c451538.html" rel="alternate"></link><published>2014-06-15T00:00:00+00:00</published><updated>2014-06-15T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-06-15:/engineers-log-69525c451538.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__u5I9tVI8pJKp8tTRe1__AqA.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Four years ago(to the day) I wrote a post on why I was &lt;a href="http://shanedowling.com/giving-up-on-wikis/"&gt;Giving up on wikis&lt;/a&gt; and I have to admit, four years later my opinions on the topic really haven't changed.&lt;/p&gt;
+&lt;p&gt;It's been 4 years, 700 questions(with 800 answers) and several server
+moves later and by …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__u5I9tVI8pJKp8tTRe1__AqA.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Four years ago(to the day) I wrote a post on why I was &lt;a href="http://shanedowling.com/giving-up-on-wikis/"&gt;Giving up on wikis&lt;/a&gt; and I have to admit, four years later my opinions on the topic really haven't changed.&lt;/p&gt;
+&lt;p&gt;It's been 4 years, 700 questions(with 800 answers) and several server
+moves later and by and large the process hasn't changed all that much,
+everything is just little more streamlined.&lt;/p&gt;
+&lt;h3&gt;Tagging:&lt;/h3&gt;
+&lt;p&gt;When I started I simply used tagging to reflect the technology the&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I tag company sensitive questions with the company name, so if I ever leave that place, I can easily find/drop questions with company sensitive info.&lt;/li&gt;
+&lt;li&gt;A lot of the time, I notice that a solution I'm entering is worthy of a blog post. I tend to flag my questions as to-blog, so when I'm looking for writing inspiration it's pretty easy to start writing when you've got a list of essentially half-complete posts waiting for you.&lt;/li&gt;
+&lt;li&gt;Sometimes I gave internal access my OSQA install to companies I worked for. If I was writing rough documentation for a specific team I would create tags for them to review my "documents" while I was writing them up.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Scripts:&lt;/h3&gt;
+&lt;p&gt;Originally I stored my scripts with some comments in a standard
+~/scripts folder and grep when I needed functionality. This solution
+always ended up getting messy to me so I moved them to my OSQA install.
+They're much tidier up there personally, I drill-down into the scripts
+tag then filter with what I need. Plus OSQA stores every revision of a
+question/answer so I can easily peruse old variants. I'm aware git would
+solve such a problem, but being able to jump onto a random machine and
+grab all my scripts via the web in a standardised way is pretty nice
+too.&lt;/p&gt;
+&lt;h3&gt;Quicker Searching:&lt;/h3&gt;
+&lt;p&gt;A simple fix, essentially I added my OSQA search as a keyword search on
+my browser so I can quick search by keyword followed by my search term.&lt;/p&gt;
+&lt;h3&gt;Future Improvements:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;In &lt;a href="http://www.amazon.com/Pragmatic-Thinking-Learning-Refactor-Programmers/dp/1934356050"&gt;Refactor Your Wetware&lt;/a&gt; one of the recommendations the book gives is to use an Engineer's Log, this is essentially what this OSQA install is, my Engineer's Log. One suggestion the book does it mark an X, every-time you use a solution from your Engineers Log. I want to eventually hack OSQA, so that I can use the Upvote feature myself to flag frequently used solutions.&lt;/li&gt;
+&lt;li&gt;Eventually I'll add pygments syntax highlighting. 4 years later and I still haven't gotten round to it.&lt;/li&gt;
+&lt;li&gt;I should probably migrate from an OSQA install to Askbot, considering there doesn't seem to be much of an open source future but my current solution works just fine so I see no need.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That's about it really, to be honest the lesson here really is that
+flexible solutions last.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Perfomance Enhancing Breakfast</title><link href="https://shanedowling.com/perfomance-enhancing-breakfast-4a14f17ee20a.html" rel="alternate"></link><published>2014-03-01T00:00:00+00:00</published><updated>2014-03-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-03-01:/perfomance-enhancing-breakfast-4a14f17ee20a.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__EES2Sqy6g09QG__4Aw5ZAiA.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;As Lance Armstrong has shown the world, putting the right thing into
+your body can greatly improve performance, I myself have been looking
+into more maintainable alternative. More and more I'm experimenting with
+diet as a means to improve my mental performance as well as my running
+ability week on …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__EES2Sqy6g09QG__4Aw5ZAiA.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;As Lance Armstrong has shown the world, putting the right thing into
+your body can greatly improve performance, I myself have been looking
+into more maintainable alternative. More and more I'm experimenting with
+diet as a means to improve my mental performance as well as my running
+ability week on week. Specifically ways of optimising the meals I'm
+taking in and turning them into more efficient forms of food
+consumption. Looking into my diet was partially kicked off by my recent
+foray into fasting and also looking at the spectacular popularity of the
+soylent project.&lt;/p&gt;
+&lt;h3&gt;Where I was&lt;/h3&gt;
+&lt;p&gt;With this in mind I did a little research into how I could turn
+breakfast into a more efficient starter meal for the day. Generally I
+never eat breakfast, so this seemed like a good place to experiment. The
+only breakfast I ever tended to eat was oats, which generally caused me
+to feel incredibly hungry long before lunch time, presumably as my
+stomach had woken up. I needed a breakfast that was going to solve a few
+problems.&lt;/p&gt;
+&lt;h3&gt;The checklist&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It needed to be fast to make and eat. I generally have a pretty rigid morning routine and I wanted to ensure that if I was going to add in a meal, it would consume too much time.&lt;/li&gt;
+&lt;li&gt;It needed to stave off hunger till lunch-time. This was always an on-going pain point for me, so satiety over time way important.&lt;/li&gt;
+&lt;li&gt;Supplied my body with materials I needed that complimented my diet. I'm a vegetarian, so protein and iron are a good bet.&lt;/li&gt;
+&lt;li&gt;Was reasonably cost effective if I'm going to be eating it everyday.&lt;/li&gt;
+&lt;li&gt;Didn't taste like death. (Optional, but preferable). I've done beetroot juicing before and I still shudder at the thought of drinking that first thing in the morning.&lt;/li&gt;
+&lt;li&gt;Can be bought in bulk and be stored for a month-long period.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After doing some rudimentary research it because pretty obvious that I
+would need something smoothie-based to tackle all the requirements of
+the checklist.&lt;/p&gt;
+&lt;h3&gt;Recipe&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Almond Milk-Lactose free, naturally high in anti-oxidants and minerals. Also provides a drinkable texture.&lt;/li&gt;
+&lt;li&gt;Frozen Fruit-Can be bought in bulk and lasts quite a while. High in vitamins, minerals and antioxidants. Improves taste. I alternate a few ranges of frozen fruit so the specific vitamins and minerals vary.&lt;/li&gt;
+&lt;li&gt;Goji Berries-Vitamin A and antioxidants.&lt;/li&gt;
+&lt;li&gt;Oats-High in fiber and antioxidants. Adds satiety&lt;/li&gt;
+&lt;li&gt;Frozen Spinach-Vitamin A and C and Iron.&lt;/li&gt;
+&lt;li&gt;Whey Powder-I opted for a strawberry flavoured one for taste. High in protein and BCAAs.&lt;/li&gt;
+&lt;li&gt;2 Bananas-High in fibre and Potassium. Adds satiety&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Generally all of these ingredients are also low in fat.&lt;/p&gt;
+&lt;h3&gt;Results&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Around 5 minutes to make/clean up after. Once it's made I go through my normal routines drinking the smoothie without any time affect.&lt;/li&gt;
+&lt;li&gt;Once I added in the oats it seemed to supply enough to stave off hunger easily till lunch time. It also seems to be one of the only sources of food I can eat post-run that will completely stave off hunger.&lt;/li&gt;
+&lt;li&gt;Protein and Iron are sorted as well as a ton of vitamins and minerals. The BCAAs are hopefully also helping build up lean muscle while I'm training.&lt;/li&gt;
+&lt;li&gt;Initial cost of ingredients including a cheap blender was about £50 so not too bad really. Total cost per week never generally goes above £20.&lt;/li&gt;
+&lt;li&gt;Tastes really good actually. The frozen fruit/veg keep the temperature down so it's fruit and cold.&lt;/li&gt;
+&lt;li&gt;All but the bananas meet this requirement. I go through a fair bit of almond milk too so I generally need to buy both on a weekly basis, which isn't too much of a pain point.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I've found that there is a significant difference between days when I
+have the smoothie and days when I don't. It's not the same as say
+drinking a coffee, presumably as the effects are more slow burning but
+my cognitive ability is definitely higher. As I'm coding each morning I
+can generally work out when my brain is hitting limits holding abstract
+entities in my head or when I'm in a flow of productivity or not and I
+was doing a rough rating each day and put simply, that rating has only
+improved. So for me that's my measure of cognitive ability, it may be
+different for you.&lt;/p&gt;
+&lt;p&gt;What I've learned overall is that food is pretty cool and looking into
+the specific benefits of the food I'm eating is unsurprisingly
+interesting. For me though, the simple fact that changing my diet from
+nothing(or maybe a coffee and occasional croissant) to an uber healthy
+food source &lt;strong&gt;makes my brain work better&lt;/strong&gt; is pretty incredible. You see
+the benefits on paper but until you give it a measurable test you can't
+really appreciate it. Give it(or your own version) a go, let me know how
+you find it!&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Cutting caffeine</title><link href="https://shanedowling.com/cutting-caffeine-20012941744d.html" rel="alternate"></link><published>2014-02-20T00:00:00+00:00</published><updated>2014-02-20T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-20:/cutting-caffeine-20012941744d.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__QQVhtNl9A4Ur1ELwN0XHSw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;A little while ago, I read a post on Sebastian Marshall's blog about &lt;a href="http://sebastianmarshall.com/a-method-for-reliability-quitting-caffeine"&gt;cutting caffeine&lt;/a&gt;, in which goes into the benefits and a method he uses for quitting coffee. He suggests cycling off it to reset your tolerance every so often. I figured that was a really good idea since …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__QQVhtNl9A4Ur1ELwN0XHSw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;A little while ago, I read a post on Sebastian Marshall's blog about &lt;a href="http://sebastianmarshall.com/a-method-for-reliability-quitting-caffeine"&gt;cutting caffeine&lt;/a&gt;, in which goes into the benefits and a method he uses for quitting coffee. He suggests cycling off it to reset your tolerance every so often. I figured that was a really good idea since I'd gotten to the
+point where in the morning I needed a coffee to feel normal, it was a
+good time to do something about it. Sebastian's method of taking caffeine pills I found a little extreme. There's a certain aesthetic to drinking coffee that I really enjoy and trying to replace it with green tea and pills wasn't going to work. Sebastian may have a mental strength I simply don't possess so I needed to offset the caffeine with altering the experience much.&lt;/p&gt;
+&lt;p&gt;I also don't really need to be incredibly specific about the mg doses of
+caffeine I'm giving myself, this seemed like a needless complex way off
+essentially weaning, so I figured I come up with more maintainable
+approach.&lt;/p&gt;
+&lt;p&gt;My solution was pretty straight-forward. Simply wind down the amount of caffeinated coffee you drink.&lt;/p&gt;
+&lt;h3&gt;The steps&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Research the best possible decaf coffee you can source and make sure it's actually decaf. I use a Nespresso machine, so per cup I can accurately see I've moved from around 65mg of caffeine per cup to about 0.4mg. The caffeine database and overcaffeinated should help with this.&lt;/li&gt;
+&lt;li&gt;Simply replace caffeine beverages with decaf. I know it's not the same, but for me, it's close enough. I reduced my daily caffeinated coffee amount by one cup every week and that's it. It's fairly straight-forward. I'm primarily on decaf now and only tend to use caffeine only when I actually need the energy/productivity boost and wow, it's a noticeable boost.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Also, If you want to go totally caffeine free, take a look at Teeccino to wind-down even further. Frankly I didn't bother with this step but you may want to if say you have doctors orders to steer totally clear from caffeine.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>A tip for introducing new habits</title><link href="https://shanedowling.com/a-tip-for-introducing-new-habits-79186124433a.html" rel="alternate"></link><published>2014-02-13T00:00:00+00:00</published><updated>2014-02-13T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-13:/a-tip-for-introducing-new-habits-79186124433a.html</id><summary type="html">&lt;p&gt;After reading up on &lt;a href="https://pragprog.com/book/ahptl/pragmatic-thinking-and-learning"&gt;Pragmatic Thinking and Learning&lt;/a&gt;
 I decided I would implement a habit called Morning Pages. Effectively
 you commit to writing several pages of writing each and every morning,
 for me I intended to write a blog post unit each day, and decide which
@@ -9,82 +130,51 @@ you commit to writing several pages of writing each and every morning,
 for me I intended to write a blog post unit each day, and decide which
 ones were worthy enough of sharing towards the end of the week. I was
 building up a healthy morning routine and figured one more habit
-wouldn’t be too much to ask of myself.&lt;/p&gt;
-&lt;p&gt;I failed. Repeatedly. Two months in and I’d managed about five totally
+wouldn't be too much to ask of myself.&lt;/p&gt;
+&lt;p&gt;I failed. Repeatedly. Two months in and I'd managed about five totally
 random mornings of writing. All of them on weekends. It kept feeling
 non-essential compared to my other habits and I felt like the pressure
 of getting to work at a reasonable hour build up as I sat down to try
-and write. I simply couldn’t commit and I couldn’t focus on writing.
+and write. I simply couldn't commit and I couldn't focus on writing.
 So, in this sorry state I figured out a great way to introduce new
 habits that actually immediately worked for me. &lt;strong&gt;All new habits are
-done first.&lt;/strong&gt; Simple as that, whenever you have a routine or when you’re about to knuckle down and be productive always start with your newest
-habit. It’s the one you have the most tenuous hold on and should be
+done first.&lt;/strong&gt; Simple as that, whenever you have a routine or when you're about to knuckle down and be productive always start with your newest
+habit. It's the one you have the most tenuous hold on and should be
 prioritised accordingly until it can become an establish part of your
-routine. I’ve been writing every morning for about a month and a half
-now and I’ve only missed one day(due to extreme tiredness). Also because it’s the first thing I do when I wake, I’ve started to incorporate
-dreams into creative writing, it’s been very rewarding actually. I think
-this habit is here to stay.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Precision Nutrition Trail Fast</title><link href="https://shanedowling.com/precision-nutrition-trail-fast-88a4c01976d5.html" rel="alternate"></link><published>2014-02-06T00:00:00+00:00</published><updated>2014-02-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-02-06:/precision-nutrition-trail-fast-88a4c01976d5.html</id><summary type="html">&lt;p&gt;I went through the &lt;a href="https://www.precisionnutrition.com/intermittent-fasting/chapter-1"&gt;precision nutrition trial fast last&lt;/a&gt; Sunday, here’s a low-down on how things went through each of the steps. I had trialled this while out and about in central London, but failed at around 5pm, I was disorganised and feeling incredibly dizzy from the crowds and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I went through the &lt;a href="https://www.precisionnutrition.com/intermittent-fasting/chapter-1"&gt;precision nutrition trial fast last&lt;/a&gt; Sunday, here’s a low-down on how things went through each of the steps. I had trialled this while out and about in central London, but failed at around 5pm, I was disorganised and feeling incredibly dizzy from the crowds and noise, so this time I planned ahead and did this from home.&lt;/p&gt;
-&lt;h3&gt;10 PM Saturday&lt;/h3&gt;
-&lt;p&gt;Had a late dinner at the wonderful Chaat on RedChurch Street in Shoreditch. May as well have an epic last meal, right? The advantage of the late final meal was that I actually managed to ramble in from the street and only waited a minute for a table. I didn’t over-do it in terms of food. I often get hungrier the next morning if I eat a huge meal the night before.&lt;/p&gt;
-&lt;h3&gt;9 AM Saturday&lt;/h3&gt;
-&lt;p&gt;- Ran a 10k. This is the part I’m a little apprehensive about. I’m doing a training program to build up to my next half marathon, which includes 10k-15k runs on Sundays. I’m always starving after a run(naturally), so I’m curious to know how my body will tackle this. I also figure if this is a trial fast I should trial it during real life conditions, which would regularly include running.&lt;/p&gt;
-&lt;h3&gt;10 AM&lt;/h3&gt;
-&lt;p&gt;- The post-run hunger has come over me, but the “breakfast” while not
- the most satisfying I’ve ever has taken the edge off.
- mL (1 cup) of green tea and 5 grams BCAA (branched chain amino acids) powder (or take 5 capsules).&lt;/p&gt;
-&lt;h3&gt;1PM&lt;/h3&gt;
-&lt;p&gt;- Hunger cravings are on the up causing me to feel a little tender, but
- short breathing exercise and keeping busy seem to help.&lt;/p&gt;
-&lt;h3&gt;2PM&lt;/h3&gt;
-&lt;p&gt;- I’ve been a vegetarian for over three years, why do I still imagine
- greasy burgers when I get hunger pains?
-- Had a cigar to help things along. Is that cheating?&lt;/p&gt;
-&lt;h3&gt;2:30PM&lt;/h3&gt;
-&lt;p&gt;Beginning to get dizzy/spacy, the cigar may be the source. I’ve been using my standing desk and been walking constantly since the morning but now I seem to want prolonged sitting.&lt;/p&gt;
-&lt;h3&gt;3PM&lt;/h3&gt;
-&lt;p&gt;I guess you’d call this lunchtime, same intake as breakfast. It takes
- the edge off a little. Can’t really sit still anymore, I’m just pacing around but feeling light-headed at the same time.&lt;/p&gt;
-&lt;h3&gt;6PM&lt;/h3&gt;
-&lt;p&gt;Watching movies at the moment which seems to keep the hunger at bay. It’s very much hitting a wall then finding energy from somewhere.&lt;/p&gt;
-&lt;h3&gt;9PM&lt;/h3&gt;
-&lt;p&gt;Bailing an hour early and having a small cup of soup. Put frankly, I felt like I’ve had a temperature for the last few hours and all my body wanted was something wholesome in it, my resistance has totally fallen apart. I felt like I was coming down with an illness and I was worried the lack of food may have brought down my immune system.&lt;/p&gt;
-&lt;h3&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;The illness effect was probably entirely psychosomatic, but I did feel
-terrible the last few hours, the light spacious feeling I had earlier in
-the day turned pretty horrible. I’d like to repeat this experiment
-without the 10km run beforehand and see how it goes. One thing is for
-sure, I have a completely new respect for anyone who can regularly fast.
-The ways in which this hit my willpower were completely surprising.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Sleep as the fundamental habit</title><link href="https://shanedowling.com/sleep-as-the-fundamental-habit-f9590f13c013.html" rel="alternate"></link><published>2014-01-09T00:00:00+00:00</published><updated>2014-01-09T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-09:/sleep-as-the-fundamental-habit-f9590f13c013.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__8iAA__DadoqBnceEck3kraw__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;Leo Babuta describes meditation as the fundamental habit, the underlying habits beneath all others. Personally, I disagree. I wrote recently on how I cope with meditation when you haven’t had a particularly good nights sleep.&lt;/p&gt;
+routine. I've been writing every morning for about a month and a half
+now and I've only missed one day(due to extreme tiredness). Also because it's the first thing I do when I wake, I've started to incorporate
+dreams into creative writing, it's been very rewarding actually. I think
+this habit is here to stay.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Sleep as the fundamental habit</title><link href="https://shanedowling.com/sleep-as-the-fundamental-habit-f9590f13c013.html" rel="alternate"></link><published>2014-01-09T00:00:00+00:00</published><updated>2014-01-09T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-09:/sleep-as-the-fundamental-habit-f9590f13c013.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__8iAA__DadoqBnceEck3kraw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Leo Babuta describes meditation as the fundamental habit, the underlying habits beneath all others. Personally, I disagree. I wrote recently on how I cope with meditation when you haven't had a particularly good nights sleep.&lt;/p&gt;
 &lt;p&gt;Realistically washing your face is like taking painkillers after a
-serious injury, it’s …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__8iAA__DadoqBnceEck3kraw__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;Leo Babuta describes meditation as the fundamental habit, the underlying habits beneath all others. Personally, I disagree. I wrote recently on how I cope with meditation when you haven’t had a particularly good nights sleep.&lt;/p&gt;
+serious injury, it's only painting …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__8iAA__DadoqBnceEck3kraw__2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Leo Babuta describes meditation as the fundamental habit, the underlying habits beneath all others. Personally, I disagree. I wrote recently on how I cope with meditation when you haven't had a particularly good nights sleep.&lt;/p&gt;
 &lt;p&gt;Realistically washing your face is like taking painkillers after a
-serious injury, it’s only painting over the cracks of a deeper problem.
+serious injury, it's only painting over the cracks of a deeper problem.
 Meditation and mindfulness truly can unlock the potential of your day,
 but a good nights rests can even more. Sleep is a physical process that
 underlies every waking moment. So to actively take the time to develop
 good sleep habits should improve every other aspect in your life,
 including meditation.&lt;/p&gt;
 &lt;p&gt;I only began to appreciate a good sleep routine when it was gone. Four
-months of hopping from towns, cities and countries has destroyed my good sleeping habits. I can’t remember the last time I slept in the same bedmore than two nights in a row. I return to a more permanent base soon enough but even now I’m trying to develop a rough sleep routine.&lt;/p&gt;
+months of hopping from towns, cities and countries has destroyed my good sleeping habits. I can't remember the last time I slept in the same bedmore than two nights in a row. I return to a more permanent base soon enough but even now I'm trying to develop a rough sleep routine.&lt;/p&gt;
 &lt;p&gt;Analyzing your sleep patterns and logging how you feel is a great way to
-discover what works for you. How many hours do you need? When is your ideal wind-down time? Be curious about it. To help I found &lt;a href="https://play.google.com/store/apps/details?id=com.urbandroid.sleep"&gt;Sleep as Android&lt;/a&gt; and &lt;a href="https://pzizz.com/"&gt;Pzizz&lt;/a&gt;, they’re very helpful but just being curious and exploring your sleeping patterns can do wonders for your well-being. Nailing down a good sleeping habit has been one of the biggest fundamental improvements I’ve made, everything flows from there.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GYPYSs and unrealistic expectations</title><link href="https://shanedowling.com/gypyss-and-unrealistic-expectations-f67a4927d9d6.html" rel="alternate"></link><published>2014-01-01T00:00:00+00:00</published><updated>2014-01-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-01:/gypyss-and-unrealistic-expectations-f67a4927d9d6.html</id><summary type="html">&lt;p&gt;&lt;a href="http://www.huffingtonpost.com/wait-but-why/generation-y-unhappy_b_3930620.html"&gt;This article&lt;/a&gt; was shared with me recently, it’s an excellent read and provides some good reasoning for why people feel that vague sense of living an unaccomplished life. I’ll admit it, I am most definitely a Gypsy. My garden right now it full of flowers of unrealistic expectations …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://www.huffingtonpost.com/wait-but-why/generation-y-unhappy_b_3930620.html"&gt;This article&lt;/a&gt; was shared with me recently, it’s an excellent read and provides some good reasoning for why people feel that vague sense of living an unaccomplished life. I’ll admit it, I am most definitely a Gypsy. My garden right now it full of flowers of unrealistic expectations. I’d begun to discover this while meditating and watching my emotions daily.&lt;/p&gt;
+discover what works for you. How many hours do you need? When is your ideal wind-down time? Be curious about it. To help I found &lt;a href="https://play.google.com/store/apps/details?id=com.urbandroid.sleep"&gt;Sleep as Android&lt;/a&gt; and &lt;a href="https://pzizz.com/"&gt;Pzizz&lt;/a&gt;, they're very helpful but just being curious and exploring your sleeping patterns can do wonders for your well-being. Nailing down a good sleeping habit has been one of the biggest fundamental improvements I've made, everything flows from there.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GYPYSs and unrealistic expectations</title><link href="https://shanedowling.com/gypyss-and-unrealistic-expectations-f67a4927d9d6.html" rel="alternate"></link><published>2014-01-01T00:00:00+00:00</published><updated>2014-01-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-01:/gypyss-and-unrealistic-expectations-f67a4927d9d6.html</id><summary type="html">&lt;p&gt;&lt;a href="http://www.huffingtonpost.com/wait-but-why/generation-y-unhappy_b_3930620.html"&gt;This article&lt;/a&gt; was shared with me recently, it's an excellent read and provides some good reasoning for why people feel that vague sense of living an unaccomplished life. I'll admit it, I am most definitely a Gypsy. My garden right now it full of flowers of unrealistic expectations. I'd begun …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://www.huffingtonpost.com/wait-but-why/generation-y-unhappy_b_3930620.html"&gt;This article&lt;/a&gt; was shared with me recently, it's an excellent read and provides some good reasoning for why people feel that vague sense of living an unaccomplished life. I'll admit it, I am most definitely a Gypsy. My garden right now it full of flowers of unrealistic expectations. I'd begun to discover this while meditating and watching my emotions daily.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="images/1__dgV1eOnLLrwiaafzuZ__klg__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;In &lt;a href="https://www.headspace.com/"&gt;Headspace&lt;/a&gt; there’s a section called the discovery series. You begin to focus on watching your emotions throughout the day and when your mind gets distracted and wanders. More specifically you watch the ways in which you wish things were different. You begin to notice the gulf between reality and fantasy.&lt;/p&gt;
+&lt;p&gt;In &lt;a href="https://www.headspace.com/"&gt;Headspace&lt;/a&gt; there's a section called the discovery series. You begin to focus on watching your emotions throughout the day and when your mind gets distracted and wanders. More specifically you watch the ways in which you wish things were different. You begin to notice the gulf between reality and fantasy.&lt;/p&gt;
 &lt;p&gt;At first I spotted the fantasties and dismissed them entirely. I was
 disappointed in myself for being so ridiculous and unrealistic. However,
 soon enough I realised that those fantasties had some utility. They
 could potentially shape long term goals. In &lt;a href="https://pragprog.com/book/ahptl/pragmatic-thinking-and-learning"&gt;Pragmatic Thinking and
-Learning&lt;/a&gt; (a book I’d highly recommend), there is a concept called the Pragmatic Investment Plan, where you essentially break down your longer term goals into where you want to be in say 5 years time and that’s broken down into where you want to be in a year and what tasks can you do right now.&lt;/p&gt;
+Learning&lt;/a&gt; (a book I'd highly recommend), there is a concept called the Pragmatic Investment Plan, where you essentially break down your longer term goals into where you want to be in say 5 years time and that's broken down into where you want to be in a year and what tasks can you do right now.&lt;/p&gt;
 &lt;p&gt;Take a wild guess at where I found the inspiration for where I wanted to
-be in 5 years time? It’s pretty fun breaking down some of your dreams
-into a potentially attainable setting of SMART goals. Say you’ve started to get into drawing and you want others to see and possibly be moved by your work. Right now you still suck but you dream of the day when something you created was in a gallery or an exhibition.&lt;/p&gt;
-&lt;p&gt;Well, you’ve found your five year SMART goal. You could have year one be to create a blog and regularly publish a new piece of work. The thing right now you could do is grab that drawing book you held off buying. If nothing else, it’s a start. A few months down the line you might realise you’re not that into drawing or you’re totally into it. Either way to get to that point and either fulfill or dismiss the fantasy it starts with trying it on.&lt;/p&gt;
-&lt;p&gt;Sure, we all fantasise about about the craziest things and it’s
-sometimes even embarrassing, but there’s real insight there. Sit down
+be in 5 years time? It's pretty fun breaking down some of your dreams
+into a potentially attainable setting of SMART goals. Say you've started to get into drawing and you want others to see and possibly be moved by your work. Right now you still suck but you dream of the day when something you created was in a gallery or an exhibition.&lt;/p&gt;
+&lt;p&gt;Well, you've found your five year SMART goal. You could have year one be to create a blog and regularly publish a new piece of work. The thing right now you could do is grab that drawing book you held off buying. If nothing else, it's a start. A few months down the line you might realise you're not that into drawing or you're totally into it. Either way to get to that point and either fulfill or dismiss the fantasy it starts with trying it on.&lt;/p&gt;
+&lt;p&gt;Sure, we all fantasise about about the craziest things and it's
+sometimes even embarrassing, but there's real insight there. Sit down
 with these fantasies and break them down into attainable chunks, then
-act on those chunks. You’ll get a hell of a lot farther than just
+act on those chunks. You'll get a hell of a lot farther than just
 sitting there wishing things were different.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Performance gains by altering your routine</title><link href="https://shanedowling.com/performance-gains-by-altering-your-routine-f44365b8972b.html" rel="alternate"></link><published>2013-12-30T00:00:00+00:00</published><updated>2013-12-30T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-30:/performance-gains-by-altering-your-routine-f44365b8972b.html</id><summary type="html">&lt;p&gt;In the mornings I had a very structured routine. The first thing I would
 do is meditate as for me, all other habits flow from this. Then after my
 meditation I would either go for a run or do some dumbbell based
@@ -101,10 +191,10 @@ while meditating.&lt;/p&gt;
 &lt;p&gt;As a response, for a few days I started to exercise before meditation
 and I must admit the effect were dramatic. Meditation after running is
 akin to trying to focus after taking a pile of happy pills. The
-meditation feels better, it seems easier and I’m very positive
+meditation feels better, it seems easier and I'm very positive
 throughout the whole experience. I also discovered that meditation
 following exercise is a great way to generate ideas. Especially with
-writing, I permanently feel like I’m going to run out of ideas but when
+writing, I permanently feel like I'm going to run out of ideas but when
 you fill yourself with positive energy and then try to sit and think,
 the ideas just seemed to flow. It could be simply a mixture of
 endorphines being positivity and physical tiredness taking away fears of
@@ -113,103 +203,104 @@ for idea generating.&lt;/p&gt;
 &lt;p&gt;Now, this all sounds very positive but I must admit this alteration of
 my routine will only be used sparingly. Firstly, I got distracted quite
 a lot with ideas during the meditation, forcing me to write them down
-and effectively breaking my focus. Some my my hand would be completely covered in pen marks after a meditation. That’s great, every so often but it got frustrating pretty quickly having to break focus over and over. Secondly, it’s wonderful to watch your breath while you’re full of positive “I love life” energy but that’s not exactly reflective of my
-mood throughout the day and when your hope is to extend mindfulness to the rest of your day you want to develop an expectation that you’re only mindful when your very positive.&lt;/p&gt;
-&lt;p&gt;Now, I do fully intend to use this ordering when I’m running low on
-ideas but I shall limit it only to then. I’m glad I made the discovery
+and effectively breaking my focus. Some my my hand would be completely covered in pen marks after a meditation. That's great, every so often but it got frustrating pretty quickly having to break focus over and over. Secondly, it's wonderful to watch your breath while you're full of positive "I love life" energy but that's not exactly reflective of my
+mood throughout the day and when your hope is to extend mindfulness to the rest of your day you want to develop an expectation that you're only mindful when your very positive.&lt;/p&gt;
+&lt;p&gt;Now, I do fully intend to use this ordering when I'm running low on
+ideas but I shall limit it only to then. I'm glad I made the discovery
 and intend to continually try new alterations and note the consequences.
-So if you’ve got some daily rituals or routines, mix them up and see if
+So if you've got some daily rituals or routines, mix them up and see if
 you can gain some unexpected performance gains.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GSD 2 — Retaining Focus</title><link href="https://shanedowling.com/gsd-2-retaining-focus-98ffdabf2a75.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/gsd-2-retaining-focus-98ffdabf2a75.html</id><summary type="html">&lt;p&gt;&lt;a href="http://xmonad.org/"&gt;Xmonad&lt;/a&gt; - Xmonad is a Haskell based window
-manager for both Linux and Mac(sorry Windows users). It’s highly
-configurable but for me it’s lack of features and application bar crap
+manager for both Linux and Mac(sorry Windows users). It's highly
+configurable but for me it's lack of features and application bar crap
 is a real advantage. The application your currently working with takes
-up the entirety of the screen and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://xmonad.org/"&gt;Xmonad&lt;/a&gt; - Xmonad is a Haskell based window
-manager for both Linux and Mac(sorry Windows users). It’s highly
-configurable but for me it’s lack of features and application bar crap
+up the entirety of the screen and you navigate …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://xmonad.org/"&gt;Xmonad&lt;/a&gt; - Xmonad is a Haskell based window
+manager for both Linux and Mac(sorry Windows users). It's highly
+configurable but for me it's lack of features and application bar crap
 is a real advantage. The application your currently working with takes
 up the entirety of the screen and you navigate to other applications
 using keyboard shortcuts. Using this and disabling notifications in your
 IM/Email/whatever clients forces you to work on the task in front of
-you. It’s very pleasing to use after a while.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.focusatwill.com/"&gt;Focusatwill&lt;/a&gt; - I’ve been a big fan of using the Pomodoro technique and I use focusatwill as an extension to it. Effectively it’s a timer
-that plays music that apparently helps keep you focused. Personally I’ve found it quite effective. It pushes for 100 minute stints of focused work before taking a break. As a coder I’m a big fan of this. 25 minute pomodoros got really distracting and were a pain to maintain after a while. 100 minutes lets me keep my mind on whatever level of the coding stack I’m currently on for longer periods. Even focusatwill states that it can take 20 minutes to accumulate enough to begin focus. Plus, if you’re skeptical there’s a free trial period.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GSD 3 — Keeping your habits in mind</title><link href="https://shanedowling.com/gsd-3-keeping-your-habits-in-mind-ded639ef1e39.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/gsd-3-keeping-your-habits-in-mind-ded639ef1e39.html</id><summary type="html">&lt;p&gt;So you’ve removed your distractions and figured out how to maintain
-focus. You’ve a set of good habits you’d like to being implementing.
-Well firstly, read &lt;a href="https://zenhabits.net/sticky/"&gt;this&lt;/a&gt;. Don’t jump head first into habits you’ve never gone through before. You’re expectations will be too high …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So you’ve removed your distractions and figured out how to maintain
-focus. You’ve a set of good habits you’d like to being implementing.
-Well firstly, read &lt;a href="https://zenhabits.net/sticky/"&gt;this&lt;/a&gt;. Don’t jump head first into habits you’ve never gone through before. You’re expectations will be too high and sadly, you’ll likely fail. Patience is a virtue.
-So, after you’ve chosen the habit you’d like to begin with, here are
+you. It's very pleasing to use after a while.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.focusatwill.com/"&gt;Focusatwill&lt;/a&gt; - I've been a big fan of using the Pomodoro technique and I use focusatwill as an extension to it. Effectively it's a timer
+that plays music that apparently helps keep you focused. Personally I've found it quite effective. It pushes for 100 minute stints of focused work before taking a break. As a coder I'm a big fan of this. 25 minute pomodoros got really distracting and were a pain to maintain after a while. 100 minutes lets me keep my mind on whatever level of the coding stack I'm currently on for longer periods. Even focusatwill states that it can take 20 minutes to accumulate enough to begin focus. Plus, if you're skeptical there's a free trial period.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GSD 3 — Keeping your habits in mind</title><link href="https://shanedowling.com/gsd-3-keeping-your-habits-in-mind-ded639ef1e39.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/gsd-3-keeping-your-habits-in-mind-ded639ef1e39.html</id><summary type="html">&lt;p&gt;So you've removed your distractions and figured out how to maintain
+focus. You've a set of good habits you'd like to being implementing.
+Well firstly, read &lt;a href="https://zenhabits.net/sticky/"&gt;this&lt;/a&gt;. Don't jump head first into habits you've never gone through before. You're expectations will be too high and sadly, you'll likely fail. Patience …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So you've removed your distractions and figured out how to maintain
+focus. You've a set of good habits you'd like to being implementing.
+Well firstly, read &lt;a href="https://zenhabits.net/sticky/"&gt;this&lt;/a&gt;. Don't jump head first into habits you've never gone through before. You're expectations will be too high and sadly, you'll likely fail. Patience is a virtue.
+So, after you've chosen the habit you'd like to begin with, here are
 some tools to help keep you focused on those good habits.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="https://play.google.com/store/apps/details?id=uk.amimetic.habits"&gt;Habit Streak&lt;/a&gt; - This app helps you achieve your goals with daily habit reminders. The focus here is on streaks. Define habits you can achieve everyday. Personally I find slightly vague is good. For example I don’t intend to run everyday(you need downtime from running), so instead I have a habit to exercise everyday. So I alternate running with strength exercises.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://play.google.com/store/apps/details?id=uk.amimetic.habits"&gt;Habit Streak&lt;/a&gt; - This app helps you achieve your goals with daily habit reminders. The focus here is on streaks. Define habits you can achieve everyday. Personally I find slightly vague is good. For example I don't intend to run everyday(you need downtime from running), so instead I have a habit to exercise everyday. So I alternate running with strength exercises.&lt;/li&gt;
 &lt;li&gt;Cron-Jobs - Yup, straight up cron-jobs are a great way to remind you to keep your good habits in mind. Make sure you have zenity installed and add this to your local cron with crontab -e. I also use cronjobs to automatically shut down my computer in the evening to prevent me working late and to properly wind-down ensuring a good sleep habit.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;/10 * &lt;/em&gt; * * export DISPLAY=:0 &amp;amp;&amp;amp; /usr/bin/zenity -info-text=”Don’t forget that uber important habit”&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GSD 4 — Reviewing</title><link href="https://shanedowling.com/gsd-4-reviewing-8a7ab553a72f.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/gsd-4-reviewing-8a7ab553a72f.html</id><summary type="html">&lt;p&gt;So the final process I use to help me get shit done is reviewing. Each
+&lt;p&gt;&lt;em&gt;/10 * &lt;/em&gt; * * export DISPLAY=:0 &amp;amp;&amp;amp; /usr/bin/zenity -info-text="Don't forget that uber important habit"&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GSD 4 — Reviewing</title><link href="https://shanedowling.com/gsd-4-reviewing-8a7ab553a72f.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/gsd-4-reviewing-8a7ab553a72f.html</id><summary type="html">&lt;p&gt;So the final process I use to help me get shit done is reviewing. Each
 week I do a fairly lengthy review of the last week. I see what habits
 have been successful and which have been a struggle to maintain. I look
 to see if there are appropriate alterations …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So the final process I use to help me get shit done is reviewing. Each
 week I do a fairly lengthy review of the last week. I see what habits
 have been successful and which have been a struggle to maintain. I look
 to see if there are appropriate alterations I can use to help improve.
-Here’s a list of the things I tend to analyse while reviewing, and the
-questions I’ve asked.&lt;/p&gt;
+Here's a list of the things I tend to analyse while reviewing, and the
+questions I've asked.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.rescuetime.com/"&gt;RescueTime&lt;/a&gt; - What have I procrastinated on this week? What peak times do I tend to be productive on my computer and when are the troughs? Can I replace this behavior with something slightly more useful?&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.habitstreak.com/"&gt;Habit Streak&lt;/a&gt; - This one I find very important. What habits have I maintained and what have failed? I ask myself in a gentle self-analytical way why I couldn’t maintain certain habits and what conditions I can change to improve my chances. Maybe the habits are simply not maintainable? Do I need to stop others and make specific time for new ones? Should I change my schedule? Reviewing is key to maintaining habits like these and the app I use is really straight-forward, exactly what I need.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://play.google.com/store/apps/details?id=com.urbandroid.sleep"&gt;Sleep as Android&lt;/a&gt;— Am I still maintaining a good sleep habit? Sometimes I try alterations to my routine and work out if there’s a positive or negative effect to my day.&lt;/li&gt;
-&lt;li&gt;Todo List -I just use a notepad and sometimes just dump ideas into Evernote. At the end of the week I collect them up and add them to a todo list or ditch them. Saying no and not indulging ideas you simply don’t have time for it key to this.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.instapaper.com/"&gt;Instapaper&lt;/a&gt; - I do some gardening to my reading list and dump anything I felt may have been a valuable read at the time but on reflection isn’t. I have a tendency to throw everything and the kitchen sink at my reading list, so purging this down is essential.&lt;/li&gt;
-&lt;li&gt;Gratefulness - I add in the things that I’m grateful for from the last week. Typically I try write these moments down during the week. It helps to re-affirm the things you find important and appreciate. By doing it and keeping the things you’re grateful for in your mind it helps the review become a more decisive and straightforward process, especially when you have a tendency to hang on to those ideas or wandering thoughts that really have no value.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.habitstreak.com/"&gt;Habit Streak&lt;/a&gt; - This one I find very important. What habits have I maintained and what have failed? I ask myself in a gentle self-analytical way why I couldn't maintain certain habits and what conditions I can change to improve my chances. Maybe the habits are simply not maintainable? Do I need to stop others and make specific time for new ones? Should I change my schedule? Reviewing is key to maintaining habits like these and the app I use is really straight-forward, exactly what I need.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://play.google.com/store/apps/details?id=com.urbandroid.sleep"&gt;Sleep as Android&lt;/a&gt;— Am I still maintaining a good sleep habit? Sometimes I try alterations to my routine and work out if there's a positive or negative effect to my day.&lt;/li&gt;
+&lt;li&gt;Todo List -I just use a notepad and sometimes just dump ideas into Evernote. At the end of the week I collect them up and add them to a todo list or ditch them. Saying no and not indulging ideas you simply don't have time for it key to this.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.instapaper.com/"&gt;Instapaper&lt;/a&gt; - I do some gardening to my reading list and dump anything I felt may have been a valuable read at the time but on reflection isn't. I have a tendency to throw everything and the kitchen sink at my reading list, so purging this down is essential.&lt;/li&gt;
+&lt;li&gt;Gratefulness - I add in the things that I'm grateful for from the last week. Typically I try write these moments down during the week. It helps to re-affirm the things you find important and appreciate. By doing it and keeping the things you're grateful for in your mind it helps the review become a more decisive and straightforward process, especially when you have a tendency to hang on to those ideas or wandering thoughts that really have no value.&lt;/li&gt;
 &lt;li&gt;Projects - What progress have I made in the last week? How has it stacked up compared to other weeks? Did I have a fluid week or was there blockers, how can I approach these if they occur again?&lt;/li&gt;
-&lt;li&gt;Contacts - Are there contacts or people I’ve met recently that I wish to catch up or meet again?&lt;/li&gt;
+&lt;li&gt;Contacts - Are there contacts or people I've met recently that I wish to catch up or meet again?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Generally this is a rough list of what I look at and I’ve found the
+&lt;p&gt;Generally this is a rough list of what I look at and I've found the
 process very revealing and incredibly useful. It provides me with a
-framework that has kept me focused on my longer-term goals but also on my general health and how I can potentially make systematic improvements in smaller ways on a regular basis. These improvements will accrue and the benefits over time can be phenomenal.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Principles</title><link href="https://shanedowling.com/principles-5cdc28ff6843.html" rel="alternate"></link><published>2013-12-26T00:00:00+00:00</published><updated>2013-12-26T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-26:/principles-5cdc28ff6843.html</id><content type="html">&lt;p&gt;Going to spend St.Stephen’s day going over &lt;a href="http://www.bwater.com/Uploads/FileManager/Principles/Bridgewater-Associates-Ray-Dalio-Principles.pdf"&gt;Dalio’s Principles&lt;/a&gt;. I always find the holidays a good time to get a high-level view of things.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GSD 1 — Reducing Distractions</title><link href="https://shanedowling.com/gsd-1-reducing-distractions-a42c7b164ce0.html" rel="alternate"></link><published>2013-08-03T00:00:00+00:00</published><updated>2013-08-03T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-03:/gsd-1-reducing-distractions-a42c7b164ce0.html</id><summary type="html">&lt;p&gt;Most of my distractions currently come from within. I hit up social
+framework that has kept me focused on my longer-term goals but also on my general health and how I can potentially make systematic improvements in smaller ways on a regular basis. These improvements will accrue and the benefits over time can be phenomenal.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Principles</title><link href="https://shanedowling.com/principles-5cdc28ff6843.html" rel="alternate"></link><published>2013-12-26T00:00:00+00:00</published><updated>2013-12-26T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-26:/principles-5cdc28ff6843.html</id><content type="html">&lt;p&gt;Going to spend St.Stephen's day going over &lt;a href="http://www.bwater.com/Uploads/FileManager/Principles/Bridgewater-Associates-Ray-Dalio-Principles.pdf"&gt;Dalio's Principles&lt;/a&gt;. I always find the holidays a good time to get a high-level view of things.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GSD 1 — Reducing Distractions</title><link href="https://shanedowling.com/gsd-1-reducing-distractions-a42c7b164ce0.html" rel="alternate"></link><published>2013-08-03T00:00:00+00:00</published><updated>2013-08-03T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-03:/gsd-1-reducing-distractions-a42c7b164ce0.html</id><summary type="html">&lt;p&gt;Most of my distractions currently come from within. I hit up social
 media or news sites. Also my email is a big time waster. I needed a way
-to remain connected but while preventing regular access. Here’s what
+to remain connected but while preventing regular access. Here's what
 helped.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/viccherubini/get-shit-done"&gt;Get Shit Done&lt;/a&gt; — A cross platform OS level site blocker …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Most of my distractions currently come from within. I hit up social
+&lt;p&gt;&lt;a href="https://github.com/viccherubini/get-shit-done"&gt;Get Shit Done&lt;/a&gt;-A cross platform OS level site blocker. Simply …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Most of my distractions currently come from within. I hit up social
 media or news sites. Also my email is a big time waster. I needed a way
-to remain connected but while preventing regular access. Here’s what
+to remain connected but while preventing regular access. Here's what
 helped.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/viccherubini/get-shit-done"&gt;Get Shit Done&lt;/a&gt; — A cross platform OS level site blocker. Simply install the script, add your distracting sites and run ‘get-shit-done work’ in a terminal. You only notice sheer number of times you find yourself flicking to those distracting sites when a big error is thrown that the site is unavailable. It’s a learning experience. Your browser however, may cache URL lookups and you may still access distracting sites when I shouldn’t and visa-versa. On Firefox there is an extension called &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/dns-cache/"&gt;DNS
+&lt;p&gt;&lt;a href="https://github.com/viccherubini/get-shit-done"&gt;Get Shit Done&lt;/a&gt;-A cross platform OS level site blocker. Simply install the script, add your distracting sites and run 'get-shit-done work' in a terminal. You only notice sheer number of times you find yourself flicking to those distracting sites when a big error is thrown that the site is unavailable. It's a learning experience. Your browser however, may cache URL lookups and you may still access distracting sites when I shouldn't and visa-versa. On Firefox there is an extension called &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/dns-cache/"&gt;DNS
 Cache&lt;/a&gt;. It allows you to prevent Firefox caching DNS entries, I presume this slows down URL requests but I barely noticed a difference and GSD now works as it should.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://status.constantcontact.com/nutshellmail/"&gt;Nutshellmail&lt;/a&gt;— Sends an email as often
-as you’d like with all your Facebook/Twitter updates. You know you’ll
+as you'd like with all your Facebook/Twitter updates. You know you'll
 get an social media update at some point so why bother flicking over to
 Facebook now?&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Getting Shit Done</title><link href="https://shanedowling.com/getting-shit-done-99303b405d8c.html" rel="alternate"></link><published>2013-08-01T00:00:00+00:00</published><updated>2013-08-01T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-08-01:/getting-shit-done-99303b405d8c.html</id><summary type="html">&lt;p&gt;I created a number of long term goals recently and have been trying to
 work out a system within which I can continue to keep my focus on those long term goals and reduce procrastination. I try to promote a daily focus on long term tasks through reminders and regular …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I created a number of long term goals recently and have been trying to
-work out a system within which I can continue to keep my focus on those long term goals and reduce procrastination. I try to promote a daily focus on long term tasks through reminders and regular reviews while reducing procrastination through a set of core tools. I tried multiple tools/tricks and what I’ll post a series on the tools and tricks I used.&lt;/p&gt;
-&lt;p&gt;Here are the topics I’ll post on(and link here):&lt;/p&gt;
+work out a system within which I can continue to keep my focus on those long term goals and reduce procrastination. I try to promote a daily focus on long term tasks through reminders and regular reviews while reducing procrastination through a set of core tools. I tried multiple tools/tricks and what I'll post a series on the tools and tricks I used.&lt;/p&gt;
+&lt;p&gt;Here are the topics I'll post on(and link here):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://medium.com/brightpin/gsd-1-reducing-distractions-a42c7b164ce0?source=linkShare-c3fb4f3f97d3-1515858383"&gt;Reducing Distractions&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://medium.com/p/98ffdabf2a75?source=linkShare-c3fb4f3f97d3-1515858422"&gt;Retaining Focus&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://medium.com/p/ded639ef1e39?source=linkShare-c3fb4f3f97d3-1515858463"&gt;Keeping your habits in mind&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://medium.com/p/8a7ab553a72f?source=linkShare-c3fb4f3f97d3-1515858504"&gt;Reviewing&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Productivity"></category></entry><entry><title>Just Keep Going</title><link href="https://shanedowling.com/just-keep-going-eebcba9f4076.html" rel="alternate"></link><published>2011-04-19T00:00:00+00:00</published><updated>2011-04-19T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-04-19:/just-keep-going-eebcba9f4076.html</id><summary type="html">&lt;p&gt;Productivity has never been my strong point. I’m the ultimate
+&lt;/ul&gt;</content><category term="Productivity"></category></entry><entry><title>Just Keep Going</title><link href="https://shanedowling.com/just-keep-going-eebcba9f4076.html" rel="alternate"></link><published>2011-04-19T00:00:00+00:00</published><updated>2011-04-19T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2011-04-19:/just-keep-going-eebcba9f4076.html</id><summary type="html">&lt;p&gt;Productivity has never been my strong point. I'm the ultimate
 procrastinator. I will literally do anything other than the task at
-hand. In fact this post is likely being written purely as I don’t want
-to study. But, the post itself is useful in it’s function to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Productivity has never been my strong point. I’m the ultimate
+hand. In fact this post is likely being written purely as I don't want
+to study. But, the post itself is useful in it's function to push me
+forward …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Productivity has never been my strong point. I'm the ultimate
 procrastinator. I will literally do anything other than the task at
-hand. In fact this post is likely being written purely as I don’t want
-to study. But, the post itself is useful in it’s function to push me
+hand. In fact this post is likely being written purely as I don't want
+to study. But, the post itself is useful in it's function to push me
 forward.&lt;/p&gt;
-&lt;p&gt;I’ve gotten attracted to a very simple idea of “Just keep going”. In my
+&lt;p&gt;I've gotten attracted to a very simple idea of "Just keep going". In my
 head I imagine the Terminator, after being blown to bits, still getting
-up. I suffer from “Goldilocks procrastination”, essentially everything
+up. I suffer from "Goldilocks procrastination", essentially everything
 needs to be just right before anything can happen. On top of that
-everything needs to remain perfect for me to maintain it. On paper it’s
-insanely obvious that this will fail, but a lesson that’s taken me a
-while to learn. If I don’t have all the study materials or if I miss a
-run during the week and boom, never again. What’s the point?&lt;/p&gt;
-&lt;p&gt;So after a huge number of failures I’m moving onto my very light, very
-simple “just keep going”. No fancy todo list software, no complicated
+everything needs to remain perfect for me to maintain it. On paper it's
+insanely obvious that this will fail, but a lesson that's taken me a
+while to learn. If I don't have all the study materials or if I miss a
+run during the week and boom, never again. What's the point?&lt;/p&gt;
+&lt;p&gt;So after a huge number of failures I'm moving onto my very light, very
+simple "just keep going". No fancy todo list software, no complicated
 GTD systems, no goal tracking software. Literally none of them have
-worked for me, purely as I can’t forgive myself for the small failures.
+worked for me, purely as I can't forgive myself for the small failures.
 I want to wake up in the morning, pull out a notepad, write whatever
 inspires me that day and do it. If I miss a run or am missing something
-that’s barely preventing me from doing my task, it’s irrelevant. It’s
-the next opportunity that’s important.&lt;/p&gt;
+that's barely preventing me from doing my task, it's irrelevant. It's
+the next opportunity that's important.&lt;/p&gt;
 &lt;p&gt;Although a few months in these are my overall goals for 2011&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -231,67 +322,67 @@ the next opportunity that’s important.&lt;/p&gt;
 &lt;p&gt;Become a vegetarian&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run a 10k(Yeah I’m unfit)&lt;/p&gt;
+&lt;p&gt;Run a 10k(Yeah I'm unfit)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I’ll expand on each of these as the weeks go on. I don’t doubt that this
+&lt;p&gt;I'll expand on each of these as the weeks go on. I don't doubt that this
 will be difficult, right now I hold down two jobs which sucks up a huge
-amount of time, but by documenting how I’m progressing and the
-techniques I use to maintain motivation and find time I hope it’ll help
-me and others.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>For any active del.icio.us users I’d highly recommend…</title><link href="https://shanedowling.com/for-any-active-del-icio-us-users-id-highly-recommend-d89cee8880c7.html" rel="alternate"></link><published>2010-12-17T00:00:00+00:00</published><updated>2010-12-17T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-12-17:/for-any-active-del-icio-us-users-id-highly-recommend-d89cee8880c7.html</id><content type="html">&lt;p&gt;&lt;a href="http://pinboard.in" title="http://pinboard.in"&gt;&lt;strong&gt;Pinboard: social bookmarking for introverts&lt;/strong&gt;
+amount of time, but by documenting how I'm progressing and the
+techniques I use to maintain motivation and find time I hope it'll help
+me and others.&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>For any active del.icio.us users I'd highly recommend…</title><link href="https://shanedowling.com/for-any-active-del-icio-us-users-id-highly-recommend-d89cee8880c7.html" rel="alternate"></link><published>2010-12-17T00:00:00+00:00</published><updated>2010-12-17T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-12-17:/for-any-active-del-icio-us-users-id-highly-recommend-d89cee8880c7.html</id><content type="html">&lt;p&gt;&lt;a href="http://pinboard.in" title="http://pinboard.in"&gt;&lt;strong&gt;Pinboard: social bookmarking for introverts&lt;/strong&gt;
 _For a few more bucks a year, Pinboard offers an archiving service which saves a copy of everything you bookmark, gives…_pinboard.in&lt;/a&gt;&lt;a href="http://pinboard.in"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>Top 10 webapps for programmers</title><link href="https://shanedowling.com/top-10-webapps-for-programmers-38c75fba4a63.html" rel="alternate"></link><published>2010-02-16T00:00:00+00:00</published><updated>2010-02-16T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-02-16:/top-10-webapps-for-programmers-38c75fba4a63.html</id><summary type="html">&lt;h3&gt;Evernote&lt;/h3&gt;
 &lt;p&gt;Although I use evernote as my brain online for everthing, it is
 incredibly useful for programmers too. Where I work things like
 requirements can be captured on almost anything, so snapping photos of
 whiteboards/notepads/beer mats that become OCR searchable is very handy.
-On top of that it …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Evernote&lt;/h3&gt;
+On top of that it's …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Evernote&lt;/h3&gt;
 &lt;p&gt;Although I use evernote as my brain online for everthing, it is
 incredibly useful for programmers too. Where I work things like
 requirements can be captured on almost anything, so snapping photos of
 whiteboards/notepads/beer mats that become OCR searchable is very handy.
-On top of that it’s nice to have all notes auto stored up on the web(I’d
+On top of that it's nice to have all notes auto stored up on the web(I'd
 have a fit if I lost my developer diary over a hard drive crash). The
-client application for evernote could be better and I’d consider
-Microsoft’s OneNote a much better application but Evernote does
+client application for evernote could be better and I'd consider
+Microsoft's OneNote a much better application but Evernote does
 everything I need it too. The killer feature being the iPhone app that
 lets me capture text, voice and snapshots everywhere. Coupled with JotNot it gives me a very powerful information capturing device that I simply cannot live without. This is one of the truly killer apps for my iPhone.&lt;/p&gt;
 &lt;h3&gt;Dropbox&lt;/h3&gt;
 &lt;p&gt;Why does my hard-drive always die the evening I forget to push my code
 up to the git server? Store all code/config files/documents up on a
-server always. The benefits are stupidly obvious. It’s soon after
-this realise you can start adding free little tricks that you didn’t
-think possible. Another plus, I don’t have a static ip with my broadband at home(dyndns doesn’t work due to my isp’s infrastructure, a massive mesh NAT) so &lt;a href="http://lifehacker.com/5175362/start-bittorrent-downloads-at-home-from-any-computer-with-dropbox"&gt;here’s&lt;/a&gt; a cool trick for easily torrenting(or in my case usenetting) files remotely. There’s also something very nice about being all to pull up
-any of my important files anywhere there’s a web browser.&lt;/p&gt;
+server always. The benefits are stupidly obvious. It's soon after
+this realise you can start adding free little tricks that you didn't
+think possible. Another plus, I don't have a static ip with my broadband at home(dyndns doesn't work due to my isp's infrastructure, a massive mesh NAT) so &lt;a href="http://lifehacker.com/5175362/start-bittorrent-downloads-at-home-from-any-computer-with-dropbox"&gt;here's&lt;/a&gt; a cool trick for easily torrenting(or in my case usenetting) files remotely. There's also something very nice about being all to pull up
+any of my important files anywhere there's a web browser.&lt;/p&gt;
 &lt;h3&gt;Gmail&lt;/h3&gt;
-&lt;p&gt;Yes it rocks, despite Buzz.. Filters, label and keyboard shortcuts have made this such an obvious choice it’s not even funny. I’d almost forgotten to add Gmail to the list it’s become such an integrated part of my web-use. The programmer related benefits are dissimilar to general user benefits, but thing extended features like keyboard shortcuts etc I probably only of real benefit to the techies who are the only ones bothered to read up on these features. Other than that there’s little to say, odds are I’d mostly be preaching to the converted anyway.&lt;/p&gt;
+&lt;p&gt;Yes it rocks, despite Buzz.. Filters, label and keyboard shortcuts have made this such an obvious choice it's not even funny. I'd almost forgotten to add Gmail to the list it's become such an integrated part of my web-use. The programmer related benefits are dissimilar to general user benefits, but thing extended features like keyboard shortcuts etc I probably only of real benefit to the techies who are the only ones bothered to read up on these features. Other than that there's little to say, odds are I'd mostly be preaching to the converted anyway.&lt;/p&gt;
 &lt;h3&gt;Stackoverflow&lt;/h3&gt;
 &lt;p&gt;Not exactly a web-app but something most programmers cannot live without
-and it’s web-based. Arguably this could be number one , but personally I
-don’t use this resource as much as the above three. Have a programming
-question, odds are insanely high it’ll be answered here.&lt;/p&gt;
+and it's web-based. Arguably this could be number one , but personally I
+don't use this resource as much as the above three. Have a programming
+question, odds are insanely high it'll be answered here.&lt;/p&gt;
 &lt;h3&gt;Google Reader&lt;/h3&gt;
-&lt;p&gt;We’ve all got to keep up with the latest developments in our industry.
-Coding Horror, A list apart, trivium, proggit and Bertrand Meyer’s blog.&lt;/p&gt;
-&lt;p&gt;Also reader has a new feature that supports updates on sites that don’t
+&lt;p&gt;We've all got to keep up with the latest developments in our industry.
+Coding Horror, A list apart, trivium, proggit and Bertrand Meyer's blog.&lt;/p&gt;
+&lt;p&gt;Also reader has a new feature that supports updates on sites that don't
 actually support RSS(some might question the point in RSS with features
-like this….). This feature’s very handy for one of my favourite programmer sites.&lt;/p&gt;
+like this….). This feature's very handy for one of my favourite programmer sites.&lt;/p&gt;
 &lt;h3&gt;Mindmeister&lt;/h3&gt;
 &lt;p&gt;I use a hell of a lot of mindmaps for storing programming related
 knowledge. Almost every technical book I read has mindmaps associated. I
 like building mindmaps, it forces me to have a 2nd thought on the
-content I’m reading and I have a less painless way of reviewing what
-I’ve read. To be honest, mindmeister as an application isn’t perfect. It
-doesn’t have folders or any decently readable way of labelling mindmaps.
-Very annoying when you’ve got tons of mindmaps to sort through. I’d love
+content I'm reading and I have a less painless way of reviewing what
+I've read. To be honest, mindmeister as an application isn't perfect. It
+doesn't have folders or any decently readable way of labelling mindmaps.
+Very annoying when you've got tons of mindmaps to sort through. I'd love
 to say that the fairly expensive iPhone app makes up for this(not sure
-why it couldn’t be free considering it’s a subscription based service),
-but the app for me is almost worthless. There’s nothing wrong with the
-app in itself it’s just not a pleasant experience browsing/editing
-mindmaps on your iPhone. It seems like I’m singing the praises of
+why it couldn't be free considering it's a subscription based service),
+but the app for me is almost worthless. There's nothing wrong with the
+app in itself it's just not a pleasant experience browsing/editing
+mindmaps on your iPhone. It seems like I'm singing the praises of
 mindmaps over mindmeister itself but other than these few issues
-mindmeister is a solid application. As it’s online sharing mindmaps is
+mindmeister is a solid application. As it's online sharing mindmaps is
 also a very handy feature. But if sharing/accessibilty
-anywhere doesn’t matter to you I’d recommend something like FreeMind for all your mindmapping needs, even keeping your local mindmaps synced on Dropbox could suit you just fine.&lt;/p&gt;
+anywhere doesn't matter to you I'd recommend something like FreeMind for all your mindmapping needs, even keeping your local mindmaps synced on Dropbox could suit you just fine.&lt;/p&gt;
 &lt;h3&gt;Pinboard&lt;/h3&gt;
 &lt;p&gt;Pinboard is a very nice online bookmark storage. Very, very simple
 bookmarking/to-read lists, fantastically simple tagging features and the
@@ -310,111 +401,112 @@ complex features(due dates, repeating tasks, tagging, folders, sharing
 and a lot more). Adds in the ability to add tasks from almost anywhere.
 IM, email, phone(if supported), widgets for almost anything(including
 gmail), and many apps that support it(tasque/gnome do for linux or a
-dashboard widget for osx) and you’ve got RTM. Yet the application itself
-never gets bogged down in it’s complexity. ‘Buy milk today’ or ‘Buy milk tuesday’ or ‘Buy milk tue’ or the many other variants of dates and rtm
-will likely be able to parse a date out of it. Other nice little tweaks like this makes RTM a great application for the programmer, as I mentioned in books like Passionate and Pragmatic Programmer Programmer there’s a lot of ‘Act On It’s’ some of them have different contexts, for example I might need to do a task weekly at home or do a task everyday in work. Using RTM to handle the adding of all these tasks makes things a &lt;strong&gt;lot&lt;/strong&gt; easier. I also use the pomodoro technique with RTM, using the tagging features I add estimates to my todos (e1,e2,e3) via tags. On top of all the other programming related todos I intend to do(including this post!) this service has made life a lot
+dashboard widget for osx) and you've got RTM. Yet the application itself
+never gets bogged down in it's complexity. 'Buy milk today' or 'Buy milk tuesday' or 'Buy milk tue' or the many other variants of dates and rtm
+will likely be able to parse a date out of it. Other nice little tweaks like this makes RTM a great application for the programmer, as I mentioned in books like Passionate and Pragmatic Programmer Programmer there's a lot of 'Act On It's' some of them have different contexts, for example I might need to do a task weekly at home or do a task everyday in work. Using RTM to handle the adding of all these tasks makes things a &lt;strong&gt;lot&lt;/strong&gt; easier. I also use the pomodoro technique with RTM, using the tagging features I add estimates to my todos (e1,e2,e3) via tags. On top of all the other programming related todos I intend to do(including this post!) this service has made life a lot
 easier.&lt;/p&gt;
 &lt;h3&gt;Grooveshark&lt;/h3&gt;
-&lt;p&gt;It’s up for debate whether programmers should listen to music at work or not.
+&lt;p&gt;It's up for debate whether programmers should listen to music at work or not.
 Personally I find music listening to music fine when I actually have to
 code, but when it comes to creating a specification or stepping through
 code listening to music is a very annoying distraction. When I do
 listening to music I always use grooveshark. The UI leaves a lot to be
-desired but there’s a music selection that’s 2nd to none, the playlists
+desired but there's a music selection that's 2nd to none, the playlists
 are handy too depending on the mood you in. Feeling tired in the
-morning? I have a wake-up playlist. Need some background music, there’s
+morning? I have a wake-up playlist. Need some background music, there's
 a playlist for that! All very painless.&lt;/p&gt;
 &lt;h3&gt;NutshellMail&lt;/h3&gt;
 &lt;p&gt;NutshellMail is a service that combines twitter, facebook, linkedin and
-myspace updates into a single email that’s sent to you on a daily basis.
-I questioned whether I’d use this service when signed up but I’ve come
+myspace updates into a single email that's sent to you on a daily basis.
+I questioned whether I'd use this service when signed up but I've come
 to love this application. I follow a lot of developers on twitter and
-some through facebook and it’s really nice to know your updates will
+some through facebook and it's really nice to know your updates will
 arrive at a certain time everyday. Instead of jumping on every few
 hours, negatively impacting on my productivity, I have a focused time to
 get myself updated on all the latest trends. The linkedin support is
 handy too for keeping up to date on your professional news also. I could
 have added twitter/linkedin to this top ten but at this stage I think
-these websites go without saying(and they’re not exactly web
+these websites go without saying(and they're not exactly web
 applications in the obvious sense).&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>The Pomodoro Technique</title><link href="https://shanedowling.com/the-pomodoro-technique-540acfc74681.html" rel="alternate"></link><published>2010-01-18T00:00:00+00:00</published><updated>2010-01-18T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-01-18:/the-pomodoro-technique-540acfc74681.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__is__0RWADKvxo3s4JL63AyQ.png"&gt;&lt;/p&gt;
-&lt;p&gt;I bought a &lt;a href="http://pragprog.com/titles/snfocus/pomodoro-technique-illustrated"&gt;book&lt;/a&gt;, basically because it was a GTD technique that came off the pragmatic bookshelf so I figured I’d give it a shot.&lt;/p&gt;
+&lt;p&gt;I bought a &lt;a href="http://pragprog.com/titles/snfocus/pomodoro-technique-illustrated"&gt;book&lt;/a&gt;, basically because it was a GTD technique that came off the pragmatic bookshelf so I figured I'd give it a shot.&lt;/p&gt;
 &lt;h3&gt;Explanation:&lt;/h3&gt;
-&lt;p&gt;To give a very brief explanation of the technique. You have a sheet with &lt;strong&gt;Today’s Todos&lt;/strong&gt;, each time you do 25 minutes …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__is__0RWADKvxo3s4JL63AyQ.png"&gt;&lt;/p&gt;
-&lt;p&gt;I bought a &lt;a href="http://pragprog.com/titles/snfocus/pomodoro-technique-illustrated"&gt;book&lt;/a&gt;, basically because it was a GTD technique that came off the pragmatic bookshelf so I figured I’d give it a shot.&lt;/p&gt;
+&lt;p&gt;To give a very brief explanation of the technique. You have a sheet with &lt;strong&gt;Today's Todos&lt;/strong&gt;, each time you do 25 minutes
+of work …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__is__0RWADKvxo3s4JL63AyQ.png"&gt;&lt;/p&gt;
+&lt;p&gt;I bought a &lt;a href="http://pragprog.com/titles/snfocus/pomodoro-technique-illustrated"&gt;book&lt;/a&gt;, basically because it was a GTD technique that came off the pragmatic bookshelf so I figured I'd give it a shot.&lt;/p&gt;
 &lt;h3&gt;Explanation:&lt;/h3&gt;
-&lt;p&gt;To give a very brief explanation of the technique. You have a sheet with &lt;strong&gt;Today’s Todos&lt;/strong&gt;, each time you do 25 minutes
-of work towards your todos you mark a ‘pomodoro’ and take a 5 minute
+&lt;p&gt;To give a very brief explanation of the technique. You have a sheet with &lt;strong&gt;Today's Todos&lt;/strong&gt;, each time you do 25 minutes
+of work towards your todos you mark a 'pomodoro' and take a 5 minute
 break. You then clock up pomodoros everyday.&lt;/p&gt;
 &lt;p&gt;Then every morning you pick from your \&lt;em&gt;\&lt;/em&gt;activity inventory\&lt;em&gt;\&lt;/em&gt;(an
 unsorted list of todos), and pick the highest priority tasks, beside
 each task should be an estimate of how many pomodoros it should take.
 For exampleI had estimated 2pomdoros for this blog post. So when
 selecting your pomodoros for the day you take your pomodoro average (sum
-of all the pomodoros you’ve ever done divided by the number of days),
-and don’t add more estimated pomodoros than your averages. So for
+of all the pomodoros you've ever done divided by the number of days),
+and don't add more estimated pomodoros than your averages. So for
 example my average could be 11 and I could have 3 high priority tasks
 each estimated to take 5 pomodoros each, well clearly I would have to
 add 2 and find a third that only took 1 pomodoro.&lt;/p&gt;
-&lt;p&gt;Now clearly there’s more to it(they have managed to get several books
+&lt;p&gt;Now clearly there's more to it(they have managed to get several books
 out of it). What you log all metrics on is called a report
 sheet, so things I log are completed pomodoros, how far off my
 estimates were, how many tasks did I fail to do today etc.&lt;/p&gt;
 &lt;h3&gt;How I use it&lt;/h3&gt;
 &lt;p&gt;I fully commited to the technique both at home and at work. So in work I
-have a large diary and some extra sheets, for my ‘personal’ stuff I use
+have a large diary and some extra sheets, for my 'personal' stuff I use
 a small moleskine diary to do the job. There have been dramatic results
 on both accounts. In work I noticed a better structure coming around my
-day. When people asked me for things I now always delay till I’ve
+day. When people asked me for things I now always delay till I've
 finished my pomodoro(the book explains how to handle interruptions),
-then weight how important the new task was over what I’m currently
+then weight how important the new task was over what I'm currently
 working on. I also find myself looking back very satisfied with the work
-I’ve done for the day, a personal sense of accomplishment. On top of
-that I like the fact if anyone did ask ‘what did you do all last week?’,
+I've done for the day, a personal sense of accomplishment. On top of
+that I like the fact if anyone did ask 'what did you do all last week?',
 I could very easily give a breakdown on what tasks I was working on.&lt;/p&gt;
-&lt;p&gt;Like everything else discipline is key. I’ve even noticed myself
+&lt;p&gt;Like everything else discipline is key. I've even noticed myself
 slipping the odd time. Say I finish a task in 20 minutes, the technique
 calls for &lt;strong&gt;25&lt;/strong&gt; minutes of focused work, so you should now focus on
 how you could do the task better or just improve on the task in some
-way. This is fine depending on some tasks but some just can’t be done
+way. This is fine depending on some tasks but some just can't be done
 any better. Going to the bathroom also becomes an interesting game as if
 you need to go to the bathroom you should cancel the pomodoro, very
 annoying when your bursting to go 22 minutes in. But youdo begin to
-relish maintaining an average of sorts. It’s something you work towards
+relish maintaining an average of sorts. It's something you work towards
 and try increase.&lt;/p&gt;
-&lt;h3&gt;It’s flexible!&lt;/h3&gt;
+&lt;h3&gt;It's flexible!&lt;/h3&gt;
 &lt;p&gt;Now however a problem has become apparent and this is where the
 flexibility of the technique comes in. As a programmer I noticed a
-‘flow’ that stops as soon as the timer does(that’s the point), I’ve
+'flow' that stops as soon as the timer does(that's the point), I've
 noticed 25 minutes is not nearly enough time so, as a compromise I can
-now alter how my pomodoro works. For this week I’m going to try 2*25
+now alter how my pomodoro works. For this week I'm going to try 2*25
 minute programming pomodoros followed by a ten minute break. I could
-increase the time of the pomodoro itself (say 25 to 50 minutes) but I’d
-rather keep it 25 (busy work such as replying to emails etc doesn’t take
+increase the time of the pomodoro itself (say 25 to 50 minutes) but I'd
+rather keep it 25 (busy work such as replying to emails etc doesn't take
 50 minutes).&lt;/p&gt;
 &lt;h3&gt;Kaizen&lt;/h3&gt;
 &lt;p&gt;In essence the point of the technique is not the 25 minute burst is
 actually something called Kaizen, meaning make small improvements
 everyday. The constant reviewing of priorities and the daily review of
 work done is the real value in this technique. I find measuring metrics
-on your own productivity very powerful. If I find I’m doing more with
-2*25 minute pomodoros, maybe I’ll try 4 and take a 20 minute break.&lt;/p&gt;
-&lt;p&gt;To be honest I’ve actually found more use for this technique at home
+on your own productivity very powerful. If I find I'm doing more with
+2*25 minute pomodoros, maybe I'll try 4 and take a 20 minute break.&lt;/p&gt;
+&lt;p&gt;To be honest I've actually found more use for this technique at home
 than at work. With work there is structure to your day and deadlines
 looming that will always motivate you. At home that project or that
-programming language that you’ve wanted to do for months has no
-deadlines and just doesn’t magically get done. With my moleskine(and
-calendar reminders) I’ve got a constantmotivator to get things done and
+programming language that you've wanted to do for months has no
+deadlines and just doesn't magically get done. With my moleskine(and
+calendar reminders) I've got a constantmotivator to get things done and
 do them better next time.&lt;/p&gt;
 &lt;p&gt;I can recommend this technique for anyone. To get started all it takes
 is 3 sheets of paper(the activity inventory, the report sheet and
-today’s todos) and some willpower. The book itself is great and would
+today's todos) and some willpower. The book itself is great and would
 highly recommend a purchase.&lt;/p&gt;
 &lt;h3&gt;Resources&lt;/h3&gt;
 &lt;p&gt;A decent &lt;a href="http://docs.google.com/viewerurl%3Dhttp://www.pomodorotechnique.com/downloads/pomodoro_cheat_sheet.pdf"&gt;Online Cheatsheet&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;A &lt;a href="https://docs.google.com/viewer?url=http%3A//www.pomodorotechnique.com/resources/cirillo/ThePomodoroTechnique_v1-3.pdf"&gt;free book&lt;/a&gt; written by the inventor of pomodoro(not the prag prog one I’ve read)&lt;/p&gt;
-&lt;p&gt;A mindmap I’ve done.&lt;/p&gt;
+&lt;p&gt;A &lt;a href="https://docs.google.com/viewer?url=http%3A//www.pomodorotechnique.com/resources/cirillo/ThePomodoroTechnique_v1-3.pdf"&gt;free book&lt;/a&gt; written by the inventor of pomodoro(not the prag prog one I've read)&lt;/p&gt;
+&lt;p&gt;A mindmap I've done.&lt;/p&gt;
 &lt;p&gt;This one may read very strangely and how I do the technique may not work
-for you, but the hats represent a different ‘focus’ and when my
+for you, but the hats represent a different 'focus' and when my
 productivity starts to wane imagining the hats works well. I would
 suggest using the mindmap after reading the prag programmer book.&lt;/p&gt;
 &lt;p&gt;Enjoy!&lt;/p&gt;</content><category term="Productivity"></category></entry></feed>

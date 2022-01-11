@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -65,30 +65,30 @@
 
     <div class="entry-content">
         <h3>Why?</h3>
-<p>When you’re faced with an ugly PHP file(or files) with little to do but
+<p>When you're faced with an ugly PHP file(or files) with little to do but
 trawl through it, there is a solution.</p>
 <p><a href="http://phpbeautifier.com">PHP beautifier</a> is a pear package that will process PHP files and reformat them in a (hopefully) nicer format.</p>
 <h3>Installation</h3>
 <p>You can install it using pear with a very simple</p>
 <p>pear install PHP_Beautifier</p>
 <h3>Usage</h3>
-<p>Usage is pretty dependent on your needs. What’s nice is, it takes
+<p>Usage is pretty dependent on your needs. What's nice is, it takes
 formatting rules as arguments, so if you pass in Pear() as an argument
 your code will be formatted to the pear standard.</p>
-<p>Here’s a bash alias I used to fire an entire folder(and recursively
+<p>Here's a bash alias I used to fire an entire folder(and recursively
 through all sub-folders) through the beautifier with the Pear standard
 coding conventions and outputted to a src2 folder.</p>
-<p>alias beautify=”php_beautifier -l “Pear()” -r “*.php” ./src2/”</p>
+<p>alias beautify="php_beautifier -l "Pear()" -r "*.php" ./src2/"</p>
 <p>Or if your using vim here is a mapping to call the beautifier on the
 current file when Ctrl-F2 is pressed(all my function keys are currently
-mapped to vim’sxdebug plugin).</p>
+mapped to vim'sxdebug plugin).</p>
 <p>map :% ! php_beautifier</p>
 <h3>Results</h3>
 <p>The results are pretty nice actually. The author of it notes that on
-40,000 lines of PHP it hasn’t broken a single file. I have noted that it
+40,000 lines of PHP it hasn't broken a single file. I have noted that it
 can make certain files look like crap however. An example would be our
 locales file, that has large array mappings of terms to languages.
-Unless you’re totally certain your whole project is going to look
+Unless you're totally certain your whole project is going to look
 awesome I would suggest using this on a file by file basis, as I have
 with vim.</p>
     </div>

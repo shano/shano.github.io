@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-04-05T00:00:00+00:00">Sat 05 April 2014</abbr>
@@ -65,68 +65,87 @@
 
     <div class="entry-content">
         <p>Sometimes you might find that you want your users to make decisions based on ListViews and you need to pull in relational data beyond the immediately related objects. Example</p>
-<p>So using the circus example say you have performers who are performing for a specific show. You might want to see what other shows those performers are also attached to. If it’s typically only one or two shows per event, you can probably make another column in the ListView that displays all shows related to that performer. Lets call this field ‘Other Shows’.</p>
+<p>So using the circus example say you have performers who are performing for a specific show. You might want to see what other shows those performers are also attached to. If it's typically only one or two shows per event, you can probably make another column in the ListView that displays all shows related to that performer. Lets call this field 'Other Shows'.</p>
 <p>What to do
- — — — — —</p>
+-—-— —</p>
 <p>Add your new field in studio before you do anything. So fire up Studio
-and create an ‘Other Shows’ field, create this as a text field.</p>
+and create an 'Other Shows' field, create this as a text field.</p>
 <p>Alter the newly created fields vardef and set it to non-db.</p>
 <p>You can typically find it in
 custom/Extension/modules/Performers/Ext/Vardefs/other_shows_c.php.</p>
-<p>$dictionary[‘Performers’][‘fields’][‘other_shows_c’] = array(
- ‘name’ =&gt; ‘other_shows_c’,
- ‘vname’ =&gt; ‘LBL_OTHER_SHOWS_C’,
- ‘type’ =&gt; ‘varchar’,
- ‘len’ =&gt; ‘255’,
- ‘source’ =&gt; ‘non-db’
- );</p>
-<p>Ensure the field isn’t sortable..</p>
+<div class="highlight"><pre><span></span><span class="x">$dictionary[&#39;Performers&#39;][&#39;fields&#39;][&#39;other_shows_c&#39;] = array(</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;other_shows_c&#39;,</span>
+<span class="x"> &#39;vname&#39; =&gt; &#39;LBL_OTHER_SHOWS_C&#39;,</span>
+<span class="x"> &#39;type&#39; =&gt; &#39;varchar&#39;,</span>
+<span class="x"> &#39;len&#39; =&gt; &#39;255&#39;,</span>
+<span class="x"> &#39;source&#39; =&gt; &#39;non-db&#39;</span>
+<span class="x"> );</span>
+</pre></div>
+
+
+<p>Ensure the field isn't sortable..</p>
 <p>Trying to sort a db/non-db field will cause a bit of trouble and
-ListViews don’t support it, so just disable it.</p>
+ListViews don't support it, so just disable it.</p>
 <p>Under custom/modules/Performers/metadata/listviewdefs.php change your
 newly created fields definition.</p>
-<p>‘OTHER_SHOWS_C’ =&gt;
- array (
- ‘label’ =&gt; ‘Other Shows’,
- ‘width’ =&gt; ‘10%’,
- ‘default’ =&gt; true,
- ‘sortable’ =&gt; false,
- ),</p>
-<p>Adding the actual code to run.</p>
-<p>For this we’re going to leverage SugarCRM’s logic hooks. If you haven’t
-already create a logic\_hooks.php under custom/modules/Performers/ with
-contents like this.</p>
-<p>This file essentially defines the hooks you’re going to call. The hook
-process_record means it’ll be called for every row that’s displayed on
-the ListView.</p>
-<p>The performers_logic_hooks_class.php file will be included,
-performers_logic_hooks is the class that it will look for and
-list\_record\_process is the function within that class that it will
-call.</p>
-<p>// Do not store anything in this file that is not part of the array or the hook version. This file will
- // be automatically rebuilt in the future.
- $hook_version = 1;
- $hook_array = Array();
- // position, file, function
- $hook_array[‘before_save’] = Array();
- $hook_array[‘before_save’][] = Array(1, ‘workflow’, ‘include/workflow/WorkFlowHandler.php’,’WorkFlowHandler’, ‘WorkFlowHandler’);
- $hook_array[‘process_record’][] = Array(1, ‘Other_Shows’, ‘custom/modules/Performers/performers_logic_hooks.php’,’performers_logic_hooks’, ‘list_record_process’);</p>
-<p>?&gt;</p>
+<div class="highlight"><pre><span></span><span class="x">&#39;OTHER_SHOWS_C&#39; =&gt;</span>
+<span class="x"> array (</span>
+<span class="x"> &#39;label&#39; =&gt; &#39;Other Shows&#39;,</span>
+<span class="x"> &#39;width&#39; =&gt; &#39;10%&#39;,</span>
+<span class="x"> &#39;default&#39; =&gt; true,</span>
+<span class="x"> &#39;sortable&#39; =&gt; false,</span>
+<span class="x"> ),</span>
+<span class="x"> ```</span>
+
+<span class="x">Adding the actual code to run.</span>
+
+<span class="x">For this we&#39;re going to leverage SugarCRM&#39;s logic hooks. If you haven&#39;t</span>
+<span class="x">already create a logic_hooks.php under custom/modules/Performers/ with</span>
+<span class="x">contents like this.</span>
+
+<span class="x">This file essentially defines the hooks you&#39;re going to call. The hook</span>
+<span class="x">process_record means it&#39;ll be called for every row that&#39;s displayed on</span>
+<span class="x">the ListView.</span>
+
+<span class="x">The performers_logic_hooks_class.php file will be included,</span>
+<span class="x">performers_logic_hooks is the class that it will look for and</span>
+<span class="x">list_record_process is the function within that class that it will</span>
+<span class="x">call.</span>
+<span class="x">```php</span>
+<span class="x">// Do not store anything in this file that is not part of the array or the hook version. This file will</span>
+<span class="x"> // be automatically rebuilt in the future.</span>
+<span class="x"> $hook_version = 1;</span>
+<span class="x"> $hook_array = Array();</span>
+<span class="x"> // position, file, function</span>
+<span class="x"> $hook_array[&#39;before_save&#39;] = Array();</span>
+<span class="x"> $hook_array[&#39;before_save&#39;][] = Array(1, &#39;workflow&#39;, &#39;include/workflow/WorkFlowHandler.php&#39;,&#39;WorkFlowHandler&#39;, &#39;WorkFlowHandler&#39;);</span>
+<span class="x"> $hook_array[&#39;process_record&#39;][] = Array(1, &#39;Other_Shows&#39;, &#39;custom/modules/Performers/performers_logic_hooks.php&#39;,&#39;performers_logic_hooks&#39;, &#39;list_record_process&#39;);</span>
+
+<span class="x">?&gt;</span>
+</pre></div>
+
+
 <p>Define the class.</p>
-<p>Don’t name the class something generic, like logic_hook_class and use
-that class name everywhere. It’ll cause a bunch of conflicts when it
-comes to saving related data, hence the name performers\_logic\_hooks.</p>
-<p>class performers_logic_hooks
- {</p>
-<p>/*<em>
- * Called as process_record logic hook on the Performers module
- </em>/
- public function list_record_process($bean, $event, $arguments)
- {
- //Do some code to get the related shows for the performer and store in the $other_shows variable</p>
-<p>$this-&gt;other_shows_c = $other_shows;
- }</p>
-<p>}</p>
+<p>Don't name the class something generic, like logic_hook_class and use
+that class name everywhere. It'll cause a bunch of conflicts when it
+comes to saving related data, hence the name performers_logic_hooks.</p>
+<div class="highlight"><pre><span></span><span class="x">class performers_logic_hooks</span>
+<span class="x"> {</span>
+
+<span class="x">/**</span>
+<span class="x"> * Called as process_record logic hook on the Performers module</span>
+<span class="x"> */</span>
+<span class="x"> public function list_record_process($bean, $event, $arguments)</span>
+<span class="x"> {</span>
+<span class="x"> //Do some code to get the related shows for the performer and store in the $other_shows variable</span>
+
+<span class="x">$this-&gt;other_shows_c = $other_shows;</span>
+<span class="x"> }</span>
+
+<span class="x">}</span>
+</pre></div>
+
+
 <p>Add the field to your listview via studio and do a quick repair/rebuild.
 That should hopefully be it.</p>
     </div>

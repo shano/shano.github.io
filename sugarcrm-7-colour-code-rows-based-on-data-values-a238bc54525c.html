@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -66,23 +66,23 @@
     <div class="entry-content">
         <p>Add this into your recordlist javascript file.</p>
 <p>render_colors : function() {
- console.log(‘here’);
- $(“tr[name^=’<YOUR_MODULE’]”).each(function() { //loop over each row
- if($(this).find(‘div[data-original-title=”Out”]’).length > 0) { //check value of TD
- $(this).find($(‘td’)).each(function() {
- $(this).css(“background-color”, “#FFBABA”);
+ console.log('here');
+ $("tr[name^='<YOUR_MODULE']").each(function() { //loop over each row
+ if($(this).find('div[data-original-title="Out"]').length > 0) { //check value of TD
+ $(this).find($('td')).each(function() {
+ $(this).css("background-color", "#FFBABA");
  });
- } else if($(this).find(‘div[data-original-title=”In”]’).length &gt; 0) {
- $(this).find($(‘td’)).each(function() {
- $(this).css(“background-color”, “#C3F8B5”);
+ } else if($(this).find('div[data-original-title="In"]').length &gt; 0) {
+ $(this).find($('td')).each(function() {
+ $(this).css("background-color", "#C3F8B5");
  });
- } else if($(this).find(‘div[data-original-title=”Withdrawn”]’).length &gt; 0) {
- $(this).find($(‘td’)).each(function() {
- $(this).css(“background-color”, “#FFCF8F”);
+ } else if($(this).find('div[data-original-title="Withdrawn"]').length &gt; 0) {
+ $(this).find($('td')).each(function() {
+ $(this).css("background-color", "#FFCF8F");
  });
- } else if($(this).find(‘div[data-original-title=”Reserved”]’).length &gt; 0) {
- $(this).find($(‘td’)).each(function() {
- $(this).css(“background-color”, “#FAFE8E”);
+ } else if($(this).find('div[data-original-title="Reserved"]').length &gt; 0) {
+ $(this).find($('td')).each(function() {
+ $(this).css("background-color", "#FAFE8E");
  });
  }
  });

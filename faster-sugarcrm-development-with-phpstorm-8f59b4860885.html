@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -65,11 +65,11 @@
 
     <div class="entry-content">
         <p><img alt="" src="images/1__QzgJ__r__gWS5Nddl0PmJlSw.png"></p>
-<p>Javascript development with SugarCRM can be a bit of a pain, however combining PHPStorm’s filewatcher tool with a cut down repair script can speed things up to a more tolerable level.</p>
-<p>What this setup does is watch for any javascript changes in our custom/ folder(because you’re not making core hacks are you?) and execute a light-weight repair script when any of those files change. So you’ll hit save in PHPStorm, wait a few seconds and your dev javascript should be refreshed and ready to test.</p>
+<p>Javascript development with SugarCRM can be a bit of a pain, however combining PHPStorm's filewatcher tool with a cut down repair script can speed things up to a more tolerable level.</p>
+<p>What this setup does is watch for any javascript changes in our custom/ folder(because you're not making core hacks are you?) and execute a light-weight repair script when any of those files change. So you'll hit save in PHPStorm, wait a few seconds and your dev javascript should be refreshed and ready to test.</p>
 <p>The Repair Script
- — — — — — — — — -</p>
-<p>First thing to do is get our hands on a fast repair script. Thankfully FrancescaS on the SugarCRM forums came up with a tidy javascript focused version of a repair script(originally by Jeff Bikart. The whole thread is `here `__ but I’ll reproduce the code below for the lazy.</p>
+-—-—-—-— -</p>
+<p>First thing to do is get our hands on a fast repair script. Thankfully FrancescaS on the SugarCRM forums came up with a tidy javascript focused version of a repair script(originally by Jeff Bikart. The whole thread is `here `__ but I'll reproduce the code below for the lazy.</p>
 <blockquote>
 <p>/<em>
  * Copyright 2013
@@ -79,32 +79,32 @@
  * modified by FrancescaS @ wolfram.com to repair/rebuild
  * only what absolutely necessary to work on js scripts
  </em>/
- if(!defined(‘sugarEntry’))define(‘sugarEntry’, true);
- require_once(‘include/entryPoint.php’);
- require_once(‘modules/Administration/QuickRepairAndRebuild.php’);
+ if(!defined('sugarEntry'))define('sugarEntry', true);
+ require_once('include/entryPoint.php');
+ require_once('modules/Administration/QuickRepairAndRebuild.php');
  //Bug 27991 . Redirect to index.php if the request is not come from CLI.
  $sapi_type = php_sapi_name();
- if (substr($sapi_type, 0, 3) != ‘cgi’) {
+ if (substr($sapi_type, 0, 3) != 'cgi') {
  global $sugar_config;
- if(!empty($sugar_config[‘site_url’])){
+ if(!empty($sugar_config['site_url'])){
  }else{
- sugar_die(“Didn’t find site url in your sugarcrm config file”);
+ sugar_die("Didn't find site url in your sugarcrm config file");
  }
  }
  //End of #27991
  if(empty($current_language)) {
- $current_language = $sugar_config[‘default_language’];
+ $current_language = $sugar_config['default_language'];
  }
  $app_list_strings = return_app_list_strings_language($current_language);
  $app_strings = return_application_language($current_language);
  global $current_user;
  $current_user = new User();
  $current_user-&gt;getSystemUser();
- $GLOBALS[‘log’]-&gt;debug(‘ — — — — — — — — — — — — — — — — — — — — — → at repair.php ← — — — — — — — — — — — — — — — — — — — — — ‘);
+ $GLOBALS['log']-&gt;debug('-—-—-—-—-—-—-—-—-—-—-→ at repair.php ←-—-—-—-—-—-—-—-—-—-—-');
  $repair = new RepairAndClear();
  // replace the repairAndClearAll with a limited set or clear actions
- //$repair-&gt;repairAndClearAll(array(‘clearAll’),array(translate(‘LBL_ALL_MODULES’)), true,false,’’);
- $repair-&gt;module_list= array(translate(‘LBL_ALL_MODULES’));
+ //$repair-&gt;repairAndClearAll(array('clearAll'),array(translate('LBL_ALL_MODULES')), true,false,'');
+ $repair-&gt;module_list= array(translate('LBL_ALL_MODULES'));
  $repair-&gt;show_output = false;
  $repair-&gt;execute= true;
  $repair-&gt;clearLanguageCache();
@@ -125,8 +125,8 @@
  sugar_cleanup(false);
  // some jobs have annoying habit of calling sugar_cleanup(), and it can be called only once
  // but job results can be written to DB after job is finished, so we have to disconnect here again
- // just in case we couldn’t call cleanup
- if(class_exists(‘DBManagerFactory’)) {
+ // just in case we couldn't call cleanup
+ if(class_exists('DBManagerFactory')) {
  $db = DBManagerFactory::getInstance();
  $db-&gt;disconnect();
  }
@@ -134,15 +134,15 @@
 </blockquote>
 <p>Take this file and move it to your ~/Bin folder or wherever you tend to put these one off little scripts.</p>
 <p>The Watcher
- — — — — — -</p>
+-—-—--</p>
 <p>The next thing to do is configure PHPStorm to start watching for Javascript file changes.</p>
 <p>Go into Settings-&gt;Tools-&gt;File Watchers and hit the green plus to add a new watcher.</p>
 <p><img alt="" src="images/1____XfSAae6p__j0R8XD__MGAHg.png">
 <img alt="" src="images/1__jOrBq5xCqCJ7ONApQjVfww.png"></p>
 <p>Simply alter your pattern to whatever your SugarCRM project structure looks like.</p>
 <p>You should see a count of the number of files the scope has detected in the project and it should be more than 0, so use that as a guide to ensure the scope is correctly identifying all your interesting javascript files.</p>
-<p>Once the scope is sorted, back in the watcher configuration, for the ‘Argument’ setting you will need to put in the path to the repair script from above then finally, for the ‘Working Directory’ put the root of the SugarCRM source.</p>
-<p>After all of that is configured make some changes to a javascript file, hit save and hopefully you should see the ‘Watch for JS Changes’ task running for a few seconds.</p>
+<p>Once the scope is sorted, back in the watcher configuration, for the 'Argument' setting you will need to put in the path to the repair script from above then finally, for the 'Working Directory' put the root of the SugarCRM source.</p>
+<p>After all of that is configured make some changes to a javascript file, hit save and hopefully you should see the 'Watch for JS Changes' task running for a few seconds.</p>
     </div>
 
     <footer>

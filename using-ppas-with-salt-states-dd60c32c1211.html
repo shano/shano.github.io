@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -64,8 +64,8 @@
     </div>
 
     <div class="entry-content">
-        <p>I couldn’t seem to find a decent tutorial on using PPA’s to manage repos
-with salt states so I’m documenting it here.</p>
+        <p>I couldn't seem to find a decent tutorial on using PPA's to manage repos
+with salt states so I'm documenting it here.</p>
 <p>Say you want to install golang using these</p>
 <div class="highlight"><pre><span></span>sudo add-apt-repository ppa:duh/golang
 sudo apt-get update
@@ -73,7 +73,7 @@ sudo apt-get install golang
 </pre></div>
 
 
-<p>Well, to replicate this into a salt state it’s pretty straight-foward.
+<p>Well, to replicate this into a salt state it's pretty straight-foward.
 This also ensures you always have an up-to-date version of go.</p>
 <div class="highlight"><pre><span></span><span class="nt">golang</span><span class="p">:</span>
 <span class="nt">pkg</span><span class="p">:</span>
@@ -83,8 +83,8 @@ This also ensures you always have an up-to-date version of go.</p>
 </pre></div>
 
 
-<p>That’s it, I just struggled to find that anyway.</p>
-<p>Also, I’m aware <a href="https://github.com/moovweb/gvm">gvm</a> is awesome but I wanted to get something up and running quick and this was a nice example.</p>
+<p>That's it, I just struggled to find that anyway.</p>
+<p>Also, I'm aware <a href="https://github.com/moovweb/gvm">gvm</a> is awesome but I wanted to get something up and running quick and this was a nice example.</p>
     </div>
 
     <footer>

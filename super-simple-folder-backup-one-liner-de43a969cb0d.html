@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-06-06T00:00:00+00:00">Fri 06 June 2014</abbr>
@@ -66,9 +66,12 @@
     <div class="entry-content">
         <p>I needed a simple cron job, that just took backups of my project
 folders, should the worst happen to my laptop. Google brought up nothing
-obvious, so I figured I’d share it here.</p>
-<p>tar zcvf /tmp/snap.tgz ~/Projects &amp;&amp; rsync /tmp/snap.tgz user@remotebox:/home/backups/snap_`date +%F_%T`.tgz &amp;&amp; rm /tmp/snap.tgz</p>
-<p>Okay, I’ll admit it’s a bit of a long one-liner.</p>
+obvious, so I figured I'd share it here.</p>
+<div class="highlight"><pre><span></span>tar zcvf /tmp/snap.tgz ~/Projects <span class="o">&amp;&amp;</span> rsync /tmp/snap.tgz user@remotebox:/home/backups/snap_<span class="sb">`</span>date +%F_%T<span class="sb">`</span>.tgz <span class="o">&amp;&amp;</span> rm /tmp/snap.tgz
+</pre></div>
+
+
+<p>Okay, I'll admit it's a bit of a long one-liner.</p>
     </div>
 
     <footer>

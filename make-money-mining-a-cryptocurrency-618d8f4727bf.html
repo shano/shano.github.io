@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -67,40 +67,40 @@
         <p><img alt="" src="images/1__gEF0IVFmJ4OZC__A9XrmnEA__2x.jpeg"></p>
 <p>A while back I wrote a post on my tech blog about using a tool called
 salt to configure your boxes to mine a crypto-currency. The currency I was mining was Anoncoin and I jokingly said it was a bit of fun that would make no money. Turns out, as Anoncoin grew against Bitcoin which by itself was significantly increasing in value, I managed to make a nice little contribution towards the cost of my servers for the year.</p>
-<p>Anyway, while I wasn’t really keeping an eye on things it looks like
+<p>Anyway, while I wasn't really keeping an eye on things it looks like
 alternative currencies seem to be doing quite well. So I figured I put
 up a little guide here on things to help people get started with mining
 your own coins. It might look like your making only small amounts over
-time but you can’t really anticipate how the coin’s value might increase
-over time. Plus you’ll be contributing to one of the coolest aspects of
+time but you can't really anticipate how the coin's value might increase
+over time. Plus you'll be contributing to one of the coolest aspects of
 these crypto-currencies, decentralized mining
-So here’s the steps:</p>
+So here's the steps:</p>
 <h3>1. Get a server to run your miner.</h3>
-<p>Amazon has a free usage tier which gives you a free small instance for a year. So sign up and give it a go. I’d suggest just going with Ubuntu if you’re new to things and make sure to use a 64 bit AMI.</p>
+<p>Amazon has a free usage tier which gives you a free small instance for a year. So sign up and give it a go. I'd suggest just going with Ubuntu if you're new to things and make sure to use a 64 bit AMI.</p>
 <h3>2. Choose the right currency.</h3>
-<p>Do some research. Coins-e provides a lot of good information on the historical price of currency prices. Take a look at what the prospects are like for your currency and how they’ve performed against Bitcoin.</p>
-<p>Reddit CryptoCurrencies– There’s a lot of disparate info here. I’d suggest deciding on a currency, then searching on this subreddit for related information.</p>
+<p>Do some research. Coins-e provides a lot of good information on the historical price of currency prices. Take a look at what the prospects are like for your currency and how they've performed against Bitcoin.</p>
+<p>Reddit CryptoCurrencies– There's a lot of disparate info here. I'd suggest deciding on a currency, then searching on this subreddit for related information.</p>
 <p>Also take a look at trading volume as an indicator of future prospects:
 http://coinmarketcap.com/ or <a href="https://www.cryptsy.com/">https://www.cryptsy.com/</a></p>
-<p>You should also look at computational difficultly and what you’d earn
+<p>You should also look at computational difficultly and what you'd earn
 right now too. <a href="http://dustcoin.com/mining">http://dustcoin.com/mining</a></p>
 <p>Basically the more established the currency, the harder it will be to
-mine as you’ll be competing with a lot of other miners. The sweet spot
-is to mine a currency in it’s infancy, while there’s not a lot of mining
+mine as you'll be competing with a lot of other miners. The sweet spot
+is to mine a currency in it's infancy, while there's not a lot of mining
 competition. Then win if it increases in value against Litecoin or
-Bitcoin, but it’s obviously a difficult one to predict. Two of the higher value currencies, Anoncoin and Protoshares might be a good starting point, but if you see any murmurings that another currency might make it big, go for that. For the purposes of this guide I’ll show you how to start on those two.</p>
+Bitcoin, but it's obviously a difficult one to predict. Two of the higher value currencies, Anoncoin and Protoshares might be a good starting point, but if you see any murmurings that another currency might make it big, go for that. For the purposes of this guide I'll show you how to start on those two.</p>
 <h3>3. Find a mining pool.</h3>
 <p>A mining pool is where multiple clients come together and contribute to
-the mining of a currency. I won’t go into details, but unless you have
-serious hardware it’s going to be computationally too difficult to mine
+the mining of a currency. I won't go into details, but unless you have
+serious hardware it's going to be computationally too difficult to mine
 coins by yourself.</p>
-<p>For Anoncoin I use coinpool.in and for Protoshares I’ve used ypool.net. All you need to do is sign up for an account and create a worker for the mining software you’ll run on your server to point to.</p>
+<p>For Anoncoin I use coinpool.in and for Protoshares I've used ypool.net. All you need to do is sign up for an account and create a worker for the mining software you'll run on your server to point to.</p>
 <h3>4. Set up the miner on your server.</h3>
 <p>Login to your server using ssh and run these commands. Replace
 username.worker and password with the worker details you created <strong>not your login details for the mining pool</strong>.
-<strong>Note:</strong> These are the details for using a cpuminer. If you’re running
+<strong>Note:</strong> These are the details for using a cpuminer. If you're running
 this on a server you should be using a cpu-based miner. GPU miners are
-better equipped for crypto-currencies in general, but that’s out of the
+better equipped for crypto-currencies in general, but that's out of the
 scope of this article. If you want to skip the server steps and run this
 on your local machine, try out Guiminer for
 windows or Asteriod for OSX.</p>
@@ -124,18 +124,18 @@ sudo apt-get install build-essential libcurl4-openssl-dev
  make
  ./minerd - url=stratum+tcp://anc.coinpool.in:3333 –userpass=username.worker:password</code></p>
 <p>Double check with your mining pool that your worker is connected and
-running. It’s also very similar steps for running many other crypto-currencies, I’m sure the mining pool you find will have better
+running. It's also very similar steps for running many other crypto-currencies, I'm sure the mining pool you find will have better
 steps than these too.</p>
 <h3>5. Leave it running for a few days/weeks/months/forever.</h3>
 <h3>6. Converting to Bitcoin.</h3>
-<p>Once you’ve mined a reasonable number of coins you can choose to cash
-them out. Firstly, you’ll need to convert the currency to Bitcoin. I
+<p>Once you've mined a reasonable number of coins you can choose to cash
+them out. Firstly, you'll need to convert the currency to Bitcoin. I
 would use coins-e.com for this. Create an account and generate a deposit address to receive the funds from your mining pool.
-Basically from your mining pools UI you should be able to Cash Out, enter the amount you’ve mined and the coins-e.com address. Wait a few minutes for the transfer to happen. Then on coin-e you easily be able to convert the deposited currency to Bitcoin. Don’t worry, you’re almost there.</p>
+Basically from your mining pools UI you should be able to Cash Out, enter the amount you've mined and the coins-e.com address. Wait a few minutes for the transfer to happen. Then on coin-e you easily be able to convert the deposited currency to Bitcoin. Don't worry, you're almost there.</p>
 <h3>7. Cashing out</h3>
-<p>Now that you have your Bitcoin it’s time to turn it into cold, hard
-cash. I use Bitstamp for this. You’ll need to enter bank account details etc. Now using the bitcoin wallet address you’ll get on Bitstamp, you should easily be able to trade the bitcoins for dollar cash monies. Then it’s simply a case of withdrawing it to your bank account. As soon as the money is in dollars, withdraw it. I’ve found these Bitcoin exchanges are ALWAYS less reliable than bank accounts. Due to poor quality exchanges I have frozen money sitting in several countries that I’ll probably never get back. Having dollars in these places isn’t secure, so make your transactions as fast as possible.</p>
-<p>Anyway, that took longer than I’d hoped. If you happen to have any
+<p>Now that you have your Bitcoin it's time to turn it into cold, hard
+cash. I use Bitstamp for this. You'll need to enter bank account details etc. Now using the bitcoin wallet address you'll get on Bitstamp, you should easily be able to trade the bitcoins for dollar cash monies. Then it's simply a case of withdrawing it to your bank account. As soon as the money is in dollars, withdraw it. I've found these Bitcoin exchanges are ALWAYS less reliable than bank accounts. Due to poor quality exchanges I have frozen money sitting in several countries that I'll probably never get back. Having dollars in these places isn't secure, so make your transactions as fast as possible.</p>
+<p>Anyway, that took longer than I'd hoped. If you happen to have any
 questions or improvements you think I could add, feel free to comment.</p>
     </div>
 

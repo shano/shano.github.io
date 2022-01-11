@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-03-29T00:00:00+00:00">Sat 29 March 2014</abbr>
@@ -65,29 +65,29 @@
 
     <div class="entry-content">
         <p><img alt="" src="images/1__jrj__wnQecgnTwBXPZsg05w.jpeg"></p>
-<p>Gmail isn’t secure or private, Google have admitted this. You simply cannot expect privacy from any service that you don’t have
-control of. Thankfully your email doesn’t have to be tied a mail service
+<p>Gmail isn't secure or private, Google have admitted this. You simply cannot expect privacy from any service that you don't have
+control of. Thankfully your email doesn't have to be tied a mail service
 like Gmail, Yahoo or Microsoft. You can simply roll your own email
 server with your own domain name and easily create an (admittedly
 minimalist) Gmail equivalent.</p>
-<h3>Before you start</h3>
-<p>If you think this guide is too complex, that’s totally understandable.
+<h3>Before you start</h3>
+<p>If you think this guide is too complex, that's totally understandable.
 Running your own mail server requires a reasonable amount of technical
-experience. If you’re interesting in getting away from a service like
+experience. If you're interesting in getting away from a service like
 Gmail and want a good alternative check-out <a href="https://mykolab.com/.">https://mykolab.com/.</a> It
-costs around 10 bucks a month for 2GB of storage, which isn’t too bad.
-If you think this isn’t enough space, you could either pay for more or
+costs around 10 bucks a month for 2GB of storage, which isn't too bad.
+If you think this isn't enough space, you could either pay for more or
 have a mail client like thunderbird offline all non-essential email to
 your desktop.</p>
-<h3>What you’re not getting</h3>
-<p>This is very minimal email setup. You won’t be getting a web-accessible
+<h3>What you're not getting</h3>
+<p>This is very minimal email setup. You won't be getting a web-accessible
 email client. If you want your email accessible everywhere, this simply
-isn’t a guide for you. If you do want web-accesible email setup you
+isn't a guide for you. If you do want web-accesible email setup you
 could use something like `iRedmail `__\ to do
 all of your configuration for you. I find that because iRedmail
-configures everything automatically, I’m less in control of how my
+configures everything automatically, I'm less in control of how my
 server works. Plus the extra requirements iRedmail needs reduce the
-security of my server, which I’m not too happy about. This guide is to
+security of my server, which I'm not too happy about. This guide is to
 get the bare minimum for email to work.
 Also, to decrease the amount of time my emails sit on my server, I store
 all of emails on my local machine and back that machine up locally. This
@@ -98,42 +98,49 @@ few usability prices to pay to stay out of another companies pocket.</p>
 <h3>Requirements</h3>
 <ul>
 <li>Ensure you have a server setup with salt. See <a href="https://medium.com/brightpin/owning-your-data-initial-server-setup-afa33394b94">here</a>.</li>
-<li>A domain name you wish to send email from. So instead of you@gmail.com it’s you@mynewdomain.com. I use <a href="https://www.namecheap.com">namecheap</a>. They accept bitcoin and will allow you to buy <a href="https://www.namecheap.com/security/whoisguard.aspx">whoisguard</a> for your domain name. So fake all the details on here and make sure you buy whoisguard just to keep things quiet.</li>
-<li>Once you have bought your domain name, you will need to point your
-     domain mail records to your new server. Namecheap has a guide here. Generally, I create an A record on my domain mx.mynewdomain.com to the ip of my server. I then setup multiple mx records that point to mx.mynewdomain.com. I also use backup DNS suppliers for my low priority mx records (say priority 40/50), take a look at https://freedns.afraid.org/ to get yourself some free domain names.</li>
+<li>A domain name you wish to send email from. So instead of you@gmail.com it's you@mynewdomain.com. I use <a href="https://www.namecheap.com">namecheap</a>. They accept bitcoin and will allow you to buy <a href="https://www.namecheap.com/security/whoisguard.aspx">whoisguard</a> for your domain name. So fake all the details on here and make sure you buy whoisguard just to keep things quiet.</li>
+<li>Once you have bought your domain name, you will need to point your domain mail records to your new server. Namecheap has a guide here. Generally, I create an A record on my domain mx.mynewdomain.com to the ip of my server. I then setup multiple mx records that point to mx.mynewdomain.com. I also use backup DNS suppliers for my low priority mx records (say priority 40/50), take a look at https://freedns.afraid.org/ to get yourself some free domain names.</li>
 <li>Install git</li>
 </ul>
-<p>apt-get install git</p>
+<div class="highlight"><pre><span></span>apt-get install git
+</pre></div>
+
+
 <ul>
 <li>Setup a user on the server who you wish to send/recieve email as. So adduser jim and enter the password you wish to authenticate with on your mail client.</li>
 </ul>
-<h3>Setting up the server</h3>
-<p>The first thing you’re going to need to do is, using salt, grab my <a href="https://github.com/shano/salty-mailer">salty-mailer setup</a>. This leverages salt stack and will install everything you need to get your
-mail server up and running. You don’t need to worry too much about what
+<h3>Setting up the server</h3>
+<p>The first thing you're going to need to do is, using salt, grab my <a href="https://github.com/shano/salty-mailer">salty-mailer setup</a>. This leverages salt stack and will install everything you need to get your
+mail server up and running. You don't need to worry too much about what
 git does, it simply downloads the files required from github. Copy and
 paste this line into the terminal and it should get things started.</p>
 <p>sudo mkdir /srv/salt/mail &amp;&amp; sudo git clone
  <a href="https://github.com/shano/salty-mailer">https://github.com/shano/salty-mailer</a> /srv/salt/mail</p>
-<p>Now you’ll need to configure a few files, with your own settings.</p>
+<p>Now you'll need to configure a few files, with your own settings.</p>
 <ul>
-<li>In /srv/salt/mail/init.sls change all entries from to the username
-     you wish to send email as. So for example change it from to jim.</li>
-<li>In /srv/salt/mail/postfix/main.cf you need to change</li>
+<li>In /srv/salt/mail/init.sls change all entries from to the username you wish to send email as. So for example change it from to jim.</li>
+<li>
+<p>In /srv/salt/mail/postfix/main.cf you need to change &lt;<code>domain.com</code>&gt; to <code>mynewdomain.com</code>.</p>
+</li>
+<li>
+<p>Under /srv/salt/top.sls ensure you have lines that look like this:</p>
+</li>
 </ul>
-<p>&lt;`domain.com `<strong>\ &gt; to
- `mynewdomain.com `</strong>.</p>
-<ul>
-<li>Under /srv/salt/top.sls ensure you have lines that look like this:</li>
-</ul>
-<p>base:
-‘\*’:
- — mail</p>
-<p>Done? Great you’ve finished configuration and you’re ready to install
+<div class="highlight"><pre><span></span><span class="nt">base</span><span class="p">:</span>
+    <span class="s">&#39;*&#39;</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">— mail</span>
+</pre></div>
+
+
+<p>Done? Great you've finished configuration and you're ready to install
 everything. This command tells salt to read these configuration files
 and install enough to get basic mail server up and running.</p>
-<p>sudo salt-call -l debug state.highstate</p>
-<p>This should provide a ton of output, but as long as there’s no errors,
-you’re good to go.</p>
+<div class="highlight"><pre><span></span>sudo salt-call -l debug state.highstate
+</pre></div>
+
+
+<p>This should provide a ton of output, but as long as there's no errors,
+you're good to go.</p>
 <h3>Testing your mail-server</h3>
 <p>You should now be able to configure your email-client to talk to your
 email server. So fire up your preferred mail client and use these
@@ -150,16 +157,16 @@ If you have trouble connecting try run sudo tail -f /var/log/mail.log
 and reconnect. See if anything appears in the output. If there is
 something wrong, checkout google(duh) or tryout The Comms
 Room on ServerFault and see if someone can point you in the right direction. Or of course add something in the comments here.</p>
-<h3>Make your emails more reliable</h3>
-<p>Now that you have your mail server up and running, you’re going to need
+<h3>Make your emails more reliable</h3>
+<p>Now that you have your mail server up and running, you're going to need
 to ensure the major email suppliers are willing to accept your email.
 People suggest adding SPFs and DKIMs to your email records but
-personally I haven’t found either much use. The best thing for you to do is to add yourself to a legitimate whitelist. Fill in <a href="https://www.dnswl.org/selfservice/">this form</a>, the guys there will come back if the find any issues with your server that would prevent them adding you to their whitelist, once accepted Presto! You look like a legimate email user on the interwebs!</p>
-<h3>What’s next?</h3>
-<p>Now that you’ve done all that work, here’s the kicker. Email isn’t
+personally I haven't found either much use. The best thing for you to do is to add yourself to a legitimate whitelist. Fill in <a href="https://www.dnswl.org/selfservice/">this form</a>, the guys there will come back if the find any issues with your server that would prevent them adding you to their whitelist, once accepted Presto! You look like a legimate email user on the interwebs!</p>
+<h3>What's next?</h3>
+<p>Now that you've done all that work, here's the kicker. Email isn't
 secure. It was never meant to be the center of our digital lives, so
-back when it was invented security really wasn’t a big concern. But here
-we are. With everything in plain-text all over the place you’d be wise
+back when it was invented security really wasn't a big concern. But here
+we are. With everything in plain-text all over the place you'd be wise
 to reduce your email as much as possible. If you wish to improve the
 security of any email communications you do make, take a look at using
 GPG. I use <a href="https://addons.mozilla.org/en-US/thunderbird/addon/enigmail/">Enigmail with Thunderbird</a>.</p>

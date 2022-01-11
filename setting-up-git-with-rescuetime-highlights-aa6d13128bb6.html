@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -65,9 +65,9 @@
 
     <div class="entry-content">
         <p><img alt="" src="images/1__jppvR1Pu3XEUcOHJp__3t3g.jpeg"></p>
-<p>Recently I’ve written on another site how I use Rescuetime to provide metrics on my overall productivity that I can review each week. One useful feature I noticed was Rescuetime highlights, which gives you a good overview of your accompishments throughout the day. The first thing I wanted to add to this (obviously) was git commits.</p>
+<p>Recently I've written on another site how I use Rescuetime to provide metrics on my overall productivity that I can review each week. One useful feature I noticed was Rescuetime highlights, which gives you a good overview of your accompishments throughout the day. The first thing I wanted to add to this (obviously) was git commits.</p>
 <p>Luckily it turns out someone had already thought of this and implemented
-it. The script itself is here, I’m just going to reproduce it below.</p>
+it. The script itself is here, I'm just going to reproduce it below.</p>
 <h1>!/bin/sh</h1>
 <h1></h1>
 <h1>An example hook script to log commit messages</h1>
@@ -92,10 +92,10 @@ DATE_TODAY=$(date +"%Y-%m-%d")</p>
 <p>if [[ ${#MESSAGE} -gt 16 ]]; then
   curl --data "key=$API_KEY&amp;highlight_date=$DATE_TODAY&amp;description=$MESSAGE&amp;source=$LABEL" <a href="https://www.rescuetime.com/anapi/highlights_post">https://www.rescuetime.com/anapi/highlights_post</a>
 fi</p>
-<p>Now, the annoying part for me is that this doesn’t work globally across
-all of my git repos, so to fix this you can leverage git’s templates directory.
+<p>Now, the annoying part for me is that this doesn't work globally across
+all of my git repos, so to fix this you can leverage git's templates directory.
 To create/initialise a git template folder simply run these commands.</p>
-<p>git config — global init.templatedir ‘~/.git_template’
+<p>git config — global init.templatedir '~/.git_template'
 mkdir -p ~/.git-templates/hooks</p>
 <p>Then put the above shell code into ~/.git-templates/hooks/post-commit</p>
 <p>What this means is that from now on, any new git repos you initialise

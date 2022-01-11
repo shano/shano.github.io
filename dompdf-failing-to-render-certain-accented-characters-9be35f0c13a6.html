@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -64,41 +64,47 @@
     </div>
 
     <div class="entry-content">
-        <p>I’ve noticed some issues with DOMpdf when trying to generate PDFs using
+        <p>I've noticed some issues with DOMpdf when trying to generate PDFs using
 their internal Helvetica font. After banging my head against a wall for
-a few hours trying to “fix” UTF-8 support, it turned out UTF-8 support
-was working fine. Essentially DOMpdf’s internal Helvetica font didn’t
+a few hours trying to "fix" UTF-8 support, it turned out UTF-8 support
+was working fine. Essentially DOMpdf's internal Helvetica font didn't
 support a few polish characters. Specifically the Sacute, sacute and a
 few others like this. This was a bit of a killer problem for my
 requirements so I needed a work-around. My workaround was to use Arial
 fonts(they were close enough), but if you really need Helvetica you
-could source a copy of the .ttfs and replicate these steps.</p>
-<h3>Download Arial fonts</h3>
+could source a copy of the .ttfs and replicate these steps.</p>
+<h3>Download Arial fonts</h3>
 <p>wget <a href="http://www.drivehq.com/file/df.aspx/shareID2129391/fileID59377155/arial.ttf">http://www.drivehq.com/file/df.aspx/shareID2129391/fileID59377155/arial.ttf</a>
  wget <a href="http://www.911fonts.com/fonts/6/0/5/605.ttf">http://www.911fonts.com/fonts/6/0/5/605.ttf</a> -O arialit.ttf
  wget <a href="http://4nts.com/fonts/arialbd.ttf">http://4nts.com/fonts/arialbd.ttf</a>
  wget <a href="http://www.911fonts.com/fonts/6/0/4/604.ttf">http://www.911fonts.com/fonts/6/0/4/604.ttf</a> -O arialbit.ttf</p>
 <p>This downloads arial, arial-bold, arial-oblique and arial-boldoblique.</p>
-<h3>Generate compatible dompdf files</h3>
-<p>Pull up a terminal and cd into your dompdf folder. If you’re using
-composer, it’ll be /vendor/dompdf/dompdf</p>
-<p>php load_font.php arial ~/arial.ttf ~/arialbd.ttf ~/arialit.ttf ~/arialbit.ttf</p>
+<h3>Generate compatible dompdf files</h3>
+<p>Pull up a terminal and cd into your dompdf folder. If you're using
+composer, it'll be /vendor/dompdf/dompdf</p>
+<p><code>php load_font.php arial ~/arial.ttf ~/arialbd.ttf ~/arialit.ttf ~/arialbit.ttf</code></p>
 <p>You should now see an entry in lib/fonts/dompdf_font_family_cache.php</p>
-<p>arial’ =&gt;
- array (
- ‘normal’ =&gt; DOMPDF_FONT_DIR . ‘arial’,
- ‘bold’ =&gt; DOMPDF_FONT_DIR . ‘arialbd’,
- ‘italic’ =&gt; DOMPDF_FONT_DIR . ‘arialit’,
- ‘bold_italic’ =&gt; DOMPDF_FONT_DIR . ‘arialbit’,
- ),</p>
+<div class="highlight"><pre><span></span><span class="x">arial&#39; =&gt;</span>
+<span class="x"> array (</span>
+<span class="x"> &#39;normal&#39; =&gt; DOMPDF_FONT_DIR . &#39;arial&#39;,</span>
+<span class="x"> &#39;bold&#39; =&gt; DOMPDF_FONT_DIR . &#39;arialbd&#39;,</span>
+<span class="x"> &#39;italic&#39; =&gt; DOMPDF_FONT_DIR . &#39;arialit&#39;,</span>
+<span class="x"> &#39;bold_italic&#39; =&gt; DOMPDF_FONT_DIR . &#39;arialbit&#39;,</span>
+<span class="x"> ),</span>
+</pre></div>
+
+
 <p>You can now reference the Arial font-family in your DOMpdf stylesheets
 and have it render some nice Helvetica like fonts.</p>
 <p>If you are using composer with DOMpdf, I would highly recommend not
 leaving your custom fonts in DOMpdfs vendor folder. Copy the fonts
 directory somewhere in your projects directory, and over-ride this
 variable with your own def, referencing the new folder location.</p>
-<p>def(“DOMPDF_FONT_DIR”, DOMPDF_DIR . “/lib/fonts/”);</p>
-<p>This means you shouldn’t need to rely on dodgy customisations to the
+<div class="highlight"><pre><span></span><span class="x">def(&quot;DOMPDF_FONT_DIR&quot;, DOMPDF_DIR . &quot;/lib/fonts/&quot;);</span>
+</pre></div>
+
+
+<p>This means you shouldn't need to rely on dodgy customisations to the
 vendor folder.</p>
     </div>
 

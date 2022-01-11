@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -64,10 +64,11 @@
     </div>
 
     <div class="entry-content">
-        <p>UPDATE clowns SET deleted=1 WHERE id IN
- (SELECT id FROM (
- SELECT id FROM clowns WHERE deleted = 0 ORDER BY id ASC LIMIT 0, 800)
- tmp );</p>
+        <div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">clowns</span> <span class="k">SET</span> <span class="n">deleted</span><span class="o">=</span><span class="mi">1</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="k">IN</span>
+ <span class="p">(</span><span class="k">SELECT</span> <span class="n">id</span> <span class="k">FROM</span> <span class="p">(</span>
+ <span class="k">SELECT</span> <span class="n">id</span> <span class="k">FROM</span> <span class="n">clowns</span> <span class="k">WHERE</span> <span class="n">deleted</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span> <span class="k">ASC</span> <span class="k">LIMIT</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
+ <span class="n">tmp</span> <span class="p">);</span>
+</pre></div>
     </div>
 
     <footer>

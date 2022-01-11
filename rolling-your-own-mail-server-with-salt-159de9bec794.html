@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -67,20 +67,20 @@
         <p><img alt="" src="images/1__eQD1Nfyf2Y7LLmCrROHrMA.jpeg"></p>
 <p>Recently I decided to migrate my mail server and I took this as an
 opportunity to better get my head around setting the whole thing up.
-I’ve used iRedmail in the past but the whole process seemed a little
+I've used iRedmail in the past but the whole process seemed a little
 like magic so I took a scouring around the internets for a decent
-tutorial and came across <a href="http://dbpmail.net/essays/2013-06-29-hackers-replacement-for-gmail.html">A Hacker’s Replacement for Gmail</a> and figured it might be worth building up a salt-stack for people.</p>
+tutorial and came across <a href="http://dbpmail.net/essays/2013-06-29-hackers-replacement-for-gmail.html">A Hacker's Replacement for Gmail</a> and figured it might be worth building up a salt-stack for people.</p>
 <p>There is a few differences between my salt-stack and the linked article.</p>
 <ul>
-<li>Primarily, I didn’t need notmuch or any fancy indexing on my server.</li>
+<li>Primarily, I didn't need notmuch or any fancy indexing on my server.</li>
 <li>Personally, for security I grab all of my mail on Thunderbird and keep it offline with backups. So my server is pretty thin.</li>
 <li>I completely ignored his exim4 guide and only went with postfix and dovecot for security.</li>
 <li>I needed to add in some more security settings to get postfix up and running nicely.</li>
 </ul>
 <p>Anyway the salt-stack is <a href="https://github.com/shano/salty-mailer">here</a> and there should be
 very few changes in getting it up and running. Basically change with
-your server’s username and with the domain you wish to email out from.
-I’ve only tested it with Debian 7 and Thunderbird as a client but it all
+your server's username and with the domain you wish to email out from.
+I've only tested it with Debian 7 and Thunderbird as a client but it all
 worked.</p>
 <p>If anyone has any improvements, just let me know.</p>
     </div>

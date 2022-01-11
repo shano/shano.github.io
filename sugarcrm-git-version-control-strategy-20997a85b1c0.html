@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -65,72 +65,72 @@
 
     <div class="entry-content">
         <p><img alt="" src="images/1__2NJhCUqmjZjwLRviy5R6yg.png"></p>
-<p>I’ve found SugarCRM an utter pain to work with in terms of version
+<p>I've found SugarCRM an utter pain to work with in terms of version
 control for a number of reasons, but the most annoying is simply that
 certain critical elements of the SugarCRM configuration are stored on
 the database.</p>
-<p>Over time I’ve worked out a system that circumvents this and I’ve
+<p>Over time I've worked out a system that circumvents this and I've
 managed to create a very useful gitflow based workflow.</p>
-<p>I won’t go over what gitflow is or does, there’s a great explanation
+<p>I won't go over what gitflow is or does, there's a great explanation
 <a href="http://nvie.com/posts/a-successful-git-branching-model/">here</a> and if you need a more visual explanation this <a href="http://danielkummer.github.io/git-flow-cheatsheet/">cheatsheet</a> is a terrific reference.</p>
 <h3>Example Problem</h3>
-<p>Say you’re in the middle of developing a new feature in SugarCRM. You’ve
+<p>Say you're in the middle of developing a new feature in SugarCRM. You've
 used something like.</p>
 <p>git flow feature start mynewfeature</p>
-<p>Someone realises a new urgent fix is required to go live now, you’re not
+<p>Someone realises a new urgent fix is required to go live now, you're not
 going to want to deploy your half implemented feature along with the new
-urgent fix. That’s okay, you’re using git flow. So you’d commit your
+urgent fix. That's okay, you're using git flow. So you'd commit your
 half finished feature. Then create a hotfix, like</p>
 <p>git flow hotfix start mynewfix</p>
-<p>The problem is that you’ve made a bunch of changes to the sugarcrm
+<p>The problem is that you've made a bunch of changes to the sugarcrm
 database, specifically fields_meta_data. Even if you swap branches the
-fields_meta_data won’t update back to the master branch, which is
-where the new hotfix will create it’s branch from. What you need is a
-way to keep fields_meta_data in sync with the branch you’re currently
+fields_meta_data won't update back to the master branch, which is
+where the new hotfix will create it's branch from. What you need is a
+way to keep fields_meta_data in sync with the branch you're currently
 working on.</p>
-<h3>The Solution — Git Hooks</h3>
+<h3>The Solution-Git Hooks</h3>
 <p>Using git hooks you can automatically run commands when certain events
 occur. The two hooks of interest to us are pre-commit and post-checkout.</p>
 <h3>Tracking all database changes</h3>
 <p>What pre-commit does is run everytime you commit code. So, if you
 could dump your fields_meta_data everytime a commit is made, you can
-be sure your branch is tracking all database changes you’re making via</p>
+be sure your branch is tracking all database changes you're making via</p>
 <h1>!/bin/bash</h1>
 <p>rm databases/fields_meta_data.sql
 mysqldump -u root -p — extended-insert=FALSE — skip-dump-date sugarcrm fields_meta_data &gt; databases/fields_meta_data.sql
 git add databases/fields_meta_data.sql</p>
-<p>Note that I’m not compressing these database dumps, they should stay in
+<p>Note that I'm not compressing these database dumps, they should stay in
 plaintext with each line representing a database insert. The reason for
-that is when it comes time to merge two branches, say you’ve made
+that is when it comes time to merge two branches, say you've made
 changes to studio in a master branch and also to a feature branch you
 wish to release, you can merge the fields_meta_data in with branched
 changes very easily via any mergetool.</p>
 <h3>Keep Sugar up to date with your branch</h3>
-<p>Finally when you swap between branches you’ll want to automatically
+<p>Finally when you swap between branches you'll want to automatically
 apply that branches fields_meta_data because your likely to forget to
 do this step. So say your swapping from a feature branch to master.
-You’ll want to revert your studio changes back to where master was. You
+You'll want to revert your studio changes back to where master was. You
 can do this in the post checkout git hook. So in</p>
 <h1>!/bin/bash</h1>
-<p>echo ‘Importing this branches field meta data’
+<p>echo 'Importing this branches field meta data'
  mysql -u root -p sugarcrm &lt; databases/fields_meta_data.sql</p>
-<p>This will automatically execute your fields\_meta\_data database dump on
+<p>This will automatically execute your fields_meta_data database dump on
 your SugarCRM install.</p>
 <h3>Deploying</h3>
-<p>In the end, whether a hotfix or a feature it’ll always get merged to
-master when I’m deploying. So what I tend to do is finish my
+<p>In the end, whether a hotfix or a feature it'll always get merged to
+master when I'm deploying. So what I tend to do is finish my
 release/hotfix, merge to master then apply a data sync to
 fields_meta_data on live so I can manually review the db changes
 before deploying. Navicat has a really nice tool to handle this.</p>
 <h3>Going further</h3>
-<p>As you can see all I’ve written is two simple bash scripts and
-they’ve made my Sugar workflow much cleaner. You could go far further
+<p>As you can see all I've written is two simple bash scripts and
+they've made my Sugar workflow much cleaner. You could go far further
 than this, a few examples I can think of would be to track db changes on
 the saved_reports table or have the scripts automatically run a command
 line variant of the Quick Repair/Rebuild. The other thing could be to
 track the entire structure of the SugarCRM database if you felt like it,
 but since all db fields are tracked via fields_meta_data I thought
-this wasn’t necessary but I’m sure there’s ton of other things you could
+this wasn't necessary but I'm sure there's ton of other things you could
 add to make your development life easier.</p>
 <p>Let me know if you think of anything!</p>
     </div>

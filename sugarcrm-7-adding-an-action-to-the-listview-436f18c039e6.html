@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-05-18T00:00:00+00:00">Sun 18 May 2014</abbr>
@@ -65,11 +65,11 @@
 
     <div class="entry-content">
         <p><img alt="" src="images/1__O0TIZQumvouoJ6ZCn8__s3g.jpeg"></p>
-<p>There doesn’t appear to be a documented way to do this but in SugarCRM 7
-this is how I’ve added actions to the listview. For this example it’s
+<p>There doesn't appear to be a documented way to do this but in SugarCRM 7
+this is how I've added actions to the listview. For this example it's
 showing how to add a button to an animal module, which adds the animal
 to a related circus event.</p>
-<h3>1. Adding the button</h3>
+<h3>1. Adding thebutton</h3>
 <p>This first thing you need to do is copy the global recordlist.php file
 into your module and create a custom recordlist.php which overrides the
 existing one. You can copy the base one SugarCRM has or simply take this
@@ -77,135 +77,137 @@ file below and alter the add_to_circus button. Note the
 addtocirus:fire action, we will create javascript code that is called
 when this event is fired. This code should go into
 custom/module/animals/clients/base/views/recordlist/recordlist.php</p>
-<p>if (!defined(‘sugarEntry’) || !sugarEntry) {
- die(‘Not A Valid Entry Point’);
- }</p>
-<p>/<strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*
- * By installing or using this file, you are confirming on behalf of the entity
- * subscribed to the SugarCRM Inc. product (“Company”) that Company is bound by
- * <a href="http://www.sugarcrm.com/master-subscription-agreement">http://www.sugarcrm.com/master-subscription-agreement</a>
- *
- * If Company is not bound by the MSA, then by installing or using this file
- * you are agreeing unconditionally that Company will be bound by the MSA and
- * certifying that you have authority to bind Company accordingly.
- *
- * Copyright © 2004–2014 SugarCRM Inc. All rights reserved.
- </em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong>/</p>
-<p>$viewdefs[‘CSTM_ANIMALS’][‘base’][‘view’][‘recordlist’] = array(
- ‘selection’ =&gt; array(
- ‘type’ =&gt; ‘multi’,
- ‘actions’ =&gt; array(
- array(
- ‘name’ =&gt; ‘edit_button’,
- ‘type’ =&gt; ‘button’,
- ‘label’ =&gt; ‘LBL_MASS_UPDATE’,
- ‘primary’ =&gt; true,
- ‘events’ =&gt; array(
- ‘click’ =&gt; ‘list:massupdate:fire’,
- ),
- ‘acl_action’ =&gt; ‘massupdate’,
- ),
- array(
- ‘name’ =&gt; ‘merge_button’,
- ‘type’ =&gt; ‘button’,
- ‘label’ =&gt; ‘LBL_MERGE’,
- ‘primary’ =&gt; true,
- ‘events’ =&gt; array(
- ‘click’ =&gt; ‘list:mergeduplicates:fire’,
- ),
- ‘acl_action’ =&gt; ‘edit’,
- ),
- array(
- ‘name’ =&gt; ‘calc_field_button’,
- ‘type’ =&gt; ‘button’,
- ‘label’ =&gt; ‘LBL_UPDATE_CALC_FIELDS’,
- ‘events’ =&gt; array(
- ‘click’ =&gt; ‘list:updatecalcfields:fire’,
- ),
- ‘acl_action’ =&gt; ‘massupdate’,
- ),
- array(
- ‘name’ =&gt; ‘addtolist_button’,
- ‘type’ =&gt; ‘button’,
- ‘label’ =&gt; ‘LBL_ADD_TO_PROSPECT_LIST_BUTTON_LABEL’,
- ‘primary’ =&gt; true,
- ‘events’ =&gt; array(
- ‘click’ =&gt; ‘list:massaddtolist:fire’,
- ),
- ‘acl_module’ =&gt; ‘ProspectLists’,
- ‘acl_action’ =&gt; ‘edit’,
- ),
- array(
- ‘name’ =&gt; ‘delete_button’,
- ‘type’ =&gt; ‘button’,
- ‘label’ =&gt; ‘LBL_DELETE’,
- ‘acl_action’ =&gt; ‘delete’,
- ‘primary’ =&gt; true,
- ‘events’ =&gt; array(
- ‘click’ =&gt; ‘list:massdelete:fire’,
- ),
- ),
- array(
- ‘name’ =&gt; ‘export_button’,
- ‘type’ =&gt; ‘button’,
- ‘label’ =&gt; ‘LBL_EXPORT’,
- ‘acl_action’ =&gt; ‘export’,
- ‘primary’ =&gt; true,
- ‘events’ =&gt; array(
- ‘click’ =&gt; ‘list:massexport:fire’,
- ),
- ),
- array(
- ‘name’ =&gt; ‘add_to_circus_button’,
- ‘type’ =&gt; ‘button’,
- ‘label’ =&gt; ‘LBL_ADD_TO_FAIR’,
- ‘acl_action’ =&gt; ‘edit’,
- ‘primary’ =&gt; true,
- ‘events’ =&gt; array(
- ‘click’ =&gt; ‘list:addtocircus:fire’,
- ),
- ),
- ),
- ),
- );</p>
-<h3>2. Adding the action</h3>
+<div class="highlight"><pre><span></span><span class="x">if (!defined(&#39;sugarEntry&#39;) || !sugarEntry) {</span>
+<span class="x"> die(&#39;Not A Valid Entry Point&#39;);</span>
+<span class="x"> }</span>
+
+<span class="x">/*********************************************************************************</span>
+<span class="x"> * By installing or using this file, you are confirming on behalf of the entity</span>
+<span class="x"> * subscribed to the SugarCRM Inc. product (&quot;Company&quot;) that Company is bound by</span>
+<span class="x"> * [http://www.sugarcrm.com/master-subscription-agreement](http://www.sugarcrm.com/master-subscription-agreement)</span>
+<span class="x"> *</span>
+<span class="x"> * If Company is not bound by the MSA, then by installing or using this file</span>
+<span class="x"> * you are agreeing unconditionally that Company will be bound by the MSA and</span>
+<span class="x"> * certifying that you have authority to bind Company accordingly.</span>
+<span class="x"> *</span>
+<span class="x"> * Copyright © 2004–2014 SugarCRM Inc. All rights reserved.</span>
+<span class="x"> ********************************************************************************/</span>
+
+<span class="x">$viewdefs[&#39;CSTM_ANIMALS&#39;][&#39;base&#39;][&#39;view&#39;][&#39;recordlist&#39;] = array(</span>
+<span class="x"> &#39;selection&#39; =&gt; array(</span>
+<span class="x"> &#39;type&#39; =&gt; &#39;multi&#39;,</span>
+<span class="x"> &#39;actions&#39; =&gt; array(</span>
+<span class="x"> array(</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;edit_button&#39;,</span>
+<span class="x"> &#39;type&#39; =&gt; &#39;button&#39;,</span>
+<span class="x"> &#39;label&#39; =&gt; &#39;LBL_MASS_UPDATE&#39;,</span>
+<span class="x"> &#39;primary&#39; =&gt; true,</span>
+<span class="x"> &#39;events&#39; =&gt; array(</span>
+<span class="x"> &#39;click&#39; =&gt; &#39;list:massupdate:fire&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> &#39;acl_action&#39; =&gt; &#39;massupdate&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> array(</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;merge_button&#39;,</span>
+<span class="x"> &#39;type&#39; =&gt; &#39;button&#39;,</span>
+<span class="x"> &#39;label&#39; =&gt; &#39;LBL_MERGE&#39;,</span>
+<span class="x"> &#39;primary&#39; =&gt; true,</span>
+<span class="x"> &#39;events&#39; =&gt; array(</span>
+<span class="x"> &#39;click&#39; =&gt; &#39;list:mergeduplicates:fire&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> &#39;acl_action&#39; =&gt; &#39;edit&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> array(</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;calc_field_button&#39;,</span>
+<span class="x"> &#39;type&#39; =&gt; &#39;button&#39;,</span>
+<span class="x"> &#39;label&#39; =&gt; &#39;LBL_UPDATE_CALC_FIELDS&#39;,</span>
+<span class="x"> &#39;events&#39; =&gt; array(</span>
+<span class="x"> &#39;click&#39; =&gt; &#39;list:updatecalcfields:fire&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> &#39;acl_action&#39; =&gt; &#39;massupdate&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> array(</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;addtolist_button&#39;,</span>
+<span class="x"> &#39;type&#39; =&gt; &#39;button&#39;,</span>
+<span class="x"> &#39;label&#39; =&gt; &#39;LBL_ADD_TO_PROSPECT_LIST_BUTTON_LABEL&#39;,</span>
+<span class="x"> &#39;primary&#39; =&gt; true,</span>
+<span class="x"> &#39;events&#39; =&gt; array(</span>
+<span class="x"> &#39;click&#39; =&gt; &#39;list:massaddtolist:fire&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> &#39;acl_module&#39; =&gt; &#39;ProspectLists&#39;,</span>
+<span class="x"> &#39;acl_action&#39; =&gt; &#39;edit&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> array(</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;delete_button&#39;,</span>
+<span class="x"> &#39;type&#39; =&gt; &#39;button&#39;,</span>
+<span class="x"> &#39;label&#39; =&gt; &#39;LBL_DELETE&#39;,</span>
+<span class="x"> &#39;acl_action&#39; =&gt; &#39;delete&#39;,</span>
+<span class="x"> &#39;primary&#39; =&gt; true,</span>
+<span class="x"> &#39;events&#39; =&gt; array(</span>
+<span class="x"> &#39;click&#39; =&gt; &#39;list:massdelete:fire&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> ),</span>
+<span class="x"> array(</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;export_button&#39;,</span>
+<span class="x"> &#39;type&#39; =&gt; &#39;button&#39;,</span>
+<span class="x"> &#39;label&#39; =&gt; &#39;LBL_EXPORT&#39;,</span>
+<span class="x"> &#39;acl_action&#39; =&gt; &#39;export&#39;,</span>
+<span class="x"> &#39;primary&#39; =&gt; true,</span>
+<span class="x"> &#39;events&#39; =&gt; array(</span>
+<span class="x"> &#39;click&#39; =&gt; &#39;list:massexport:fire&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> ),</span>
+<span class="x"> array(</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;add_to_circus_button&#39;,</span>
+<span class="x"> &#39;type&#39; =&gt; &#39;button&#39;,</span>
+<span class="x"> &#39;label&#39; =&gt; &#39;LBL_ADD_TO_FAIR&#39;,</span>
+<span class="x"> &#39;acl_action&#39; =&gt; &#39;edit&#39;,</span>
+<span class="x"> &#39;primary&#39; =&gt; true,</span>
+<span class="x"> &#39;events&#39; =&gt; array(</span>
+<span class="x"> &#39;click&#39; =&gt; &#39;list:addtocircus:fire&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> ),</span>
+<span class="x"> ),</span>
+<span class="x"> ),</span>
+<span class="x"> );</span>
+</pre></div>
+
+
+<h3>2. Adding theaction</h3>
 <p>This is an example of the JS code you could call when the event has
 custom/modules/animals/clients/base/views/recordlist/recordlist.js. On
 initialise we simply set a new context.on that calls your js modules
 function.</p>
-<p>({</p>
-<p>//add listener for custom button
- this.context.on(‘list:addtocircus:fire’, this.add_to_circus, this);
- },
- add_to_circus : function() {
- var idCSV = ‘’;
- var selector = ‘CSTM_ANIMALS_’;
- // I’m sure there’s a better way to do this, but not documented or found anywhere.
- $(‘input[type=checkbox]:checked’).closest(‘[name^=’+selector+’]’).each(function(){
- idCSV += $(this).attr(‘name’).substring(selector.length) + ‘,’;</p>
-<p>});
- $.ajax({
- if(errorResponse != ‘’) {
- app.alert.show(‘bad-add-to-circus’, {
- });
- }
- }
- });
- },
- })</p>
-<p>Now there’s a few caveats with this code.</p>
-<p>- I couldn’t find a documented way to get the selected backbone items
- from SugarCRMs listview collection. So I had to write a jQuery
- selector, simply replace CSTM_ANIMAL with your module name and the
- selector should get you the list of ids that have been selected by
- the user, package them to a CSV then pass them to the ajax call.
-- The keen eyed observers might have noticed I’m using the old way of
- directly calling a controller action, this is because this code was
- implemented to support a migration project from SugarCRM 6 -&gt;
- SugarCRM 7 and it was faster than re-implementing the PHP code.
- However if starting anew, I would strongly recommend instead adding a
- new rest endpoint to your module and calling that via AJAX. There’s
- some great documentation <a href="http://developer.sugarcrm.com/2014/03/10/sugarcrm-cookbook-adding-a-rest-endpoint-2/">here</a> on that topic, which should help show you how to implement the code to add the animal to a circus. I’ll do another post on this in the future.</p>
+<div class="highlight"><pre><span></span><span class="p">({</span>
+
+<span class="c1">//add listener for custom button</span>
+ <span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;list:addtocircus:fire&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">add_to_circus</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+ <span class="p">},</span>
+ <span class="nx">add_to_circus</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+ <span class="kd">var</span> <span class="nx">idCSV</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+ <span class="kd">var</span> <span class="nx">selector</span> <span class="o">=</span> <span class="s1">&#39;CSTM_ANIMALS_&#39;</span><span class="p">;</span>
+ <span class="c1">// I&#39;m sure there&#39;s a better way to do this, but not documented or found anywhere.</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[type=checkbox]:checked&#39;</span><span class="p">).</span><span class="nx">closest</span><span class="p">(</span><span class="s1">&#39;[name^=&#39;</span><span class="o">+</span><span class="nx">selector</span><span class="o">+</span><span class="s1">&#39;]&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+ <span class="nx">idCSV</span> <span class="o">+=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">).</span><span class="nx">substring</span><span class="p">(</span><span class="nx">selector</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span><span class="p">;</span>
+
+<span class="p">});</span>
+ <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+ <span class="k">if</span><span class="p">(</span><span class="nx">errorResponse</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+ <span class="nx">app</span><span class="p">.</span><span class="nx">alert</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s1">&#39;bad-add-to-circus&#39;</span><span class="p">,</span> <span class="p">{</span>
+ <span class="p">});</span>
+ <span class="p">}</span>
+ <span class="p">}</span>
+ <span class="p">});</span>
+ <span class="p">},</span>
+ <span class="p">})</span>
+</pre></div>
+
+
+<p>Now there's a few caveats with this code.</p>
+<ul>
+<li>I couldn't find a documented way to get the selected backbone items from SugarCRMs listview collection. So I had to write a jQuery selector, simply replace CSTM_ANIMAL with your module name and the selector should get you the list of ids that have been selected by the user, package them to a CSV then pass them to the ajax call.</li>
+<li>The keen eyed observers might have noticed I'm using the old way of directly calling a controller action, this is because this code was implemented to support a migration project from SugarCRM 6 -&gt; SugarCRM 7 and it was faster than re-implementing the PHP code. However if starting anew, I would strongly recommend instead adding a new rest endpoint to your module and calling that via AJAX. There's some great documentation <a href="http://developer.sugarcrm.com/2014/03/10/sugarcrm-cookbook-adding-a-rest-endpoint-2/">here</a> on that topic, which should help show you how to implement the code to add the animal to a circus. I'll do another post on this in the future.</li>
+</ul>
 <h3>3. Quick Repair and Rebuilt(as always)</h3>
 <p>Any questions feel free to ask!</p>
     </div>

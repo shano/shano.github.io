@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -66,17 +66,17 @@
     <div class="entry-content">
         <p>My servers started getting unusably slow at peak hours lately and I
 decided, midst panic to vaguely attempt to document the various things I
-had to go through to narrow down the problem, anyway I’m sticking them
-up here so a) I don’t lose the list and b) it might be of use to someone
-else. Some are obvious, some less so. I’ve already forgotten half of
-what I did to fix it, so here’s the other half before I forget anything
+had to go through to narrow down the problem, anyway I'm sticking them
+up here so a) I don't lose the list and b) it might be of use to someone
+else. Some are obvious, some less so. I've already forgotten half of
+what I did to fix it, so here's the other half before I forget anything
 else.</p>
 <p>Note:This is only meant to give you a pragmatic, last minute ditch
 attempt at diagnosing problems roughly. In essence, to give an idea of
-what to look for and dig when you come across signs of strangeness. I’m
+what to look for and dig when you come across signs of strangeness. I'm
 sure nagios, serverdensity, munin or whatever else can diagnose these
-things far quicker and better, so just assume we’re far beyond clever
-solutions. It’s essentially for the idiots like me who barely change any
+things far quicker and better, so just assume we're far beyond clever
+solutions. It's essentially for the idiots like me who barely change any
 of their servers configuration to handle scaling at all well.</p>
 <p>other handy tips I should be aware of, let me know here.</p>
 <p>This is meant for a LAMP install(more specifically ubuntu), so may be
@@ -89,8 +89,8 @@ distro of choice.</p>
 <p><strong>Hard-Disk</strong></p>
 <p>df -h -&gt; Another obvious one, is your disk full?</p>
 <p><strong>Network</strong></p>
-<p>sudo iftop -&gt; This one requires installation on ubuntu but it’s in apt
-so shouldn’t be a big deal(unless of course your network is in fact
+<p>sudo iftop -&gt; This one requires installation on ubuntu but it's in apt
+so shouldn't be a big deal(unless of course your network is in fact
 screwed). Anyway, check those numbers, check your b/w restrictions, then
 do the math.</p>
 <p><strong>DNS</strong></p>
@@ -103,35 +103,35 @@ so, it could be a DNS issue.</p>
 
 <p>-&gt; This command will watch live mysql queries being executed. Noticing any crap queries running insanely long? This could be your issue.</p>
 <p>And directly related to slow crap queries do you have an large tables
-that say might be causing a serious performance issue? Here’s a mysql
+that say might be causing a serious performance issue? Here's a mysql
 query to grab the largest tables on your server.</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">table_schema</span><span class="p">,</span> <span class="err">‘</span><span class="p">.</span><span class="err">’</span><span class="p">,</span> <span class="k">table_name</span><span class="p">),</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">table_rows</span> <span class="o">/</span> <span class="mi">1000000</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="err">‘</span><span class="n">M</span><span class="err">’</span><span class="p">)</span> <span class="k">rows</span><span class="p">,</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">data_length</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="err">‘</span><span class="k">G</span><span class="err">’</span><span class="p">)</span> <span class="k">DATA</span><span class="p">,</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">index_length</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="err">‘</span><span class="k">G</span><span class="err">’</span><span class="p">)</span> <span class="n">idx</span><span class="p">,</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">((</span> <span class="n">data_length</span> <span class="o">+</span> <span class="n">index_length</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="err">‘</span><span class="k">G</span><span class="err">’</span><span class="p">)</span> <span class="n">total_size</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">index_length</span> <span class="o">/</span> <span class="n">data_length</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">idxfrac</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">TABLES</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">data_length</span> <span class="o">+</span> <span class="n">index_length</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">table_schema</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="k">table_name</span><span class="p">),</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">table_rows</span> <span class="o">/</span> <span class="mi">1000000</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span> <span class="k">rows</span><span class="p">,</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">data_length</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;G&#39;</span><span class="p">)</span> <span class="k">DATA</span><span class="p">,</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">index_length</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;G&#39;</span><span class="p">)</span> <span class="n">idx</span><span class="p">,</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">((</span> <span class="n">data_length</span> <span class="o">+</span> <span class="n">index_length</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;G&#39;</span><span class="p">)</span> <span class="n">total_size</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">index_length</span> <span class="o">/</span> <span class="n">data_length</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">idxfrac</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">TABLES</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">data_length</span> <span class="o">+</span> <span class="n">index_length</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
 </pre></div>
 
 
-<p>Index your tables better or truncate crap you don’t need.</p>
+<p>Index your tables better or truncate crap you don't need.</p>
 <p><strong>Apache</strong></p>
 <div class="highlight"><pre><span></span>ps ax <span class="p">|</span> grep apache <span class="p">|</span> wc -l
 </pre></div>
 
 
-<p>Let’s assume you didn’t change your ubuntu default apache configuration,
+<p>Let's assume you didn't change your ubuntu default apache configuration,
 if your MaxChild setting is at 150 and the value returned from the above
 command is stuck at over 150(wc will match the ps command too), then
-here’s your problem. It may “look” like your network is slow but in fact
-it’s apache being forced to queue requests.</p>
+here's your problem. It may "look" like your network is slow but in fact
+it's apache being forced to queue requests.</p>
 <p>Run ps aux | grep apache and see how much ram apache is taking on your
 server(you should see roughly what each concurrent connection is getting
 in terms of ram percentage). Do some math and see if you have the free
 ram to increase max childs, if you can, do so.</p>
-<p>If not, reduce the keepalive value(essentially this isn’t as scary as it
+<p>If not, reduce the keepalive value(essentially this isn't as scary as it
 sounds, quite a few major sites run without a keepalive value at all),
 but this entirely depends on your sites usage. Altering keepalive will
-lose you some speed, you’re essentially cycling through the concurrent
-requests faster, so request 151 doesn’t have to wait as long. But, you
+lose you some speed, you're essentially cycling through the concurrent
+requests faster, so request 151 doesn't have to wait as long. But, you
 need to decide whether less speed for more people is better than speed
 with a hard concurrent limit.</p>
-<p>You can also enable some of apache’s new cleverer keepalive modules but
+<p>You can also enable some of apache's new cleverer keepalive modules but
 again that goes beyond the scope of the post.</p>
     </div>
 

@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -64,12 +64,12 @@
     </div>
 
     <div class="entry-content">
-        <p>So I combined a few solutions I found online to come up with a quick way to set up maintenance mode using nginx. Ideally it shouldn’t happen but in times of emergency in can be good to knock up a quick maintenance page for everyone but your own internal ips.</p>
+        <p>So I combined a few solutions I found online to come up with a quick way to set up maintenance mode using nginx. Ideally it shouldn't happen but in times of emergency in can be good to knock up a quick maintenance page for everyone but your own internal ips.</p>
 <h3>Nginx Config</h3>
-<p>So here’s the configuration I use for nginx, it starts with setting the internal ips of your company in the main nginx config file. Then in the actual vhost, you can set it to watch for the existence of a maintenance_on.html and when it exists, throw a 503 and use the maintenance page as your 503 error page.</p>
+<p>So here's the configuration I use for nginx, it starts with setting the internal ips of your company in the main nginx config file. Then in the actual vhost, you can set it to watch for the existence of a maintenance_on.html and when it exists, throw a 503 and use the maintenance page as your 503 error page.</p>
 <h3>How to use</h3>
-<p>By default I have the file named as maintenance_off.html, so it’s only a simple move operation to turn on maintenance mode. For the content of my maintenance file, I generally use this self-contained static html file to serve out a message to customers.</p>
-<p><strong>Note</strong>: Any sort of conditionals going on on your web server is likely to slow things down by a few milliseconds. Again you’re asking your web server to check against network and the disk per request, then make a decision, so bear this in mind before implementing a solution like this.</p>
+<p>By default I have the file named as maintenance_off.html, so it's only a simple move operation to turn on maintenance mode. For the content of my maintenance file, I generally use this self-contained static html file to serve out a message to customers.</p>
+<p><strong>Note</strong>: Any sort of conditionals going on on your web server is likely to slow things down by a few milliseconds. Again you're asking your web server to check against network and the disk per request, then make a decision, so bear this in mind before implementing a solution like this.</p>
     </div>
 
     <footer>

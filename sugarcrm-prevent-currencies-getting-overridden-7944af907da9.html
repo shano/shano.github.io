@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -78,12 +78,12 @@ of the Book to say, note down that the invoice was received and the
 exchange rate in that time has changed drastically. When you hit save
 Sugar would re-calculate the Euro value again(and despite the item being
 sold for 10 Euros originally the exchange rate has now changed and Sugar
-shows say 12 Euros, which is completely inconsistent with what you’ve
+shows say 12 Euros, which is completely inconsistent with what you've
 invoiced.</p>
 <h3>The solution</h3>
-<p>There is thankfully a way around this using by overriding Sugar’s
+<p>There is thankfully a way around this using by overriding Sugar's
 default behaviour using logic hooks. So taking our book example this is
-what custom/modules/Books/logic\_hooks.php might look like.</p>
+what custom/modules/Books/logic_hooks.php might look like.</p>
 <?php
   // Do not store anything in this file that is not part of the array or the hook version.  This file will
   // be automatically rebuilt in the future.
@@ -139,12 +139,12 @@ if (!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 rate on each record and Sugar will display the original 10 Euros despite
 the exchange rate changing.</p>
 <h3>Some words of caution</h3>
-<p>If you decide to override Sugar’s default behaviour, you could run
+<p>If you decide to override Sugar's default behaviour, you could run
 into some issues down the line with reporting.
 Basically the reports modules seems to ignore the base rate stored on
 each individual record and just uses whatever the system default is.</p>
-<p>So you’ll have totals in your report that will be inconsistent with the
-currency value that’s stored on the record. One way around this is to
+<p>So you'll have totals in your report that will be inconsistent with the
+currency value that's stored on the record. One way around this is to
 only create reports using your base currency, another is to create a
 secondary field storing the correct amount of the currency in a decimal
 field rather than a currency field and creating reports based on that

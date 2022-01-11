@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-06-21T00:00:00+00:00">Sat 21 June 2014</abbr>
@@ -66,36 +66,48 @@
     <div class="entry-content">
         <p>I use <a href="http://www.saltstack.com/">salt</a> quite extensively to deploy SugarCRM installs and I wanted a scriptable way to setup the correct permissions for Sugar running on a linux box. This script is based on the <a href="http://support.sugarcrm.com/04_Find_Answers/02KB/02Administration/100Install/Required_File_System_Permissions_on_Linux/">Sugar documentation</a> and this handy post <a href="http://developer.sugarcrm.com/2012/07/19/a-newbies-guide-to-getting-your-sugarcrm-instances-permissions-right/">here</a>.</p>
 <p>Simply fill in your apache user details and the path to the Sugar
-install and you’re away.</p>
-<h1>!/bin/bash</h1>
-<p>APACHEUSER=’www-data:www-data’
-SUGARPATH=’/var/www/sugarcrm’</p>
-<p>find -P $SUGARPATH/ -type d -exec chmod 755 {} \;
-find -P $SUGARPATH/ -type f -exec chmod 644 {} \;
-find -P $SUGARPATH/ -name *.js -exec chmod 755 {} \;</p>
-<p>chmod 664 $SUGARPATH/config.php
-chmod 664 $SUGARPATH/config_override.php
-chmod 664 $SUGARPATH/sugarcrm.log</p>
-<p>find -P $SUGARPATH/cache -type d -exec chmod 775 {} \;
-find -P $SUGARPATH/custom -type d -exec chmod 775 {} \;
-find -P $SUGARPATH/data -type d -exec chmod 775 {} \;
-find -P $SUGARPATH/modules -type d -exec chmod 775 {} \;
-find -P $SUGARPATH/include -type d -exec chmod 775 {} \;
-find -P $SUGARPATH/upload -type d -exec chmod 775 {} \;</p>
-<p>find -P $SUGARPATH/cache -type f -exec chmod 664 {} \;
-find -P $SUGARPATH/custom -type f -exec chmod 664 {} \;
-find -P $SUGARPATH/data -type f -exec chmod 664 {} \;
-find -P $SUGARPATH/modules -type f -exec chmod 664 {} \;
-find -P $SUGARPATH/include -type f -exec chmod 664 {} \;
-find -P $SUGARPATH/upload -type f -exec chmod 664 {} \;</p>
-<p>chown -R $APACHEUSER $SUGARPATH</p>
+install and you're away.</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">APACHEUSER</span><span class="o">=</span><span class="s1">&#39;www-data:www-data&#39;</span>
+<span class="nv">SUGARPATH</span><span class="o">=</span><span class="s1">&#39;/var/www/sugarcrm&#39;</span>
+
+find -P <span class="nv">$SUGARPATH</span>/ -type d -exec chmod <span class="m">755</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/ -type f -exec chmod <span class="m">644</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/ -name *.js -exec chmod <span class="m">755</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+
+chmod <span class="m">664</span> <span class="nv">$SUGARPATH</span>/config.php
+chmod <span class="m">664</span> <span class="nv">$SUGARPATH</span>/config_override.php
+chmod <span class="m">664</span> <span class="nv">$SUGARPATH</span>/sugarcrm.log
+
+find -P <span class="nv">$SUGARPATH</span>/cache -type d -exec chmod <span class="m">775</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/custom -type d -exec chmod <span class="m">775</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/data -type d -exec chmod <span class="m">775</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/modules -type d -exec chmod <span class="m">775</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/include -type d -exec chmod <span class="m">775</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/upload -type d -exec chmod <span class="m">775</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+
+find -P <span class="nv">$SUGARPATH</span>/cache -type f -exec chmod <span class="m">664</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/custom -type f -exec chmod <span class="m">664</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/data -type f -exec chmod <span class="m">664</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/modules -type f -exec chmod <span class="m">664</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/include -type f -exec chmod <span class="m">664</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+find -P <span class="nv">$SUGARPATH</span>/upload -type f -exec chmod <span class="m">664</span> <span class="o">{}</span> <span class="se">\\</span><span class="p">;</span>
+
+chown -R <span class="nv">$APACHEUSER</span> <span class="nv">$SUGARPATH</span>
+</pre></div>
+
+
 <p>And the salt config to get this running.</p>
-<p>sugar_permissions:</p>
-<p>cmd.script:
-    - source: salt://deploy/dev/sugar/permissions.sh
-    - user: root
-    - group: root
-    - shell: /bin/bash</p>
+<div class="highlight"><pre><span></span><span class="nt">sugar_permissions</span><span class="p">:</span>
+
+  <span class="nt">cmd.script</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">salt://deploy/dev/sugar/permissions.sh</span>
+    <span class="p p-Indicator">-</span> <span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+    <span class="p p-Indicator">-</span> <span class="nt">group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+    <span class="p p-Indicator">-</span> <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/bin/bash</span>
+</pre></div>
+
+
 <p>If you see any issues with the script/salt config please let me know.</p>
 <p>Thanks!</p>
     </div>

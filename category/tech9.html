@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="../category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="../category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="../category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="../category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="../category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -55,15 +55,23 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../php-and-big-numbers-4605875d1635.html">PHP and big numbers</a></h1>
+               <h1><a href="../using-ppas-with-salt-states-dd60c32c1211.html">Using PPAs with Salt-States</a></h1>
 
-               <p><a href="http://www.exploringbinary.com/php-hangs-on-numeric-value-2-2250738585072011e-308/">PHP isn’t friends with big numbers.</a></p>
-<p>Wonder where I can stick this number to cause some serious problems.</p>
+               <p>I couldn't seem to find a decent tutorial on using PPA's to manage repos
+with salt states so I'm documenting it here.</p>
+<p>Say you want to install golang using these</p>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:duh/golang
+sudo apt-get update
+sudo apt-get install golang
+</pre></div>
+
+
+<p>Well, to replicate this into a salt state …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2011-01-05T00:00:00+00:00">Wed 05 January 2011</abbr>
+                       &mdash; <abbr title="2013-10-10T00:00:00+00:00">Thu 10 October 2013</abbr>
                    </div>
                </div>
 
@@ -76,15 +84,19 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../worryingly-accurate-this-is-your-brain-on-vim-7583add32743.html">Worryingly accurate — This is your brain on vim</a></h1>
+               <h1><a href="../making-drupal-6-development-suck-less-ea6930df8056.html">Making Drupal 6 Development Suck Less</a></h1>
 
-               <p><a href="https://kev.town/2010/12/15/this-is-your-brain-on-vim/" title="https://kev.town/2010/12/15/this-is-your-brain-on-vim/"><strong>This is Your Brain on Vim</strong>
-_la casa de kev en Interweb_kev.town</a><a href="https://kev.town/2010/12/15/this-is-your-brain-on-vim/"></a></p>
+               <p><img alt="" src="images/1__pyKonP__4TTO__P9guQ1lY9A.jpeg"></p>
+<p>So you're here. Like myself probably stuck developing for `Drupal
+6 `__. All the modules on-line are for
+the latest and greatest versions of Drupal and you're scouring posts
+from 2009 to try find that deprecated module you really need. Well his
+post is dedicated to making your life that little …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2011-01-05T00:00:00+00:00">Wed 05 January 2011</abbr>
+                       &mdash; <abbr title="2013-10-03T00:00:00+00:00">Thu 03 October 2013</abbr>
                    </div>
                </div>
 
@@ -97,18 +109,18 @@ _la casa de kev en Interweb_kev.town</a><a href="https://kev.town/2010/12/15/thi
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../simple-ubuntu-backup-to-s3-d8a52b123d12.html">Simple ubuntu backup to S3</a></h1>
+               <h1><a href="../connect-to-routers-anonymously-9287ec7e7951.html">Connect to routers anonymously</a></h1>
 
-               <p>After browsing the web for ages to find a decent solution to
-backup my server to amazon s3 I finally came across one and I’m just
-throwing it up here.</p>
-<h3>Reqs:</h3>
-<p>So basically all I need it to do was backup my sites(filesystem and mysql databases) and some …</p>
+               <p><img alt="" src="images/1__2zYJ6QvnP__Z17B321DD7NQ.png"></p>
+<p>I've created a little script that incorporates
+<a href="https://launchpad.net/wicd">wicd</a>, <a href="https://github.com/alobbs/macchanger">macchanger</a>, <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?hostname">hostname</a> and <a href="http://www.openwall.com/john/">john the ripper's</a> password list to randomise your mac address and hostname when connecting to the internet.</p>
+<p>I've gone with wicd over network manager as network-manager has a
+tendency to store connection details, so while your machine might id …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2010-11-22T00:00:00+00:00">Mon 22 November 2010</abbr>
+                       &mdash; <abbr title="2013-09-28T00:00:00+00:00">Sat 28 September 2013</abbr>
                    </div>
                </div>
 
@@ -121,19 +133,16 @@ throwing it up here.</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../google-history-told-me-im-a-nerd-68c2161f42c7.html">Google History told me I’m a nerd</a></h1>
+               <h1><a href="../explainshell-52cc1de7a71a.html">Explainshell</a></h1>
 
-               <p>24000 searches later and here is my top ten sites I click to on google.</p>
-<p>Top sites</p>
-<p><a href="http://ubuntuforums.org" title="http://ubuntuforums.org"><strong>Ubuntu Forums</strong>
-_A help and support forum for Ubuntu Linux._ubuntuforums.org</a><a href="http://ubuntuforums.org"></a></p>
-<p><a href="http://en.wikipedia.org" title="http://en.wikipedia.org"><strong>Wikipedia, the free encyclopedia</strong>
-_Allied naval bombardments of Japan during the last weeks of World War II in 1945 targeted industrial …</a></p>
+               <p><a href="https://explainshell.com" title="https://explainshell.com"><strong>explainshell.com - <em>match command-line arguments to their help text</em></strong>
+match command-line arguments to their help textexplainshell.com</a><a href="https://explainshell.com"></a></p>
+<p>A very nice visualization of command line args.</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2010-05-06T00:00:00+00:00">Thu 06 May 2010</abbr>
+                       &mdash; <abbr title="2013-09-13T00:00:00+00:00">Fri 13 September 2013</abbr>
                    </div>
                </div>
 

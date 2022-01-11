@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-04-20T00:00:00+00:00">Sun 20 April 2014</abbr>
@@ -64,32 +64,37 @@
     </div>
 
     <div class="entry-content">
-        <p>Say you have two modules in Sugar: Animals and Ringmasters and they aren’t directly related via a standard relationship but they are related through some convoluted means. Now, imagine if you want to override the SugarCRM search to allow you to search for all Animals indirectly related to a Ringmaster, I’ve written about how to do something <a href="http://shanedowling.com/sugarcrm-searches-data-indirectly-related-modules/">similar recently</a>. Conversely, you want to search for all Animals related to a Ringmaster you’re currently viewing. It’s not a link that exists in Sugar so you can directly see a Dashlet and you don’t want to build anything from scratch so that’s going to take effort.</p>
-<p>What you could do, is create a link on the action drop-down while viewing the Ringmaster that linked you to a search that would call animals supplying the Ringmaster’s id as the argument.</p>
-<p>This is based on the previous tutorial I’ve shared.</p>
-<p>- Firstly add a new logic hook in
- custom/modules/RingMasterModule/logic_hooks.php</p>
-<p>$hook_array[‘after_ui_frame’][] = Array(2, ‘Custom Ring Master Buttons’, ‘custom/modules/RingMasterModule/CustomButtons.php
- ‘,’RingMasterButtons’, ‘add’);</p>
-<p>- Then add the custom buttons class in
- custom/modules/RingMasterModule/CustomButtons.php</p>
-<p>class RingMasterButtons {
+        <p>Say you have two modules in Sugar: Animals and Ringmasters and they aren't directly related via a standard relationship but they are related through some convoluted means. Now, imagine if you want to override the SugarCRM search to allow you to search for all Animals indirectly related to a Ringmaster, I've written about how to do something <a href="http://shanedowling.com/sugarcrm-searches-data-indirectly-related-modules/">similar recently</a>. Conversely, you want to search for all Animals related to a Ringmaster you're currently viewing. It's not a link that exists in Sugar so you can directly see a Dashlet and you don't want to build anything from scratch so that's going to take effort.</p>
+<p>What you could do, is create a link on the action drop-down while viewing the Ringmaster that linked you to a search that would call animals supplying the Ringmaster's id as the argument.</p>
+<p>This is based on the previous tutorial I've shared.</p>
+<ul>
+<li>Firstly add a new logic hook in custom/modules/RingMasterModule/logic_hooks.php</li>
+</ul>
+<p><code>php
+$hook_array['after_ui_frame'][] = Array(2, 'Custom Ring Master Buttons', 'custom/modules/RingMasterModule/CustomButtons.php
+ ','RingMasterButtons', 'add');</code></p>
+<ul>
+<li>Then add the custom buttons class in custom/modules/RingMasterModule/CustomButtons.php</li>
+</ul>
+<p>```php
+class RingMasterButtons {
  function add($bean)
  {
  echo $bean;
- $ringMasterID = $_GET[‘record’];
+ $ringMasterID = $_GET['record'];
  if(!$ringMasterID) return;
- // Based on what action we’re in, add some buttons!
- switch ($GLOBALS[‘app’]-&gt;controller-&gt;action)
+ // Based on what action we're in, add some buttons!
+ switch ($GLOBALS['app']-&gt;controller-&gt;action)
  {
- case “DetailView”: // Add buttons to Detail View</p>
+ case "DetailView": // Add buttons to Detail View</p>
 <p>$button_code = &lt;&lt;</p>
 <p>EOQ;
  echo $button_code;
  break;
  }
  }
- }</p>
+ }
+ ```</p>
 <p>Quick Repair and Rebuild for good measure. This should add a hidden form
 that will be called when the user clicks the Ring Master Animals.</p>
     </div>

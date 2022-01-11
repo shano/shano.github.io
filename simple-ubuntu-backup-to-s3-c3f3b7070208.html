@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -65,9 +65,9 @@
 
     <div class="entry-content">
         <p>After browsing the web for ages to find a decent solution to backup my
-server to amazon s3 I finally came across one and I’m just throwing it
+server to amazon s3 I finally came across one and I'm just throwing it
 up here. So basically all I need it to do was backup my sites(filesystem and mysql databases) and some config for lighttpd.</p>
-<p>The post I’m basing this off is <a href="http://sdykman.com/blog/backing-drupal-sites-automysqlbackup-and-duplicity">here</a>.</p>
+<p>The post I'm basing this off is <a href="http://sdykman.com/blog/backing-drupal-sites-automysqlbackup-and-duplicity">here</a>.</p>
 <ol>
 <li>Install automysqlbackup using apt</li>
 </ol>
@@ -86,7 +86,7 @@ databases.</p>
 <p>Now use this script to backup all the specific folders you want.</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span> <span class="c1"># Export some ENV variables so you don’t have to type anything</span>
+<div class="highlight"><pre><span></span> <span class="c1"># Export some ENV variables so you don&#39;t have to type anything</span>
  <span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>
  <span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>
  <span class="nb">export</span> <span class="nv">PASSPHRASE</span><span class="o">=</span>
@@ -110,7 +110,7 @@ databases.</p>
  — <span class="nv">include</span><span class="o">=</span>/var/lib/automysqlbackup
  — <span class="nv">exclude</span><span class="o">=</span>/**
  <span class="si">${</span><span class="nv">SOURCE</span><span class="si">}</span> <span class="si">${</span><span class="nv">DEST</span><span class="si">}</span>
- <span class="c1"># Reset the ENV variables. Don’t need them sitting around</span>
+ <span class="c1"># Reset the ENV variables. Don&#39;t need them sitting around</span>
  <span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>
  <span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>
  <span class="nb">export</span> <span class="nv">PASSPHRASE</span><span class="o">=</span>

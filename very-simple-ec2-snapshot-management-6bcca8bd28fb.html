@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -64,21 +64,21 @@
     </div>
 
     <div class="entry-content">
-        <p>I’ve been pulling my hair out trying to get a handy ec2 snapshot
+        <p>I've been pulling my hair out trying to get a handy ec2 snapshot
 backup/management working. My google results have ranged from broken
 libraries to using bash scripts to do one aspect and php scripts to do
 another, all of the solutions seem to have serious issues with regions.</p>
-<p>Anyway I’ve coded up a very very stupidly simple bash script that’s
+<p>Anyway I've coded up a very very stupidly simple bash script that's
 based on the ec2-api-tools. Ubuntu based info <a href="https://help.ubuntu.com/community/EC2StartersGuide">here</a>. Essentially sudo apt-get install ec2-api-tools should get the required tools.</p>
 <p><strong>What it does:</strong> Backs up all instances and deletes all snapshots older
 than 7 days.</p>
 <p>You can find it <a href="http://pastebin.com/xMHQUbmH">here</a>, hope it helps.</p>
-<p>Due to major problems with ec2-api-tools I’ve done a quick rewrite for
-to support <a href="http://open.eucalyptus.com/wiki/Euca2oolsGuide">euca2ools</a>. Essentially I had this script running on a micro instance and due to bugs with the ubuntu kernel and java it would tank my server so I’ve switched to the python-based euca2ools.</p>
+<p>Due to major problems with ec2-api-tools I've done a quick rewrite for
+to support <a href="http://open.eucalyptus.com/wiki/Euca2oolsGuide">euca2ools</a>. Essentially I had this script running on a micro instance and due to bugs with the ubuntu kernel and java it would tank my server so I've switched to the python-based euca2ools.</p>
 <p>You can find this script <a href="http://pastebin.com/CCmJyULN">here</a>.</p>
 <p>To get euca2ools work simply install via sudo apt-get install euca2ools
 and add this to ~/.eucarc</p>
-<div class="highlight"><pre><span></span><span class="nv">EC2_REGION</span><span class="o">=</span>”<span class="si">${</span><span class="nv">EC2_REGION</span><span class="k">:-</span><span class="nv">eu</span><span class="p">-west-1</span><span class="si">}</span>”
+<div class="highlight"><pre><span></span><span class="nv">EC2_REGION</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">EC2_REGION</span><span class="k">:-</span><span class="nv">eu</span><span class="p">-west-1</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="nv">EC2_CERT</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/cert.pem
 

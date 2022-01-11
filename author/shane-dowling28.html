@@ -23,7 +23,7 @@
 
                         <li class="main-nav-item"><a href="../category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="../category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="../category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="../category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="../category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -55,27 +55,6 @@
                 <a href="../category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2013-12-12T00:00:00+00:00">Thu 12 December 2013</abbr>
-            </div>
-        </div>
-        <h2><a href="../thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html" rel="bookmark" title="Permalink to Thrashing your networks download with dispatch and axel">Thrashing your networks download with dispatch and axel</a></h2>
-        <div class="post-content">
-            <p>Say you need to grab a file as fast as possible and you also happen to
-have a few network connections knocking about. For example maybe a
-separate network for your wireless and ethernet. Maybe you have a phone
-with tethering or a 3g dongle. This little guide will get …</p>
-        </div>
-        <div class="post-footer">
-            <a href="../thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html">Read more</a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-meta pure-g">
-
-            <div class="pure-u-3-4 meta-data">
-                <a href="../category/tech.html" class="category">Tech</a><br />
-
-                <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2013-10-17T00:00:00+00:00">Thu 17 October 2013</abbr>
             </div>
         </div>
@@ -84,9 +63,9 @@ with tethering or a 3g dongle. This little guide will get …</p>
             <p><img alt="" src="images/1__TalXSpVG5yo__Lucbr1Wm6w.png"></p>
 <p>The first time this happened I went into a cold sweat. My box with all
 dev versions of my companies live databases had died. Of course I had
-the box provisioned with salt so configuration wasn’t a problem, but
+the box provisioned with salt so configuration wasn't a problem, but
 grabbing all those databases, downloading, altering specific internal
-values and …</p>
+values and inserting …</p>
         </div>
         <div class="post-footer">
             <a href="../fixing-a-broken-vagrant-box-cd6f169a62eb.html">Read more</a>
@@ -104,8 +83,8 @@ values and …</p>
         </div>
         <h2><a href="../using-ppas-with-salt-states-dd60c32c1211.html" rel="bookmark" title="Permalink to Using PPAs with Salt-States">Using PPAs with Salt-States</a></h2>
         <div class="post-content">
-            <p>I couldn’t seem to find a decent tutorial on using PPA’s to manage repos
-with salt states so I’m documenting it here.</p>
+            <p>I couldn't seem to find a decent tutorial on using PPA's to manage repos
+with salt states so I'm documenting it here.</p>
 <p>Say you want to install golang using these</p>
 <div class="highlight"><pre><span></span>sudo add-apt-repository ppa:duh/golang
 sudo apt-get update
@@ -113,7 +92,7 @@ sudo apt-get install golang
 </pre></div>
 
 
-<p>Well, to replicate this into …</p>
+<p>Well, to replicate this into a salt state …</p>
         </div>
         <div class="post-footer">
             <a href="../using-ppas-with-salt-states-dd60c32c1211.html">Read more</a>
@@ -132,14 +111,36 @@ sudo apt-get install golang
         <h2><a href="../making-drupal-6-development-suck-less-ea6930df8056.html" rel="bookmark" title="Permalink to Making Drupal 6 Development Suck Less">Making Drupal 6 Development Suck Less</a></h2>
         <div class="post-content">
             <p><img alt="" src="images/1__pyKonP__4TTO__P9guQ1lY9A.jpeg"></p>
-<p>So you’re here. Like myself probably stuck developing for `Drupal
+<p>So you're here. Like myself probably stuck developing for `Drupal
 6 `__. All the modules on-line are for
-the latest and greatest versions of Drupal and you’re scouring posts
+the latest and greatest versions of Drupal and you're scouring posts
 from 2009 to try find that deprecated module you really need. Well his
-post is dedicated to making your life …</p>
+post is dedicated to making your life that little …</p>
         </div>
         <div class="post-footer">
             <a href="../making-drupal-6-development-suck-less-ea6930df8056.html">Read more</a>
+        </div>
+    </div>
+    <div class="post">
+        <div class="post-meta pure-g">
+
+            <div class="pure-u-3-4 meta-data">
+                <a href="../category/tech.html" class="category">Tech</a><br />
+
+                <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2013-09-28T00:00:00+00:00">Sat 28 September 2013</abbr>
+            </div>
+        </div>
+        <h2><a href="../connect-to-routers-anonymously-9287ec7e7951.html" rel="bookmark" title="Permalink to Connect to routers anonymously">Connect to routers anonymously</a></h2>
+        <div class="post-content">
+            <p><img alt="" src="images/1__2zYJ6QvnP__Z17B321DD7NQ.png"></p>
+<p>I've created a little script that incorporates
+<a href="https://launchpad.net/wicd">wicd</a>, <a href="https://github.com/alobbs/macchanger">macchanger</a>, <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?hostname">hostname</a> and <a href="http://www.openwall.com/john/">john the ripper's</a> password list to randomise your mac address and hostname when connecting to the internet.</p>
+<p>I've gone with wicd over network manager as network-manager has a
+tendency to store connection details, so while your machine might id …</p>
+        </div>
+        <div class="post-footer">
+            <a href="../connect-to-routers-anonymously-9287ec7e7951.html">Read more</a>
         </div>
     </div>
 

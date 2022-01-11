@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -64,8 +64,8 @@
     </div>
 
     <div class="entry-content">
-        <p>Recently I’ve been on a bit of a command line kick and I started using <a href="https://github.com/pimutils/khal">khal</a> to render my calendar agenda locally.</p>
-<p>All of the codebases used are python based so before I start I’ve created a virtualenv so as not to pollute my OS.</p>
+        <p>Recently I've been on a bit of a command line kick and I started using <a href="https://github.com/pimutils/khal">khal</a> to render my calendar agenda locally.</p>
+<p>All of the codebases used are python based so before I start I've created a virtualenv so as not to pollute my OS.</p>
 <p>mkvirtualenv khal
 workon khal</p>
 <h3>Vdirsyncer</h3>
@@ -73,22 +73,22 @@ workon khal</p>
 <p>pip install vdirsyncer</p>
 <p>Then to configure it create a file in ~/.vdirsyncer/config and adding these contents, replacing the username/password with your own.</p>
 <p>[general]
- status_path = “~/.vdirsyncer/status/”
+ status_path = "~/.vdirsyncer/status/"
 [pair fastmail]
- a = “khal”
- b = “cal”
- collections = [“from a”, “from b”]
+ a = "khal"
+ b = "cal"
+ collections = ["from a", "from b"]
 [storage cal]
- type = “caldav”
- url = “https://caldav.messagingengine.com/"
- username = “user@fastmail.fm”
- password = “ONE_TIME_PASSWORD”
- read_only = “true”
+ type = "caldav"
+ url = "https://caldav.messagingengine.com/"
+ username = "user@fastmail.fm"
+ password = "ONE_TIME_PASSWORD"
+ read_only = "true"
 [storage khal]
- type = “filesystem”
- path = “~/.vdirsyncer/fastmail”
- fileext = “.ics”
- #encoding = “utf-8”
+ type = "filesystem"
+ path = "~/.vdirsyncer/fastmail"
+ fileext = ".ics"
+ #encoding = "utf-8"
  #post_hook = null</p>
 <p>Then run an initial vdirsyncer command, this will create a bunch of folders under ~/.vdirsyncer/fastmail, each of these represents each of the calendars you have in fastmail.</p>
 <h3>Khal</h3>
@@ -119,7 +119,7 @@ workon khal</p>
 <p>Now if you run khal you should get a nice calendar view with an agenda next to it.</p>
 <h3>Aliases</h3>
 <p>To keep things simple I created an alias that allows me to pop into this virtualenv, sync my calendars and display khal whenever I need my calendars displayed.</p>
-<p>alias khal=’workon khal &amp;&amp; vdirsyncer sync &amp;&amp; khal’</p>
+<p>alias khal='workon khal &amp;&amp; vdirsyncer sync &amp;&amp; khal'</p>
     </div>
 
     <footer>

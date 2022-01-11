@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-04-17T00:00:00+00:00">Thu 17 April 2014</abbr>
@@ -65,70 +65,82 @@
 
     <div class="entry-content">
         <p>Building modules in SugarCRM can cause you to create a boatload of
-unnecessary relationships, simply because it’s convenient to do so.
-Maybe you’d have a relationship where A relates to B and B to C but
-you’d like to search for all A module records that relate to C. One
+unnecessary relationships, simply because it's convenient to do so.
+Maybe you'd have a relationship where A relates to B and B to C but
+you'd like to search for all A module records that relate to C. One
 option is to maybe related A to C and maintain the relationships by
 using hooks on save to preserve the A-C relationship. That way you could
 leverage Sugar relate fields and indirect searching, but that can be a
 messy choice that adds a lot of complexity if overused.</p>
 <p>The alternative is to keep the relationship structure as it is and add a
 new field to the search and build a custom subselect statement. For this
-example we’re adding a Drop-Down to Accounts to allow a user to search
+example we're adding a Drop-Down to Accounts to allow a user to search
 which Accounts are indirectly related to Performers via Events. Say we
 wish to present a drop-down on Accounts of all performers and if you
 search, it will return all Accounts attached to the specified Performer.</p>
 <h3>Get the data for the drop-down</h3>
 <p>In custom/modules/Accounts/getCustomDropDown.php</p>
-<p>require_once(“modules/Performers/Performers.php”);</p>
-<p>function galleryPerformers($focus, $field, $value, $view, $tabindex=’0') {
- $performersBean = BeanFactory::getBean(‘Performers’);
- $performers = $performersBean-&gt;get_full_list();
- $html = “ — “;
- $selected_performer = $_REQUEST[‘performer_type_search’]; // Or whatever dom id your drop-down has
- foreach($performers as $performer) {
- $html .= “ if($selected_performer == $performer-&gt;id) { // Props to Igor who flagged this in the comments!
- $html .= “selected”;
- }
- $html .=” value=’{$performer-&gt;id}’&gt;{$performer-&gt;name}”;
- }
- return $html;
- }</p>
-<h3>Present the drop-down on the accounts search</h3>
-<p>Note This has to go into modules/Accounts(I know, I know), but this had
-to break updatability to work otherwise this will wipe with a quick
-repair/rebuild(if you put it in custom). If you find an alternative
-solution put it here.</p>
-<p>So in modules/Accounts/metadata/vardefs.php</p>
-<p>$dictionary[“Account”][“fields”][“performer_type_search”] = array(
- ‘name’ =&gt; ‘test’,
- ‘vname’ =&gt; ‘test’,
- ‘type’ =&gt; ‘varchar’, // function to call that will return html that will be inserted
- ‘function’ =&gt; array(
- ‘name’ =&gt; ‘galleryPerformer’,
- ‘returns’ =&gt; ‘html’,
- ‘include’ =&gt; ‘custom/modules/Accounts/getCustomDropDown.php’),
- ‘required’ =&gt; false,
- ‘do_report’ =&gt; false,
- ‘reportable’ =&gt; false,
- ‘comment’ =&gt; ‘Performer Searching’,
- ‘source’ =&gt; ‘non-db’
- );</p>
+<div class="highlight"><pre><span></span><span class="x">require_once(&quot;modules/Performers/Performers.php&quot;);</span>
+
+<span class="x">function galleryPerformers($focus, $field, $value, $view, $tabindex=&#39;0&#39;) {</span>
+<span class="x"> $performersBean = BeanFactory::getBean(&#39;Performers&#39;);</span>
+<span class="x"> $performers = $performersBean-&gt;get_full_list();</span>
+<span class="x"> $html = &quot; — &quot;;</span>
+<span class="x"> $selected_performer = $_REQUEST[&#39;performer_type_search&#39;]; // Or whatever dom id your drop-down has</span>
+<span class="x"> foreach($performers as $performer) {</span>
+<span class="x"> $html .= &quot; if($selected_performer == $performer-&gt;id) { // Props to Igor who flagged this in the comments!</span>
+<span class="x"> $html .= &quot;selected&quot;;</span>
+<span class="x"> }</span>
+<span class="x"> $html .=&quot; value=&#39;{$performer-&gt;id}&#39;&gt;{$performer-&gt;name}&quot;;</span>
+<span class="x"> }</span>
+<span class="x"> return $html;</span>
+<span class="x"> }</span>
+<span class="x"> ```</span>
+
+<span class="x">### Present the drop-down on the accounts search</span>
+
+<span class="x">Note This has to go into modules/Accounts(I know, I know), but this had</span>
+<span class="x">to break updatability to work otherwise this will wipe with a quick</span>
+<span class="x">repair/rebuild(if you put it in custom). If you find an alternative</span>
+<span class="x">solution put it here.</span>
+
+<span class="x">So in modules/Accounts/metadata/vardefs.php</span>
+<span class="x">```php</span>
+<span class="x">$dictionary[&quot;Account&quot;][&quot;fields&quot;][&quot;performer_type_search&quot;] = array(</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;test&#39;,</span>
+<span class="x"> &#39;vname&#39; =&gt; &#39;test&#39;,</span>
+<span class="x"> &#39;type&#39; =&gt; &#39;varchar&#39;, // function to call that will return html that will be inserted</span>
+<span class="x"> &#39;function&#39; =&gt; array(</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;galleryPerformer&#39;,</span>
+<span class="x"> &#39;returns&#39; =&gt; &#39;html&#39;,</span>
+<span class="x"> &#39;include&#39; =&gt; &#39;custom/modules/Accounts/getCustomDropDown.php&#39;),</span>
+<span class="x"> &#39;required&#39; =&gt; false,</span>
+<span class="x"> &#39;do_report&#39; =&gt; false,</span>
+<span class="x"> &#39;reportable&#39; =&gt; false,</span>
+<span class="x"> &#39;comment&#39; =&gt; &#39;Performer Searching&#39;,</span>
+<span class="x"> &#39;source&#39; =&gt; &#39;non-db&#39;</span>
+<span class="x"> );</span>
+</pre></div>
+
+
 <h3>Extend the search</h3>
 <p>Now that you have your drop-down working you need to extend the search
 to do what you need.</p>
 <p>custom/modules/Accounts/metadata/SearchFields.php</p>
-<p>‘performer_search’ =&gt; array(
- ‘query_type’ =&gt; ‘default’,
- ‘operator’ =&gt; ‘subquery’,
- ‘subquery’ =&gt; ‘SELECT accounts.id FROM accounts LEFT JOIN account_event acc_evt ON acc_evt.`account_ida` = accounts.id LEFT JOIN performers_event per_evt ON pvt_evt.`event_idb` = acc_evt.`performers_idb` WHERE acc_evt.deleted = 0 AND pvt_evt.deleted = 0 AND accounts.deleted = 0 AND pvt_evt.`fair_ida` LIKE’,
- ‘db_field’ =&gt; array(‘id’),
- ‘type’ =&gt; ‘enum’, ),</p>
-<p>Now this query probably looks a little weird, but basically it’s an
+<div class="highlight"><pre><span></span><span class="x">&#39;performer_search&#39; =&gt; array(</span>
+<span class="x"> &#39;query_type&#39; =&gt; &#39;default&#39;,</span>
+<span class="x"> &#39;operator&#39; =&gt; &#39;subquery&#39;,</span>
+<span class="x"> &#39;subquery&#39; =&gt; &#39;SELECT accounts.id FROM accounts LEFT JOIN account_event acc_evt ON acc_evt.\`account_ida\` = accounts.id LEFT JOIN performers_event per_evt ON pvt_evt.\`event_idb\` = acc_evt.\`performers_idb\` WHERE acc_evt.deleted = 0 AND pvt_evt.deleted = 0 AND accounts.deleted = 0 AND pvt_evt.\`fair_ida\` LIKE&#39;,</span>
+<span class="x"> &#39;db_field&#39; =&gt; array(&#39;id&#39;),</span>
+<span class="x"> &#39;type&#39; =&gt; &#39;enum&#39;, ),</span>
+</pre></div>
+
+
+<p>Now this query probably looks a little weird, but basically it's an
 almost pseudocode type query that simply connected the two lookup tables
 between Accounts and Events then Events and Performers and does the
 where on the performers id.</p>
-<p>Note the LIKE in the query. Even if you’re querying IDs, Sugar stupidly
+<p>Note the LIKE in the query. Even if you're querying IDs, Sugar stupidly
 passes in the value with a % at the end. So make sure this is LIKE
 statement.</p>
     </div>

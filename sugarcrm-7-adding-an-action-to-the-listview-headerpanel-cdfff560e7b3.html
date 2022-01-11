@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -66,11 +66,11 @@
     <div class="entry-content">
         <p><img alt="" src="images/1__WJpUe2DNz1qsC4zMTJB0eA.jpeg"></p>
 <p>This tutorial should show you how to add a custom button/action that
-will appear across all modules. It’s a little similar to <a href="http://shanedowling.com/sugarcrm-7-adding-an-action-to-the-listview/">this tutorial</a>
+will appear across all modules. It's a little similar to <a href="http://shanedowling.com/sugarcrm-7-adding-an-action-to-the-listview/">this tutorial</a>
 with a few changes to how the button gets rendered and the actions get
 called.</p>
 <h3>1. Adding the button to the headerpanel</h3>
-<p>Firstly you’ll need to create a new folder to store the headerpane
+<p>Firstly you'll need to create a new folder to store the headerpane
 actions, so create this folder in the sugarcrm root
 directory custom/clients/base/views/list-headerpane/. Then create the
 file list-headerpane.php with this content. This will add a button next
@@ -119,9 +119,9 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
     ),
 );</p>
 <h3>2. Adding the action hook</h3>
-<p>To fire this action you’ll need to add some
+<p>To fire this action you'll need to add some
 code custom/clients/base/views/recordlist/recordlist.js, in the</p>
-<p>this.context.on(‘list:new_button:fire’, this.applyFxn, this);</p>
+<p>this.context.on('list:new_button:fire', this.applyFxn, this);</p>
 <p>Now populate applyFxn with whatever code you want to run and it will
 work across every module.</p>
 <h3>3. Quick Repair and Rebuilt(as always)</h3>

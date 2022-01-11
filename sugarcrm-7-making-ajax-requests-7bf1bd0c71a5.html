@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-08-09T00:00:00+00:00">Sat 09 August 2014</abbr>
@@ -65,90 +65,100 @@
 
     <div class="entry-content">
         <p><img alt="" src="images/1__cu8y__JHqBRKgm37dccl0Pg.png"></p>
-<p>SugarCRM has a pretty great API if you know how to poll it. Today I’m
-sharing two examples of where I’ve needed to poll SugarCRM’s API with
+<p>SugarCRM has a pretty great API if you know how to poll it. Today I'm
+sharing two examples of where I've needed to poll SugarCRM's API with
 some sample jQuery code.</p>
 <h3>A jQuery autocompleter</h3>
-<p>If you’re declaring an input box and wish to autocomplete it’s results
+<p>If you're declaring an input box and wish to autocomplete it's results
 based on the results from a particular module, this sample code should
 get you started.</p>
-<p>$( “#your-input-box”).autocomplete({
- $.ajax({
- {
-   request.setRequestHeader(“OAuth-Token”, SUGAR.App.api.getOAuthToken());
- },
- response($.map(data.records, function(obj) {
-   return {
-   };
-   }));
-   }
-   });
-   },
-   $(‘#your-input-box’).val(ui.item.label);
-   $(‘#your-input-box-id’).val(ui.item.id);
- return false;
- }
- });</p>
+<div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">(</span> <span class="s2">&quot;#your-input-box&quot;</span><span class="p">).</span><span class="nx">autocomplete</span><span class="p">({</span>
+ <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+ <span class="p">{</span>
+   <span class="nx">request</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">&quot;OAuth-Token&quot;</span><span class="p">,</span> <span class="nx">SUGAR</span><span class="p">.</span><span class="nx">App</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getOAuthToken</span><span class="p">());</span>
+ <span class="p">},</span>
+ <span class="nx">response</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">records</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="p">{</span>
+   <span class="p">};</span>
+   <span class="p">}));</span>
+   <span class="p">}</span>
+   <span class="p">});</span>
+   <span class="p">},</span>
+   <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#your-input-box&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="nx">ui</span><span class="p">.</span><span class="nx">item</span><span class="p">.</span><span class="nx">label</span><span class="p">);</span>
+   <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#your-input-box-id&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="nx">ui</span><span class="p">.</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+ <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="p">});</span>
+</pre></div>
+
+
 <p><strong>Note</strong>: This leverages the existing SugarCRM API to populate this
 data. You can customise the filter however you want, just load up
-firebug/a web inspector and do a few sample requests from Sugar’s core
+firebug/a web inspector and do a few sample requests from Sugar's core
 fieldset if you need sample requests to work with.</p>
 <p>This is really useful for leveraging existing endpoints, but what if you
-want to have Javascript call a custom piece of code you’ve written?</p>
-<h3>Call a custom API Endpoint via a jQuery ajax request.</h3>
-<p>Here’s a sample piece of Javascript that will grab some input fields and
+want to have Javascript call a custom piece of code you've written?</p>
+<h3>Call a custom API Endpoint via a jQuery ajax request.</h3>
+<p>Here's a sample piece of Javascript that will grab some input fields and
 create your post request.</p>
-<p>$(‘#some-button’).click(function() {
- var arg1 = $(‘#field1’).val();
- var arg2 = $(‘#field2’).val();
- var arg3 = $(‘#field3’).val();</p>
-<p>$.ajax({
- {
- request.setRequestHeader(“OAuth-Token”, SUGAR.App.api.getOAuthToken());
- },
- alert(data);
- window.location.reload();
- }
- });
- });</p>
+<div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#some-button&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+ <span class="kd">var</span> <span class="nx">arg1</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#field1&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+ <span class="kd">var</span> <span class="nx">arg2</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#field2&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+ <span class="kd">var</span> <span class="nx">arg3</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#field3&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+ <span class="p">{</span>
+ <span class="nx">request</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">&quot;OAuth-Token&quot;</span><span class="p">,</span> <span class="nx">SUGAR</span><span class="p">.</span><span class="nx">App</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getOAuthToken</span><span class="p">());</span>
+ <span class="p">},</span>
+ <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+ <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
+ <span class="p">}</span>
+ <span class="p">});</span>
+ <span class="p">});</span>
+</pre></div>
+
+
 <p>And here is the API code that would handle a post request with multiple
 arguments.</p>
 <p>This would be placed in custom/modules//</p>
-<p>.. code-block:: php</p>
-<p>if(!defined(‘sugarEntry’) || !sugarEntry) die(‘Not A Valid Entry Point’);
- require_once(‘custom/modules//.php’);
- class yourCustomApiFn extends SugarApi
- {
- public function registerApiRest()
- {
- return array(
- //GET
- ‘customAPIFn’ =&gt; array(
- //request type
- ‘reqType’ =&gt; ‘POST’,
- //endpoint path
- ‘path’ =&gt; array(‘’, ‘’),
- //endpoint variables
- ‘pathVars’ =&gt; array(‘module’, ‘action’),
- //method to call
- ‘method’ =&gt; ‘doSomething’,
- //short help string to be displayed in the help documentation
- ‘shortHelp’ =&gt; ‘Does something really useful’,
- ),
- );
- }</p>
-<p>/*<em>
- * Method to be used for my MyEndpoint/GetExample endpoint
- </em>/
- public function doSomething($api, $args)
- {
- $arg1 = $args[‘arg1’];
- $arg2 = $args[‘arg2’];
- $arg3 = $args[‘arg3’];</p>
-<p>$custom_bean = new CustomClass();
- return $custom_bean-&gt;doSomething($arg1, $arg2, $arg3);
- }</p>
-<p>}</p>
+<div class="highlight"><pre><span></span><span class="x">if(!defined(&#39;sugarEntry&#39;) || !sugarEntry) die(&#39;Not A Valid Entry Point&#39;);</span>
+<span class="x"> require_once(&#39;custom/modules//.php&#39;);</span>
+<span class="x"> class yourCustomApiFn extends SugarApi</span>
+<span class="x"> {</span>
+<span class="x"> public function registerApiRest()</span>
+<span class="x"> {</span>
+<span class="x"> return array(</span>
+<span class="x"> //GET</span>
+<span class="x"> &#39;customAPIFn&#39; =&gt; array(</span>
+<span class="x"> //request type</span>
+<span class="x"> &#39;reqType&#39; =&gt; &#39;POST&#39;,</span>
+<span class="x"> //endpoint path</span>
+<span class="x"> &#39;path&#39; =&gt; array(&#39;&#39;, &#39;&#39;),</span>
+<span class="x"> //endpoint variables</span>
+<span class="x"> &#39;pathVars&#39; =&gt; array(&#39;module&#39;, &#39;action&#39;),</span>
+<span class="x"> //method to call</span>
+<span class="x"> &#39;method&#39; =&gt; &#39;doSomething&#39;,</span>
+<span class="x"> //short help string to be displayed in the help documentation</span>
+<span class="x"> &#39;shortHelp&#39; =&gt; &#39;Does something really useful&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> );</span>
+<span class="x"> }</span>
+
+<span class="x">/**</span>
+<span class="x"> * Method to be used for my MyEndpoint/GetExample endpoint</span>
+<span class="x"> */</span>
+<span class="x"> public function doSomething($api, $args)</span>
+<span class="x"> {</span>
+<span class="x"> $arg1 = $args[&#39;arg1&#39;];</span>
+<span class="x"> $arg2 = $args[&#39;arg2&#39;];</span>
+<span class="x"> $arg3 = $args[&#39;arg3&#39;];</span>
+
+<span class="x">$custom_bean = new CustomClass();</span>
+<span class="x"> return $custom_bean-&gt;doSomething($arg1, $arg2, $arg3);</span>
+<span class="x"> }</span>
+
+<span class="x">}</span>
+</pre></div>
     </div>
 
     <footer>

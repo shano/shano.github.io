@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-07-16T00:00:00+00:00">Wed 16 July 2014</abbr>
@@ -65,26 +65,29 @@
 
     <div class="entry-content">
         <p>One issue that constantly re-occurs for me using SugarCRM is that
-certain knowledge is only stored in it’s database. So say you want to
+certain knowledge is only stored in it's database. So say you want to
 revert to a previous version of Sugar and wish to obtain the Studio
-customisations you’ve done at that version, say two days ago, well your
+customisations you've done at that version, say two days ago, well your
 just out of luck. This is pretty annoying considering most of your day
 to day changes will probably be in Studio and you have no real way to
-see those changes outside of Sugar’s “View History”, which leaves a lot
-to be desired mostly as again, it’s all in the DB. You’re effectively
+see those changes outside of Sugar's "View History", which leaves a lot
+to be desired mostly as again, it's all in the DB. You're effectively
 left to sharing a database dump between developers.</p>
-<p>What I’ve done on my development environment is created a simple
+<p>What I've done on my development environment is created a simple
 pre-commit git-hook(good explanation of those <a href="http://codeinthehole.com/writing/tips-for-using-a-git-pre-commit-hook/">here</a>)
-that essentially commits the database structure and the fields_meta_data table. This essentially means someone can get themselves up and running with a basic variant of my install pretty quickly including my studio changes, which are now all tracked in version control too. So put code resembling the below in your .git/hooks/pre-commit</p>
-<p>rm /database/sugar.sql
+that essentially commits the database structure and the fields_meta_data table. This essentially means someone can get themselves up and running with a basic variant of my install pretty quickly including my studio changes, which are now all tracked in version control too. So put code resembling the below in your <code>.git/hooks/pre-commit</code></p>
+<div class="highlight"><pre><span></span>rm /database/sugar.sql
  mysqldump -u root -p — no-data &gt; /database/sugar.sql
- mysqldump -v -u root -p fields_meta_data &gt;&gt; /database/sugar.sql</p>
+ mysqldump -v -u root -p fields_meta_data &gt;&gt; /database/sugar.sql
+</pre></div>
+
+
 <p>Originally I had this creating a gzipped time-stamped version of sugar
 database dumps, but considering the SQL is small it makes much more
 sense to leverage the plain-text advantages git gives you, and simply
 track the changes through git rather than timestamped DB dumps.</p>
 <p><strong>Note:</strong> I only use this script on my local dev environment. This also
-isn’t version controlled either, so I don’t mind that my dev database
+isn't version controlled either, so I don't mind that my dev database
 password is stored in plaintext.</p>
     </div>
 

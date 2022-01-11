@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-07-19T00:00:00+00:00">Sat 19 July 2014</abbr>
@@ -65,7 +65,7 @@
 
     <div class="entry-content">
         <p><img alt="" src="images/1__HJJkQeHYeEx3PtDHrtR6pQ.png"></p>
-<h3>What is it?</h3>
+<h3>What is it?</h3>
 <p>Have you ever found yourself wanting live statistics of you mysql
 database, or a log of all the erroring queries. Well MySQL Proxy might</p>
 <p>MySQL Proxy is a simple program that sits between your client and MySQL server(s) that can monitor, analyze or transform their communication.</p>
@@ -75,46 +75,50 @@ when debugging SugarCRM as sometimes failed database queries get
 suppressed(especially when making API requests) and I needed a
 transparent way to check nothing has failed on the DB side.</p>
 <h3>Installation</h3>
-<p>This example I’m going to show you allows you to sit the proxy on
-3306(instead of mysql), so you don’t need to alter any of the code point
-to your existing MySQL installation. If this isn’t what you want change
+<p>This example I'm going to show you allows you to sit the proxy on
+3306(instead of mysql), so you don't need to alter any of the code point
+to your existing MySQL installation. If this isn't what you want change
 your steps accordingly.</p>
-<p>- Basically in your my.cnf. Change your servers port to 3307(server
- only not the client). Then restart mysql.
-- Now install mysql-proxy using your regular package manager(it should
- even work on homebrew).</p>
-<p>mysql-proxy proxy-backend-addresses=127.0.0.1:3307 log-level=debug proxy-address=127.0.0.1:3306 proxy-lua-script=/usr/local/Cellar/mysql-proxy/0.8.3/lib/mysql-proxy/lua/proxy/mysql-proxy-log-error-queries.lua plugins=proxy</p>
-<p>If that default example lua script doesn’t exist, simply copy one of the
+<ul>
+<li>Basically in your my.cnf. Change your servers port to 3307(server only not the client). Then restart mysql.</li>
+<li>Now install mysql-proxy using your regular package manager(it should even work on homebrew).</li>
+</ul>
+<div class="highlight"><pre><span></span>mysql-proxy proxy-backend-addresses<span class="o">=</span><span class="m">127</span>.0.0.1:3307 log-level<span class="o">=</span>debug proxy-address<span class="o">=</span><span class="m">127</span>.0.0.1:3306 proxy-lua-script<span class="o">=</span>/usr/local/Cellar/mysql-proxy/0.8.3/lib/mysql-proxy/lua/proxy/mysql-proxy-log-error-queries.lua <span class="nv">plugins</span><span class="o">=</span>proxy
+</pre></div>
+
+
+<p>If that default example lua script doesn't exist, simply copy one of the
 files below and point proxy-lua-script to that.</p>
-<h3>Log any bad queries the database has to handle.</h3>
-<p>local errflag = false
+<h3>Log any bad queries the database has to handle.</h3>
+<p>```
+local errflag = false
  function readquery( packet )
  if packet:byte() == proxy.COMQUERY then
  local user = proxy.connection.client.username
  local host = proxy.connection.client.src.name
- print(user .. ‘@’ .. host)
- if [[true or]] user:lower() == ‘root’ then
+ print(user .. '@' .. host)
+ if [[true or]] user:lower() == 'root' then
  [[
  host will always be localhost because of proxy
- and not ( host:lower() == ‘localhost’
- or host:lower() == ‘127.0.0.1’ ) then
+ and not ( host:lower() == 'localhost'
+ or host:lower() == '127.0.0.1' ) then
  ]]
  proxy.queries:append(1, packet, {resultsetisneeded = true})
- proxy.queries:append(2, string.char(proxy.COMQUERY) .. “SET @lastquery = ‘“ .. string.sub(packet, 2) .. “‘“, {resultsetisneeded = true} )
- proxy.queries:append(3, string.char(proxy.COMQUERY) .. “SHOW WARNINGS”, {resultsetisneeded = true} )
+ proxy.queries:append(2, string.char(proxy.COMQUERY) .. "SET @lastquery = '" .. string.sub(packet, 2) .. "'", {resultsetisneeded = true} )
+ proxy.queries:append(3, string.char(proxy.COMQUERY) .. "SHOW WARNINGS", {resultsetisneeded = true} )
  end
  return proxy.PROXYSENDQUERY
  end
  end</p>
 <p>function insertquery(errt, errn, errm)
- local query = “INSERT INTO `somedb`.`mysqlerror` “ ..
- “(`date`, `errnum`,`errtype`, `errmessage`, `problemquery`, `connid`)” ..
- “ VALUES ( NOW(), “ ..
- errn .. “,” .. “”” ..
- errt ..””” .. “,” .. “”” ..
- errm .. “”” .. “,” ..
- “@lastquery” .. “,” ..
- proxy.connection.server.threadid .. “)”
+ local query = "INSERT INTO `somedb`.`mysqlerror` " ..
+ "(`date`, `errnum`,`errtype`, `errmessage`, `problemquery`, `connid`)" ..
+ " VALUES ( NOW(), " ..
+ errn .. "," .. """ ..
+ errt ..""" .. "," .. """ ..
+ errm .. """ .. "," ..
+ "@lastquery" .. "," ..
+ proxy.connection.server.threadid .. ")"
  print(query)
  proxy.queries:append(4, string.char(proxy.COMQUERY) .. query, {resultsetisneeded = true})
  return proxy.PROXYSENDQUERY
@@ -142,7 +146,8 @@ files below and point proxy-lua-script to that.</p>
  elseif inj.id == 4 then
  return proxy.PROXYIGNORERESULT
  end
- end</p>
+ end
+ ```</p>
 <h3>Log all queries with stats/warnings</h3>
 <p>Found <a href="https://github.com/patrickallaert/MySQL-Proxy-scripts-for-devs/blob/master/debug.lua">here</a>. Useful for spotting those slow/inefficient queries.</p>
     </div>

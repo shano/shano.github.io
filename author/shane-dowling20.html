@@ -23,7 +23,7 @@
 
                         <li class="main-nav-item"><a href="../category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="../category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="../category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="../category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="../category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -60,10 +60,11 @@
         </div>
         <h2><a href="../useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html" rel="bookmark" title="Permalink to Useful bit of SQL to update many records in SugarCRM">Useful bit of SQL to update many records in SugarCRM</a></h2>
         <div class="post-content">
-            <p>UPDATE clowns SET deleted=1 WHERE id IN
- (SELECT id FROM (
- SELECT id FROM clowns WHERE deleted = 0 ORDER BY id ASC LIMIT 0, 800)
- tmp );</p>
+            <div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">clowns</span> <span class="k">SET</span> <span class="n">deleted</span><span class="o">=</span><span class="mi">1</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="k">IN</span>
+ <span class="p">(</span><span class="k">SELECT</span> <span class="n">id</span> <span class="k">FROM</span> <span class="p">(</span>
+ <span class="k">SELECT</span> <span class="n">id</span> <span class="k">FROM</span> <span class="n">clowns</span> <span class="k">WHERE</span> <span class="n">deleted</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span> <span class="k">ASC</span> <span class="k">LIMIT</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
+ <span class="n">tmp</span> <span class="p">);</span>
+</pre></div>
         </div>
         <div class="post-footer">
             <a href="../useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html">Read more</a>
@@ -73,28 +74,7 @@
         <div class="post-meta pure-g">
 
             <div class="pure-u-3-4 meta-data">
-                <a href="../category/posts.html" class="category">posts</a><br />
-
-                <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2014-03-17T00:00:00+00:00">Mon 17 March 2014</abbr>
-            </div>
-        </div>
-        <h2><a href="../unit-tests-and-code-smells-2de9891c25ff.html" rel="bookmark" title="Permalink to Unit Tests and Code Smells">Unit Tests and Code Smells</a></h2>
-        <div class="post-content">
-            <p>Basically, the unit test pushed out something which I realised was a
-code smell, because I was writing a bunch of stuff into a controller
-function that really should’ve been in a controller I was having a
-really painful time writing a unit test for it. For example these …</p>
-        </div>
-        <div class="post-footer">
-            <a href="../unit-tests-and-code-smells-2de9891c25ff.html">Read more</a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-meta pure-g">
-
-            <div class="pure-u-3-4 meta-data">
-                <a href="../category/posts.html" class="category">posts</a><br />
+                <a href="../category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-03-06T00:00:00+00:00">Thu 06 March 2014</abbr>
@@ -103,11 +83,11 @@ really painful time writing a unit test for it. For example these …</p>
         <h2><a href="../owning-your-data-initial-server-setup-afa33394b94.html" rel="bookmark" title="Permalink to Owning Your Data — Initial Server Setup">Owning Your Data — Initial Server Setup</a></h2>
         <div class="post-content">
             <p><img alt="" src="images/1__Frjg0ruGoXtEESBMek____Lw.png"></p>
-<p>So before you can move to your own self-hosted services, you’ll need
+<p>So before you can move to your own self-hosted services, you'll need
 your own hosting. This is a really basic tutorial/set of links on
 getting a server up and running with Salt.</p>
 <h3>Hosting Provider</h3>
-<p>DigitalOcean is a terrific hosting company if you’re want to play around with …</p>
+<p>DigitalOcean is a terrific hosting company if you're want to play around with a few …</p>
         </div>
         <div class="post-footer">
             <a href="../owning-your-data-initial-server-setup-afa33394b94.html">Read more</a>
@@ -117,7 +97,7 @@ getting a server up and running with Salt.</p>
         <div class="post-meta pure-g">
 
             <div class="pure-u-3-4 meta-data">
-                <a href="../category/posts.html" class="category">posts</a><br />
+                <a href="../category/productivity.html" class="category">Productivity</a><br />
 
                 <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-03-01T00:00:00+00:00">Sat 01 March 2014</abbr>
@@ -128,12 +108,31 @@ getting a server up and running with Salt.</p>
             <p><img alt="" src="images/1__EES2Sqy6g09QG__4Aw5ZAiA.jpeg"></p>
 <p>As Lance Armstrong has shown the world, putting the right thing into
 your body can greatly improve performance, I myself have been looking
-into more maintainable alternative. More and more I’m experimenting with
+into more maintainable alternative. More and more I'm experimenting with
 diet as a means to improve my mental performance as well as my running
-ability week …</p>
+ability week on …</p>
         </div>
         <div class="post-footer">
             <a href="../perfomance-enhancing-breakfast-4a14f17ee20a.html">Read more</a>
+        </div>
+    </div>
+    <div class="post">
+        <div class="post-meta pure-g">
+
+            <div class="pure-u-3-4 meta-data">
+                <a href="../category/tech.html" class="category">Tech</a><br />
+
+                <a class="author" href="../author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2014-02-27T00:00:00+00:00">Thu 27 February 2014</abbr>
+            </div>
+        </div>
+        <h2><a href="../owning-your-data-296ed1534643.html" rel="bookmark" title="Permalink to Owning Your Data">Owning Your Data</a></h2>
+        <div class="post-content">
+            <p><img alt="" src="images/1__onILu1exx9sSg4nwDK__CJw.jpeg"></p>
+<p>Governments are collecting data on you, that's a fairly accepted fact at this stage. Whether you're being "social", reading email, playing video games or even when you're writing a book on the NSA. If you want more details The Guardian has a great explanation as to what Snowden's files mean …</p>
+        </div>
+        <div class="post-footer">
+            <a href="../owning-your-data-296ed1534643.html">Read more</a>
         </div>
     </div>
 

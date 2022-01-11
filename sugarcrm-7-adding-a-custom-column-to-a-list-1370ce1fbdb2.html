@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-05-22T00:00:00+00:00">Thu 22 May 2014</abbr>
@@ -65,104 +65,132 @@
 
     <div class="entry-content">
         <p>This is the SugarCRM 7 equivalent to this post <a href="https://medium.com/shanes-tech-tips/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1">here</a>, because Sugar has dropped the process record logic hook, we need to come up with a new solution.</p>
-<p>Here’s how you can add a new column to a list view, I have to admit this
+<p>Here's how you can add a new column to a list view, I have to admit this
 is one of the really powerful additions to SugarCRM 7, no more crazy
 config files or hacks to try cheat your data in. By leveraging
 javascript events with a decent restful API you can come up with some
 really nice solutions, with lots of hooks to do custom things. Once you
-see the difference in implementation you’ll see why I’m so pleased.</p>
+see the difference in implementation you'll see why I'm so pleased.</p>
 <p>So anyway, back to the customisations.</p>
 <h3>1. Add the placeholder column</h3>
 <p>You need to do this by adding a new column into your custom modules
 list.php file, which is generally located at
 custom/modules/YOUR_CUSTOM_MODULE/clients/base/views/list/list.php,
-add your new column in under
-$viewdefs[$modulename][‘base’][‘view’][‘list’][‘panels’][0][‘fields’]</p>
-<p>array (
- ‘name’ =&gt; ‘custom_fieldname’,
- ‘label’ =&gt; ‘LBL_CUSTOM_RECORD’,
- ‘enabled’ =&gt; true,
- ‘width’ =&gt; ‘10%’,
- ‘default’ =&gt; true,
- ),</p>
-<h3>2. Add the JS action</h3>
-<p>This should go into
-custom/modules/YOUR\_CUSTOM\_MODULE/clients/base/views/recordlist/recordlist.js</p>
-<p>({</p>
-<p>this.before(‘render’, function() {
- return this.beforeRenderCallback()
- }, this);
- this.on(‘render’, function() {
- this.renderCallback();
- if (this.previewVisible) {
- this.decorateRow(this.previewModel);
- }
- }, this);
- this._super(“bindDataChange”);
- },
- /*<em>
- * Callback for before on(‘render’) event
- </em>/
- this.collection.each(function(model) {
- app.api.call(‘GET’, app.api.buildURL(‘YOUR_CUSTOM_MODULE/YOUR_CUSTOM_FUNCTION/’+model.id), null, {
- model.set({
- your_custom_field : data
- });
- }, this)
- });
- }, this);
- },
- })</p>
-<h3>3. Add the API end point</h3>
-<p>The documentation here is really straightforward but as an example for
-completeness this should return a json response with the data needed.</p>
-<p>This code would go into
-custom/modules/YOUR_CUSTOM_MODULE/clients/base/api/YOUR\_CUSTOM_FUNCTION.php</p>
-<p>if(!defined(‘sugarEntry’) || !sugarEntry) die(‘Not A Valid Entry Point’);
- require_once(‘custom/modules/YOUR_CUSTOM_MODULE/Custom_Bean.php’);</p>
-<p>class YOUR_CUSTOM_FUNCTION extends SugarApi
- {
- public function registerApiRest()
- {
- return array(
- //GET
- ‘MyGetEndpoint’ =&gt; array(
- //request type
- ‘reqType’ =&gt; ‘GET’,</p>
-<p>//endpoint path
- ‘path’ =&gt; array(‘YOUR_CUSTOM_MODULE’, ‘YOUR_CUSTOM_FUNCTION’, ‘?’),</p>
-<p>//endpoint variables
- ‘pathVars’ =&gt; array(‘’, ‘’, ‘data’),</p>
-<p>//method to call
- ‘method’ =&gt; ‘MyGetMethod’,</p>
-<p>//short help string to be displayed in the help documentation
- ‘shortHelp’ =&gt; ‘Some help text’,</p>
-<p>//long help to be displayed in the help documentation
- //’longHelp’ =&gt; ‘’,
- ),
- );
- }</p>
-<p>/*<em>
- * Method to be used for my MyEndpoint/GetExample endpoint
- </em>/
- public function MyGetMethod($api, $args)
- {
- $id = $args;</p>
-<p>$custom_bean = new Custom_Bean();
- $custom_bean-&gt;retrieve($id);</p>
-<p>return $custom_bean-&gt;getCustomColumnData();
- }</p>
-<p>}</p>
+add your new column in under</p>
+<div class="highlight"><pre><span></span><span class="x">$viewdefs[$modulename][&#39;base&#39;][&#39;view&#39;][&#39;list&#39;][&#39;panels&#39;][0][&#39;fields&#39;]</span>
+
+<span class="x">array (</span>
+<span class="x"> &#39;name&#39; =&gt; &#39;custom_fieldname&#39;,</span>
+<span class="x"> &#39;label&#39; =&gt; &#39;LBL_CUSTOM_RECORD&#39;,</span>
+<span class="x"> &#39;enabled&#39; =&gt; true,</span>
+<span class="x"> &#39;width&#39; =&gt; &#39;10%&#39;,</span>
+<span class="x"> &#39;default&#39; =&gt; true,</span>
+<span class="x"> ),</span>
+<span class="x"> ```</span>
+
+<span class="x">### 2. Add the JS action</span>
+
+<span class="x">This should go into</span>
+<span class="x">custom/modules/YOUR_CUSTOM_MODULE/clients/base/views/recordlist/recordlist.js</span>
+<span class="x">```javascript</span>
+<span class="x">({</span>
+
+<span class="x">this.before(&#39;render&#39;, function() {</span>
+<span class="x"> return this.beforeRenderCallback()</span>
+<span class="x"> }, this);</span>
+<span class="x"> this.on(&#39;render&#39;, function() {</span>
+<span class="x"> this.renderCallback();</span>
+<span class="x"> if (this.previewVisible) {</span>
+<span class="x"> this.decorateRow(this.previewModel);</span>
+<span class="x"> }</span>
+<span class="x"> }, this);</span>
+<span class="x"> this._super(&quot;bindDataChange&quot;);</span>
+<span class="x"> },</span>
+<span class="x"> /**</span>
+<span class="x"> * Callback for before on(&#39;render&#39;) event</span>
+<span class="x"> */</span>
+<span class="x"> this.collection.each(function(model) {</span>
+<span class="x"> app.api.call(&#39;GET&#39;, app.api.buildURL(&#39;YOUR_CUSTOM_MODULE/YOUR_CUSTOM_FUNCTION/&#39;+model.id), null, {</span>
+<span class="x"> model.set({</span>
+<span class="x"> your_custom_field : data</span>
+<span class="x"> });</span>
+<span class="x"> }, this)</span>
+<span class="x"> });</span>
+<span class="x"> }, this);</span>
+<span class="x"> },</span>
+<span class="x"> })</span>
+<span class="x"> ```</span>
+
+<span class="x">### 3. Add the API end point</span>
+
+<span class="x">The documentation here is really straightforward but as an example for</span>
+<span class="x">completeness this should return a json response with the data needed.</span>
+
+<span class="x">This code would go into</span>
+<span class="x">custom/modules/YOUR_CUSTOM_MODULE/clients/base/api/YOUR_CUSTOM_FUNCTION.php</span>
+
+<span class="x">```php</span>
+<span class="x">if(!defined(&#39;sugarEntry&#39;) || !sugarEntry) die(&#39;Not A Valid Entry Point&#39;);</span>
+<span class="x"> require_once(&#39;custom/modules/YOUR_CUSTOM_MODULE/Custom_Bean.php&#39;);</span>
+
+<span class="x">class YOUR_CUSTOM_FUNCTION extends SugarApi</span>
+<span class="x"> {</span>
+<span class="x"> public function registerApiRest()</span>
+<span class="x"> {</span>
+<span class="x"> return array(</span>
+<span class="x"> //GET</span>
+<span class="x"> &#39;MyGetEndpoint&#39; =&gt; array(</span>
+<span class="x"> //request type</span>
+<span class="x"> &#39;reqType&#39; =&gt; &#39;GET&#39;,</span>
+
+<span class="x">//endpoint path</span>
+<span class="x"> &#39;path&#39; =&gt; array(&#39;YOUR_CUSTOM_MODULE&#39;, &#39;YOUR_CUSTOM_FUNCTION&#39;, &#39;?&#39;),</span>
+
+<span class="x">//endpoint variables</span>
+<span class="x"> &#39;pathVars&#39; =&gt; array(&#39;&#39;, &#39;&#39;, &#39;data&#39;),</span>
+
+<span class="x">//method to call</span>
+<span class="x"> &#39;method&#39; =&gt; &#39;MyGetMethod&#39;,</span>
+
+<span class="x">//short help string to be displayed in the help documentation</span>
+<span class="x"> &#39;shortHelp&#39; =&gt; &#39;Some help text&#39;,</span>
+
+<span class="x">//long help to be displayed in the help documentation</span>
+<span class="x"> //&#39;longHelp&#39; =&gt; &#39;&#39;,</span>
+<span class="x"> ),</span>
+<span class="x"> );</span>
+<span class="x"> }</span>
+
+<span class="x">/**</span>
+<span class="x"> * Method to be used for my MyEndpoint/GetExample endpoint</span>
+<span class="x"> */</span>
+<span class="x"> public function MyGetMethod($api, $args)</span>
+<span class="x"> {</span>
+<span class="x"> $id = $args;</span>
+
+<span class="x">$custom_bean = new Custom_Bean();</span>
+<span class="x"> $custom_bean-&gt;retrieve($id);</span>
+
+<span class="x">return $custom_bean-&gt;getCustomColumnData();</span>
+<span class="x"> }</span>
+
+<span class="x">}</span>
+</pre></div>
+
+
 <h3>4. Add to column to the dictionary</h3>
 <p>custom/Extension/modules/YOUR_CUSTOM_MODULE/Ext/Vardefs/sugarfield_custom_fieldname.php</p>
-<p>$dictionary[‘YOUR_CUSTOM_MODULE’][‘fields’][‘custom_fieldname’][‘labelValue’]=’Custom Row ‘;
- $dictionary[‘YOUR_CUSTOM_MODULE’][‘fields’][‘custom_fieldname’][‘full_text_search’]=array (
- ‘boost’ =&gt; ‘0’,
- ‘enabled’ =&gt; false,
- );
- $dictionary[‘YOUR_CUSTOM_MODULE’][‘fields’][‘custom_fieldname’][‘enforced’]=’’;
- $dictionary[‘YOUR_CUSTOM_MODULE’][‘fields’][‘custom_fieldname’][‘dependency’]=’’;
- ?&gt;</p>
+<div class="highlight"><pre><span></span><span class="x">$dictionary[&#39;YOUR_CUSTOM_MODULE&#39;][&#39;fields&#39;][&#39;custom_fieldname&#39;][&#39;labelValue&#39;]=&#39;Custom Row &#39;;</span>
+<span class="x"> $dictionary[&#39;YOUR_CUSTOM_MODULE&#39;][&#39;fields&#39;][&#39;custom_fieldname&#39;][&#39;full_text_search&#39;]=array (</span>
+<span class="x"> &#39;boost&#39; =&gt; &#39;0&#39;,</span>
+<span class="x"> &#39;enabled&#39; =&gt; false,</span>
+<span class="x"> );</span>
+<span class="x"> $dictionary[&#39;YOUR_CUSTOM_MODULE&#39;][&#39;fields&#39;][&#39;custom_fieldname&#39;][&#39;enforced&#39;]=&#39;&#39;;</span>
+<span class="x"> $dictionary[&#39;YOUR_CUSTOM_MODULE&#39;][&#39;fields&#39;][&#39;custom_fieldname&#39;][&#39;dependency&#39;]=&#39;&#39;;</span>
+<span class="x"> ?&gt;</span>
+</pre></div>
+
+
 <p>On quick repair/rebuild this will get merged into
 custom/modules/YOUR_CUSTOM_MODULES/Ext/Vardefs/vardefs.ext.php</p>
 <h3>5. No need to even guess, do a quick repair/rebuild.</h3>

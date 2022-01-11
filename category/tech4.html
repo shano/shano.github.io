@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="../category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="../category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="../category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="../category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="../category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="../category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -55,23 +55,20 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../archlinux-pacman-update-fix-a99b2f157a2c.html">Archlinux Pacman Update Fix</a></h1>
+               <h1><a href="../quick-salt-minion-setup-354516c0ff63.html">Quick Salt Minion Setup</a></h1>
 
-               <p>I’m writing this up as a quick solution to archlinux’s dreaded pacman
-update problem.</p>
-<p>If you have yaourt installed simply update package-query through it and
-update pacman normally.</p>
-<div class="highlight"><pre><span></span>yaourt -S package-query
-pacman -Syu
-</pre></div>
-
-
-<p>Make sure also to delete the SyncFirst option from /etc/pacman.conf</p>
+               <p>I find myself setting up salt minions a LOT. So I figured I'd write down
+the steps in this concise format.</p>
+<h3>On the minion</h3>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:saltstack/salt
+sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install salt-minion
+sudo <span class="nb">echo</span> <span class="s1">&#39; salt&#39;</span> &gt;&gt; /etc/hosts //Or whatever the salt master is
+sudo salt-call -l …</pre></div>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2013-08-25T00:00:00+00:00">Sun 25 August 2013</abbr>
+                       &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
                    </div>
                </div>
 
@@ -84,15 +81,17 @@ pacman -Syu
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../writing-django-tests-for-postgis-9eefe47fd368.html">Writing Django tests for PostGis</a></h1>
+               <h1><a href="../sugarcrm-7-hiding-subpanels-based-on-specific-criteria-eee6aacb95e1.html">SugarCRM 7 — Hiding subpanels based on specific criteria</a></h1>
 
-               <p><img alt="" src="images/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg"></p>
-<p>PostGis is awesome, I think I already established this in <a href="http://shanedowling.com/index.php/postgis/">this post</a>. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you’ve failed to create a proper postgres_template database for your test database to …</p>
+               <p>The new Sugar subpanels look great but they do take up quite a lot
+space, without any ability to remove Subpanels via studio I've had to
+come up with a few ways to hide them.</p>
+<p><strong>Note: Original Props go to Robin Larsson who wrote the</strong> <a href="https://community.sugarcrm.com/sugarcrm/topics/dynamically_hiding_showing_subpanels_based_on_record_values_in_sugar_7"><strong>original</strong></a> <strong>on the Sugar Community …</strong></p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2013-08-24T00:00:00+00:00">Sat 24 August 2013</abbr>
+                       &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
                    </div>
                </div>
 
@@ -105,14 +104,17 @@ pacman -Syu
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../install-nzbget-using-salt-7cc40711adb6.html">Install nzbget using salt</a></h1>
+               <h1><a href="../super-simple-folder-backup-one-liner-de43a969cb0d.html">Super simple folder backup one-liner</a></h1>
 
-               <p>Recently I’ve been using vagrant to configure more and more of the local webapps I’m using day to day, simply as I find sticking all the apps I use on my host machine a little messy. I’ve also been picking up <a href="http://saltstack.com/">salt-stack</a> with salt-states as the provisioner …</p>
+               <p>I needed a simple cron job, that just took backups of my project
+folders, should the worst happen to my laptop. Google brought up nothing
+obvious, so I figured I'd share it here.</p>
+<div class="highlight"><pre><span></span>tar zcvf /tmp/snap.tgz ~/Projects <span class="o">&amp;&amp;</span> rsync /tmp/snap.tgz user@remotebox:/home/backups/snap_<span class="sb">`</span>date +%F …</pre></div>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2013-08-23T00:00:00+00:00">Fri 23 August 2013</abbr>
+                       &mdash; <abbr title="2014-06-06T00:00:00+00:00">Fri 06 June 2014</abbr>
                    </div>
                </div>
 
@@ -125,16 +127,16 @@ pacman -Syu
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../octopress-back-to-wordpress-6740efc31eb9.html">Octopress back to Wordpress</a></h1>
+               <h1><a href="../sugarcrm-7-adding-a-custom-column-to-a-list-1370ce1fbdb2.html">SugarCRM 7 — Adding a custom column to a list</a></h1>
 
-               <p>I’ve been using <a href="http://octopress.org/">Octopress</a> for the last while
-and it felt good having a nice fast static blog as opposed to heavy-old
-<a href="https://wordpress.com/">Wordpress</a>. After time passed however, I noticed I wrote less. Having to grab my laptop and pull up vim to write something, then play around with git …</p>
+               <p>This is the SugarCRM 7 equivalent to this post <a href="https://medium.com/shanes-tech-tips/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1">here</a>, because Sugar has dropped the process record logic hook, we need to come up with a new solution.</p>
+<p>Here's how you can add a new column to a list view, I have to admit this
+is one of the really …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2013-08-22T00:00:00+00:00">Thu 22 August 2013</abbr>
+                       &mdash; <abbr title="2014-05-22T00:00:00+00:00">Thu 22 May 2014</abbr>
                    </div>
                </div>
 

@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-06-26T00:00:00+00:00">Thu 26 June 2014</abbr>
@@ -64,50 +64,56 @@
     </div>
 
     <div class="entry-content">
-        <p>If you’ve ever had to try unit test code that’s dependent on external
-services, you’ll know the pain of trying to mock-up fake API requests by
-hand. It’s painful to setup and painful to maintain, this little
+        <p>If you've ever had to try unit test code that's dependent on external
+services, you'll know the pain of trying to mock-up fake API requests by
+hand. It's painful to setup and painful to maintain, this little
 tutorial attempts to make the whole process as easy as possible.</p>
 <h3><strong>Step 1:</strong> Capturing a live set of API requests.</h3>
-<p>So firstly download and install <a href="http://www.charlesproxy.com/">Charles Web Proxy</a>. Here’s a good description of what Charles can do from their site .</p>
-<p>Charles is an HTTP proxy / HTTP monitor / Reverse Proxy that enables
- a developer to view all of the HTTP and SSL / HTTPS traffic between
- their machine and the Internet. This includes requests, responses
- and the HTTP headers (which contain the cookies and caching
- information).</p>
-<p>We’re going to use Charles to capture an initial set of tests, then save
+<p>So firstly download and install <a href="http://www.charlesproxy.com/">Charles Web Proxy</a>. Here's a good description of what Charles can do from their site.</p>
+<p>Charles is an HTTP proxy / HTTP monitor / Reverse Proxy that enables a developer to view all of the HTTP and SSL / HTTPS traffic between their machine and the Internet. This includes requests, responses and the HTTP headers (which contain the cookies and caching information).</p>
+<p>We're going to use Charles to capture an initial set of tests, then save
 the RAW responses as files that will then be used to supply our mock
 data to guzzle. So once you got Charles running with a proxy running on
 port 8888, run an api call like so.</p>
-<p>require ‘vendor/autoload.php’;
- use GuzzleHttp\Client;
- use GuzzleHttp\Subscriber\Mock;</p>
-<p>$client = new Client([
- ‘base_url’ =&gt; [‘https://api.github.com/repos/guzzle/guzzle/commits?per_page=5', []],
- ‘defaults’ =&gt; [
- ‘proxy’ =&gt; ‘http://localhost:8888'
- ]
- ]);
- $req = $client-&gt;get();</p>
-<p>echo $req-&gt;getBody();</p>
-<p>bit of setup `here `__.
-When you get a response from this call, view it in Charles under Raw and</p>
+<div class="highlight"><pre><span></span><span class="x">require &#39;vendor/autoload.php&#39;;</span>
+<span class="x"> use GuzzleHttp\\Client;</span>
+<span class="x"> use GuzzleHttp\\Subscriber\\Mock;</span>
+
+<span class="x">$client = new Client([</span>
+<span class="x"> &#39;base_url&#39; =&gt; [&#39;https://api.github.com/repos/guzzle/guzzle/commits?per_page=5&#39;, []],</span>
+<span class="x"> &#39;defaults&#39; =&gt; [</span>
+<span class="x"> &#39;proxy&#39; =&gt; &#39;http://localhost:8888&#39;</span>
+<span class="x"> ]</span>
+<span class="x"> ]);</span>
+<span class="x"> $req = $client-&gt;get();</span>
+
+<span class="x">echo $req-&gt;getBody();</span>
+</pre></div>
+
+
+<p>When you get a response from this call, view it in Charles under Raw and</p>
 <p><img alt="" src="images/1__V4RK2MMCaBvV__euQFzoZvw.png"></p>
 <p>Save this text(including the http headers) as a new file. This is going
-to be your new mock response that’s going to override Guzzle’s regular
+to be your new mock response that's going to override Guzzle's regular
 response.</p>
 <h3>Step 2: Injecting Mock Objects into Guzzle.</h3>
 <p>This is some sample code to do the injection.</p>
-<p>require ‘vendor/autoload.php’;
- use GuzzleHttp\Client;
- use GuzzleHttp\Subscriber\Mock;</p>
-<p>$client = new Client();</p>
-<p>$mock = new Mock();
- $mock-&gt;addResponse(<strong>DIR</strong>.’/mockresponses/your_raw_file’);</p>
-<p>$client-&gt;getEmitter()-&gt;attach($mock); // This is the key line, attaching the mock file response to your client.
- $response = $client-&gt;get();
- echo $response-&gt;getBody();</p>
-<p>Hopefully if you’re using some sort of dependency injection to supply
+<div class="highlight"><pre><span></span><span class="x">require &#39;vendor/autoload.php&#39;;</span>
+<span class="x"> use GuzzleHttp\\Client;</span>
+<span class="x"> use GuzzleHttp\\Subscriber\\Mock;</span>
+
+<span class="x">$client = new Client();</span>
+
+<span class="x">$mock = new Mock();</span>
+<span class="x"> $mock-&gt;addResponse(__DIR__.&#39;/mockresponses/your_raw_file&#39;);</span>
+
+<span class="x">$client-&gt;getEmitter()-&gt;attach($mock); // This is the key line, attaching the mock file response to your client.</span>
+<span class="x"> $response = $client-&gt;get();</span>
+<span class="x"> echo $response-&gt;getBody();</span>
+</pre></div>
+
+
+<p>Hopefully if you're using some sort of dependency injection to supply
 the guzzle library to your client code, you can easily
 over-ride the client calls with your mock responses by attaching the
 emitter, then make stable assertions about the state of your client. All

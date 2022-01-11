@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Getting yourself on Trinity’s Wireless network with Linux</title>
+        <title>Getting yourself on Trinity's Wireless network with Linux</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -57,17 +57,17 @@
 
             <div class="background-image-small">
                 <div class="title-container">
-                    <h1>Getting yourself on Trinity’s Wireless network with Linux</h1>
+                    <h1>Getting yourself on Trinity's Wireless network with Linux</h1>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="entry-content">
-        <p>Since ISServices have washed their hands of any support for Linux, I’ve
-banged up a guide on how to get onto it with Linux. I’m using Ubuntu so
+        <p>Since ISServices have washed their hands of any support for Linux, I've
+banged up a guide on how to get onto it with Linux. I'm using Ubuntu so
 things may need to be changed depending on your distro. :D Right, you
-need wpa_supplicant installed and modify it’s config file
+need wpa_supplicant installed and modify it's config file
 /etc/wpa_supplicant.conf</p>
 <div class="highlight"><pre><span></span>    <span class="nv">ctrl_interface</span><span class="o">=</span>/var/run/wpa_supplicant
     <span class="nv">ctrl_interface_group</span><span class="o">=</span><span class="m">0</span>
@@ -75,19 +75,19 @@ need wpa_supplicant installed and modify it’s config file
     <span class="nv">ap_scan</span><span class="o">=</span><span class="m">1</span>
     <span class="nv">fast_reauth</span><span class="o">=</span><span class="m">1</span>
     <span class="nv">network</span><span class="o">={</span>
-        <span class="nv">ssid</span><span class="o">=</span>”TCDwifi”
+        <span class="nv">ssid</span><span class="o">=</span><span class="s2">&quot;TCDwifi&quot;</span>
         <span class="nv">scan_ssid</span><span class="o">=</span><span class="m">1</span>
         <span class="nv">key_mgmt</span><span class="o">=</span>IEEE8021X
         <span class="nv">eap</span><span class="o">=</span>LEAP
-        <span class="nv">identity</span><span class="o">=</span>”username”
-        <span class="nv">password</span><span class="o">=</span>”password”
-        <span class="nv">phase2</span><span class="o">=</span>”MSCHAPV2<span class="s2">&quot;</span>
-<span class="s2">    }</span>
+        <span class="nv">identity</span><span class="o">=</span><span class="s2">&quot;username&quot;</span>
+        <span class="nv">password</span><span class="o">=</span><span class="s2">&quot;password&quot;</span>
+        <span class="nv">phase2</span><span class="o">=</span><span class="s2">&quot;MSCHAPV2&quot;</span>
+    <span class="o">}</span>
 </pre></div>
 
 
-<p>If you’re in Computer Science you can also use COMPSCIwireless2 and
-there’s no MAC address filtering so no stupid registering stuff. Place
+<p>If you're in Computer Science you can also use COMPSCIwireless2 and
+there's no MAC address filtering so no stupid registering stuff. Place
 this in your /etc/network/interfaces if its not already there so you can
 dhcp over your wireless card.</p>
 <div class="highlight"><pre><span></span>    auto eth1
@@ -96,18 +96,18 @@ dhcp over your wireless card.</p>
 
 
 <p>And finally all of this stuff into a script, say tcd.sh</p>
-<div class="highlight"><pre><span></span>    <span class="nb">echo</span> “Putting the wifi card up and down”
+<div class="highlight"><pre><span></span>    <span class="nb">echo</span> <span class="s2">&quot;Putting the wifi card up and down&quot;</span>
     sudo ifconfig eth1 down
     sudo ifconfig eth1 up
     sleep <span class="m">3</span>
-    <span class="nb">echo</span> “Killing all necessary stuff”
+    <span class="nb">echo</span> <span class="s2">&quot;Killing all necessary stuff&quot;</span>
     sudo killall dhclient dhclient3
     sudo killall wpa_supplicant
     sleep <span class="m">3</span>
-    <span class="nb">echo</span> “Setting up WPA”
+    <span class="nb">echo</span> <span class="s2">&quot;Setting up WPA&quot;</span>
     sudo wpa_supplicant -B -ieth1 -Dwext -c/etc/wpa_supplicant.conf
     sleep <span class="m">3</span>
-    <span class="nb">echo</span> “Connecting to wireless”
+    <span class="nb">echo</span> <span class="s2">&quot;Connecting to wireless&quot;</span>
     sudo iwconfig eth1 essid TCDwifi
     sleep <span class="m">3</span>
     sudo dhclient eth1
@@ -118,7 +118,7 @@ dhcp over your wireless card.</p>
 sometimes, this seems to be due to the wireless networks being hidden.
 If you want add this to the start of your script. iwlist scanning \|
 grep TCDwifi and if you see a few TCDwifi access points coming up you
-“should” be ok and it will connect alright, otherwise cancel the script
+"should" be ok and it will connect alright, otherwise cancel the script
 and give it another go. The wifi card should pick up the access points
 now… hopefully</p>
     </div>

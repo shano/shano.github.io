@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Verify you’re hidden with conky</title>
+        <title>Verify you're hidden with conky</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -57,7 +57,7 @@
 
             <div class="background-image-small">
                 <div class="title-container">
-                    <h1>Verify you’re hidden with conky</h1>
+                    <h1>Verify you're hidden with conky</h1>
                 </div>
             </div>
         </div>
@@ -66,32 +66,32 @@
     <div class="entry-content">
         <p><img alt="" src="images/1__1JMMamsmo6ZschEvlANcLg.png"></p>
 <p>I run a few scripts to ensure my identity stays hidden day to day on my
-laptop. Here’s a few conky scripts to verify things are as they should
+laptop. Here's a few conky scripts to verify things are as they should
 be.</p>
 <h3>VPN</h3>
-<p>Because I don’t always know my ip or what my VPN’s ip is, I wanted conky
+<p>Because I don't always know my ip or what my VPN's ip is, I wanted conky
 to display the location I currently appear at from my VPN. If the
-location was the same as where I physically am, something’s gone wrong.
+location was the same as where I physically am, something's gone wrong.
 To implement this, I wrote a python script and using ipinfo.io grab my
 location and print it to conky.</p>
-<p>Here’s the script I use to pull my location.</p>
+<p>Here's the script I use to pull my location.</p>
 <p>import requests
 def main():
  headers = {
- ‘User-Agent’: ‘curl/7.9.8 (i686-pc-linux-gnu) libcurl 7.9.8 (OpenSSL 0.9.6b) (ipv6 enabled)’
+ 'User-Agent': 'curl/7.9.8 (i686-pc-linux-gnu) libcurl 7.9.8 (OpenSSL 0.9.6b) (ipv6 enabled)'
  }
- r = requests.get(‘http://ipinfo.io', headers=headers)
+ r = requests.get('http://ipinfo.io', headers=headers)
  ipdata = r.json()
- print(ipdata[‘city’] + ‘, ‘ + ipdata[‘region’] + ‘, ‘ + ipdata[‘country’])</p>
-<p>if <strong>name</strong> == “<strong>main</strong>”:
+ print(ipdata['city'] + ', ' + ipdata['region'] + ', ' + ipdata['country'])</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
  main()</p>
-<p>And here’s the conky configuration I use to call it.</p>
+<p>And here's the conky configuration I use to call it.</p>
 <p>${goto 40}Location: ${execpi 600 python ~/scripts/conky/location.py}</p>
 <p><a href="http://dnsleaktest.com">http://dnsleaktest.com</a> for an example of how it can be circumvented.</p>
 <h3>Mac Address</h3>
 <p>For my mac address I wanted to be able to see my wifi adaptors physical
 address and what it should be spoofed to. If the two are the same,
-something’s else has gone wrong.</p>
+something's else has gone wrong.</p>
 <p>${if_existing /proc/net/route wlan0}
  ${goto 40}${execpi 600 ethtool -P wlan0}
  ${endif}</p>

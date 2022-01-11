@@ -24,10 +24,10 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
@@ -44,7 +44,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
@@ -65,24 +65,22 @@
 
     <div class="entry-content">
         <p>The new Sugar subpanels look great but they do take up quite a lot
-space, without any ability to remove Subpanels via studio I’ve had to
+space, without any ability to remove Subpanels via studio I've had to
 come up with a few ways to hide them.</p>
 <p><strong>Note: Original Props go to Robin Larsson who wrote the</strong> <a href="https://community.sugarcrm.com/sugarcrm/topics/dynamically_hiding_showing_subpanels_based_on_record_values_in_sugar_7"><strong>original</strong></a> <strong>on the Sugar Community.</strong></p>
-<p>What Robin’s code does is essentially hide fields based on a specific
-value within a record, I didn’t really need that ability much so I’ve
-altered his code based on use cases I’ve come across.</p>
+<p>What Robin's code does is essentially hide fields based on a specific
+value within a record, I didn't really need that ability much so I've
+altered his code based on use cases I've come across.</p>
 <ol>
-<li>The related type, meaning hide all subpanels of say type Account or
-     Contact</li>
-<li>The relationship name, so if you want to hide a related module by a
-     specific relationship. For example accounts\_contacts</li>
-<li>If a specific relationship has no related records. So say if an
-     account has no contacts, hide that subpanel.</li>
+<li>The related type, meaning hide all subpanels of say type Account or Contact</li>
+<li>The relationship name, so if you want to hide a related module by a specific relationship. For example accounts_contacts</li>
+<li>If a specific relationship has no related records. So say if an account has no contacts, hide that subpanel.</li>
 </ol>
 <p>Place this code in
 custom/modules/<YOUR_MODULE>/clients/base/layouts/subpanels/subpanels.js and
-simply populate the hide_variables with whatever you wish to hide!</p>
-<p>({</p>
+simply populate the hide_variables with whatever you wish to hide!
+```javascript
+({</p>
 <p>},
  /*<em>
  * Show the subpanel for the given linkName and hide all others
@@ -91,22 +89,22 @@ simply populate the hide_variables with whatever you wish to hide!</p>
  var self = this,
  //this.layout is the filter layout which subpanels is child of; we
  //use it here as it has a last_state key in its meta
- cacheKey = app.user.lastState.key(‘subpanels-last’, this.layout);</p>
+ cacheKey = app.user.lastState.key('subpanels-last', this.layout);</p>
 <p>// wait for the model to load
- self.model.on(“change”, function () {</p>
+ self.model.on("change", function () {</p>
 <p>if (linkName) {
  app.user.lastState.set(cacheKey, linkName);
  }</p>
 <p>_.each(self._components, function (component) {
  var hide_subpanel = self._checkIfHideSubpanel(component.module.toLowerCase(), component.collection);</p>
-<p>var link = component.context.get(‘link’);
+<p>var link = component.context.get('link');
  if (!hide_subpanel &amp;&amp;
  ( !linkName || linkName === link )) {
- component.context.set(“hidden”, false);
+ component.context.set("hidden", false);
  component.show();
  }
  else {
- component.context.set(“hidden”, true);
+ component.context.set("hidden", true);
  component.hide();
  }
  });
@@ -131,7 +129,8 @@ simply populate the hide_variables with whatever you wish to hide!</p>
  }</p>
 <p>return hide_subpanel;
  },
- })</p>
+ })
+ ```</p>
     </div>
 
     <footer>

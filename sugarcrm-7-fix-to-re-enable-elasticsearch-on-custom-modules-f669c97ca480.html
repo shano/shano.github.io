@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -66,7 +66,7 @@
     <div class="entry-content">
         <p><img alt="" src="images/1__HOS9Snvhcd__NSa6OnO__ksQ.png"></p>
 <p>I had an issue in Sugar where some custom modules refused to appear in
-the Global Search settings, meaning I couldn’t index them in
+the Global Search settings, meaning I couldn't index them in
 ElasticSearch.</p>
 <p>When I checked the module oddly enough unified search would be enabled:</p>
 <p>modules/<MODULE>/vardefs.php</p>
@@ -74,12 +74,12 @@ ElasticSearch.</p>
 <p>To force it to be re-enabled update/create this file</p>
 <p>custom/Extension/modules/<MODULE>/Ext/Vardefs/vardefs.php</p>
 <p>and add this setting.</p>
-<p>$dictionary[‘<MODULE>’][‘unified_search’] = true;</p>
+<p>$dictionary['<MODULE>']['unified_search'] = true;</p>
 <h3>2. Re-enable a field</h3>
-<p>You’ll also need a field using the unified index before SugarCRM</p>
+<p>You'll also need a field using the unified index before SugarCRM</p>
 <p>custom/Extension/modules/<MODULE>/Ext/Vardefs/sugarfield_name.php</p>
 <p>Enable unfied_search as a setting.</p>
-<p>$dictionary[‘<MODULE>’][‘fields’][‘name’][‘unified_search’]=true;</p>
+<p>$dictionary['<MODULE>']['fields']['name']['unified_search']=true;</p>
 <p>After a quick repair/rebuild. My module appears in the Global Search
 Settings and I can poll it as normal through ElasticSearch.</p>
     </div>

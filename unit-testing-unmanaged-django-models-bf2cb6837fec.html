@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -64,8 +64,8 @@
     </div>
 
     <div class="entry-content">
-        <p>Say you have an app with a set of models that aren’t being managed by
-Django, you’re going to run into trouble when it comes time to run
+        <p>Say you have an app with a set of models that aren't being managed by
+Django, you're going to run into trouble when it comes time to run
 unit-tests against these. What I mean is if in the model meta you have
 something like this</p>
 <div class="highlight"><pre><span></span> <span class="n">app_label</span> <span class="o">=</span> <span class="s1">&#39;your_app_label&#39;</span>
@@ -76,18 +76,18 @@ something like this</p>
 
 <p>If you run unit-tests against these models the trouble occurs because
 django will ignore this model when creating tables in the test database
-and you’ll get a relation not defined error for ‘your_table_name’. The
+and you'll get a relation not defined error for 'your_table_name'. The
 solution to this is to create an app specific TestRunner that will
 over-ride this setting and temporarily allow Django to manage your
 models, just for testing purposes.</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.test.simple</span> <span class="kn">import</span> <span class="n">DjangoTestSuiteRunner</span>
 
 <span class="k">class</span> <span class="nc">ManagedModelTestRunner</span><span class="p">(</span><span class="n">DjangoTestSuiteRunner</span><span class="p">):</span>
- <span class="err">“””</span>
- <span class="n">Test</span> <span class="n">runner</span> <span class="n">that</span> <span class="n">automatically</span> <span class="n">makes</span> <span class="nb">all</span> <span class="n">unmanaged</span> <span class="n">models</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">Django</span>
- <span class="n">project</span> <span class="n">managed</span> <span class="k">for</span> <span class="n">the</span> <span class="n">duration</span> <span class="n">of</span> <span class="n">the</span> <span class="n">test</span> <span class="n">run</span><span class="p">,</span> <span class="n">so</span> <span class="n">that</span> <span class="n">one</span> <span class="n">doesn</span><span class="err">’</span><span class="n">t</span> <span class="n">need</span>
- <span class="n">to</span> <span class="n">execute</span> <span class="n">the</span> <span class="n">SQL</span> <span class="n">manually</span> <span class="n">to</span> <span class="n">create</span> <span class="n">them</span><span class="o">.</span>
- <span class="err">“””</span>
+ <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Test runner that automatically makes all unmanaged models in your Django</span>
+<span class="sd"> project managed for the duration of the test run, so that one doesn&#39;t need</span>
+<span class="sd"> to execute the SQL manually to create them.</span>
+<span class="sd"> &quot;&quot;&quot;</span>
  <span class="k">def</span> <span class="nf">setup_test_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="kn">from</span> <span class="nn">django.db.models.loading</span> <span class="kn">import</span> <span class="n">get_models</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">unmanaged_models</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">get_models</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">managed</span> <span class="ow">and</span> <span class="n">m</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">app_label</span> <span class="ow">is</span> <span class="s1">&#39;your_app_label&#39;</span><span class="p">]</span>
@@ -102,13 +102,13 @@ models, just for testing purposes.</p>
 </pre></div>
 
 
-<p>This code was lovingly taken from <a href="http://www.caktusgroup.com/blog/2010/09/24/simplifying-the-testing-of-unmanaged-database-models-in-django/">here</a> and extending very slightly to only include models that exist under the my_app_label app. I don’t want my app’s test to go fudging around with others, unless it’s needed.</p>
+<p>This code was lovingly taken from <a href="http://www.caktusgroup.com/blog/2010/09/24/simplifying-the-testing-of-unmanaged-database-models-in-django/">here</a> and extending very slightly to only include models that exist under the my_app_label app. I don't want my app's test to go fudging around with others, unless it's needed.</p>
 <p>To then run tests with this testrunner, create a test_settings.py that
 looks something like this. This which basically tells Django to import
 your existing settings but to use your newly created TestRunner</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">settings</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="n">TEST_RUNNER</span> <span class="o">=</span> <span class="err">‘</span><span class="n">your_app_label</span><span class="o">.</span><span class="n">scripts</span><span class="o">.</span><span class="n">testrunner</span><span class="o">.</span><span class="n">ManagedModelTestRunner</span><span class="err">’</span>
+<span class="n">TEST_RUNNER</span> <span class="o">=</span> <span class="s1">&#39;your_app_label.scripts.testrunner.ManagedModelTestRunner&#39;</span>
 </pre></div>
 
 

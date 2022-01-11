@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -65,10 +65,10 @@
 
     <div class="entry-content">
         <p>from cities.models import City
- cape_town = City.objects.filter(country__name=’South Africa’).get(name=’Cape Town’)
- nearest = City.objects.distance(cape_town.location).exclude(id=cape_town.id).order_by(‘distance’)[:10000]</p>
-<p>I must be very damaged from location data being badly implemented in MySQL. I’m still amazed that this request could be under a second, let alone be pretty much instant. <a href="http://postgis.net/">Postgis</a> is basically the coolest thing ever.</p>
-<p>Oh and in case you were curious(which you weren’t), <a href="https://en.wikipedia.org/wiki/Rocca_di_Papa">this place</a> is in terms of
+ cape_town = City.objects.filter(country__name='South Africa').get(name='Cape Town')
+ nearest = City.objects.distance(cape_town.location).exclude(id=cape_town.id).order_by('distance')[:10000]</p>
+<p>I must be very damaged from location data being badly implemented in MySQL. I'm still amazed that this request could be under a second, let alone be pretty much instant. <a href="http://postgis.net/">Postgis</a> is basically the coolest thing ever.</p>
+<p>Oh and in case you were curious(which you weren't), <a href="https://en.wikipedia.org/wiki/Rocca_di_Papa">this place</a> is in terms of
 distance the 10000th closest place to Cape Town.</p>
     </div>
 

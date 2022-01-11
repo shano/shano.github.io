@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -65,23 +65,23 @@
 
     <div class="entry-content">
         <p>Recently while implementing the <a href="http://rosalind.info/problems/ba7f/">Small Parsimony Problem</a> I had the need to generate a binary tree from a string in Python.</p>
-<p>The pseudo-code in the question implicitly assumes you have some functionality that will generate a DNA sequence like CAAATCCC into a binary tree, then run SmallParsimony on it. I couldn’t find that functionality anywhere, so I decided to implement something simple in networkx. Hopefully it’s useful.</p>
+<p>The pseudo-code in the question implicitly assumes you have some functionality that will generate a DNA sequence like CAAATCCC into a binary tree, then run SmallParsimony on it. I couldn't find that functionality anywhere, so I decided to implement something simple in networkx. Hopefully it's useful.</p>
 <h1>!/usr/bin/env python</h1>
-<p>“””
+<p>"""
  Shane Dowling, 27 Oct 2015
  To run simply call generate_leaf_graph and pass in s string.
- “””
+ """
 def count_predecessors(T):
  pred = 0
  for v in T.nodes():
  pred += 1
  return pred</p>
 <p>def generate_leaf_graph(s):
- “””
+ """
  Will generate a leaf graph and return it along
  with the Character dictionary representing the characters
  at each leaf node position
- “””
+ """
  T = nx.DiGraph()
  Character = {}
  i = 0

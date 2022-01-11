@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -64,29 +64,29 @@
     </div>
 
     <div class="entry-content">
-        <p><a href="https://github.com/coderholic/django-cities">Django-Cities</a>, is an awesome project that supplies easy to import worldwide location data and a set of very neat location models that you should really be using for any django project needing location information. I’ve been using it lately but ran into problems when I tried to run unit tests that made use of the django-cities app.</p>
-<p>As django-cities populates a load of data via it’s import command it can
+        <p><a href="https://github.com/coderholic/django-cities">Django-Cities</a>, is an awesome project that supplies easy to import worldwide location data and a set of very neat location models that you should really be using for any django project needing location information. I've been using it lately but ran into problems when I tried to run unit tests that made use of the django-cities app.</p>
+<p>As django-cities populates a load of data via it's import command it can
 take a long time(over an hour) before a test database with all the data
 could be created. So I needed a stop-gap solution to quickly get a
 workable dataset up and running for a few small unit tests.</p>
 <p>I find fixtures problematic, data may change over time and maintaining a
 bunch of JSON files to represent a few simple locations can be a pain.
-So here’s a very quick example of how I use the ORM to populate a single
+So here's a very quick example of how I use the ORM to populate a single
 location hierarchy for your tests.py.</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-  <span class="bp">self</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">Country</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="err">”</span><span class="n">United</span> <span class="n">Kingdom</span><span class="err">”</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="err">’</span><span class="n">UK</span><span class="err">’</span><span class="p">,</span> <span class="n">tld</span><span class="o">=</span><span class="err">’</span><span class="n">co</span><span class="o">.</span><span class="n">uk</span><span class="err">’</span><span class="p">,</span> <span class="n">population</span> <span class="o">=</span> <span class="mi">62740000</span><span class="p">)</span>
+  <span class="bp">self</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">Country</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;United Kingdom&quot;</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="n">tld</span><span class="o">=</span><span class="s1">&#39;co.uk&#39;</span><span class="p">,</span> <span class="n">population</span> <span class="o">=</span> <span class="mi">62740000</span><span class="p">)</span>
  <span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 
-  <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="n">Region</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="err">“</span><span class="n">London</span><span class="err">”</span><span class="p">,</span> <span class="n">name_std</span><span class="o">=</span><span class="err">”</span><span class="n">London</span><span class="err">”</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="err">”</span><span class="n">LDN</span><span class="err">”</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="p">)</span>
+  <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="n">Region</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;London&quot;</span><span class="p">,</span> <span class="n">name_std</span><span class="o">=</span><span class="s2">&quot;London&quot;</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="s2">&quot;LDN&quot;</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="p">)</span>
  <span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 
-  <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">City</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="err">’</span><span class="n">Camden</span><span class="err">’</span><span class="p">,</span> <span class="n">name_std</span><span class="o">=</span><span class="err">’</span><span class="n">Camden</span><span class="err">’</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="p">,</span> <span class="n">population</span> <span class="o">=</span> <span class="mi">8174000</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="err">’</span><span class="n">POINT</span> <span class="p">(</span><span class="mi">3400000</span> <span class="mi">6700010</span><span class="p">)</span><span class="err">’</span><span class="p">)</span>
+  <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">City</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Camden&#39;</span><span class="p">,</span> <span class="n">name_std</span><span class="o">=</span><span class="s1">&#39;Camden&#39;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="p">,</span> <span class="n">population</span> <span class="o">=</span> <span class="mi">8174000</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;POINT (3400000 6700010)&#39;</span><span class="p">)</span>
    <span class="bp">self</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 
 
-<p>The city POINT location is totally random, I’ll start populating real
+<p>The city POINT location is totally random, I'll start populating real
 location values when I need distance based tests.</p>
     </div>
 

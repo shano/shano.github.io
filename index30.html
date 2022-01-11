@@ -23,7 +23,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -51,35 +51,12 @@
                         <a href="./category/tech.html" class="category">Tech</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2013-08-31T00:00:00+00:00">Sat 31 August 2013</abbr>
-                    </div>
-                </div>
-                <h2><a href="./unit-testing-unmanaged-django-models-bf2cb6837fec.html" rel="bookmark" title="Permalink to Unit-testing unmanaged Django models">Unit-testing unmanaged Django models</a></h2>
-                <div class="post-content">
-                    <p>Say you have an app with a set of models that aren’t being managed by
-Django, you’re going to run into trouble when it comes time to run
-unit-tests against these. What I mean is if in the model meta you have
-something like this</p>
-<div class="highlight"><pre><span></span> <span class="n">app_label</span> <span class="o">=</span> <span class="s1">&#39;your …</span></pre></div>
-                </div>
-                <div class="post-footer">
-                    <a href="./unit-testing-unmanaged-django-models-bf2cb6837fec.html">Read more</a>
-                </div>
-            </div>
-            <div class="post">
-                <div class="post-meta pure-g">
-
-
-                    <div class="pure-u-3-4 meta-data">
-                        <a href="./category/tech.html" class="category">Tech</a><br />
-
-                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                         &mdash; <abbr title="2013-08-29T00:00:00+00:00">Thu 29 August 2013</abbr>
                     </div>
                 </div>
                 <h2><a href="./suppling-test-data-to-django-cities-6afd013f671d.html" rel="bookmark" title="Permalink to Suppling test data to django-cities">Suppling test data to django-cities</a></h2>
                 <div class="post-content">
-                    <p><a href="https://github.com/coderholic/django-cities">Django-Cities</a>, is an awesome project that supplies easy to import worldwide location data and a set of very neat location models that you should really be using for any django project needing location information. I’ve been using it lately but ran into problems when I tried to run unit …</p>
+                    <p><a href="https://github.com/coderholic/django-cities">Django-Cities</a>, is an awesome project that supplies easy to import worldwide location data and a set of very neat location models that you should really be using for any django project needing location information. I've been using it lately but ran into problems when I tried to run unit tests …</p>
                 </div>
                 <div class="post-footer">
                     <a href="./suppling-test-data-to-django-cities-6afd013f671d.html">Read more</a>
@@ -98,7 +75,7 @@ something like this</p>
                 </div>
                 <h2><a href="./archlinux-pacman-update-fix-a99b2f157a2c.html" rel="bookmark" title="Permalink to Archlinux Pacman Update Fix">Archlinux Pacman Update Fix</a></h2>
                 <div class="post-content">
-                    <p>I’m writing this up as a quick solution to archlinux’s dreaded pacman
+                    <p>I'm writing this up as a quick solution to archlinux's dreaded pacman
 update problem.</p>
 <p>If you have yaourt installed simply update package-query through it and
 update pacman normally.</p>
@@ -127,10 +104,29 @@ pacman -Syu
                 <h2><a href="./writing-django-tests-for-postgis-9eefe47fd368.html" rel="bookmark" title="Permalink to Writing Django tests for PostGis">Writing Django tests for PostGis</a></h2>
                 <div class="post-content">
                     <p><img alt="" src="images/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg"></p>
-<p>PostGis is awesome, I think I already established this in <a href="http://shanedowling.com/index.php/postgis/">this post</a>. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you’ve failed to create a proper postgres_template database for your test database to …</p>
+<p>PostGis is awesome, I think I already established this in <a href="http://shanedowling.com/index.php/postgis/">this post</a>. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you've failed to create a proper postgres_template database for your test database to work …</p>
                 </div>
                 <div class="post-footer">
                     <a href="./writing-django-tests-for-postgis-9eefe47fd368.html">Read more</a>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-meta pure-g">
+
+
+                    <div class="pure-u-3-4 meta-data">
+                        <a href="./category/tech.html" class="category">Tech</a><br />
+
+                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                        &mdash; <abbr title="2013-08-23T00:00:00+00:00">Fri 23 August 2013</abbr>
+                    </div>
+                </div>
+                <h2><a href="./install-nzbget-using-salt-7cc40711adb6.html" rel="bookmark" title="Permalink to Install nzbget using salt">Install nzbget using salt</a></h2>
+                <div class="post-content">
+                    <p>Recently I've been using vagrant to configure more and more of the local webapps I'm using day to day, simply as I find sticking all the apps I use on my host machine a little messy. I've also been picking up <a href="http://saltstack.com/">salt-stack</a> with salt-states as the provisioner as I personally …</p>
+                </div>
+                <div class="post-footer">
+                    <a href="./install-nzbget-using-salt-7cc40711adb6.html">Read more</a>
                 </div>
             </div>
 
@@ -150,7 +146,7 @@ pacman -Syu
                 <a href="./" title="Shane Dowling">Shane Dowling</a>
                 <a href="./category/til.html">TIL</a>
                 <a href="./category/tech.html">Tech</a>
-                <a href="./category/random.html">random</a>
+                <a href="./category/random.html">Random</a>
                 <a href="./category/productivity.html">Productivity</a>
                 <a href="./category/posts.html">posts</a>
                 <a href="./category/mindfulness.html">Mindfulness</a>

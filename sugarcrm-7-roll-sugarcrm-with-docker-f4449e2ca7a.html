@@ -25,7 +25,7 @@
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
                         <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">random</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
@@ -72,9 +72,9 @@ that implement the latest/greatest versions of PHP. Running multiple PHP
 versions simultaneously can be a pain. One solution is to use Vagrant
 but I find that too heavy for my needs, so I gave docker a go and found
 it a much faster/elegant solution.</p>
-<p>Here’s the steps to get yourself up and running.</p>
+<p>Here's the steps to get yourself up and running.</p>
 <h3>1. MySQL</h3>
-<p>You’ll need your own installation of MySQL for this. As I use Debian
+<p>You'll need your own installation of MySQL for this. As I use Debian
 testing as a host I just installed MySQL on it and have my SugarCRM
 boxes point to the host using the dockerhost entry in /etc/hosts on each
 docker container.</p>
@@ -90,7 +90,7 @@ Sugar-Docker 7.5 is <a href="https://github.com/shano/docker-sugarcrm-75">here</
 <h3>3. Fill in Docker settings</h3>
 <p>run.sh</p>
 <p>Edit this script and change the containers ip to whatever your hosts ip
-is. Don’t forget to set the folder to your SugarCRM code folder.</p>
+is. Don't forget to set the folder to your SugarCRM code folder.</p>
 <p>files/vhost.conf</p>
 <p>Change settings here if you wish to use a custom url to access Sugar or
 if you have multiple instances of SugarCRM installed.</p>
@@ -103,7 +103,7 @@ if you have multiple instances of SugarCRM installed.</p>
 url to the box. For me, in my /etc/hosts I have this entry.</p>
 <p>127.0.0.1 sugar.dev</p>
 <h3>Debugging</h3>
-<p>Because I’ve used stdout for logs you can see apache errors by running a
+<p>Because I've used stdout for logs you can see apache errors by running a
 command like this.</p>
 <p>sudo docker logs -f sugarcrm72</p>
     </div>
