@@ -29,6 +29,7 @@
                         <li class="main-nav-item"><a href="../category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="../category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="../category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="../category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="../category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -55,27 +56,15 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../quick-vhost-script-6bdb6138fc10.html">Quick vhost script</a></h1>
+               <h1><a href="../sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1.html">SugarCRM — Add a code-driven column to a list</a></h1>
 
-               <p>Quick script to setup a new virtualhost entry for apache. Works for me
-on archlinux.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
- <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">subprocess</span>
-
-<span class="n">vhosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/httpd/conf/extra/httpd-vhosts.conf&quot;</span>
- <span class="n">hosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/hosts&quot;</span>
-
-<span class="n">domain_name</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
- <span class="n">folder</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">usage</span><span class="p">():</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3 …</span></pre></div>
+               <p>Sometimes you might find that you want your users to make decisions based on ListViews and you need to pull in relational data beyond the immediately related objects. Example</p>
+<p>So using the circus example say you have performers who are performing for a specific show. You might want to see …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2012-03-01T00:00:00+00:00">Thu 01 March 2012</abbr>
+                       &mdash; <abbr title="2014-04-05T00:00:00+00:00">Sat 05 April 2014</abbr>
                    </div>
                </div>
 
@@ -88,17 +77,18 @@ on archlinux.</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../easily-remember-linux-commands-44191f6843f6.html">Easily remember linux commands</a></h1>
+               <h1><a href="../yii-issues-with-homebrew-php-5-3-8d759e748a92.html">Yii issues with Homebrew PHP 5.3</a></h1>
 
-               <p>I use an absolute ton of awesome tools my various linux distros. The
-problem is I tend to forget a lot of the time how to use the tools, so I
-got a list of frequently used command with and a few examples of how to
-use them from <a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">here …</a></p>
+               <p>When running yii with a homebrewed install of PHP 5.3, PHP code embedded
+in HTML wouldn't work. This is because for some inexplicable reason
+Homebrew's PHP install disables short-tag support. Simply edit
+<code>/usr/local/etc/php/5.3/php.ini</code> and change short-tags to On.</p>
+<p><code>short_open_tag = On …</code></p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2012-02-19T00:00:00+00:00">Sun 19 February 2012</abbr>
+                       &mdash; <abbr title="2014-04-04T00:00:00+00:00">Fri 04 April 2014</abbr>
                    </div>
                </div>
 
@@ -111,16 +101,18 @@ use them from <a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">h
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../simple-ubuntu-backup-to-s3-c3f3b7070208.html">Simple ubuntu backup to S3</a></h1>
+               <h1><a href="../owning-your-data-replacing-gmail-20e9e2259fa2.html">Owning Your Data — Replacing Gmail</a></h1>
 
-               <p>After browsing the web for ages to find a decent solution to backup my
-server to amazon s3 I finally came across one and I'm just throwing it
-up here. So basically all I need it to do was backup my sites(filesystem and mysql databases) and some config for …</p>
+               <p><img alt="" src="images/1__jrj__wnQecgnTwBXPZsg05w.jpeg"></p>
+<p>Gmail isn't secure or private, Google have admitted this. You simply cannot expect privacy from any service that you don't have
+control of. Thankfully your email doesn't have to be tied a mail service
+like Gmail, Yahoo or Microsoft. You can simply roll your own email
+server with your own …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2012-01-14T00:00:00+00:00">Sat 14 January 2012</abbr>
+                       &mdash; <abbr title="2014-03-29T00:00:00+00:00">Sat 29 March 2014</abbr>
                    </div>
                </div>
 
@@ -133,19 +125,19 @@ up here. So basically all I need it to do was backup my sites(filesystem and mys
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../simple-git-web-interface-999d0f685454.html">Simple git web interface</a></h1>
+               <h1><a href="../owning-your-data-initial-server-setup-afa33394b94.html">Owning Your Data — Initial Server Setup</a></h1>
 
-               <p>I decided instead of springing for a monthly github payed account I'd
-install git on a server and use a decent web interface that could be
-easily installed.</p>
-<p>So for this little guide I'm rocking ubuntu 10.04 with git and lighttpd
-already installed.</p>
-<p>It was a Goldilocks search for …</p>
+               <p><img alt="" src="images/1__Frjg0ruGoXtEESBMek____Lw.png"></p>
+<p>So before you can move to your own self-hosted services, you'll need
+your own hosting. This is a really basic tutorial/set of links on
+getting a server up and running with Salt.</p>
+<h3>Hosting Provider</h3>
+<p>DigitalOcean is a terrific hosting company if you're want to play around with a few …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2012-01-07T00:00:00+00:00">Sat 07 January 2012</abbr>
+                       &mdash; <abbr title="2014-03-06T00:00:00+00:00">Thu 06 March 2014</abbr>
                    </div>
                </div>
 

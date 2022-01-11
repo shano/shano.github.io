@@ -24,11 +24,12 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -44,7 +45,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2018-01-20T22:47:42.983000+00:00">Sat 20 January 2018</abbr>
@@ -66,7 +67,7 @@
     <div class="entry-content">
         <p><img alt="" src="images/1__bY3zgSqJyGTkf__ghXqpKRQ.jpeg"></p>
 <p>So recently I wrote a post on <a href="https://medium.com/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2">why a developer might use an iPad Pro</a> as an at home machine. Today, I'm going to elaborate on how I'm actually using it day to day.</p>
-<h3>So there is not much you can do locally</h3>
+<h3>So there is not much you can do locally</h3>
 <p>Realistically, as a local dev environment there really is not much an iPad Pro can do. I'm used to proper Linux/Unix based machines, these sandboxed apps just didn't cut it for me, there's nothing close to a full development system on an iPad(sorry I know!), I wouldn't even bother trying. So pretty quickly I opted to go for a remote Linux box that I could remotely access.</p>
 <p>I picked up an iPad Pro with the ability to add in cellular data, so I can hop onto my remote server from anywhere I have data, which made this a solid possibility. I know I am basically cheating, but, I still needed to investigate if there was a painless enough setup I could use on the iPad that I would actually continue to use. So a fast starting server, decent network connection, and a decent enough editing environment was essential.</p>
 <h3>Editing Code</h3>
@@ -79,7 +80,7 @@
 <p>What I'll probably end up doing is setting up <a href="http://spacemacs.org">Spacemacs</a> with the Emacs configuration and seeing if I can finally pull the trigger and start using Emacs's crazy keybindings, but I'm not learning a whole new set of editor shortcuts right now.</p>
 <p><img alt="" src="images/1__hCg__jKnXH__1LM3zXbVnxew.png"></p>
 <h3>Executing Applications</h3>
-<h4>Which remote server</h4>
+<h4>Which remote server</h4>
 <p>I needed a way to be able to spin up/shut down a remote Linux box, have it start-up pretty quickly and do this in the painless way as possible, because I'm not paying for constantly on uptime when this is only being used very occasionally by myself. I also wanted it to be connectable via the same access details each time, to avoid having to put in new server IPs into my terminal client every time I started up the server.</p>
 <p>I tried out both Vultr and DigitalOcean for this, mostly as they were relatively straightforward to work with and this is mostly for me playing around with things, not production uptime machines. So in the end it came down to speed and App quality. Cutting a long story short, DigitalOcean won out. It supported having a reserved ip, which meant I didn't need to rely on something like DynDNS/waiting for DNS propagation each time I powered it down/up again(or manually setting IPs). It was also very quick to spin up, like shockingly quick. If I requested a power-up via the DigitalOcean IOS app, by the time I'd swapped to my ssh client and connected, it was already up, which was crazy good for me. I could also run an instance from London which reduced latency a bunch for me, that was a nice advantage over Vultr. To add to it, the app that could connect to DigitalOcean seem to be of a better quality(and actually worked, which is nice). None of the apps tested were particularly amazing but the DigitalOcean one consistently worked and worked well. So from my perspective, I'd strongly suggest DigitalOcean for such a setup.</p>
 <p><img alt="" src="images/1__hV07DCg6sdHlxSfoK__D7tA.jpeg"></p>
@@ -94,16 +95,13 @@
 <p><img alt="" src="images/1__iS2vFJJgmH5XpACE6GmV9g.png"></p>
 <h4><a href="https://www.docker.com">Docker</a></h4>
 <p>I would definitely recommend picking up some Docker knowledge if you haven't already. Being able to quickly spin up services on a remote machine is really handy. For example I wanted to migrate from my static content pelican site to Medium, but Medium only accepts Wordpress archives. So I spun up a basic Wordpress Docker, used a quick script(with a few of my own bugfixes) to import my static content to Wordpress and exported to Medium, all without touching the parent operating system. All very nice!</p>
-<h3>A Handy Tip</h3>
+<h3>A Handy Tip</h3>
 <p>So one thing that might be useful is when you exit your little server to have it automatically shut down so you don't need to keep remembering to kill the server via the app. If you want to do this without needing to enter a password each time, firstly run this command to start editing the sudoers file.</p>
 <p>sudo visudo</p>
 <p>Then add this line to allow passwordless access to poweroff commands.</p>
 <p>username   ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown</p>
-<p>Then create an alias for your user so that when you hit exit, it actually shuts down the machine. Put this in your .bashrc or .zshrc or whatever rc your shell uses.</p>
+<p>Then create an alias for your user so that when you hit exit, it actually shuts down the machine. Put this in your .bashrc or .zshrc or whatever rc your shell uses.</p>
 <p>alias exit='sudo poweroff'</p>
-<p><img alt="" src="images/1__6gfnVvkMRFtjVsWF7vkClA.png"></p>
-<h4>This story is published in <a href="https://medium.com/swlh">The Startup</a>, Medium's largest entrepreneurship publication followed by 295,232+ people.</h4>
-<h4>Subscribe to receive <a href="http://growthsupply.com/the-startup-newsletter/">our top stories here</a>.</h4>
 <p><img alt="" src="images/1__6gfnVvkMRFtjVsWF7vkClA.png"></p>
     </div>
 

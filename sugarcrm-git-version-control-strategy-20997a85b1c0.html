@@ -24,11 +24,12 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -44,7 +45,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2014-11-10T00:00:00+00:00">Mon 10 November 2014</abbr>
@@ -88,32 +89,37 @@ fields_meta_data won't update back to the master branch, which is
 where the new hotfix will create it's branch from. What you need is a
 way to keep fields_meta_data in sync with the branch you're currently
 working on.</p>
-<h3>The Solution-Git Hooks</h3>
+<h3>The Solution-Git Hooks</h3>
 <p>Using git hooks you can automatically run commands when certain events
 occur. The two hooks of interest to us are pre-commit and post-checkout.</p>
-<h3>Tracking all database changes</h3>
+<h3>Tracking all database changes</h3>
 <p>What pre-commit does is run everytime you commit code. So, if you
 could dump your fields_meta_data everytime a commit is made, you can
 be sure your branch is tracking all database changes you're making via</p>
-<h1>!/bin/bash</h1>
-<p>rm databases/fields_meta_data.sql
-mysqldump -u root -p — extended-insert=FALSE — skip-dump-date sugarcrm fields_meta_data &gt; databases/fields_meta_data.sql
-git add databases/fields_meta_data.sql</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+rm databases/fields_meta_data.sql
+mysqldump -u root -p — extended-insert<span class="o">=</span>FALSE — skip-dump-date sugarcrm fields_meta_data &gt; databases/fields_meta_data.sql
+git add databases/fields_meta_data.sql
+</pre></div>
+
+
 <p>Note that I'm not compressing these database dumps, they should stay in
 plaintext with each line representing a database insert. The reason for
 that is when it comes time to merge two branches, say you've made
 changes to studio in a master branch and also to a feature branch you
 wish to release, you can merge the fields_meta_data in with branched
 changes very easily via any mergetool.</p>
-<h3>Keep Sugar up to date with your branch</h3>
+<h3>Keep Sugar up to date with your branch</h3>
 <p>Finally when you swap between branches you'll want to automatically
 apply that branches fields_meta_data because your likely to forget to
 do this step. So say your swapping from a feature branch to master.
 You'll want to revert your studio changes back to where master was. You
 can do this in the post checkout git hook. So in</p>
+<p>```bash</p>
 <h1>!/bin/bash</h1>
 <p>echo 'Importing this branches field meta data'
- mysql -u root -p sugarcrm &lt; databases/fields_meta_data.sql</p>
+ mysql -u root -p sugarcrm &lt; databases/fields_meta_data.sql
+ ```</p>
 <p>This will automatically execute your fields_meta_data database dump on
 your SugarCRM install.</p>
 <h3>Deploying</h3>

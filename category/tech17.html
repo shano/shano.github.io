@@ -29,6 +29,7 @@
                         <li class="main-nav-item"><a href="../category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="../category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="../category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="../category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="../category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -55,18 +56,14 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../sync-config-files-over-dropbox-62b51425343e.html">Sync config files over dropbox</a></h1>
+               <h1><a href="../suppling-test-data-to-django-cities-6afd013f671d.html">Suppling test data to django-cities</a></h1>
 
-               <p>One of the many reasons for my love of linux is the idea of keeping
-config information in simple texts files in the home directory of each
-user. It all very painless. And now with <a href="https://www.dropbox.com/referrals/NTQyMzk2MT">Dropbox</a> I can have a
-set of application configurations stored via the web.</p>
-<p>Using Dropbox …</p>
+               <p><a href="https://github.com/coderholic/django-cities">Django-Cities</a>, is an awesome project that supplies easy to import worldwide location data and a set of very neat location models that you should really be using for any django project needing location information. I've been using it lately but ran into problems when I tried to run unit tests …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2010-02-14T00:00:00+00:00">Sun 14 February 2010</abbr>
+                       &mdash; <abbr title="2013-08-29T00:00:00+00:00">Thu 29 August 2013</abbr>
                    </div>
                </div>
 
@@ -79,15 +76,23 @@ set of application configurations stored via the web.</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../disable-jquery-autocompleter-cache-a6f3a338274c.html">Disable jQuery autocompleter cache</a></h1>
+               <h1><a href="../archlinux-pacman-update-fix-a99b2f157a2c.html">Archlinux Pacman Update Fix</a></h1>
 
-               <p>For anyone wondering how to disable the <a href="http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/">autocompleter</a> cache in jQuery(meaning you always poll the server each time a letter is entered).</p>
-<p>Simply set cacheLength: 0, in the autocompleter's settings. Seems obvious but my googling told me never set this value below 1 or the whole thing would explode …</p>
+               <p>I'm writing this up as a quick solution to archlinux's dreaded pacman
+update problem.</p>
+<p>If you have yaourt installed simply update package-query through it and
+update pacman normally.</p>
+<div class="highlight"><pre><span></span>yaourt -S package-query
+pacman -Syu
+</pre></div>
+
+
+<p>Make sure also to delete the SyncFirst option from /etc/pacman.conf</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2010-02-12T00:00:00+00:00">Fri 12 February 2010</abbr>
+                       &mdash; <abbr title="2013-08-25T00:00:00+00:00">Sun 25 August 2013</abbr>
                    </div>
                </div>
 
@@ -100,19 +105,15 @@ set of application configurations stored via the web.</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../php-beautifier-51200a4b525f.html">Php Beautifier</a></h1>
+               <h1><a href="../writing-django-tests-for-postgis-9eefe47fd368.html">Writing Django tests for PostGis</a></h1>
 
-               <h3>Why?</h3>
-<p>When you're faced with an ugly PHP file(or files) with little to do but
-trawl through it, there is a solution.</p>
-<p><a href="http://phpbeautifier.com">PHP beautifier</a> is a pear package that will process PHP files and reformat them in a (hopefully) nicer format.</p>
-<h3>Installation</h3>
-<p>You can install it using pear with …</p>
+               <p><img alt="" src="images/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg"></p>
+<p>PostGis is awesome, I think I already established this in <a href="http://shanedowling.com/index.php/postgis/">this post</a>. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you've failed to create a proper postgres_template database for your test database to work …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2010-01-23T00:00:00+00:00">Sat 23 January 2010</abbr>
+                       &mdash; <abbr title="2013-08-24T00:00:00+00:00">Sat 24 August 2013</abbr>
                    </div>
                </div>
 
@@ -125,18 +126,14 @@ trawl through it, there is a solution.</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../vim-e2fc00d85b79.html">Vim!</a></h1>
+               <h1><a href="../install-nzbget-using-salt-7cc40711adb6.html">Install nzbget using salt</a></h1>
 
-               <p><img alt="" src="images/1__z__gwqd53GgEAJGz83yndbA.png"></p>
-<p>For a while now vim has been my editor of choice and only up until
-recently have I began to unearth it's potential. My reasoning before was
-that it was so cross-compatible(even working in ssh terminals) that this
-would always be my go-to editor. Now it's become so much …</p>
+               <p>Recently I've been using vagrant to configure more and more of the local webapps I'm using day to day, simply as I find sticking all the apps I use on my host machine a little messy. I've also been picking up <a href="http://saltstack.com/">salt-stack</a> with salt-states as the provisioner as I personally …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2010-01-11T00:00:00+00:00">Mon 11 January 2010</abbr>
+                       &mdash; <abbr title="2013-08-23T00:00:00+00:00">Fri 23 August 2013</abbr>
                    </div>
                </div>
 

@@ -24,11 +24,12 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -44,7 +45,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2017-04-04T00:00:00+00:00">Tue 04 April 2017</abbr>
@@ -72,54 +73,71 @@ workon khal</p>
 <p>Firstly we need to setup <a href="https://github.com/pimutils/vdirsyncer">Vdirsyncer</a>, which is used to actually download your caldav entries to a local folder which khal then reads from.</p>
 <p>pip install vdirsyncer</p>
 <p>Then to configure it create a file in ~/.vdirsyncer/config and adding these contents, replacing the username/password with your own.</p>
-<p>[general]
- status_path = "~/.vdirsyncer/status/"
+<div class="highlight"><pre><span></span>[general]
+ status_path = &quot;~/.vdirsyncer/status/&quot;
 [pair fastmail]
- a = "khal"
- b = "cal"
- collections = ["from a", "from b"]
+ a = &quot;khal&quot;
+ b = &quot;cal&quot;
+ collections = [&quot;from a&quot;, &quot;from b&quot;]
 [storage cal]
- type = "caldav"
- url = "https://caldav.messagingengine.com/"
- username = "user@fastmail.fm"
- password = "ONE_TIME_PASSWORD"
- read_only = "true"
+ type = &quot;caldav&quot;
+ url = &quot;https://caldav.messagingengine.com/&quot;
+ username = &quot;user@fastmail.fm&quot;
+ password = &quot;ONE_TIME_PASSWORD&quot;
+ read_only = &quot;true&quot;
 [storage khal]
- type = "filesystem"
- path = "~/.vdirsyncer/fastmail"
- fileext = ".ics"
- #encoding = "utf-8"
- #post_hook = null</p>
-<p>Then run an initial vdirsyncer command, this will create a bunch of folders under ~/.vdirsyncer/fastmail, each of these represents each of the calendars you have in fastmail.</p>
-<h3>Khal</h3>
-<p>pip install khal</p>
+ type = &quot;filesystem&quot;
+ path = &quot;~/.vdirsyncer/fastmail&quot;
+ fileext = &quot;.ics&quot;
+ #encoding = &quot;utf-8&quot;
+ #post_hook = null
+ ```
+
+Then run an initial vdirsyncer command, this will create a bunch of folders under ~/.vdirsyncer/fastmail, each of these represents each of the calendars you have in fastmail.
+
+### Khal
+
+```bash
+pip install khal
+</pre></div>
+
+
 <p>Now to configure khal we create this file in ~/.config/khal/config with the contents, replace the folder_id_* with the actual foldernames in ~/.vdirsyncer/fastmail</p>
-<p>[calendars]</p>
-<p>[[default]]
+<div class="highlight"><pre><span></span>[calendars]
+
+[[default]]
  path = ~/.vdirsyncer/fastmail/Default
- type = discover</p>
-<p>[[travel]]
+ type = discover
+
+[[travel]]
  path = ~/.vdirsyncer/fastmail/folder_id_1
- type = discover</p>
-<p>[[events]]
+ type = discover
+
+[[events]]
  path = ~/.vdirsyncer/fastmail/folder_id_2
- type = discover</p>
-<p>[[admin]]
+ type = discover
+
+[[admin]]
  path = ~/.vdirsyncer/fastmail/folder_id_3
- type = discover</p>
-<p>[[birthdays]]
+ type = discover
+
+[[birthdays]]
  path = ~/.vdirsyncer/fastmail/folder_id_3
- type = discover</p>
-<p>[locale]
+ type = discover
+
+[locale]
  timeformat = %H:%M
  dateformat = %d/%m/%Y
  longdateformat = %d/%m/%Y
  datetimeformat = %d/%m/%Y %H:%M
- longdatetimeformat = %d/%m/%Y %H:%M</p>
+ longdatetimeformat = %d/%m/%Y %H:%M
+</pre></div>
+
+
 <p>Now if you run khal you should get a nice calendar view with an agenda next to it.</p>
 <h3>Aliases</h3>
 <p>To keep things simple I created an alias that allows me to pop into this virtualenv, sync my calendars and display khal whenever I need my calendars displayed.</p>
-<p>alias khal='workon khal &amp;&amp; vdirsyncer sync &amp;&amp; khal'</p>
+<p><code>alias khal='workon khal &amp;&amp; vdirsyncer sync &amp;&amp; khal'</code></p>
     </div>
 
     <footer>

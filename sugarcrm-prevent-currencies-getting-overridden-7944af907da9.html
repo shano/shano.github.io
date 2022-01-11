@@ -24,11 +24,12 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -44,7 +45,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2015-04-16T00:00:00+00:00">Thu 16 April 2015</abbr>
@@ -84,61 +85,70 @@ invoiced.</p>
 <p>There is thankfully a way around this using by overriding Sugar's
 default behaviour using logic hooks. So taking our book example this is
 what custom/modules/Books/logic_hooks.php might look like.</p>
-<?php
-  // Do not store anything in this file that is not part of the array or the hook version.  This file will
-  // be automatically rebuilt in the future.
-  $hook_version = 1;
-  $hook_array = Array();
-  // position, file, function
-  $hook_array['before_save'] = Array();
-  $hook_array['before_save'][] = Array(1, 'workflow', 'include/workflow/WorkFlowHandler.php','WorkFlowHandler', 'WorkFlowHandler');
-  $hook_array['before_save'][] = Array(2, 'Custom Book Logic Hooks', 'custom/modules/Books/logic_hooks_class.php','books_logic_hooks', 'before_save_method');
-  $hook_array['after_save'][] = Array(1, 'Custom Book Logic Hooks', 'custom/modules/Books/logic_hooks_class.php','books_logic_hooks', 'after_save_method');
-?>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+  <span class="c1">// Do not store anything in this file that is not part of the array or the hook version.  This file will</span>
+  <span class="c1">// be automatically rebuilt in the future.</span>
+  <span class="nv">$hook_version</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="nv">$hook_array</span> <span class="o">=</span> <span class="k">Array</span><span class="p">();</span>
+  <span class="c1">// position, file, function</span>
+  <span class="nv">$hook_array</span><span class="p">[</span><span class="s1">&#39;before_save&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">Array</span><span class="p">();</span>
+  <span class="nv">$hook_array</span><span class="p">[</span><span class="s1">&#39;before_save&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;workflow&#39;</span><span class="p">,</span> <span class="s1">&#39;include/workflow/WorkFlowHandler.php&#39;</span><span class="p">,</span><span class="s1">&#39;WorkFlowHandler&#39;</span><span class="p">,</span> <span class="s1">&#39;WorkFlowHandler&#39;</span><span class="p">);</span>
+  <span class="nv">$hook_array</span><span class="p">[</span><span class="s1">&#39;before_save&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">Array</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Custom Book Logic Hooks&#39;</span><span class="p">,</span> <span class="s1">&#39;custom/modules/Books/logic_hooks_class.php&#39;</span><span class="p">,</span><span class="s1">&#39;books_logic_hooks&#39;</span><span class="p">,</span> <span class="s1">&#39;before_save_method&#39;</span><span class="p">);</span>
+  <span class="nv">$hook_array</span><span class="p">[</span><span class="s1">&#39;after_save&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Custom Book Logic Hooks&#39;</span><span class="p">,</span> <span class="s1">&#39;custom/modules/Books/logic_hooks_class.php&#39;</span><span class="p">,</span><span class="s1">&#39;books_logic_hooks&#39;</span><span class="p">,</span> <span class="s1">&#39;after_save_method&#39;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
 
 <p>And the actual code to do the overriding would be in
 custom/modules/Books/logic_hooks_class.php</p>
-<?php
-if (!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;sugarEntry&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="nx">sugarEntry</span><span class="p">)</span> <span class="k">die</span><span class="p">(</span><span class="s1">&#39;Not A Valid Entry Point&#39;</span><span class="p">);</span>
 
-<p>class books_logic_hooks
-{
-  protected static $fetchedRow;</p>
-<p>function before_save_method(&amp;$bean, $event, $arguments)
-  {
-    if (!empty($bean-&gt;id)) {
-      self::$fetchedRow[$bean-&gt;id] = $bean-&gt;fetched_row;
-    }
-  }</p>
-<p>/*<em>
-  * Called as process_record logic hook on the Books module
-  </em>/</p>
-<p>/*<em>
-  * <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> $bean
-  * <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> $event
-  * <a href="http://twitter.com/param" title="Twitter profile for @param">@param</a> $arguments
-  </em>/
-  function after_save_method(&amp;$bean, $event, $arguments)
-  {
-    $custom_bean = new Books();
-    $custom_bean-&gt;retrieve($bean-&gt;id);
-    $resave_bean = false;</p>
-<p>// Need to ignore base rate updates when the currency stays the same
-    if (isset(self::$fetchedRow[$custom_bean-&gt;id]['currency_id']) &amp;&amp; self::$fetchedRow[$custom_bean-&gt;id]['currency_id'] == $bean-&gt;fetched_row['currency_id']
-    ) {
-      if (isset(self::$fetchedRow[$custom_bean-&gt;id]['base_rate']) &amp;&amp;
-      self::$fetchedRow[$custom_bean-&gt;id]['base_rate'] !=     $bean-&gt;fetched_row['base_rate']) {
-        // Run a SQL update to reset the base price to the original, as it shouldn't be over-ridden unless it's new
-        $sql = sprintf('UPDATE books_cstm SET base_rate="%s" WHERE id_c="%s";', self::$fetchedRow[$custom_bean-&gt;id]['base_rate'], $custom_bean-&gt;id);
-        $bean-&gt;db-&gt;query($sql);
-      }
-    }
-  }
-}</p>
+<span class="k">class</span> <span class="nc">books_logic_hooks</span>
+<span class="p">{</span>
+  <span class="k">protected</span> <span class="k">static</span> <span class="nv">$fetchedRow</span><span class="p">;</span>
+
+<span class="k">function</span> <span class="nf">before_save_method</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$bean</span><span class="p">,</span> <span class="nv">$event</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$bean</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="o">::</span><span class="nv">$fetchedRow</span><span class="p">[</span><span class="nv">$bean</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$bean</span><span class="o">-&gt;</span><span class="na">fetched_row</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="sd">/**</span>
+<span class="sd">  * Called as process_record logic hook on the Books module</span>
+<span class="sd">  */</span>
+
+<span class="sd">/**</span>
+<span class="sd">  * [@param](http://twitter.com/param &quot;Twitter profile for @param&quot;) $bean</span>
+<span class="sd">  * [@param](http://twitter.com/param &quot;Twitter profile for @param&quot;) $event</span>
+<span class="sd">  * [@param](http://twitter.com/param &quot;Twitter profile for @param&quot;) $arguments</span>
+<span class="sd">  */</span>
+  <span class="k">function</span> <span class="nf">after_save_method</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$bean</span><span class="p">,</span> <span class="nv">$event</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="nv">$custom_bean</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Books</span><span class="p">();</span>
+    <span class="nv">$custom_bean</span><span class="o">-&gt;</span><span class="na">retrieve</span><span class="p">(</span><span class="nv">$bean</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">);</span>
+    <span class="nv">$resave_bean</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+
+<span class="c1">// Need to ignore base rate updates when the currency stays the same</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$fetchedRow</span><span class="p">[</span><span class="nv">$custom_bean</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">][</span><span class="s1">&#39;currency_id&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$fetchedRow</span><span class="p">[</span><span class="nv">$custom_bean</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">][</span><span class="s1">&#39;currency_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nv">$bean</span><span class="o">-&gt;</span><span class="na">fetched_row</span><span class="p">[</span><span class="s1">&#39;currency_id&#39;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$fetchedRow</span><span class="p">[</span><span class="nv">$custom_bean</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">][</span><span class="s1">&#39;base_rate&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span>
+      <span class="nx">self</span><span class="o">::</span><span class="nv">$fetchedRow</span><span class="p">[</span><span class="nv">$custom_bean</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">][</span><span class="s1">&#39;base_rate&#39;</span><span class="p">]</span> <span class="o">!=</span>     <span class="nv">$bean</span><span class="o">-&gt;</span><span class="na">fetched_row</span><span class="p">[</span><span class="s1">&#39;base_rate&#39;</span><span class="p">])</span> <span class="p">{</span>
+        <span class="c1">// Run a SQL update to reset the base price to the original, as it shouldn&#39;t be over-ridden unless it&#39;s new</span>
+        <span class="nv">$sql</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;UPDATE books_cstm SET base_rate=&quot;%s&quot; WHERE id_c=&quot;%s&quot;;&#39;</span><span class="p">,</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$fetchedRow</span><span class="p">[</span><span class="nv">$custom_bean</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">][</span><span class="s1">&#39;base_rate&#39;</span><span class="p">],</span> <span class="nv">$custom_bean</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">);</span>
+        <span class="nv">$bean</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
 <p>Using the db over-ride hack should allow you to retain the same base
 rate on each record and Sugar will display the original 10 Euros despite
 the exchange rate changing.</p>
-<h3>Some words of caution</h3>
+<h3>Some words of caution</h3>
 <p>If you decide to override Sugar's default behaviour, you could run
 into some issues down the line with reporting.
 Basically the reports modules seems to ignore the base rate stored on

@@ -24,11 +24,12 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -44,7 +45,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2015-07-25T00:00:00+00:00">Sat 25 July 2015</abbr>
@@ -75,53 +76,60 @@ actions, so create this folder in the sugarcrm root
 directory custom/clients/base/views/list-headerpane/. Then create the
 file list-headerpane.php with this content. This will add a button next
 to the Create button for all modules.</p>
-<?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;sugarEntry&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="nx">sugarEntry</span><span class="p">)</span> <span class="k">die</span><span class="p">(</span><span class="s1">&#39;Not A Valid Entry Point&#39;</span><span class="p">);</span>
 
-<p>/<em>
- * Your installation or use of this SugarCRM file is subject to the applicable
- * terms available at
- * <a href="http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/">http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/</a>.
- * If you do not agree to all of the applicable terms or do not have the
- * authority to bind the entity as an authorized representative, then do not
- * install or use this SugarCRM file.
- *
- * Copyright (C) SugarCRM Inc. All rights reserved.
- </em>/</p>
-<p>$viewdefs['base']['view']['list-headerpane'] = array(
-    'template' =&gt; 'headerpane',
-    'title' =&gt; 'LBL_MODULE_NAME',
-    'buttons' =&gt; array(
-        array(
-            'name'    =&gt; 'new_button',
-            'type'    =&gt; 'button',
-            'label'   =&gt; 'LBL_NEW_BUTTON_LABEL',
-            'css_class' =&gt; 'btn-secondary',
-            'acl_action' =&gt; 'list',
-            'events' =&gt; array(
-                'click' =&gt; 'list:new_button:fire'
-            ),
-        ),
-        array(
-            'name'    =&gt; 'create_button',
-            'type'    =&gt; 'button',
-            'label'   =&gt; 'LBL_CREATE_BUTTON_LABEL',
-            'css_class' =&gt; 'btn-primary',
-            'acl_action' =&gt; 'create',
-            'route' =&gt; array(
-                'action'=&gt;'create'
-            )
-        ),
-        array(
-            'name' =&gt; 'sidebar_toggle',
-            'type' =&gt; 'sidebartoggle',
-        ),
-    ),
-);</p>
-<h3>2. Adding the action hook</h3>
+<span class="cm">/*</span>
+<span class="cm"> * Your installation or use of this SugarCRM file is subject to the applicable</span>
+<span class="cm"> * terms available at</span>
+<span class="cm"> * [http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/](http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/).</span>
+<span class="cm"> * If you do not agree to all of the applicable terms or do not have the</span>
+<span class="cm"> * authority to bind the entity as an authorized representative, then do not</span>
+<span class="cm"> * install or use this SugarCRM file.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Copyright (C) SugarCRM Inc. All rights reserved.</span>
+<span class="cm"> */</span>
+
+<span class="nv">$viewdefs</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">][</span><span class="s1">&#39;view&#39;</span><span class="p">][</span><span class="s1">&#39;list-headerpane&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;template&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;headerpane&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;LBL_MODULE_NAME&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;buttons&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;name&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;new_button&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;button&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;label&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;LBL_NEW_BUTTON_LABEL&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;css_class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;btn-secondary&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;acl_action&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;events&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;click&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;list:new_button:fire&#39;</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+        <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;name&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;create_button&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;button&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;label&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;LBL_CREATE_BUTTON_LABEL&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;css_class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;btn-primary&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;acl_action&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;route&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;action&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;create&#39;</span>
+            <span class="p">)</span>
+        <span class="p">),</span>
+        <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;sidebar_toggle&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;sidebartoggle&#39;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+
+
+<h3>2. Adding the action hook</h3>
 <p>To fire this action you'll need to add some
 code custom/clients/base/views/recordlist/recordlist.js, in the</p>
-<p>this.context.on('list:new_button:fire', this.applyFxn, this);</p>
+<div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;list:new_button:fire&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">applyFxn</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</pre></div>
+
+
 <p>Now populate applyFxn with whatever code you want to run and it will
 work across every module.</p>
 <h3>3. Quick Repair and Rebuilt(as always)</h3>

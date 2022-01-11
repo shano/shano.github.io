@@ -29,6 +29,7 @@
                         <li class="main-nav-item"><a href="../category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="../category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="../category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="../category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="../category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -55,17 +56,93 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../getting-yourself-on-trinitys-wireless-network-with-linux-dd6a51344317.html">Getting yourself on Trinity's Wireless network with Linux</a></h1>
+               <h1><a href="../screwed-server-checklist-ef23820824c7.html">Screwed Server Checklist</a></h1>
 
-               <p>Since ISServices have washed their hands of any support for Linux, I've
-banged up a guide on how to get onto it with Linux. I'm using Ubuntu so
-things may need to be changed depending on your distro. :D Right, you
-need wpa_supplicant installed and modify it's config file …</p>
+               <p>My servers started getting unusably slow at peak hours lately and I
+decided, midst panic to vaguely attempt to document the various things I
+had to go through to narrow down the problem, anyway I'm sticking them
+up here so a) I don't lose the list and b) it might …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2008-02-03T00:00:00+00:00">Sun 03 February 2008</abbr>
+                       &mdash; <abbr title="2012-04-28T00:00:00+00:00">Sat 28 April 2012</abbr>
+                   </div>
+               </div>
+
+           </div>
+
+        </div>
+
+    </div>
+    <div class="pure-g article-row">
+        <div class="pure-u-1 article-info">
+           <div class="col">
+
+               <h1><a href="../diary-py-future-proof-memories-b097056bc350.html">Diary.py future proof memories.</a></h1>
+
+               <p>I've created a little command line diary script for anyone whose interested. It stores your diaries in separate txt files so you know all of your memories will always be accessible to you in a format you'll always be able to read. It's super quick and easy to use. It's …</p>
+
+               <div class="post-meta pure-g">
+                   <div class="pure-u-3-4 meta-data">
+                       <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
+                       &mdash; <abbr title="2012-03-08T00:00:00+00:00">Thu 08 March 2012</abbr>
+                   </div>
+               </div>
+
+           </div>
+
+        </div>
+
+    </div>
+    <div class="pure-g article-row">
+        <div class="pure-u-1 article-info">
+           <div class="col">
+
+               <h1><a href="../quick-vhost-script-6bdb6138fc10.html">Quick vhost script</a></h1>
+
+               <p>Quick script to setup a new virtualhost entry for apache. Works for me
+on archlinux.</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+ <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">subprocess</span>
+
+<span class="n">vhosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/httpd/conf/extra/httpd-vhosts.conf&quot;</span>
+ <span class="n">hosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/hosts&quot;</span>
+
+<span class="n">domain_name</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+ <span class="n">folder</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">usage</span><span class="p">():</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3 …</span></pre></div>
+
+               <div class="post-meta pure-g">
+                   <div class="pure-u-3-4 meta-data">
+                       <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
+                       &mdash; <abbr title="2012-03-01T00:00:00+00:00">Thu 01 March 2012</abbr>
+                   </div>
+               </div>
+
+           </div>
+
+        </div>
+
+    </div>
+    <div class="pure-g article-row">
+        <div class="pure-u-1 article-info">
+           <div class="col">
+
+               <h1><a href="../easily-remember-linux-commands-44191f6843f6.html">Easily remember linux commands</a></h1>
+
+               <p>I use an absolute ton of awesome tools my various linux distros. The
+problem is I tend to forget a lot of the time how to use the tools, so I
+got a list of frequently used command with and a few examples of how to
+use them from <a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">here …</a></p>
+
+               <div class="post-meta pure-g">
+                   <div class="pure-u-3-4 meta-data">
+                       <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
+                       &mdash; <abbr title="2012-02-19T00:00:00+00:00">Sun 19 February 2012</abbr>
                    </div>
                </div>
 
@@ -81,6 +158,9 @@ need wpa_supplicant installed and modify it's config file …</p>
     <div class="post-meta pure-g">
         <div class="pure-u-1-2 left">
             <a href="../category/tech18.html">Previous articles</a>
+        </div>
+        <div class="pure-u-1-2 right">
+            <a href="../category/tech20.html">More articles</a>
         </div>
     </div>
 </div>

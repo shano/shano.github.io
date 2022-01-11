@@ -29,6 +29,7 @@
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -72,7 +73,10 @@ good thing to fix asap, especially if you're running any old services
 like telnet, ftp or an old version of apache.</p>
 <h3>Is my server vulnerable?</h3>
 <p>Run this.</p>
-<p>env x='() { :;}; echo vulnerable' bash -c 'echo test'</p>
+<div class="highlight"><pre><span></span>env <span class="nv">x</span><span class="o">=</span><span class="s1">&#39;() { :;}; echo vulnerable&#39;</span> bash -c <span class="s1">&#39;echo test&#39;</span>
+</pre></div>
+
+
 <p>If you see</p>
 <p>vulnerable
 test</p>
@@ -80,11 +84,17 @@ test</p>
 <p>However if you see.</p>
 <p>test</p>
 <p>You should be okay.</p>
-<h3>How to fix?</h3>
+<h3>How to fix?</h3>
 <p>Centos/RedHat</p>
-<p>yum update bash</p>
+<div class="highlight"><pre><span></span>yum update bash
+</pre></div>
+
+
 <p>Debian/Ubuntu</p>
-<p>sudo apt-get update &amp;&amp; sudo apt-get install bash</p>
+<div class="highlight"><pre><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install bash
+</pre></div>
+
+
 <h3>OSX</h3>
 <p>Unless your running OSX as a critical server somewhere remote, I'd hold
 off the solution for now and wait for Apple to distribute an update. If
@@ -93,13 +103,25 @@ you need to update.</p>
 <li>Install homebrew</li>
 <li>Run</li>
 </ul>
-<p>brew update</p>
+<div class="highlight"><pre><span></span>brew update
+</pre></div>
+
+
 <p>Then run</p>
-<p>brew update bash</p>
+<div class="highlight"><pre><span></span>brew update bash
+</pre></div>
+
+
 <p>Backup your existing vulnerable bash</p>
-<p>cp /usr/local/bin/bash /usr/local/bin/bash_old</p>
+<div class="highlight"><pre><span></span>cp /usr/local/bin/bash /usr/local/bin/bash_old
+</pre></div>
+
+
 <p>Then symlink to the new brew installed bash</p>
-<p>ln -s /usr/local/Cellar/bash/4.3.25/bin/bash /usr/local/bin/bash</p>
+<div class="highlight"><pre><span></span>ln -s /usr/local/Cellar/bash/4.3.25/bin/bash /usr/local/bin/bash
+</pre></div>
+
+
 <p>Finally reboot!</p>
 <p>Keep an eye on these solutions as time goes on as I fear these patches might not solve the whole problem.</p>
     </div>

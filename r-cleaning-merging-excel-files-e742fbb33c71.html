@@ -24,11 +24,12 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -44,7 +45,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2015-02-05T00:00:00+00:00">Thu 05 February 2015</abbr>
@@ -69,18 +70,21 @@ up messy exports I've been getting lately.</p>
 <p>Takes in a bunch of excel files, rewrites some variable column names in
 column 3 then outputs them as a list of dataframes. These then get
 merged into a single csv file.</p>
-<p>library(gdata)
-filenames &lt;- list.files("excels", pattern="*.xlsx", full.names=TRUE)</p>
-<p>ldf &lt;- lapply(filenames, function(file) {
-  df = read.xls(file)
-  names = names(df)
-  sectionName = names[3]
-  names(df)[names(df)==sectionName] &lt;- "section"
-  df
-})</p>
-<p>library(reshape)
-result = reshape::merge_all(ldf)
-write.csv(result, "result.csv", row.names=FALSE)</p>
+<div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">gdata</span><span class="p">)</span>
+<span class="n">filenames</span> <span class="o">&lt;-</span> <span class="nf">list.files</span><span class="p">(</span><span class="s">&quot;excels&quot;</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s">&quot;*.xlsx&quot;</span><span class="p">,</span> <span class="n">full.names</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="n">ldf</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">filenames</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">df</span> <span class="o">=</span> <span class="nf">read.xls</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+  <span class="n">names</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+  <span class="n">sectionName</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="m">3</span><span class="p">]</span>
+  <span class="nf">names</span><span class="p">(</span><span class="n">df</span><span class="p">)[</span><span class="nf">names</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">==</span><span class="n">sectionName</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&quot;section&quot;</span>
+  <span class="n">df</span>
+<span class="p">})</span>
+
+<span class="nf">library</span><span class="p">(</span><span class="n">reshape</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">reshape</span><span class="o">::</span><span class="nf">merge_all</span><span class="p">(</span><span class="n">ldf</span><span class="p">)</span>
+<span class="nf">write.csv</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s">&quot;result.csv&quot;</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
     </div>
 
     <footer>

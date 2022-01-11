@@ -24,11 +24,12 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -44,7 +45,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2015-11-04T00:00:00+00:00">Wed 04 November 2015</abbr>
@@ -65,6 +66,7 @@
 
     <div class="entry-content">
         <p>Often when I'm working with graphs and a set of masses in a spectrum I need to be able to iterate over all paths for all sources and sinks in that graph. Especially if I'm looking to compare multiple ideal spectrums against a given spectrum. Here's some code that will allow me to quickly iterate over all source-&gt;sink paths in a given graph G.</p>
+<p>```python</p>
 <h1>!/usr/bin/env python</h1>
 <p>"""
  Shane Dowling, 04 Nov 2015
@@ -77,7 +79,8 @@ G = nx.DiGraph()
  source_nodes = [node for node, indegree in G.in_degree(G.nodes()).items() if indegree == 0]
  for [(source, sink) for sink in sink_nodes for source in source_nodes]:
  for path in nx.all_simple_paths(G, source=source, target=sink):
- print(path)</p>
+ print(path)
+ ```</p>
     </div>
 
     <footer>

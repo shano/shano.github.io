@@ -29,6 +29,7 @@
                         <li class="main-nav-item"><a href="../category/productivity.html" class="pure-menu-link">Productivity</a></li>
                         <li class="main-nav-item"><a href="../category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="../category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="../category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="../category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -55,18 +56,18 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../salt-miner-5d8c30f9d61f.html">Salt Miner</a></h1>
+               <h1><a href="../simple-api-mocking-with-guzzle-and-charles-e5fdabe8b9fd.html">Simple API Mocking with Guzzle and Charles</a></h1>
 
-               <p>I've just created a salt state that allows you to install a
-crypto-currency miner across your salt provisioned boxes. It's only
-tested on Ubuntu and Debian, but I intend to extend it to
-Archlinux(there's a lovely aur package that does all the work).
-Currently I'm mining <a href="https://anoncoin.net/">anoncoins</a> as you …</p>
+               <p>If you've ever had to try unit test code that's dependent on external
+services, you'll know the pain of trying to mock-up fake API requests by
+hand. It's painful to setup and painful to maintain, this little
+tutorial attempts to make the whole process as easy as possible.</p>
+<h3><strong>Step 1 …</strong></h3>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2013-09-07T00:00:00+00:00">Sat 07 September 2013</abbr>
+                       &mdash; <abbr title="2014-06-26T00:00:00+00:00">Thu 26 June 2014</abbr>
                    </div>
                </div>
 
@@ -79,18 +80,15 @@ Currently I'm mining <a href="https://anoncoin.net/">anoncoins</a> as you …</p
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../unit-testing-unmanaged-django-models-bf2cb6837fec.html">Unit-testing unmanaged Django models</a></h1>
+               <h1><a href="../sugarcrm-permissions-script-6b7031eb0eef.html">SugarCRM — Permissions Script</a></h1>
 
-               <p>Say you have an app with a set of models that aren't being managed by
-Django, you're going to run into trouble when it comes time to run
-unit-tests against these. What I mean is if in the model meta you have
-something like this</p>
-<div class="highlight"><pre><span></span> <span class="n">app_label</span> <span class="o">=</span> <span class="s1">&#39;your_app_label …</span></pre></div>
+               <p>I use <a href="http://www.saltstack.com/">salt</a> quite extensively to deploy SugarCRM installs and I wanted a scriptable way to setup the correct permissions for Sugar running on a linux box. This script is based on the <a href="http://support.sugarcrm.com/04_Find_Answers/02KB/02Administration/100Install/Required_File_System_Permissions_on_Linux/">Sugar documentation</a> and this handy post <a href="http://developer.sugarcrm.com/2012/07/19/a-newbies-guide-to-getting-your-sugarcrm-instances-permissions-right/">here</a>.</p>
+<p>Simply fill in your apache user details and the path …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2013-08-31T00:00:00+00:00">Sat 31 August 2013</abbr>
+                       &mdash; <abbr title="2014-06-21T00:00:00+00:00">Sat 21 June 2014</abbr>
                    </div>
                </div>
 
@@ -103,14 +101,20 @@ something like this</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../suppling-test-data-to-django-cities-6afd013f671d.html">Suppling test data to django-cities</a></h1>
+               <h1><a href="../quick-salt-minion-setup-354516c0ff63.html">Quick Salt Minion Setup</a></h1>
 
-               <p><a href="https://github.com/coderholic/django-cities">Django-Cities</a>, is an awesome project that supplies easy to import worldwide location data and a set of very neat location models that you should really be using for any django project needing location information. I've been using it lately but ran into problems when I tried to run unit tests …</p>
+               <p>I find myself setting up salt minions a LOT. So I figured I'd write down
+the steps in this concise format.</p>
+<h3>On the minion</h3>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:saltstack/salt
+sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install salt-minion
+sudo <span class="nb">echo</span> <span class="s1">&#39; salt&#39;</span> &gt;&gt; /etc/hosts //Or whatever the salt master is
+sudo salt-call -l …</pre></div>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2013-08-29T00:00:00+00:00">Thu 29 August 2013</abbr>
+                       &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
                    </div>
                </div>
 
@@ -123,23 +127,17 @@ something like this</p>
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="../archlinux-pacman-update-fix-a99b2f157a2c.html">Archlinux Pacman Update Fix</a></h1>
+               <h1><a href="../sugarcrm-7-hiding-subpanels-based-on-specific-criteria-eee6aacb95e1.html">SugarCRM 7 — Hiding subpanels based on specific criteria</a></h1>
 
-               <p>I'm writing this up as a quick solution to archlinux's dreaded pacman
-update problem.</p>
-<p>If you have yaourt installed simply update package-query through it and
-update pacman normally.</p>
-<div class="highlight"><pre><span></span>yaourt -S package-query
-pacman -Syu
-</pre></div>
-
-
-<p>Make sure also to delete the SyncFirst option from /etc/pacman.conf</p>
+               <p>The new Sugar subpanels look great but they do take up quite a lot
+space, without any ability to remove Subpanels via studio I've had to
+come up with a few ways to hide them.</p>
+<p><strong>Note: Original Props go to Robin Larsson who wrote the</strong> <a href="https://community.sugarcrm.com/sugarcrm/topics/dynamically_hiding_showing_subpanels_based_on_record_values_in_sugar_7"><strong>original</strong></a> <strong>on the Sugar Community …</strong></p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u-3-4 meta-data">
                        <a href="../author/shane-dowling.html" class="category">Shane Dowling</a><br />
-                       &mdash; <abbr title="2013-08-25T00:00:00+00:00">Sun 25 August 2013</abbr>
+                       &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
                    </div>
                </div>
 

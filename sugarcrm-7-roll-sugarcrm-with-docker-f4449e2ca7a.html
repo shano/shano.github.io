@@ -24,11 +24,12 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -44,7 +45,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2015-04-07T00:00:00+00:00">Tue 07 April 2015</abbr>
@@ -81,13 +82,13 @@ docker container.</p>
 <p>There is nothing at all stopping you from creating another Docker
 instance running MySQL but I figured this was an unnecessary step and
 getting data persistence working with Docker can be a little annoying.</p>
-<h3>2. Getting the Docker config</h3>
+<h3>2. Getting the Docker config</h3>
 <p>Simply clone the repo for whichever version you intend to you use.</p>
 <p>I have two versions of this setup for both SugarCRM Version 7.2(Needing
 PHP 5.3) and Version 7.5(Needing PHP 5.4).</p>
 <p>Sugar-Docker 7.2 is <a href="https://github.com/shano/docker-sugarcrm-72">here</a>.
 Sugar-Docker 7.5 is <a href="https://github.com/shano/docker-sugarcrm-75">here</a>.</p>
-<h3>3. Fill in Docker settings</h3>
+<h3>3. Fill in Docker settings</h3>
 <p>run.sh</p>
 <p>Edit this script and change the containers ip to whatever your hosts ip
 is. Don't forget to set the folder to your SugarCRM code folder.</p>
@@ -96,16 +97,16 @@ is. Don't forget to set the folder to your SugarCRM code folder.</p>
 if you have multiple instances of SugarCRM installed.</p>
 <p>files/php.ini</p>
 <p>Change any settings you might want to customise with PHP here.</p>
-<h3>4. Tell SugarCRM to use the right MySQL database</h3>
+<h3>4. Tell SugarCRM to use the right MySQL database</h3>
 <p>In config.php I just set the mysql host to dockerhost.</p>
-<h3>5. Hosts entry</h3>
+<h3>5. Hosts entry</h3>
 <p>Then on your host operating system make sure to point the virtualhost
 url to the box. For me, in my /etc/hosts I have this entry.</p>
-<p>127.0.0.1 sugar.dev</p>
+<p><code>127.0.0.1 sugar.dev</code></p>
 <h3>Debugging</h3>
 <p>Because I've used stdout for logs you can see apache errors by running a
 command like this.</p>
-<p>sudo docker logs -f sugarcrm72</p>
+<p><code>sudo docker logs -f sugarcrm72</code></p>
     </div>
 
     <footer>

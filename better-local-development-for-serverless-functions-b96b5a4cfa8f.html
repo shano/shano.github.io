@@ -24,11 +24,12 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -44,7 +45,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2019-02-11T20:15:38.791000+00:00">Mon 11 February 2019</abbr>
@@ -93,9 +94,9 @@
 <p>To emulate MongoDB, I'm going to use an <a href="https://www.npmjs.com/package/mongodb-memory-server">in-memory version of MongoDB</a> that ties nicely into our Mongoose models.</p>
 <p><strong>SQS/SNS</strong></p>
 <p>For any Amazon infrastructure, we're going to use <a href="https://www.npmjs.com/package/aws-sdk-mock">aws-sdk-mock</a>. This is an excellent wrapper around <a href="https://www.npmjs.com/package/sinon">sinon</a> for mocking the AWS infrastructure, that's super useful for unit tests as you'll see later.</p>
-<h3>Tieing it all together</h3>
+<h3>Tieing it all together</h3>
 <p>So firstly lets install our dependencies.</p>
-<p>npm install aws-sdk-mock mongodb-memory-server sinon jest --save-dev</p>
+<p><code>npm install aws-sdk-mock mongodb-memory-server sinon jest --save-dev</code></p>
 <p>Let's also create a tests folder to keep all this test code in.</p>
 <p>mkdir tests</p>
 <p><strong>Setting up MongoDB</strong></p>
@@ -107,20 +108,26 @@
 </ul>
 <p>into your new test folder.</p>
 <p>In your root directory add a <code>jest.config.js</code> with this content.</p>
-<p>module.exports = {
-  globalSetup: './tests/setup.js',
-  globalTeardown: './tests/teardown.js',
-  testEnvironment: './tests/mongo-environment.js',
-  roots: ['./tests/'],
-};</p>
+<div class="highlight"><pre><span></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">globalSetup</span><span class="o">:</span> <span class="s1">&#39;./tests/setup.js&#39;</span><span class="p">,</span>
+  <span class="nx">globalTeardown</span><span class="o">:</span> <span class="s1">&#39;./tests/teardown.js&#39;</span><span class="p">,</span>
+  <span class="nx">testEnvironment</span><span class="o">:</span> <span class="s1">&#39;./tests/mongo-environment.js&#39;</span><span class="p">,</span>
+  <span class="nx">roots</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;./tests/&#39;</span><span class="p">],</span>
+<span class="p">};</span>
+</pre></div>
+
+
 <p>This should be enough to get MongoDB up and running. Now onto our actual tests scripts.</p>
 <p><strong>Setting up our tests</strong></p>
 <p>Now, finally, you can tie it all together with this snippet:</p>
 <p>Add jest to your package.json</p>
-<p>"scripts":{
-  "test": "jest"
-},</p>
-<p>And run with <code>npm test</code> .</p>
+<div class="highlight"><pre><span></span><span class="nt">&quot;scripts&quot;</span><span class="p">:{</span>
+  <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;jest&quot;</span>
+<span class="p">},</span>
+</pre></div>
+
+
+<p>And run with <code>npm test</code>.</p>
 <p>One major point to note is that aws-mock-sdk requires a very specific way of instantiating AWS resources(within the scope of the function tests), so if you see any errors around aws regions, double check <a href="https://github.com/dwyl/aws-sdk-mock#use-in-your-tests">you're following the rules</a>.</p>
     </div>
 

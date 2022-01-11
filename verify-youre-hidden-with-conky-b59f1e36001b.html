@@ -24,11 +24,12 @@
                         <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
 
                         <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
                         <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
                         <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item active"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
+                        <li class="main-nav-item"><a href="./category/posts.html" class="pure-menu-link">posts</a></li>
                         <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
                         <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
                     </ul>
                 </div>
@@ -44,7 +45,7 @@
     <div class="entry-content">
         <div class="post-meta pure-g">
             <div class="pure-u-3-4 meta-data">
-                <a href="./category/posts.html" class="category">posts</a><br />
+                <a href="./category/tech.html" class="category">Tech</a><br />
 
                 <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
                 &mdash; <abbr title="2015-07-26T00:00:00+00:00">Sun 26 July 2015</abbr>
@@ -75,16 +76,20 @@ location was the same as where I physically am, something's gone wrong.
 To implement this, I wrote a python script and using ipinfo.io grab my
 location and print it to conky.</p>
 <p>Here's the script I use to pull my location.</p>
-<p>import requests
-def main():
- headers = {
- 'User-Agent': 'curl/7.9.8 (i686-pc-linux-gnu) libcurl 7.9.8 (OpenSSL 0.9.6b) (ipv6 enabled)'
- }
- r = requests.get('http://ipinfo.io', headers=headers)
- ipdata = r.json()
- print(ipdata['city'] + ', ' + ipdata['region'] + ', ' + ipdata['country'])</p>
-<p>if <strong>name</strong> == "<strong>main</strong>":
- main()</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+ <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;curl/7.9.8 (i686-pc-linux-gnu) libcurl 7.9.8 (OpenSSL 0.9.6b) (ipv6 enabled)&#39;</span>
+ <span class="p">}</span>
+ <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://ipinfo.io&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+ <span class="n">ipdata</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+ <span class="nb">print</span><span class="p">(</span><span class="n">ipdata</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">ipdata</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">ipdata</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+ <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+
 <p>And here's the conky configuration I use to call it.</p>
 <p>${goto 40}Location: ${execpi 600 python ~/scripts/conky/location.py}</p>
 <p><a href="http://dnsleaktest.com">http://dnsleaktest.com</a> for an example of how it can be circumvented.</p>
@@ -92,9 +97,12 @@ def main():
 <p>For my mac address I wanted to be able to see my wifi adaptors physical
 address and what it should be spoofed to. If the two are the same,
 something's else has gone wrong.</p>
-<p>${if_existing /proc/net/route wlan0}
+<div class="highlight"><pre><span></span>${if_existing /proc/net/route wlan0}
  ${goto 40}${execpi 600 ethtool -P wlan0}
- ${endif}</p>
+ ${endif}
+</pre></div>
+
+
 <h3>Hostname</h3>
 <p>I also like to randomise my hostname on startup using this <a href="http://shanedowling.com/connect-to-routers-anonymously/">script</a>.</p>
 <p>${goto 40}Hostname: ${execpi 1000 hostname}</p>
