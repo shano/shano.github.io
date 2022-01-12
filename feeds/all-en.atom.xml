@@ -126,7 +126,241 @@ me constantly if I wanted to continue using my machine. So I made
 &lt;li&gt;&lt;a href="https://repl.it/"&gt;https://repl.it/&lt;/a&gt;-Don't get bogged down setting your local environment.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://codementor.io/"&gt;https://codementor.io/&lt;/a&gt;-Pay to get expert help.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;This is definitely enough to get a platform engineer started, I'll expand on this series with next steps, so keep an eye! I'll also start documenting how I'm growing from a Developer into a role demanding more Ops capabilities when I feel more comfortable myself.&lt;/p&gt;</content><category term="Leadership"></category></entry><entry><title>Populate Ansible from Amazon secrets manager</title><link href="https://shanedowling.com/populate-ansible-from-amazon-secrets-manager-8eac77127e37.html" rel="alternate"></link><published>2020-09-03T18:06:58+00:00</published><updated>2020-09-03T18:06:58+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-03:/populate-ansible-from-amazon-secrets-manager-8eac77127e37.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__l0WrN40X7lf7tKsbdtj7Sw.png"&gt;&lt;/p&gt;
+&lt;p&gt;This is definitely enough to get a platform engineer started, I'll expand on this series with next steps, so keep an eye! I'll also start documenting how I'm growing from a Developer into a role demanding more Ops capabilities when I feel more comfortable myself.&lt;/p&gt;</content><category term="Leadership"></category></entry><entry><title>The vagueness of Secular Buddhism</title><link href="https://shanedowling.com/the-vagueness-of-secular-buddhism.html" rel="alternate"></link><published>2020-11-07T00:00:00+00:00</published><updated>2020-11-07T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-11-07:/the-vagueness-of-secular-buddhism.html</id><summary type="html">&lt;p&gt;I’m looking for a path to atheist spirituality and I’ve looking more
+into Secular Buddhism. I have to admit, the results aren’t so promising,
+many are so vague as to be almost completely useless.&lt;/p&gt;
+&lt;p&gt;I’m looking for Buddhism minus beliefs, what I keeping seeing is much …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’m looking for a path to atheist spirituality and I’ve looking more
+into Secular Buddhism. I have to admit, the results aren’t so promising,
+many are so vague as to be almost completely useless.&lt;/p&gt;
+&lt;p&gt;I’m looking for Buddhism minus beliefs, what I keeping seeing is much
+more content on beliefs in general, references to Buddhism material but
+very little meat. No answers to:&lt;/p&gt;
+&lt;div class="section" id="what-can-i-explore-as-something-spiritual"&gt;
+&lt;h2&gt;What can I explore as something spiritual?&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-ceremonies-can-i-lean-on-to-support-this"&gt;
+&lt;h2&gt;What ceremonies can I lean on to support this?&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-new-ways-could-i-reframe-my-view-off-the-world"&gt;
+&lt;h2&gt;What new ways could I reframe my view off the world?&lt;/h2&gt;
+&lt;p&gt;I’ll continue to explore and see what I can find to help answer these,
+but so far(in the past) I’ve found Stoicism a much more concrete
+approach to these questions.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Mindfulness"></category></entry><entry><title>Make the smartphone dumb again</title><link href="https://shanedowling.com/make-the-smartphone-dumb-again.html" rel="alternate"></link><published>2020-11-05T00:00:00+00:00</published><updated>2020-11-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-11-05:/make-the-smartphone-dumb-again.html</id><summary type="html">&lt;p&gt;I have terrible, terrible impulse control. I cannot stop using my phone
+as a distraction tool. I simply cannot. We can discuss willpower, or
+being a better person, but they don’t work. I have no willpower and
+remain a terrible person despite how hard I try. If my phone …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I have terrible, terrible impulse control. I cannot stop using my phone
+as a distraction tool. I simply cannot. We can discuss willpower, or
+being a better person, but they don’t work. I have no willpower and
+remain a terrible person despite how hard I try. If my phone can do
+something to distract me, I will use it, a lot. Then the loathing sets
+in.&lt;/p&gt;
+&lt;p&gt;So I needed to turn my super sweet iPhone into something entirely
+distractionless and boring, it’s that or I throw my phone away(which
+I’ve seriously considered but without Whatsapp I just cannot communicate
+easily with my family and that is not something I want to add friction
+to).&lt;/p&gt;
+&lt;p&gt;So here’s my approach to blocking the noise. (Note: This if for iPhone,
+I’m sure Android can do something similar, it’s not like the bulk of
+Google’s revenue is tied to you constantly engaging with their
+services).&lt;/p&gt;
+&lt;div class="section" id="what-has-been-disabled-uninstalled-from-my-phone"&gt;
+&lt;h2&gt;What has been disabled/uninstalled from my Phone?&lt;/h2&gt;
+&lt;div class="section" id="safari-browsers"&gt;
+&lt;h3&gt;Safari/Browsers&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="app-store"&gt;
+&lt;h3&gt;App Store&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="email"&gt;
+&lt;h3&gt;Email&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="games"&gt;
+&lt;h3&gt;Games&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="social-networks"&gt;
+&lt;h3&gt;Social Networks&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="todo-apps"&gt;
+&lt;h3&gt;Todo Apps&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="habit-apps"&gt;
+&lt;h3&gt;Habit Apps&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="reading-apps"&gt;
+&lt;h3&gt;Reading Apps&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="colors"&gt;
+&lt;h3&gt;Colors&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="any-app-that-nags-me-for-anything-that-isnt-very-important"&gt;
+&lt;h3&gt;Any app that nags me for anything that isn’t very important.&lt;/h3&gt;
+&lt;p&gt;All noise that just does not add value to my life.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-remains-on-my-phone"&gt;
+&lt;h2&gt;What remains on my Phone?&lt;/h2&gt;
+&lt;div class="section" id="maps"&gt;
+&lt;h3&gt;Maps&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="camera"&gt;
+&lt;h3&gt;Camera&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="podcasts-limit-of-3-for-now"&gt;
+&lt;h3&gt;Podcasts(limit of 3 for now)&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="journal-day-one"&gt;
+&lt;h3&gt;Journal(Day One)&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="banking-apps"&gt;
+&lt;h3&gt;Banking Apps&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="apple-health"&gt;
+&lt;h3&gt;Apple Health&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="notes"&gt;
+&lt;h3&gt;Notes&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="section" id="whatsapp"&gt;
+&lt;h3&gt;Whatsapp&lt;/h3&gt;
+&lt;p&gt;So basically boring tools and Whatsapp. Nothing here would particularly
+compel me to check my phone every ten minutes for any sort of update.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-do-i-disable-stuff-and-keep-them-disabled"&gt;
+&lt;h2&gt;How do I disable stuff and keep them disabled?&lt;/h2&gt;
+&lt;p&gt;This is all great but I’m a terrible person and once I’ve uninstalled
+all of that stuff, I’m basically going to re-installed it all in 5
+minutes when terrible me reappears. My solution is lock myself out of my
+own phone. Find someone you trust (or if you want these restrictions for
+life, someone who hates you) for this process. Here’s how.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Uninstall all of the distracting, time-wasting apps you want to
+remove.&lt;/li&gt;
+&lt;li&gt;Under Settings, in “Content and Privacy Restrictions”, enable it.&lt;/li&gt;
+&lt;li&gt;Get your friend/enemy to set a password that &lt;strong&gt;you don’t know&lt;/strong&gt; but
+that &lt;strong&gt;they will remember&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Under “Allowed Apps”, disable Safari.&lt;/li&gt;
+&lt;li&gt;Under “Content Restrictions”, disable installing apps.&lt;/li&gt;
+&lt;li&gt;Search “Color Filters” in Settings and turn on “Greyscale”&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Woo! We have a drab boring soulless rectangle that gives me exciting
+access to my…. bank.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="replacements"&gt;
+&lt;h2&gt;Replacements&lt;/h2&gt;
+&lt;p&gt;So we can talk about getting rid of all of this stuff, but in the end,
+if you don’t come up with replacements to that pull for distraction
+you’re likely going to crack, beg your friend for the password and
+reinstall again. I did, many times. What I needed was replacements and
+these seem to have tenuously worked pretty well so far for me.&lt;/p&gt;
+&lt;p&gt;My replacements are mostly a kindle and a notebook. Kindle to keep me
+entertained when my brain, you know, starts to contemplate things like
+life and its lack of meaning or cancer or why good things happen to bad
+people. The notebook is for habit reminders, todos and when I get that
+pull towards the rectangle to search for a thing. When I’m drawn to
+research something, instead of the usual reinstall-fest, I write it down
+what I want in my notebook and look it up later on a laptop if it still
+matters(it often doesn’t).&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Digital Minimalism"></category></entry><entry><title>TIL - AWS Lambda Environment Vars</title><link href="https://shanedowling.com/til-aws-lambda-environment-vars.html" rel="alternate"></link><published>2020-11-05T00:00:00+00:00</published><updated>2020-11-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-11-05:/til-aws-lambda-environment-vars.html</id><content type="html">&lt;p&gt;In AWS Lambda, if you use ENVIRONMENT VARS they are tied to the lambda
+version, so a new deploy is required to update that config change.&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>Please, PLEASE make a domain for your own email address.</title><link href="https://shanedowling.com/please-please-make-a-domain-for-your-own-email-address.html" rel="alternate"></link><published>2020-11-02T00:00:00+00:00</published><updated>2020-11-02T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-11-02:/please-please-make-a-domain-for-your-own-email-address.html</id><summary type="html">&lt;p&gt;Don’t have a &lt;a class="reference external" href="mailto:me&amp;#64;gmail.com"&gt;me&amp;#64;gmail.com&lt;/a&gt; or &lt;a class="reference external" href="mailto:us&amp;#64;outlook.com"&gt;us&amp;#64;outlook.com&lt;/a&gt;, have a &lt;a class="reference external" href="mailto:me&amp;#64;myname.com"&gt;me&amp;#64;myname.com&lt;/a&gt;
+instead! [Google locks people out of their
+accounts](&lt;a class="reference external" href="https://www.businessinsider.com/google-users-locked-out-after-years-2020-10?r=US&amp;amp;IR=T"&gt;https://www.businessinsider.com/google-users-locked-out-after-years-2020-10?r=US&amp;amp;IR=T&lt;/a&gt;),
+to me loss of my email address would be a total disaster. This is the
+problem with …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Don’t have a &lt;a class="reference external" href="mailto:me&amp;#64;gmail.com"&gt;me&amp;#64;gmail.com&lt;/a&gt; or &lt;a class="reference external" href="mailto:us&amp;#64;outlook.com"&gt;us&amp;#64;outlook.com&lt;/a&gt;, have a &lt;a class="reference external" href="mailto:me&amp;#64;myname.com"&gt;me&amp;#64;myname.com&lt;/a&gt;
+instead! [Google locks people out of their
+accounts](&lt;a class="reference external" href="https://www.businessinsider.com/google-users-locked-out-after-years-2020-10?r=US&amp;amp;IR=T"&gt;https://www.businessinsider.com/google-users-locked-out-after-years-2020-10?r=US&amp;amp;IR=T&lt;/a&gt;),
+to me loss of my email address would be a total disaster. This is the
+problem with monopolies and something everyone needs to think more
+about. Imagine a world where a comment somewhere on an unrelated social
+network wipes out 15 years of email and communication as well as ongoing
+access to that email address. That’s today and if you don’t look out for
+these things you can be locked out of incredibly important parts of your
+own digital world.&lt;/p&gt;
+&lt;p&gt;So a few quick tips:&lt;/p&gt;
+&lt;div class="section" id="use-a-personal-domain-for-email-dont-rely-on-any-one-service-ever-with-a-personal-domain-you-can-keep-your-email-address-and-swap-to-different-suppliers-whenever-you-could-try-fastmail-with-your-me-myname-com-address-and-if-you-dont-like-it-swap-back-to-gmail-if-you-want-try-protonmail-maybe-either-way-your-email-address-never-needs-to-change"&gt;
+&lt;h2&gt;Use a personal domain for email, don’t rely on any one service ever. With a personal domain you can keep your email address and swap to different suppliers whenever. You could try Fastmail with your &lt;a class="reference external" href="mailto:me&amp;#64;myname.com"&gt;me&amp;#64;myname.com&lt;/a&gt; address, and if you don’t like it swap back to Gmail if you want, try Protonmail maybe. Either way, your email address never needs to change.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="always-backup-your-current-email-use-a-client-like-mail-or-thunderbird-and-always-download-your-mail"&gt;
+&lt;h2&gt;Always backup your current email, use a client(like Mail or Thunderbird), and always download your mail.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="dont-use-google-sign-in-up-process-ever-dont-use-any-companies-single-sign-on-with-your-google-account-gone-those-logins-are-totally-doomed-its-far-too-risky"&gt;
+&lt;h2&gt;Don’t use Google Sign-In/Up process ever. Don’t use any companies single sign on. With your Google Account gone, those logins are totally doomed. It’s far too risky.&lt;/h2&gt;
+&lt;p&gt;Bonus tip! Take a look at [nomoregoogle.com](&lt;a class="reference external" href="https://nomoregoogle.com"&gt;https://nomoregoogle.com&lt;/a&gt;)
+and try distribute some of your life away from one company.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Tech"></category></entry><entry><title>Quick Review - Long Gone Days</title><link href="https://shanedowling.com/quick-review-long-gone-days.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/quick-review-long-gone-days.html</id><summary type="html">&lt;p&gt;Coming from the AMAZING Bundle for Racial Justice and Equality, Long
+Gone Days is a &amp;quot;2D modern-day military RPG set in our current times,
+with a focus on language and cultural barriers&amp;quot;'.&lt;/p&gt;
+&lt;div class="section" id="looks"&gt;
+&lt;h2&gt;Looks&lt;/h2&gt;
+&lt;p&gt;Love the art-style of the game.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="music"&gt;
+&lt;h2&gt;Music&lt;/h2&gt;
+&lt;p&gt;The score is solid and the in-game sounds are fine …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Coming from the AMAZING Bundle for Racial Justice and Equality, Long
+Gone Days is a &amp;quot;2D modern-day military RPG set in our current times,
+with a focus on language and cultural barriers&amp;quot;'.&lt;/p&gt;
+&lt;div class="section" id="looks"&gt;
+&lt;h2&gt;Looks&lt;/h2&gt;
+&lt;p&gt;Love the art-style of the game.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="music"&gt;
+&lt;h2&gt;Music&lt;/h2&gt;
+&lt;p&gt;The score is solid and the in-game sounds are fine but unspectacular.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="story"&gt;
+&lt;h2&gt;Story&lt;/h2&gt;
+&lt;p&gt;No spoilers here. The story isn't bad, but it definitely has higher
+ideas than it's able to pull off. It also doesn't really capture the
+language and cultural barriers effectively in it's dialogue or plot.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="gameplay"&gt;
+&lt;h2&gt;Gameplay&lt;/h2&gt;
+&lt;p&gt;Walking around the pretty world is nice enough, but the motion feels a
+bit clunky. The RPG elements are extremely shallow and the battle screen
+is unimpressive. There are sniper sections also which are also fairly
+weak. All in all, it's not strong gameplay wise.&lt;/p&gt;
+&lt;p&gt;The idea of language and cultural barriers ties into the gameplay too.
+You enter new areas without the ability to communicate with NPCs, that
+could really have driven home the message about language barriers but in
+reality you pretty quickly find a translator and that's that. It could
+have been interwoven into the gameplay further, for example
+mis-understanding language could lead to some character mistakes
+plot-wise or it could have been woven more effectively in the gameplay.
+Again, it's just a bit shallow.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="did-i-finish-it"&gt;
+&lt;h2&gt;Did I finish it?&lt;/h2&gt;
+&lt;p&gt;The true estimation of if a game is decent in this bundle. So for me,
+no, after playing for a few hours, upon returning it felt too slow paced
+and clunky to want to continue. Perhaps the shallowness gameplay wise is
+forgivable, I'd say give it 30 minutes, if you're not sold on wanting to
+progress the story the gameplay may not keep you around.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Random"></category></entry><entry><title>TIL - AWS Summit - ECR</title><link href="https://shanedowling.com/til-aws-summit-ecr.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/til-aws-summit-ecr.html</id><content type="html">&lt;p&gt;ECR supports vulnerability scanning of pushed up repo images.&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>TIL - AWS Summit - Eventbridge</title><link href="https://shanedowling.com/til-aws-summit-eventbridge.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/til-aws-summit-eventbridge.html</id><content type="html">&lt;p&gt;Eventbridge can translate a lot of useful internal Amazon events into a
+call to say a Lamdba so you can drive custom behaviour from those
+events. For example: high vulnerabilities in your pushed ECR image could
+trigger lambda to fire off an alert(or delete the image).&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>TIL - AWS Summit - Fargate Autoscaling</title><link href="https://shanedowling.com/til-aws-summit-fargate-autoscaling.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/til-aws-summit-fargate-autoscaling.html</id><content type="html">&lt;p&gt;Fargate supports autoscaling options that include `FARGATE` or
+`FARGATE&lt;sub&gt;SPOT&lt;/sub&gt;` for spot pricing.&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>TIL - AWS Summit - Latency</title><link href="https://shanedowling.com/til-aws-summit-latency.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/til-aws-summit-latency.html</id><content type="html">&lt;p&gt;P99 and P95 latency refer to the percentage of requests should be faster
+than given latency.&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>TIL - AWS Summit - Spot Instances</title><link href="https://shanedowling.com/til-aws-summit-spot-instances.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/til-aws-summit-spot-instances.html</id><content type="html">&lt;p&gt;Currently, ~5% of spot instances are getting taken out, but their
+pricing is 1/3 of an On-Demand instance.&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>TIL - Bash Shift</title><link href="https://shanedowling.com/til-bash-shift.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/til-bash-shift.html</id><content type="html">&lt;p&gt;In `bash`, use `shift` to reassign positional arguments.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;p&gt;```bash $1 $2 $3 ```&lt;/p&gt;
+&lt;p&gt;Would become&lt;/p&gt;
+&lt;p&gt;```bash $1 matches old $2 $2 matches old $3 ```&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>TIL - Git Rebase</title><link href="https://shanedowling.com/til-git-rebase.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/til-git-rebase.html</id><content type="html">&lt;p&gt;In git, during rebase, ours and theirs are reversed. `theirs` is
+actually the current branch in the case of rebase.&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>TIL - How to match python regex postgis</title><link href="https://shanedowling.com/til-how-to-match-python-regex-postgis.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/til-how-to-match-python-regex-postgis.html</id><content type="html">&lt;p&gt;Use `(.*)` for matching groups in Python regexes.&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>Populate Ansible from Amazon secrets manager</title><link href="https://shanedowling.com/populate-ansible-from-amazon-secrets-manager-8eac77127e37.html" rel="alternate"></link><published>2020-09-03T18:06:58+00:00</published><updated>2020-09-03T18:06:58+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-03:/populate-ansible-from-amazon-secrets-manager-8eac77127e37.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__l0WrN40X7lf7tKsbdtj7Sw.png"&gt;&lt;/p&gt;
 &lt;p&gt;One of the ways to improve your security and avoid passing around env files is to follow the &lt;a href="https://12factor.net/config"&gt;twelve factor app&lt;/a&gt; and start populating your secrets from the environment. Another improvement is to pull those secrets from a known secret store, with features like rotation, auditing etc.&lt;/p&gt;
 &lt;h3&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;

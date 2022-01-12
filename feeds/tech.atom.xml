@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Tech</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/tech.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2020-09-03T18:06:58+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Populate Ansible from Amazon secrets manager</title><link href="https://shanedowling.com/populate-ansible-from-amazon-secrets-manager-8eac77127e37.html" rel="alternate"></link><published>2020-09-03T18:06:58+00:00</published><updated>2020-09-03T18:06:58+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-03:/populate-ansible-from-amazon-secrets-manager-8eac77127e37.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__l0WrN40X7lf7tKsbdtj7Sw.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Tech</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/tech.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2020-11-02T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Please, PLEASE make a domain for your own email address.</title><link href="https://shanedowling.com/please-please-make-a-domain-for-your-own-email-address.html" rel="alternate"></link><published>2020-11-02T00:00:00+00:00</published><updated>2020-11-02T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-11-02:/please-please-make-a-domain-for-your-own-email-address.html</id><summary type="html">&lt;p&gt;Don’t have a &lt;a class="reference external" href="mailto:me&amp;#64;gmail.com"&gt;me&amp;#64;gmail.com&lt;/a&gt; or &lt;a class="reference external" href="mailto:us&amp;#64;outlook.com"&gt;us&amp;#64;outlook.com&lt;/a&gt;, have a &lt;a class="reference external" href="mailto:me&amp;#64;myname.com"&gt;me&amp;#64;myname.com&lt;/a&gt;
+instead! [Google locks people out of their
+accounts](&lt;a class="reference external" href="https://www.businessinsider.com/google-users-locked-out-after-years-2020-10?r=US&amp;amp;IR=T"&gt;https://www.businessinsider.com/google-users-locked-out-after-years-2020-10?r=US&amp;amp;IR=T&lt;/a&gt;),
+to me loss of my email address would be a total disaster. This is the
+problem with …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Don’t have a &lt;a class="reference external" href="mailto:me&amp;#64;gmail.com"&gt;me&amp;#64;gmail.com&lt;/a&gt; or &lt;a class="reference external" href="mailto:us&amp;#64;outlook.com"&gt;us&amp;#64;outlook.com&lt;/a&gt;, have a &lt;a class="reference external" href="mailto:me&amp;#64;myname.com"&gt;me&amp;#64;myname.com&lt;/a&gt;
+instead! [Google locks people out of their
+accounts](&lt;a class="reference external" href="https://www.businessinsider.com/google-users-locked-out-after-years-2020-10?r=US&amp;amp;IR=T"&gt;https://www.businessinsider.com/google-users-locked-out-after-years-2020-10?r=US&amp;amp;IR=T&lt;/a&gt;),
+to me loss of my email address would be a total disaster. This is the
+problem with monopolies and something everyone needs to think more
+about. Imagine a world where a comment somewhere on an unrelated social
+network wipes out 15 years of email and communication as well as ongoing
+access to that email address. That’s today and if you don’t look out for
+these things you can be locked out of incredibly important parts of your
+own digital world.&lt;/p&gt;
+&lt;p&gt;So a few quick tips:&lt;/p&gt;
+&lt;div class="section" id="use-a-personal-domain-for-email-dont-rely-on-any-one-service-ever-with-a-personal-domain-you-can-keep-your-email-address-and-swap-to-different-suppliers-whenever-you-could-try-fastmail-with-your-me-myname-com-address-and-if-you-dont-like-it-swap-back-to-gmail-if-you-want-try-protonmail-maybe-either-way-your-email-address-never-needs-to-change"&gt;
+&lt;h2&gt;Use a personal domain for email, don’t rely on any one service ever. With a personal domain you can keep your email address and swap to different suppliers whenever. You could try Fastmail with your &lt;a class="reference external" href="mailto:me&amp;#64;myname.com"&gt;me&amp;#64;myname.com&lt;/a&gt; address, and if you don’t like it swap back to Gmail if you want, try Protonmail maybe. Either way, your email address never needs to change.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="always-backup-your-current-email-use-a-client-like-mail-or-thunderbird-and-always-download-your-mail"&gt;
+&lt;h2&gt;Always backup your current email, use a client(like Mail or Thunderbird), and always download your mail.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="dont-use-google-sign-in-up-process-ever-dont-use-any-companies-single-sign-on-with-your-google-account-gone-those-logins-are-totally-doomed-its-far-too-risky"&gt;
+&lt;h2&gt;Don’t use Google Sign-In/Up process ever. Don’t use any companies single sign on. With your Google Account gone, those logins are totally doomed. It’s far too risky.&lt;/h2&gt;
+&lt;p&gt;Bonus tip! Take a look at [nomoregoogle.com](&lt;a class="reference external" href="https://nomoregoogle.com"&gt;https://nomoregoogle.com&lt;/a&gt;)
+and try distribute some of your life away from one company.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Tech"></category></entry><entry><title>Populate Ansible from Amazon secrets manager</title><link href="https://shanedowling.com/populate-ansible-from-amazon-secrets-manager-8eac77127e37.html" rel="alternate"></link><published>2020-09-03T18:06:58+00:00</published><updated>2020-09-03T18:06:58+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-03:/populate-ansible-from-amazon-secrets-manager-8eac77127e37.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__l0WrN40X7lf7tKsbdtj7Sw.png"&gt;&lt;/p&gt;
 &lt;p&gt;One of the ways to improve your security and avoid passing around env files is to follow the &lt;a href="https://12factor.net/config"&gt;twelve factor app&lt;/a&gt; and start populating your secrets from the environment. Another improvement is to pull those secrets from a known secret store, with features like rotation, auditing etc.&lt;/p&gt;
 &lt;h3&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;

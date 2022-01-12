@@ -51,19 +51,18 @@
                         <a href="./category/tech.html" class="category">Tech</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-03-27T00:00:00+00:00">Thu 27 March 2014</abbr>
+                        &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
                     </div>
                 </div>
-                <h2><a href="./useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html" rel="bookmark" title="Permalink to Useful bit of SQL to update many records in SugarCRM">Useful bit of SQL to update many records in SugarCRM</a></h2>
+                <h2><a href="./sugarcrm-7-hiding-subpanels-based-on-specific-criteria-eee6aacb95e1.html" rel="bookmark" title="Permalink to SugarCRM 7 — Hiding subpanels based on specific criteria">SugarCRM 7 — Hiding subpanels based on specific criteria</a></h2>
                 <div class="post-content">
-                    <div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">clowns</span> <span class="k">SET</span> <span class="n">deleted</span><span class="o">=</span><span class="mi">1</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="k">IN</span>
- <span class="p">(</span><span class="k">SELECT</span> <span class="n">id</span> <span class="k">FROM</span> <span class="p">(</span>
- <span class="k">SELECT</span> <span class="n">id</span> <span class="k">FROM</span> <span class="n">clowns</span> <span class="k">WHERE</span> <span class="n">deleted</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span> <span class="k">ASC</span> <span class="k">LIMIT</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
- <span class="n">tmp</span> <span class="p">);</span>
-</pre></div>
+                    <p>The new Sugar subpanels look great but they do take up quite a lot
+space, without any ability to remove Subpanels via studio I've had to
+come up with a few ways to hide them.</p>
+<p><strong>Note: Original Props go to Robin Larsson who wrote the</strong> <a href="https://community.sugarcrm.com/sugarcrm/topics/dynamically_hiding_showing_subpanels_based_on_record_values_in_sugar_7"><strong>original</strong></a> <strong>on the Sugar Community …</strong></p>
                 </div>
                 <div class="post-footer">
-                    <a href="./useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html">Read more</a>
+                    <a href="./sugarcrm-7-hiding-subpanels-based-on-specific-criteria-eee6aacb95e1.html">Read more</a>
                 </div>
             </div>
             <div class="post">
@@ -74,44 +73,18 @@
                         <a href="./category/tech.html" class="category">Tech</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-03-06T00:00:00+00:00">Thu 06 March 2014</abbr>
+                        &mdash; <abbr title="2014-06-06T00:00:00+00:00">Fri 06 June 2014</abbr>
                     </div>
                 </div>
-                <h2><a href="./owning-your-data-initial-server-setup-afa33394b94.html" rel="bookmark" title="Permalink to Owning Your Data — Initial Server Setup">Owning Your Data — Initial Server Setup</a></h2>
+                <h2><a href="./super-simple-folder-backup-one-liner-de43a969cb0d.html" rel="bookmark" title="Permalink to Super simple folder backup one-liner">Super simple folder backup one-liner</a></h2>
                 <div class="post-content">
-                    <p><img alt="" src="images/1__Frjg0ruGoXtEESBMek____Lw.png"></p>
-<p>So before you can move to your own self-hosted services, you'll need
-your own hosting. This is a really basic tutorial/set of links on
-getting a server up and running with Salt.</p>
-<h3>Hosting Provider</h3>
-<p>DigitalOcean is a terrific hosting company if you're want to play around with a few …</p>
+                    <p>I needed a simple cron job, that just took backups of my project
+folders, should the worst happen to my laptop. Google brought up nothing
+obvious, so I figured I'd share it here.</p>
+<div class="highlight"><pre><span></span>tar zcvf /tmp/snap.tgz ~/Projects <span class="o">&amp;&amp;</span> rsync /tmp/snap.tgz user@remotebox:/home/backups/snap_<span class="sb">`</span>date +%F …</pre></div>
                 </div>
                 <div class="post-footer">
-                    <a href="./owning-your-data-initial-server-setup-afa33394b94.html">Read more</a>
-                </div>
-            </div>
-            <div class="post">
-                <div class="post-meta pure-g">
-
-
-                    <div class="pure-u-3-4 meta-data">
-                        <a href="./category/productivity.html" class="category">Productivity</a><br />
-
-                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-03-01T00:00:00+00:00">Sat 01 March 2014</abbr>
-                    </div>
-                </div>
-                <h2><a href="./perfomance-enhancing-breakfast-4a14f17ee20a.html" rel="bookmark" title="Permalink to Perfomance Enhancing Breakfast">Perfomance Enhancing Breakfast</a></h2>
-                <div class="post-content">
-                    <p><img alt="" src="images/1__EES2Sqy6g09QG__4Aw5ZAiA.jpeg"></p>
-<p>As Lance Armstrong has shown the world, putting the right thing into
-your body can greatly improve performance, I myself have been looking
-into more maintainable alternative. More and more I'm experimenting with
-diet as a means to improve my mental performance as well as my running
-ability week on …</p>
-                </div>
-                <div class="post-footer">
-                    <a href="./perfomance-enhancing-breakfast-4a14f17ee20a.html">Read more</a>
+                    <a href="./super-simple-folder-backup-one-liner-de43a969cb0d.html">Read more</a>
                 </div>
             </div>
             <div class="post">
@@ -122,16 +95,41 @@ ability week on …</p>
                         <a href="./category/tech.html" class="category">Tech</a><br />
 
                         <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-02-27T00:00:00+00:00">Thu 27 February 2014</abbr>
+                        &mdash; <abbr title="2014-05-22T00:00:00+00:00">Thu 22 May 2014</abbr>
                     </div>
                 </div>
-                <h2><a href="./owning-your-data-296ed1534643.html" rel="bookmark" title="Permalink to Owning Your Data">Owning Your Data</a></h2>
+                <h2><a href="./sugarcrm-7-adding-a-custom-column-to-a-list-1370ce1fbdb2.html" rel="bookmark" title="Permalink to SugarCRM 7 — Adding a custom column to a list">SugarCRM 7 — Adding a custom column to a list</a></h2>
                 <div class="post-content">
-                    <p><img alt="" src="images/1__onILu1exx9sSg4nwDK__CJw.jpeg"></p>
-<p>Governments are collecting data on you, that's a fairly accepted fact at this stage. Whether you're being "social", reading email, playing video games or even when you're writing a book on the NSA. If you want more details The Guardian has a great explanation as to what Snowden's files mean …</p>
+                    <p>This is the SugarCRM 7 equivalent to this post <a href="https://shanedowling.com/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1">here</a>, because Sugar has dropped the process record logic hook, we need to come up with a new solution.</p>
+<p>Here's how you can add a new column to a list view, I have to admit this
+is one of the really …</p>
                 </div>
                 <div class="post-footer">
-                    <a href="./owning-your-data-296ed1534643.html">Read more</a>
+                    <a href="./sugarcrm-7-adding-a-custom-column-to-a-list-1370ce1fbdb2.html">Read more</a>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-meta pure-g">
+
+
+                    <div class="pure-u-3-4 meta-data">
+                        <a href="./category/tech.html" class="category">Tech</a><br />
+
+                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                        &mdash; <abbr title="2014-05-18T00:00:00+00:00">Sun 18 May 2014</abbr>
+                    </div>
+                </div>
+                <h2><a href="./sugarcrm-7-adding-an-action-to-the-listview-436f18c039e6.html" rel="bookmark" title="Permalink to SugarCRM 7 — Adding an action to the listview">SugarCRM 7 — Adding an action to the listview</a></h2>
+                <div class="post-content">
+                    <p><img alt="" src="images/1__O0TIZQumvouoJ6ZCn8__s3g.jpeg"></p>
+<p>There doesn't appear to be a documented way to do this but in SugarCRM 7
+this is how I've added actions to the listview. For this example it's
+showing how to add a button to an animal module, which adds the animal
+to a related circus event.</p>
+<h3>1. Adding thebutton …</h3>
+                </div>
+                <div class="post-footer">
+                    <a href="./sugarcrm-7-adding-an-action-to-the-listview-436f18c039e6.html">Read more</a>
                 </div>
             </div>
 
