@@ -2537,7 +2537,7 @@ There is, however a downside. Bit-Torrent Sync isn't open source, which is why i
 &lt;p&gt;However, personally I'm happy to take the risk they're not hosting your data and the setup is as simple as it gets. Bear in mind there's also open source alternatives that could do the job quite easily, I just haven't had time to test them.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="images/1__cBAbOvAvxh9orhMKkbYMgg.jpeg"&gt;&lt;/p&gt;
 &lt;h3&gt;Requirements&lt;/h3&gt;
-&lt;p&gt;Just a server really. You can use &lt;a href="https://medium.com/brightpin/owning-your-data-initial-server-setup-afa33394b94"&gt;this guide&lt;/a&gt; if you wish but any server should do, you don't necessarily even need a server. Just two devices to sync across. If you had a work/home laptop you could create a synced folder across both.&lt;/p&gt;
+&lt;p&gt;Just a server really. You can use &lt;a href="https://shanedowling.com/owning-your-data-initial-server-setup-afa33394b94"&gt;this guide&lt;/a&gt; if you wish but any server should do, you don't necessarily even need a server. Just two devices to sync across. If you had a work/home laptop you could create a synced folder across both.&lt;/p&gt;
 &lt;h3&gt;Setup&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;It's so simple really, just download btsync to your server here and run ./btsync.&lt;/li&gt;
