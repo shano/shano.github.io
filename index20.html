@@ -56,6 +56,31 @@
                         &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
                     </div>
                 </div>
+                <h2><a href="./quick-salt-minion-setup-354516c0ff63.html" rel="bookmark" title="Permalink to Quick Salt Minion Setup">Quick Salt Minion Setup</a></h2>
+                <div class="post-content">
+                    <p>I find myself setting up salt minions a LOT. So I figured I'd write down
+the steps in this concise format.</p>
+<h3>On the minion</h3>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:saltstack/salt
+sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install salt-minion
+sudo <span class="nb">echo</span> <span class="s1">&#39; salt&#39;</span> &gt;&gt; /etc/hosts //Or whatever the salt master is
+sudo salt-call -l …</pre></div>
+                </div>
+                <div class="post-footer">
+                    <a href="./quick-salt-minion-setup-354516c0ff63.html">Read more</a>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-meta pure-g">
+
+
+                    <div class="pure-u-3-4 meta-data">
+                        <a href="./category/tech.html" class="category">Tech</a><br />
+
+                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                        &mdash; <abbr title="2014-06-12T00:00:00+00:00">Thu 12 June 2014</abbr>
+                    </div>
+                </div>
                 <h2><a href="./sugarcrm-7-hiding-subpanels-based-on-specific-criteria-eee6aacb95e1.html" rel="bookmark" title="Permalink to SugarCRM 7 — Hiding subpanels based on specific criteria">SugarCRM 7 — Hiding subpanels based on specific criteria</a></h2>
                 <div class="post-content">
                     <p>The new Sugar subpanels look great but they do take up quite a lot
@@ -108,30 +133,6 @@ is one of the really …</p>
                 </div>
                 <div class="post-footer">
                     <a href="./sugarcrm-7-adding-a-custom-column-to-a-list-1370ce1fbdb2.html">Read more</a>
-                </div>
-            </div>
-            <div class="post">
-                <div class="post-meta pure-g">
-
-
-                    <div class="pure-u-3-4 meta-data">
-                        <a href="./category/tech.html" class="category">Tech</a><br />
-
-                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2014-05-18T00:00:00+00:00">Sun 18 May 2014</abbr>
-                    </div>
-                </div>
-                <h2><a href="./sugarcrm-7-adding-an-action-to-the-listview-436f18c039e6.html" rel="bookmark" title="Permalink to SugarCRM 7 — Adding an action to the listview">SugarCRM 7 — Adding an action to the listview</a></h2>
-                <div class="post-content">
-                    <p><img alt="" src="images/1__O0TIZQumvouoJ6ZCn8__s3g.jpeg"></p>
-<p>There doesn't appear to be a documented way to do this but in SugarCRM 7
-this is how I've added actions to the listview. For this example it's
-showing how to add a button to an animal module, which adds the animal
-to a related circus event.</p>
-<h3>1. Adding thebutton …</h3>
-                </div>
-                <div class="post-footer">
-                    <a href="./sugarcrm-7-adding-an-action-to-the-listview-436f18c039e6.html">Read more</a>
                 </div>
             </div>
 
