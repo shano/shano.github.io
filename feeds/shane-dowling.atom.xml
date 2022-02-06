@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2022-02-06T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Consuming Content Like it's the 90s</title><link href="https://shanedowling.com/consuming-content-like-its-the-90s.html" rel="alternate"></link><published>2022-02-06T00:00:00+00:00</published><updated>2022-02-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-02-06:/consuming-content-like-its-the-90s.html</id><summary type="html">&lt;p&gt;It’s the 2020s, we continue to become more connected that we’ve ever
-been and I hate it! I don’t have the self control needed to handle these
-always-on devices. It’s awful. They’re all so incredibly powerful and
-give so much in terms of information. I …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It’s the 2020s, we continue to become more connected that we’ve ever
-been and I hate it! I don’t have the self control needed to handle these
-always-on devices. It’s awful. They’re all so incredibly powerful and
-give so much in terms of information. I, however will be on reddit or
-hackernews pretending I’m productive reading about someone else’s
+been, and I hate it! I don’t have the self-control needed to handle
+these always-on devices. It’s awful. They’re all so incredibly powerful
+and give so much in terms of information. I, however …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It’s the 2020s, we continue to become more connected that we’ve ever
+been, and I hate it! I don’t have the self-control needed to handle
+these always-on devices. It’s awful. They’re all so incredibly powerful
+and give so much in terms of information. I, however will be on reddit
+or hackernews pretending I’m productive reading about someone else’s
 terrificly productive project. I’ve lived with my brain enough to know,
 uncontrolled smartphones aren’t really for me. I’ve written elsewhere
 &lt;a class="reference external" href="https://shanedowling.com/make-the-smartphone-dumb-again.html"&gt;how my smartphone is basically a dumb
@@ -25,8 +25,8 @@ to entertain me in limitless ways. So lets see if we can find a
 reasonable replacement.&lt;/p&gt;
 &lt;p&gt;Now I am almost constantly listening to either audiobooks or Podcasts.
 With two kids, audio is about the best bet you’ll get in terms of
-engaging drama that won’t be interrupted within ten minutes. There’s
-some excellent Podcasts dramas too, Blackout and We’re Alive are just
+engaging drama that won’t be interrupted within ten minutes. There are
+some excellent Podcasts dramas too. Blackout, and We’re Alive are just
 two(especially if you’re into dystopias like myself). So we need a way
 to listen to some Podcasts. What are the options available outside of
 the black rectangles?&lt;/p&gt;
@@ -35,7 +35,7 @@ the black rectangles?&lt;/p&gt;
 &lt;p&gt;So I am a big fan of Minidiscs, I love them as a format and I love that
 my guilty please audio listening genre(synthwave!) are still releasing
 albums on this format. It’s terrific. There’s a pretty good electron app
-to manage tracks and it’s just such an enjoyable and tactile format. So
+to manage tracks, and it’s just such an enjoyable and tactile format. So
 lets give Podcasts a try on this thing.&lt;/p&gt;
 &lt;p&gt;I gave Podcasts on Minidiscs a real go, even printed out per-podcasts
 discs covers, look how nice they look!&lt;/p&gt;
@@ -44,7 +44,7 @@ discs covers, look how nice they look!&lt;/p&gt;
 killer. Trying to split podcasts and audiobooks amongst multiple discs
 was painful. The write speeds being so slow, by the time a podcast was
 written to the disc, it felt like the next one would be released. It was
-terrible, I love Minidiscs but no sane person could do this. Any
+terrible, I love Minidiscs, but no sane person could do this. Any
 requirement to that needs frequent writes to a Minidiscs are doomed to
 fail. Music and albums would be fine, but anything regularly needing
 writing, no change. Learn from my lessons(or maybe you were smart enough
@@ -53,16 +53,16 @@ to not do stupid things in the first place)!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="version-2-it-s-the-future-ugh"&gt;
 &lt;h2&gt;Version 2 – It's the future! Ugh.&lt;/h2&gt;
-&lt;p&gt;Okay, lets go from year 1992 to 1997 and try one of those futuristic MP3
-players. I decided to pick up a Victure Bluetooth MP3 Player and yeah,
-it worked but the experience was painful. Getting files on was
+&lt;p&gt;Okay, let's go from year 1992 to 1997 and try one of those futuristic
+MP3 players. I decided to pick up a Victure Bluetooth MP3 Player and
+yeah, it worked, but the experience was painful. Getting files on was
 dead-easy, it just mounted as a filesystem. So the minidisc write
-problems are solved, great. However the experience of navigating and
+problems are solved, great. However, the experience of navigating and
 listening to Podcasts left a LOT to be desired. These things don’t
 support podcasts and the UI is just terrible on this tiny screen.
 Without Podcast support, there’s no way to resume anything, and hopping
 between Podcasts or pausing and leaving the device sucks. With serious
-consequences, this maybe could work but I feel like this would be too
+consequences, this maybe could work, but I feel like this would be too
 painful for me not to just revert back to the black rectangle of
 distractedness. MP3s are good though, this format might just have a
 future.&lt;/p&gt;
@@ -72,21 +72,21 @@ future.&lt;/p&gt;
 &lt;h2&gt;Version 3 – Just right, just about….&lt;/h2&gt;
 &lt;p&gt;This time I opted for a heavy-weight. I didn’t want to mess around with
 another cheaply produced modern MP3 player. If I was going MP3 I wanted
-it to be the Rolls Royce of relatively cheap mp3 players. Perhaps made
+it to be the Rolls-Royce of relatively cheap mp3 players. Perhaps made
 by the most valuable company on the planet at a time when it’s near
 Jesus-like leader was at the peak of his powers. With that in mind, I
 opted for an iPod Video 5th generation and in short, Jobs and all those
-involved produced an almost perfect product. It’s well made product,
-really, really well made. Especially considering it’s still going strong
-20 years after it’s initial release. I’m putting it through it’s paces
-too, I’ve been using this daily for 6 months and it’s held up really
+involved produced an almost perfect product. It’s well-made product,
+really, really well-made. Especially considering it’s still going strong
+20 years after its initial release. I’m putting it through it’s paces
+too, I’ve been using this daily for 6 months, and it’s held up really
 well.&lt;/p&gt;
 &lt;p&gt;It supports Podcasts and Audiobooks out of the box, has resume support
 and a really nice, easy to use UI. It’s staggering how good this UI is,
 all things considered. Time has not seriously improved or developed MP3
 products at all. I even have Rockbox installed on my iPod(as I just
 assumed it would be better), but it genuinely is a poorer experience. No
-Podcast support killed it out of the box for me and generally it just
+Podcast support killed it out of the box for me, and generally it just
 seems like it has a number of meaningless bells and whistles but nothing
 to improve the actual core offering of the MP3 player.&lt;/p&gt;
 &lt;p&gt;In terms of a serious evaluation though, I’ve used this iPod for around
@@ -94,12 +94,12 @@ to improve the actual core offering of the MP3 player.&lt;/p&gt;
 variety of topics. If you’re looking for a (currently) inexpensive and
 also easy way to manage and listening to Podcasts on the go, I cannot
 recommend anything better, but if you have any better suggestions, do
-reach out and I’ll happily add them onto the bottom of this post.&lt;/p&gt;
+reach out, and I’ll happily add them onto the bottom of this post.&lt;/p&gt;
 &lt;p&gt;There are some limitations to this, I obviously need to manage
-downloading Podcast and then transfer them to my iPod but generally
+downloading Podcast and then transfer them to my iPod, but generally
 that’s sort of done in the background while I’m doing other things. I’ll
 write up a post on managing an iPod here. There’s some effort involved,
-but onces it’s setup it’s all good.&lt;/p&gt;
+but once it’s setup it’s all good.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="image3" src="./images/ipod.jpeg" /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </content><category term="Digital Minimalism"></category></entry><entry><title>TIL Updating ZSH</title><link href="https://shanedowling.com/til-updating-zsh.html" rel="alternate"></link><published>2022-01-04T00:00:00+00:00</published><updated>2022-01-04T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-01-04:/til-updating-zsh.html</id><content type="html">&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
@@ -229,15 +229,15 @@ me constantly if I wanted to continue using my machine. So I made
 &lt;li&gt;&lt;a href="https://repl.it/"&gt;https://repl.it/&lt;/a&gt;-Don't get bogged down setting your local environment.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://codementor.io/"&gt;https://codementor.io/&lt;/a&gt;-Pay to get expert help.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;This is definitely enough to get a platform engineer started, I'll expand on this series with next steps, so keep an eye! I'll also start documenting how I'm growing from a Developer into a role demanding more Ops capabilities when I feel more comfortable myself.&lt;/p&gt;</content><category term="Leadership"></category></entry><entry><title>The vagueness of Secular Buddhism</title><link href="https://shanedowling.com/the-vagueness-of-secular-buddhism.html" rel="alternate"></link><published>2020-11-07T00:00:00+00:00</published><updated>2020-11-07T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-11-07:/the-vagueness-of-secular-buddhism.html</id><summary type="html">&lt;p&gt;I’m looking for a path to atheist spirituality and I’ve looking more
+&lt;p&gt;This is definitely enough to get a platform engineer started, I'll expand on this series with next steps, so keep an eye! I'll also start documenting how I'm growing from a Developer into a role demanding more Ops capabilities when I feel more comfortable myself.&lt;/p&gt;</content><category term="Leadership"></category></entry><entry><title>The vagueness of Secular Buddhism</title><link href="https://shanedowling.com/the-vagueness-of-secular-buddhism.html" rel="alternate"></link><published>2020-11-07T00:00:00+00:00</published><updated>2020-11-07T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-11-07:/the-vagueness-of-secular-buddhism.html</id><summary type="html">&lt;p&gt;I’m looking for a path to atheist spirituality, and I’ve looking more
 into Secular Buddhism. I have to admit, the results aren’t so promising,
 many are so vague as to be almost completely useless.&lt;/p&gt;
-&lt;p&gt;I’m looking for Buddhism minus beliefs, what I keeping seeing is much …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’m looking for a path to atheist spirituality and I’ve looking more
+&lt;p&gt;I’m looking for Buddhism minus beliefs, what I keep seeing is much …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I’m looking for a path to atheist spirituality, and I’ve looking more
 into Secular Buddhism. I have to admit, the results aren’t so promising,
 many are so vague as to be almost completely useless.&lt;/p&gt;
-&lt;p&gt;I’m looking for Buddhism minus beliefs, what I keeping seeing is much
-more content on beliefs in general, references to Buddhism material but
-very little meat. No answers to:&lt;/p&gt;
+&lt;p&gt;I’m looking for Buddhism minus beliefs, what I keep seeing is much more
+content on beliefs in general, references to Buddhism material but very
+little meat. No answers to:&lt;/p&gt;
 &lt;div class="section" id="what-can-i-explore-as-something-spiritual"&gt;
 &lt;h2&gt;What can I explore as something spiritual?&lt;/h2&gt;
 &lt;/div&gt;
@@ -260,7 +260,7 @@ remain a terrible person despite how hard I try. If my phone can do
 something to distract me, I will use it, a lot. Then the loathing sets
 in.&lt;/p&gt;
 &lt;p&gt;So I needed to turn my super sweet iPhone into something entirely
-distractionless and boring, it’s that or I throw my phone away(which
+distraction-less and boring, it’s that, or I throw my phone away(which
 I’ve seriously considered but without Whatsapp I just cannot communicate
 easily with my family and that is not something I want to add friction
 to).&lt;/p&gt;
@@ -333,7 +333,7 @@ compel me to check my phone every ten minutes for any sort of update.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="how-do-i-disable-stuff-and-keep-them-disabled"&gt;
 &lt;h2&gt;How do I disable stuff and keep them disabled?&lt;/h2&gt;
-&lt;p&gt;This is all great but I’m a terrible person and once I’ve uninstalled
+&lt;p&gt;This is all great, but I’m a terrible person and once I’ve uninstalled
 all of that stuff, I’m basically going to re-installed it all in 5
 minutes when terrible me reappears. My solution is lock myself out of my
 own phone. Find someone you trust (or if you want these restrictions for
@@ -349,7 +349,7 @@ that &lt;strong&gt;they will remember&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Search “Color Filters” in Settings and turn on “Greyscale”&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Woo! We have a drab boring soulless rectangle that gives me exciting
-access to my…. bank.&lt;/p&gt;
+access to my bank.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="replacements"&gt;
 &lt;h2&gt;Replacements&lt;/h2&gt;
@@ -393,7 +393,7 @@ own digital world.&lt;/p&gt;
 &lt;div class="section" id="dont-use-google-sign-in-up-process-ever-dont-use-any-companies-single-sign-on-with-your-google-account-gone-those-logins-are-totally-doomed-its-far-too-risky"&gt;
 &lt;h2&gt;Don’t use Google Sign-In/Up process ever. Don’t use any companies single sign on. With your Google Account gone, those logins are totally doomed. It’s far too risky.&lt;/h2&gt;
 &lt;p&gt;Bonus tip! Take a look at [nomoregoogle.com](&lt;a class="reference external" href="https://nomoregoogle.com"&gt;https://nomoregoogle.com&lt;/a&gt;)
-and try distribute some of your life away from one company.&lt;/p&gt;
+and try to distribute some of your life away from one company.&lt;/p&gt;
 &lt;/div&gt;
 </content><category term="Tech"></category></entry><entry><title>Quick Review - Long Gone Days</title><link href="https://shanedowling.com/quick-review-long-gone-days.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/quick-review-long-gone-days.html</id><summary type="html">&lt;p&gt;Coming from the AMAZING Bundle for Racial Justice and Equality, Long
 Gone Days is a &amp;quot;2D modern-day military RPG set in our current times,
@@ -424,16 +424,16 @@ language and cultural barriers effectively in it's dialogue or plot.&lt;/p&gt;
 &lt;div class="section" id="gameplay"&gt;
 &lt;h2&gt;Gameplay&lt;/h2&gt;
 &lt;p&gt;Walking around the pretty world is nice enough, but the motion feels a
-bit clunky. The RPG elements are extremely shallow and the battle screen
-is unimpressive. There are sniper sections also which are also fairly
-weak. All in all, it's not strong gameplay wise.&lt;/p&gt;
+bit clunky. The RPG elements are extremely shallow, and the battle
+screen is unimpressive. There are sniper sections also which are also
+fairly weak. All in all, it's not strong gameplay wise.&lt;/p&gt;
 &lt;p&gt;The idea of language and cultural barriers ties into the gameplay too.
 You enter new areas without the ability to communicate with NPCs, that
 could really have driven home the message about language barriers but in
 reality you pretty quickly find a translator and that's that. It could
 have been interwoven into the gameplay further, for example
 mis-understanding language could lead to some character mistakes
-plot-wise or it could have been woven more effectively in the gameplay.
+plot-wise, or it could have been woven more effectively in the gameplay.
 Again, it's just a bit shallow.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="did-i-finish-it"&gt;
@@ -446,7 +446,7 @@ progress the story the gameplay may not keep you around.&lt;/p&gt;
 &lt;/div&gt;
 </content><category term="Random"></category></entry><entry><title>TIL - AWS Summit - ECR</title><link href="https://shanedowling.com/til-aws-summit-ecr.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/til-aws-summit-ecr.html</id><content type="html">&lt;p&gt;ECR supports vulnerability scanning of pushed up repo images.&lt;/p&gt;
 </content><category term="TIL"></category></entry><entry><title>TIL - AWS Summit - Eventbridge</title><link href="https://shanedowling.com/til-aws-summit-eventbridge.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/til-aws-summit-eventbridge.html</id><content type="html">&lt;p&gt;Eventbridge can translate a lot of useful internal Amazon events into a
-call to say a Lamdba so you can drive custom behaviour from those
+call to say a Lamdba, so you can drive custom behaviour from those
 events. For example: high vulnerabilities in your pushed ECR image could
 trigger lambda to fire off an alert(or delete the image).&lt;/p&gt;
 </content><category term="TIL"></category></entry><entry><title>TIL - AWS Summit - Fargate Autoscaling</title><link href="https://shanedowling.com/til-aws-summit-fargate-autoscaling.html" rel="alternate"></link><published>2020-09-28T00:00:00+01:00</published><updated>2020-09-28T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-28:/til-aws-summit-fargate-autoscaling.html</id><content type="html">&lt;p&gt;Fargate supports autoscaling options that include `FARGATE` or

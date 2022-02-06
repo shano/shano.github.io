@@ -23,7 +23,7 @@ own digital world.&lt;/p&gt;
 &lt;div class="section" id="dont-use-google-sign-in-up-process-ever-dont-use-any-companies-single-sign-on-with-your-google-account-gone-those-logins-are-totally-doomed-its-far-too-risky"&gt;
 &lt;h2&gt;Don’t use Google Sign-In/Up process ever. Don’t use any companies single sign on. With your Google Account gone, those logins are totally doomed. It’s far too risky.&lt;/h2&gt;
 &lt;p&gt;Bonus tip! Take a look at [nomoregoogle.com](&lt;a class="reference external" href="https://nomoregoogle.com"&gt;https://nomoregoogle.com&lt;/a&gt;)
-and try distribute some of your life away from one company.&lt;/p&gt;
+and try to distribute some of your life away from one company.&lt;/p&gt;
 &lt;/div&gt;
 </content><category term="Tech"></category></entry><entry><title>Populate Ansible from Amazon secrets manager</title><link href="https://shanedowling.com/populate-ansible-from-amazon-secrets-manager-8eac77127e37.html" rel="alternate"></link><published>2020-09-03T18:06:58+00:00</published><updated>2020-09-03T18:06:58+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-09-03:/populate-ansible-from-amazon-secrets-manager-8eac77127e37.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__l0WrN40X7lf7tKsbdtj7Sw.png"&gt;&lt;/p&gt;
 &lt;p&gt;One of the ways to improve your security and avoid passing around env files is to follow the &lt;a href="https://12factor.net/config"&gt;twelve factor app&lt;/a&gt; and start populating your secrets from the environment. Another improvement is to pull those secrets from a known secret store, with features like rotation, auditing etc.&lt;/p&gt;
