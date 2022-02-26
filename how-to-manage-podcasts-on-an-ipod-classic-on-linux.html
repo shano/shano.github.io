@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>How to manage Podcasts on an iPod Classic on Linux</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/forms.css" />
+        <link rel="stylesheet" href="./theme/fonts/fonts.css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
+        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
+        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+</head>
+<body>
+
+    <div class="main-nav-container">
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-lg-2-3">
+                <div class="main-nav">
+                    <ul class="main-nav-list">
+                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+
+                        <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
+                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
+                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
+                        <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
+                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
+                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
+                        <li class="main-nav-item active"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
+                        <li class="main-nav-item"><a href="./pages/contact.html" class="pure-menu-link">Contact</a></li>
+                    </ul>
+                </div>
+             </div>
+
+             <div class="pure-u-1 pure-u-lg-1-3"></div>
+        </div>
+
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u-3-4 meta-data">
+                <a href="./category/digital-minimalism.html" class="category">Digital Minimalism</a><br />
+
+                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
+                &mdash; <abbr title="2022-02-26T00:00:00+00:00">Sat 26 February 2022</abbr>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>How to manage Podcasts on an iPod Classic on Linux</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>After my last post generated some interesting discussion on <a class="reference external" href="https://news.ycombinator.com/item?id=30236251">Hacker
+News</a>, I figured it
+was worth a little guide on how I manage my iPod Classic on a Linux
+machine. Thankfully some very clever people put together the drivers and
+software to make this a breeze, but there's a few things you need to
+know that took some figuring out for me. So I'll share them here.</p>
+<div class="section" id="connecting-your-ipod">
+<h2>Connecting your iPod</h2>
+<p>This should be the easiest thing to do. Simply connect your iPod to your
+machine and it should appear as an external device. Here's my iPod
+appearing under Thunar after I plug it in:</p>
+<p><img alt="image0" src="./images/ipod_thunar.png" /></p>
+</div>
+<div class="section" id="managing-podcasts">
+<h2>Managing Podcasts</h2>
+<p>To manage podcasts on my laptop I use
+<a class="reference external" href="https://gpodder.github.io/">gPodder</a>. I'm a huge fan of it. The only
+limitation really is there may be podcasts locked to sources like
+Spotify, but if you're listening to Podcasts on an iPod you'll hit this
+limitation whatever you do. A quick `sudo apt install gpodder` should
+install it on most debian-based systems.</p>
+<p><img alt="image1" src="./images/gpodder.png" /></p>
+<p>So grab some decent Podcasts via RSS and download them. On my machine
+the media files will appear under `~/gPodder/Downloads`</p>
+</div>
+<div class="section" id="adding-podcasts-to-your-ipod">
+<h2>Adding Podcasts to your iPod</h2>
+<p>Once they're downloaded, it's time to add these Podcasts to your iPod,
+for this we need <a class="reference external" href="https://wikiless.org/wiki/Gtkpod?lang=en">gtkpod</a>.
+Again a `sudo apt install gtkpod` should do the job in terms of
+installation.</p>
+<p>This is what it should look like once you've started gtkpod and
+connected your iPod.</p>
+<p><img alt="image2" src="./images/gtkpod_initial.png" /></p>
+<p>You should already have a Podcasts playlist in gtkpod, if not you will
+need to create it. Once you do, this is the playlist to add media to and
+any media added will then be recognised as Podcasts on your iPod. If you
+don't, it gets lost in your larger media collection(and it won't have
+resume support). Next step is to start adding Podcasts to your playlist.
+You only need to do this once, then it's just a case of syncing your
+media. So highlight the Podcasts playlist like so:</p>
+<p><img alt="image3" src="./images/gtkpod_highlight_podcasts.png" /></p>
+<p>then in the menu bar, hit &quot;Music&quot; then &quot;Add Folder&quot; and select the
+folder where gPodder downloaded your Podcasts to.</p>
+<p><img alt="image4" src="./images/gtkpod_add_folder.png" /></p>
+<p>It should start processing your files and adding them to your iPod. It
+might be a bit unresponsive for a while. Repeat for any Podcasts you
+want to add, making sure you add these folders to the Podcast playlist
+in gtkpod. When done, make sure to eject your iPod in gtkpod, then eject
+it from your filesystem. Podcasts should now appear on your iPod!</p>
+</div>
+<div class="section" id="on-going-podcast-management">
+<h2>On-going Podcast management</h2>
+<p>Now that your folders have been added, gtkpod will remember to look in
+these locations next time so when you want to grab any new Podcast
+episodes and sync them to your iPod, it's pretty simple.</p>
+<ol class="arabic simple">
+<li>Open up gPodder and it will check for any new episodes and ask you if
+you wish to download them. Use the time to delete any old episodes of
+Podcasts you've already listened to.</li>
+<li>Once downloaded, mount your iPod, open gtkpod right click on your
+Podcasts playlist and hit &quot;Sync Playlist with dir(s)&quot;, it'll give you
+a prompt to say which files with be added and removed. Hit okay and
+your iPod will be up to date.</li>
+</ol>
+<p><img alt="image5" src="./images/ipod_sayer.jpeg" /></p>
+<p>And that's my process, if you have any suggestion for how you do this
+better, <a class="reference external" href="https://shanedowling.com/pages/contact.html">let me know</a>!</p>
+</div>
+
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+    <!-- Matomo -->
+        <script>
+          var _paq = window._paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//stats.shanedowling.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+                  _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <!-- End Matomo Code -->
+</body>
+</html>

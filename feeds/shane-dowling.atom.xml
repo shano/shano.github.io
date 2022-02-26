@@ -1,5 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2022-02-06T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Consuming Content Like it's the 90s</title><link href="https://shanedowling.com/consuming-content-like-its-the-90s.html" rel="alternate"></link><published>2022-02-06T00:00:00+00:00</published><updated>2022-02-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-02-06:/consuming-content-like-its-the-90s.html</id><summary type="html">&lt;p&gt;It’s the 2020s, we continue to become more connected that we’ve ever
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2022-02-26T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>How to manage Podcasts on an iPod Classic on Linux</title><link href="https://shanedowling.com/how-to-manage-podcasts-on-an-ipod-classic-on-linux.html" rel="alternate"></link><published>2022-02-26T00:00:00+00:00</published><updated>2022-02-26T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-02-26:/how-to-manage-podcasts-on-an-ipod-classic-on-linux.html</id><summary type="html">&lt;p&gt;After my last post generated some interesting discussion on &lt;a class="reference external" href="https://news.ycombinator.com/item?id=30236251"&gt;Hacker
+News&lt;/a&gt;, I figured it
+was worth a little guide on how I manage my iPod Classic on a Linux
+machine. Thankfully some very clever people put together the drivers and
+software to make this a breeze, but there's a few …&lt;/p&gt;</summary><content type="html">&lt;p&gt;After my last post generated some interesting discussion on &lt;a class="reference external" href="https://news.ycombinator.com/item?id=30236251"&gt;Hacker
+News&lt;/a&gt;, I figured it
+was worth a little guide on how I manage my iPod Classic on a Linux
+machine. Thankfully some very clever people put together the drivers and
+software to make this a breeze, but there's a few things you need to
+know that took some figuring out for me. So I'll share them here.&lt;/p&gt;
+&lt;div class="section" id="connecting-your-ipod"&gt;
+&lt;h2&gt;Connecting your iPod&lt;/h2&gt;
+&lt;p&gt;This should be the easiest thing to do. Simply connect your iPod to your
+machine and it should appear as an external device. Here's my iPod
+appearing under Thunar after I plug it in:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image0" src="./images/ipod_thunar.png" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="managing-podcasts"&gt;
+&lt;h2&gt;Managing Podcasts&lt;/h2&gt;
+&lt;p&gt;To manage podcasts on my laptop I use
+&lt;a class="reference external" href="https://gpodder.github.io/"&gt;gPodder&lt;/a&gt;. I'm a huge fan of it. The only
+limitation really is there may be podcasts locked to sources like
+Spotify, but if you're listening to Podcasts on an iPod you'll hit this
+limitation whatever you do. A quick `sudo apt install gpodder` should
+install it on most debian-based systems.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image1" src="./images/gpodder.png" /&gt;&lt;/p&gt;
+&lt;p&gt;So grab some decent Podcasts via RSS and download them. On my machine
+the media files will appear under `~/gPodder/Downloads`&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="adding-podcasts-to-your-ipod"&gt;
+&lt;h2&gt;Adding Podcasts to your iPod&lt;/h2&gt;
+&lt;p&gt;Once they're downloaded, it's time to add these Podcasts to your iPod,
+for this we need &lt;a class="reference external" href="https://wikiless.org/wiki/Gtkpod?lang=en"&gt;gtkpod&lt;/a&gt;.
+Again a `sudo apt install gtkpod` should do the job in terms of
+installation.&lt;/p&gt;
+&lt;p&gt;This is what it should look like once you've started gtkpod and
+connected your iPod.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image2" src="./images/gtkpod_initial.png" /&gt;&lt;/p&gt;
+&lt;p&gt;You should already have a Podcasts playlist in gtkpod, if not you will
+need to create it. Once you do, this is the playlist to add media to and
+any media added will then be recognised as Podcasts on your iPod. If you
+don't, it gets lost in your larger media collection(and it won't have
+resume support). Next step is to start adding Podcasts to your playlist.
+You only need to do this once, then it's just a case of syncing your
+media. So highlight the Podcasts playlist like so:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image3" src="./images/gtkpod_highlight_podcasts.png" /&gt;&lt;/p&gt;
+&lt;p&gt;then in the menu bar, hit &amp;quot;Music&amp;quot; then &amp;quot;Add Folder&amp;quot; and select the
+folder where gPodder downloaded your Podcasts to.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image4" src="./images/gtkpod_add_folder.png" /&gt;&lt;/p&gt;
+&lt;p&gt;It should start processing your files and adding them to your iPod. It
+might be a bit unresponsive for a while. Repeat for any Podcasts you
+want to add, making sure you add these folders to the Podcast playlist
+in gtkpod. When done, make sure to eject your iPod in gtkpod, then eject
+it from your filesystem. Podcasts should now appear on your iPod!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="on-going-podcast-management"&gt;
+&lt;h2&gt;On-going Podcast management&lt;/h2&gt;
+&lt;p&gt;Now that your folders have been added, gtkpod will remember to look in
+these locations next time so when you want to grab any new Podcast
+episodes and sync them to your iPod, it's pretty simple.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Open up gPodder and it will check for any new episodes and ask you if
+you wish to download them. Use the time to delete any old episodes of
+Podcasts you've already listened to.&lt;/li&gt;
+&lt;li&gt;Once downloaded, mount your iPod, open gtkpod right click on your
+Podcasts playlist and hit &amp;quot;Sync Playlist with dir(s)&amp;quot;, it'll give you
+a prompt to say which files with be added and removed. Hit okay and
+your iPod will be up to date.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="image5" src="./images/ipod_sayer.jpeg" /&gt;&lt;/p&gt;
+&lt;p&gt;And that's my process, if you have any suggestion for how you do this
+better, &lt;a class="reference external" href="https://shanedowling.com/pages/contact.html"&gt;let me know&lt;/a&gt;!&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Digital Minimalism"></category></entry><entry><title>Consuming Content Like it's the 90s</title><link href="https://shanedowling.com/consuming-content-like-its-the-90s.html" rel="alternate"></link><published>2022-02-06T00:00:00+00:00</published><updated>2022-02-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-02-06:/consuming-content-like-its-the-90s.html</id><summary type="html">&lt;p&gt;It’s the 2020s, we continue to become more connected that we’ve ever
 been, and I hate it! I don’t have the self-control needed to handle
 these always-on devices. It’s awful. They’re all so incredibly powerful
 and give so much in terms of information. I, however …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It’s the 2020s, we continue to become more connected that we’ve ever
