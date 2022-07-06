@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2022-02-26T00:00:00+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>How to manage Podcasts on an iPod Classic on Linux</title><link href="https://shanedowling.com/how-to-manage-podcasts-on-an-ipod-classic-on-linux.html" rel="alternate"></link><published>2022-02-26T00:00:00+00:00</published><updated>2022-02-26T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-02-26:/how-to-manage-podcasts-on-an-ipod-classic-on-linux.html</id><summary type="html">&lt;p&gt;After my last post generated some interesting discussion on &lt;a class="reference external" href="https://news.ycombinator.com/item?id=30236251"&gt;Hacker
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2022-07-06T00:00:00+01:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Physical vs Logical resource</title><link href="https://shanedowling.com/physical-vs-logical-resource.html" rel="alternate"></link><published>2022-07-06T00:00:00+01:00</published><updated>2022-07-06T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-07-06:/physical-vs-logical-resource.html</id><summary type="html">&lt;p&gt;Logical ID - The logical ID must be alphanumeric (A-Za-z0-9) and unique
+within the template. Use the logical name to reference the resource in
+other parts of the template. Physical ID - A physical ID, which is the
+actual assigned name for that resource, such as an EC2 instance ID or an …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Logical ID - The logical ID must be alphanumeric (A-Za-z0-9) and unique
+within the template. Use the logical name to reference the resource in
+other parts of the template. Physical ID - A physical ID, which is the
+actual assigned name for that resource, such as an EC2 instance ID or an
+S3 bucket name. Use the physical IDs to identify resources outside of
+AWS CloudFormation templates, but only after the resources have been
+created. Eg EC2 in the console&lt;/p&gt;
+</content><category term="TIL"></category></entry><entry><title>How to manage Podcasts on an iPod Classic on Linux</title><link href="https://shanedowling.com/how-to-manage-podcasts-on-an-ipod-classic-on-linux.html" rel="alternate"></link><published>2022-02-26T00:00:00+00:00</published><updated>2022-02-26T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-02-26:/how-to-manage-podcasts-on-an-ipod-classic-on-linux.html</id><summary type="html">&lt;p&gt;After my last post generated some interesting discussion on &lt;a class="reference external" href="https://news.ycombinator.com/item?id=30236251"&gt;Hacker
 News&lt;/a&gt;, I figured it
 was worth a little guide on how I manage my iPod Classic on a Linux
 machine. Thankfully some very clever people put together the drivers and
@@ -14,7 +24,7 @@ know that took some figuring out for me. So I'll share them here.&lt;/p&gt;
 &lt;p&gt;This should be the easiest thing to do. Simply connect your iPod to your
 machine and it should appear as an external device. Here's my iPod
 appearing under Thunar after I plug it in:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image0" src="./images/ipod_thunar.png" /&gt;&lt;/p&gt;
+&lt;img alt="" src="./images/ipod_thunar.png" /&gt;
 &lt;/div&gt;
 &lt;div class="section" id="managing-podcasts"&gt;
 &lt;h2&gt;Managing Podcasts&lt;/h2&gt;
@@ -24,7 +34,7 @@ limitation really is there may be podcasts locked to sources like
 Spotify, but if you're listening to Podcasts on an iPod you'll hit this
 limitation whatever you do. A quick `sudo apt install gpodder` should
 install it on most debian-based systems.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image1" src="./images/gpodder.png" /&gt;&lt;/p&gt;
+&lt;img alt="" src="./images/gpodder.png" /&gt;
 &lt;p&gt;So grab some decent Podcasts via RSS and download them. On my machine
 the media files will appear under `~/gPodder/Downloads`&lt;/p&gt;
 &lt;/div&gt;
@@ -36,7 +46,7 @@ Again a `sudo apt install gtkpod` should do the job in terms of
 installation.&lt;/p&gt;
 &lt;p&gt;This is what it should look like once you've started gtkpod and
 connected your iPod.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image2" src="./images/gtkpod_initial.png" /&gt;&lt;/p&gt;
+&lt;img alt="" src="./images/gtkpod_initial.png" /&gt;
 &lt;p&gt;You should already have a Podcasts playlist in gtkpod, if not you will
 need to create it. Once you do, this is the playlist to add media to and
 any media added will then be recognised as Podcasts on your iPod. If you
@@ -44,10 +54,10 @@ don't, it gets lost in your larger media collection(and it won't have
 resume support). Next step is to start adding Podcasts to your playlist.
 You only need to do this once, then it's just a case of syncing your
 media. So highlight the Podcasts playlist like so:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image3" src="./images/gtkpod_highlight_podcasts.png" /&gt;&lt;/p&gt;
+&lt;img alt="" src="./images/gtkpod_highlight_podcasts.png" /&gt;
 &lt;p&gt;then in the menu bar, hit &amp;quot;Music&amp;quot; then &amp;quot;Add Folder&amp;quot; and select the
 folder where gPodder downloaded your Podcasts to.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image4" src="./images/gtkpod_add_folder.png" /&gt;&lt;/p&gt;
+&lt;img alt="" src="./images/gtkpod_add_folder.png" /&gt;
 &lt;p&gt;It should start processing your files and adding them to your iPod. It
 might be a bit unresponsive for a while. Repeat for any Podcasts you
 want to add, making sure you add these folders to the Podcast playlist
@@ -68,7 +78,7 @@ Podcasts playlist and hit &amp;quot;Sync Playlist with dir(s)&amp;quot;, it'll g
 a prompt to say which files with be added and removed. Hit okay and
 your iPod will be up to date.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img alt="image5" src="./images/ipod_sayer.jpeg" /&gt;&lt;/p&gt;
+&lt;img alt="" src="./images/ipod_sayer.jpeg" /&gt;
 &lt;p&gt;And that's my process, if you have any suggestion for how you do this
 better, &lt;a class="reference external" href="https://shanedowling.com/pages/contact.html"&gt;let me know&lt;/a&gt;!&lt;/p&gt;
 &lt;/div&gt;
@@ -112,7 +122,7 @@ to manage tracks, and it’s just such an enjoyable and tactile format. So
 lets give Podcasts a try on this thing.&lt;/p&gt;
 &lt;p&gt;I gave Podcasts on Minidiscs a real go, even printed out per-podcasts
 discs covers, look how nice they look!&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image0" src="./images/podcast-minidiscs.jpeg" /&gt;&lt;/p&gt;
+&lt;img alt="" src="./images/podcast-minidiscs.jpeg" /&gt;
 &lt;p&gt;But this was a total disaster. The limited audio length was an absolute
 killer. Trying to split podcasts and audiobooks amongst multiple discs
 was painful. The write speeds being so slow, by the time a podcast was
@@ -122,7 +132,7 @@ requirement to that needs frequent writes to a Minidiscs are doomed to
 fail. Music and albums would be fine, but anything regularly needing
 writing, no change. Learn from my lessons(or maybe you were smart enough
 to not do stupid things in the first place)!&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image1" src="./images/minidisc-and-player.jpeg" /&gt;&lt;/p&gt;
+&lt;img alt="" src="./images/minidisc-and-player.jpeg" /&gt;
 &lt;/div&gt;
 &lt;div class="section" id="version-2-it-s-the-future-ugh"&gt;
 &lt;h2&gt;Version 2 – It's the future! Ugh.&lt;/h2&gt;
@@ -139,7 +149,7 @@ consequences, this maybe could work, but I feel like this would be too
 painful for me not to just revert back to the black rectangle of
 distractedness. MP3s are good though, this format might just have a
 future.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image2" src="./images/victure.jpeg" /&gt;&lt;/p&gt;
+&lt;img alt="" src="./images/victure.jpeg" /&gt;
 &lt;/div&gt;
 &lt;div class="section" id="version-3-just-right-just-about"&gt;
 &lt;h2&gt;Version 3 – Just right, just about….&lt;/h2&gt;
@@ -173,7 +183,7 @@ downloading Podcast and then transfer them to my iPod, but generally
 that’s sort of done in the background while I’m doing other things. I’ll
 write up a post on managing an iPod here. There’s some effort involved,
 but once it’s setup it’s all good.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image3" src="./images/ipod.jpeg" /&gt;&lt;/p&gt;
+&lt;img alt="" src="./images/ipod.jpeg" /&gt;
 &lt;/div&gt;
 </content><category term="Digital Minimalism"></category></entry><entry><title>TIL Updating ZSH</title><link href="https://shanedowling.com/til-updating-zsh.html" rel="alternate"></link><published>2022-01-04T00:00:00+00:00</published><updated>2022-01-04T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-01-04:/til-updating-zsh.html</id><content type="html">&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
 realise there was an omz command!&lt;/p&gt;
