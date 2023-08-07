@@ -1,121 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Getting yourself on Trinity's Wireless network with Linux</title>
+        <title>Shane Dowling : Getting yourself on Trinity's Wireless network with Linux</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="./theme/css/main.css" />
-        <link rel="stylesheet" href="./theme/css/forms.css" />
-        <link rel="stylesheet" href="./theme/fonts/fonts.css" />
-        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
-        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
-        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
-        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling ATOM Feed" />
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
 </head>
+
 <body>
-
-    <div class="main-nav-container">
-
-        <div class="pure-g">
-            <div class="pure-u-1 pure-u-lg-2-3">
-                <div class="main-nav">
-                    <ul class="main-nav-list">
-                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
-
-                        <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
-                        <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
-                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
-                        <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
-                        <li class="main-nav-item"><a href="./pages/contact.html" class="pure-menu-link">Contact</a></li>
-                    </ul>
-                </div>
-             </div>
-
-             <div class="pure-u-1 pure-u-lg-1-3"></div>
-        </div>
-
-    </div>
-
-
-<div class="page-container">
-    <div class="entry-content">
-        <div class="post-meta pure-g">
-            <div class="pure-u-3-4 meta-data">
-                <a href="./category/tech.html" class="category">Tech</a><br />
-
-                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2008-02-03T00:00:00+00:00">Sun 03 February 2008</abbr>
-            </div>
-        </div>
-    </div>
-
-    <div class="article-header-container">
-        <div class="background-image-container">
-
-            <div class="background-image-small">
-                <div class="title-container">
-                    <h1>Getting yourself on Trinity's Wireless network with Linux</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="entry-content">
-        <p>Since ISServices have washed their hands of any support for Linux, I've
+        
+<header>
+    <h1><a href="." id="site-title">Shane Dowling  <strong>Shane Dowling</strong></a> :
+        <a href="./getting-yourself-on-trinitys-wireless-network-with-linux-dd6a51344317.html" id="page-title">Getting yourself on Trinity's Wireless network with Linux</a></h1>
+<time datetime="2008-02-03T00:00:00+00:00">Sun 03 February 2008</time></header>
+<article>
+    <p>Since ISServices have washed their hands of any support for Linux, I've
 banged up a guide on how to get onto it with Linux. I'm using Ubuntu so
 things may need to be changed depending on your distro. :D Right, you
 need wpa_supplicant installed and modify it's config file
 /etc/wpa_supplicant.conf</p>
-<div class="highlight"><pre><span></span>    <span class="nv">ctrl_interface</span><span class="o">=</span>/var/run/wpa_supplicant
-    <span class="nv">ctrl_interface_group</span><span class="o">=</span><span class="m">0</span>
-    <span class="nv">eapol_version</span><span class="o">=</span><span class="m">1</span>
-    <span class="nv">ap_scan</span><span class="o">=</span><span class="m">1</span>
-    <span class="nv">fast_reauth</span><span class="o">=</span><span class="m">1</span>
-    <span class="nv">network</span><span class="o">={</span>
-        <span class="nv">ssid</span><span class="o">=</span><span class="s2">&quot;TCDwifi&quot;</span>
-        <span class="nv">scan_ssid</span><span class="o">=</span><span class="m">1</span>
-        <span class="nv">key_mgmt</span><span class="o">=</span>IEEE8021X
-        <span class="nv">eap</span><span class="o">=</span>LEAP
-        <span class="nv">identity</span><span class="o">=</span><span class="s2">&quot;username&quot;</span>
-        <span class="nv">password</span><span class="o">=</span><span class="s2">&quot;password&quot;</span>
-        <span class="nv">phase2</span><span class="o">=</span><span class="s2">&quot;MSCHAPV2&quot;</span>
-    <span class="o">}</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nv">ctrl_interface</span><span class="o">=</span>/var/run/wpa_supplicant
+<span class="w">    </span><span class="nv">ctrl_interface_group</span><span class="o">=</span><span class="m">0</span>
+<span class="w">    </span><span class="nv">eapol_version</span><span class="o">=</span><span class="m">1</span>
+<span class="w">    </span><span class="nv">ap_scan</span><span class="o">=</span><span class="m">1</span>
+<span class="w">    </span><span class="nv">fast_reauth</span><span class="o">=</span><span class="m">1</span>
+<span class="w">    </span><span class="nv">network</span><span class="o">={</span>
+<span class="w">        </span><span class="nv">ssid</span><span class="o">=</span><span class="s2">&quot;TCDwifi&quot;</span>
+<span class="w">        </span><span class="nv">scan_ssid</span><span class="o">=</span><span class="m">1</span>
+<span class="w">        </span><span class="nv">key_mgmt</span><span class="o">=</span>IEEE8021X
+<span class="w">        </span><span class="nv">eap</span><span class="o">=</span>LEAP
+<span class="w">        </span><span class="nv">identity</span><span class="o">=</span><span class="s2">&quot;username&quot;</span>
+<span class="w">        </span><span class="nv">password</span><span class="o">=</span><span class="s2">&quot;password&quot;</span>
+<span class="w">        </span><span class="nv">phase2</span><span class="o">=</span><span class="s2">&quot;MSCHAPV2&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+</code></pre></div>
 
 <p>If you're in Computer Science you can also use COMPSCIwireless2 and
 there's no MAC address filtering so no stupid registering stuff. Place
 this in your /etc/network/interfaces if its not already there so you can
 dhcp over your wireless card.</p>
-<div class="highlight"><pre><span></span>    auto eth1
-    iface eth1 inet dhcp
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="w">    </span>auto<span class="w"> </span>eth1
+<span class="w">    </span>iface<span class="w"> </span>eth1<span class="w"> </span>inet<span class="w"> </span>dhcp
+</code></pre></div>
 
 <p>And finally all of this stuff into a script, say tcd.sh</p>
-<div class="highlight"><pre><span></span>    <span class="nb">echo</span> <span class="s2">&quot;Putting the wifi card up and down&quot;</span>
-    sudo ifconfig eth1 down
-    sudo ifconfig eth1 up
-    sleep <span class="m">3</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Killing all necessary stuff&quot;</span>
-    sudo killall dhclient dhclient3
-    sudo killall wpa_supplicant
-    sleep <span class="m">3</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Setting up WPA&quot;</span>
-    sudo wpa_supplicant -B -ieth1 -Dwext -c/etc/wpa_supplicant.conf
-    sleep <span class="m">3</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Connecting to wireless&quot;</span>
-    sudo iwconfig eth1 essid TCDwifi
-    sleep <span class="m">3</span>
-    sudo dhclient eth1
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Putting the wifi card up and down&quot;</span>
+<span class="w">    </span>sudo<span class="w"> </span>ifconfig<span class="w"> </span>eth1<span class="w"> </span>down
+<span class="w">    </span>sudo<span class="w"> </span>ifconfig<span class="w"> </span>eth1<span class="w"> </span>up
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">3</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Killing all necessary stuff&quot;</span>
+<span class="w">    </span>sudo<span class="w"> </span>killall<span class="w"> </span>dhclient<span class="w"> </span>dhclient3
+<span class="w">    </span>sudo<span class="w"> </span>killall<span class="w"> </span>wpa_supplicant
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">3</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Setting up WPA&quot;</span>
+<span class="w">    </span>sudo<span class="w"> </span>wpa_supplicant<span class="w"> </span>-B<span class="w"> </span>-ieth1<span class="w"> </span>-Dwext<span class="w"> </span>-c/etc/wpa_supplicant.conf
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">3</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Connecting to wireless&quot;</span>
+<span class="w">    </span>sudo<span class="w"> </span>iwconfig<span class="w"> </span>eth1<span class="w"> </span>essid<span class="w"> </span>TCDwifi
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">3</span>
+<span class="w">    </span>sudo<span class="w"> </span>dhclient<span class="w"> </span>eth1
+</code></pre></div>
 
 <p>Then run sh tcd.sh and enter your root password, it may not work
 sometimes, this seems to be due to the wireless networks being hidden.
@@ -124,45 +79,17 @@ grep TCDwifi and if you see a few TCDwifi access points coming up you
 "should" be ok and it will connect alright, otherwise cancel the script
 and give it another go. The wifi card should pick up the access points
 now… hopefully</p>
-    </div>
+</article>
 
-    <footer>
-        <div class="pure-g post-footer">
-            <div class="pure-u-1 pure-u-md-1-2">
-                <div class="pure-g poster-info">
-                    <div class="pure-u-3-4">
-                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
-                        <p class="author-description">
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="./pages/contact.html">Contact</a></li>
+                    <li>:: <a href="./categories.html">Categories</a></li>
+                </ul>
+            </nav>
+                <p id="theme-credit"><a href="http://mathieu.agopian.info/mnmlist/theme.html">Thème mnmlist</a></p>
+        </footer>
 
-
-
-        </div>
-
-
-    </footer>
-
-
-</div>
-
-
-    <!-- Matomo -->
-        <script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-            var u="//stats.shanedowling.com/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-                  _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        </script>
-        <!-- End Matomo Code -->
 </body>
 </html>

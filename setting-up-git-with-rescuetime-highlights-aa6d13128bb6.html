@@ -1,77 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Setting up git with Rescuetime highlights</title>
+        <title>Shane Dowling : Setting up git with Rescuetime highlights</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="./theme/css/main.css" />
-        <link rel="stylesheet" href="./theme/css/forms.css" />
-        <link rel="stylesheet" href="./theme/fonts/fonts.css" />
-        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
-        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
-        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
-        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling ATOM Feed" />
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
 </head>
+
 <body>
-
-    <div class="main-nav-container">
-
-        <div class="pure-g">
-            <div class="pure-u-1 pure-u-lg-2-3">
-                <div class="main-nav">
-                    <ul class="main-nav-list">
-                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
-
-                        <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
-                        <li class="main-nav-item active"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
-                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
-                        <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
-                        <li class="main-nav-item"><a href="./pages/contact.html" class="pure-menu-link">Contact</a></li>
-                    </ul>
-                </div>
-             </div>
-
-             <div class="pure-u-1 pure-u-lg-1-3"></div>
-        </div>
-
-    </div>
-
-
-<div class="page-container">
-    <div class="entry-content">
-        <div class="post-meta pure-g">
-            <div class="pure-u-3-4 meta-data">
-                <a href="./category/productivity.html" class="category">Productivity</a><br />
-
-                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2015-02-15T00:00:00+00:00">Sun 15 February 2015</abbr>
-            </div>
-        </div>
-    </div>
-
-    <div class="article-header-container">
-        <div class="background-image-container">
-
-            <div class="background-image-small">
-                <div class="title-container">
-                    <h1>Setting up git with Rescuetime highlights</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="entry-content">
-        <p><img alt="" src="images/1__jppvR1Pu3XEUcOHJp__3t3g.jpeg"></p>
+        
+<header>
+    <h1><a href="." id="site-title">Shane Dowling  <strong>Shane Dowling</strong></a> :
+        <a href="./setting-up-git-with-rescuetime-highlights-aa6d13128bb6.html" id="page-title">Setting up git with Rescuetime highlights</a></h1>
+<time datetime="2015-02-15T00:00:00+00:00">Sun 15 February 2015</time></header>
+<article>
+    <p><img alt="" src="images/1__jppvR1Pu3XEUcOHJp__3t3g.jpeg"></p>
 <p>Recently I've written on another site how I use Rescuetime to provide metrics on my overall productivity that I can review each week. One useful feature I noticed was Rescuetime highlights, which gives you a good overview of your accompishments throughout the day. The first thing I wanted to add to this (obviously) was git commits.</p>
 <p>Luckily it turns out someone had already thought of this and implemented
 it. The script itself is here, I'm just going to reproduce it below.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 <span class="c1">#</span>
 <span class="c1"># An example hook script to log commit messages</span>
 <span class="c1"># as a &#39;daily highlight&#39; in RescueTime Premium</span>
@@ -89,8 +47,8 @@ it. The script itself is here, I'm just going to reproduce it below.</p>
 
 <span class="c1"># REQUIRED FIELDS - Today&#39;s date and commit message</span>
 
-<span class="nv">MESSAGE</span><span class="o">=</span><span class="k">$(</span>git log -1 HEAD --pretty<span class="o">=</span>format:%s<span class="k">)</span>
-<span class="nv">DATE_TODAY</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&quot;%Y-%m-%d&quot;</span><span class="k">)</span>
+<span class="nv">MESSAGE</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>log<span class="w"> </span>-1<span class="w"> </span>HEAD<span class="w"> </span>--pretty<span class="o">=</span>format:%s<span class="k">)</span>
+<span class="nv">DATE_TODAY</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+<span class="s2">&quot;%Y-%m-%d&quot;</span><span class="k">)</span>
 
 <span class="c1"># You can edit the LABEL value if you would rather</span>
 <span class="c1"># describe these commits differently.</span>
@@ -99,63 +57,33 @@ it. The script itself is here, I'm just going to reproduce it below.</p>
 
 <span class="c1"># See more filtering examples in README.md</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="si">${#</span><span class="nv">MESSAGE</span><span class="si">}</span> -gt <span class="m">16</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-  curl --data <span class="s2">&quot;key=</span><span class="nv">$API_KEY</span><span class="s2">&amp;highlight_date=</span><span class="nv">$DATE_TODAY</span><span class="s2">&amp;description=</span><span class="nv">$MESSAGE</span><span class="s2">&amp;source=</span><span class="nv">$LABEL</span><span class="s2">&quot;</span> <span class="o">[</span>https://www.rescuetime.com/anapi/highlights_post<span class="o">](</span>https://www.rescuetime.com/anapi/highlights_post<span class="o">)</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="si">${#</span><span class="nv">MESSAGE</span><span class="si">}</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span>curl<span class="w"> </span>--data<span class="w"> </span><span class="s2">&quot;key=</span><span class="nv">$API_KEY</span><span class="s2">&amp;highlight_date=</span><span class="nv">$DATE_TODAY</span><span class="s2">&amp;description=</span><span class="nv">$MESSAGE</span><span class="s2">&amp;source=</span><span class="nv">$LABEL</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">[</span>https://www.rescuetime.com/anapi/highlights_post<span class="o">](</span>https://www.rescuetime.com/anapi/highlights_post<span class="o">)</span>
 <span class="k">fi</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Now, the annoying part for me is that this doesn't work globally across
 all of my git repos, so to fix this you can leverage git's templates directory.
 To create/initialise a git template folder simply run these commands.</p>
-<div class="highlight"><pre><span></span>git config — global init.templatedir <span class="s1">&#39;~/.git_template&#39;</span>
-mkdir -p ~/.git-templates/hooks
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>—<span class="w"> </span>global<span class="w"> </span>init.templatedir<span class="w"> </span><span class="s1">&#39;~/.git_template&#39;</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/.git-templates/hooks
+</code></pre></div>
 
 <p>Then put the above shell code into ~/.git-templates/hooks/post-commit</p>
 <p>What this means is that from now on, any new git repos you initialise
 will contain this post-hook script. However, if you want to attach this
 to existing repos, just run a git init wherever the .git folder is.</p>
-    </div>
+</article>
 
-    <footer>
-        <div class="pure-g post-footer">
-            <div class="pure-u-1 pure-u-md-1-2">
-                <div class="pure-g poster-info">
-                    <div class="pure-u-3-4">
-                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
-                        <p class="author-description">
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="./pages/contact.html">Contact</a></li>
+                    <li>:: <a href="./categories.html">Categories</a></li>
+                </ul>
+            </nav>
+                <p id="theme-credit"><a href="http://mathieu.agopian.info/mnmlist/theme.html">Thème mnmlist</a></p>
+        </footer>
 
-
-
-        </div>
-
-
-    </footer>
-
-
-</div>
-
-
-    <!-- Matomo -->
-        <script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-            var u="//stats.shanedowling.com/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-                  _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        </script>
-        <!-- End Matomo Code -->
 </body>
 </html>

@@ -1,73 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>SugarCRM 7 — Adding an action to the listview</title>
+        <title>Shane Dowling : SugarCRM 7 — Adding an action to the listview</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="./theme/css/main.css" />
-        <link rel="stylesheet" href="./theme/css/forms.css" />
-        <link rel="stylesheet" href="./theme/fonts/fonts.css" />
-        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
-        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
-        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
-        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling ATOM Feed" />
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
 </head>
+
 <body>
-
-    <div class="main-nav-container">
-
-        <div class="pure-g">
-            <div class="pure-u-1 pure-u-lg-2-3">
-                <div class="main-nav">
-                    <ul class="main-nav-list">
-                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
-
-                        <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
-                        <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
-                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
-                        <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
-                        <li class="main-nav-item"><a href="./pages/contact.html" class="pure-menu-link">Contact</a></li>
-                    </ul>
-                </div>
-             </div>
-
-             <div class="pure-u-1 pure-u-lg-1-3"></div>
-        </div>
-
-    </div>
-
-
-<div class="page-container">
-    <div class="entry-content">
-        <div class="post-meta pure-g">
-            <div class="pure-u-3-4 meta-data">
-                <a href="./category/tech.html" class="category">Tech</a><br />
-
-                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2014-05-18T00:00:00+00:00">Sun 18 May 2014</abbr>
-            </div>
-        </div>
-    </div>
-
-    <div class="article-header-container">
-        <div class="background-image-container">
-
-            <div class="background-image-small">
-                <div class="title-container">
-                    <h1>SugarCRM 7 — Adding an action to the listview</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="entry-content">
-        <p><img alt="" src="images/1__O0TIZQumvouoJ6ZCn8__s3g.jpeg"></p>
+        
+<header>
+    <h1><a href="." id="site-title">Shane Dowling  <strong>Shane Dowling</strong></a> :
+        <a href="./sugarcrm-7-adding-an-action-to-the-listview-436f18c039e6.html" id="page-title">SugarCRM 7 — Adding an action to the listview</a></h1>
+<time datetime="2014-05-18T00:00:00+00:00">Sun 18 May 2014</time></header>
+<article>
+    <p><img alt="" src="images/1__O0TIZQumvouoJ6ZCn8__s3g.jpeg"></p>
 <p>There doesn't appear to be a documented way to do this but in SugarCRM 7
 this is how I've added actions to the listview. For this example it's
 showing how to add a button to an animal module, which adds the animal
@@ -80,7 +38,7 @@ file below and alter the add_to_circus button. Note the
 addtocirus:fire action, we will create javascript code that is called
 when this event is fired. This code should go into
 custom/module/animals/clients/base/views/recordlist/recordlist.php</p>
-<div class="highlight"><pre><span></span><span class="x">if (!defined(&#39;sugarEntry&#39;) || !sugarEntry) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">if (!defined(&#39;sugarEntry&#39;) || !sugarEntry) {</span>
 <span class="x"> die(&#39;Not A Valid Entry Point&#39;);</span>
 <span class="x"> }</span>
 
@@ -173,38 +131,36 @@ custom/module/animals/clients/base/views/recordlist/recordlist.php</p>
 <span class="x"> ),</span>
 <span class="x"> ),</span>
 <span class="x"> );</span>
-</pre></div>
-
+</code></pre></div>
 
 <h3>2. Adding theaction</h3>
 <p>This is an example of the JS code you could call when the event has
 custom/modules/animals/clients/base/views/recordlist/recordlist.js. On
 initialise we simply set a new context.on that calls your js modules
 function.</p>
-<div class="highlight"><pre><span></span><span class="p">({</span>
+<div class="highlight"><pre><span></span><code><span class="p">({</span>
 
 <span class="c1">//add listener for custom button</span>
- <span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;list:addtocircus:fire&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">add_to_circus</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
- <span class="p">},</span>
- <span class="nx">add_to_circus</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
- <span class="kd">var</span> <span class="nx">idCSV</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
- <span class="kd">var</span> <span class="nx">selector</span> <span class="o">=</span> <span class="s1">&#39;CSTM_ANIMALS_&#39;</span><span class="p">;</span>
- <span class="c1">// I&#39;m sure there&#39;s a better way to do this, but not documented or found anywhere.</span>
- <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[type=checkbox]:checked&#39;</span><span class="p">).</span><span class="nx">closest</span><span class="p">(</span><span class="s1">&#39;[name^=&#39;</span><span class="o">+</span><span class="nx">selector</span><span class="o">+</span><span class="s1">&#39;]&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
- <span class="nx">idCSV</span> <span class="o">+=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">).</span><span class="nx">substring</span><span class="p">(</span><span class="nx">selector</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span><span class="p">;</span>
+<span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;list:addtocircus:fire&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">add_to_circus</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">);</span>
+<span class="w"> </span><span class="p">},</span>
+<span class="w"> </span><span class="nx">add_to_circus</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">idCSV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">selector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CSTM_ANIMALS_&#39;</span><span class="p">;</span>
+<span class="w"> </span><span class="c1">// I&#39;m sure there&#39;s a better way to do this, but not documented or found anywhere.</span>
+<span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[type=checkbox]:checked&#39;</span><span class="p">).</span><span class="nx">closest</span><span class="p">(</span><span class="s1">&#39;[name^=&#39;</span><span class="o">+</span><span class="nx">selector</span><span class="o">+</span><span class="s1">&#39;]&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="w"> </span><span class="nx">idCSV</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">).</span><span class="nx">substring</span><span class="p">(</span><span class="nx">selector</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">;</span>
 
 <span class="p">});</span>
- <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
- <span class="k">if</span><span class="p">(</span><span class="nx">errorResponse</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
- <span class="nx">app</span><span class="p">.</span><span class="nx">alert</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s1">&#39;bad-add-to-circus&#39;</span><span class="p">,</span> <span class="p">{</span>
- <span class="p">});</span>
- <span class="p">}</span>
- <span class="p">}</span>
- <span class="p">});</span>
- <span class="p">},</span>
- <span class="p">})</span>
-</pre></div>
-
+<span class="w"> </span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+<span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">errorResponse</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="nx">app</span><span class="p">.</span><span class="nx">alert</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="s1">&#39;bad-add-to-circus&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="p">});</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="p">});</span>
+<span class="w"> </span><span class="p">},</span>
+<span class="w"> </span><span class="p">})</span>
+</code></pre></div>
 
 <p>Now there's a few caveats with this code.</p>
 <ul>
@@ -213,45 +169,17 @@ function.</p>
 </ul>
 <h3>3. Quick Repair and Rebuilt(as always)</h3>
 <p>Any questions feel free to ask!</p>
-    </div>
+</article>
 
-    <footer>
-        <div class="pure-g post-footer">
-            <div class="pure-u-1 pure-u-md-1-2">
-                <div class="pure-g poster-info">
-                    <div class="pure-u-3-4">
-                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
-                        <p class="author-description">
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="./pages/contact.html">Contact</a></li>
+                    <li>:: <a href="./categories.html">Categories</a></li>
+                </ul>
+            </nav>
+                <p id="theme-credit"><a href="http://mathieu.agopian.info/mnmlist/theme.html">Thème mnmlist</a></p>
+        </footer>
 
-
-
-        </div>
-
-
-    </footer>
-
-
-</div>
-
-
-    <!-- Matomo -->
-        <script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-            var u="//stats.shanedowling.com/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-                  _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        </script>
-        <!-- End Matomo Code -->
 </body>
 </html>

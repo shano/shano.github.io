@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - TIL</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/til.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2022-07-06T00:00:00+01:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Physical vs Logical resources</title><link href="https://shanedowling.com/physical-vs-logical-resources.html" rel="alternate"></link><published>2022-07-06T00:00:00+01:00</published><updated>2022-07-06T00:00:00+01:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-07-06:/physical-vs-logical-resources.html</id><summary type="html">&lt;p&gt;Logical ID The logical ID must be alphanumeric (A-Za-z0-9) and unique
 within the template. Use the logical name to reference the resource in
-other parts of the template.&lt;/p&gt;
-&lt;p&gt;Physical ID A physical ID, which is the actual assigned name for that
-resource, such as an EC2 instance ID or an …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Logical ID The logical ID must be alphanumeric (A-Za-z0-9) and unique
+other parts of the template. Physical ID A physical ID, which is the
+actual assigned name for that resource, such as an EC2 instance ID or an …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Logical ID The logical ID must be alphanumeric (A-Za-z0-9) and unique
 within the template. Use the logical name to reference the resource in
-other parts of the template.&lt;/p&gt;
-&lt;p&gt;Physical ID A physical ID, which is the actual assigned name for that
-resource, such as an EC2 instance ID or an S3 bucket name. Use the
-physical IDs to identify resources outside of AWS CloudFormation
-templates, but only after the resources have been created. Eg EC2 in the
-console&lt;/p&gt;
+other parts of the template. Physical ID A physical ID, which is the
+actual assigned name for that resource, such as an EC2 instance ID or an
+S3 bucket name. Use the physical IDs to identify resources outside of
+AWS CloudFormation templates, but only after the resources have been
+created. Eg EC2 in the console&lt;/p&gt;
 </content><category term="TIL"></category></entry><entry><title>TIL Updating ZSH</title><link href="https://shanedowling.com/til-updating-zsh.html" rel="alternate"></link><published>2022-01-04T00:00:00+00:00</published><updated>2022-01-04T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2022-01-04:/til-updating-zsh.html</id><content type="html">&lt;p&gt;To update Oh-My-ZSH, all I need to run is `omz update`. Didn't even
 realise there was an omz command!&lt;/p&gt;
 </content><category term="TIL"></category></entry><entry><title>TIL - AWS Lambda Environment Vars</title><link href="https://shanedowling.com/til-aws-lambda-environment-vars.html" rel="alternate"></link><published>2020-11-05T00:00:00+00:00</published><updated>2020-11-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2020-11-05:/til-aws-lambda-environment-vars.html</id><content type="html">&lt;p&gt;In AWS Lambda, if you use ENVIRONMENT VARS they are tied to the lambda

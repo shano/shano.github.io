@@ -65,7 +65,7 @@
 &lt;p&gt;Recently I've written on another site how I use Rescuetime to provide metrics on my overall productivity that I can review each week. One useful feature I noticed was Rescuetime highlights, which gives you a good overview of your accompishments throughout the day. The first thing I wanted to add to this (obviously) was git commits.&lt;/p&gt;
 &lt;p&gt;Luckily it turns out someone had already thought of this and implemented
 it. The script itself is here, I'm just going to reproduce it below.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/sh&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/sh&lt;/span&gt;
 &lt;span class="c1"&gt;#&lt;/span&gt;
 &lt;span class="c1"&gt;# An example hook script to log commit messages&lt;/span&gt;
 &lt;span class="c1"&gt;# as a &amp;#39;daily highlight&amp;#39; in RescueTime Premium&lt;/span&gt;
@@ -83,8 +83,8 @@ it. The script itself is here, I'm just going to reproduce it below.&lt;/p&gt;
 
 &lt;span class="c1"&gt;# REQUIRED FIELDS - Today&amp;#39;s date and commit message&lt;/span&gt;
 
-&lt;span class="nv"&gt;MESSAGE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;git log -1 HEAD --pretty&lt;span class="o"&gt;=&lt;/span&gt;format:%s&lt;span class="k"&gt;)&lt;/span&gt;
-&lt;span class="nv"&gt;DATE_TODAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date +&lt;span class="s2"&gt;&amp;quot;%Y-%m-%d&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;MESSAGE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;log&lt;span class="w"&gt; &lt;/span&gt;-1&lt;span class="w"&gt; &lt;/span&gt;HEAD&lt;span class="w"&gt; &lt;/span&gt;--pretty&lt;span class="o"&gt;=&lt;/span&gt;format:%s&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;DATE_TODAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date&lt;span class="w"&gt; &lt;/span&gt;+&lt;span class="s2"&gt;&amp;quot;%Y-%m-%d&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
 
 &lt;span class="c1"&gt;# You can edit the LABEL value if you would rather&lt;/span&gt;
 &lt;span class="c1"&gt;# describe these commits differently.&lt;/span&gt;
@@ -93,19 +93,17 @@ it. The script itself is here, I'm just going to reproduce it below.&lt;/p&gt;
 
 &lt;span class="c1"&gt;# See more filtering examples in README.md&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="si"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;MESSAGE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; -gt &lt;span class="m"&gt;16&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
-  curl --data &lt;span class="s2"&gt;&amp;quot;key=&lt;/span&gt;&lt;span class="nv"&gt;$API_KEY&lt;/span&gt;&lt;span class="s2"&gt;&amp;amp;highlight_date=&lt;/span&gt;&lt;span class="nv"&gt;$DATE_TODAY&lt;/span&gt;&lt;span class="s2"&gt;&amp;amp;description=&lt;/span&gt;&lt;span class="nv"&gt;$MESSAGE&lt;/span&gt;&lt;span class="s2"&gt;&amp;amp;source=&lt;/span&gt;&lt;span class="nv"&gt;$LABEL&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;https://www.rescuetime.com/anapi/highlights_post&lt;span class="o"&gt;](&lt;/span&gt;https://www.rescuetime.com/anapi/highlights_post&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="si"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;MESSAGE&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-gt&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;16&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;curl&lt;span class="w"&gt; &lt;/span&gt;--data&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;key=&lt;/span&gt;&lt;span class="nv"&gt;$API_KEY&lt;/span&gt;&lt;span class="s2"&gt;&amp;amp;highlight_date=&lt;/span&gt;&lt;span class="nv"&gt;$DATE_TODAY&lt;/span&gt;&lt;span class="s2"&gt;&amp;amp;description=&lt;/span&gt;&lt;span class="nv"&gt;$MESSAGE&lt;/span&gt;&lt;span class="s2"&gt;&amp;amp;source=&lt;/span&gt;&lt;span class="nv"&gt;$LABEL&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;https://www.rescuetime.com/anapi/highlights_post&lt;span class="o"&gt;](&lt;/span&gt;https://www.rescuetime.com/anapi/highlights_post&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;span class="k"&gt;fi&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now, the annoying part for me is that this doesn't work globally across
 all of my git repos, so to fix this you can leverage git's templates directory.
 To create/initialise a git template folder simply run these commands.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git config — global init.templatedir &lt;span class="s1"&gt;&amp;#39;~/.git_template&amp;#39;&lt;/span&gt;
-mkdir -p ~/.git-templates/hooks
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;—&lt;span class="w"&gt; &lt;/span&gt;global&lt;span class="w"&gt; &lt;/span&gt;init.templatedir&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;~/.git_template&amp;#39;&lt;/span&gt;
+mkdir&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;~/.git-templates/hooks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then put the above shell code into ~/.git-templates/hooks/post-commit&lt;/p&gt;
 &lt;p&gt;What this means is that from now on, any new git repos you initialise
@@ -420,7 +418,7 @@ some tools to help keep you focused on those good habits.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://play.google.com/store/apps/details?id=uk.amimetic.habits"&gt;Habit Streak&lt;/a&gt; - This app helps you achieve your goals with daily habit reminders. The focus here is on streaks. Define habits you can achieve everyday. Personally I find slightly vague is good. For example I don't intend to run everyday(you need downtime from running), so instead I have a habit to exercise everyday. So I alternate running with strength exercises.&lt;/li&gt;
 &lt;li&gt;Cron-Jobs - Yup, straight up cron-jobs are a great way to remind you to keep your good habits in mind. Make sure you have zenity installed and add this to your local cron with crontab -e. I also use cronjobs to automatically shut down my computer in the evening to prevent me working late and to properly wind-down ensuring a good sleep habit.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;/10 * &lt;/em&gt; * * export DISPLAY=:0 &amp;amp;&amp;amp; /usr/bin/zenity -info-text="Don't forget that uber important habit"&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GSD 4 — Reviewing</title><link href="https://shanedowling.com/gsd-4-reviewing-8a7ab553a72f.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/gsd-4-reviewing-8a7ab553a72f.html</id><summary type="html">&lt;p&gt;So the final process I use to help me get shit done is reviewing. Each
+&lt;p&gt;*/10 * * * * export DISPLAY=:0 &amp;amp;&amp;amp; /usr/bin/zenity -info-text="Don't forget that uber important habit"&lt;/p&gt;</content><category term="Productivity"></category></entry><entry><title>GSD 4 — Reviewing</title><link href="https://shanedowling.com/gsd-4-reviewing-8a7ab553a72f.html" rel="alternate"></link><published>2013-12-27T00:00:00+00:00</published><updated>2013-12-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-27:/gsd-4-reviewing-8a7ab553a72f.html</id><summary type="html">&lt;p&gt;So the final process I use to help me get shit done is reviewing. Each
 week I do a fairly lengthy review of the last week. I see what habits
 have been successful and which have been a struggle to maintain. I look
 to see if there are appropriate alterations …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So the final process I use to help me get shit done is reviewing. Each

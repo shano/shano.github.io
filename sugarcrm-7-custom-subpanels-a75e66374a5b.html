@@ -1,73 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>SugarCRM 7 — Custom subpanels</title>
+        <title>Shane Dowling : SugarCRM 7 — Custom subpanels</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="./theme/css/main.css" />
-        <link rel="stylesheet" href="./theme/css/forms.css" />
-        <link rel="stylesheet" href="./theme/fonts/fonts.css" />
-        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
-        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
-        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
-        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling ATOM Feed" />
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
 </head>
+
 <body>
-
-    <div class="main-nav-container">
-
-        <div class="pure-g">
-            <div class="pure-u-1 pure-u-lg-2-3">
-                <div class="main-nav">
-                    <ul class="main-nav-list">
-                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
-
-                        <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
-                        <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
-                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
-                        <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
-                        <li class="main-nav-item"><a href="./pages/contact.html" class="pure-menu-link">Contact</a></li>
-                    </ul>
-                </div>
-             </div>
-
-             <div class="pure-u-1 pure-u-lg-1-3"></div>
-        </div>
-
-    </div>
-
-
-<div class="page-container">
-    <div class="entry-content">
-        <div class="post-meta pure-g">
-            <div class="pure-u-3-4 meta-data">
-                <a href="./category/tech.html" class="category">Tech</a><br />
-
-                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2014-08-13T00:00:00+00:00">Wed 13 August 2014</abbr>
-            </div>
-        </div>
-    </div>
-
-    <div class="article-header-container">
-        <div class="background-image-container">
-
-            <div class="background-image-small">
-                <div class="title-container">
-                    <h1>SugarCRM 7 — Custom subpanels</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="entry-content">
-        <p><img alt="" src="images/1__g70Q0ojQdUFPYP4a__sPE5w.png"></p>
+        
+<header>
+    <h1><a href="." id="site-title">Shane Dowling  <strong>Shane Dowling</strong></a> :
+        <a href="./sugarcrm-7-custom-subpanels-a75e66374a5b.html" id="page-title">SugarCRM 7 — Custom subpanels</a></h1>
+<time datetime="2014-08-13T00:00:00+00:00">Wed 13 August 2014</time></header>
+<article>
+    <p><img alt="" src="images/1__g70Q0ojQdUFPYP4a__sPE5w.png"></p>
 <p>This tutorial should hopefully help you to create a new subpanel under
 the Contacts module in Sugar using a custom link class and driven by
 SugarCRM 7's new SugarQuery API.</p>
@@ -75,7 +33,7 @@ SugarCRM 7's new SugarQuery API.</p>
 <p>This should go into custom/modules//YourNewLink.php and this
 class will act as the custom functionality that will build your link
 between the two records.</p>
-<div class="highlight"><pre><span></span><span class="x">/**</span>
+<div class="highlight"><pre><span></span><code><span class="x">/**</span>
 <span class="x"> * Custom filtered link</span>
 <span class="x"> */</span>
 <span class="x"> class YourNewLink extends Link2</span>
@@ -148,8 +106,7 @@ between the two records.</p>
 <span class="x"> return $sql;</span>
 <span class="x"> }</span>
 <span class="x"> }</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The argument $sugar_query is a new SugarQuery object, the details of
 which are documented <a href="http://developer.sugarcrm.com/2014/04/22/sugarcrm-cookbook-sugarquery-the-basics/">here</a>.
@@ -162,7 +119,7 @@ how the core sugar team use this. I can confirm however that this does
 work with custom joins.</p>
 <p>Here is the getEmailsJoin to help you understand what you can actually
 produce via this custom join.</p>
-<div class="highlight"><pre><span></span><span class="x">/**</span>
+<div class="highlight"><pre><span></span><code><span class="x">/**</span>
 <span class="x"> * Builds main join for archived emails</span>
 <span class="x"> * @param string $params</span>
 <span class="x"> * @return string JOIN clause</span>
@@ -187,14 +144,13 @@ produce via this custom join.</p>
 <span class="x"> eabr.email_address_id = eear.email_address_id and eabr.deleted=0 where eear.deleted=0\\n&quot; .</span>
 <span class="x"> &quot;) email_ids ON $table_name.id=email_ids.email_id &quot;;</span>
 <span class="x"> }</span>
-</pre></div>
-
+</code></pre></div>
 
 <h3>2. Add a new vardef entry for the linkfield.</h3>
 <p>For this example, I'm going to create the custom link on the contacts
 module. So this code goes in
 custom/Extension/modules/Contacts/Ext/Vardefs/your_field_name.php</p>
-<div class="highlight"><pre><span></span><span class="x">$dictionary[&quot;Contact&quot;][&quot;fields&quot;][&quot;your_field_name&quot;] = array(</span>
+<div class="highlight"><pre><span></span><code><span class="x">$dictionary[&quot;Contact&quot;][&quot;fields&quot;][&quot;your_field_name&quot;] = array(</span>
 <span class="x"> &#39;name&#39; =&gt; &#39;active_other_invites&#39;,</span>
 <span class="x"> &#39;type&#39; =&gt; &#39;link&#39;,</span>
 <span class="x"> &#39;link_file&#39; =&gt; &#39;custom/modules//YourNewLink.php&#39;,</span>
@@ -205,12 +161,11 @@ custom/Extension/modules/Contacts/Ext/Vardefs/your_field_name.php</p>
 <span class="x"> &#39;link_type&#39; =&gt; &#39;many&#39;,</span>
 <span class="x"> &#39;relationship&#39; =&gt; &#39;&#39;,</span>
 <span class="x"> );</span>
-</pre></div>
-
+</code></pre></div>
 
 <h3>3. Add the new link as a subpanel</h3>
 <p>custom/Extension/modules/Contacts/Ext/clients/base/layouts/subpanels/your_subpanel_name.php</p>
-<div class="highlight"><pre><span></span><span class="x">$viewdefs[&#39;Contacts&#39;][&#39;base&#39;][&#39;layout&#39;][&#39;subpanels&#39;][&#39;components&#39;][] = array (</span>
+<div class="highlight"><pre><span></span><code><span class="x">$viewdefs[&#39;Contacts&#39;][&#39;base&#39;][&#39;layout&#39;][&#39;subpanels&#39;][&#39;components&#39;][] = array (</span>
 <span class="x"> &#39;layout&#39; =&gt; &#39;subpanel&#39;,</span>
 <span class="x"> &#39;label&#39; =&gt; &#39;LBL_NEW_LINK&#39;,</span>
 <span class="x"> &#39;context&#39; =&gt;</span>
@@ -218,15 +173,13 @@ custom/Extension/modules/Contacts/Ext/Vardefs/your_field_name.php</p>
 <span class="x"> &#39;link&#39; =&gt; &#39;your_field_name&#39;,</span>
 <span class="x"> ),</span>
 <span class="x"> );</span>
-</pre></div>
-
+</code></pre></div>
 
 <h3>4. Add the label</h3>
 <p>custom/Extension/modules/Contacts/Ext/Language/en_us.new_link.php</p>
 <p>Content:</p>
-<div class="highlight"><pre><span></span><span class="x">$mod_strings[&#39;LBL_ACTIVE_OTHER_INVITES&#39;] = &#39;Your New Link&#39;;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="x">$mod_strings[&#39;LBL_ACTIVE_OTHER_INVITES&#39;] = &#39;Your New Link&#39;;</span>
+</code></pre></div>
 
 <h3>5. Quick Repair and Rebuild</h3>
 <p>That should hopefully get you started. Keep an eye on the sugarlogs
@@ -237,45 +190,17 @@ needed to do to get a working INNER JOIN statement.</p>
 you need to show information related to a module that might be a few
 joins away, this allows you to create the links manually without having
 to create pointless related fields in-between the two.</p>
-    </div>
+</article>
 
-    <footer>
-        <div class="pure-g post-footer">
-            <div class="pure-u-1 pure-u-md-1-2">
-                <div class="pure-g poster-info">
-                    <div class="pure-u-3-4">
-                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
-                        <p class="author-description">
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="./pages/contact.html">Contact</a></li>
+                    <li>:: <a href="./categories.html">Categories</a></li>
+                </ul>
+            </nav>
+                <p id="theme-credit"><a href="http://mathieu.agopian.info/mnmlist/theme.html">Thème mnmlist</a></p>
+        </footer>
 
-
-
-        </div>
-
-
-    </footer>
-
-
-</div>
-
-
-    <!-- Matomo -->
-        <script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-            var u="//stats.shanedowling.com/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-                  _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        </script>
-        <!-- End Matomo Code -->
 </body>
 </html>

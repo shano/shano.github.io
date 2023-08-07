@@ -3,194 +3,1205 @@
 <head>
         <title>Shane Dowling</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="./theme/css/main.css" />
-        <link rel="stylesheet" href="./theme/css/forms.css" />
-        <link rel="stylesheet" href="./theme/fonts/fonts.css" />
-        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
-        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling ATOM Feed" />
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
 </head>
+
 <body>
+        
+        
 
-    <div class="main-nav-container">
+            <header>
+                <h1><a href="." id="site-title">Shane Dowling  <strong>Shane Dowling</strong></a> : <a href="./streamlining-os-development-pipelines-for-the-beepberry.html" id="page-title">Streamlining OS Development Pipelines for the Beepberry - A Fun Challenge</a></h1>
+<time datetime="2023-06-05T13:32:59.350000+00:00">Mon 05 June 2023</time>            </header>
 
-        <div class="pure-g">
-            <div class="pure-u-1 pure-u-lg-2-3">
-                <div class="main-nav">
-                    <ul class="main-nav-list">
-                        <li class="main-nav-item active"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
+            <article>
+                <p><img alt="" src="images/1_6nkAxHBzMyFB-k06nx5jdg.png"></p>
+<h2>Introduction</h2>
+<p>Imagine a cool device that brings together an LCD screen, Raspberry Pi Zero, and a Blackberry keyboard – that's the Beepberry! It's designed to work like a WiFi-only keyboard phone, and one of the main goals is to reach a super-fast boot time of under 5 seconds. Sounds challenging, right? Well, to speed up the development process and test boot optimization, using QEMU to emulate the OS is a smart move. In this blog post, we'll explore the tough parts of creating pipelines for entire operating systems, their limitations, and the benefits that the Beepberry project will gain from using QEMU.</p>
+<h2>The Tricky Bits in OS Development Pipelines</h2>
+<ol>
+<li>
+<p>Not-so-accurate Timings: When using QEMU to emulate the OS, the boot time measurements might not be spot-on compared to the real hardware. But hey, at least the improvements you see in the emulator should show relative progress on the device!</p>
+</li>
+<li>
+<p>Hardware Hurdles: The Raspberry Pi Zero is a nifty and affordable choice, but it might have some constraints when it comes to processing power and memory. These factors can have an impact on the overall performance and boot time of the OS.</p>
+</li>
+<li>
+<p>Emulation Roadblocks: QEMU might not support every single hardware feature of the Raspberry Pi Zero or the Blackberry keyboard, which could lead to some differences in how the system behaves during emulation and actual usage.</p>
+</li>
+</ol>
+<h2>The Perks of Emulation in OS Development</h2>
+<ol>
+<li>
+<p>DIY Development: With QEMU, you can work on the project right from your own computer, without needing the actual Beepberry device. This makes the development process faster and allows for quicker testing.</p>
+</li>
+<li>
+<p>Smooth CI Pipelines: Emulating the OS means you can integrate the project into continuous integration (CI) pipelines, making it easy to test and validate code automatically with each commit or pull request. This helps make sure any changes are solid before they're merged, boosting overall reliability.</p>
+</li>
+<li>
+<p>Test It All: Why not test the whole shebang? Emulating the entire OS lets you check everything from boot optimization to app performance and system stability. This big-picture approach to testing helps find potential issues and areas for improvement more effectively.</p>
+</li>
+<li>
+<p>Fast Prototyping: Emulation speeds up development cycles because you can test new features and optimizations without having to flash the OS onto the physical device every time. This saves loads of time on repetitive tasks and makes the development process a breeze.</p>
+</li>
+</ol>
+<h2>Conclusion</h2>
+<p>Developing a top-notch pipeline for the Beepberry project's operating system is no walk in the park, with challenges like not-so-accurate timings and hardware hurdles. But by using QEMU for emulation, the development process becomes way more streamlined, enabling DIY development, smooth CI pipelines, system-wide testing, and fast prototyping. By tackling these challenges head-on and focusing on constant improvement, the Beepberry project has the potential to hit that amazing sub-5 second boot time and deliver a snappy, reliable WiFi-only keyboard phone.</p>            </article>
+                <section id="article-list">
+                    <h2>All posts</h2>
+                    <ol>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-                        <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
-                        <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
-                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
-                        <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
-                        <li class="main-nav-item"><a href="./pages/contact.html" class="pure-menu-link">Contact</a></li>
-                    </ul>
-                </div>
-             </div>
+ 
+            <li><a href="./harnessing-the-power-of-nixos-for-platform-engineering.html" rel="bookmark" title="Permalink to Harnessing the Power of NixOS for Platform Engineering">Harnessing the Power of NixOS for Platform Engineering</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-             <div class="pure-u-1 pure-u-lg-1-3"></div>
-        </div>
+ 
+            <li><a href="./de-risk-early-when-engineering-platforms.html" rel="bookmark" title="Permalink to De-risk early when engineering platforms">De-risk early when engineering platforms</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-    </div>
+ 
+            <li><a href="./reduce-developer-cognitive-load-with-nix.html" rel="bookmark" title="Permalink to Reduce developer cognitive load with nix">Reduce developer cognitive load with nix</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
+ 
+            <li><a href="./physical-vs-logical-resources.html" rel="bookmark" title="Permalink to Physical vs Logical resources">Physical vs Logical resources</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-<div class="main-container">
-    <div class="pure-g">
-        <div class="pure-u-1 pure-u-lg-2-3">
+ 
+            <li><a href="./how-to-manage-podcasts-on-an-ipod-classic-on-linux.html" rel="bookmark" title="Permalink to How to manage Podcasts on an iPod Classic on Linux">How to manage Podcasts on an iPod Classic on Linux</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
+ 
+            <li><a href="./consuming-content-like-its-the-90s.html" rel="bookmark" title="Permalink to Consuming Content Like it's the 90s">Consuming Content Like it's the 90s</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-            <div class="post">
-                <div class="post-meta pure-g">
+ 
+            <li><a href="./til-updating-zsh.html" rel="bookmark" title="Permalink to TIL Updating ZSH">TIL Updating ZSH</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
+ 
+            <li><a href="./activity-nag.html" rel="bookmark" title="Permalink to Activity Nag">Activity Nag</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-                    <div class="pure-u-3-4 meta-data">
-                        <a href="./category/tech.html" class="category">Tech</a><br />
+ 
+            <li><a href="./nonviolent-communication-a7bddf8d0805.html" rel="bookmark" title="Permalink to Nonviolent Communication">Nonviolent Communication</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2012-03-01T00:00:00+00:00">Thu 01 March 2012</abbr>
-                    </div>
-                </div>
-                <h2><a href="./quick-vhost-script-6bdb6138fc10.html" rel="bookmark" title="Permalink to Quick vhost script">Quick vhost script</a></h2>
-                <div class="post-content">
-                    <p>Quick script to setup a new virtualhost entry for apache. Works for me
-on archlinux.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
- <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">subprocess</span>
+ 
+            <li><a href="./wrangle-your-personal-development-plan-pdp-into-actionable-objectives-e448649b5db0.html" rel="bookmark" title="Permalink to 5 Steps to a better Personal Development Plan(PDP)">5 Steps to a better Personal Development Plan(PDP)</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-<span class="n">vhosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/httpd/conf/extra/httpd-vhosts.conf&quot;</span>
- <span class="n">hosts_file</span> <span class="o">=</span> <span class="s2">&quot;/etc/hosts&quot;</span>
+ 
+            <li><a href="./learning-python-as-a-platform-engineer-first-steps-911e59dd4af8.html" rel="bookmark" title="Permalink to Learning Python as a Platform Engineer-First Steps">Learning Python as a Platform Engineer-First Steps</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-<span class="n">domain_name</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
- <span class="n">folder</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+ 
+            <li><a href="./the-vagueness-of-secular-buddhism.html" rel="bookmark" title="Permalink to The vagueness of Secular Buddhism">The vagueness of Secular Buddhism</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-<span class="k">def</span> <span class="nf">usage</span><span class="p">():</span>
+ 
+            <li><a href="./make-the-smartphone-dumb-again.html" rel="bookmark" title="Permalink to Make the smartphone dumb again">Make the smartphone dumb again</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3 …</span></pre></div>
-                </div>
-                <div class="post-footer">
-                    <a href="./quick-vhost-script-6bdb6138fc10.html">Read more</a>
-                </div>
-            </div>
-            <div class="post">
-                <div class="post-meta pure-g">
+ 
+            <li><a href="./til-aws-lambda-environment-vars.html" rel="bookmark" title="Permalink to TIL - AWS Lambda Environment Vars">TIL - AWS Lambda Environment Vars</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
+ 
+            <li><a href="./please-please-make-a-domain-for-your-own-email-address.html" rel="bookmark" title="Permalink to Please, PLEASE make a domain for your own email address.">Please, PLEASE make a domain for your own email address.</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-                    <div class="pure-u-3-4 meta-data">
-                        <a href="./category/tech.html" class="category">Tech</a><br />
+ 
+            <li><a href="./quick-review-long-gone-days.html" rel="bookmark" title="Permalink to Quick Review - Long Gone Days">Quick Review - Long Gone Days</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2012-02-19T00:00:00+00:00">Sun 19 February 2012</abbr>
-                    </div>
-                </div>
-                <h2><a href="./easily-remember-linux-commands-44191f6843f6.html" rel="bookmark" title="Permalink to Easily remember linux commands">Easily remember linux commands</a></h2>
-                <div class="post-content">
-                    <p>I use an absolute ton of awesome tools my various linux distros. The
-problem is I tend to forget a lot of the time how to use the tools, so I
-got a list of frequently used command with and a few examples of how to
-use them from <a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/">here …</a></p>
-                </div>
-                <div class="post-footer">
-                    <a href="./easily-remember-linux-commands-44191f6843f6.html">Read more</a>
-                </div>
-            </div>
-            <div class="post">
-                <div class="post-meta pure-g">
+ 
+            <li><a href="./til-aws-summit-ecr.html" rel="bookmark" title="Permalink to TIL - AWS Summit - ECR">TIL - AWS Summit - ECR</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
+ 
+            <li><a href="./til-aws-summit-eventbridge.html" rel="bookmark" title="Permalink to TIL - AWS Summit - Eventbridge">TIL - AWS Summit - Eventbridge</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-                    <div class="pure-u-3-4 meta-data">
-                        <a href="./category/tech.html" class="category">Tech</a><br />
+ 
+            <li><a href="./til-aws-summit-fargate-autoscaling.html" rel="bookmark" title="Permalink to TIL - AWS Summit - Fargate Autoscaling">TIL - AWS Summit - Fargate Autoscaling</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2012-01-14T00:00:00+00:00">Sat 14 January 2012</abbr>
-                    </div>
-                </div>
-                <h2><a href="./simple-ubuntu-backup-to-s3-c3f3b7070208.html" rel="bookmark" title="Permalink to Simple ubuntu backup to S3">Simple ubuntu backup to S3</a></h2>
-                <div class="post-content">
-                    <p>After browsing the web for ages to find a decent solution to backup my
-server to amazon s3 I finally came across one and I'm just throwing it
-up here. So basically all I need it to do was backup my sites(filesystem and mysql databases) and some config for …</p>
-                </div>
-                <div class="post-footer">
-                    <a href="./simple-ubuntu-backup-to-s3-c3f3b7070208.html">Read more</a>
-                </div>
-            </div>
-            <div class="post">
-                <div class="post-meta pure-g">
+ 
+            <li><a href="./til-aws-summit-latency.html" rel="bookmark" title="Permalink to TIL - AWS Summit - Latency">TIL - AWS Summit - Latency</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
+ 
+            <li><a href="./til-aws-summit-spot-instances.html" rel="bookmark" title="Permalink to TIL - AWS Summit - Spot Instances">TIL - AWS Summit - Spot Instances</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-                    <div class="pure-u-3-4 meta-data">
-                        <a href="./category/tech.html" class="category">Tech</a><br />
+ 
+            <li><a href="./til-bash-shift.html" rel="bookmark" title="Permalink to TIL - Bash Shift">TIL - Bash Shift</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-                        <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                        &mdash; <abbr title="2012-01-07T00:00:00+00:00">Sat 07 January 2012</abbr>
-                    </div>
-                </div>
-                <h2><a href="./simple-git-web-interface-999d0f685454.html" rel="bookmark" title="Permalink to Simple git web interface">Simple git web interface</a></h2>
-                <div class="post-content">
-                    <p>I decided instead of springing for a monthly github payed account I'd
-install git on a server and use a decent web interface that could be
-easily installed.</p>
-<p>So for this little guide I'm rocking ubuntu 10.04 with git and lighttpd
-already installed.</p>
-<p>It was a Goldilocks search for …</p>
-                </div>
-                <div class="post-footer">
-                    <a href="./simple-git-web-interface-999d0f685454.html">Read more</a>
-                </div>
-            </div>
+ 
+            <li><a href="./til-git-rebase.html" rel="bookmark" title="Permalink to TIL - Git Rebase">TIL - Git Rebase</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-<div class="pagination">
-    <div class="post-meta pure-g">
-        <div class="pure-u-1-2 left">
-            <a href="./index37.html">Previous articles</a>
-        </div>
-        <div class="pure-u-1-2 right">
-            <a href="./index39.html">More articles</a>
-        </div>
-    </div>
-</div>
+ 
+            <li><a href="./til-how-to-match-python-regex-postgis.html" rel="bookmark" title="Permalink to TIL - How to match python regex postgis">TIL - How to match python regex postgis</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-            <footer class="index-footer">
+ 
+            <li><a href="./populate-ansible-from-amazon-secrets-manager-8eac77127e37.html" rel="bookmark" title="Permalink to Populate Ansible from Amazon secrets manager">Populate Ansible from Amazon secrets manager</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-                <a href="./" title="Shane Dowling">Shane Dowling</a>
-                <a href="./category/til.html">TIL</a>
-                <a href="./category/tech.html">Tech</a>
-                <a href="./category/random.html">Random</a>
-                <a href="./category/productivity.html">Productivity</a>
-                <a href="./category/mindfulness.html">Mindfulness</a>
-                <a href="./category/leadership.html">Leadership</a>
-                <a href="./category/digital-minimalism.html">Digital Minimalism</a>
+ 
+            <li><a href="./better-local-development-for-serverless-functions-b96b5a4cfa8f.html" rel="bookmark" title="Permalink to Better local development for Serverless Functions">Better local development for Serverless Functions</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-            </footer>
+ 
+            <li><a href="./easy-maintenance-mode-with-nginx-2d4d510a0980.html" rel="bookmark" title="Permalink to Easy maintenance mode with nginx">Easy maintenance mode with nginx</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-        </div>
+ 
+            <li><a href="./please-dont-do-it-github-5890eb72d12c.html" rel="bookmark" title="Permalink to Please don't do it Github">Please don't do it Github</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
+ 
+            <li><a href="./beware-the-todo-list-7faac97dae4a.html" rel="bookmark" title="Permalink to Beware the todo list">Beware the todo list</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-    </div>
-</div>
+ 
+            <li><a href="./wild-wild-country-the-soundtrack-bbe397fc1cf4.html" rel="bookmark" title="Permalink to Wild Wild Country – The Soundtrack">Wild Wild Country – The Soundtrack</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
+ 
+            <li><a href="./four-years-without-facebook-7d5285a25913.html" rel="bookmark" title="Permalink to Four years without Facebook">Four years without Facebook</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
 
-    <!-- Matomo -->
-        <script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-            var u="//stats.shanedowling.com/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-                  _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        </script>
-        <!-- End Matomo Code -->
+ 
+            <li><a href="./leaving-no-trace-6ca31ffc0b9.html" rel="bookmark" title="Permalink to Leaving no Trace">Leaving no Trace</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./10-lessons-from-150-days-of-meditation-b4976d062a20.html" rel="bookmark" title="Permalink to 10 lessons from 150 days of meditation">10 lessons from 150 days of meditation</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./for-the-past-few-years-as-a-freelancer-ive-done-many-forms-of-remote-work-19b58de3bc90.html" rel="bookmark" title="Permalink to Lessons from Remote Working">Lessons from Remote Working</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./supplementing-an-ipad-pro-57a809a06d7f.html" rel="bookmark" title="Permalink to Supplementing an iPad Pro with Linux">Supplementing an iPad Pro with Linux</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./how-am-i-using-my-ipad-pro-as-a-development-machine-e4912a31744e.html" rel="bookmark" title="Permalink to The iPad Pro as a focused, simple coding machine">The iPad Pro as a focused, simple coding machine</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2.html" rel="bookmark" title="Permalink to Why an iPad for a backend developer">Why an iPad for a backend developer</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./freelancer-lessons-part-3-7015dc89b6fb.html" rel="bookmark" title="Permalink to Freelancer Lessons – Part 3">Freelancer Lessons – Part 3</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./freelancer-lessons-part-2-e5700002d8b.html" rel="bookmark" title="Permalink to Freelancer Lessons – Part 2">Freelancer Lessons – Part 2</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./developer-lessons-from-2017-part-1-14c31f45307c.html" rel="bookmark" title="Permalink to Freelancer lessons – Part 1">Freelancer lessons – Part 1</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./a-short-review-of-freedom-from-the-known-d22f52f8cdd3.html" rel="bookmark" title="Permalink to A Short Review of 'Freedom from the Known'">A Short Review of 'Freedom from the Known'</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./faster-sugarcrm-development-with-phpstorm-8f59b4860885.html" rel="bookmark" title="Permalink to Faster SugarCRM Development with PHPStorm">Faster SugarCRM Development with PHPStorm</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./pomot-command-line-pomotodo-client-d3447f55056e.html" rel="bookmark" title="Permalink to Pomot — command line pomotodo client">Pomot — command line pomotodo client</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./command-line-calendars-with-khal-and-fastmail-57214af20b8f.html" rel="bookmark" title="Permalink to Command line calendars with Khal and fastmail">Command line calendars with Khal and fastmail</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-conditional-read-only-fields-7fbf971f0592.html" rel="bookmark" title="Permalink to SugarCRM 7 — Conditional Read Only Fields">SugarCRM 7 — Conditional Read Only Fields</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./networkx-get-all-paths-from-all-sources-to-sinks-825e3787b458.html" rel="bookmark" title="Permalink to NetworkX — Get all Paths from all sources to sinks">NetworkX — Get all Paths from all sources to sinks</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./generate-binary-tree-from-string-fcb1a0c662e7.html" rel="bookmark" title="Permalink to Generate Binary Tree From String">Generate Binary Tree From String</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-conditional-actions-9c19e52c50.html" rel="bookmark" title="Permalink to SugarCRM — Conditional Actions">SugarCRM — Conditional Actions</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./bioinformatics-rosalind-skeleton-generator-5229517d32fa.html" rel="bookmark" title="Permalink to Bioinformatics/Rosalind — Skeleton Generator">Bioinformatics/Rosalind — Skeleton Generator</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./tiddlywiki-to-org-mode-c83bd3cd7323.html" rel="bookmark" title="Permalink to Tiddlywiki to Org-Mode">Tiddlywiki to Org-Mode</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./osqa-to-tiddlywiki-ccdb598d226b.html" rel="bookmark" title="Permalink to OSQA to Tiddlywiki">OSQA to Tiddlywiki</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./verify-youre-hidden-with-conky-b59f1e36001b.html" rel="bookmark" title="Permalink to Verify you're hidden with conky">Verify you're hidden with conky</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-adding-an-action-to-the-listview-headerpanel-cdfff560e7b3.html" rel="bookmark" title="Permalink to SugarCRM 7 — Adding an action to the listview headerpanel">SugarCRM 7 — Adding an action to the listview headerpanel</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-prevent-currencies-getting-overridden-7944af907da9.html" rel="bookmark" title="Permalink to SugarCRM — Prevent currencies getting overridden">SugarCRM — Prevent currencies getting overridden</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-roll-sugarcrm-with-docker-f4449e2ca7a.html" rel="bookmark" title="Permalink to SugarCRM 7 — Roll SugarCRM with Docker">SugarCRM 7 — Roll SugarCRM with Docker</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./setting-up-git-with-rescuetime-highlights-aa6d13128bb6.html" rel="bookmark" title="Permalink to Setting up git with Rescuetime highlights">Setting up git with Rescuetime highlights</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./bulletproof-productivity-c95958f3bbf9.html" rel="bookmark" title="Permalink to Bulletproof productivity">Bulletproof productivity</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./solving-boot2dockers-fail-to-start-error-acec8ba7802c.html" rel="bookmark" title="Permalink to Solving boot2docker's fail to start error">Solving boot2docker's fail to start error</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./r-cleaning-merging-excel-files-e742fbb33c71.html" rel="bookmark" title="Permalink to R — Cleaning/Merging Excel files">R — Cleaning/Merging Excel files</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-git-version-control-strategy-20997a85b1c0.html" rel="bookmark" title="Permalink to SugarCRM — Git Version Control Strategy">SugarCRM — Git Version Control Strategy</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./better-php-debugging-with-emacs-1c2f71c947fe.html" rel="bookmark" title="Permalink to Better PHP Debugging with Emacs">Better PHP Debugging with Emacs</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./shellshock-am-i-vulnerable-and-what-do-i-do-4368762a4c94.html" rel="bookmark" title="Permalink to Shellshock — Am I vulnerable and what do I do?">Shellshock — Am I vulnerable and what do I do?</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-fix-to-re-enable-elasticsearch-on-custom-modules-f669c97ca480.html" rel="bookmark" title="Permalink to SugarCRM 7 — Fix to re-enable ElasticSearch on custom modules">SugarCRM 7 — Fix to re-enable ElasticSearch on custom modules</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-enable-importing-on-custom-modules-eabf29774f3b.html" rel="bookmark" title="Permalink to SugarCRM 7 — Enable Importing on Custom Modules">SugarCRM 7 — Enable Importing on Custom Modules</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./dompdf-failing-to-render-certain-accented-characters-9be35f0c13a6.html" rel="bookmark" title="Permalink to DOMpdf failing to render certain accented characters">DOMpdf failing to render certain accented characters</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./yii-convert-database-to-migrations-998a6277c968.html" rel="bookmark" title="Permalink to Yii — Convert database to migrations">Yii — Convert database to migrations</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-custom-subpanels-a75e66374a5b.html" rel="bookmark" title="Permalink to SugarCRM 7 — Custom subpanels">SugarCRM 7 — Custom subpanels</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-making-ajax-requests-7bf1bd0c71a5.html" rel="bookmark" title="Permalink to SugarCRM 7 — Making Ajax Requests">SugarCRM 7 — Making Ajax Requests</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-add-a-new-action-to-a-record-d020dafdc883.html" rel="bookmark" title="Permalink to SugarCRM 7 — Add a new action to a record">SugarCRM 7 — Add a new action to a record</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-sugar-powered-by-salt-2d2af530f829.html" rel="bookmark" title="Permalink to SugarCRM — Sugar powered by Salt!">SugarCRM — Sugar powered by Salt!</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./friday-fun-offline-8tracks-playlists-using-grooveshark-34b2512270df.html" rel="bookmark" title="Permalink to Friday Fun — Offline 8tracks playlists using Grooveshark">Friday Fun — Offline 8tracks playlists using Grooveshark</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./log-queries-with-mysql-proxy-714ae139cc00.html" rel="bookmark" title="Permalink to Log Queries with MySQL Proxy">Log Queries with MySQL Proxy</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-versioning-your-database-cdcee943048b.html" rel="bookmark" title="Permalink to SugarCRM — Versioning Your Database">SugarCRM — Versioning Your Database</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-set-recordlist-row-colours-based-on-row-data-6ff3072c08a9.html" rel="bookmark" title="Permalink to SugarCRM 7 — Set recordlist row colours based on row data">SugarCRM 7 — Set recordlist row colours based on row data</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./minimalist-mysql-reporting-ecc27a71d97.html" rel="bookmark" title="Permalink to Minimalist MySQL Reporting">Minimalist MySQL Reporting</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-colour-code-rows-based-on-data-values-a238bc54525c.html" rel="bookmark" title="Permalink to SugarCRM 7 — Colour Code Rows based on data values">SugarCRM 7 — Colour Code Rows based on data values</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./your-brain-on-stoicism-783d1cd1995c.html" rel="bookmark" title="Permalink to Your brain on stoicism">Your brain on stoicism</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./manage-background-tasks-with-php-resque-and-supervisor-93d14234b703.html" rel="bookmark" title="Permalink to Manage background tasks with PHP-Resque and Supervisor">Manage background tasks with PHP-Resque and Supervisor</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./simple-api-mocking-with-guzzle-and-charles-e5fdabe8b9fd.html" rel="bookmark" title="Permalink to Simple API Mocking with Guzzle and Charles">Simple API Mocking with Guzzle and Charles</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-permissions-script-6b7031eb0eef.html" rel="bookmark" title="Permalink to SugarCRM — Permissions Script">SugarCRM — Permissions Script</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./engineers-log-69525c451538.html" rel="bookmark" title="Permalink to Engineers Log">Engineers Log</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./quick-salt-minion-setup-354516c0ff63.html" rel="bookmark" title="Permalink to Quick Salt Minion Setup">Quick Salt Minion Setup</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-hiding-subpanels-based-on-specific-criteria-eee6aacb95e1.html" rel="bookmark" title="Permalink to SugarCRM 7 — Hiding subpanels based on specific criteria">SugarCRM 7 — Hiding subpanels based on specific criteria</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./super-simple-folder-backup-one-liner-de43a969cb0d.html" rel="bookmark" title="Permalink to Super simple folder backup one-liner">Super simple folder backup one-liner</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-adding-a-custom-column-to-a-list-1370ce1fbdb2.html" rel="bookmark" title="Permalink to SugarCRM 7 — Adding a custom column to a list">SugarCRM 7 — Adding a custom column to a list</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-7-adding-an-action-to-the-listview-436f18c039e6.html" rel="bookmark" title="Permalink to SugarCRM 7 — Adding an action to the listview">SugarCRM 7 — Adding an action to the listview</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./find-my-run-my-first-iphone-app-4e1ec62b32b3.html" rel="bookmark" title="Permalink to Find My Run — My first iPhone app">Find My Run — My first iPhone app</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./owning-your-data-replacing-dropbox-fdaa13df41ad.html" rel="bookmark" title="Permalink to Owning Your Data — Replacing Dropbox">Owning Your Data — Replacing Dropbox</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./philosophy-as-an-extension-of-mindfulness-8295b123c977.html" rel="bookmark" title="Permalink to Philosophy as an extension of mindfulness">Philosophy as an extension of mindfulness</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-search-for-records-related-to-the-current-record-4c0086341c14.html" rel="bookmark" title="Permalink to SugarCRM — Search for records related to the current record">SugarCRM — Search for records related to the current record</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-searches-with-data-from-indirectly-related-modules-ec204005f7b3.html" rel="bookmark" title="Permalink to SugarCRM — Searches with data from indirectly related modules">SugarCRM — Searches with data from indirectly related modules</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./build-yii-1-with-composer-d8ee634e3f3e.html" rel="bookmark" title="Permalink to Build Yii 1.* with composer">Build Yii 1.* with composer</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1.html" rel="bookmark" title="Permalink to SugarCRM — Add a code-driven column to a list">SugarCRM — Add a code-driven column to a list</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./yii-issues-with-homebrew-php-5-3-8d759e748a92.html" rel="bookmark" title="Permalink to Yii issues with Homebrew PHP 5.3">Yii issues with Homebrew PHP 5.3</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./owning-your-data-replacing-gmail-20e9e2259fa2.html" rel="bookmark" title="Permalink to Owning Your Data — Replacing Gmail">Owning Your Data — Replacing Gmail</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html" rel="bookmark" title="Permalink to Useful bit of SQL to update many records in SugarCRM">Useful bit of SQL to update many records in SugarCRM</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./owning-your-data-initial-server-setup-afa33394b94.html" rel="bookmark" title="Permalink to Owning Your Data — Initial Server Setup">Owning Your Data — Initial Server Setup</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./perfomance-enhancing-breakfast-4a14f17ee20a.html" rel="bookmark" title="Permalink to Perfomance Enhancing Breakfast">Perfomance Enhancing Breakfast</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./owning-your-data-296ed1534643.html" rel="bookmark" title="Permalink to Owning Your Data">Owning Your Data</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./the-counterfeited-blog-post-9d8f32f5d4b4.html" rel="bookmark" title="Permalink to The Counterfeited Blog Post">The Counterfeited Blog Post</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./cutting-caffeine-20012941744d.html" rel="bookmark" title="Permalink to Cutting caffeine">Cutting caffeine</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./rolling-your-own-mail-server-with-salt-159de9bec794.html" rel="bookmark" title="Permalink to Rolling your own mail server with Salt">Rolling your own mail server with Salt</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./keep-up-to-date-b90ee98640d4.html" rel="bookmark" title="Permalink to Keep up to date">Keep up to date</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./a-tip-for-introducing-new-habits-79186124433a.html" rel="bookmark" title="Permalink to A tip for introducing new habits">A tip for introducing new habits</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./offlineimap-to-thunderbird-152bb02286f.html" rel="bookmark" title="Permalink to OfflineImap to Thunderbird">OfflineImap to Thunderbird</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./on-wanting-8c4ca2f2d314.html" rel="bookmark" title="Permalink to On wanting">On wanting</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./precision-nutrition-trail-fast-88a4c01976d5.html" rel="bookmark" title="Permalink to Precision Nutrition Trail Fast">Precision Nutrition Trail Fast</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./de-activating-facebook-for-a-month-f91b49da00a4.html" rel="bookmark" title="Permalink to De-activating facebook for a month">De-activating facebook for a month</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./numbers-to-replace-that-smartphone-london-edition-b121face9106.html" rel="bookmark" title="Permalink to Numbers to replace that smartphone(London Edition)">Numbers to replace that smartphone(London Edition)</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./internet-predictions-for-2014-that-didnt-make-it-ac552337f3a0.html" rel="bookmark" title="Permalink to Internet Predictions for 2014 that didn't make it">Internet Predictions for 2014 that didn't make it</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./review-of-the-woman-who-walked-into-doors-7aec5acb710c.html" rel="bookmark" title="Permalink to Review of The Woman Who Walked Into Doors">Review of The Woman Who Walked Into Doors</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./switching-to-a-dumbphone-3b090f8ad709.html" rel="bookmark" title="Permalink to Switching to a dumbphone">Switching to a dumbphone</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./promoting-mindfulness-through-the-day-e294cbc78843.html" rel="bookmark" title="Permalink to Promoting mindfulness through the day">Promoting mindfulness through the day</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./legitimate-ways-to-support-good-movies-2fb11e565d2d.html" rel="bookmark" title="Permalink to Legitimate ways to support good movies">Legitimate ways to support good movies</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sleep-as-the-fundamental-habit-f9590f13c013.html" rel="bookmark" title="Permalink to Sleep as the fundamental habit">Sleep as the fundamental habit</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./make-money-mining-a-cryptocurrency-618d8f4727bf.html" rel="bookmark" title="Permalink to Make money mining a cryptocurrency">Make money mining a cryptocurrency</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./fasting-636565d35b97.html" rel="bookmark" title="Permalink to Fasting">Fasting</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./avoid-anxiety-with-gratitude-65eb140928a5.html" rel="bookmark" title="Permalink to Avoid anxiety with gratitude">Avoid anxiety with gratitude</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./gypyss-and-unrealistic-expectations-f67a4927d9d6.html" rel="bookmark" title="Permalink to GYPYSs and unrealistic expectations">GYPYSs and unrealistic expectations</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./performance-gains-by-altering-your-routine-f44365b8972b.html" rel="bookmark" title="Permalink to Performance gains by altering your routine">Performance gains by altering your routine</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./gsd-2-retaining-focus-98ffdabf2a75.html" rel="bookmark" title="Permalink to GSD 2 — Retaining Focus">GSD 2 — Retaining Focus</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./gsd-3-keeping-your-habits-in-mind-ded639ef1e39.html" rel="bookmark" title="Permalink to GSD 3 — Keeping your habits in mind">GSD 3 — Keeping your habits in mind</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./gsd-4-reviewing-8a7ab553a72f.html" rel="bookmark" title="Permalink to GSD 4 — Reviewing">GSD 4 — Reviewing</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./the-freedom-of-limits-8677931d93e0.html" rel="bookmark" title="Permalink to The Freedom of Limits">The Freedom of Limits</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./vegetarian-3c437a98aa85.html" rel="bookmark" title="Permalink to Vegetarian">Vegetarian</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./principles-5cdc28ff6843.html" rel="bookmark" title="Permalink to Principles">Principles</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html" rel="bookmark" title="Permalink to Thrashing your networks download with dispatch and axel">Thrashing your networks download with dispatch and axel</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./fixing-a-broken-vagrant-box-cd6f169a62eb.html" rel="bookmark" title="Permalink to Fixing a broken vagrant box">Fixing a broken vagrant box</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./using-ppas-with-salt-states-dd60c32c1211.html" rel="bookmark" title="Permalink to Using PPAs with Salt-States">Using PPAs with Salt-States</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./making-drupal-6-development-suck-less-ea6930df8056.html" rel="bookmark" title="Permalink to Making Drupal 6 Development Suck Less">Making Drupal 6 Development Suck Less</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./connect-to-routers-anonymously-9287ec7e7951.html" rel="bookmark" title="Permalink to Connect to routers anonymously">Connect to routers anonymously</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./explainshell-52cc1de7a71a.html" rel="bookmark" title="Permalink to Explainshell">Explainshell</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./happy-programmers-day-d14d9063b43f.html" rel="bookmark" title="Permalink to Happy Programmers Day!">Happy Programmers Day!</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./salt-miner-5d8c30f9d61f.html" rel="bookmark" title="Permalink to Salt Miner">Salt Miner</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./unit-testing-unmanaged-django-models-bf2cb6837fec.html" rel="bookmark" title="Permalink to Unit-testing unmanaged Django models">Unit-testing unmanaged Django models</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./suppling-test-data-to-django-cities-6afd013f671d.html" rel="bookmark" title="Permalink to Suppling test data to django-cities">Suppling test data to django-cities</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./archlinux-pacman-update-fix-a99b2f157a2c.html" rel="bookmark" title="Permalink to Archlinux Pacman Update Fix">Archlinux Pacman Update Fix</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./writing-django-tests-for-postgis-9eefe47fd368.html" rel="bookmark" title="Permalink to Writing Django tests for PostGis">Writing Django tests for PostGis</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./install-nzbget-using-salt-7cc40711adb6.html" rel="bookmark" title="Permalink to Install nzbget using salt">Install nzbget using salt</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./octopress-back-to-wordpress-6740efc31eb9.html" rel="bookmark" title="Permalink to Octopress back to Wordpress">Octopress back to Wordpress</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./postgis-31e5d7e13bff.html" rel="bookmark" title="Permalink to Postgis">Postgis</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./gsd-1-reducing-distractions-a42c7b164ce0.html" rel="bookmark" title="Permalink to GSD 1 — Reducing Distractions">GSD 1 — Reducing Distractions</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./getting-shit-done-99303b405d8c.html" rel="bookmark" title="Permalink to Getting Shit Done">Getting Shit Done</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./writing-less-2757f83c3a48.html" rel="bookmark" title="Permalink to Writing Less">Writing Less</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./tired-meditation-47ed1f094c04.html" rel="bookmark" title="Permalink to Tired meditation">Tired meditation</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./south-africa-c688b9070707.html" rel="bookmark" title="Permalink to South Africa">South Africa</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./overlanding-ac775c297d46.html" rel="bookmark" title="Permalink to Overlanding">Overlanding</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./worksly-com-find-workspaces-in-the-uk-ee31e3f6b1b3.html" rel="bookmark" title="Permalink to worksly.com — Find workspaces in the UK">worksly.com — Find workspaces in the UK</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./why-study-philosophy-1aba210c328b.html" rel="bookmark" title="Permalink to Why Study Philosophy">Why Study Philosophy</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./circumventing-the-pirate-bay-blockade-b85834c22679.html" rel="bookmark" title="Permalink to Circumventing The Pirate Bay Blockade">Circumventing The Pirate Bay Blockade</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./screwed-server-checklist-ef23820824c7.html" rel="bookmark" title="Permalink to Screwed Server Checklist">Screwed Server Checklist</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./diary-py-future-proof-memories-b097056bc350.html" rel="bookmark" title="Permalink to Diary.py future proof memories.">Diary.py future proof memories.</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./quick-vhost-script-6bdb6138fc10.html" rel="bookmark" title="Permalink to Quick vhost script">Quick vhost script</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./easily-remember-linux-commands-44191f6843f6.html" rel="bookmark" title="Permalink to Easily remember linux commands">Easily remember linux commands</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./simple-ubuntu-backup-to-s3-c3f3b7070208.html" rel="bookmark" title="Permalink to Simple ubuntu backup to S3">Simple ubuntu backup to S3</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./simple-git-web-interface-999d0f685454.html" rel="bookmark" title="Permalink to Simple git web interface">Simple git web interface</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./cli-dash-b7f2766a53c9.html" rel="bookmark" title="Permalink to CLI Dash">CLI Dash</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./good-coding-practice-snippets-60b75db22e57.html" rel="bookmark" title="Permalink to Good Coding Practice Snippets">Good Coding Practice Snippets</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./vegetarian-9bb1abb30879.html" rel="bookmark" title="Permalink to Vegetarian">Vegetarian</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./reducing-my-possesions-e8ccf43e94ba.html" rel="bookmark" title="Permalink to Reducing my possesions">Reducing my possesions</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./just-keep-going-eebcba9f4076.html" rel="bookmark" title="Permalink to Just Keep Going">Just Keep Going</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./very-simple-ec2-snapshot-management-6bcca8bd28fb.html" rel="bookmark" title="Permalink to Very Simple EC2 Snapshot Management">Very Simple EC2 Snapshot Management</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./music-at-work-12aac3472110.html" rel="bookmark" title="Permalink to Music at work">Music at work</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./daily-wtf-shopping-carts-bbcfbdade962.html" rel="bookmark" title="Permalink to Daily WTF — Shopping Carts">Daily WTF — Shopping Carts</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./software-engineer-ddc413164c2c.html" rel="bookmark" title="Permalink to Software Engineer">Software Engineer</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./intel-insider-now-hardware-can-screw-you-with-copy-protection-723284f48a80.html" rel="bookmark" title="Permalink to Intel Insider — Now hardware can screw you with copy protection.">Intel Insider — Now hardware can screw you with copy protection.</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./php-and-big-numbers-4605875d1635.html" rel="bookmark" title="Permalink to PHP and big numbers">PHP and big numbers</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./worryingly-accurate-this-is-your-brain-on-vim-7583add32743.html" rel="bookmark" title="Permalink to Worryingly accurate — This is your brain on vim">Worryingly accurate — This is your brain on vim</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./the-power-of-nightmares-5717f5a92295.html" rel="bookmark" title="Permalink to The Power of Nightmares">The Power of Nightmares</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./for-any-active-del-icio-us-users-id-highly-recommend-d89cee8880c7.html" rel="bookmark" title="Permalink to For any active del.icio.us users I'd highly recommend…">For any active del.icio.us users I'd highly recommend…</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./simple-ubuntu-backup-to-s3-d8a52b123d12.html" rel="bookmark" title="Permalink to Simple ubuntu backup to S3">Simple ubuntu backup to S3</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./the-problem-with-god-arguments-c9543d98f6c8.html" rel="bookmark" title="Permalink to The problem with God arguments">The problem with God arguments</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./descartes-second-meditation-f5d3426ef9ee.html" rel="bookmark" title="Permalink to Descartes, Second Meditation">Descartes, Second Meditation</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./reflections-on-descartes-meditations-a03fd614a3f0.html" rel="bookmark" title="Permalink to Reflections on Descartes Meditations">Reflections on Descartes Meditations</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./the-museum-going-cannibal-5d5bb1a3fbd.html" rel="bookmark" title="Permalink to The Museum-going Cannibal">The Museum-going Cannibal</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./google-history-told-me-im-a-nerd-68c2161f42c7.html" rel="bookmark" title="Permalink to Google History told me I'm a nerd">Google History told me I'm a nerd</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./8-randomly-useful-php-tricks-1acfd89a3fb4.html" rel="bookmark" title="Permalink to 8 randomly useful php tricks">8 randomly useful php tricks</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./top-10-webapps-for-programmers-38c75fba4a63.html" rel="bookmark" title="Permalink to Top 10 webapps for programmers">Top 10 webapps for programmers</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./sync-config-files-over-dropbox-62b51425343e.html" rel="bookmark" title="Permalink to Sync config files over dropbox">Sync config files over dropbox</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./disable-jquery-autocompleter-cache-a6f3a338274c.html" rel="bookmark" title="Permalink to Disable jQuery autocompleter cache">Disable jQuery autocompleter cache</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./php-beautifier-51200a4b525f.html" rel="bookmark" title="Permalink to Php Beautifier">Php Beautifier</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./the-pomodoro-technique-540acfc74681.html" rel="bookmark" title="Permalink to The Pomodoro Technique">The Pomodoro Technique</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./vim-e2fc00d85b79.html" rel="bookmark" title="Permalink to Vim!">Vim!</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./google-wave-server-admin-693186dcac55.html" rel="bookmark" title="Permalink to Google Wave Server Admin">Google Wave Server Admin</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./pseudocode-programming-process-ad198e7b0584.html" rel="bookmark" title="Permalink to Pseudocode Programming Process">Pseudocode Programming Process</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./code-complete-d53ccde8613b.html" rel="bookmark" title="Permalink to Code Complete">Code Complete</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./useful-linux-apps-youve-probably-never-heard-of-ad375c0b8532.html" rel="bookmark" title="Permalink to Useful Linux apps you've probably never heard of">Useful Linux apps you've probably never heard of</a></li>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="./getting-yourself-on-trinitys-wireless-network-with-linux-dd6a51344317.html" rel="bookmark" title="Permalink to Getting yourself on Trinity's Wireless network with Linux">Getting yourself on Trinity's Wireless network with Linux</a></li>
+            </ol>
+            </section><!-- #article-list -->
+
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="./pages/contact.html">Contact</a></li>
+                    <li>:: <a href="./categories.html">Categories</a></li>
+                </ul>
+            </nav>
+                <p id="theme-credit"><a href="http://mathieu.agopian.info/mnmlist/theme.html">Thème mnmlist</a></p>
+        </footer>
+
 </body>
 </html>

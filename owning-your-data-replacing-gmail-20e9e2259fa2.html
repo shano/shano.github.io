@@ -1,73 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Owning Your Data — Replacing Gmail</title>
+        <title>Shane Dowling : Owning Your Data — Replacing Gmail</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="./theme/css/main.css" />
-        <link rel="stylesheet" href="./theme/css/forms.css" />
-        <link rel="stylesheet" href="./theme/fonts/fonts.css" />
-        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Full Atom Feed" />
-        <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Full RSS Feed" />
-        <link href="https://shanedowling.com/feeds/category.slug.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Categories Atom Feed" />
-        <link href="https://shanedowling.com/feeds/category.slug.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling Categories RSS Feed" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling ATOM Feed" />
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
 </head>
+
 <body>
-
-    <div class="main-nav-container">
-
-        <div class="pure-g">
-            <div class="pure-u-1 pure-u-lg-2-3">
-                <div class="main-nav">
-                    <ul class="main-nav-list">
-                        <li class="main-nav-item"><a href="./" class="pure-menu-link">Shane Dowling</a></li>
-
-                        <li class="main-nav-item"><a href="./category/til.html" class="pure-menu-link">TIL</a></li>
-                        <li class="main-nav-item active"><a href="./category/tech.html" class="pure-menu-link">Tech</a></li>
-                        <li class="main-nav-item"><a href="./category/random.html" class="pure-menu-link">Random</a></li>
-                        <li class="main-nav-item"><a href="./category/productivity.html" class="pure-menu-link">Productivity</a></li>
-                        <li class="main-nav-item"><a href="./category/mindfulness.html" class="pure-menu-link">Mindfulness</a></li>
-                        <li class="main-nav-item"><a href="./category/leadership.html" class="pure-menu-link">Leadership</a></li>
-                        <li class="main-nav-item"><a href="./category/digital-minimalism.html" class="pure-menu-link">Digital Minimalism</a></li>
-                        <li class="main-nav-item"><a href="./pages/contact.html" class="pure-menu-link">Contact</a></li>
-                    </ul>
-                </div>
-             </div>
-
-             <div class="pure-u-1 pure-u-lg-1-3"></div>
-        </div>
-
-    </div>
-
-
-<div class="page-container">
-    <div class="entry-content">
-        <div class="post-meta pure-g">
-            <div class="pure-u-3-4 meta-data">
-                <a href="./category/tech.html" class="category">Tech</a><br />
-
-                <a class="author" href="./author/shane-dowling.html">Shane Dowling</a>
-                &mdash; <abbr title="2014-03-29T00:00:00+00:00">Sat 29 March 2014</abbr>
-            </div>
-        </div>
-    </div>
-
-    <div class="article-header-container">
-        <div class="background-image-container">
-
-            <div class="background-image-small">
-                <div class="title-container">
-                    <h1>Owning Your Data — Replacing Gmail</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="entry-content">
-        <p><img alt="" src="images/1__jrj__wnQecgnTwBXPZsg05w.jpeg"></p>
+        
+<header>
+    <h1><a href="." id="site-title">Shane Dowling  <strong>Shane Dowling</strong></a> :
+        <a href="./owning-your-data-replacing-gmail-20e9e2259fa2.html" id="page-title">Owning Your Data — Replacing Gmail</a></h1>
+<time datetime="2014-03-29T00:00:00+00:00">Sat 29 March 2014</time></header>
+<article>
+    <p><img alt="" src="images/1__jrj__wnQecgnTwBXPZsg05w.jpeg"></p>
 <p>Gmail isn't secure or private, Google have admitted this. You simply cannot expect privacy from any service that you don't have
 control of. Thankfully your email doesn't have to be tied a mail service
 like Gmail, Yahoo or Microsoft. You can simply roll your own email
@@ -105,9 +63,8 @@ few usability prices to pay to stay out of another companies pocket.</p>
 <li>Once you have bought your domain name, you will need to point your domain mail records to your new server. Namecheap has a guide here. Generally, I create an A record on my domain mx.mynewdomain.com to the ip of my server. I then setup multiple mx records that point to mx.mynewdomain.com. I also use backup DNS suppliers for my low priority mx records (say priority 40/50), take a look at https://freedns.afraid.org/ to get yourself some free domain names.</li>
 <li>Install git</li>
 </ul>
-<div class="highlight"><pre><span></span>apt-get install git
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>apt-get<span class="w"> </span>install<span class="w"> </span>git
+</code></pre></div>
 
 <ul>
 <li>Setup a user on the server who you wish to send/recieve email as. So adduser jim and enter the password you wish to authenticate with on your mail client.</li>
@@ -129,18 +86,16 @@ paste this line into the terminal and it should get things started.</p>
 <p>Under /srv/salt/top.sls ensure you have lines that look like this:</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><span class="nt">base</span><span class="p">:</span>
-    <span class="s">&#39;*&#39;</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">— mail</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="nt">base</span><span class="p">:</span>
+<span class="w">    </span><span class="s">&#39;*&#39;</span><span class="p p-Indicator">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">— mail</span>
+</code></pre></div>
 
 <p>Done? Great you've finished configuration and you're ready to install
 everything. This command tells salt to read these configuration files
 and install enough to get basic mail server up and running.</p>
-<div class="highlight"><pre><span></span>sudo salt-call -l debug state.highstate
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>salt-call<span class="w"> </span>-l<span class="w"> </span>debug<span class="w"> </span>state.highstate
+</code></pre></div>
 
 <p>This should provide a ton of output, but as long as there's no errors,
 you're good to go.</p>
@@ -173,45 +128,17 @@ we are. With everything in plain-text all over the place you'd be wise
 to reduce your email as much as possible. If you wish to improve the
 security of any email communications you do make, take a look at using
 GPG. I use <a href="https://addons.mozilla.org/en-US/thunderbird/addon/enigmail/">Enigmail with Thunderbird</a>.</p>
-    </div>
+</article>
 
-    <footer>
-        <div class="pure-g post-footer">
-            <div class="pure-u-1 pure-u-md-1-2">
-                <div class="pure-g poster-info">
-                    <div class="pure-u-3-4">
-                        <h3 class="author-name"><a href="./author/shane-dowling.html">Shane Dowling</a></h3>
-                        <p class="author-description">
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="./pages/contact.html">Contact</a></li>
+                    <li>:: <a href="./categories.html">Categories</a></li>
+                </ul>
+            </nav>
+                <p id="theme-credit"><a href="http://mathieu.agopian.info/mnmlist/theme.html">Thème mnmlist</a></p>
+        </footer>
 
-
-
-        </div>
-
-
-    </footer>
-
-
-</div>
-
-
-    <!-- Matomo -->
-        <script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-            var u="//stats.shanedowling.com/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-                  _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        </script>
-        <!-- End Matomo Code -->
 </body>
 </html>

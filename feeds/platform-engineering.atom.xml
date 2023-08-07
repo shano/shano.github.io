@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Platform Engineering</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/platform-engineering.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2023-06-05T13:32:59+00:00</updated><subtitle>Shane Dowling</subtitle><entry><title>Streamlining OS Development Pipelines for the Beepberry - A Fun Challenge</title><link href="https://shanedowling.com/streamlining-os-development-pipelines-for-the-beepberry.html" rel="alternate"></link><published>2023-06-05T13:32:59+00:00</published><updated>2023-06-05T13:32:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2023-06-05:/streamlining-os-development-pipelines-for-the-beepberry.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1_6nkAxHBzMyFB-k06nx5jdg.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Imagine a cool device that brings together an LCD screen, Raspberry Pi Zero, and a Blackberry keyboard – that's the Beepberry! It's designed to work like a WiFi-only keyboard phone, and one of the main goals is to reach a super-fast boot time of under 5 seconds. Sounds challenging, right …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1_6nkAxHBzMyFB-k06nx5jdg.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Imagine a cool device that brings together an LCD screen, Raspberry Pi Zero, and a Blackberry keyboard – that's the Beepberry! It's designed to work like a WiFi-only keyboard phone, and one of the main goals is to reach a super-fast boot time of under 5 seconds. Sounds challenging, right? Well, to speed up the development process and test boot optimization, using QEMU to emulate the OS is a smart move. In this blog post, we'll explore the tough parts of creating pipelines for entire operating systems, their limitations, and the benefits that the Beepberry project will gain from using QEMU.&lt;/p&gt;
+&lt;h2&gt;The Tricky Bits in OS Development Pipelines&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Not-so-accurate Timings: When using QEMU to emulate the OS, the boot time measurements might not be spot-on compared to the real hardware. But hey, at least the improvements you see in the emulator should show relative progress on the device!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hardware Hurdles: The Raspberry Pi Zero is a nifty and affordable choice, but it might have some constraints when it comes to processing power and memory. These factors can have an impact on the overall performance and boot time of the OS.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Emulation Roadblocks: QEMU might not support every single hardware feature of the Raspberry Pi Zero or the Blackberry keyboard, which could lead to some differences in how the system behaves during emulation and actual usage.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;The Perks of Emulation in OS Development&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;DIY Development: With QEMU, you can work on the project right from your own computer, without needing the actual Beepberry device. This makes the development process faster and allows for quicker testing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Smooth CI Pipelines: Emulating the OS means you can integrate the project into continuous integration (CI) pipelines, making it easy to test and validate code automatically with each commit or pull request. This helps make sure any changes are solid before they're merged, boosting overall reliability.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Test It All: Why not test the whole shebang? Emulating the entire OS lets you check everything from boot optimization to app performance and system stability. This big-picture approach to testing helps find potential issues and areas for improvement more effectively.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fast Prototyping: Emulation speeds up development cycles because you can test new features and optimizations without having to flash the OS onto the physical device every time. This saves loads of time on repetitive tasks and makes the development process a breeze.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Developing a top-notch pipeline for the Beepberry project's operating system is no walk in the park, with challenges like not-so-accurate timings and hardware hurdles. But by using QEMU for emulation, the development process becomes way more streamlined, enabling DIY development, smooth CI pipelines, system-wide testing, and fast prototyping. By tackling these challenges head-on and focusing on constant improvement, the Beepberry project has the potential to hit that amazing sub-5 second boot time and deliver a snappy, reliable WiFi-only keyboard phone.&lt;/p&gt;</content><category term="Platform Engineering"></category></entry><entry><title>Harnessing the Power of NixOS for Platform Engineering</title><link href="https://shanedowling.com/harnessing-the-power-of-nixos-for-platform-engineering.html" rel="alternate"></link><published>2023-03-19T13:32:59+00:00</published><updated>2023-03-19T13:32:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2023-03-19:/harnessing-the-power-of-nixos-for-platform-engineering.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1*TGyS3TCFr2HNkaxm6B1T7Q@2x.jpeg"&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;NixOS is an innovative and powerful Linux distribution built on top of the Nix package manager. Its unique approach to package and configuration management sets it apart from traditional Linux distributions, making it an excellent choice for platform engineering tasks. In this blog post, we’ll explore the benefits …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1*TGyS3TCFr2HNkaxm6B1T7Q@2x.jpeg"&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;NixOS is an innovative and powerful Linux distribution built on top of the Nix package manager. Its unique approach to package and configuration management sets it apart from traditional Linux distributions, making it an excellent choice for platform engineering tasks. In this blog post, we’ll explore the benefits of using NixOS for platform engineering and provide an overview of its key features.
+Immutable Infrastructure and Reproducible Builds&lt;/p&gt;
+&lt;p&gt;NixOS’s immutability and reproducibility are its most significant strengths. All software packages and system configurations are stored in an isolated and immutable manner, ensuring that any changes to the system will not affect existing dependencies. This approach allows for consistent and reproducible builds, reducing the risk of “works on my machine” issues and simplifying deployment across environments.&lt;/p&gt;
+&lt;h2&gt;Declarative System Configuration&lt;/h2&gt;
+&lt;p&gt;NixOS relies on a declarative configuration language, which enables users to define the desired state of their system in a single configuration file. This approach promotes version control, collaboration, and easier system maintenance. Platform engineers can quickly and easily define dependencies, services, and configurations, allowing for rapid deployment and updates.
+Rollbacks and Atomic Upgrades&lt;/p&gt;
+&lt;p&gt;NixOS’s atomic upgrades and rollbacks are invaluable for platform engineering, as they minimize the risk of downtime during system updates. Since all packages are stored in isolation, updates can be performed atomically, without interfering with running services. If an issue arises after an update, the system can be rolled back to a previous state with minimal effort, ensuring stability and reliability.
+Efficient Package Management&lt;/p&gt;
+&lt;p&gt;The Nix package manager is at the core of NixOS and offers several advantages over traditional package managers. It allows for multiple versions of packages to coexist without conflicts, supports cross-compilation for different platforms, and provides an efficient binary cache, reducing build times and bandwidth consumption.&lt;/p&gt;
+&lt;h2&gt;Integration with DevOps Tools&lt;/h2&gt;
+&lt;p&gt;NixOS’s unique features make it compatible with popular DevOps tools and practices. It can be easily integrated with continuous integration (CI) and continuous deployment (CD) pipelines, containerization tools like Docker, and orchestration platforms like Kubernetes. NixOS’s reproducibility and atomic updates ensure that development, staging, and production environments remain consistent, streamlining the deployment process.&lt;/p&gt;
+&lt;h2&gt;Customizing NixOS for Your Platform Engineering Needs&lt;/h2&gt;
+&lt;p&gt;NixOS is highly customizable, allowing platform engineers to create tailored solutions for their specific use cases. By leveraging the Nix expression language and the vast package repository, engineers can build custom packages, modules, and system configurations that meet their requirements while taking advantage of NixOS’s core benefits.&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;NixOS offers a unique and powerful approach to system and package management that can greatly benefit platform engineering tasks. Its immutable infrastructure, reproducible builds, declarative configuration, and efficient package management make it an excellent choice for developing and maintaining scalable and reliable systems. By incorporating NixOS into your platform engineering toolkit, you can streamline your development and deployment processes, ultimately leading to more stable and manageable systems.&lt;/p&gt;</content><category term="Platform Engineering"></category></entry><entry><title>De-risk early when engineering platforms</title><link href="https://shanedowling.com/de-risk-early-when-engineering-platforms.html" rel="alternate"></link><published>2023-03-11T13:32:59+00:00</published><updated>2023-03-11T13:32:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2023-03-11:/de-risk-early-when-engineering-platforms.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1*kDMCR1b1FEdKc2qS7WpelA@2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Platform engineering encompasses a broad domain with continually evolving frontiers that require overcoming new challenges to level up the solutions offered to engineers. However, this evolution can lead to situations where previously-made assumptions may no longer be applicable to new solutions.&lt;/p&gt;
+&lt;p&gt;Our team recently encountered this scenario when using AWS …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1*kDMCR1b1FEdKc2qS7WpelA@2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Platform engineering encompasses a broad domain with continually evolving frontiers that require overcoming new challenges to level up the solutions offered to engineers. However, this evolution can lead to situations where previously-made assumptions may no longer be applicable to new solutions.&lt;/p&gt;
+&lt;p&gt;Our team recently encountered this scenario when using AWS Stacksets across multi-account/region rollouts of our platform, which highlighted some interesting dependency challenges that we only discovered at the 11th hour of our project. The new world introduced edge cases that we didn’t anticipate, and we learned that it’s crucial to identify unknowns early and be honest about them. It’s essential to deliver a first step that cuts across those unknowns as soon as possible and iterate from there, even if that means doing something hacky. If a hack doesn’t work, it’s better to discard it than a polished solution that would never work.&lt;/p&gt;
+&lt;p&gt;Ultimately, our lesson was to de-risk early and embrace a growth mindset that values learning from failures and leveraging them to improve.&lt;/p&gt;</content><category term="Platform Engineering"></category></entry><entry><title>Reduce developer cognitive load with nix</title><link href="https://shanedowling.com/reduce-developer-cognitive-load-with-nix.html" rel="alternate"></link><published>2023-03-11T13:32:59+00:00</published><updated>2023-03-11T13:32:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2023-03-11:/reduce-developer-cognitive-load-with-nix.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1*pKKqrJIhwCjSWjfz2BIQPw@2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Nixpkg is a package manager that uses a purely functional approach to package management, isolating packages and ensuring that there are no conflicts between them. It provides a powerful language for defining packages, which makes it easy to manage dependencies and ensure that software environments are reproducible and reliable. Additionally …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1*pKKqrJIhwCjSWjfz2BIQPw@2x.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Nixpkg is a package manager that uses a purely functional approach to package management, isolating packages and ensuring that there are no conflicts between them. It provides a powerful language for defining packages, which makes it easy to manage dependencies and ensure that software environments are reproducible and reliable. Additionally, Nixpkg makes it easy to manage multiple software environments and share projects with other developers.&lt;/p&gt;
+&lt;p&gt;In addition to Nixpkg, there are two other tools that can be used in conjunction with Nix to improve developer productivity: Homemanager and Direnv.&lt;/p&gt;
+&lt;p&gt;Homemanager is a tool for managing your home directory configuration files. With Homemanager, you can easily store your dotfiles in a Git repository, and use Nix to manage the installation and configuration of your dotfiles on different systems. This ensures that your configuration files are consistent across all your systems, and that you can easily set up a new system with all your preferred configuration settings.&lt;/p&gt;
+&lt;p&gt;Here’s an example of how to use Homemanager to manage your Vim configuration:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# In your home directory, create a directory for your Homemanager configuration&lt;/span&gt;
+mkdir&lt;span class="w"&gt; &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;~/.config/homemanager
+
+&lt;span class="c1"&gt;# Create a Git repository for your Homemanager configuration&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;~/.config/homemanager
+git&lt;span class="w"&gt; &lt;/span&gt;init
+
+&lt;span class="c1"&gt;# Add a configuration file for Vim&lt;/span&gt;
+cat&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;vim.nix&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
+&lt;span class="s"&gt;{ config, pkgs, ... }:&lt;/span&gt;
+
+&lt;span class="s"&gt;{&lt;/span&gt;
+&lt;span class="s"&gt;  environment.variables.VIMINIT = &amp;quot;~/.vim/vimrc&amp;quot;;&lt;/span&gt;
+
+&lt;span class="s"&gt;  home.file.&amp;quot;.vimrc&amp;quot;.text = &amp;#39;&amp;#39;&lt;/span&gt;
+&lt;span class="s"&gt;    set nocompatible&lt;/span&gt;
+&lt;span class="s"&gt;    set backspace=indent,eol,start&lt;/span&gt;
+&lt;span class="s"&gt;    set number&lt;/span&gt;
+&lt;span class="s"&gt;    set hlsearch&lt;/span&gt;
+&lt;span class="s"&gt;    set incsearch&lt;/span&gt;
+&lt;span class="s"&gt;    set ignorecase&lt;/span&gt;
+&lt;span class="s"&gt;    set smartcase&lt;/span&gt;
+&lt;span class="s"&gt;    set showcmd&lt;/span&gt;
+&lt;span class="s"&gt;    set showmatch&lt;/span&gt;
+&lt;span class="s"&gt;    set laststatus=2&lt;/span&gt;
+&lt;span class="s"&gt;    set statusline=%&amp;lt;%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P&lt;/span&gt;
+&lt;span class="s"&gt;  &amp;#39;&amp;#39;;&lt;/span&gt;
+&lt;span class="s"&gt;}&lt;/span&gt;
+&lt;span class="s"&gt;EOF&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Install your Vim configuration using Homemanager&lt;/span&gt;
+nix-channel&lt;span class="w"&gt; &lt;/span&gt;--add&lt;span class="w"&gt; &lt;/span&gt;https://nixos.org/channels/nixpkgs-unstable
+nix-channel&lt;span class="w"&gt; &lt;/span&gt;--update
+nix-env&lt;span class="w"&gt; &lt;/span&gt;-iA&lt;span class="w"&gt; &lt;/span&gt;nixpkgs.homemanager
+homemanager&lt;span class="w"&gt; &lt;/span&gt;switch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In this example, we’re using Homemanager to manage our Vim configuration. We’re creating a Git repository in our home directory, and adding a configuration file for Vim in Nix format. We’re then using Homemanager to install our Vim configuration on the current system, using the homemanager switch command.&lt;/p&gt;
+&lt;p&gt;Another tool that can be used with Nix to improve developer productivity is Direnv. Direnv is a shell extension that can be used to load and unload environment variables based on your current directory. With Direnv, you can easily manage your software environments on a per-project basis, ensuring that each project has the required dependencies and configuration settings.&lt;/p&gt;
+&lt;p&gt;Here’s an example of how to use Direnv with Nixpkg to manage your software environment:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Install Direnv&lt;/span&gt;
+nix-env&lt;span class="w"&gt; &lt;/span&gt;-iA&lt;span class="w"&gt; &lt;/span&gt;nixpkgs.direnv
+
+&lt;span class="c1"&gt;# Add the following to your shell profile&lt;/span&gt;
+&lt;span class="nb"&gt;eval&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;direnv&lt;span class="w"&gt; &lt;/span&gt;hook&lt;span class="w"&gt; &lt;/span&gt;bash&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a .envrc file in your project directory&lt;/span&gt;
+cat&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;.envrc&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
+&lt;span class="s"&gt;use nix&lt;/span&gt;
+&lt;span class="s"&gt;EOF&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Allow the .envrc file&lt;/span&gt;
+direnv&lt;span class="w"&gt; &lt;/span&gt;allow&lt;span class="w"&gt; &lt;/span&gt;.
+
+&lt;span class="c1"&gt;# Now you can use Nixpkg commands inside your project directory, and they will use the software environment defined in the .envrc file&lt;/span&gt;
+nix-env&lt;span class="w"&gt; &lt;/span&gt;-iA&lt;span class="w"&gt; &lt;/span&gt;nixpkgs.python
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In this example, we’re using Direnv to manage our software environment on a per-project basis. We’re creating a .envrc file in our project directory, and telling Direnv to load the nix shell hook. This will automatically load the software environment defined in the .envrc file when we enter the project directory.&lt;/p&gt;
+&lt;p&gt;Nixpkg, Homemanager, and Direnv are three powerful tools that can be used together to improve developer productivity. They simplify package management, manage configuration files, and manage software environments on a per-project basis. By using these tools together, developers can streamline their workflow, reduce time spent managing dependencies and configuration files, and focus on writing high-quality software.&lt;/p&gt;</content><category term="Platform Engineering"></category></entry></feed>
