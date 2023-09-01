@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2023-06-05T13:32:59+00:00</updated><entry><title>Streamlining OS Development Pipelines for the Beepberry - A Fun Challenge</title><link href="https://shanedowling.com/streamlining-os-development-pipelines-for-the-beepberry.html" rel="alternate"></link><published>2023-06-05T13:32:59+00:00</published><updated>2023-06-05T13:32:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2023-06-05:/streamlining-os-development-pipelines-for-the-beepberry.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1_6nkAxHBzMyFB-k06nx5jdg.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2023-09-01T16:45:59+00:00</updated><entry><title>Make your smartphone a little dumber</title><link href="https://shanedowling.com/make-your-smartphone-a-little-dumber.html" rel="alternate"></link><published>2023-09-01T16:45:59+00:00</published><updated>2023-09-01T16:45:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2023-09-01:/make-your-smartphone-a-little-dumber.html</id><summary type="html">&lt;p&gt;&lt;img alt="Photo by Thanos Pal on Unsplash" src="images/dumb-punkt.jpg" height="400px"&gt;&lt;/p&gt;
+&lt;p&gt;For many, &lt;a href="switching-to-a-dumbphone-3b090f8ad709.html"&gt;MANY&lt;/a&gt; years, I've been an advocate for the simplicity of dumbphones. My go-to? The LightPhone 2. However, modern life sometimes demands the functionalities of a smartphone, such as banking or GPS navigation. Every once in a while, I wish my smartphone would be just a touch simpler, but …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Photo by Thanos Pal on Unsplash" src="images/dumb-punkt.jpg" height="400px"&gt;&lt;/p&gt;
+&lt;p&gt;For many, &lt;a href="switching-to-a-dumbphone-3b090f8ad709.html"&gt;MANY&lt;/a&gt; years, I've been an advocate for the simplicity of dumbphones. My go-to? The LightPhone 2. However, modern life sometimes demands the functionalities of a smartphone, such as banking or GPS navigation. Every once in a while, I wish my smartphone would be just a touch simpler, but I can't abandon its smart features entirely. There are times I need them, especially for those updates or browser-based app handshakes.&lt;/p&gt;
+&lt;p&gt;Thus, I've developed two scripts: dumbify and smartify. The project is &lt;a href="https://github.com/shano/dumbphone"&gt;here&lt;/a&gt; and here's your guide:&lt;/p&gt;
+&lt;p&gt;Prerequisites:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Backup all essential data on your phone.&lt;/li&gt;
+&lt;li&gt;Be familiar with your phone settings.&lt;/li&gt;
+&lt;li&gt;Prepare a list of apps you want to uninstall, noting their full package names. If you're unsure, "Full Package Names" on F-Droid can assist.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Go to your phone settings and enable developer mode.&lt;/li&gt;
+&lt;li&gt;Activate USB debugging.&lt;/li&gt;
+&lt;li&gt;Connect your phone to your laptop.&lt;/li&gt;
+&lt;li&gt;Run ./dumbify with your list of apps to uninstall. This script will identify these apps, create backups on your computer, and then remove them from your phone, while preserving app data.&lt;/li&gt;
+&lt;li&gt;When you need your phone's advanced features again, simply run ./smartify to restore.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note:
+I tried exporting the Google Play Store using this method and encountered an issue. I had to manually address it with GrapheneOS. It's not ideal, but it's a solution. I welcome any feedback on this.&lt;/p&gt;
+&lt;p&gt;Here's to the balance between simplicity and functionality,&lt;/p&gt;</content><category term="Digital Minimalism"></category></entry><entry><title>Streamlining OS Development Pipelines for the Beepberry - A Fun Challenge</title><link href="https://shanedowling.com/streamlining-os-development-pipelines-for-the-beepberry.html" rel="alternate"></link><published>2023-06-05T13:32:59+00:00</published><updated>2023-06-05T13:32:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2023-06-05:/streamlining-os-development-pipelines-for-the-beepberry.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1_6nkAxHBzMyFB-k06nx5jdg.png"&gt;&lt;/p&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Imagine a cool device that brings together an LCD screen, Raspberry Pi Zero, and a Blackberry keyboard – that's the Beepberry! It's designed to work like a WiFi-only keyboard phone, and one of the main goals is to reach a super-fast boot time of under 5 seconds. Sounds challenging, right …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1_6nkAxHBzMyFB-k06nx5jdg.png"&gt;&lt;/p&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;

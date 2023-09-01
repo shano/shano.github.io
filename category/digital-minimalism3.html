@@ -23,83 +23,39 @@
         
 
             <header>
-                <h1><a href=".." id="site-title">Shane Dowling </a> : <a href="../how-to-manage-podcasts-on-an-ipod-classic-on-linux.html" id="page-title">How to manage Podcasts on an iPod Classic on Linux</a></h1>
-<time datetime="2022-02-26T00:00:00+00:00">Sat 26 February 2022</time>            </header>
+                <h1><a href=".." id="site-title">Shane Dowling </a> : <a href="../make-your-smartphone-a-little-dumber.html" id="page-title">Make your smartphone a little dumber</a></h1>
+<time datetime="2023-09-01T16:45:59.350000+00:00">Fri 01 September 2023</time>            </header>
 
             <article>
-                <p>After my last post generated some interesting discussion on <a class="reference external" href="https://news.ycombinator.com/item?id=30236251">Hacker
-News</a>, I figured it
-was worth a little guide on how I manage my iPod Classic on a Linux
-machine. Thankfully some very clever people put together the drivers and
-software to make this a breeze, but there's a few things you need to
-know that took some figuring out for me. So I'll share them here.</p>
-<div class="section" id="connecting-your-ipod">
-<h2>Connecting your iPod</h2>
-<p>This should be the easiest thing to do. Simply connect your iPod to your
-machine and it should appear as an external device. Here's my iPod
-appearing under Thunar after I plug it in:</p>
-<img alt="" src="./images/ipod_thunar.png" />
-</div>
-<div class="section" id="managing-podcasts">
-<h2>Managing Podcasts</h2>
-<p>To manage podcasts on my laptop I use
-<a class="reference external" href="https://gpodder.github.io/">gPodder</a>. I'm a huge fan of it. The only
-limitation really is there may be podcasts locked to sources like
-Spotify, but if you're listening to Podcasts on an iPod you'll hit this
-limitation whatever you do. A quick `sudo apt install gpodder` should
-install it on most debian-based systems.</p>
-<img alt="" src="./images/gpodder.png" />
-<p>So grab some decent Podcasts via RSS and download them. On my machine
-the media files will appear under `~/gPodder/Downloads`</p>
-</div>
-<div class="section" id="adding-podcasts-to-your-ipod">
-<h2>Adding Podcasts to your iPod</h2>
-<p>Once they're downloaded, it's time to add these Podcasts to your iPod,
-for this we need <a class="reference external" href="https://wikiless.org/wiki/Gtkpod?lang=en">gtkpod</a>.
-Again a `sudo apt install gtkpod` should do the job in terms of
-installation.</p>
-<p>This is what it should look like once you've started gtkpod and
-connected your iPod.</p>
-<img alt="" src="./images/gtkpod_initial.png" />
-<p>You should already have a Podcasts playlist in gtkpod, if not you will
-need to create it. Once you do, this is the playlist to add media to and
-any media added will then be recognised as Podcasts on your iPod. If you
-don't, it gets lost in your larger media collection(and it won't have
-resume support). Next step is to start adding Podcasts to your playlist.
-You only need to do this once, then it's just a case of syncing your
-media. So highlight the Podcasts playlist like so:</p>
-<img alt="" src="./images/gtkpod_highlight_podcasts.png" />
-<p>then in the menu bar, hit &quot;Music&quot; then &quot;Add Folder&quot; and select the
-folder where gPodder downloaded your Podcasts to.</p>
-<img alt="" src="./images/gtkpod_add_folder.png" />
-<p>It should start processing your files and adding them to your iPod. It
-might be a bit unresponsive for a while. Repeat for any Podcasts you
-want to add, making sure you add these folders to the Podcast playlist
-in gtkpod. When done, make sure to eject your iPod in gtkpod, then eject
-it from your filesystem. Podcasts should now appear on your iPod!</p>
-</div>
-<div class="section" id="on-going-podcast-management">
-<h2>On-going Podcast management</h2>
-<p>Now that your folders have been added, gtkpod will remember to look in
-these locations next time so when you want to grab any new Podcast
-episodes and sync them to your iPod, it's pretty simple.</p>
-<ol class="arabic simple">
-<li>Open up gPodder and it will check for any new episodes and ask you if
-you wish to download them. Use the time to delete any old episodes of
-Podcasts you've already listened to.</li>
-<li>Once downloaded, mount your iPod, open gtkpod right click on your
-Podcasts playlist and hit &quot;Sync Playlist with dir(s)&quot;, it'll give you
-a prompt to say which files with be added and removed. Hit okay and
-your iPod will be up to date.</li>
-</ol>
-<img alt="" src="./images/ipod_sayer.jpeg" />
-<p>And that's my process, if you have any suggestion for how you do this
-better, <a class="reference external" href="https://shanedowling.com/pages/contact.html">let me know</a>!</p>
-</div>
-            </article>
+                <p><img alt="Photo by Thanos Pal on Unsplash" src="images/dumb-punkt.jpg" height="400px"></p>
+<p>For many, <a href="switching-to-a-dumbphone-3b090f8ad709.html">MANY</a> years, I've been an advocate for the simplicity of dumbphones. My go-to? The LightPhone 2. However, modern life sometimes demands the functionalities of a smartphone, such as banking or GPS navigation. Every once in a while, I wish my smartphone would be just a touch simpler, but I can't abandon its smart features entirely. There are times I need them, especially for those updates or browser-based app handshakes.</p>
+<p>Thus, I've developed two scripts: dumbify and smartify. The project is <a href="https://github.com/shano/dumbphone">here</a> and here's your guide:</p>
+<p>Prerequisites:</p>
+<ul>
+<li>Backup all essential data on your phone.</li>
+<li>Be familiar with your phone settings.</li>
+<li>Prepare a list of apps you want to uninstall, noting their full package names. If you're unsure, "Full Package Names" on F-Droid can assist.</li>
+</ul>
+<p>Steps:</p>
+<ul>
+<li>Go to your phone settings and enable developer mode.</li>
+<li>Activate USB debugging.</li>
+<li>Connect your phone to your laptop.</li>
+<li>Run ./dumbify with your list of apps to uninstall. This script will identify these apps, create backups on your computer, and then remove them from your phone, while preserving app data.</li>
+<li>When you need your phone's advanced features again, simply run ./smartify to restore.</li>
+</ul>
+<p>Note:
+I tried exporting the Google Play Store using this method and encountered an issue. I had to manually address it with GrapheneOS. It's not ideal, but it's a solution. I welcome any feedback on this.</p>
+<p>Here's to the balance between simplicity and functionality,</p>            </article>
                 <section id="article-list">
                     <h2>All posts</h2>
                     <ol>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="../how-to-manage-podcasts-on-an-ipod-classic-on-linux.html" rel="bookmark" title="Permalink to How to manage Podcasts on an iPod Classic on Linux">How to manage Podcasts on an iPod Classic on Linux</a></li>
             </ol>
             </section><!-- #article-list -->
         
@@ -164,7 +120,6 @@ better, <a class="reference external" href="https://shanedowling.com/pages/conta
                     <li>:: <a href="../categories.html">Categories</a></li>
                 </ul>
             </nav>
-                <p id="theme-credit"><a href="http://mathieu.agopian.info/mnmlist/theme.html">Thème mnmlist</a></p>
         </footer>
 
 </body>
