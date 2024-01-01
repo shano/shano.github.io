@@ -23,33 +23,263 @@
         
 
             <header>
-                <h1><a href=".." id="site-title">Shane Dowling </a> : <a href="../make-your-smartphone-a-little-dumber.html" id="page-title">Make your smartphone a little dumber</a></h1>
-<time datetime="2023-09-01T16:45:59.350000+00:00">Fri 01 September 2023</time>            </header>
+                <h1><a href=".." id="site-title">Shane Dowling </a> : <a href="../kindle-scribe-to-mastodon.html" id="page-title">Kindle Scribe to Mastodon</a></h1>
+<time datetime="2024-01-01T16:45:59.350000+00:00">Mon 01 January 2024</time>            </header>
 
             <article>
-                <p><img alt="Photo by Thanos Pal on Unsplash" src="images/dumb-punkt.jpg" height="400px"></p>
-<p>For many, <a href="switching-to-a-dumbphone-3b090f8ad709.html">MANY</a> years, I've been an advocate for the simplicity of dumbphones. My go-to? The LightPhone 2. However, modern life sometimes demands the functionalities of a smartphone, such as banking or GPS navigation. Every once in a while, I wish my smartphone would be just a touch simpler, but I can't abandon its smart features entirely. There are times I need them, especially for those updates or browser-based app handshakes.</p>
-<p>Thus, I've developed two scripts: dumbify and smartify. The project is <a href="https://github.com/shano/dumbphone">here</a> and here's your guide:</p>
-<p>Prerequisites:</p>
-<ul>
-<li>Backup all essential data on your phone.</li>
-<li>Be familiar with your phone settings.</li>
-<li>Prepare a list of apps you want to uninstall, noting their full package names. If you're unsure, "Full Package Names" on F-Droid can assist.</li>
-</ul>
-<p>Steps:</p>
-<ul>
-<li>Go to your phone settings and enable developer mode.</li>
-<li>Activate USB debugging.</li>
-<li>Connect your phone to your laptop.</li>
-<li>Run ./dumbify with your list of apps to uninstall. This script will identify these apps, create backups on your computer, and then remove them from your phone, while preserving app data.</li>
-<li>When you need your phone's advanced features again, simply run ./smartify to restore.</li>
-</ul>
-<p>Note:
-I tried exporting the Google Play Store using this method and encountered an issue. I had to manually address it with GrapheneOS. It's not ideal, but it's a solution. I welcome any feedback on this.</p>
-<p>Here's to the balance between simplicity and functionality,</p>            </article>
+                <p><img alt="Photo by Thought Catalog on Unsplash" src="images/ink-paper.jpg" height="400px"></p>
+<h1>Kindle Scribe to Mastodon</h1>
+<p>Over the holidays, I put together a fun little project to put out status updates on Mastodon. Of course, I used some spare time to make this as overly-engineered as possible.</p>
+<h2>Stringing It All Together</h2>
+<p>I wanted this to be event-driven and serverless and to give me some experience toying with Terraform in AWS. Thankfully, what would be the most computationally challenging part is already handled by Amazon. The Kindle Scribe provides a means to convert a note to text and then email it to myself. I used my email provider to then forward it to AWS. I'm using Amazon to register a domain (click TLD domain names are only $3). I used route53 to hook that domain up to SES, then have SES invoke a Lambda when that particular email address is emailed from a particular email with a particular subject line. As I  can't send the email body directly to a Lambda, I'll need to write it to a bucket first, then have the lambda read from the s3 bucket. (Thankfully SES does pass a MessageID to the Lambda so we know which MessageID refers to to which event), you could also trigger an event from a bucket change but SES already offered, so I figured this was a bit simpler. Now that I've got it all triggering a Lambda, I can throw code at this problem.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_ses_domain_identity&quot;</span><span class="w"> </span><span class="nv">&quot;ses_domain&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;your_domain_name&quot;</span>
+<span class="p">}</span>
+<span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_ses_domain_dkim&quot;</span><span class="w"> </span><span class="nv">&quot;ses_dkim&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_ses_domain_identity.ses_domain.id</span>
+<span class="p">}</span>
+
+<span class="kr">output</span><span class="w"> </span><span class="nv">&quot;ses_domain_verification_token&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_ses_domain_identity.ses_domain.verification_token</span>
+<span class="p">}</span>
+<span class="kr">output</span><span class="w"> </span><span class="nv">&quot;dkim_tokens&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_ses_domain_dkim.ses_dkim.dkim_tokens</span>
+<span class="p">}</span>
+<span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_ses_receipt_rule_set&quot;</span><span class="w"> </span><span class="nv">&quot;main&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">rule_set_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;main-rule-set&quot;</span>
+<span class="p">}</span>
+
+<span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_ses_receipt_rule&quot;</span><span class="w"> </span><span class="nv">&quot;store_in_s3_and_invoke_lambda&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;store-in-s3-and-invoke-lambda&quot;</span>
+<span class="w">        </span><span class="na">rule_set_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_ses_receipt_rule_set.main.rule_set_name</span>
+<span class="w">        </span><span class="na">recipients</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;your_inbound_email@your_domain_name&quot;, &quot;do-not-reply@amazon.com&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="na">enabled</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<span class="w">        </span><span class="na">scan_enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<span class="w">        </span><span class="nb">add_header_action</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="na">position</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">                </span><span class="na">header_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Custom-Header&quot;</span>
+<span class="w">                </span><span class="na">header_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Added by SES&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="nb">s3_action</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="na">position</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="w">            </span><span class="na">bucket_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.email_bucket.bucket</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nb">lambda_action</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="na">position</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
+<span class="w">            </span><span class="na">function_arn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;arn:aws:lambda:&lt;region&gt;:&lt;account_id&gt;:function:ProcessEmail&quot;</span>
+<span class="w">            </span><span class="na">invocation_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Event&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="na">depends_on</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_lambda_permission.allow_ses</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># Grant SES permission to invoke the Lambda function</span>
+
+<span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_lambda_permission&quot;</span><span class="w"> </span><span class="nv">&quot;allow_ses&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">statement_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;AllowExecutionFromSES&quot;</span>
+<span class="w">        </span><span class="na">action</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;lambda:InvokeFunction&quot;</span>
+<span class="w">        </span><span class="na">principal</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ses.amazonaws.com&quot;</span>
+<span class="w">        </span><span class="na">function_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${aws_lambda_function.process_email.function_name}&quot;</span>
+<span class="p">}</span>
+
+<span class="kr">output</span><span class="w"> </span><span class="nv">&quot;ses_domain_identity_arn&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_ses_domain_identity.ses_domain.arn</span>
+<span class="p">}</span>
+
+<span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_ses_email_identity&quot;</span><span class="w"> </span><span class="nv">&quot;email_identity&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;your_recipient_email&gt;&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_s3_bucket&quot;</span><span class="w"> </span><span class="nv">&quot;email_bucket&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;your_email_storage_bucket&gt;&quot;</span>
+<span class="p">}</span>
+
+<span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_s3_bucket_policy&quot;</span><span class="w"> </span><span class="nv">&quot;allow_ses_write&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.email_bucket.id</span>
+
+<span class="w">    </span><span class="na">policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">jsonencode</span><span class="p">({</span>
+<span class="w">        </span><span class="na">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="na">Statement</span><span class="w"> </span><span class="o">=</span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="na">Action</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;s3:PutObject&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="na">Effect</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="na">Resource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${aws_s3_bucket.email_bucket.arn}/*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nb">Principal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="na">Service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ses.amazonaws.com&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_iam_role&quot; &quot;lambda_exec_role&quot;</span><span class="p">{</span><span class="w">                 </span>
+<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;lambda_exec_role&quot;</span>
+<span class="w">        </span><span class="na">assume_role_policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">jsonencode</span><span class="p">({</span><span class="w">  </span>
+<span class="w">                </span><span class="na">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span><span class="w">  </span>
+<span class="w">                </span><span class="na">Statement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="w">                                    </span>
+<span class="w">                </span><span class="na">Action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sts:AssumeRole&quot;</span><span class="p">,</span><span class="w">                      </span>
+<span class="w">                </span><span class="na">Effect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nb">Principal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">         </span>
+<span class="w">                </span><span class="na">Service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;lambda.amazonaws.com&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">}</span>
+
+<span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_iam_policy&quot; &quot;lambda_policy&quot;</span><span class="p">{</span><span class="w">                </span>
+<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;lambda_policy&quot;</span>
+<span class="w">        </span><span class="na">policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">jsonencode</span><span class="p">({</span><span class="w">        </span>
+<span class="w">                </span><span class="na">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span><span class="w">                          </span>
+<span class="w">                </span><span class="na">Statement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="na">Action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;s3:ListBucket&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">],</span>
+
+<span class="w">                </span><span class="na">Effect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="na">Resource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;${aws_s3_bucket.email_bucket.arn}&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;${aws_s3_bucket.email_bucket.arn}/*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="na">Action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;logs:CreateLogGroup&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;logs:CreateLogStream&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;logs:PutLogEvents&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">],</span>
+
+<span class="w">                </span><span class="na">Effect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="na">Resource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;arn:aws:logs:*:*:*&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="p">}</span>
+
+<span class="c1"># Attach the policy to the role</span>
+
+<span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_iam_role_policy_attachment&quot; &quot;lambda_attach&quot;</span><span class="p">{</span>
+<span class="w">    </span><span class="na">role</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_iam_role.lambda_exec_role.name</span>
+<span class="w">        </span><span class="na">policy_arn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_iam_policy.lambda_policy.arn</span>
+<span class="p">}</span>
+
+
+<span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_lambda_function&quot; &quot;process_email&quot;</span><span class="p">{</span>
+<span class="w">    </span><span class="na">function_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ProcessEmail&quot;</span>
+<span class="w">        </span><span class="na">handler</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;lambda_function.lambda_handler&quot;</span>
+<span class="w">        </span><span class="na">runtime</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;python3.10&quot;</span>
+<span class="w">        </span><span class="na">role</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_iam_role.lambda_exec_role.arn</span>
+<span class="w">        </span><span class="na">filename</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${path.module}/build/lambda_function.zip&quot;</span>
+<span class="w">        </span><span class="na">source_code_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">filebase64sha256</span><span class="p">(</span><span class="s2">&quot;${path.module}/build/lambda_function.zip&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="na">timeout</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="m">60</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2>Parsing the Email</h2>
+<p>It's slightly complicated as Amazon doesn't attach the content directly to the email; they provide a link to grab the text document. Thankfully, it doesn't require authentication, so with a regex, we can grab the URL and extract the text. The file itself is text split into pages. As my use-case is to flip to a new page, write a status, and post it to the web, I always just need to extract the latest page text.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">import</span> <span class="nn">email</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Initialize S3 client</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+
+<span class="c1"># Extract the message ID from the SES event                </span>
+<span class="n">message_id</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;Records&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;ses&#39;</span><span class="p">][</span><span class="s1">&#39;mail&#39;</span><span class="p">][</span><span class="s1">&#39;messageId&#39;</span><span class="p">]</span>       
+
+<span class="c1"># Define the S3 bucket name and object key</span>
+<span class="n">bucket_name</span> <span class="o">=</span> <span class="s1">&#39;&lt;your_bucket_name&gt;&#39;</span>
+<span class="n">object_key</span> <span class="o">=</span> <span class="n">message_id</span>
+
+<span class="c1"># Get the email object from the S3 bucket</span>
+<span class="n">email_object</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">object_key</span><span class="p">)</span>
+<span class="n">email_content</span> <span class="o">=</span> <span class="n">email_object</span><span class="p">[</span><span class="s1">&#39;Body&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Parse the email content</span>
+<span class="n">parsed_email</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">message_from_bytes</span><span class="p">(</span><span class="n">email_content</span><span class="p">)</span>
+
+<span class="c1"># Assuming the email is multipart</span>
+<span class="k">if</span> <span class="n">parsed_email</span><span class="o">.</span><span class="n">is_multipart</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">parsed_email</span><span class="o">.</span><span class="n">walk</span><span class="p">():</span>
+
+<span class="c1"># Find the HTML part of the email</span>
+<span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">get_content_type</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;text/html&#39;</span><span class="p">:</span>
+    <span class="n">html_content</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">get_payload</span><span class="p">(</span><span class="n">decode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="c1"># Extract the URL using regex</span>
+    <span class="n">url_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;https://www\.amazon\.com/gp/f\.html\?[^&quot;]+&#39;</span>
+    <span class="n">url_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">url_pattern</span><span class="p">,</span> <span class="n">html_content</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">url_match</span><span class="p">:</span>
+        <span class="n">file_url</span> <span class="o">=</span> <span class="n">url_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Download the file content using urllib</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+                    <span class="n">file_content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+                    <span class="n">pages</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Page \d+&#39;</span><span class="p">,</span> <span class="n">file_content</span><span class="p">)</span>
+                    <span class="n">last_page_content</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># Get the last page content and strip leading/trailing whitespace</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Content to be published:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">last_page_content</span><span class="p">)</span>
+                    <span class="c1"># send_blog_post(last_pagecontent) # Uncomment and replace with your function</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed to download the file. Status code:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error downloading the file:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;URL not found in the email content.&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Email is not multipart, unable to parse.&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>Posting the Status</h2>
+<div class="highlight"><pre><span></span><code>Now that we&#39;ve got the text, it&#39;s time to post it online. As I&#39;m using OMG-LOL, I will post it to my status-lol site, which will also submit it to my social-lol Mastodon account. Obviously, we can plug in any service that provides API access.
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+
+
+<span class="k">def</span> <span class="nf">send_post</span><span class="p">(</span><span class="n">content</span><span class="p">):</span>
+    <span class="n">address_name</span> <span class="o">=</span> <span class="s2">&quot;&lt;your_omg.lol_name&gt;&quot;</span>
+    <span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;&lt;your_secret&gt;&quot;</span>  <span class="c1"># Extract from secret manager or parameter store</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">content</span><span class="p">,</span> <span class="s2">&quot;external_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://example.com&quot;</span><span class="p">}</span>
+
+
+<span class="n">encoded_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="c1"># Prepare the request</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://api.omg.lol/address/</span><span class="si">{</span><span class="n">address_name</span><span class="si">}</span><span class="s2">/statuses/&quot;</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">encoded_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">)</span>
+<span class="c1"># Send the request</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+        <span class="n">response_body</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response from server:&quot;</span><span class="p">,</span> <span class="n">response_body</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error sending request:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>Quick Tip</h2>
+<p>If you're not confident Amazon will parse all your text correctly, you can always preview the conversion to text before emailing it. Just hit 'Convert to Text and Email', rather than 'Quick Send' it.</p>
+<p>And that was a fun project that's started to motivate me to write more on my Kindle. In fact, I initially wrote this entire blog post on my Kindle. Thanks for reading!</p>            </article>
                 <section id="article-list">
                     <h2>All posts</h2>
                     <ol>
+            </ol>
+            </section><!-- #article-list -->
+        
+
+ 
+            <li><a href="../make-your-smartphone-a-little-dumber.html" rel="bookmark" title="Permalink to Make your smartphone a little dumber">Make your smartphone a little dumber</a></li>
             </ol>
             </section><!-- #article-list -->
         
