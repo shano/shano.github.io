@@ -213,9 +213,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;Posting the Status&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Now that we&amp;#39;ve got the text, it&amp;#39;s time to post it online. As I&amp;#39;m using OMG-LOL, I will post it to my status-lol site, which will also submit it to my social-lol Mastodon account. Obviously, we can plug in any service that provides API access.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;p&gt;Now that we've got the text, it's time to post it online. As I'm using omg.lol, I will post it to my status.lol site, which will also submit it to my social.lol Mastodon account. Obviously, we can plug in any service that provides API access.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib&lt;/span&gt;
