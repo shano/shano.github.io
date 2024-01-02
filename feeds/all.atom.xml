@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2024-01-01T16:45:59+00:00</updated><entry><title>Kindle Scribe to Mastodon</title><link href="https://shanedowling.com/kindle-scribe-to-mastodon.html" rel="alternate"></link><published>2024-01-01T16:45:59+00:00</published><updated>2024-01-01T16:45:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2024-01-01:/kindle-scribe-to-mastodon.html</id><summary type="html">&lt;p&gt;&lt;img src="images/eink.jpg" height="400px"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2024-01-02T16:45:59+00:00</updated><entry><title>I'm launching a Platform Engineering Newsletter</title><link href="https://shanedowling.com/im-launching-a-platform-engineering-newsletter.html" rel="alternate"></link><published>2024-01-02T16:45:59+00:00</published><updated>2024-01-02T16:45:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2024-01-02:/im-launching-a-platform-engineering-newsletter.html</id><summary type="html">&lt;p&gt;Hello! I'm excited to share the first issue of our monthly journey through the world of platform engineering. This newsletter is all about the latest trends, insights, and resources in our field whether you're a seasoned expert or just starting out.&lt;/p&gt;
+&lt;p&gt;You can find the first month &lt;a href="https://platformengineeringmonthly.substack.com/p/platform-engineering-monthly-december"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Each month …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hello! I'm excited to share the first issue of our monthly journey through the world of platform engineering. This newsletter is all about the latest trends, insights, and resources in our field whether you're a seasoned expert or just starting out.&lt;/p&gt;
+&lt;p&gt;You can find the first month &lt;a href="https://platformengineeringmonthly.substack.com/p/platform-engineering-monthly-december"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Each month, I'll bring you a mix of news, case studies, upcoming events, and cool projects to keep you in the know. Feel free to share your thoughts, feedback, or anything exciting you've come across in platform engineering. As it was the holidays, I opted to send Decembers newsletter in January but expect this newsletter to come out on the final Tuesday of the month. &lt;/p&gt;</content><category term="Platform Engineering"></category></entry><entry><title>Kindle Scribe to Mastodon</title><link href="https://shanedowling.com/kindle-scribe-to-mastodon.html" rel="alternate"></link><published>2024-01-01T16:45:59+00:00</published><updated>2024-01-01T16:45:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2024-01-01:/kindle-scribe-to-mastodon.html</id><summary type="html">&lt;p&gt;&lt;img src="images/eink.jpg" height="400px"&gt;&lt;/p&gt;
 &lt;h1&gt;Kindle Scribe to Mastodon&lt;/h1&gt;
 &lt;p&gt;Over the holidays, I put together a fun little project to put out status updates on Mastodon. Of course, I used some spare time to make this as overly-engineered as possible.&lt;/p&gt;
 &lt;h2&gt;Stringing It All Together&lt;/h2&gt;
@@ -4428,62 +4432,4 @@ GPG. I use &lt;a href="https://addons.mozilla.org/en-US/thunderbird/addon/enigma
 &lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
 &lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;clowns&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;WHERE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;deleted&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;ORDER&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;BY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;ASC&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;LIMIT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;800&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Owning Your Data — Initial Server Setup</title><link href="https://shanedowling.com/owning-your-data-initial-server-setup-afa33394b94.html" rel="alternate"></link><published>2014-03-06T00:00:00+00:00</published><updated>2014-03-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-03-06:/owning-your-data-initial-server-setup-afa33394b94.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__Frjg0ruGoXtEESBMek____Lw.png"&gt;&lt;/p&gt;
-&lt;p&gt;So before you can move to your own self-hosted services, you'll need
-your own hosting. This is a really basic tutorial/set of links on
-getting a server up and running with Salt.&lt;/p&gt;
-&lt;h3&gt;Hosting Provider&lt;/h3&gt;
-&lt;p&gt;DigitalOcean is a terrific hosting company if you're want to play around with a few …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__Frjg0ruGoXtEESBMek____Lw.png"&gt;&lt;/p&gt;
-&lt;p&gt;So before you can move to your own self-hosted services, you'll need
-your own hosting. This is a really basic tutorial/set of links on
-getting a server up and running with Salt.&lt;/p&gt;
-&lt;h3&gt;Hosting Provider&lt;/h3&gt;
-&lt;p&gt;DigitalOcean is a terrific hosting company if you're want to play around with a few personal servers. Here's the pro's list.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It's really cost effective.&lt;/li&gt;
-&lt;li&gt;The UI is super basic.&lt;/li&gt;
-&lt;li&gt;They have great tutorials for beginners.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;How safe is DigitalOcean?&lt;/h3&gt;
-&lt;p&gt;Well, this is a call you'll need to make yourself. They are a New York
-based hosting company so that's not so good. However, you can deploy
-droplets(servers) in Amsterdam which CEO Ben Uretsky stated should make
-snooping harder. It's hardly a ringing endorsement.&lt;/p&gt;
-&lt;h3&gt;Safer alternatives&lt;/h3&gt;
-&lt;p&gt;If you want to go a more untraceable route, look for a hosting provider
-that'll take Bitcoin. Don't supply any personal information and if
-possible only connect to the server through a VPN. Here's a few
-examples.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;BitcoinWebHosting&lt;/li&gt;
-&lt;li&gt;NameCheap&lt;/li&gt;
-&lt;li&gt;Incloudibly Zurich based making it even safer, but also far more expensive.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Setting Up the Server&lt;/h3&gt;
-&lt;p&gt;DigitalOcean themselves have agreat guide on setting up your first
-server and do a great job of explaining what the settings mean and the effect
-they have. Even if you don't go with DigitalOcean it's a recommended read.
-In terms of settings I'd recommend using Ubuntu 12.04 LTS 32bit or 64bit
-depending on how much RAM you give your machine. 12.04 LTS is the last
-Long Term Support release of Ubuntu, so you will get updates till late
-2017.&lt;/p&gt;
-&lt;p&gt;If you're more comfortable with servers Debian is an alternative OS that
-is admittedly a little safer. Ubuntu contains some proprietary software
-and potentially unsafe opt-ins but that's mostly pertaining to the
-desktop. DigitalOcean tends to provide more Ubuntu documentation to beginners so it makes a good starter OS, so you can get comfortable with Ubuntu now then transition to Debian later, with a little help from salt(which I'll go into later).&lt;/p&gt;
-&lt;p&gt;I'd also recommend going with around 1GB of Ram if you intend to use the
-server for multiple features, for example mail server, file server,
-photo sharing etc. The tutorial also goes into how to connect to your box so by the end of the tutorial you should have a server up and running and be connected via the terminal prompt.&lt;/p&gt;
-&lt;h3&gt;Setting up Salt&lt;/h3&gt;
-&lt;p&gt;Salt is an infrastructure management software, but don't let that put
-you off. We won't be using about 90% of what Salt does, just a few
-features here and there to get you up to speed faster. To explain, these
-guides rely on Salt to allow you to quickly configure your servers based
-on configurations I've already made, there's no need to worry too much
-about how Salt works. Generally you'll just need to copy certain files
-and run a command or two, should be pretty straight-forward.
-Anyway, yet again I'll leverage a DigitalOcean guide. Here's how to
-install Salt on Ubuntu 12.04.&lt;/p&gt;
-&lt;h3&gt;Done?&lt;/h3&gt;
-&lt;p&gt;Excellent, you're on your way. Checkout here to choose what
-service you want to swap across to your awesome new machine!&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry></feed>
