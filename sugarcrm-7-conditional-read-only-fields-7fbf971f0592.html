@@ -1,30 +1,151 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Shane Dowling : SugarCRM 7 — Conditional Read Only Fields</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-        <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling ATOM Feed" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
 
-        <!--[if IE]>
-                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-        <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
-                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-        <!--[if lt IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="./theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Atom">
+
+  <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling RSS">
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-Z9P3V6D0SV', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Shane Dowling" />
+<meta name="description" content="SugarCRM has a few ways to set fields as read-only, but it leaves a lot to be desired. One of the missing features that you might need to implement is having a module flagged as read-only on the record view based on a field on the module or the result …" />
+<meta name="keywords" content="">
+
+
+  <meta property="og:site_name" content="Shane Dowling"/>
+  <meta property="og:title" content="SugarCRM 7 — Conditional Read Only Fields"/>
+  <meta property="og:description" content="SugarCRM has a few ways to set fields as read-only, but it leaves a lot to be desired. One of the missing features that you might need to implement is having a module flagged as read-only on the record view based on a field on the module or the result …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="./sugarcrm-7-conditional-read-only-fields-7fbf971f0592.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2016-02-06 00:00:00+00:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="./author/shane-dowling.html">
+  <meta property="article:section" content="Tech"/>
+  <meta property="og:image" content="images/logo.png">
+
+  <title>Shane Dowling &ndash; SugarCRM 7 — Conditional Read Only Fields</title>
+
 
 </head>
+<body class="light-theme">
 
-<body>
-        
-<header>
-    <h1><a href="." id="site-title">Shane Dowling </a> :
-        <a href="./sugarcrm-7-conditional-read-only-fields-7fbf971f0592.html" id="page-title">SugarCRM 7 — Conditional Read Only Fields</a></h1>
-<time datetime="2016-02-06T00:00:00+00:00">Sat 06 February 2016</time></header>
-<article>
+<aside>
+  <div>
+    <a href="./">
+      <img src="images/logo.png" alt="Shane Dowling" title="Shane Dowling">
+    </a>
+
+    <h1>
+      <a href="./">Shane Dowling</a>
+    </h1>
+
+    <p>Platform Engineering Manager</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+            <li>
+              <a target="_self"
+                 href="./pages/contact.html#contact">
+                Contact
+              </a>
+            </li>
+
+          <li>
+            <a target="_self" href="https://platformengineeringmonthly.substack.com/" >newsletter</a>
+          </li>
+          <li>
+            <a target="_self" href="https://sed.status.lol/" >statuslog</a>
+          </li>
+          <li>
+            <a target="_self" href="https://now.sedd.dev/" >Now Page</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="http://github.com/shano"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="http://social.lol/@sed"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/shanedow/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="sugarcrm-7-conditional-read-only-fields-7fbf971f0592">SugarCRM 7 — Conditional Read Only Fields</h1>
+    <p>
+      Posted on Sat 06 February 2016 in <a href="./category/tech.html">Tech</a>
+
+    </p>
+  </header>
+
+
+  <div>
     <p>SugarCRM has a few ways to set fields as read-only, but it leaves a lot to be desired. One of the missing features that you might need to implement is having a module flagged as read-only on the record view based on a field on the module or the result of an API request.</p>
 <p>I have found a way to do it but it is mostly basic UI hacking and doesn't set the field read-only everywhere on the UI, just the record view page. So it will remain on the recordlist view or within other subpanels as editable, so bear this in mind as it's only useful for very specific cases.</p>
 <p>Here's a quick javascript function that'll iterate over all sidecar metadata panels and flag every field on the UI. Simply add in a conditional to flag only certain fields and wrap it in whatever checks you need to make. Stick this in your record.js.</p>
@@ -38,25 +159,34 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
 </code></pre></div>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
+
 </article>
 
-        <footer>
-            <nav>
-                <ul>
-                    <li><a href="./pages/contact.html">Contact</a></li>
-                    <li>:: <a href="./categories.html">Categories</a></li>
-                </ul>
-            </nav>
-        </footer>
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer>  </main>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z9P3V6D0SV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z9P3V6D0SV');
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Shane Dowling ",
+  "url" : ".",
+  "image": "images/logo.png",
+  "description": ""
+}
 </script>
 </body>
 </html>
