@@ -134,6 +134,24 @@ rel="me"           href="http://social.lol/@sed"
 
 <article>
   <header>
+    <h2><a href="./useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d.html#useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d">Useful bit of SQL to update many records in SugarCRM</a></h2>
+    <p>
+      Posted on Thu 27 March 2014 in <a href="./category/tech.html">Tech</a>
+
+
+    </p>
+  </header>
+  <div>
+      <div><div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">clowns</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">deleted</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">IN</span>
+<span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
+<span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clowns</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">deleted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">ASC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">800</span><span class="p">)</span>
+<span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="p">);</span>
+</code></pre></div></div>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="./owning-your-data-initial-server-setup-afa33394b94.html#owning-your-data-initial-server-setup-afa33394b94">Owning Your Data — Initial Server Setup</a></h2>
     <p>
       Posted on Thu 06 March 2014 in <a href="./category/tech.html">Tech</a>
@@ -195,28 +213,6 @@ ability week on …</p></div>
         <br>
         <a class="btn"
            href="./owning-your-data-296ed1534643.html#owning-your-data-296ed1534643">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="./the-counterfeited-blog-post-9d8f32f5d4b4.html#the-counterfeited-blog-post-9d8f32f5d4b4">The Counterfeited Blog Post</a></h2>
-    <p>
-      Posted on Sat 22 February 2014 in <a href="./category/random.html">Random</a>
-
-
-    </p>
-  </header>
-  <div>
-      <div><p><img alt="" src="images/1__FbR__Xju3pqCkl2d7OhLEFg.jpeg"></p>
-<p>I've been reading <a href="https://en.wikipedia.org/wiki/Aspects_of_the_Novel">E. M. Forster's Aspects of the Novel</a> and in it I came across a discussion on the French writer André Gide, specifically about his book <a href="https://en.wikipedia.org/wiki/The_Counterfeiters_%28novel%29">Les faux-monnayeurs(The Counterfeiters)</a>.</p>
-<p>The book is a merge of reality and fiction, Gide himself keeps a journal
-of his life as …</p></div>
-        <br>
-        <a class="btn"
-           href="./the-counterfeited-blog-post-9d8f32f5d4b4.html#the-counterfeited-blog-post-9d8f32f5d4b4">
           Continue reading
         </a>
   </div>
