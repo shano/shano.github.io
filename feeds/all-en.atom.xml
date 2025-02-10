@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2024-04-05T16:45:59+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>The Hybrid Cloud Show is Live!</title><link href="https://shanedowling.com/the-hybrid-cloud-show-is-live.html" rel="alternate"></link><published>2024-04-05T16:45:59+00:00</published><updated>2024-04-05T16:45:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2024-04-05:/the-hybrid-cloud-show-is-live.html</id><summary type="html">&lt;p&gt;&lt;img src="images/hcs.jpg" height="400px"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-02-10T20:50:46+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab Setup: The Journey to Kubernetes</title><link href="https://shanedowling.com/homelab-setup-the-journey-to-kubernetes.html" rel="alternate"></link><published>2025-02-10T20:50:46+00:00</published><updated>2025-02-10T20:50:46+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-10:/homelab-setup-the-journey-to-kubernetes.html</id><summary type="html">&lt;h2&gt;Why I'm Migrating My Self-Hosted Services&lt;/h2&gt;
+&lt;p&gt;I've decided to migrate all my existing self-hosted services—and add a few new ones—to a Kubernetes (K8s) cluster that I'm going to build. There are several motivations behind this decision:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Learning Kubernetes Beyond Ephemeral Clusters&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;My role as an Engineering Manager at …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2&gt;Why I'm Migrating My Self-Hosted Services&lt;/h2&gt;
+&lt;p&gt;I've decided to migrate all my existing self-hosted services—and add a few new ones—to a Kubernetes (K8s) cluster that I'm going to build. There are several motivations behind this decision:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Learning Kubernetes Beyond Ephemeral Clusters&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;My role as an Engineering Manager at Syntasso involves a lot of K8s development using Kind, but these environments are entirely ephemeral. I want to experience the long-term challenges of operating a cluster to build greater empathy for our customers.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I want to deepen my understanding of Kubernetes, particularly in areas like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hardening a K8s cluster&lt;/li&gt;
+&lt;li&gt;Managing multiple clusters effectively&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Increased Focus on Self-Hosting&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;The British government's baffling approach to tech privacy has pushed me toward self-hosting more of my personal services.&lt;/li&gt;
+&lt;li&gt;My current setup is a mix of manually configured systems and Docker Compose-based services running on different machines. It’s time to bring structure to the chaos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;The Plan&lt;/h2&gt;
+&lt;h3&gt;Time Constraints and Approach&lt;/h3&gt;
+&lt;p&gt;I'm a dad with two small kids, so my time for this project is limited. My approach will be:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Chipping away at it&lt;/strong&gt; for a few minutes each night.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Updating my progress&lt;/strong&gt; as I go along.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keeping it cheap&lt;/strong&gt;—I'll work with my existing hardware for now. If this experiment proves successful, I may invest in better hardware later.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Minimizing downtime&lt;/strong&gt;—I already have services running that I need to migrate carefully without disruptions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Migration Phases&lt;/h3&gt;
+&lt;p&gt;The migration will be broken down into multiple phases to ensure a smooth transition. My current focus is on:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Setting up RAID storage&lt;/strong&gt; for critical data (Nextcloud, Git-Tea, Pixelfed, databases) on an old laptop.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keeping USB media drives on a thin client&lt;/strong&gt; until I migrate services to Kubernetes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Moving USB media drives to a MergerFS pool&lt;/strong&gt; for media storage before the final migration.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Building a Kubernetes cluster (Talos OS)&lt;/strong&gt; once storage is stable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Migrating services from Docker Compose&lt;/strong&gt; to Kubernetes with proper storage integration.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Rough Architecture&lt;/h2&gt;
+&lt;p&gt;At the moment, everything will sit under the same LAN at home. However, as I progress, I may invest in a switch and introduce proper network segmentation.&lt;/p&gt;
+&lt;p&gt;This is just the beginning. I'll document my learnings, mistakes, and adjustments along the way. Stay tuned!&lt;/p&gt;</content><category term="homelab"></category></entry><entry><title>The Hybrid Cloud Show is Live!</title><link href="https://shanedowling.com/the-hybrid-cloud-show-is-live.html" rel="alternate"></link><published>2024-04-05T16:45:59+00:00</published><updated>2024-04-05T16:45:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2024-04-05:/the-hybrid-cloud-show-is-live.html</id><summary type="html">&lt;p&gt;&lt;img src="images/hcs.jpg" height="400px"&gt;&lt;/p&gt;
 &lt;p&gt;Exciting news – the first episode of our podcast, the &lt;a href="https://hybridcloudshow.com/"&gt;Hybrid Cloud Show&lt;/a&gt;, is finally here, part of the awesome &lt;a href="https://latenightlinux.com/"&gt;Late Night Linux podcast family&lt;/a&gt;! 💥 Join me and three very smart industry pros as we dive into the fascinating world of public cloud, private cloud, and everything in between. Check out …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img src="images/hcs.jpg" height="400px"&gt;&lt;/p&gt;
 &lt;p&gt;Exciting news – the first episode of our podcast, the &lt;a href="https://hybridcloudshow.com/"&gt;Hybrid Cloud Show&lt;/a&gt;, is finally here, part of the awesome &lt;a href="https://latenightlinux.com/"&gt;Late Night Linux podcast family&lt;/a&gt;! 💥 Join me and three very smart industry pros as we dive into the fascinating world of public cloud, private cloud, and everything in between. Check out our first episode &lt;a href="https://hybridcloudshow.com/hcs01/"&gt;here&lt;/a&gt;.&lt;/p&gt;</content><category term="Podcast"></category></entry><entry><title>I'm launching a Platform Engineering Newsletter</title><link href="https://shanedowling.com/im-launching-a-platform-engineering-newsletter.html" rel="alternate"></link><published>2024-01-02T16:45:59+00:00</published><updated>2024-01-02T16:45:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2024-01-02:/im-launching-a-platform-engineering-newsletter.html</id><summary type="html">&lt;p&gt;Hello! I'm excited to share the first issue of our monthly journey through the world of platform engineering. This newsletter is all about the latest trends, insights, and resources in our field whether you're a seasoned expert or just starting out.&lt;/p&gt;
 &lt;p&gt;You can find the first month &lt;a href="https://pemonthly.com/p/platform-engineering-monthly-december"&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -4324,110 +4366,4 @@ Homebrew's PHP install disables short-tag support. Simply edit
 &lt;code&gt;/usr/local/etc/php/5.3/php.ini&lt;/code&gt; and change short-tags to On.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;short_open_tag = On&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Also ensure you're using the homebrewed installation of PHP.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;LoadModule php5_module /usr/local/Cellar/php53/5.3.28/libexec/apache2/libphp5.so&lt;/code&gt;&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Owning Your Data — Replacing Gmail</title><link href="https://shanedowling.com/owning-your-data-replacing-gmail-20e9e2259fa2.html" rel="alternate"></link><published>2014-03-29T00:00:00+00:00</published><updated>2014-03-29T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-03-29:/owning-your-data-replacing-gmail-20e9e2259fa2.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__jrj__wnQecgnTwBXPZsg05w.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;Gmail isn't secure or private, Google have admitted this. You simply cannot expect privacy from any service that you don't have
-control of. Thankfully your email doesn't have to be tied a mail service
-like Gmail, Yahoo or Microsoft. You can simply roll your own email
-server with your own …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__jrj__wnQecgnTwBXPZsg05w.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;Gmail isn't secure or private, Google have admitted this. You simply cannot expect privacy from any service that you don't have
-control of. Thankfully your email doesn't have to be tied a mail service
-like Gmail, Yahoo or Microsoft. You can simply roll your own email
-server with your own domain name and easily create an (admittedly
-minimalist) Gmail equivalent.&lt;/p&gt;
-&lt;h3&gt;Before you start&lt;/h3&gt;
-&lt;p&gt;If you think this guide is too complex, that's totally understandable.
-Running your own mail server requires a reasonable amount of technical
-experience. If you're interesting in getting away from a service like
-Gmail and want a good alternative check-out &lt;a href="https://mykolab.com/."&gt;https://mykolab.com/.&lt;/a&gt; It
-costs around 10 bucks a month for 2GB of storage, which isn't too bad.
-If you think this isn't enough space, you could either pay for more or
-have a mail client like thunderbird offline all non-essential email to
-your desktop.&lt;/p&gt;
-&lt;h3&gt;What you're not getting&lt;/h3&gt;
-&lt;p&gt;This is very minimal email setup. You won't be getting a web-accessible
-email client. If you want your email accessible everywhere, this simply
-isn't a guide for you. If you do want web-accesible email setup you
-could use something like `iRedmail `__\ to do
-all of your configuration for you. I find that because iRedmail
-configures everything automatically, I'm less in control of how my
-server works. Plus the extra requirements iRedmail needs reduce the
-security of my server, which I'm not too happy about. This guide is to
-get the bare minimum for email to work.
-Also, to decrease the amount of time my emails sit on my server, I store
-all of emails on my local machine and back that machine up locally. This
-is simply to minimise data leakage should my server become compromised.
-So you will need to point a mail client(thunderbird, k9 for Android etc)
-to download your email locally for search indexing. Sadly, there are a
-few usability prices to pay to stay out of another companies pocket.&lt;/p&gt;
-&lt;h3&gt;Requirements&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Ensure you have a server setup with salt. See &lt;a href="https://shanedowling.com/owning-your-data-initial-server-setup-afa33394b94"&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;A domain name you wish to send email from. So instead of you@gmail.com it's you@mynewdomain.com. I use &lt;a href="https://www.namecheap.com"&gt;namecheap&lt;/a&gt;. They accept bitcoin and will allow you to buy &lt;a href="https://www.namecheap.com/security/whoisguard.aspx"&gt;whoisguard&lt;/a&gt; for your domain name. So fake all the details on here and make sure you buy whoisguard just to keep things quiet.&lt;/li&gt;
-&lt;li&gt;Once you have bought your domain name, you will need to point your domain mail records to your new server. Namecheap has a guide here. Generally, I create an A record on my domain mx.mynewdomain.com to the ip of my server. I then setup multiple mx records that point to mx.mynewdomain.com. I also use backup DNS suppliers for my low priority mx records (say priority 40/50), take a look at https://freedns.afraid.org/ to get yourself some free domain names.&lt;/li&gt;
-&lt;li&gt;Install git&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;apt-get&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Setup a user on the server who you wish to send/recieve email as. So adduser jim and enter the password you wish to authenticate with on your mail client.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Setting up the server&lt;/h3&gt;
-&lt;p&gt;The first thing you're going to need to do is, using salt, grab my &lt;a href="https://github.com/shano/salty-mailer"&gt;salty-mailer setup&lt;/a&gt;. This leverages salt stack and will install everything you need to get your
-mail server up and running. You don't need to worry too much about what
-git does, it simply downloads the files required from github. Copy and
-paste this line into the terminal and it should get things started.&lt;/p&gt;
-&lt;p&gt;sudo mkdir /srv/salt/mail &amp;amp;&amp;amp; sudo git clone
- &lt;a href="https://github.com/shano/salty-mailer"&gt;https://github.com/shano/salty-mailer&lt;/a&gt; /srv/salt/mail&lt;/p&gt;
-&lt;p&gt;Now you'll need to configure a few files, with your own settings.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;In /srv/salt/mail/init.sls change all entries from to the username you wish to send email as. So for example change it from to jim.&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;In /srv/salt/mail/postfix/main.cf you need to change &amp;lt;&lt;code&gt;domain.com&lt;/code&gt;&amp;gt; to &lt;code&gt;mynewdomain.com&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Under /srv/salt/top.sls ensure you have lines that look like this:&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;base&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s"&gt;&amp;#39;*&amp;#39;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;— mail&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Done? Great you've finished configuration and you're ready to install
-everything. This command tells salt to read these configuration files
-and install enough to get basic mail server up and running.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;salt-call&lt;span class="w"&gt; &lt;/span&gt;-l&lt;span class="w"&gt; &lt;/span&gt;debug&lt;span class="w"&gt; &lt;/span&gt;state.highstate
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;This should provide a ton of output, but as long as there's no errors,
-you're good to go.&lt;/p&gt;
-&lt;h3&gt;Testing your mail-server&lt;/h3&gt;
-&lt;p&gt;You should now be able to configure your email-client to talk to your
-email server. So fire up your preferred mail client and use these
-settings to connect.
-Inbound:&lt;/p&gt;
-&lt;p&gt;Server Type:IMAP
- Username:jim
- Password:&lt;/p&gt;
-&lt;p&gt;Outbound:&lt;/p&gt;
-&lt;p&gt;Server Type:SMTP
- Password:&lt;/p&gt;
-&lt;p&gt;Now try connect your email client to your server and see what happens.
-If you have trouble connecting try run sudo tail -f /var/log/mail.log
-and reconnect. See if anything appears in the output. If there is
-something wrong, checkout google(duh) or tryout The Comms
-Room on ServerFault and see if someone can point you in the right direction. Or of course add something in the comments here.&lt;/p&gt;
-&lt;h3&gt;Make your emails more reliable&lt;/h3&gt;
-&lt;p&gt;Now that you have your mail server up and running, you're going to need
-to ensure the major email suppliers are willing to accept your email.
-People suggest adding SPFs and DKIMs to your email records but
-personally I haven't found either much use. The best thing for you to do is to add yourself to a legitimate whitelist. Fill in &lt;a href="https://www.dnswl.org/selfservice/"&gt;this form&lt;/a&gt;, the guys there will come back if the find any issues with your server that would prevent them adding you to their whitelist, once accepted Presto! You look like a legimate email user on the interwebs!&lt;/p&gt;
-&lt;h3&gt;What's next?&lt;/h3&gt;
-&lt;p&gt;Now that you've done all that work, here's the kicker. Email isn't
-secure. It was never meant to be the center of our digital lives, so
-back when it was invented security really wasn't a big concern. But here
-we are. With everything in plain-text all over the place you'd be wise
-to reduce your email as much as possible. If you wish to improve the
-security of any email communications you do make, take a look at using
-GPG. I use &lt;a href="https://addons.mozilla.org/en-US/thunderbird/addon/enigmail/"&gt;Enigmail with Thunderbird&lt;/a&gt;.&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
+&lt;p&gt;&lt;code&gt;LoadModule php5_module /usr/local/Cellar/php53/5.3.28/libexec/apache2/libphp5.so&lt;/code&gt;&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
