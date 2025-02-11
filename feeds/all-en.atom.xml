@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-02-10T20:50:46+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab Setup: The Journey to Kubernetes</title><link href="https://shanedowling.com/homelab-setup-the-journey-to-kubernetes.html" rel="alternate"></link><published>2025-02-10T20:50:46+00:00</published><updated>2025-02-10T20:50:46+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-10:/homelab-setup-the-journey-to-kubernetes.html</id><summary type="html">&lt;h2&gt;Why I'm Migrating My Self-Hosted Services&lt;/h2&gt;
 &lt;p&gt;I've decided to migrate all my existing self-hosted services—and add a few new ones—to a Kubernetes (K8s) cluster that I'm going to build. There are several motivations behind this decision:&lt;/p&gt;
+&lt;h3&gt;Learning Kubernetes Beyond Ephemeral Clusters&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Learning Kubernetes Beyond Ephemeral Clusters&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;My role as an Engineering Manager at …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2&gt;Why I'm Migrating My Self-Hosted Services&lt;/h2&gt;
 &lt;p&gt;I've decided to migrate all my existing self-hosted services—and add a few new ones—to a Kubernetes (K8s) cluster that I'm going to build. There are several motivations behind this decision:&lt;/p&gt;
+&lt;h3&gt;Learning Kubernetes Beyond Ephemeral Clusters&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Learning Kubernetes Beyond Ephemeral Clusters&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;My role as an Engineering Manager at Syntasso involves a lot of K8s development using Kind, but these environments are entirely ephemeral. I want to experience the long-term challenges of operating a cluster to build greater empathy for our customers.&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;I want to deepen my understanding of Kubernetes, particularly in areas like:&lt;/p&gt;
-&lt;ul&gt;
+&lt;li&gt;I want to deepen my understanding of Kubernetes, particularly in areas like:&lt;ul&gt;
 &lt;li&gt;Hardening a K8s cluster&lt;/li&gt;
 &lt;li&gt;Managing multiple clusters effectively&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Increased Focus on Self-Hosting&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Increased Focus on Self-Hosting&lt;/h3&gt;
+&lt;ul&gt;
 &lt;li&gt;The British government's baffling approach to tech privacy has pushed me toward self-hosting more of my personal services.&lt;/li&gt;
 &lt;li&gt;My current setup is a mix of manually configured systems and Docker Compose-based services running on different machines. It’s time to bring structure to the chaos.&lt;/li&gt;
 &lt;/ul&gt;
@@ -28,7 +26,7 @@
 &lt;li&gt;&lt;strong&gt;Chipping away at it&lt;/strong&gt; for a few minutes each night.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Updating my progress&lt;/strong&gt; as I go along.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Keeping it cheap&lt;/strong&gt;—I'll work with my existing hardware for now. If this experiment proves successful, I may invest in better hardware later.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Minimizing downtime&lt;/strong&gt;—I already have services running that I need to migrate carefully without disruptions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Minimising downtime&lt;/strong&gt;—I already have services running that I need to migrate carefully without disruptions.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Migration Phases&lt;/h3&gt;
 &lt;p&gt;The migration will be broken down into multiple phases to ensure a smooth transition. My current focus is on:&lt;/p&gt;
