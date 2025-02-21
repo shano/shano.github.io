@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-02-11T13:57:09+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day 1 - Really Ghetto Data Storage</title><link href="https://shanedowling.com/homelab---day-1---data-storage.html" rel="alternate"></link><published>2025-02-11T13:57:09+00:00</published><updated>2025-02-11T13:57:09+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-11:/homelab---day-1---data-storage.html</id><summary type="html">&lt;h2&gt;Setting Up Storage for the Kubernetes Cluster&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-02-21T23:57:09+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day 2 - Setting Up a New K3s Control Plane and Node</title><link href="https://shanedowling.com/homelab---day-2---setting-up-k3s-control-plane.html" rel="alternate"></link><published>2025-02-21T23:57:09+00:00</published><updated>2025-02-21T23:57:09+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-21:/homelab---day-2---setting-up-k3s-control-plane.html</id><summary type="html">&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
+&lt;h2&gt;Aims&lt;/h2&gt;
+&lt;p&gt;The goal was …&lt;/p&gt;</summary><content type="html">&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
+&lt;h2&gt;Aims&lt;/h2&gt;
+&lt;p&gt;The goal was to set up a fresh K3s cluster, ensuring that:
+- The control plane and node are configured correctly.
+- Flux is properly bootstrapped to manage cluster state.
+- Common pitfalls are documented to save time in the future.&lt;/p&gt;
+&lt;h2&gt;What I Did&lt;/h2&gt;
+&lt;h3&gt;Control Plane Setup&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Install K3s:
+   &lt;code&gt;sh
+   curl -sfL https://get.k3s.io | sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add an SSH key for Flux to connect to GitHub.&lt;/li&gt;
+&lt;li&gt;Bootstrap Flux with Git:
+   &lt;code&gt;sh
+   flux bootstrap git \
+     --url=ssh://git@github.com/&amp;lt;your-repo&amp;gt; \
+     --branch=main \
+     --private-key-file=/home/&amp;lt;user&amp;gt;/.ssh/&amp;lt;flux_key&amp;gt; \
+     --path=clusters/k3s&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Retrieve the control plane token:
+   &lt;code&gt;sh
+   cat /var/lib/rancher/k3s/server/token&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Allow traffic on the K3s API port:
+   &lt;code&gt;sh
+   iptables -A INPUT -p tcp --dport 6443 -j ACCEPT&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Node Setup&lt;/h3&gt;
+&lt;p&gt;To join a new node to the cluster:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;K3S_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your-k3s-token&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="nv"&gt;K3S_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your-k3s-url&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+sh&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl&lt;span class="w"&gt; &lt;/span&gt;-sfL&lt;span class="w"&gt; &lt;/span&gt;https://get.k3s.io&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Lessons Learned&lt;/h2&gt;
+&lt;h3&gt;CA Certificates Issues&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;I kept running into problems with CA certificates not being authorized. This was likely due to wiping the server and recreating it multiple times or some Flux configuration persisting in the repository.&lt;/li&gt;
+&lt;li&gt;Fix:
+ &lt;code&gt;sh
+ sudo cp &amp;lt;path-to-ca-cert&amp;gt; &amp;lt;path-to-cert-destination&amp;gt;
+ sudo update-ca-certificates&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Image Pull Failures&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;At one point, I was pulling my hair out trying to figure out why I couldn't pull container images. After a lot of debugging, it turned out that &lt;code&gt;docker.io&lt;/code&gt; was simply down.&lt;/li&gt;
+&lt;li&gt;Lesson: Always check by running:
+ &lt;code&gt;sh
+ ping docker.io&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Sometimes (though rarely), it's not your fault!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;Despite the initial struggles, setting up K3s is quite straightforward. The biggest challenges I faced were external issues (e.g., Docker Hub being down) and ensuring CA certificates were recognized properly. Hopefully, this documentation will make things smoother next time!&lt;/p&gt;
+&lt;p&gt;Have you run into similar K3s setup challenges? Let me know how you solved them!&lt;/p&gt;</content><category term="homelab"></category></entry><entry><title>Homelab - Day 1 - Really Ghetto Data Storage</title><link href="https://shanedowling.com/homelab---day-1---data-storage.html" rel="alternate"></link><published>2025-02-11T13:57:09+00:00</published><updated>2025-02-11T13:57:09+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-11:/homelab---day-1---data-storage.html</id><summary type="html">&lt;h2&gt;Setting Up Storage for the Kubernetes Cluster&lt;/h2&gt;
 &lt;p&gt;The first step in setting up my homelab Kubernetes cluster is ensuring some reliable data storage. Right now, I have two main categories of data in mind:&lt;/p&gt;
 &lt;h3&gt;1. Operationally Critical Data&lt;/h3&gt;
 &lt;ul&gt;
@@ -1597,41 +1652,4 @@ G = nx.DiGraph()
  for [(source, sink) for sink in sink_nodes for source in source_nodes]:
  for path in nx.all_simple_paths(G, source=source, target=sink):
  print(path)
- ```&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Generate Binary Tree From String</title><link href="https://shanedowling.com/generate-binary-tree-from-string-fcb1a0c662e7.html" rel="alternate"></link><published>2015-10-27T00:00:00+00:00</published><updated>2015-10-27T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2015-10-27:/generate-binary-tree-from-string-fcb1a0c662e7.html</id><summary type="html">&lt;p&gt;Recently while implementing the &lt;a href="http://rosalind.info/problems/ba7f/"&gt;Small Parsimony Problem&lt;/a&gt; I had the need to generate a binary tree from a string in Python.&lt;/p&gt;
-&lt;p&gt;The pseudo-code in the question implicitly assumes you have some functionality that will generate a DNA sequence like CAAATCCC into a binary tree, then run SmallParsimony on it. I …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Recently while implementing the &lt;a href="http://rosalind.info/problems/ba7f/"&gt;Small Parsimony Problem&lt;/a&gt; I had the need to generate a binary tree from a string in Python.&lt;/p&gt;
-&lt;p&gt;The pseudo-code in the question implicitly assumes you have some functionality that will generate a DNA sequence like CAAATCCC into a binary tree, then run SmallParsimony on it. I couldn't find that functionality anywhere, so I decided to implement something simple in networkx. Hopefully it's useful.&lt;/p&gt;
-&lt;p&gt;```python&lt;/p&gt;
-&lt;h1&gt;!/usr/bin/env python&lt;/h1&gt;
-&lt;p&gt;"""
- Shane Dowling, 27 Oct 2015
- To run simply call generate_leaf_graph and pass in s string.
- """
-def count_predecessors(T):
- pred = 0
- for v in T.nodes():
- pred += 1
- return pred&lt;/p&gt;
-&lt;p&gt;def generate_leaf_graph(s):
- """
- Will generate a leaf graph and return it along
- with the Character dictionary representing the characters
- at each leaf node position
- """
- T = nx.DiGraph()
- Character = {}
- i = 0
- parI = len(s)
- for (son, daughter) in zip(s[0::2], s[1::2]):
-   Character[i] = son
-   Character[i+1] = daughter
-   T.add_edge(parI, i)
-   T.add_edge(parI, i+1)
-   i += 2
-   parI += 1&lt;/p&gt;
-&lt;p&gt;while count_predecessors(T) &amp;gt; 1:
-  for v in T.nodes():
-   T.add_edge(parI, v)
-   T.add_edge(parI, v+1)
-   parI += 1
- return [T, Character]
- ```&lt;/p&gt;</content><category term="tech"></category></entry></feed>
+ ```&lt;/p&gt;</content><category term="Tech"></category></entry></feed>

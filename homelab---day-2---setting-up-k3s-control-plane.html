@@ -47,23 +47,23 @@
  
 
 <meta name="author" content="Shane Dowling" />
-<meta name="description" content="In AWS Lambda, if you use ENVIRONMENT VARS they are tied to the lambda version, so a new deploy is required to update that config change." />
+<meta name="description" content="After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference! Aims The goal was …" />
 <meta name="keywords" content="">
 
 
   <meta property="og:site_name" content="Shane Dowling"/>
-  <meta property="og:title" content="TIL - AWS Lambda Environment Vars"/>
-  <meta property="og:description" content="In AWS Lambda, if you use ENVIRONMENT VARS they are tied to the lambda version, so a new deploy is required to update that config change."/>
+  <meta property="og:title" content="Homelab - Day 2 - Setting Up a New K3s Control Plane and Node"/>
+  <meta property="og:description" content="After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference! Aims The goal was …"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:url" content="./til-aws-lambda-environment-vars.html"/>
+  <meta property="og:url" content="./homelab---day-2---setting-up-k3s-control-plane.html"/>
   <meta property="og:type" content="article"/>
-  <meta property="article:published_time" content="2020-11-05 00:00:00+00:00"/>
+  <meta property="article:published_time" content="2025-02-21 23:57:09.345000+00:00"/>
   <meta property="article:modified_time" content=""/>
   <meta property="article:author" content="./author/shane-dowling.html">
-  <meta property="article:section" content="TIL"/>
+  <meta property="article:section" content="homelab"/>
   <meta property="og:image" content="/images/logo.png">
 
-  <title>Shane Dowling &ndash; TIL - AWS Lambda Environment Vars</title>
+  <title>Shane Dowling &ndash; Homelab - Day 2 - Setting Up a New K3s Control Plane and Node</title>
 
 
 </head>
@@ -153,18 +153,69 @@ rel="me"           href="https://social.lol/@sed"
 <article class="single">
   <header>
       
-    <h1 id="til-aws-lambda-environment-vars">TIL - AWS Lambda Environment Vars</h1>
+    <h1 id="homelab---day-2---setting-up-k3s-control-plane">Homelab - Day 2 - Setting Up a New K3s Control Plane and Node</h1>
     <p>
-      Posted on Thu 05 November 2020 in <a href="./category/til.html">TIL</a>
+      Posted on Fri 21 February 2025 in <a href="./category/homelab.html">homelab</a>
 
     </p>
   </header>
 
 
   <div>
-    <p>In AWS Lambda, if you use ENVIRONMENT VARS they are tied to the lambda
-version, so a new deploy is required to update that config change.</p>
+    <p>After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!</p>
+<h2>Aims</h2>
+<p>The goal was to set up a fresh K3s cluster, ensuring that:
+- The control plane and node are configured correctly.
+- Flux is properly bootstrapped to manage cluster state.
+- Common pitfalls are documented to save time in the future.</p>
+<h2>What I Did</h2>
+<h3>Control Plane Setup</h3>
+<ol>
+<li>Install K3s:
+   <code>sh
+   curl -sfL https://get.k3s.io | sh</code></li>
+<li>Add an SSH key for Flux to connect to GitHub.</li>
+<li>Bootstrap Flux with Git:
+   <code>sh
+   flux bootstrap git \
+     --url=ssh://git@github.com/&lt;your-repo&gt; \
+     --branch=main \
+     --private-key-file=/home/&lt;user&gt;/.ssh/&lt;flux_key&gt; \
+     --path=clusters/k3s</code></li>
+<li>Retrieve the control plane token:
+   <code>sh
+   cat /var/lib/rancher/k3s/server/token</code></li>
+<li>Allow traffic on the K3s API port:
+   <code>sh
+   iptables -A INPUT -p tcp --dport 6443 -j ACCEPT</code></li>
+</ol>
+<h3>Node Setup</h3>
+<p>To join a new node to the cluster:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">K3S_TOKEN</span><span class="o">=</span><span class="s2">&quot;&lt;your-k3s-token&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="nv">K3S_URL</span><span class="o">=</span><span class="s2">&quot;&lt;your-k3s-url&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-sfL<span class="w"> </span>https://get.k3s.io<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
 
+<h2>Lessons Learned</h2>
+<h3>CA Certificates Issues</h3>
+<ul>
+<li>I kept running into problems with CA certificates not being authorized. This was likely due to wiping the server and recreating it multiple times or some Flux configuration persisting in the repository.</li>
+<li>Fix:
+ <code>sh
+ sudo cp &lt;path-to-ca-cert&gt; &lt;path-to-cert-destination&gt;
+ sudo update-ca-certificates</code></li>
+</ul>
+<h3>Image Pull Failures</h3>
+<ul>
+<li>At one point, I was pulling my hair out trying to figure out why I couldn't pull container images. After a lot of debugging, it turned out that <code>docker.io</code> was simply down.</li>
+<li>Lesson: Always check by running:
+ <code>sh
+ ping docker.io</code></li>
+<li>Sometimes (though rarely), it's not your fault!</li>
+</ul>
+<h2>Final Thoughts</h2>
+<p>Despite the initial struggles, setting up K3s is quite straightforward. The biggest challenges I faced were external issues (e.g., Docker Hub being down) and ensuring CA certificates were recognized properly. Hopefully, this documentation will make things smoother next time!</p>
+<p>Have you run into similar K3s setup challenges? Let me know how you solved them!</p>
   </div>
   <div class="tag-cloud">
     <p>

@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-02-11T13:57:09+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day 1 - Really Ghetto Data Storage</title><link href="https://shanedowling.com/homelab---day-1---data-storage.html" rel="alternate"></link><published>2025-02-11T13:57:09+00:00</published><updated>2025-02-11T13:57:09+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-11:/homelab---day-1---data-storage.html</id><summary type="html">&lt;h2&gt;Setting Up Storage for the Kubernetes Cluster&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-02-21T23:57:09+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day 2 - Setting Up a New K3s Control Plane and Node</title><link href="https://shanedowling.com/homelab---day-2---setting-up-k3s-control-plane.html" rel="alternate"></link><published>2025-02-21T23:57:09+00:00</published><updated>2025-02-21T23:57:09+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-21:/homelab---day-2---setting-up-k3s-control-plane.html</id><summary type="html">&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
+&lt;h2&gt;Aims&lt;/h2&gt;
+&lt;p&gt;The goal was …&lt;/p&gt;</summary><content type="html">&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
+&lt;h2&gt;Aims&lt;/h2&gt;
+&lt;p&gt;The goal was to set up a fresh K3s cluster, ensuring that:
+- The control plane and node are configured correctly.
+- Flux is properly bootstrapped to manage cluster state.
+- Common pitfalls are documented to save time in the future.&lt;/p&gt;
+&lt;h2&gt;What I Did&lt;/h2&gt;
+&lt;h3&gt;Control Plane Setup&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Install K3s:
+   &lt;code&gt;sh
+   curl -sfL https://get.k3s.io | sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add an SSH key for Flux to connect to GitHub.&lt;/li&gt;
+&lt;li&gt;Bootstrap Flux with Git:
+   &lt;code&gt;sh
+   flux bootstrap git \
+     --url=ssh://git@github.com/&amp;lt;your-repo&amp;gt; \
+     --branch=main \
+     --private-key-file=/home/&amp;lt;user&amp;gt;/.ssh/&amp;lt;flux_key&amp;gt; \
+     --path=clusters/k3s&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Retrieve the control plane token:
+   &lt;code&gt;sh
+   cat /var/lib/rancher/k3s/server/token&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Allow traffic on the K3s API port:
+   &lt;code&gt;sh
+   iptables -A INPUT -p tcp --dport 6443 -j ACCEPT&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Node Setup&lt;/h3&gt;
+&lt;p&gt;To join a new node to the cluster:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;K3S_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your-k3s-token&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="nv"&gt;K3S_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your-k3s-url&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+sh&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl&lt;span class="w"&gt; &lt;/span&gt;-sfL&lt;span class="w"&gt; &lt;/span&gt;https://get.k3s.io&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Lessons Learned&lt;/h2&gt;
+&lt;h3&gt;CA Certificates Issues&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;I kept running into problems with CA certificates not being authorized. This was likely due to wiping the server and recreating it multiple times or some Flux configuration persisting in the repository.&lt;/li&gt;
+&lt;li&gt;Fix:
+ &lt;code&gt;sh
+ sudo cp &amp;lt;path-to-ca-cert&amp;gt; &amp;lt;path-to-cert-destination&amp;gt;
+ sudo update-ca-certificates&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Image Pull Failures&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;At one point, I was pulling my hair out trying to figure out why I couldn't pull container images. After a lot of debugging, it turned out that &lt;code&gt;docker.io&lt;/code&gt; was simply down.&lt;/li&gt;
+&lt;li&gt;Lesson: Always check by running:
+ &lt;code&gt;sh
+ ping docker.io&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Sometimes (though rarely), it's not your fault!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;Despite the initial struggles, setting up K3s is quite straightforward. The biggest challenges I faced were external issues (e.g., Docker Hub being down) and ensuring CA certificates were recognized properly. Hopefully, this documentation will make things smoother next time!&lt;/p&gt;
+&lt;p&gt;Have you run into similar K3s setup challenges? Let me know how you solved them!&lt;/p&gt;</content><category term="homelab"></category></entry><entry><title>Homelab - Day 1 - Really Ghetto Data Storage</title><link href="https://shanedowling.com/homelab---day-1---data-storage.html" rel="alternate"></link><published>2025-02-11T13:57:09+00:00</published><updated>2025-02-11T13:57:09+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-11:/homelab---day-1---data-storage.html</id><summary type="html">&lt;h2&gt;Setting Up Storage for the Kubernetes Cluster&lt;/h2&gt;
 &lt;p&gt;The first step in setting up my homelab Kubernetes cluster is ensuring some reliable data storage. Right now, I have two main categories of data in mind:&lt;/p&gt;
 &lt;h3&gt;1. Operationally Critical Data&lt;/h3&gt;
 &lt;ul&gt;
@@ -4305,85 +4360,4 @@ this line to your index.php.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;And should be be good to access composers namespaces libraries. Very
-cool!&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>SugarCRM — Add a code-driven column to a list</title><link href="https://shanedowling.com/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1.html" rel="alternate"></link><published>2014-04-05T00:00:00+00:00</published><updated>2014-04-05T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-04-05:/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1.html</id><summary type="html">&lt;p&gt;Sometimes you might find that you want your users to make decisions based on ListViews and you need to pull in relational data beyond the immediately related objects. Example&lt;/p&gt;
-&lt;p&gt;So using the circus example say you have performers who are performing for a specific show. You might want to see …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Sometimes you might find that you want your users to make decisions based on ListViews and you need to pull in relational data beyond the immediately related objects. Example&lt;/p&gt;
-&lt;p&gt;So using the circus example say you have performers who are performing for a specific show. You might want to see what other shows those performers are also attached to. If it's typically only one or two shows per event, you can probably make another column in the ListView that displays all shows related to that performer. Lets call this field 'Other Shows'.&lt;/p&gt;
-&lt;p&gt;What to do
--—-— —&lt;/p&gt;
-&lt;p&gt;Add your new field in studio before you do anything. So fire up Studio
-and create an 'Other Shows' field, create this as a text field.&lt;/p&gt;
-&lt;p&gt;Alter the newly created fields vardef and set it to non-db.&lt;/p&gt;
-&lt;p&gt;You can typically find it in
-custom/Extension/modules/Performers/Ext/Vardefs/other_shows_c.php.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;$dictionary[&amp;#39;Performers&amp;#39;][&amp;#39;fields&amp;#39;][&amp;#39;other_shows_c&amp;#39;] = array(&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;name&amp;#39; =&amp;gt; &amp;#39;other_shows_c&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;vname&amp;#39; =&amp;gt; &amp;#39;LBL_OTHER_SHOWS_C&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;type&amp;#39; =&amp;gt; &amp;#39;varchar&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;len&amp;#39; =&amp;gt; &amp;#39;255&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;source&amp;#39; =&amp;gt; &amp;#39;non-db&amp;#39;&lt;/span&gt;
-&lt;span class="x"&gt; );&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Ensure the field isn't sortable..&lt;/p&gt;
-&lt;p&gt;Trying to sort a db/non-db field will cause a bit of trouble and
-ListViews don't support it, so just disable it.&lt;/p&gt;
-&lt;p&gt;Under custom/modules/Performers/metadata/listviewdefs.php change your
-newly created fields definition.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;&amp;#39;OTHER_SHOWS_C&amp;#39; =&amp;gt;&lt;/span&gt;
-&lt;span class="x"&gt; array (&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;label&amp;#39; =&amp;gt; &amp;#39;Other Shows&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;width&amp;#39; =&amp;gt; &amp;#39;10%&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;default&amp;#39; =&amp;gt; true,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;sortable&amp;#39; =&amp;gt; false,&lt;/span&gt;
-&lt;span class="x"&gt; ),&lt;/span&gt;
-&lt;span class="x"&gt; ```&lt;/span&gt;
-
-&lt;span class="x"&gt;Adding the actual code to run.&lt;/span&gt;
-
-&lt;span class="x"&gt;For this we&amp;#39;re going to leverage SugarCRM&amp;#39;s logic hooks. If you haven&amp;#39;t&lt;/span&gt;
-&lt;span class="x"&gt;already create a logic_hooks.php under custom/modules/Performers/ with&lt;/span&gt;
-&lt;span class="x"&gt;contents like this.&lt;/span&gt;
-
-&lt;span class="x"&gt;This file essentially defines the hooks you&amp;#39;re going to call. The hook&lt;/span&gt;
-&lt;span class="x"&gt;process_record means it&amp;#39;ll be called for every row that&amp;#39;s displayed on&lt;/span&gt;
-&lt;span class="x"&gt;the ListView.&lt;/span&gt;
-
-&lt;span class="x"&gt;The performers_logic_hooks_class.php file will be included,&lt;/span&gt;
-&lt;span class="x"&gt;performers_logic_hooks is the class that it will look for and&lt;/span&gt;
-&lt;span class="x"&gt;list_record_process is the function within that class that it will&lt;/span&gt;
-&lt;span class="x"&gt;call.&lt;/span&gt;
-&lt;span class="x"&gt;```php&lt;/span&gt;
-&lt;span class="x"&gt;// Do not store anything in this file that is not part of the array or the hook version. This file will&lt;/span&gt;
-&lt;span class="x"&gt; // be automatically rebuilt in the future.&lt;/span&gt;
-&lt;span class="x"&gt; $hook_version = 1;&lt;/span&gt;
-&lt;span class="x"&gt; $hook_array = Array();&lt;/span&gt;
-&lt;span class="x"&gt; // position, file, function&lt;/span&gt;
-&lt;span class="x"&gt; $hook_array[&amp;#39;before_save&amp;#39;] = Array();&lt;/span&gt;
-&lt;span class="x"&gt; $hook_array[&amp;#39;before_save&amp;#39;][] = Array(1, &amp;#39;workflow&amp;#39;, &amp;#39;include/workflow/WorkFlowHandler.php&amp;#39;,&amp;#39;WorkFlowHandler&amp;#39;, &amp;#39;WorkFlowHandler&amp;#39;);&lt;/span&gt;
-&lt;span class="x"&gt; $hook_array[&amp;#39;process_record&amp;#39;][] = Array(1, &amp;#39;Other_Shows&amp;#39;, &amp;#39;custom/modules/Performers/performers_logic_hooks.php&amp;#39;,&amp;#39;performers_logic_hooks&amp;#39;, &amp;#39;list_record_process&amp;#39;);&lt;/span&gt;
-
-&lt;span class="x"&gt;?&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Define the class.&lt;/p&gt;
-&lt;p&gt;Don't name the class something generic, like logic_hook_class and use
-that class name everywhere. It'll cause a bunch of conflicts when it
-comes to saving related data, hence the name performers_logic_hooks.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;class performers_logic_hooks&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-
-&lt;span class="x"&gt;/**&lt;/span&gt;
-&lt;span class="x"&gt; * Called as process_record logic hook on the Performers module&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-&lt;span class="x"&gt; public function list_record_process($bean, $event, $arguments)&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-&lt;span class="x"&gt; //Do some code to get the related shows for the performer and store in the $other_shows variable&lt;/span&gt;
-
-&lt;span class="x"&gt;$this-&amp;gt;other_shows_c = $other_shows;&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-
-&lt;span class="x"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Add the field to your listview via studio and do a quick repair/rebuild.
-That should hopefully be it.&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
+cool!&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
