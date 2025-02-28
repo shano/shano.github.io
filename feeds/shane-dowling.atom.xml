@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-02-21T23:57:09+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day 2 - Setting Up a New K3s Control Plane and Node</title><link href="https://shanedowling.com/homelab---day-2---setting-up-k3s-control-plane.html" rel="alternate"></link><published>2025-02-21T23:57:09+00:00</published><updated>2025-02-21T23:57:09+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-21:/homelab---day-2---setting-up-k3s-control-plane.html</id><summary type="html">&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-02-28T10:45:34+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day 3 - The first software deployment</title><link href="https://shanedowling.com/homelab---day-3---the-first-software-deployment.html" rel="alternate"></link><published>2025-02-28T10:45:34+00:00</published><updated>2025-02-28T10:45:34+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-28:/homelab---day-3---the-first-software-deployment.html</id><summary type="html">&lt;h1&gt;Aims&lt;/h1&gt;
+&lt;p&gt;The goal for today was to get my &lt;strong&gt;first piece of software running on the cluster&lt;/strong&gt;, ensuring that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It leveraged the &lt;strong&gt;NAS for storage&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It was accessible externally via &lt;strong&gt;Traefik&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The process was repeatable for future deployments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I chose the &lt;strong&gt;Unifi Management Console&lt;/strong&gt; as my first self-hosted application. Once …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Aims&lt;/h1&gt;
+&lt;p&gt;The goal for today was to get my &lt;strong&gt;first piece of software running on the cluster&lt;/strong&gt;, ensuring that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It leveraged the &lt;strong&gt;NAS for storage&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It was accessible externally via &lt;strong&gt;Traefik&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The process was repeatable for future deployments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I chose the &lt;strong&gt;Unifi Management Console&lt;/strong&gt; as my first self-hosted application. Once migrated, I could &lt;strong&gt;wipe my Raspberry Pi 4&lt;/strong&gt;, which was previously running the console, and add it as a &lt;strong&gt;worker node to the cluster&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;&lt;strong&gt;What I Did&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;strong&gt;NFS Storage Setup&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I needed &lt;strong&gt;NFS storage&lt;/strong&gt; to persist Unifi’s data.&lt;/li&gt;
+&lt;li&gt;After trying multiple providers, I settled on the &lt;strong&gt;nfs-subdir-external-provisioner&lt;/strong&gt; Helm chart.&lt;/li&gt;
+&lt;li&gt;I pointed it at my NAS server to handle persistent storage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;strong&gt;Persistent Volume &amp;amp; Claims&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Configuring &lt;strong&gt;Persistent Volumes (PVs) and Persistent Volume Claims (PVCs)&lt;/strong&gt; took some effort.&lt;/li&gt;
+&lt;li&gt;Eventually, I got them working with my NAS-hosted NFS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;strong&gt;Ingress &amp;amp; Networking Challenges&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Since K3s includes &lt;strong&gt;Traefik by default&lt;/strong&gt;, I wanted to leverage its &lt;strong&gt;built-in ingress controller&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Initially, I attempted to use &lt;strong&gt;IngressRoutes&lt;/strong&gt;, but Unifi’s &lt;strong&gt;self-signed TLS certificate&lt;/strong&gt; caused issues.&lt;/li&gt;
+&lt;li&gt;After much debugging, I realised I needed &lt;strong&gt;IngressRouteTCP&lt;/strong&gt; with &lt;strong&gt;TLS passthrough&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The final working configuration looked like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;apiVersion&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;traefik.containo.us/v1alpha1&lt;/span&gt;
+&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;IngressRouteTCP&lt;/span&gt;
+&lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;unifi-ingress-tcp&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;namespace&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;unifi&lt;/span&gt;
+&lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;entryPoints&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;websecure&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;routes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;match&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;HostSNI(`example.com`)&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# SNI-based routing required&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;unifi-gui&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;port&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;8443&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;tls&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;passthrough&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# Required to let Unifi handle TLS&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1&gt;&lt;strong&gt;Lessons Learned&lt;/strong&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NFS Setup Took Iterations&lt;/strong&gt; – The &lt;strong&gt;nfs-subdir-external-provisioner&lt;/strong&gt; was the best option for easy NAS integration.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ingress Troubles&lt;/strong&gt; – K3s’ built-in &lt;strong&gt;Traefik&lt;/strong&gt; works well, but TLS handling is tricky with &lt;strong&gt;self-signed certs&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IngressRoute vs IngressRouteTCP&lt;/strong&gt; – If an app &lt;strong&gt;manages its own TLS&lt;/strong&gt;, use &lt;strong&gt;IngressRouteTCP with passthrough&lt;/strong&gt; instead of a standard &lt;strong&gt;IngressRoute&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1&gt;&lt;strong&gt;Final Thoughts&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;Now that I’ve got my first app running, I expect future deployments to be &lt;strong&gt;faster and more repeatable&lt;/strong&gt;. Next, I need to figure out &lt;strong&gt;subdomains and path-based routing&lt;/strong&gt; for managing multiple applications—but that’s a problem for another day!&lt;/p&gt;</content><category term="homelab"></category></entry><entry><title>Homelab - Day 2 - Setting Up a New K3s Control Plane and Node</title><link href="https://shanedowling.com/homelab---day-2---setting-up-k3s-control-plane.html" rel="alternate"></link><published>2025-02-21T23:57:09+00:00</published><updated>2025-02-21T23:57:09+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-21:/homelab---day-2---setting-up-k3s-control-plane.html</id><summary type="html">&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
 &lt;h2&gt;Aims&lt;/h2&gt;
 &lt;p&gt;The goal was …&lt;/p&gt;</summary><content type="html">&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
 &lt;h2&gt;Aims&lt;/h2&gt;
@@ -1637,19 +1698,4 @@ pip install khal
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>NetworkX — Get all Paths from all sources to sinks</title><link href="https://shanedowling.com/networkx-get-all-paths-from-all-sources-to-sinks-825e3787b458.html" rel="alternate"></link><published>2015-11-04T00:00:00+00:00</published><updated>2015-11-04T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2015-11-04:/networkx-get-all-paths-from-all-sources-to-sinks-825e3787b458.html</id><summary type="html">&lt;p&gt;Often when I'm working with graphs and a set of masses in a spectrum I need to be able to iterate over all paths for all sources and sinks in that graph. Especially if I'm looking to compare multiple ideal spectrums against a given spectrum. Here's some code that will …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Often when I'm working with graphs and a set of masses in a spectrum I need to be able to iterate over all paths for all sources and sinks in that graph. Especially if I'm looking to compare multiple ideal spectrums against a given spectrum. Here's some code that will allow me to quickly iterate over all source-&amp;gt;sink paths in a given graph G.&lt;/p&gt;
-&lt;p&gt;```python&lt;/p&gt;
-&lt;h1&gt;!/usr/bin/env python&lt;/h1&gt;
-&lt;p&gt;"""
- Shane Dowling, 04 Nov 2015
- Will iterate over all sources, sinks and get all paths
- """
- import networkx as nx
-G = nx.DiGraph()
- # Fill in a few edges
- sink_nodes = [node for node, outdegree in G.out_degree(G.nodes()).items() if outdegree == 0]
- source_nodes = [node for node, indegree in G.in_degree(G.nodes()).items() if indegree == 0]
- for [(source, sink) for sink in sink_nodes for source in source_nodes]:
- for path in nx.all_simple_paths(G, source=source, target=sink):
- print(path)
- ```&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry></feed>

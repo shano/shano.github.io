@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-02-21T23:57:09+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day 2 - Setting Up a New K3s Control Plane and Node</title><link href="https://shanedowling.com/homelab---day-2---setting-up-k3s-control-plane.html" rel="alternate"></link><published>2025-02-21T23:57:09+00:00</published><updated>2025-02-21T23:57:09+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-21:/homelab---day-2---setting-up-k3s-control-plane.html</id><summary type="html">&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-02-28T10:45:34+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day 3 - The first software deployment</title><link href="https://shanedowling.com/homelab---day-3---the-first-software-deployment.html" rel="alternate"></link><published>2025-02-28T10:45:34+00:00</published><updated>2025-02-28T10:45:34+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-28:/homelab---day-3---the-first-software-deployment.html</id><summary type="html">&lt;h1&gt;Aims&lt;/h1&gt;
+&lt;p&gt;The goal for today was to get my &lt;strong&gt;first piece of software running on the cluster&lt;/strong&gt;, ensuring that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It leveraged the &lt;strong&gt;NAS for storage&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It was accessible externally via &lt;strong&gt;Traefik&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The process was repeatable for future deployments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I chose the &lt;strong&gt;Unifi Management Console&lt;/strong&gt; as my first self-hosted application. Once …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Aims&lt;/h1&gt;
+&lt;p&gt;The goal for today was to get my &lt;strong&gt;first piece of software running on the cluster&lt;/strong&gt;, ensuring that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It leveraged the &lt;strong&gt;NAS for storage&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It was accessible externally via &lt;strong&gt;Traefik&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The process was repeatable for future deployments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I chose the &lt;strong&gt;Unifi Management Console&lt;/strong&gt; as my first self-hosted application. Once migrated, I could &lt;strong&gt;wipe my Raspberry Pi 4&lt;/strong&gt;, which was previously running the console, and add it as a &lt;strong&gt;worker node to the cluster&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;&lt;strong&gt;What I Did&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;strong&gt;NFS Storage Setup&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I needed &lt;strong&gt;NFS storage&lt;/strong&gt; to persist Unifi’s data.&lt;/li&gt;
+&lt;li&gt;After trying multiple providers, I settled on the &lt;strong&gt;nfs-subdir-external-provisioner&lt;/strong&gt; Helm chart.&lt;/li&gt;
+&lt;li&gt;I pointed it at my NAS server to handle persistent storage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;strong&gt;Persistent Volume &amp;amp; Claims&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Configuring &lt;strong&gt;Persistent Volumes (PVs) and Persistent Volume Claims (PVCs)&lt;/strong&gt; took some effort.&lt;/li&gt;
+&lt;li&gt;Eventually, I got them working with my NAS-hosted NFS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;strong&gt;Ingress &amp;amp; Networking Challenges&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Since K3s includes &lt;strong&gt;Traefik by default&lt;/strong&gt;, I wanted to leverage its &lt;strong&gt;built-in ingress controller&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Initially, I attempted to use &lt;strong&gt;IngressRoutes&lt;/strong&gt;, but Unifi’s &lt;strong&gt;self-signed TLS certificate&lt;/strong&gt; caused issues.&lt;/li&gt;
+&lt;li&gt;After much debugging, I realised I needed &lt;strong&gt;IngressRouteTCP&lt;/strong&gt; with &lt;strong&gt;TLS passthrough&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The final working configuration looked like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;apiVersion&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;traefik.containo.us/v1alpha1&lt;/span&gt;
+&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;IngressRouteTCP&lt;/span&gt;
+&lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;unifi-ingress-tcp&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;namespace&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;unifi&lt;/span&gt;
+&lt;span class="nt"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;entryPoints&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;websecure&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;routes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;match&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;HostSNI(`example.com`)&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# SNI-based routing required&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;unifi-gui&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;port&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;8443&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;tls&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;passthrough&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# Required to let Unifi handle TLS&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h1&gt;&lt;strong&gt;Lessons Learned&lt;/strong&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NFS Setup Took Iterations&lt;/strong&gt; – The &lt;strong&gt;nfs-subdir-external-provisioner&lt;/strong&gt; was the best option for easy NAS integration.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ingress Troubles&lt;/strong&gt; – K3s’ built-in &lt;strong&gt;Traefik&lt;/strong&gt; works well, but TLS handling is tricky with &lt;strong&gt;self-signed certs&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IngressRoute vs IngressRouteTCP&lt;/strong&gt; – If an app &lt;strong&gt;manages its own TLS&lt;/strong&gt;, use &lt;strong&gt;IngressRouteTCP with passthrough&lt;/strong&gt; instead of a standard &lt;strong&gt;IngressRoute&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1&gt;&lt;strong&gt;Final Thoughts&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;Now that I’ve got my first app running, I expect future deployments to be &lt;strong&gt;faster and more repeatable&lt;/strong&gt;. Next, I need to figure out &lt;strong&gt;subdomains and path-based routing&lt;/strong&gt; for managing multiple applications—but that’s a problem for another day!&lt;/p&gt;</content><category term="homelab"></category></entry><entry><title>Homelab - Day 2 - Setting Up a New K3s Control Plane and Node</title><link href="https://shanedowling.com/homelab---day-2---setting-up-k3s-control-plane.html" rel="alternate"></link><published>2025-02-21T23:57:09+00:00</published><updated>2025-02-21T23:57:09+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-02-21:/homelab---day-2---setting-up-k3s-control-plane.html</id><summary type="html">&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
 &lt;h2&gt;Aims&lt;/h2&gt;
 &lt;p&gt;The goal was …&lt;/p&gt;</summary><content type="html">&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
 &lt;h2&gt;Aims&lt;/h2&gt;
@@ -4059,305 +4120,4 @@ between Accounts and Events then Events and Performers and does the
 where on the performers id.&lt;/p&gt;
 &lt;p&gt;Note the LIKE in the query. Even if you're querying IDs, Sugar stupidly
 passes in the value with a % at the end. So make sure this is LIKE
-statement.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Build Yii 1.* with composer</title><link href="https://shanedowling.com/build-yii-1-with-composer-d8ee634e3f3e.html" rel="alternate"></link><published>2014-04-08T00:00:00+00:00</published><updated>2014-04-08T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-04-08:/build-yii-1-with-composer-d8ee634e3f3e.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__l9C5aZ3qEUjpuOr__ZRZtbw.png"&gt;&lt;/p&gt;
-&lt;p&gt;While we're looking forward to Yii 2 coming alive, all of the posts on
-please do not use it for production**. So it might be a little while
-before we have in-built composer awesomeness with Yii. &lt;a href="http://www.yiiframework.com/wiki/392/creating-yii-applications-with-composer/"&gt;The guide
-online&lt;/a&gt; on integrating composer with yii does not seem particularly
-straight-forward and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__l9C5aZ3qEUjpuOr__ZRZtbw.png"&gt;&lt;/p&gt;
-&lt;p&gt;While we're looking forward to Yii 2 coming alive, all of the posts on
-please do not use it for production**. So it might be a little while
-before we have in-built composer awesomeness with Yii. &lt;a href="http://www.yiiframework.com/wiki/392/creating-yii-applications-with-composer/"&gt;The guide
-online&lt;/a&gt; on integrating composer with yii does not seem particularly
-straight-forward and misses out on a lot of steps, hence this post. You
-basically need to have the right folder structure or things will start
-to break. This guide relies on some of phundaments packages to get
-things up and running, as the official yii composer project doesn't work
-anymore.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Create the root folder my_yii_install.&lt;/li&gt;
-&lt;li&gt;mkdir -p my_yii_install/protected/config&lt;/li&gt;
-&lt;li&gt;In my_yii_install/protected/ &lt;a href="https://getcomposer.org/download/"&gt;download the composer.phar&lt;/a&gt; and create a composer.json like so.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;repositories&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;composer&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;http://packages.phundament.com&amp;quot;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;require&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;php&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;gt;=5.3.2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;yiisoft/yii&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;1.1.*&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;yiiext/migrate-command&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;0.7.*&amp;quot;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;config&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;bin-dir&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;bin/&amp;quot;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;autoload&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;psr-0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;config&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;./&amp;quot;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;pre-install-cmd&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::preInstall&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;post-install-cmd&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::postInstall&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;pre-update-cmd&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::preUpdate&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;post-update-cmd&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::postUpdate&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;post-package-install&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::postPackageInstall&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;post-package-update&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::postPackageUpdate&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-&lt;li&gt;In my_yii_install/config add console.php&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;return array(&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;aliases&amp;#39; =&amp;gt; array(&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;vendor&amp;#39; =&amp;gt; &amp;#39;application.vendor&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; ),&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;basePath&amp;#39; =&amp;gt; dirname(__FILE__) . DIRECTORY_SEPARATOR .&amp;#39;..&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;name&amp;#39; =&amp;gt; &amp;#39;My Awesome Yii Site&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;components&amp;#39; =&amp;gt; array(&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;db&amp;#39; =&amp;gt; array(&lt;/span&gt;
-&lt;span class="x"&gt; // MySQL&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;connectionString&amp;#39; =&amp;gt; &amp;#39;mysql:host=localhost;dbname=my_yii_database&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;emulatePrepare&amp;#39; =&amp;gt; true,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;username&amp;#39; =&amp;gt; &amp;#39;root&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;password&amp;#39; =&amp;gt; &amp;#39;root&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;charset&amp;#39; =&amp;gt; &amp;#39;utf8&amp;#39;,&lt;/span&gt;
-&lt;span class="x"&gt; ),&lt;/span&gt;
-&lt;span class="x"&gt; ),&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;params&amp;#39; =&amp;gt; array(&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;composer.callbacks&amp;#39; =&amp;gt; array(&lt;/span&gt;
-&lt;span class="x"&gt; // args for Yii command runner&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;yiisoft/yii-install&amp;#39; =&amp;gt; array(&amp;#39;yiic&amp;#39;, &amp;#39;webapp&amp;#39;, dirname(__FILE__).DIRECTORY_SEPARATOR.&amp;#39;..&amp;#39;.DIRECTORY_SEPARATOR.&amp;#39;..&amp;#39;),&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;post-update&amp;#39; =&amp;gt; array(&amp;#39;yiic&amp;#39;, &amp;#39;migrate&amp;#39;),&lt;/span&gt;
-&lt;span class="x"&gt; &amp;#39;post-install&amp;#39; =&amp;gt; array(&amp;#39;yiic&amp;#39;, &amp;#39;migrate&amp;#39;),&lt;/span&gt;
-&lt;span class="x"&gt; ),&lt;/span&gt;
-&lt;span class="x"&gt; ),&lt;/span&gt;
-&lt;span class="x"&gt; );&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Now you'll need to add a file like the below to actually handle the new composer hooks you've created. This will basically run migrations once your dependencies have installed.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This is blantantly taken from phundaments &lt;a href="https://github.com/phundament/app/blob/yii-webapp/protected/config/ComposerCallback.php"&gt;ComposerCallback&lt;/a&gt;.
-I just thought I'd copy it here for completeness.&lt;/p&gt;
-&lt;p&gt;ComposerCallback.php&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;/**&lt;/span&gt;
-&lt;span class="x"&gt; * Class file&lt;/span&gt;
-&lt;span class="x"&gt; *“&lt;/span&gt;
-&lt;span class="x"&gt; * @author Tobias Munk&lt;/span&gt;
-&lt;span class="x"&gt; * @link [http://www.phundament.com/](http://www.phundament.com/)&lt;/span&gt;
-&lt;span class="x"&gt; * @copyright Copyright © 2012 diemeisterei GmbH&lt;/span&gt;
-&lt;span class="x"&gt; * @license [http://www.phundament.com/license](http://www.phundament.com/license)&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-
-&lt;span class="x"&gt;namespace config;&lt;/span&gt;
-&lt;span class="x"&gt; use Composer\\Script\\Event;&lt;/span&gt;
-
-&lt;span class="x"&gt;/**&lt;/span&gt;
-&lt;span class="x"&gt; * ComposerCallback provides composer hooks&lt;/span&gt;
-&lt;span class="x"&gt; *&lt;/span&gt;
-&lt;span class="x"&gt; * This setup class triggers \`./yiic migrate\` at post-install and post-update.&lt;/span&gt;
-&lt;span class="x"&gt; * For a package the class triggers \`./yiic -\` at post-package-install and&lt;/span&gt;
-&lt;span class="x"&gt; * post-package-update.&lt;/span&gt;
-&lt;span class="x"&gt; * See composer manual (http://getcomposer.org/doc/articles/scripts.md)&lt;/span&gt;
-&lt;span class="x"&gt; *&lt;/span&gt;
-&lt;span class="x"&gt; * Usage example&lt;/span&gt;
-&lt;span class="x"&gt; *&lt;/span&gt;
-&lt;span class="x"&gt; * config.php&lt;/span&gt;
-&lt;span class="x"&gt; * &amp;#39;params&amp;#39; =&amp;gt; array(&lt;/span&gt;
-&lt;span class="x"&gt; * &amp;#39;composer.callbacks&amp;#39; =&amp;gt; array(&lt;/span&gt;
-&lt;span class="x"&gt; * &amp;#39;post-update&amp;#39; =&amp;gt; array(&amp;#39;yiic&amp;#39;, &amp;#39;migrate&amp;#39;),&lt;/span&gt;
-&lt;span class="x"&gt; * &amp;#39;post-install&amp;#39; =&amp;gt; array(&amp;#39;yiic&amp;#39;, &amp;#39;migrate&amp;#39;),&lt;/span&gt;
-&lt;span class="x"&gt; * &amp;#39;yiisoft/yii-install&amp;#39; =&amp;gt; array(&amp;#39;yiic&amp;#39;, &amp;#39;webapp&amp;#39;, realpath(dirname(__FILE__))),&lt;/span&gt;
-&lt;span class="x"&gt; * ),&lt;/span&gt;
-&lt;span class="x"&gt; * )&lt;/span&gt;
-&lt;span class="x"&gt; * );&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-&lt;li&gt;composer.json&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;pre-install-cmd&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::preInstall&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;post-install-cmd&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::postInstall&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;pre-update-cmd&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::preUpdate&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;post-update-cmd&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::postUpdate&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;post-package-install&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::postPackageInstall&amp;quot;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;post-package-update&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;config\\\\ComposerCallback::postPackageUpdate&amp;quot;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;*&lt;/span&gt;
-&lt;span class="x"&gt; *&lt;/span&gt;
-&lt;span class="x"&gt; * @author Tobias Munk&lt;/span&gt;
-&lt;span class="x"&gt; * @package phundament.app&lt;/span&gt;
-&lt;span class="x"&gt; * @since 0.7.1&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-
-&lt;span class="x"&gt;defined(&amp;#39;YII_PATH&amp;#39;) or define(&amp;#39;YII_PATH&amp;#39;, dirname(__FILE__).&amp;#39;/../vendor/yiisoft/yii/framework&amp;#39;);&lt;/span&gt;
-&lt;span class="x"&gt; defined(&amp;#39;CONSOLE_CONFIG&amp;#39;) or define(&amp;#39;CONSOLE_CONFIG&amp;#39;, dirname(__FILE__).&amp;#39;/console.php&amp;#39;);&lt;/span&gt;
-
-&lt;span class="x"&gt;class ComposerCallback&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-&lt;span class="x"&gt; /**&lt;/span&gt;
-&lt;span class="x"&gt; * Displays welcome message&lt;/span&gt;
-&lt;span class="x"&gt; * @static&lt;/span&gt;
-&lt;span class="x"&gt; * @param ComposerScriptEvent $event&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-&lt;span class="x"&gt; public static function preInstall(Event $event)&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-&lt;span class="x"&gt; $composer = $event-&amp;gt;getComposer();&lt;/span&gt;
-&lt;span class="x"&gt; // do stuff&lt;/span&gt;
-&lt;span class="x"&gt; echo &amp;quot;Phundament 3 Installernn&amp;quot;;&lt;/span&gt;
-&lt;span class="x"&gt; echo &amp;quot; * download packages specified in composer.json&lt;/span&gt;
-&lt;span class="x"&gt; * trigger composer callbacksnn&amp;quot;;&lt;/span&gt;
-&lt;span class="x"&gt; if (self::confirm(&amp;quot;Start Installation?&amp;quot;)) {&lt;/span&gt;
-&lt;span class="x"&gt; self::runHook(&amp;#39;pre-install&amp;#39;);&lt;/span&gt;
-&lt;span class="x"&gt; } else {&lt;/span&gt;
-&lt;span class="x"&gt; exit(&amp;quot;Installation aborted.n&amp;quot;);&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-
-&lt;span class="x"&gt;/**&lt;/span&gt;
-&lt;span class="x"&gt; * Executes ./yiic migrate&lt;/span&gt;
-&lt;span class="x"&gt; * @static&lt;/span&gt;
-&lt;span class="x"&gt; * @param ComposerScriptEvent $event&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-&lt;span class="x"&gt; public static function postInstall(Event $event)&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-&lt;span class="x"&gt; self::runHook(&amp;#39;post-install&amp;#39;);&lt;/span&gt;
-&lt;span class="x"&gt; echo &amp;quot;nnInstallation completed.nnThank you for choosing Phundament 3!nn&amp;quot;;&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-
-&lt;span class="x"&gt;/**&lt;/span&gt;
-&lt;span class="x"&gt; * Displays welcome message&lt;/span&gt;
-&lt;span class="x"&gt; *&lt;/span&gt;
-&lt;span class="x"&gt; * @static&lt;/span&gt;
-&lt;span class="x"&gt; * @param ComposerScriptEvent $event&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-&lt;span class="x"&gt; public static function preUpdate(Event $event)&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-&lt;span class="x"&gt; echo &amp;quot;Welcome to Phundament Installation 3 via composernnUpdating your application to the lastest available packages…n&amp;quot;;&lt;/span&gt;
-&lt;span class="x"&gt; self::runHook(&amp;#39;pre-update&amp;#39;);&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-
-&lt;span class="x"&gt;/**&lt;/span&gt;
-&lt;span class="x"&gt; * Executes ./yiic migrate&lt;/span&gt;
-&lt;span class="x"&gt; *&lt;/span&gt;
-&lt;span class="x"&gt; * @static&lt;/span&gt;
-&lt;span class="x"&gt; * @param ComposerScriptEvent $event&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-&lt;span class="x"&gt; public static function postUpdate(Event $event)&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-&lt;span class="x"&gt; self::runHook(&amp;#39;post-update&amp;#39;);&lt;/span&gt;
-&lt;span class="x"&gt; echo &amp;quot;nnUpdate completed.nn&amp;quot;;&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-
-&lt;span class="x"&gt;/**&lt;/span&gt;
-&lt;span class="x"&gt; * Executes ./yiic -&lt;/span&gt;
-&lt;span class="x"&gt; *&lt;/span&gt;
-&lt;span class="x"&gt; * @static&lt;/span&gt;
-&lt;span class="x"&gt; * @param ComposerScriptEvent $event&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-&lt;span class="x"&gt; public static function postPackageInstall(Event $event)&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-&lt;span class="x"&gt; $installedPackage = $event-&amp;gt;getOperation()-&amp;gt;getPackage();&lt;/span&gt;
-&lt;span class="x"&gt; $hookName = $installedPackage-&amp;gt;getPrettyName().&amp;#39;-install&amp;#39;;&lt;/span&gt;
-&lt;span class="x"&gt; self::runHook($hookName);&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-
-&lt;span class="x"&gt;/**&lt;/span&gt;
-&lt;span class="x"&gt; * Executes ./yiic -&lt;/span&gt;
-&lt;span class="x"&gt; *&lt;/span&gt;
-&lt;span class="x"&gt; * @static&lt;/span&gt;
-&lt;span class="x"&gt; * @param ComposerScriptEvent $event&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-&lt;span class="x"&gt; public static function postPackageUpdate(Event $event)&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-&lt;span class="x"&gt; $installedPackage = $event-&amp;gt;getOperation()-&amp;gt;getTargetPackage();&lt;/span&gt;
-&lt;span class="x"&gt; $commandName = $installedPackage-&amp;gt;getPrettyName().&amp;#39;-update&amp;#39;;&lt;/span&gt;
-&lt;span class="x"&gt; self::runHook($commandName);&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-
-&lt;span class="x"&gt;/**&lt;/span&gt;
-&lt;span class="x"&gt; * Asks user to confirm by typing y or n.&lt;/span&gt;
-&lt;span class="x"&gt; *&lt;/span&gt;
-&lt;span class="x"&gt; * Credits to Yii CConsoleCommand&lt;/span&gt;
-&lt;span class="x"&gt; *&lt;/span&gt;
-&lt;span class="x"&gt; * @param string $message to echo out before waiting for user input&lt;/span&gt;
-&lt;span class="x"&gt; * @return bool if user confirmed&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-&lt;span class="x"&gt; public static function confirm($message)&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-&lt;span class="x"&gt; echo $message . &amp;#39; [yes|no] &amp;#39;;&lt;/span&gt;
-&lt;span class="x"&gt; return !strncasecmp(trim(fgets(STDIN)), &amp;#39;y&amp;#39;, 1);&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-
-&lt;span class="x"&gt;/**&lt;/span&gt;
-&lt;span class="x"&gt; * Runs Yii command, if available (defined in config/console.php)&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-&lt;span class="x"&gt; private static function runHook($name){&lt;/span&gt;
-&lt;span class="x"&gt; $app = self::getYiiApplication();&lt;/span&gt;
-&lt;span class="x"&gt; if ($app === null) return;&lt;/span&gt;
-
-&lt;span class="x"&gt;if (isset($app-&amp;gt;params[&amp;#39;composer.callbacks&amp;#39;][$name])) {&lt;/span&gt;
-&lt;span class="x"&gt; $args = $app-&amp;gt;params[&amp;#39;composer.callbacks&amp;#39;][$name];&lt;/span&gt;
-&lt;span class="x"&gt; $app-&amp;gt;commandRunner-&amp;gt;addCommands(Yii::getPathOfAlias(&amp;#39;system.cli.commands&amp;#39;));&lt;/span&gt;
-&lt;span class="x"&gt; $app-&amp;gt;commandRunner-&amp;gt;run($args);&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-
-&lt;span class="x"&gt;/**&lt;/span&gt;
-&lt;span class="x"&gt; * Creates console application, if Yii is available&lt;/span&gt;
-&lt;span class="x"&gt; */&lt;/span&gt;
-&lt;span class="x"&gt; private static function getYiiApplication()&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-&lt;span class="x"&gt; if (!is_file(YII_PATH.&amp;#39;/yii.php&amp;#39;))&lt;/span&gt;
-&lt;span class="x"&gt; {&lt;/span&gt;
-&lt;span class="x"&gt; return null;&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-
-&lt;span class="x"&gt;require_once(YII_PATH.&amp;#39;/yii.php&amp;#39;);&lt;/span&gt;
-&lt;span class="x"&gt; spl_autoload_register(array(&amp;#39;YiiBase&amp;#39;, &amp;#39;autoload&amp;#39;));&lt;/span&gt;
-
-&lt;span class="x"&gt;if (Yii::app() === null) {&lt;/span&gt;
-&lt;span class="x"&gt; if (is_file(CONSOLE_CONFIG)) {&lt;/span&gt;
-&lt;span class="x"&gt; $app = Yii::createConsoleApplication(CONSOLE_CONFIG);&lt;/span&gt;
-&lt;span class="x"&gt; } else {&lt;/span&gt;
-&lt;span class="x"&gt; throw new Exception(&amp;quot;File from CONSOLE_CONFIG not found&amp;quot;);&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-&lt;span class="x"&gt; } else {&lt;/span&gt;
-&lt;span class="x"&gt; $app = Yii::app();&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-&lt;span class="x"&gt; return $app;&lt;/span&gt;
-&lt;span class="x"&gt; }&lt;/span&gt;
-
-&lt;span class="x"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Now you should be able to run&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;php&lt;span class="w"&gt; &lt;/span&gt;composer.phar&lt;span class="w"&gt; &lt;/span&gt;install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;and it should ask do you want to setup your yii project and all of the
-required folders, which is pretty awesome. The only other thing you
-might want to do is add more dependencies. Say you have a library you
-wish to add. Add the entry into composer.json run the update(which
-should call any migrations needed automatically), then you need to add
-this line to your index.php.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="x"&gt;require_once(dirname(__FILE__).&amp;#39;/protected/vendor/autoload.php&amp;#39;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;And should be be good to access composers namespaces libraries. Very
-cool!&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
+statement.&lt;/p&gt;</content><category term="Tech"></category></entry></feed>

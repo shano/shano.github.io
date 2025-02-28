@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="./theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="https://shanedowling.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Shane Dowling Atom">
+
+  <link href="https://shanedowling.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Shane Dowling RSS">
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-Z9P3V6D0SV', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Shane Dowling" />
+<meta name="description" content="Aims The goal for today was to get my first piece of software running on the cluster, ensuring that: It leveraged the NAS for storage. It was accessible externally via Traefik. The process was repeatable for future deployments. I chose the Unifi Management Console as my first self-hosted application. Once …" />
+<meta name="keywords" content="">
+
+
+  <meta property="og:site_name" content="Shane Dowling"/>
+  <meta property="og:title" content="Homelab - Day 3 - The first software deployment"/>
+  <meta property="og:description" content="Aims The goal for today was to get my first piece of software running on the cluster, ensuring that: It leveraged the NAS for storage. It was accessible externally via Traefik. The process was repeatable for future deployments. I chose the Unifi Management Console as my first self-hosted application. Once …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="./homelab---day-3---the-first-software-deployment.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2025-02-28 10:45:34.057000+00:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="./author/shane-dowling.html">
+  <meta property="article:section" content="homelab"/>
+  <meta property="og:image" content="/images/logo.png">
+
+  <title>Shane Dowling &ndash; Homelab - Day 3 - The first software deployment</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="./">
+      <img src="/images/logo.png" alt="Shane Dowling" title="Shane Dowling">
+    </a>
+
+    <h1>
+      <a href="./">Shane Dowling</a>
+    </h1>
+
+    <p>Platform Engineering Manager</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+            <li>
+              <a target="_self"
+                 href="./pages/contact.html#contact">
+                Contact
+              </a>
+            </li>
+            <li>
+              <a target="_self"
+                 href="./pages/now-page.html#now-page">
+                Now Page
+              </a>
+            </li>
+            <li>
+              <a target="_self"
+                 href="./pages/statuslog.html#statuslog">
+                Statuslog
+              </a>
+            </li>
+
+          <li>
+            <a target="_self" href="https://hybridcloudshow.com/" >podcast</a>
+          </li>
+          <li>
+            <a target="_self" href="https://pemonthly.com/" >newsletter</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/shano"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-mastodon"
+rel="me"           href="https://social.lol/@sed"
+           target="_blank">
+          <i class="fa-brands fa-mastodon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/shanedow/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-bsky"
+           href="https://bsky.app/profile/shandow.bsky.social"
+           target="_blank">
+          <i class="fa-brands fa-bsky"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="homelab---day-3---the-first-software-deployment">Homelab - Day 3 - The first software deployment</h1>
+    <p>
+      Posted on Fri 28 February 2025 in <a href="./category/homelab.html">homelab</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Aims</h1>
+<p>The goal for today was to get my <strong>first piece of software running on the cluster</strong>, ensuring that:</p>
+<ul>
+<li>It leveraged the <strong>NAS for storage</strong>.</li>
+<li>It was accessible externally via <strong>Traefik</strong>.</li>
+<li>The process was repeatable for future deployments.</li>
+</ul>
+<p>I chose the <strong>Unifi Management Console</strong> as my first self-hosted application. Once migrated, I could <strong>wipe my Raspberry Pi 4</strong>, which was previously running the console, and add it as a <strong>worker node to the cluster</strong>.</p>
+<hr>
+<h1><strong>What I Did</strong></h1>
+<h2><strong>NFS Storage Setup</strong></h2>
+<ul>
+<li>I needed <strong>NFS storage</strong> to persist Unifi’s data.</li>
+<li>After trying multiple providers, I settled on the <strong>nfs-subdir-external-provisioner</strong> Helm chart.</li>
+<li>I pointed it at my NAS server to handle persistent storage.</li>
+</ul>
+<h2><strong>Persistent Volume &amp; Claims</strong></h2>
+<ul>
+<li>Configuring <strong>Persistent Volumes (PVs) and Persistent Volume Claims (PVCs)</strong> took some effort.</li>
+<li>Eventually, I got them working with my NAS-hosted NFS.</li>
+</ul>
+<h2><strong>Ingress &amp; Networking Challenges</strong></h2>
+<ul>
+<li>Since K3s includes <strong>Traefik by default</strong>, I wanted to leverage its <strong>built-in ingress controller</strong>.</li>
+<li>Initially, I attempted to use <strong>IngressRoutes</strong>, but Unifi’s <strong>self-signed TLS certificate</strong> caused issues.</li>
+<li>After much debugging, I realised I needed <strong>IngressRouteTCP</strong> with <strong>TLS passthrough</strong>.</li>
+<li>The final working configuration looked like this:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik.containo.us/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IngressRouteTCP</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unifi-ingress-tcp</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unifi</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">entryPoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">websecure</span>
+<span class="w">  </span><span class="nt">routes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HostSNI(`example.com`)</span><span class="w">  </span><span class="c1"># SNI-based routing required</span>
+<span class="w">      </span><span class="nt">services</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unifi-gui</span>
+<span class="w">          </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8443</span>
+<span class="w">  </span><span class="nt">tls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">passthrough</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># Required to let Unifi handle TLS</span>
+</code></pre></div>
+
+<hr>
+<h1><strong>Lessons Learned</strong></h1>
+<ul>
+<li><strong>NFS Setup Took Iterations</strong> – The <strong>nfs-subdir-external-provisioner</strong> was the best option for easy NAS integration.</li>
+<li><strong>Ingress Troubles</strong> – K3s’ built-in <strong>Traefik</strong> works well, but TLS handling is tricky with <strong>self-signed certs</strong>.</li>
+<li><strong>IngressRoute vs IngressRouteTCP</strong> – If an app <strong>manages its own TLS</strong>, use <strong>IngressRouteTCP with passthrough</strong> instead of a standard <strong>IngressRoute</strong>.</li>
+</ul>
+<hr>
+<h1><strong>Final Thoughts</strong></h1>
+<p>Now that I’ve got my first app running, I expect future deployments to be <strong>faster and more repeatable</strong>. Next, I need to figure out <strong>subdomains and path-based routing</strong> for managing multiple applications—but that’s a problem for another day!</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Shane Dowling ",
+  "url" : ".",
+  "image": "/images/logo.png",
+  "description": ""
+}
+</script>
+</body>
+</html>
