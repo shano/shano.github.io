@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Shane Dowling - homelab</title><link>https://shanedowling.com/</link><description>Platform Engineering Manager</description><lastBuildDate>Fri, 28 Feb 2025 10:45:34 +0000</lastBuildDate><item><title>Homelab - Day 3 - The first software deployment</title><link>https://shanedowling.com/homelab---day-3---the-first-software-deployment.html</link><description>&lt;h1&gt;Aims&lt;/h1&gt;
+<rss version="2.0"><channel><title>Shane Dowling - homelab</title><link>https://shanedowling.com/</link><description>Platform Engineering Manager</description><lastBuildDate>Fri, 07 Mar 2025 19:31:59 +0000</lastBuildDate><item><title>Homelab - Day 4 - Self-Hosting Gitea</title><link>https://shanedowling.com/homelab---day-4---self-hosting-gitea.html</link><description>&lt;h1&gt;Aims&lt;/h1&gt;
+&lt;p&gt;Today’s goal was to deploy Gitea on my K3s cluster, ensuring that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It used persistent storage via my NAS.&lt;/li&gt;
+&lt;li&gt;It was accessible externally through Traefik.&lt;/li&gt;
+&lt;li&gt;It could eventually replace GitHub for my FluxCD setup.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;What I Did&lt;/h1&gt;
+&lt;h2&gt;Storage and Permissions Woes&lt;/h2&gt;
+&lt;p&gt;Running Gitea as a stateless container worked …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Shane Dowling</dc:creator><pubDate>Fri, 07 Mar 2025 19:31:59 +0000</pubDate><guid isPermaLink="false">tag:shanedowling.com,2025-03-07:/homelab---day-4---self-hosting-gitea.html</guid><category>homelab</category></item><item><title>Homelab - Day 3 - The first software deployment</title><link>https://shanedowling.com/homelab---day-3---the-first-software-deployment.html</link><description>&lt;h1&gt;Aims&lt;/h1&gt;
 &lt;p&gt;The goal for today was to get my &lt;strong&gt;first piece of software running on the cluster&lt;/strong&gt;, ensuring that:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;It leveraged the &lt;strong&gt;NAS for storage&lt;/strong&gt;.&lt;/li&gt;
