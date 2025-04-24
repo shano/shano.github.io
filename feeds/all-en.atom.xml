@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-03-07T19:31:59+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day 4 - Self-Hosting Gitea</title><link href="https://shanedowling.com/homelab---day-4---self-hosting-gitea.html" rel="alternate"></link><published>2025-03-07T19:31:59+00:00</published><updated>2025-03-07T19:31:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-03-07:/homelab---day-4---self-hosting-gitea.html</id><summary type="html">&lt;h1&gt;Aims&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all-en.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-04-24T18:09:32+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day ??? - Long hold-ups</title><link href="https://shanedowling.com/homelab---day----long-hold-ups.html" rel="alternate"></link><published>2025-04-24T18:09:32+00:00</published><updated>2025-04-24T18:09:32+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-04-24:/homelab---day----long-hold-ups.html</id><summary type="html">&lt;p&gt;So, after many days, I'm writing an update on my Homelab—or rather, updating you on the total lack of an update.&lt;/p&gt;
+&lt;h1&gt;Too ghetto to handle&lt;/h1&gt;
+&lt;p&gt;Unfortunately, the Ghetto NAS I was so proud of proved to be too unreliable. The disks frequently disconnected, and the k8s cluster—fairly reasonably …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So, after many days, I'm writing an update on my Homelab—or rather, updating you on the total lack of an update.&lt;/p&gt;
+&lt;h1&gt;Too ghetto to handle&lt;/h1&gt;
+&lt;p&gt;Unfortunately, the Ghetto NAS I was so proud of proved to be too unreliable. The disks frequently disconnected, and the k8s cluster—fairly reasonably—would break. So, it was back to the drawing board.&lt;/p&gt;
+&lt;h1&gt;Distributed Jank&lt;/h1&gt;
+&lt;p&gt;In the spirit of not spending any money and leaning further into the k8s ecosystem, my podcast co-host Sean suggested I look into Longhorn as a distributed block storage system. So, rather than having a central NAS, I distributed the disks across the cluster and brought them together under Longhorn.&lt;/p&gt;
+&lt;p&gt;Again, the dodgy nature of those USB drives continued to plague the setup, delivering helpful errors like:&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/dodgy-longhorn.png" height="100px"&gt;&lt;/p&gt;
+&lt;p&gt;Which required the disk to be re-mounted to fix it. Not ideal..&lt;/p&gt;
+&lt;h1&gt;Time for some gentrification&lt;/h1&gt;
+&lt;p&gt;Despite my best efforts, I had to invest some money into this system. And to be fair, spending money on storing critical data is probably reasonable.&lt;/p&gt;
+&lt;p&gt;Still, I couldn’t help trying to be cheap and grabbed a “steal” on eBay—two 12TB Seagate IronWolf drives for about £300, supposedly with only 600 hours of power-on time.&lt;/p&gt;
+&lt;p&gt;See photo below frmm the auction:&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/ebay-drive.png" height="500px"&gt;&lt;/p&gt;
+&lt;p&gt;However, once they arrived, I did some digging. You see, with Seagate drives, there’s some vendor-specific health data beyond what you get from standard SMART logs.&lt;/p&gt;
+&lt;p&gt;You can see the output below:&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/dodgy-harddrives.png" height="100px"&gt;&lt;/p&gt;
+&lt;p&gt;While the auction claimed ~600 power-on hours, the reality was closer to 27,000—which roughly equates to 3 years of continuous use.&lt;/p&gt;
+&lt;h1&gt;Next steps&lt;/h1&gt;
+&lt;p&gt;Thankfully, the seller was decent. They didn’t seem hugely technical and likely had also been duped. They offered a full return.&lt;/p&gt;
+&lt;p&gt;Now I’ve bitten the bullet, spent even more money, and bought some brand new hard drives. They were supposed to arrive today, but—as is the theme of this post—my doorbell broke, and I didn’t hear the deliveryman.&lt;/p&gt;
+&lt;p&gt;So hopefully, tomorrow I can finally get started building a reliable foundation for the Homelab and resume making progress again.&lt;/p&gt;</content><category term="homelab"></category></entry><entry><title>Homelab - Day 4 - Self-Hosting Gitea</title><link href="https://shanedowling.com/homelab---day-4---self-hosting-gitea.html" rel="alternate"></link><published>2025-03-07T19:31:59+00:00</published><updated>2025-03-07T19:31:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-03-07:/homelab---day-4---self-hosting-gitea.html</id><summary type="html">&lt;h1&gt;Aims&lt;/h1&gt;
 &lt;p&gt;Today’s goal was to deploy Gitea on my K3s cluster, ensuring that:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;It used persistent storage via my NAS.&lt;/li&gt;
@@ -4073,36 +4095,4 @@ are also within structures, processes and systems that demand our
 awareness and not simply passive acceptance at face value. Do this and
 we risk getting swept up into the norms and that's an easy way to get
 manipulated without even realising it. Confused? Check out the link and
-you'll understand.&lt;/p&gt;</content><category term="Mindfulness"></category></entry><entry><title>SugarCRM — Search for records related to the current record</title><link href="https://shanedowling.com/sugarcrm-search-for-records-related-to-the-current-record-4c0086341c14.html" rel="alternate"></link><published>2014-04-20T00:00:00+00:00</published><updated>2014-04-20T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-04-20:/sugarcrm-search-for-records-related-to-the-current-record-4c0086341c14.html</id><summary type="html">&lt;p&gt;Say you have two modules in Sugar: Animals and Ringmasters and they aren't directly related via a standard relationship but they are related through some convoluted means. Now, imagine if you want to override the SugarCRM search to allow you to search for all Animals indirectly related to a Ringmaster …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Say you have two modules in Sugar: Animals and Ringmasters and they aren't directly related via a standard relationship but they are related through some convoluted means. Now, imagine if you want to override the SugarCRM search to allow you to search for all Animals indirectly related to a Ringmaster, I've written about how to do something &lt;a href="http://shanedowling.com/sugarcrm-searches-data-indirectly-related-modules/"&gt;similar recently&lt;/a&gt;. Conversely, you want to search for all Animals related to a Ringmaster you're currently viewing. It's not a link that exists in Sugar so you can directly see a Dashlet and you don't want to build anything from scratch so that's going to take effort.&lt;/p&gt;
-&lt;p&gt;What you could do, is create a link on the action drop-down while viewing the Ringmaster that linked you to a search that would call animals supplying the Ringmaster's id as the argument.&lt;/p&gt;
-&lt;p&gt;This is based on the previous tutorial I've shared.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Firstly add a new logic hook in custom/modules/RingMasterModule/logic_hooks.php&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;php
-$hook_array['after_ui_frame'][] = Array(2, 'Custom Ring Master Buttons', 'custom/modules/RingMasterModule/CustomButtons.php
- ','RingMasterButtons', 'add');&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Then add the custom buttons class in custom/modules/RingMasterModule/CustomButtons.php&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;```php
-class RingMasterButtons {
- function add($bean)
- {
- echo $bean;
- $ringMasterID = $_GET['record'];
- if(!$ringMasterID) return;
- // Based on what action we're in, add some buttons!
- switch ($GLOBALS['app']-&amp;gt;controller-&amp;gt;action)
- {
- case "DetailView": // Add buttons to Detail View&lt;/p&gt;
-&lt;p&gt;$button_code = &amp;lt;&amp;lt;&lt;/p&gt;
-&lt;p&gt;EOQ;
- echo $button_code;
- break;
- }
- }
- }
- ```&lt;/p&gt;
-&lt;p&gt;Quick Repair and Rebuild for good measure. This should add a hidden form
-that will be called when the user clicks the Ring Master Animals.&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
+you'll understand.&lt;/p&gt;</content><category term="Mindfulness"></category></entry></feed>

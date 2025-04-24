@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-03-07T19:31:59+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day 4 - Self-Hosting Gitea</title><link href="https://shanedowling.com/homelab---day-4---self-hosting-gitea.html" rel="alternate"></link><published>2025-03-07T19:31:59+00:00</published><updated>2025-03-07T19:31:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-03-07:/homelab---day-4---self-hosting-gitea.html</id><summary type="html">&lt;h1&gt;Aims&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling - Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/shane-dowling.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-04-24T18:09:32+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day ??? - Long hold-ups</title><link href="https://shanedowling.com/homelab---day----long-hold-ups.html" rel="alternate"></link><published>2025-04-24T18:09:32+00:00</published><updated>2025-04-24T18:09:32+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-04-24:/homelab---day----long-hold-ups.html</id><summary type="html">&lt;p&gt;So, after many days, I'm writing an update on my Homelab—or rather, updating you on the total lack of an update.&lt;/p&gt;
+&lt;h1&gt;Too ghetto to handle&lt;/h1&gt;
+&lt;p&gt;Unfortunately, the Ghetto NAS I was so proud of proved to be too unreliable. The disks frequently disconnected, and the k8s cluster—fairly reasonably …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So, after many days, I'm writing an update on my Homelab—or rather, updating you on the total lack of an update.&lt;/p&gt;
+&lt;h1&gt;Too ghetto to handle&lt;/h1&gt;
+&lt;p&gt;Unfortunately, the Ghetto NAS I was so proud of proved to be too unreliable. The disks frequently disconnected, and the k8s cluster—fairly reasonably—would break. So, it was back to the drawing board.&lt;/p&gt;
+&lt;h1&gt;Distributed Jank&lt;/h1&gt;
+&lt;p&gt;In the spirit of not spending any money and leaning further into the k8s ecosystem, my podcast co-host Sean suggested I look into Longhorn as a distributed block storage system. So, rather than having a central NAS, I distributed the disks across the cluster and brought them together under Longhorn.&lt;/p&gt;
+&lt;p&gt;Again, the dodgy nature of those USB drives continued to plague the setup, delivering helpful errors like:&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/dodgy-longhorn.png" height="100px"&gt;&lt;/p&gt;
+&lt;p&gt;Which required the disk to be re-mounted to fix it. Not ideal..&lt;/p&gt;
+&lt;h1&gt;Time for some gentrification&lt;/h1&gt;
+&lt;p&gt;Despite my best efforts, I had to invest some money into this system. And to be fair, spending money on storing critical data is probably reasonable.&lt;/p&gt;
+&lt;p&gt;Still, I couldn’t help trying to be cheap and grabbed a “steal” on eBay—two 12TB Seagate IronWolf drives for about £300, supposedly with only 600 hours of power-on time.&lt;/p&gt;
+&lt;p&gt;See photo below frmm the auction:&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/ebay-drive.png" height="500px"&gt;&lt;/p&gt;
+&lt;p&gt;However, once they arrived, I did some digging. You see, with Seagate drives, there’s some vendor-specific health data beyond what you get from standard SMART logs.&lt;/p&gt;
+&lt;p&gt;You can see the output below:&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/dodgy-harddrives.png" height="100px"&gt;&lt;/p&gt;
+&lt;p&gt;While the auction claimed ~600 power-on hours, the reality was closer to 27,000—which roughly equates to 3 years of continuous use.&lt;/p&gt;
+&lt;h1&gt;Next steps&lt;/h1&gt;
+&lt;p&gt;Thankfully, the seller was decent. They didn’t seem hugely technical and likely had also been duped. They offered a full return.&lt;/p&gt;
+&lt;p&gt;Now I’ve bitten the bullet, spent even more money, and bought some brand new hard drives. They were supposed to arrive today, but—as is the theme of this post—my doorbell broke, and I didn’t hear the deliveryman.&lt;/p&gt;
+&lt;p&gt;So hopefully, tomorrow I can finally get started building a reliable foundation for the Homelab and resume making progress again.&lt;/p&gt;</content><category term="homelab"></category></entry><entry><title>Homelab - Day 4 - Self-Hosting Gitea</title><link href="https://shanedowling.com/homelab---day-4---self-hosting-gitea.html" rel="alternate"></link><published>2025-03-07T19:31:59+00:00</published><updated>2025-03-07T19:31:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-03-07:/homelab---day-4---self-hosting-gitea.html</id><summary type="html">&lt;h1&gt;Aims&lt;/h1&gt;
 &lt;p&gt;Today’s goal was to deploy Gitea on my K3s cluster, ensuring that:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;It used persistent storage via my NAS.&lt;/li&gt;
@@ -1676,78 +1698,4 @@ This goes as far as "There is no guide, no teacher, no authority. There is only 
 &lt;p&gt;Once the scope is sorted, back in the watcher configuration, for the 'Argument' setting you will need to put in the path to the repair script from above then finally, for the 'Working Directory' put the root of the SugarCRM source.&lt;/p&gt;
 &lt;p&gt;After all of that is configured make some changes to a javascript file, hit save and hopefully you should see the 'Watch for JS Changes' task running for a few seconds.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Pomot — command line pomotodo client</title><link href="https://shanedowling.com/pomot-command-line-pomotodo-client-d3447f55056e.html" rel="alternate"></link><published>2017-04-20T00:00:00+00:00</published><updated>2017-04-20T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2017-04-20:/pomot-command-line-pomotodo-client-d3447f55056e.html</id><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__kvu1aNJ6g__yuMT7O3c6L8Q.png"&gt;&lt;/p&gt;
 &lt;p&gt;For anyone interested, I've created a simple pomotodo client for interacting with pomotodo.com easily.&lt;/p&gt;
-&lt;p&gt;You can find it &lt;a href="https://github.com/shano/pomot/"&gt;here&lt;/a&gt;, feel free to use github issues for any issues or feature requests you can think of.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Command line calendars with Khal and fastmail</title><link href="https://shanedowling.com/command-line-calendars-with-khal-and-fastmail-57214af20b8f.html" rel="alternate"></link><published>2017-04-04T00:00:00+00:00</published><updated>2017-04-04T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2017-04-04:/command-line-calendars-with-khal-and-fastmail-57214af20b8f.html</id><summary type="html">&lt;p&gt;Recently I've been on a bit of a command line kick and I started using &lt;a href="https://github.com/pimutils/khal"&gt;khal&lt;/a&gt; to render my calendar agenda locally.&lt;/p&gt;
-&lt;p&gt;All of the codebases used are python based so before I start I've created a virtualenv so as not to pollute my OS.&lt;/p&gt;
-&lt;p&gt;mkvirtualenv khal
-workon khal&lt;/p&gt;
-&lt;h3&gt;Vdirsyncer …&lt;/h3&gt;</summary><content type="html">&lt;p&gt;Recently I've been on a bit of a command line kick and I started using &lt;a href="https://github.com/pimutils/khal"&gt;khal&lt;/a&gt; to render my calendar agenda locally.&lt;/p&gt;
-&lt;p&gt;All of the codebases used are python based so before I start I've created a virtualenv so as not to pollute my OS.&lt;/p&gt;
-&lt;p&gt;mkvirtualenv khal
-workon khal&lt;/p&gt;
-&lt;h3&gt;Vdirsyncer&lt;/h3&gt;
-&lt;p&gt;Firstly we need to setup &lt;a href="https://github.com/pimutils/vdirsyncer"&gt;Vdirsyncer&lt;/a&gt;, which is used to actually download your caldav entries to a local folder which khal then reads from.&lt;/p&gt;
-&lt;p&gt;pip install vdirsyncer&lt;/p&gt;
-&lt;p&gt;Then to configure it create a file in ~/.vdirsyncer/config and adding these contents, replacing the username/password with your own.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;[general]
- status_path = &amp;quot;~/.vdirsyncer/status/&amp;quot;
-[pair fastmail]
- a = &amp;quot;khal&amp;quot;
- b = &amp;quot;cal&amp;quot;
- collections = [&amp;quot;from a&amp;quot;, &amp;quot;from b&amp;quot;]
-[storage cal]
- type = &amp;quot;caldav&amp;quot;
- url = &amp;quot;https://caldav.messagingengine.com/&amp;quot;
- username = &amp;quot;user@fastmail.fm&amp;quot;
- password = &amp;quot;ONE_TIME_PASSWORD&amp;quot;
- read_only = &amp;quot;true&amp;quot;
-[storage khal]
- type = &amp;quot;filesystem&amp;quot;
- path = &amp;quot;~/.vdirsyncer/fastmail&amp;quot;
- fileext = &amp;quot;.ics&amp;quot;
- #encoding = &amp;quot;utf-8&amp;quot;
- #post_hook = null
- ```
-
-Then run an initial vdirsyncer command, this will create a bunch of folders under ~/.vdirsyncer/fastmail, each of these represents each of the calendars you have in fastmail.
-
-### Khal
-
-```bash
-pip install khal
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Now to configure khal we create this file in ~/.config/khal/config with the contents, replace the folder_id_* with the actual foldernames in ~/.vdirsyncer/fastmail&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;[calendars]
-
-[[default]]
- path = ~/.vdirsyncer/fastmail/Default
- type = discover
-
-[[travel]]
- path = ~/.vdirsyncer/fastmail/folder_id_1
- type = discover
-
-[[events]]
- path = ~/.vdirsyncer/fastmail/folder_id_2
- type = discover
-
-[[admin]]
- path = ~/.vdirsyncer/fastmail/folder_id_3
- type = discover
-
-[[birthdays]]
- path = ~/.vdirsyncer/fastmail/folder_id_3
- type = discover
-
-[locale]
- timeformat = %H:%M
- dateformat = %d/%m/%Y
- longdateformat = %d/%m/%Y
- datetimeformat = %d/%m/%Y %H:%M
- longdatetimeformat = %d/%m/%Y %H:%M
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Now if you run khal you should get a nice calendar view with an agenda next to it.&lt;/p&gt;
-&lt;h3&gt;Aliases&lt;/h3&gt;
-&lt;p&gt;To keep things simple I created an alias that allows me to pop into this virtualenv, sync my calendars and display khal whenever I need my calendars displayed.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;alias khal='workon khal &amp;amp;&amp;amp; vdirsyncer sync &amp;amp;&amp;amp; khal'&lt;/code&gt;&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
+&lt;p&gt;You can find it &lt;a href="https://github.com/shano/pomot/"&gt;here&lt;/a&gt;, feel free to use github issues for any issues or feature requests you can think of.&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
