@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-04-24T18:09:32+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day ??? - Long hold-ups</title><link href="https://shanedowling.com/homelab---day----long-hold-ups.html" rel="alternate"></link><published>2025-04-24T18:09:32+00:00</published><updated>2025-04-24T18:09:32+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-04-24:/homelab---day----long-hold-ups.html</id><summary type="html">&lt;p&gt;So, after many days, I'm writing an update on my Homelab—or rather, updating you on the total lack of an update.&lt;/p&gt;
-&lt;h1&gt;Too ghetto to handle&lt;/h1&gt;
-&lt;p&gt;Unfortunately, the Ghetto NAS I was so proud of proved to be too unreliable. The disks frequently disconnected, and the k8s cluster—fairly reasonably …&lt;/p&gt;</summary><content type="html">&lt;p&gt;So, after many days, I'm writing an update on my Homelab—or rather, updating you on the total lack of an update.&lt;/p&gt;
-&lt;h1&gt;Too ghetto to handle&lt;/h1&gt;
-&lt;p&gt;Unfortunately, the Ghetto NAS I was so proud of proved to be too unreliable. The disks frequently disconnected, and the k8s cluster—fairly reasonably—would break. So, it was back to the drawing board.&lt;/p&gt;
-&lt;h1&gt;Distributed Jank&lt;/h1&gt;
-&lt;p&gt;In the spirit of not spending any money and leaning further into the k8s ecosystem, my podcast co-host Sean suggested I look into Longhorn as a distributed block storage system. So, rather than having a central NAS, I distributed the disks across the cluster and brought them together under Longhorn.&lt;/p&gt;
-&lt;p&gt;Again, the dodgy nature of those USB drives continued to plague the setup, delivering helpful errors like:&lt;/p&gt;
-&lt;p&gt;&lt;img src="images/dodgy-longhorn.png" height="100px"&gt;&lt;/p&gt;
-&lt;p&gt;Which required the disk to be re-mounted to fix it. Not ideal..&lt;/p&gt;
-&lt;h1&gt;Time for some gentrification&lt;/h1&gt;
-&lt;p&gt;Despite my best efforts, I had to invest some money into this system. And to be fair, spending money on storing critical data is probably reasonable.&lt;/p&gt;
-&lt;p&gt;Still, I couldn’t help trying to be cheap and grabbed a “steal” on eBay—two 12TB Seagate IronWolf drives for about £300, supposedly with only 600 hours of power-on time.&lt;/p&gt;
-&lt;p&gt;See photo below frmm the auction:&lt;/p&gt;
-&lt;p&gt;&lt;img src="images/ebay-drive.png" height="500px"&gt;&lt;/p&gt;
-&lt;p&gt;However, once they arrived, I did some digging. You see, with Seagate drives, there’s some vendor-specific health data beyond what you get from standard SMART logs.&lt;/p&gt;
-&lt;p&gt;You can see the output below:&lt;/p&gt;
-&lt;p&gt;&lt;img src="images/dodgy-harddrives.png" height="100px"&gt;&lt;/p&gt;
-&lt;p&gt;While the auction claimed ~600 power-on hours, the reality was closer to 27,000—which roughly equates to 3 years of continuous use.&lt;/p&gt;
-&lt;h1&gt;Next steps&lt;/h1&gt;
-&lt;p&gt;Thankfully, the seller was decent. They didn’t seem hugely technical and likely had also been duped. They offered a full return.&lt;/p&gt;
-&lt;p&gt;Now I’ve bitten the bullet, spent even more money, and bought some brand new hard drives. They were supposed to arrive today, but—as is the theme of this post—my doorbell broke, and I didn’t hear the deliveryman.&lt;/p&gt;
-&lt;p&gt;So hopefully, tomorrow I can finally get started building a reliable foundation for the Homelab and resume making progress again.&lt;/p&gt;</content><category term="homelab"></category></entry><entry><title>Homelab - Day 4 - Self-Hosting Gitea</title><link href="https://shanedowling.com/homelab---day-4---self-hosting-gitea.html" rel="alternate"></link><published>2025-03-07T19:31:59+00:00</published><updated>2025-03-07T19:31:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-03-07:/homelab---day-4---self-hosting-gitea.html</id><summary type="html">&lt;h1&gt;Aims&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Shane Dowling</title><link href="https://shanedowling.com/" rel="alternate"></link><link href="https://shanedowling.com/feeds/all.atom.xml" rel="self"></link><id>https://shanedowling.com/</id><updated>2025-06-18T21:11:54+00:00</updated><subtitle>Platform Engineering Manager</subtitle><entry><title>Homelab - Day 5 - The NAS</title><link href="https://shanedowling.com/homelab---day-5---the-nas.html" rel="alternate"></link><published>2025-06-18T21:11:54+00:00</published><updated>2025-06-18T21:11:54+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-06-18:/homelab---day-5---the-nas.html</id><summary type="html">&lt;p&gt;&lt;img src="images/hp-proliant.jpg" height="400px"&gt;&lt;/p&gt;
+&lt;p&gt;So, it's been a while and I have made some progress worth sharing!&lt;/p&gt;
+&lt;p&gt;After keeping an eye on the auction sites for a while I ended up pulling the plug and buying 2 12TB Seagate Ironwolf drives for my NAS and now wanted to get started with setting this up …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img src="images/hp-proliant.jpg" height="400px"&gt;&lt;/p&gt;
+&lt;p&gt;So, it's been a while and I have made some progress worth sharing!&lt;/p&gt;
+&lt;p&gt;After keeping an eye on the auction sites for a while I ended up pulling the plug and buying 2 12TB Seagate Ironwolf drives for my NAS and now wanted to get started with setting this up.&lt;/p&gt;
+&lt;h2&gt;The hardware&lt;/h2&gt;
+&lt;p&gt;Off a recommendation from Joe at &lt;a href="https://latenightlinux.com/"&gt;Late Night Linux&lt;/a&gt; I picked up a HP 290 G2 I5-8500. It comes with 8GB of RAM and a 256ssd. The form factor is reasonably nice and it fit the two drives perfectly and it's been chugging along well.&lt;/p&gt;
+&lt;h2&gt;The software&lt;/h2&gt;
+&lt;p&gt;As this was very much a learning experience for me I wanted to do this from scratch. So I opted for something familiar OS wise so I could focus more on getting the NAS itself setup.&lt;/p&gt;
+&lt;p&gt;It's running Ubuntu 24.04 LTS and I have the NAS drives setup using as ZFS mirrors. Based also on Joe's suggestion I set it up using dataset, this allows you to logically separate your ZFS drive and apply different rules to them, eg compression or backups depending on the data you're storing.&lt;/p&gt;
+&lt;p&gt;What it might look like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;zfs&lt;span class="w"&gt; &lt;/span&gt;create&lt;span class="w"&gt; &lt;/span&gt;nas/media
+sudo&lt;span class="w"&gt; &lt;/span&gt;zfs&lt;span class="w"&gt; &lt;/span&gt;create&lt;span class="w"&gt; &lt;/span&gt;nas/important
+sudo&lt;span class="w"&gt; &lt;/span&gt;zfs&lt;span class="w"&gt; &lt;/span&gt;create&lt;span class="w"&gt; &lt;/span&gt;nas/k8s
+sudo&lt;span class="w"&gt; &lt;/span&gt;zfs&lt;span class="w"&gt; &lt;/span&gt;create&lt;span class="w"&gt; &lt;/span&gt;nas/tmp
+sudo&lt;span class="w"&gt; &lt;/span&gt;zfs&lt;span class="w"&gt; &lt;/span&gt;create&lt;span class="w"&gt; &lt;/span&gt;nas/backups
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then setting different rules like compression would be:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;zfs&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;compression&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;lz4&lt;span class="w"&gt; &lt;/span&gt;nas/media
+sudo&lt;span class="w"&gt; &lt;/span&gt;zfs&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;compression&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;lz4&lt;span class="w"&gt; &lt;/span&gt;nas/important
+sudo&lt;span class="w"&gt; &lt;/span&gt;zfs&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;compression&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;lz4&lt;span class="w"&gt; &lt;/span&gt;nas/k8s
+sudo&lt;span class="w"&gt; &lt;/span&gt;zfs&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;compression&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;lz4&lt;span class="w"&gt; &lt;/span&gt;nas/backups
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To do snapshot you install zfs-auto-snapshot and you can then set snapshot policies like so:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;zfs&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;com.sun:auto-snapshot&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;nas/important
+sudo&lt;span class="w"&gt; &lt;/span&gt;zfs&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;com.sun:auto-snapshot&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;nas/k8s/nextcloud
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To actually serve the files I'm using nfs, which is actually super easy to install, run and configure.&lt;/p&gt;
+&lt;h2&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;Okay so I've got my (hopefully) reliable data storage finally sorted, now it's time to get back to the K8s cluster and see if I can build something helpful.&lt;/p&gt;</content><category term="homelab"></category></entry><entry><title>Homelab - Day 4 - Self-Hosting Gitea</title><link href="https://shanedowling.com/homelab---day-4---self-hosting-gitea.html" rel="alternate"></link><published>2025-03-07T19:31:59+00:00</published><updated>2025-03-07T19:31:59+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2025-03-07:/homelab---day-4---self-hosting-gitea.html</id><summary type="html">&lt;h1&gt;Aims&lt;/h1&gt;
 &lt;p&gt;Today’s goal was to deploy Gitea on my K3s cluster, ensuring that:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;It used persistent storage via my NAS.&lt;/li&gt;
