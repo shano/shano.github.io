@@ -4078,31 +4078,36 @@ alternative and update this accordingly but BitTorrent Sync seems safe
 enough, if they go down your data is still on your own server and not on
 a service that feels as dodgy as Dropbox does right now.&lt;/p&gt;
 &lt;h3&gt;Note&lt;/h3&gt;
-&lt;p&gt;I did try owncloud another alternative quite some time ago and found the sync process to be very unreliable and slow. The clients also left a lot of be desired. They didn't run a daemon on the server and your clients merely pushed files to a bunch of PHP scripts, which might explain the unreliability. However things may have improved since then.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Philosophy as an extension of mindfulness</title><link href="https://shanedowling.com/philosophy-as-an-extension-of-mindfulness-8295b123c977.html" rel="alternate"></link><published>2014-04-20T00:00:00+00:00</published><updated>2014-04-20T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-04-20:/philosophy-as-an-extension-of-mindfulness-8295b123c977.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__8__eU80cOXYJfRz3xdJ__9JA.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;Recently I read a very interesting &lt;a href="https://robertpaulwolff.blogspot.co.uk/2011/10/one-dimensional-man-mini-tutorial-part.html"&gt;mini-tutorial on Marcuse&lt;/a&gt;
-and his book One-Dimensional Man, an apparently brilliant merge of both
-Freud and Marx. I'd suggest reading the link and forming you're own
-opinions on him. I myself found the tutorial brought on convincing
-points, but more than that I found …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__8__eU80cOXYJfRz3xdJ__9JA.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;Recently I read a very interesting &lt;a href="https://robertpaulwolff.blogspot.co.uk/2011/10/one-dimensional-man-mini-tutorial-part.html"&gt;mini-tutorial on Marcuse&lt;/a&gt;
-and his book One-Dimensional Man, an apparently brilliant merge of both
-Freud and Marx. I'd suggest reading the link and forming you're own
-opinions on him. I myself found the tutorial brought on convincing
-points, but more than that I found myself falling back a re-ignition of
-my own rambling interest in philosophy.&lt;/p&gt;
-&lt;p&gt;Having been away from it for quite some time, it was nice to put another
-filter onto reality, to take a political or socio-economic theory, sit
-it behind my eyes and consider the world around me. If it's worth
-reading I almost always gain new insights and it helps to formalise my
-viewpoints and more importantly take action. I'm well aware I'm not
-nearly smart enough to contribute to such a debate but I can make
-significant personal decisions with a renewed clarity. Mindfulness is a
-wonderful thing, but I'm beginning to realise more and more there's an
-extension to this. Not as a directly similar practice but a value in
-deeper understanding.&lt;/p&gt;
-&lt;p&gt;Much like the mind-body awareness a daily meditation practice brings, we
-are also within structures, processes and systems that demand our
-awareness and not simply passive acceptance at face value. Do this and
-we risk getting swept up into the norms and that's an easy way to get
-manipulated without even realising it. Confused? Check out the link and
-you'll understand.&lt;/p&gt;</content><category term="Mindfulness"></category></entry></feed>
+&lt;p&gt;I did try owncloud another alternative quite some time ago and found the sync process to be very unreliable and slow. The clients also left a lot of be desired. They didn't run a daemon on the server and your clients merely pushed files to a bunch of PHP scripts, which might explain the unreliability. However things may have improved since then.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>SugarCRM — Search for records related to the current record</title><link href="https://shanedowling.com/sugarcrm-search-for-records-related-to-the-current-record-4c0086341c14.html" rel="alternate"></link><published>2014-04-20T00:00:00+00:00</published><updated>2014-04-20T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-04-20:/sugarcrm-search-for-records-related-to-the-current-record-4c0086341c14.html</id><summary type="html">&lt;p&gt;Say you have two modules in Sugar: Animals and Ringmasters and they aren't directly related via a standard relationship but they are related through some convoluted means. Now, imagine if you want to override the SugarCRM search to allow you to search for all Animals indirectly related to a Ringmaster …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Say you have two modules in Sugar: Animals and Ringmasters and they aren't directly related via a standard relationship but they are related through some convoluted means. Now, imagine if you want to override the SugarCRM search to allow you to search for all Animals indirectly related to a Ringmaster, I've written about how to do something &lt;a href="http://shanedowling.com/sugarcrm-searches-data-indirectly-related-modules/"&gt;similar recently&lt;/a&gt;. Conversely, you want to search for all Animals related to a Ringmaster you're currently viewing. It's not a link that exists in Sugar so you can directly see a Dashlet and you don't want to build anything from scratch so that's going to take effort.&lt;/p&gt;
+&lt;p&gt;What you could do, is create a link on the action drop-down while viewing the Ringmaster that linked you to a search that would call animals supplying the Ringmaster's id as the argument.&lt;/p&gt;
+&lt;p&gt;This is based on the previous tutorial I've shared.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Firstly add a new logic hook in custom/modules/RingMasterModule/logic_hooks.php&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;php
+$hook_array['after_ui_frame'][] = Array(2, 'Custom Ring Master Buttons', 'custom/modules/RingMasterModule/CustomButtons.php
+ ','RingMasterButtons', 'add');&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Then add the custom buttons class in custom/modules/RingMasterModule/CustomButtons.php&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;```php
+class RingMasterButtons {
+ function add($bean)
+ {
+ echo $bean;
+ $ringMasterID = $_GET['record'];
+ if(!$ringMasterID) return;
+ // Based on what action we're in, add some buttons!
+ switch ($GLOBALS['app']-&amp;gt;controller-&amp;gt;action)
+ {
+ case "DetailView": // Add buttons to Detail View&lt;/p&gt;
+&lt;p&gt;$button_code = &amp;lt;&amp;lt;&lt;/p&gt;
+&lt;p&gt;EOQ;
+ echo $button_code;
+ break;
+ }
+ }
+ }
+ ```&lt;/p&gt;
+&lt;p&gt;Quick Repair and Rebuild for good measure. This should add a hidden form
+that will be called when the user clicks the Ring Master Animals.&lt;/p&gt;</content><category term="Tech"></category></entry></feed>

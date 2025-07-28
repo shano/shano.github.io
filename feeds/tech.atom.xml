@@ -3333,81 +3333,7 @@ someone else.&lt;/p&gt;
 
 &lt;span class="n"&gt;folder_iterate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mboxname&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
  &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Done&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Make money mining a cryptocurrency</title><link href="https://shanedowling.com/make-money-mining-a-cryptocurrency-618d8f4727bf.html" rel="alternate"></link><published>2014-01-04T00:00:00+00:00</published><updated>2014-01-04T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2014-01-04:/make-money-mining-a-cryptocurrency-618d8f4727bf.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__gEF0IVFmJ4OZC__A9XrmnEA__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;A while back I wrote a post on my tech blog about using a tool called
-salt to configure your boxes to mine a crypto-currency. The currency I was mining was Anoncoin and I jokingly said it was a bit of fun that would make no money. Turns out, as …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__gEF0IVFmJ4OZC__A9XrmnEA__2x.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;A while back I wrote a post on my tech blog about using a tool called
-salt to configure your boxes to mine a crypto-currency. The currency I was mining was Anoncoin and I jokingly said it was a bit of fun that would make no money. Turns out, as Anoncoin grew against Bitcoin which by itself was significantly increasing in value, I managed to make a nice little contribution towards the cost of my servers for the year.&lt;/p&gt;
-&lt;p&gt;Anyway, while I wasn't really keeping an eye on things it looks like
-alternative currencies seem to be doing quite well. So I figured I put
-up a little guide here on things to help people get started with mining
-your own coins. It might look like your making only small amounts over
-time but you can't really anticipate how the coin's value might increase
-over time. Plus you'll be contributing to one of the coolest aspects of
-these crypto-currencies, decentralized mining
-So here's the steps:&lt;/p&gt;
-&lt;h3&gt;1. Get a server to run your miner.&lt;/h3&gt;
-&lt;p&gt;Amazon has a free usage tier which gives you a free small instance for a year. So sign up and give it a go. I'd suggest just going with Ubuntu if you're new to things and make sure to use a 64 bit AMI.&lt;/p&gt;
-&lt;h3&gt;2. Choose the right currency.&lt;/h3&gt;
-&lt;p&gt;Do some research. Coins-e provides a lot of good information on the historical price of currency prices. Take a look at what the prospects are like for your currency and how they've performed against Bitcoin.&lt;/p&gt;
-&lt;p&gt;Reddit CryptoCurrencies– There's a lot of disparate info here. I'd suggest deciding on a currency, then searching on this subreddit for related information.&lt;/p&gt;
-&lt;p&gt;Also take a look at trading volume as an indicator of future prospects:
-http://coinmarketcap.com/ or &lt;a href="https://www.cryptsy.com/"&gt;https://www.cryptsy.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;You should also look at computational difficultly and what you'd earn
-right now too. &lt;a href="http://dustcoin.com/mining"&gt;http://dustcoin.com/mining&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Basically the more established the currency, the harder it will be to
-mine as you'll be competing with a lot of other miners. The sweet spot
-is to mine a currency in it's infancy, while there's not a lot of mining
-competition. Then win if it increases in value against Litecoin or
-Bitcoin, but it's obviously a difficult one to predict. Two of the higher value currencies, Anoncoin and Protoshares might be a good starting point, but if you see any murmurings that another currency might make it big, go for that. For the purposes of this guide I'll show you how to start on those two.&lt;/p&gt;
-&lt;h3&gt;3. Find a mining pool.&lt;/h3&gt;
-&lt;p&gt;A mining pool is where multiple clients come together and contribute to
-the mining of a currency. I won't go into details, but unless you have
-serious hardware it's going to be computationally too difficult to mine
-coins by yourself.&lt;/p&gt;
-&lt;p&gt;For Anoncoin I use coinpool.in and for Protoshares I've used ypool.net. All you need to do is sign up for an account and create a worker for the mining software you'll run on your server to point to.&lt;/p&gt;
-&lt;h3&gt;4. Set up the miner on your server.&lt;/h3&gt;
-&lt;p&gt;Login to your server using ssh and run these commands. Replace
-username.worker and password with the worker details you created &lt;strong&gt;not your login details for the mining pool&lt;/strong&gt;.
-&lt;strong&gt;Note:&lt;/strong&gt; These are the details for using a cpuminer. If you're running
-this on a server you should be using a cpu-based miner. GPU miners are
-better equipped for crypto-currencies in general, but that's out of the
-scope of this article. If you want to skip the server steps and run this
-on your local machine, try out Guiminer for
-windows or Asteriod for OSX.&lt;/p&gt;
-&lt;p&gt;For &lt;strong&gt;Protoshare&lt;/strong&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;bash
-wget [http://www.theopeneffect.com/jhprotominer-yvg1900-M7c-linux64-core2.tgz](http://www.theopeneffect.com/jhprotominer-yvg1900-M7c-linux64-core2.tgz)
- tar zxvf jhprotominer-yvg1900-M7c-linux64-core2.tgz
- cd jhprotominer-yvg1900-M7c-linux64-core2
- cd linux64-core2–256M
- ./jhprotominer -O \`ypool.net \`__ -u username.worker -p password -t 5&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Note, 256M is the amount of memory per thread and 5 is the amount of
-threads that will run. So on these options you would need a box with
-256*5 MBs of memory which is 1280Mbs. Change these figures accordingly with how much memory your server has free. You can check this with free -m.&lt;/p&gt;
-&lt;p&gt;For &lt;strong&gt;Anoncoin&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;bash
-sudo apt-get install build-essential libcurl4-openssl-dev
- wget [http://sourceforge.net/projects/cpuminer/files/pooler-cpuminer-2.3.2.tar.gz](http://sourceforge.net/projects/cpuminer/files/pooler-cpuminer-2.3.2.tar.gz)
- tar xzf pooler-cpuminer-*.tar.gz
- cd cpuminer-*
- ./configure CFLAGS="-O3"
- make
- ./minerd - url=stratum+tcp://anc.coinpool.in:3333 –userpass=username.worker:password&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Double check with your mining pool that your worker is connected and
-running. It's also very similar steps for running many other crypto-currencies, I'm sure the mining pool you find will have better
-steps than these too.&lt;/p&gt;
-&lt;h3&gt;5. Leave it running for a few days/weeks/months/forever.&lt;/h3&gt;
-&lt;h3&gt;6. Converting to Bitcoin.&lt;/h3&gt;
-&lt;p&gt;Once you've mined a reasonable number of coins you can choose to cash
-them out. Firstly, you'll need to convert the currency to Bitcoin. I
-would use coins-e.com for this. Create an account and generate a deposit address to receive the funds from your mining pool.
-Basically from your mining pools UI you should be able to Cash Out, enter the amount you've mined and the coins-e.com address. Wait a few minutes for the transfer to happen. Then on coin-e you easily be able to convert the deposited currency to Bitcoin. Don't worry, you're almost there.&lt;/p&gt;
-&lt;h3&gt;7. Cashing out&lt;/h3&gt;
-&lt;p&gt;Now that you have your Bitcoin it's time to turn it into cold, hard
-cash. I use Bitstamp for this. You'll need to enter bank account details etc. Now using the bitcoin wallet address you'll get on Bitstamp, you should easily be able to trade the bitcoins for dollar cash monies. Then it's simply a case of withdrawing it to your bank account. As soon as the money is in dollars, withdraw it. I've found these Bitcoin exchanges are ALWAYS less reliable than bank accounts. Due to poor quality exchanges I have frozen money sitting in several countries that I'll probably never get back. Having dollars in these places isn't secure, so make your transactions as fast as possible.&lt;/p&gt;
-&lt;p&gt;Anyway, that took longer than I'd hoped. If you happen to have any
-questions or improvements you think I could add, feel free to comment.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Thrashing your networks download with dispatch and axel</title><link href="https://shanedowling.com/thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html" rel="alternate"></link><published>2013-12-12T00:00:00+00:00</published><updated>2013-12-12T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-12:/thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html</id><summary type="html">&lt;p&gt;Say you need to grab a file as fast as possible and you also happen to
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Thrashing your networks download with dispatch and axel</title><link href="https://shanedowling.com/thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html" rel="alternate"></link><published>2013-12-12T00:00:00+00:00</published><updated>2013-12-12T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2013-12-12:/thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7.html</id><summary type="html">&lt;p&gt;Say you need to grab a file as fast as possible and you also happen to
 have a few network connections knocking about. For example maybe a
 separate network for your wireless and ethernet. Maybe you have a phone
 with tethering or a 3g dongle. This little guide will get …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Say you need to grab a file as fast as possible and you also happen to
@@ -4423,34 +4349,7 @@ weekly and monthly under /var/lib/automysqlbackup with the appropriate databases
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;/usr/sbin/automysqlbackup&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/root/s3_backup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>Google History told me I'm a nerd</title><link href="https://shanedowling.com/google-history-told-me-im-a-nerd-68c2161f42c7.html" rel="alternate"></link><published>2010-05-06T00:00:00+00:00</published><updated>2010-05-06T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-05-06:/google-history-told-me-im-a-nerd-68c2161f42c7.html</id><summary type="html">&lt;p&gt;24000 searches later and here is my top ten sites I click to on google.&lt;/p&gt;
-&lt;p&gt;Top sites&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://ubuntuforums.org" title="http://ubuntuforums.org"&gt;&lt;strong&gt;Ubuntu Forums&lt;/strong&gt;
-_A help and support forum for Ubuntu Linux._ubuntuforums.org&lt;/a&gt;&lt;a href="http://ubuntuforums.org"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://en.wikipedia.org" title="http://en.wikipedia.org"&gt;&lt;strong&gt;Wikipedia, the free encyclopedia&lt;/strong&gt;
-_Allied naval bombardments of Japan during the last weeks of World War II in 1945 targeted industrial …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;24000 searches later and here is my top ten sites I click to on google.&lt;/p&gt;
-&lt;p&gt;Top sites&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://ubuntuforums.org" title="http://ubuntuforums.org"&gt;&lt;strong&gt;Ubuntu Forums&lt;/strong&gt;
-_A help and support forum for Ubuntu Linux._ubuntuforums.org&lt;/a&gt;&lt;a href="http://ubuntuforums.org"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://en.wikipedia.org" title="http://en.wikipedia.org"&gt;&lt;strong&gt;Wikipedia, the free encyclopedia&lt;/strong&gt;
-_Allied naval bombardments of Japan during the last weeks of World War II in 1945 targeted industrial and military…_en.wikipedia.org&lt;/a&gt;&lt;a href="http://en.wikipedia.org"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.boards.ie" title="http://www.boards.ie"&gt;&lt;strong&gt;boards.ie - Now Ye're Talkin'&lt;/strong&gt;
-_Boards.ie uses cookies. By continuing to browse this site you are agreeing to our use of cookies. Click here to find…_www.boards.ie&lt;/a&gt;&lt;a href="http://www.boards.ie"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://stackoverflow.com" title="http://stackoverflow.com"&gt;&lt;strong&gt;Stack Overflow - Where Developers Learn, Share, &amp;amp; Build Careers&lt;/strong&gt;
-_Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming…_stackoverflow.com&lt;/a&gt;&lt;a href="http://stackoverflow.com"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://lifehacker.com" title="http://lifehacker.com"&gt;&lt;strong&gt;Lifehacker - &lt;em&gt;Do everything better&lt;/em&gt;&lt;/strong&gt;
-Do everything betterlifehacker.com&lt;/a&gt;&lt;a href="http://lifehacker.com"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://php.net" title="http://php.net"&gt;&lt;strong&gt;PHP: Hypertext Preprocessor&lt;/strong&gt;
-_Please note that according to the PHP version support timelines, PHP 7.0.33 is the last scheduled release of PHP 7.0…_php.net&lt;/a&gt;&lt;a href="http://php.net"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://drupal.org"&gt;https://drupal.org&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://wiki.archlinux.org" title="http://wiki.archlinux.org"&gt;&lt;strong&gt;ArchWiki&lt;/strong&gt;
-_Welcome to the ArchWiki: your source for Arch Linux documentation on the web._wiki.archlinux.org&lt;/a&gt;&lt;a href="http://wiki.archlinux.org"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://addons.mozilla.org" title="http://addons.mozilla.org"&gt;&lt;strong&gt;Add-ons for Firefox (en-US)&lt;/strong&gt;
-_Download Firefox extensions and themes. They're like apps for your browser. They can block annoying ads, protect…_addons.mozilla.org&lt;/a&gt;&lt;a href="http://addons.mozilla.org"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Yep most of them are nerdy related but I was utterly shocked that
-ubuntuforums.org bested wikipedia. So I have more interest in a flavour
-of linux than I do on…. the rest of life, basically.&lt;/p&gt;
-&lt;p&gt;Terrific.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>8 randomly useful php tricks</title><link href="https://shanedowling.com/8-randomly-useful-php-tricks-1acfd89a3fb4.html" rel="alternate"></link><published>2010-02-22T00:00:00+00:00</published><updated>2010-02-22T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-02-22:/8-randomly-useful-php-tricks-1acfd89a3fb4.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;1)debug_print_backtrace()&lt;/strong&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Tech"></category></entry><entry><title>8 randomly useful php tricks</title><link href="https://shanedowling.com/8-randomly-useful-php-tricks-1acfd89a3fb4.html" rel="alternate"></link><published>2010-02-22T00:00:00+00:00</published><updated>2010-02-22T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-02-22:/8-randomly-useful-php-tricks-1acfd89a3fb4.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;1)debug_print_backtrace()&lt;/strong&gt;
 I use this one a lot, print a debug-style list of what was called to get
 thethe point where this function is called. Very, very useful.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2) __autoload()&lt;/strong&gt;
@@ -4551,4 +4450,92 @@ can make certain files look like crap however. An example would be our
 locales file, that has large array mappings of terms to languages.
 Unless you're totally certain your whole project is going to look
 awesome I would suggest using this on a file by file basis, as I have
-with vim.&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
+with vim.&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Vim!</title><link href="https://shanedowling.com/vim-e2fc00d85b79.html" rel="alternate"></link><published>2010-01-11T00:00:00+00:00</published><updated>2010-01-11T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2010-01-11:/vim-e2fc00d85b79.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__z__gwqd53GgEAJGz83yndbA.png"&gt;&lt;/p&gt;
+&lt;p&gt;For a while now vim has been my editor of choice and only up until
+recently have I began to unearth it's potential. My reasoning before was
+that it was so cross-compatible(even working in ssh terminals) that this
+would always be my go-to editor. Now it's become so much …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__z__gwqd53GgEAJGz83yndbA.png"&gt;&lt;/p&gt;
+&lt;p&gt;For a while now vim has been my editor of choice and only up until
+recently have I began to unearth it's potential. My reasoning before was
+that it was so cross-compatible(even working in ssh terminals) that this
+would always be my go-to editor. Now it's become so much more! Running
+regexes across all working files with bufdo, crazy window manipulation
+and crazy editing tricks have made this editor truly fantastic. I've
+started using wherever possible, even trying out the vimperator firefox
+plugin.&lt;/p&gt;
+&lt;p&gt;3 reasons to learn Vim are&lt;/p&gt;
+&lt;p&gt;1. Edit text far more efficiently(I as a programmer do this more than a
+little)&lt;/p&gt;
+&lt;p&gt;2. Not look like an idiot by saying you "know" vim then head straight
+for the arrow keys&lt;/p&gt;
+&lt;p&gt;3. The ladies&lt;/p&gt;
+&lt;p&gt;I felt if I was ever going to learn it I would have to see someone use
+it. Luckily I found a guy who clearly only has love for VIM. Before I
+watched the videos I basically knew a couple of shortcuts but still used
+the arrows key and 'i' to do 95% of my work. Things have changed
+drastically since then.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Play with &lt;a href="http://www.vim.org/"&gt;vim&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Watch all of these &lt;a href="http://www.derekwyatt.org/vim/vim-tutorial-videos/vim-novice-tutorial-videos/"&gt;vim tutorials&lt;/a&gt;, a guy who has likely changed me forever!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Feel free to use the mindmap I made, I find it easier to traverse
+quickly over the flat cheatsheet(but that's just me)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You'll find yourself working at a slow pace(even slower than normal) but
+fight through this as the productivity rewards are worth it!&lt;/p&gt;
+&lt;p&gt;Alsoit may be a little annoying but add these to your .vimrc to disable
+the arrow keys, this helped me a lot in using the editor correctly.&lt;/p&gt;
+&lt;p&gt;You'll find yourself working at a slow pace(even slower than normal) but
+fight true this as the productivity rewards are worth it!&lt;/p&gt;
+&lt;p&gt;Also if may be a little annoying but add these to your .vimrc to disable
+the arrow keys, this helped me a lot in using the editor correctly.&lt;/p&gt;
+&lt;p&gt;noremap "" noremap! noremap "" noremap! noremap "" noremap! noremap "" norema! noremap "" noremap! noremap "" noremap! noremap "" noremap! noremap "" norema!&lt;/p&gt;</content><category term="Tech"></category></entry><entry><title>Google Wave Server Admin</title><link href="https://shanedowling.com/google-wave-server-admin-693186dcac55.html" rel="alternate"></link><published>2009-12-16T00:00:00+00:00</published><updated>2009-12-16T00:00:00+00:00</updated><author><name>Shane Dowling</name></author><id>tag:shanedowling.com,2009-12-16:/google-wave-server-admin-693186dcac55.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="images/1__FO13w__1tT7x8ZvWoH19o0w.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Download &lt;a href="http://github.com/shanedowling/Wave-ServerAdmin"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;What it does&lt;/h3&gt;
+&lt;p&gt;Execute commands from google wave on your remote server.&lt;/p&gt;
+&lt;h3&gt;How to set it up&lt;/h3&gt;
+&lt;p&gt;You need python2.6 or greater, which sucks for a lot of debian users but I
+need it to be able to kill processes nicely.&lt;/p&gt;
+&lt;p&gt;Fill in the details required &lt;a href="http://github.com/shanedowling/Wave-ServerAdmin"&gt;here …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="images/1__FO13w__1tT7x8ZvWoH19o0w.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;Download &lt;a href="http://github.com/shanedowling/Wave-ServerAdmin"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;What it does&lt;/h3&gt;
+&lt;p&gt;Execute commands from google wave on your remote server.&lt;/p&gt;
+&lt;h3&gt;How to set it up&lt;/h3&gt;
+&lt;p&gt;You need python2.6 or greater, which sucks for a lot of debian users but I
+need it to be able to kill processes nicely.&lt;/p&gt;
+&lt;p&gt;Fill in the details required &lt;a href="http://github.com/shanedowling/Wave-ServerAdmin"&gt;here&lt;/a&gt;. Deploy it to your own google app engine deployment and continue on the easy option.&lt;/p&gt;
+&lt;h3&gt;How it works&lt;/h3&gt;
+&lt;p&gt;Using google wave's api and google's datastore, when a blip is submitted
+an &lt;a href="http://www.python.org/doc/2.5.2/lib/module-xmlrpclib.html"&gt;xmlrpc&lt;/a&gt; request is sent to your server, along with your hashed password for
+authentication. The python code running on the server is then executed
+as a sub process and the output is returned. If the server subprocess
+lasts more than 3 seconds it is killed and that output is returned, I
+can't seem to be able to wait any longer before the request times out.&lt;/p&gt;
+&lt;p&gt;As I mentioned the data is stored on google datastore. All passwords
+are hashed as soon as they're entered.&lt;/p&gt;
+&lt;p&gt;If you need any further details, check the &lt;a href="http://github.com/shanedowling/Wave-ServerAdmin"&gt;source&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Why&lt;/h3&gt;
+&lt;p&gt;Generating ideas with what you can do with wave mostly. Obviously this
+script needs locking down to be useful, I'm doubting very many want to
+run ls -alh from google wave a lot. But if you start extending the code
+you can write some cool things into waves.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://o2sms.sourceforge.net/"&gt;o2sms&lt;/a&gt; it allows me to send text
+messages from the command line for free using my mobile phone operator's
+web-account(this tool only works in Ireland however). So for me to send
+a text message I would type. o2sms sender_in_phonebook -M 'a message'&lt;/p&gt;
+&lt;p&gt;o2sms mum -M 'Hi I am sending you a message'&lt;/p&gt;
+&lt;p&gt;So with a few changes to my script I can create a new wave add the robot
+participant and type&lt;/p&gt;
+&lt;p&gt;mum Hi I am sending you a message&lt;/p&gt;
+&lt;p&gt;And presto I'm sending texts from my google wave, for free.&lt;/p&gt;
+&lt;p&gt;Happys Days!&lt;/p&gt;
+&lt;p&gt;And I'm sure there is a truck load of ideas that can be done around
+this, the project itself is purely a proof of concept that I hope will
+generate some cool stuff.&lt;/p&gt;
+&lt;p&gt;Note:I did this project to learn both python and google wave's api, so
+apologies if the code sucks/is very PHPish.&lt;/p&gt;</content><category term="Tech"></category></entry></feed>
