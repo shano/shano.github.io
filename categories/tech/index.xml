@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tech on Shane Dowling</title>
-    <link>http://localhost:8080/categories/tech/</link>
+    <link>https://shanedowling.com/categories/tech/</link>
     <description>Recent content in Tech on Shane Dowling</description>
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Sep 2020 18:06:58 +0000</lastBuildDate>
-    <atom:link href="http://localhost:8080/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shanedowling.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Populate Ansible from Amazon secrets manager</title>
-      <link>http://localhost:8080/posts/2020-09-03_populate-ansible-from-amazon-secrets-manager-8eac77127e37/</link>
+      <link>https://shanedowling.com/posts/2020-09-03_populate-ansible-from-amazon-secrets-manager-8eac77127e37/</link>
       <pubDate>Thu, 03 Sep 2020 18:06:58 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2020-09-03_populate-ansible-from-amazon-secrets-manager-8eac77127e37/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__l0WrN40X7lf7tKsbdtj7Sw.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2020-09-03_populate-ansible-from-amazon-secrets-manager-8eac77127e37/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__l0WrN40X7lf7tKsbdtj7Sw.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;One of the ways to improve your security and avoid passing around env files is to follow the &lt;a href=&#34;https://12factor.net/config&#34;&gt;twelve factor app&lt;/a&gt; and start populating your secrets from the environment. Another improvement is to pull those secrets from a known secret store, with features like rotation, auditing etc.&lt;/p&gt;
 &lt;h3 id=&#34;requirements&#34;&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
@@ -26,80 +26,80 @@
     </item>
     <item>
       <title>Better local development for Serverless Functions</title>
-      <link>http://localhost:8080/posts/2019-02-11_better-local-development-for-serverless-functions-b96b5a4cfa8f/</link>
+      <link>https://shanedowling.com/posts/2019-02-11_better-local-development-for-serverless-functions-b96b5a4cfa8f/</link>
       <pubDate>Mon, 11 Feb 2019 20:15:38 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2019-02-11_better-local-development-for-serverless-functions-b96b5a4cfa8f/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__roedigbmFjRYkZobdZWuKg.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2019-02-11_better-local-development-for-serverless-functions-b96b5a4cfa8f/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__roedigbmFjRYkZobdZWuKg.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Lambda is a terrific piece of kit for all the benefits listed on the &lt;a href=&#34;https://aws.amazon.com/lambda/&#34;&gt;AWS product page&lt;/a&gt; and &lt;a href=&#34;https://serverless.com/&#34;&gt;Serverless&lt;/a&gt; is a very useful framework for developing Lambda functions. However, developing serverless applications locally is a total pain if what you&amp;rsquo;re solving isn&amp;rsquo;t totally trivial.&lt;/p&gt;
 &lt;p&gt;When things get complicated and your Lambda functions start to integrate with other AWS services, things really begin to break down. There are a few things that look like silver-bullets, I&amp;rsquo;ll share them here and explain why they didn&amp;rsquo;t work for me, then give you a working example that I myself struggled to find(hence me writing this).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Easy maintenance mode with nginx</title>
-      <link>http://localhost:8080/posts/2018-08-20_easy-maintenance-mode-with-nginx-2d4d510a0980/</link>
+      <link>https://shanedowling.com/posts/2018-08-20_easy-maintenance-mode-with-nginx-2d4d510a0980/</link>
       <pubDate>Mon, 20 Aug 2018 18:51:42 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2018-08-20_easy-maintenance-mode-with-nginx-2d4d510a0980/</guid>
+      <guid>https://shanedowling.com/posts/2018-08-20_easy-maintenance-mode-with-nginx-2d4d510a0980/</guid>
       <description>&lt;p&gt;So I combined a few solutions I found online to come up with a quick way to set up maintenance mode using nginx. Ideally it shouldn&amp;rsquo;t happen but in times of emergency in can be good to knock up a quick maintenance page for everyone but your own internal ips.&lt;/p&gt;
 &lt;h3 id=&#34;nginx-config&#34;&gt;Nginx Config&lt;/h3&gt;
 &lt;p&gt;So here&amp;rsquo;s the configuration I use for nginx, it starts with setting the internal ips of your company in the main nginx config file. Then in the actual vhost, you can set it to watch for the existence of a maintenance_on.html and when it exists, throw a 503 and use the maintenance page as your 503 error page.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lessons from Remote Working</title>
-      <link>http://localhost:8080/posts/2018-02-18_lessons-from-remote-working-19b58de3bc90/</link>
+      <link>https://shanedowling.com/posts/2018-02-18_lessons-from-remote-working-19b58de3bc90/</link>
       <pubDate>Sun, 18 Feb 2018 22:57:15 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2018-02-18_lessons-from-remote-working-19b58de3bc90/</guid>
+      <guid>https://shanedowling.com/posts/2018-02-18_lessons-from-remote-working-19b58de3bc90/</guid>
       <description>&lt;p&gt;For the past few years as a freelancer, I&amp;rsquo;ve done many forms of remote work. I&amp;rsquo;ve worked both part and full-time remote positions, I&amp;rsquo;ve also worked with teams across multiple time-zones, in locations ranging from home offices, hotdesking, even camping and crummy motels, so I have a fairly broad range of experience with remote working. It seems to be the trend that many companies have opted for, and this is definitely a great idea, both for the employee and the company. The employee can often cultivate a better work-life balance and the company can access a far wider range of talent than what may exist in the local area.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Supplementing an iPad Pro with Linux</title>
-      <link>http://localhost:8080/posts/2018-01-21_supplementing-an-ipad-pro-with-linux-57a809a06d7f/</link>
+      <link>https://shanedowling.com/posts/2018-01-21_supplementing-an-ipad-pro-with-linux-57a809a06d7f/</link>
       <pubDate>Sun, 21 Jan 2018 13:04:52 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2018-01-21_supplementing-an-ipad-pro-with-linux-57a809a06d7f/</guid>
+      <guid>https://shanedowling.com/posts/2018-01-21_supplementing-an-ipad-pro-with-linux-57a809a06d7f/</guid>
       <description>&lt;p&gt;Recently I wrote about &lt;a href=&#34;https://shanedowling.com/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2&#34;&gt;why I&amp;rsquo;m using an iPad Pro as my main &amp;ldquo;at home&amp;rdquo; machine&lt;/a&gt; and &lt;a href=&#34;https://shanedowling.com/how-am-i-using-my-ipad-pro-as-a-development-machine-e4912a31744e&#34;&gt;how I&amp;rsquo;m generally using it for tinkering around with remote servers&lt;/a&gt;. There is however, one caveat. I do still have an at-home server that I use for helping with making the iPad as feature rich as I need it to be.&lt;/p&gt;
 &lt;h4 id=&#34;the-server&#34;&gt;The Server&lt;/h4&gt;
 &lt;p&gt;To do this, I essentially have Archlinux running on an old Thinkpad X230, sitting under my router connected via an ethernet cable to keep things nice and stable. The only way I manage it is over SSH.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The iPad Pro as a focused, simple coding machine</title>
-      <link>http://localhost:8080/posts/2018-01-20_the-ipad-pro-as-a-focused--simple-coding-machine-e4912a31744e/</link>
+      <link>https://shanedowling.com/posts/2018-01-20_the-ipad-pro-as-a-focused--simple-coding-machine-e4912a31744e/</link>
       <pubDate>Sat, 20 Jan 2018 22:47:42 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2018-01-20_the-ipad-pro-as-a-focused--simple-coding-machine-e4912a31744e/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__bY3zgSqJyGTkf__ghXqpKRQ.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2018-01-20_the-ipad-pro-as-a-focused--simple-coding-machine-e4912a31744e/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__bY3zgSqJyGTkf__ghXqpKRQ.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;So recently I wrote a post on &lt;a href=&#34;https://shanedowling.com/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2&#34;&gt;why a developer might use an iPad Pro&lt;/a&gt; as an at home machine. Today, I&amp;rsquo;m going to elaborate on how I&amp;rsquo;m actually using it day to day.&lt;/p&gt;
 &lt;h3 id=&#34;so-there-is-not-much-you-can-do-locally&#34;&gt;So there is not much you can do locally&lt;/h3&gt;
 &lt;p&gt;Realistically, as a local dev environment there really is not much an iPad Pro can do. I&amp;rsquo;m used to proper Linux/Unix based machines, these sandboxed apps just didn&amp;rsquo;t cut it for me, there&amp;rsquo;s nothing close to a full development system on an iPad(sorry I know!), I wouldn&amp;rsquo;t even bother trying. So pretty quickly I opted to go for a remote Linux box that I could remotely access.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why an iPad for a backend developer</title>
-      <link>http://localhost:8080/posts/2018-01-08_why-an-ipad-for-a-backend-developer-2fe3e8949bb2/</link>
+      <link>https://shanedowling.com/posts/2018-01-08_why-an-ipad-for-a-backend-developer-2fe3e8949bb2/</link>
       <pubDate>Mon, 08 Jan 2018 19:38:33 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2018-01-08_why-an-ipad-for-a-backend-developer-2fe3e8949bb2/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__B__WKx4__N__VChXf__FWDV5dg__2x.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2018-01-08_why-an-ipad-for-a-backend-developer-2fe3e8949bb2/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__B__WKx4__N__VChXf__FWDV5dg__2x.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;So I&amp;rsquo;m a backend developer. I&amp;rsquo;m often closest to the source of most technical problems at my job. Networking issues, memory issues, hardware issues, operating system issues, the list goes on. I need to be able to tinker and play with things often, so usually my work environments reflect this. So the question is, why in God&amp;rsquo;s name would I want to move to an iPad?&lt;/p&gt;
 &lt;p&gt;The downsides are immediately obvious, I have almost no tinkering power on here. It&amp;rsquo;s not Open Source, like at all. There&amp;rsquo;s very little I can do with this if something goes wrong, recently I had an issue with an app not syncing with my iPhone, I had to contact the developer and ask for assistance, rather than just jump down to the log files or the code itself and see what was up.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Faster SugarCRM Development with PHPStorm</title>
-      <link>http://localhost:8080/posts/2017-04-30_faster-sugarcrm-development-with-phpstorm-8f59b4860885/</link>
+      <link>https://shanedowling.com/posts/2017-04-30_faster-sugarcrm-development-with-phpstorm-8f59b4860885/</link>
       <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2017-04-30_faster-sugarcrm-development-with-phpstorm-8f59b4860885/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__QzgJ__r__gWS5Nddl0PmJlSw.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2017-04-30_faster-sugarcrm-development-with-phpstorm-8f59b4860885/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__QzgJ__r__gWS5Nddl0PmJlSw.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Javascript development with SugarCRM can be a bit of a pain, however combining PHPStorm&amp;rsquo;s filewatcher tool with a cut down repair script can speed things up to a more tolerable level.&lt;/p&gt;
 &lt;p&gt;What this setup does is watch for any javascript changes in our custom/ folder(because you&amp;rsquo;re not making core hacks are you?) and execute a light-weight repair script when any of those files change. So you&amp;rsquo;ll hit save in PHPStorm, wait a few seconds and your dev javascript should be refreshed and ready to test.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Pomot — command line pomotodo client</title>
-      <link>http://localhost:8080/posts/2017-04-20_pomot---command-line-pomotodo-client-d3447f55056e/</link>
+      <link>https://shanedowling.com/posts/2017-04-20_pomot---command-line-pomotodo-client-d3447f55056e/</link>
       <pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2017-04-20_pomot---command-line-pomotodo-client-d3447f55056e/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__kvu1aNJ6g__yuMT7O3c6L8Q.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2017-04-20_pomot---command-line-pomotodo-client-d3447f55056e/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__kvu1aNJ6g__yuMT7O3c6L8Q.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;For anyone interested, I&amp;rsquo;ve created a simple pomotodo client for interacting with pomotodo.com easily.&lt;/p&gt;
 &lt;p&gt;You can find it &lt;a href=&#34;https://github.com/shano/pomot/&#34;&gt;here&lt;/a&gt;, feel free to use github issues for any issues or feature requests you can think of.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Command line calendars with Khal and fastmail</title>
-      <link>http://localhost:8080/posts/2017-04-04_command-line-calendars-with-khal-and-fastmail-57214af20b8f/</link>
+      <link>https://shanedowling.com/posts/2017-04-04_command-line-calendars-with-khal-and-fastmail-57214af20b8f/</link>
       <pubDate>Tue, 04 Apr 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2017-04-04_command-line-calendars-with-khal-and-fastmail-57214af20b8f/</guid>
+      <guid>https://shanedowling.com/posts/2017-04-04_command-line-calendars-with-khal-and-fastmail-57214af20b8f/</guid>
       <description>&lt;p&gt;Recently I&amp;rsquo;ve been on a bit of a command line kick and I started using &lt;a href=&#34;https://github.com/pimutils/khal&#34;&gt;khal&lt;/a&gt; to render my calendar agenda locally.&lt;/p&gt;
 &lt;p&gt;All of the codebases used are python based so before I start I&amp;rsquo;ve created a virtualenv so as not to pollute my OS.&lt;/p&gt;
 &lt;p&gt;mkvirtualenv khal
@@ -109,17 +109,17 @@ workon khal&lt;/p&gt;
     </item>
     <item>
       <title>SugarCRM 7 — Conditional Read Only Fields</title>
-      <link>http://localhost:8080/posts/2016-02-06_sugarcrm-7---conditional-read-only-fields-7fbf971f0592/</link>
+      <link>https://shanedowling.com/posts/2016-02-06_sugarcrm-7---conditional-read-only-fields-7fbf971f0592/</link>
       <pubDate>Sat, 06 Feb 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2016-02-06_sugarcrm-7---conditional-read-only-fields-7fbf971f0592/</guid>
+      <guid>https://shanedowling.com/posts/2016-02-06_sugarcrm-7---conditional-read-only-fields-7fbf971f0592/</guid>
       <description>&lt;p&gt;SugarCRM has a few ways to set fields as read-only, but it leaves a lot to be desired. One of the missing features that you might need to implement is having a module flagged as read-only on the record view based on a field on the module or the result of an API request.&lt;/p&gt;
 &lt;p&gt;I have found a way to do it but it is mostly basic UI hacking and doesn&amp;rsquo;t set the field read-only everywhere on the UI, just the record view page. So it will remain on the recordlist view or within other subpanels as editable, so bear this in mind as it&amp;rsquo;s only useful for very specific cases.&lt;/p&gt;</description>
     </item>
     <item>
       <title>NetworkX — Get all Paths from all sources to sinks</title>
-      <link>http://localhost:8080/posts/2015-11-04_networkx---get-all-paths-from-all-sources-to-sinks-825e3787b458/</link>
+      <link>https://shanedowling.com/posts/2015-11-04_networkx---get-all-paths-from-all-sources-to-sinks-825e3787b458/</link>
       <pubDate>Wed, 04 Nov 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-11-04_networkx---get-all-paths-from-all-sources-to-sinks-825e3787b458/</guid>
+      <guid>https://shanedowling.com/posts/2015-11-04_networkx---get-all-paths-from-all-sources-to-sinks-825e3787b458/</guid>
       <description>&lt;p&gt;Often when I&amp;rsquo;m working with graphs and a set of masses in a spectrum I need to be able to iterate over all paths for all sources and sinks in that graph. Especially if I&amp;rsquo;m looking to compare multiple ideal spectrums against a given spectrum. Here&amp;rsquo;s some code that will allow me to quickly iterate over all source-&amp;gt;sink paths in a given graph G.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
@@ -138,9 +138,9 @@ workon khal&lt;/p&gt;
     </item>
     <item>
       <title>Generate Binary Tree From String</title>
-      <link>http://localhost:8080/posts/2015-10-27_generate-binary-tree-from-string-fcb1a0c662e7/</link>
+      <link>https://shanedowling.com/posts/2015-10-27_generate-binary-tree-from-string-fcb1a0c662e7/</link>
       <pubDate>Tue, 27 Oct 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-10-27_generate-binary-tree-from-string-fcb1a0c662e7/</guid>
+      <guid>https://shanedowling.com/posts/2015-10-27_generate-binary-tree-from-string-fcb1a0c662e7/</guid>
       <description>&lt;p&gt;Recently while implementing the &lt;a href=&#34;http://rosalind.info/problems/ba7f/&#34;&gt;Small Parsimony Problem&lt;/a&gt; I had the need to generate a binary tree from a string in Python.&lt;/p&gt;
 &lt;p&gt;The pseudo-code in the question implicitly assumes you have some functionality that will generate a DNA sequence like CAAATCCC into a binary tree, then run SmallParsimony on it. I couldn&amp;rsquo;t find that functionality anywhere, so I decided to implement something simple in networkx. Hopefully it&amp;rsquo;s useful.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python&lt;/span&gt;
@@ -182,10 +182,10 @@ workon khal&lt;/p&gt;
     </item>
     <item>
       <title>SugarCRM — Conditional Actions</title>
-      <link>http://localhost:8080/posts/2015-10-15_sugarcrm---conditional-actions-9c19e52c50/</link>
+      <link>https://shanedowling.com/posts/2015-10-15_sugarcrm---conditional-actions-9c19e52c50/</link>
       <pubDate>Thu, 15 Oct 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-10-15_sugarcrm---conditional-actions-9c19e52c50/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__qWKDdqMlWZ9HD3fdzhvAjw.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2015-10-15_sugarcrm---conditional-actions-9c19e52c50/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__qWKDdqMlWZ9HD3fdzhvAjw.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Say you need to hide certain actions in Sugar depending on the status of a field, I&amp;rsquo;ve come across a great snippet of code from an awesome comment by Felix Nilam on the SugarCRM forums and wanted to show you a brief snippet of how it could work.&lt;/p&gt;
 &lt;p&gt;Make sure to call it before render, otherwise I had issues with this.meta.buttons already having rendered.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;({
@@ -235,39 +235,39 @@ workon khal&lt;/p&gt;
     </item>
     <item>
       <title>Bioinformatics/Rosalind — Skeleton Generator</title>
-      <link>http://localhost:8080/posts/2015-09-27_bioinformatics-rosalind---skeleton-generator-5229517d32fa/</link>
+      <link>https://shanedowling.com/posts/2015-09-27_bioinformatics-rosalind---skeleton-generator-5229517d32fa/</link>
       <pubDate>Sun, 27 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-09-27_bioinformatics-rosalind---skeleton-generator-5229517d32fa/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__UkaRZWvi0Lv5WVz4qxP5LQ.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2015-09-27_bioinformatics-rosalind---skeleton-generator-5229517d32fa/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__UkaRZWvi0Lv5WVz4qxP5LQ.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Working through part 4 of my &lt;a href=&#34;https://www.coursera.org/specializations/bioinformatics&#34;&gt;Cousera Bioinformatics specialisation&lt;/a&gt;, I decided to write a generator that creates a standardised approach to structure, write and test your algorithmic code. It also works for &lt;a href=&#34;http://rosalind.info/&#34;&gt;Rosalind&lt;/a&gt; problems.&lt;/p&gt;
 &lt;p&gt;Explanations are in the &lt;a href=&#34;https://github.com/shano/biogen/blob/master/README.md&#34;&gt;README&lt;/a&gt;. If you have any issues or are confused by anything, feel free to get in touch!&lt;/p&gt;
 &lt;p&gt;You can find the code &lt;a href=&#34;https://github.com/shano/biogen&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Tiddlywiki to Org-Mode</title>
-      <link>http://localhost:8080/posts/2015-08-31_tiddlywiki-to-org-mode-c83bd3cd7323/</link>
+      <link>https://shanedowling.com/posts/2015-08-31_tiddlywiki-to-org-mode-c83bd3cd7323/</link>
       <pubDate>Mon, 31 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-08-31_tiddlywiki-to-org-mode-c83bd3cd7323/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__xJqslHRpA1F0Qxjvp4tU2A.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2015-08-31_tiddlywiki-to-org-mode-c83bd3cd7323/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__xJqslHRpA1F0Qxjvp4tU2A.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Okay, I swear this is the last document conversion script I&amp;rsquo;m writing this year. I&amp;rsquo;ve been on a bit of a rampage to move all of my life in Emacs Org-Mode and converting all of my Tiddlywiki notes into Org mode has been on my list for a while. Thankfully both formats are pretty simple so the script was fairly straightforward.&lt;/p&gt;
 &lt;p&gt;You can find it &lt;a href=&#34;https://github.com/shano/Tiddlywiki-to-Org-Mode&#34;&gt;here&lt;/a&gt;, simply fill in the folder locations and give it a run.&lt;/p&gt;</description>
     </item>
     <item>
       <title>OSQA to Tiddlywiki</title>
-      <link>http://localhost:8080/posts/2015-07-27_osqa-to-tiddlywiki-ccdb598d226b/</link>
+      <link>https://shanedowling.com/posts/2015-07-27_osqa-to-tiddlywiki-ccdb598d226b/</link>
       <pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-07-27_osqa-to-tiddlywiki-ccdb598d226b/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__0l5W0q____QuCByvtgmeQdJA.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2015-07-27_osqa-to-tiddlywiki-ccdb598d226b/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__0l5W0q____QuCByvtgmeQdJA.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Recently I&amp;rsquo;ve been trying out &lt;a href=&#34;http://www.tiddlywiki.com/&#34;&gt;Tiddlywiki&lt;/a&gt; as an alternative to &lt;a href=&#34;http://evernote.com/&#34;&gt;Evernote&lt;/a&gt;. I decided to try convert my existing &lt;a href=&#34;http://www.osqa.net/&#34;&gt;OSQA&lt;/a&gt; install to &lt;a href=&#34;http://www.tiddlywiki.com/&#34;&gt;Tiddlywiki&lt;/a&gt; as I&amp;rsquo;m travelling a lot and don&amp;rsquo;t always have access to my servers via the internet. Here&amp;rsquo;s a python script I wrote that might help anyones trying to do the same.&lt;/p&gt;
 &lt;p&gt;You can find it &lt;a href=&#34;https://github.com/shano/osqatotiddlywiki&#34;&gt;here on github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Any questions or queries, just let me know!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Verify you&#39;re hidden with conky</title>
-      <link>http://localhost:8080/posts/2015-07-26_verify-you-re-hidden-with-conky-b59f1e36001b/</link>
+      <link>https://shanedowling.com/posts/2015-07-26_verify-you-re-hidden-with-conky-b59f1e36001b/</link>
       <pubDate>Sun, 26 Jul 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-07-26_verify-you-re-hidden-with-conky-b59f1e36001b/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__1JMMamsmo6ZschEvlANcLg.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2015-07-26_verify-you-re-hidden-with-conky-b59f1e36001b/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__1JMMamsmo6ZschEvlANcLg.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I run a few scripts to ensure my identity stays hidden day to day on my
 laptop. Here&amp;rsquo;s a few conky scripts to verify things are as they should
 be.&lt;/p&gt;
@@ -280,10 +280,10 @@ location and print it to conky.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SugarCRM 7 — Adding an action to the listview headerpanel</title>
-      <link>http://localhost:8080/posts/2015-07-25_sugarcrm-7---adding-an-action-to-the-listview-headerpanel-cdfff560e7b3/</link>
+      <link>https://shanedowling.com/posts/2015-07-25_sugarcrm-7---adding-an-action-to-the-listview-headerpanel-cdfff560e7b3/</link>
       <pubDate>Sat, 25 Jul 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-07-25_sugarcrm-7---adding-an-action-to-the-listview-headerpanel-cdfff560e7b3/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__WJpUe2DNz1qsC4zMTJB0eA.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2015-07-25_sugarcrm-7---adding-an-action-to-the-listview-headerpanel-cdfff560e7b3/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__WJpUe2DNz1qsC4zMTJB0eA.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;This tutorial should show you how to add a custom button/action that
 will appear across all modules. It&amp;rsquo;s a little similar to &lt;a href=&#34;http://shanedowling.com/sugarcrm-7-adding-an-action-to-the-listview/&#34;&gt;this tutorial&lt;/a&gt;
 with a few changes to how the button gets rendered and the actions get
@@ -297,10 +297,10 @@ to the Create button for all modules.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SugarCRM — Prevent currencies getting overridden</title>
-      <link>http://localhost:8080/posts/2015-04-16_sugarcrm---prevent-currencies-getting-overridden-7944af907da9/</link>
+      <link>https://shanedowling.com/posts/2015-04-16_sugarcrm---prevent-currencies-getting-overridden-7944af907da9/</link>
       <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-04-16_sugarcrm---prevent-currencies-getting-overridden-7944af907da9/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__zrzOG7L4xvFI2XJ2hB9iaA.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2015-04-16_sugarcrm---prevent-currencies-getting-overridden-7944af907da9/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__zrzOG7L4xvFI2XJ2hB9iaA.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;SugarCRM has some neat features involving currency rates, but one of the
 more annoying ones is that Sugar will automatically update the base rate
 every time you save a record with a currency field attached. This can be
@@ -319,10 +319,10 @@ invoiced.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SugarCRM 7 — Roll SugarCRM with Docker</title>
-      <link>http://localhost:8080/posts/2015-04-07_sugarcrm-7---roll-sugarcrm-with-docker-f4449e2ca7a/</link>
+      <link>https://shanedowling.com/posts/2015-04-07_sugarcrm-7---roll-sugarcrm-with-docker-f4449e2ca7a/</link>
       <pubDate>Tue, 07 Apr 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-04-07_sugarcrm-7---roll-sugarcrm-with-docker-f4449e2ca7a/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__IkzYCoEsXglLAC549u9Wzg.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2015-04-07_sugarcrm-7---roll-sugarcrm-with-docker-f4449e2ca7a/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__IkzYCoEsXglLAC549u9Wzg.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I find trying to replicate the SugarCRM environment locally a real pain.
 One of the main issues is simply that Sugar requires such old versions
 of PHP to be installed, especially compared to other web projects I have
@@ -333,10 +333,10 @@ it a much faster/elegant solution.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Solving boot2docker&#39;s fail to start error</title>
-      <link>http://localhost:8080/posts/2015-02-07_solving-boot2docker-s-fail-to-start-error-acec8ba7802c/</link>
+      <link>https://shanedowling.com/posts/2015-02-07_solving-boot2docker-s-fail-to-start-error-acec8ba7802c/</link>
       <pubDate>Sat, 07 Feb 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-02-07_solving-boot2docker-s-fail-to-start-error-acec8ba7802c/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__lnHJgbXH80YiZ__B2F1HYcA.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2015-02-07_solving-boot2docker-s-fail-to-start-error-acec8ba7802c/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__lnHJgbXH80YiZ__B2F1HYcA.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m putting this obvious solution up as I couldn&amp;rsquo;t see it anywhere
 online.&lt;/p&gt;
 &lt;p&gt;If you try to start up boot2docker with boot2docker start and it
@@ -354,9 +354,9 @@ suspended due to an OSX suspend or shutdown.&lt;/p&gt;
     </item>
     <item>
       <title>R — Cleaning/Merging Excel files</title>
-      <link>http://localhost:8080/posts/2015-02-05_r---cleaning-merging-excel-files-e742fbb33c71/</link>
+      <link>https://shanedowling.com/posts/2015-02-05_r---cleaning-merging-excel-files-e742fbb33c71/</link>
       <pubDate>Thu, 05 Feb 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2015-02-05_r---cleaning-merging-excel-files-e742fbb33c71/</guid>
+      <guid>https://shanedowling.com/posts/2015-02-05_r---cleaning-merging-excel-files-e742fbb33c71/</guid>
       <description>&lt;p&gt;This is just a useful snippet of code I&amp;rsquo;ve been using a lot to tidy
 up messy exports I&amp;rsquo;ve been getting lately.&lt;/p&gt;
 &lt;p&gt;Takes in a bunch of excel files, rewrites some variable column names in
@@ -380,10 +380,10 @@ merged into a single csv file.&lt;/p&gt;
     </item>
     <item>
       <title>SugarCRM — Git Version Control Strategy</title>
-      <link>http://localhost:8080/posts/2014-11-10_sugarcrm---git-version-control-strategy-20997a85b1c0/</link>
+      <link>https://shanedowling.com/posts/2014-11-10_sugarcrm---git-version-control-strategy-20997a85b1c0/</link>
       <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-11-10_sugarcrm---git-version-control-strategy-20997a85b1c0/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__2NJhCUqmjZjwLRviy5R6yg.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-11-10_sugarcrm---git-version-control-strategy-20997a85b1c0/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__2NJhCUqmjZjwLRviy5R6yg.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve found SugarCRM an utter pain to work with in terms of version
 control for a number of reasons, but the most annoying is simply that
 certain critical elements of the SugarCRM configuration are stored on
@@ -395,20 +395,20 @@ managed to create a very useful gitflow based workflow.&lt;/p&gt;
     </item>
     <item>
       <title>Better PHP Debugging with Emacs</title>
-      <link>http://localhost:8080/posts/2014-10-02_better-php-debugging-with-emacs-1c2f71c947fe/</link>
+      <link>https://shanedowling.com/posts/2014-10-02_better-php-debugging-with-emacs-1c2f71c947fe/</link>
       <pubDate>Thu, 02 Oct 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-10-02_better-php-debugging-with-emacs-1c2f71c947fe/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__3CPMZKjTwVkDGKtphfr3yQ.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-10-02_better-php-debugging-with-emacs-1c2f71c947fe/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__3CPMZKjTwVkDGKtphfr3yQ.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Recently I came across an app called &lt;a href=&#34;http://codebugapp.com/&#34;&gt;CodeBug&lt;/a&gt;, a really nice PHP debugger for
 Mac. I find debugging PHP really painful within editors such as Vim or Emacs, so up until now I&amp;rsquo;d been stuck using the incredibly bloated PHPStorm.&lt;/p&gt;
 &lt;p&gt;On Emacs you can currently use Geben for debugging but I find it&amp;rsquo;s install really painful and it&amp;rsquo;s usage even more so. I figured it was worth knocking up an Emacs plugin that allows you to set breakpoints in Codebug.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Shellshock — Am I vulnerable and what do I do?</title>
-      <link>http://localhost:8080/posts/2014-09-25_shellshock---am-i-vulnerable-and-what-do-i-do--4368762a4c94/</link>
+      <link>https://shanedowling.com/posts/2014-09-25_shellshock---am-i-vulnerable-and-what-do-i-do--4368762a4c94/</link>
       <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-09-25_shellshock---am-i-vulnerable-and-what-do-i-do--4368762a4c94/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__9ehFHvJtYiV__mH5tFVI9OQ.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-09-25_shellshock---am-i-vulnerable-and-what-do-i-do--4368762a4c94/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__9ehFHvJtYiV__mH5tFVI9OQ.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;`Shellshock `__ is the
 latest Heartbleed level vulnerability to be discovered. It&amp;rsquo;s a pretty
 long running exploit in how bash handles environment variables. It&amp;rsquo;s a
@@ -424,10 +424,10 @@ test&lt;/p&gt;
     </item>
     <item>
       <title>SugarCRM 7 — Fix to re-enable ElasticSearch on custom modules</title>
-      <link>http://localhost:8080/posts/2014-09-18_sugarcrm-7---fix-to-re-enable-elasticsearch-on-custom-modules-f669c97ca480/</link>
+      <link>https://shanedowling.com/posts/2014-09-18_sugarcrm-7---fix-to-re-enable-elasticsearch-on-custom-modules-f669c97ca480/</link>
       <pubDate>Thu, 18 Sep 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-09-18_sugarcrm-7---fix-to-re-enable-elasticsearch-on-custom-modules-f669c97ca480/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__HOS9Snvhcd__NSa6OnO__ksQ.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-09-18_sugarcrm-7---fix-to-re-enable-elasticsearch-on-custom-modules-f669c97ca480/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__HOS9Snvhcd__NSa6OnO__ksQ.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I had an issue in Sugar where some custom modules refused to appear in
 the Global Search settings, meaning I couldn&amp;rsquo;t index them in
 ElasticSearch.&lt;/p&gt;
@@ -443,10 +443,10 @@ ElasticSearch.&lt;/p&gt;
     </item>
     <item>
       <title>SugarCRM 7 — Enable Importing on Custom Modules</title>
-      <link>http://localhost:8080/posts/2014-09-11_sugarcrm-7---enable-importing-on-custom-modules-eabf29774f3b/</link>
+      <link>https://shanedowling.com/posts/2014-09-11_sugarcrm-7---enable-importing-on-custom-modules-eabf29774f3b/</link>
       <pubDate>Thu, 11 Sep 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-09-11_sugarcrm-7---enable-importing-on-custom-modules-eabf29774f3b/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__rMyjz1HzRpsHOYM40IoG7A.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-09-11_sugarcrm-7---enable-importing-on-custom-modules-eabf29774f3b/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__rMyjz1HzRpsHOYM40IoG7A.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve been wracking my brain trying to get &lt;a href=&#34;http://support.sugarcrm.com/04_Find_Answers/03_Developers/100Customization/Enabling_Importing_for_Custom_Modules/&#34;&gt;this guide&lt;/a&gt; to work with SugarCRM 7. Add to the fact that it &amp;ldquo;looks&amp;rdquo; like this is also how it&amp;rsquo;s done in SugarCRM 7, if you peruse the code under Accounts or Contacts. However it isn&amp;rsquo;t. This is how I&amp;rsquo;ve added importing support to custom modules.&lt;/p&gt;
 &lt;h3 id=&#34;set-module-as-importable&#34;&gt;Set Module as Importable&lt;/h3&gt;
 &lt;p&gt;Under modules/&lt;ModuleName&gt;/&lt;ModuleName&gt;_sugar.php set&lt;/p&gt;
@@ -457,9 +457,9 @@ should have something like&lt;/p&gt;</description>
     </item>
     <item>
       <title>DOMpdf failing to render certain accented characters</title>
-      <link>http://localhost:8080/posts/2014-08-21_dompdf-failing-to-render-certain-accented-characters-9be35f0c13a6/</link>
+      <link>https://shanedowling.com/posts/2014-08-21_dompdf-failing-to-render-certain-accented-characters-9be35f0c13a6/</link>
       <pubDate>Thu, 21 Aug 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-08-21_dompdf-failing-to-render-certain-accented-characters-9be35f0c13a6/</guid>
+      <guid>https://shanedowling.com/posts/2014-08-21_dompdf-failing-to-render-certain-accented-characters-9be35f0c13a6/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve noticed some issues with DOMpdf when trying to generate PDFs using
 their internal Helvetica font. After banging my head against a wall for
 a few hours trying to &amp;ldquo;fix&amp;rdquo; UTF-8 support, it turned out UTF-8 support
@@ -472,9 +472,9 @@ could source a copy of the .ttfs and replicate these steps.&lt;/p&gt;</descripti
     </item>
     <item>
       <title>Yii — Convert database to migrations</title>
-      <link>http://localhost:8080/posts/2014-08-21_yii---convert-database-to-migrations-998a6277c968/</link>
+      <link>https://shanedowling.com/posts/2014-08-21_yii---convert-database-to-migrations-998a6277c968/</link>
       <pubDate>Thu, 21 Aug 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-08-21_yii---convert-database-to-migrations-998a6277c968/</guid>
+      <guid>https://shanedowling.com/posts/2014-08-21_yii---convert-database-to-migrations-998a6277c968/</guid>
       <description>&lt;p&gt;It happens to be best of us. You start a new Yii project, generate a few
 tables and fields, create the models in Gii and totally forget to use
 any migrations.&lt;/p&gt;
@@ -488,10 +488,10 @@ any migrations.&lt;/p&gt;
     </item>
     <item>
       <title>SugarCRM 7 — Custom subpanels</title>
-      <link>http://localhost:8080/posts/2014-08-13_sugarcrm-7---custom-subpanels-a75e66374a5b/</link>
+      <link>https://shanedowling.com/posts/2014-08-13_sugarcrm-7---custom-subpanels-a75e66374a5b/</link>
       <pubDate>Wed, 13 Aug 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-08-13_sugarcrm-7---custom-subpanels-a75e66374a5b/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__g70Q0ojQdUFPYP4a__sPE5w.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-08-13_sugarcrm-7---custom-subpanels-a75e66374a5b/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__g70Q0ojQdUFPYP4a__sPE5w.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;This tutorial should hopefully help you to create a new subpanel under
 the Contacts module in Sugar using a custom link class and driven by
 SugarCRM 7&amp;rsquo;s new SugarQuery API.&lt;/p&gt;
@@ -580,10 +580,10 @@ specified.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SugarCRM 7 — Making Ajax Requests</title>
-      <link>http://localhost:8080/posts/2014-08-09_sugarcrm-7---making-ajax-requests-7bf1bd0c71a5/</link>
+      <link>https://shanedowling.com/posts/2014-08-09_sugarcrm-7---making-ajax-requests-7bf1bd0c71a5/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-08-09_sugarcrm-7---making-ajax-requests-7bf1bd0c71a5/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__cu8y__JHqBRKgm37dccl0Pg.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-08-09_sugarcrm-7---making-ajax-requests-7bf1bd0c71a5/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__cu8y__JHqBRKgm37dccl0Pg.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;SugarCRM has a pretty great API if you know how to poll it. Today I&amp;rsquo;m
 sharing two examples of where I&amp;rsquo;ve needed to poll SugarCRM&amp;rsquo;s API with
 some sample jQuery code.&lt;/p&gt;
@@ -615,10 +615,10 @@ fieldset if you need sample requests to work with.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SugarCRM 7 — Add a new action to a record</title>
-      <link>http://localhost:8080/posts/2014-08-07_sugarcrm-7---add-a-new-action-to-a-record-d020dafdc883/</link>
+      <link>https://shanedowling.com/posts/2014-08-07_sugarcrm-7---add-a-new-action-to-a-record-d020dafdc883/</link>
       <pubDate>Thu, 07 Aug 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-08-07_sugarcrm-7---add-a-new-action-to-a-record-d020dafdc883/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__lM3J923TEAa5__XNjB__57Jg.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-08-07_sugarcrm-7---add-a-new-action-to-a-record-d020dafdc883/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__lM3J923TEAa5__XNjB__57Jg.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Odds are if you&amp;rsquo;re customising SugarCRM, you will at some point need to
 add functionality to the records page. This article shows you a
 framework for creating actions on the UI, the API entrypoints to run
@@ -750,19 +750,19 @@ drop-down I just generally choose here.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SugarCRM — Sugar powered by Salt!</title>
-      <link>http://localhost:8080/posts/2014-08-02_sugarcrm---sugar-powered-by-salt--2d2af530f829/</link>
+      <link>https://shanedowling.com/posts/2014-08-02_sugarcrm---sugar-powered-by-salt--2d2af530f829/</link>
       <pubDate>Sat, 02 Aug 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-08-02_sugarcrm---sugar-powered-by-salt--2d2af530f829/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__zMEOOXE7GYSSRFVwtqxhVQ.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-08-02_sugarcrm---sugar-powered-by-salt--2d2af530f829/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__zMEOOXE7GYSSRFVwtqxhVQ.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;SugarCRM can be a pain to setup, especially if you are managing many
 installs on different servers/environments. I&amp;rsquo;m a big fan of using &lt;a href=&#34;http://www.saltstack.com/&#34;&gt;salt&lt;/a&gt; to configure my servers. I rarely manage any servers directly anymore and generally run things through my salt master. This guide should hopefully get you up and running with a production ready setup of SugarCRM that you can re-use over and over. If you are looking for a decent primer on saltstack, &lt;a href=&#34;http://www.youtube.com/watch?v=fTieSO2tp3s&#34;&gt;this video&lt;/a&gt; will give you a really useful introduction to what salt can really do. I&amp;rsquo;m barely scratching the surface.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Log Queries with MySQL Proxy</title>
-      <link>http://localhost:8080/posts/2014-07-19_log-queries-with-mysql-proxy-714ae139cc00/</link>
+      <link>https://shanedowling.com/posts/2014-07-19_log-queries-with-mysql-proxy-714ae139cc00/</link>
       <pubDate>Sat, 19 Jul 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-07-19_log-queries-with-mysql-proxy-714ae139cc00/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__HJJkQeHYeEx3PtDHrtR6pQ.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-07-19_log-queries-with-mysql-proxy-714ae139cc00/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__HJJkQeHYeEx3PtDHrtR6pQ.png&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;what-is-it&#34;&gt;What is it?&lt;/h3&gt;
 &lt;p&gt;Have you ever found yourself wanting live statistics of you mysql
 database, or a log of all the erroring queries. Well MySQL Proxy might&lt;/p&gt;
@@ -775,9 +775,9 @@ transparent way to check nothing has failed on the DB side.&lt;/p&gt;</descripti
     </item>
     <item>
       <title>SugarCRM — Versioning Your Database</title>
-      <link>http://localhost:8080/posts/2014-07-16_sugarcrm---versioning-your-database-cdcee943048b/</link>
+      <link>https://shanedowling.com/posts/2014-07-16_sugarcrm---versioning-your-database-cdcee943048b/</link>
       <pubDate>Wed, 16 Jul 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-07-16_sugarcrm---versioning-your-database-cdcee943048b/</guid>
+      <guid>https://shanedowling.com/posts/2014-07-16_sugarcrm---versioning-your-database-cdcee943048b/</guid>
       <description>&lt;p&gt;One issue that constantly re-occurs for me using SugarCRM is that
 certain knowledge is only stored in it&amp;rsquo;s database. So say you want to
 revert to a previous version of Sugar and wish to obtain the Studio
@@ -790,10 +790,10 @@ left to sharing a database dump between developers.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SugarCRM 7 — Set recordlist row colours based on row data</title>
-      <link>http://localhost:8080/posts/2014-07-12_sugarcrm-7---set-recordlist-row-colours-based-on-row-data-6ff3072c08a9/</link>
+      <link>https://shanedowling.com/posts/2014-07-12_sugarcrm-7---set-recordlist-row-colours-based-on-row-data-6ff3072c08a9/</link>
       <pubDate>Sat, 12 Jul 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-07-12_sugarcrm-7---set-recordlist-row-colours-based-on-row-data-6ff3072c08a9/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__ftmi7V32ZXjnNFoJRH6UnQ.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-07-12_sugarcrm-7---set-recordlist-row-colours-based-on-row-data-6ff3072c08a9/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__ftmi7V32ZXjnNFoJRH6UnQ.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The tutorial shows you how to do two useful things in SugarCRM 7.
 Firstly, how to call actions when rows get updated in SugarCRM&amp;rsquo;s
 recordlist and secondly, how to set information based on row data. The
@@ -804,10 +804,10 @@ specified colour. The key call here is this.collection.on(&amp;lsquo;data:sync:c
     </item>
     <item>
       <title>Minimalist MySQL Reporting</title>
-      <link>http://localhost:8080/posts/2014-07-10_minimalist-mysql-reporting-ecc27a71d97/</link>
+      <link>https://shanedowling.com/posts/2014-07-10_minimalist-mysql-reporting-ecc27a71d97/</link>
       <pubDate>Thu, 10 Jul 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-07-10_minimalist-mysql-reporting-ecc27a71d97/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__ehZIxeK7e1vIcDgZbwxgXQ.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-07-10_minimalist-mysql-reporting-ecc27a71d97/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__ehZIxeK7e1vIcDgZbwxgXQ.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Sometimes business folk can have crazy demands on the types of reports
 your system should produce and sometimes these can be really time
 consuming and painful to get right. Often I find the most flexible
@@ -822,9 +822,9 @@ users into your system.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SugarCRM 7 — Colour Code Rows based on data values</title>
-      <link>http://localhost:8080/posts/2014-07-10_sugarcrm-7---colour-code-rows-based-on-data-values-a238bc54525c/</link>
+      <link>https://shanedowling.com/posts/2014-07-10_sugarcrm-7---colour-code-rows-based-on-data-values-a238bc54525c/</link>
       <pubDate>Thu, 10 Jul 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-07-10_sugarcrm-7---colour-code-rows-based-on-data-values-a238bc54525c/</guid>
+      <guid>https://shanedowling.com/posts/2014-07-10_sugarcrm-7---colour-code-rows-based-on-data-values-a238bc54525c/</guid>
       <description>&lt;p&gt;Add this into your recordlist javascript file.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;render_colors&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;here&amp;#39;&lt;/span&gt;);
@@ -852,10 +852,10 @@ users into your system.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Your brain on stoicism</title>
-      <link>http://localhost:8080/posts/2014-07-10_your-brain-on-stoicism-783d1cd1995c/</link>
+      <link>https://shanedowling.com/posts/2014-07-10_your-brain-on-stoicism-783d1cd1995c/</link>
       <pubDate>Thu, 10 Jul 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-07-10_your-brain-on-stoicism-783d1cd1995c/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__SOaZJ4BwYNtsm0SoctZl7A.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-07-10_your-brain-on-stoicism-783d1cd1995c/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__SOaZJ4BwYNtsm0SoctZl7A.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;For the last few months I&amp;rsquo;ve been attempting to practice Stoicism and
 wanted to share the effects of what regular stoic practice has had. If
 you&amp;rsquo;ve never heard of Stoicism I&amp;rsquo;d recommend &lt;a href=&#34;https://tim.blog/2009/04/13/stoicism-101-a-practical-guide-for-entrepreneurs/&#34;&gt;fourhourworkweek.com&amp;rsquo;s introduction&lt;/a&gt;, which is very pragmatic. Essentially, what happens after several weeks of watching your emotional reactions, evaluating what&amp;rsquo;s in your control
@@ -877,10 +877,10 @@ It&amp;rsquo;s a very useful default technique to go to.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Manage background tasks with PHP-Resque and Supervisor</title>
-      <link>http://localhost:8080/posts/2014-07-03_manage-background-tasks-with-php-resque-and-supervisor-93d14234b703/</link>
+      <link>https://shanedowling.com/posts/2014-07-03_manage-background-tasks-with-php-resque-and-supervisor-93d14234b703/</link>
       <pubDate>Thu, 03 Jul 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-07-03_manage-background-tasks-with-php-resque-and-supervisor-93d14234b703/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__DDS7CsAlPK7wTEEbPFLRAQ.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-07-03_manage-background-tasks-with-php-resque-and-supervisor-93d14234b703/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__DDS7CsAlPK7wTEEbPFLRAQ.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/chrisboulton/php-resque&#34;&gt;PHP-Resque&lt;/a&gt;, the PHP equivalent to Ruby&amp;rsquo;s really nice background process runner is a great way to execute long running PHP processes. &lt;a href=&#34;http://supervisord.org/&#34;&gt;Supervisor&lt;/a&gt; is a python-based process control system, essentially it&amp;rsquo;s a convenient way to manage custom system processes you need to handle. Combining the two to manage long running PHP jobs makes a lot of sense but it takes a little bit of work to get them talking.&lt;/p&gt;
 &lt;p&gt;Once you&amp;rsquo;ve gotten PHP-Resque &lt;a href=&#34;https://github.com/chrisboulton/php-resque#getting-started&#34;&gt;installed on your project&lt;/a&gt;,
 you&amp;rsquo;ve &lt;a href=&#34;https://github.com/chrisboulton/php-resque#queueing-jobs&#34;&gt;added items to your queue&lt;/a&gt; and &lt;a href=&#34;https://github.com/chrisboulton/php-resque#defining-jobs&#34;&gt;written the workers to handle the background tasks&lt;/a&gt;.
@@ -890,9 +890,9 @@ should work with anything that&amp;rsquo;s using php-resque.&lt;/p&gt;</descript
     </item>
     <item>
       <title>Simple API Mocking with Guzzle and Charles</title>
-      <link>http://localhost:8080/posts/2014-06-26_simple-api-mocking-with-guzzle-and-charles-e5fdabe8b9fd/</link>
+      <link>https://shanedowling.com/posts/2014-06-26_simple-api-mocking-with-guzzle-and-charles-e5fdabe8b9fd/</link>
       <pubDate>Thu, 26 Jun 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-06-26_simple-api-mocking-with-guzzle-and-charles-e5fdabe8b9fd/</guid>
+      <guid>https://shanedowling.com/posts/2014-06-26_simple-api-mocking-with-guzzle-and-charles-e5fdabe8b9fd/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;ve ever had to try unit test code that&amp;rsquo;s dependent on external
 services, you&amp;rsquo;ll know the pain of trying to mock-up fake API requests by
 hand. It&amp;rsquo;s painful to setup and painful to maintain, this little
@@ -902,9 +902,9 @@ tutorial attempts to make the whole process as easy as possible.&lt;/p&gt;
     </item>
     <item>
       <title>SugarCRM — Permissions Script</title>
-      <link>http://localhost:8080/posts/2014-06-21_sugarcrm---permissions-script-6b7031eb0eef/</link>
+      <link>https://shanedowling.com/posts/2014-06-21_sugarcrm---permissions-script-6b7031eb0eef/</link>
       <pubDate>Sat, 21 Jun 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-06-21_sugarcrm---permissions-script-6b7031eb0eef/</guid>
+      <guid>https://shanedowling.com/posts/2014-06-21_sugarcrm---permissions-script-6b7031eb0eef/</guid>
       <description>&lt;p&gt;I use &lt;a href=&#34;http://www.saltstack.com/&#34;&gt;salt&lt;/a&gt; quite extensively to deploy SugarCRM installs and I wanted a scriptable way to setup the correct permissions for Sugar running on a linux box. This script is based on the &lt;a href=&#34;http://support.sugarcrm.com/04_Find_Answers/02KB/02Administration/100Install/Required_File_System_Permissions_on_Linux/&#34;&gt;Sugar documentation&lt;/a&gt; and this handy post &lt;a href=&#34;http://developer.sugarcrm.com/2012/07/19/a-newbies-guide-to-getting-your-sugarcrm-instances-permissions-right/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Simply fill in your apache user details and the path to the Sugar
 install and you&amp;rsquo;re away.&lt;/p&gt;
@@ -939,9 +939,9 @@ install and you&amp;rsquo;re away.&lt;/p&gt;
     </item>
     <item>
       <title>Quick Salt Minion Setup</title>
-      <link>http://localhost:8080/posts/2014-06-12_quick-salt-minion-setup-354516c0ff63/</link>
+      <link>https://shanedowling.com/posts/2014-06-12_quick-salt-minion-setup-354516c0ff63/</link>
       <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-06-12_quick-salt-minion-setup-354516c0ff63/</guid>
+      <guid>https://shanedowling.com/posts/2014-06-12_quick-salt-minion-setup-354516c0ff63/</guid>
       <description>&lt;p&gt;I find myself setting up salt minions a LOT. So I figured I&amp;rsquo;d write down
 the steps in this concise format.&lt;/p&gt;
 &lt;h3 id=&#34;on-the-minion&#34;&gt;On the minion&lt;/h3&gt;
@@ -957,9 +957,9 @@ the steps in this concise format.&lt;/p&gt;
     </item>
     <item>
       <title>SugarCRM 7 — Hiding subpanels based on specific criteria</title>
-      <link>http://localhost:8080/posts/2014-06-12_sugarcrm-7---hiding-subpanels-based-on-specific-criteria-eee6aacb95e1/</link>
+      <link>https://shanedowling.com/posts/2014-06-12_sugarcrm-7---hiding-subpanels-based-on-specific-criteria-eee6aacb95e1/</link>
       <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-06-12_sugarcrm-7---hiding-subpanels-based-on-specific-criteria-eee6aacb95e1/</guid>
+      <guid>https://shanedowling.com/posts/2014-06-12_sugarcrm-7---hiding-subpanels-based-on-specific-criteria-eee6aacb95e1/</guid>
       <description>&lt;p&gt;The new Sugar subpanels look great but they do take up quite a lot
 space, without any ability to remove Subpanels via studio I&amp;rsquo;ve had to
 come up with a few ways to hide them.&lt;/p&gt;
@@ -970,9 +970,9 @@ altered his code based on use cases I&amp;rsquo;ve come across.&lt;/p&gt;</descr
     </item>
     <item>
       <title>Super simple folder backup one-liner</title>
-      <link>http://localhost:8080/posts/2014-06-06_super-simple-folder-backup-one-liner-de43a969cb0d/</link>
+      <link>https://shanedowling.com/posts/2014-06-06_super-simple-folder-backup-one-liner-de43a969cb0d/</link>
       <pubDate>Fri, 06 Jun 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-06-06_super-simple-folder-backup-one-liner-de43a969cb0d/</guid>
+      <guid>https://shanedowling.com/posts/2014-06-06_super-simple-folder-backup-one-liner-de43a969cb0d/</guid>
       <description>&lt;p&gt;I needed a simple cron job, that just took backups of my project
 folders, should the worst happen to my laptop. Google brought up nothing
 obvious, so I figured I&amp;rsquo;d share it here.&lt;/p&gt;
@@ -981,9 +981,9 @@ obvious, so I figured I&amp;rsquo;d share it here.&lt;/p&gt;
     </item>
     <item>
       <title>SugarCRM 7 — Adding a custom column to a list</title>
-      <link>http://localhost:8080/posts/2014-05-22_sugarcrm-7---adding-a-custom-column-to-a-list-1370ce1fbdb2/</link>
+      <link>https://shanedowling.com/posts/2014-05-22_sugarcrm-7---adding-a-custom-column-to-a-list-1370ce1fbdb2/</link>
       <pubDate>Thu, 22 May 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-05-22_sugarcrm-7---adding-a-custom-column-to-a-list-1370ce1fbdb2/</guid>
+      <guid>https://shanedowling.com/posts/2014-05-22_sugarcrm-7---adding-a-custom-column-to-a-list-1370ce1fbdb2/</guid>
       <description>&lt;p&gt;This is the SugarCRM 7 equivalent to this post &lt;a href=&#34;https://shanedowling.com/sugarcrm-add-a-code-driven-column-to-a-list-4e9f4eb672b1&#34;&gt;here&lt;/a&gt;, because Sugar has dropped the process record logic hook, we need to come up with a new solution.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s how you can add a new column to a list view, I have to admit this
 is one of the really powerful additions to SugarCRM 7, no more crazy
@@ -994,10 +994,10 @@ see the difference in implementation you&amp;rsquo;ll see why I&amp;rsquo;m so p
     </item>
     <item>
       <title>SugarCRM 7 — Adding an action to the listview</title>
-      <link>http://localhost:8080/posts/2014-05-18_sugarcrm-7---adding-an-action-to-the-listview-436f18c039e6/</link>
+      <link>https://shanedowling.com/posts/2014-05-18_sugarcrm-7---adding-an-action-to-the-listview-436f18c039e6/</link>
       <pubDate>Sun, 18 May 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-05-18_sugarcrm-7---adding-an-action-to-the-listview-436f18c039e6/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__O0TIZQumvouoJ6ZCn8__s3g.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-05-18_sugarcrm-7---adding-an-action-to-the-listview-436f18c039e6/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__O0TIZQumvouoJ6ZCn8__s3g.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;There doesn&amp;rsquo;t appear to be a documented way to do this but in SugarCRM 7
 this is how I&amp;rsquo;ve added actions to the listview. For this example it&amp;rsquo;s
 showing how to add a button to an animal module, which adds the animal
@@ -1013,10 +1013,10 @@ custom/module/animals/clients/base/views/recordlist/recordlist.php&lt;/p&gt;</de
     </item>
     <item>
       <title>Find My Run — My first iPhone app</title>
-      <link>http://localhost:8080/posts/2014-05-17_find-my-run---my-first-iphone-app-4e1ec62b32b3/</link>
+      <link>https://shanedowling.com/posts/2014-05-17_find-my-run---my-first-iphone-app-4e1ec62b32b3/</link>
       <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-05-17_find-my-run---my-first-iphone-app-4e1ec62b32b3/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__x40lnN3JZF6V7gOMbo3Imw.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-05-17_find-my-run---my-first-iphone-app-4e1ec62b32b3/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__x40lnN3JZF6V7gOMbo3Imw.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s a pretty basic app that lists the ten nearest running events in
 your area. There was a few new pieces of tech(for me) involved. The app
 was built with &lt;a href=&#34;http://www.appcelerator.com/platform/alloy/&#34;&gt;Appcelerator&amp;rsquo;s Alloy framework&lt;/a&gt;, which I must
@@ -1029,10 +1029,10 @@ due to implement first…&lt;/p&gt;</description>
     </item>
     <item>
       <title>Owning Your Data — Replacing Dropbox</title>
-      <link>http://localhost:8080/posts/2014-04-24_owning-your-data---replacing-dropbox-fdaa13df41ad/</link>
+      <link>https://shanedowling.com/posts/2014-04-24_owning-your-data---replacing-dropbox-fdaa13df41ad/</link>
       <pubDate>Thu, 24 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-04-24_owning-your-data---replacing-dropbox-fdaa13df41ad/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__rUmmXptV__9zX6WkBjTLJEw.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-04-24_owning-your-data---replacing-dropbox-fdaa13df41ad/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__rUmmXptV__9zX6WkBjTLJEw.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Dropbox as late has come under a fair bit of fire. They&amp;rsquo;ve added DMCA
 takedowns to personal folders, scan/open personal files and have appointed Condelleza Rice as a member of their board of directors. Which has kicked off quite a bit of backlash including a #dropdropbox tag that&amp;rsquo;s gaining popularity.&lt;/p&gt;
 &lt;p&gt;Seems like an ideal time to start owning your data, dropping Dropbox and
@@ -1045,16 +1045,16 @@ There is, however a downside. Bit-Torrent Sync isn&amp;rsquo;t open source, whic
     </item>
     <item>
       <title>SugarCRM — Search for records related to the current record</title>
-      <link>http://localhost:8080/posts/2014-04-20_sugarcrm---search-for-records-related-to-the-current-record-4c0086341c14/</link>
+      <link>https://shanedowling.com/posts/2014-04-20_sugarcrm---search-for-records-related-to-the-current-record-4c0086341c14/</link>
       <pubDate>Sun, 20 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-04-20_sugarcrm---search-for-records-related-to-the-current-record-4c0086341c14/</guid>
+      <guid>https://shanedowling.com/posts/2014-04-20_sugarcrm---search-for-records-related-to-the-current-record-4c0086341c14/</guid>
       <description>&lt;p&gt;Say you have two modules in Sugar: Animals and Ringmasters and they aren&amp;rsquo;t directly related via a standard relationship but they are related through some convoluted means. Now, imagine if you want to override the SugarCRM search to allow you to search for all Animals indirectly related to a Ringmaster, I&amp;rsquo;ve written about how to do something &lt;a href=&#34;http://shanedowling.com/sugarcrm-searches-data-indirectly-related-modules/&#34;&gt;similar recently&lt;/a&gt;. Conversely, you want to search for all Animals related to a Ringmaster you&amp;rsquo;re currently viewing. It&amp;rsquo;s not a link that exists in Sugar so you can directly see a Dashlet and you don&amp;rsquo;t want to build anything from scratch so that&amp;rsquo;s going to take effort.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SugarCRM — Searches with data from indirectly related modules</title>
-      <link>http://localhost:8080/posts/2014-04-17_sugarcrm---searches-with-data-from-indirectly-related-modules-ec204005f7b3/</link>
+      <link>https://shanedowling.com/posts/2014-04-17_sugarcrm---searches-with-data-from-indirectly-related-modules-ec204005f7b3/</link>
       <pubDate>Thu, 17 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-04-17_sugarcrm---searches-with-data-from-indirectly-related-modules-ec204005f7b3/</guid>
+      <guid>https://shanedowling.com/posts/2014-04-17_sugarcrm---searches-with-data-from-indirectly-related-modules-ec204005f7b3/</guid>
       <description>&lt;p&gt;Building modules in SugarCRM can cause you to create a boatload of
 unnecessary relationships, simply because it&amp;rsquo;s convenient to do so.
 Maybe you&amp;rsquo;d have a relationship where A relates to B and B to C but
@@ -1066,10 +1066,10 @@ messy choice that adds a lot of complexity if overused.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Build Yii 1.* with composer</title>
-      <link>http://localhost:8080/posts/2014-04-08_build-yii-1---with-composer-d8ee634e3f3e/</link>
+      <link>https://shanedowling.com/posts/2014-04-08_build-yii-1---with-composer-d8ee634e3f3e/</link>
       <pubDate>Tue, 08 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-04-08_build-yii-1---with-composer-d8ee634e3f3e/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__l9C5aZ3qEUjpuOr__ZRZtbw.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-04-08_build-yii-1---with-composer-d8ee634e3f3e/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__l9C5aZ3qEUjpuOr__ZRZtbw.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;While we&amp;rsquo;re looking forward to Yii 2 coming alive, all of the posts on
 please do not use it for production**. So it might be a little while
 before we have in-built composer awesomeness with Yii. &lt;a href=&#34;http://www.yiiframework.com/wiki/392/creating-yii-applications-with-composer/&#34;&gt;The guide
@@ -1082,17 +1082,17 @@ anymore.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SugarCRM — Add a code-driven column to a list</title>
-      <link>http://localhost:8080/posts/2014-04-05_sugarcrm---add-a-code-driven-column-to-a-list-4e9f4eb672b1/</link>
+      <link>https://shanedowling.com/posts/2014-04-05_sugarcrm---add-a-code-driven-column-to-a-list-4e9f4eb672b1/</link>
       <pubDate>Sat, 05 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-04-05_sugarcrm---add-a-code-driven-column-to-a-list-4e9f4eb672b1/</guid>
+      <guid>https://shanedowling.com/posts/2014-04-05_sugarcrm---add-a-code-driven-column-to-a-list-4e9f4eb672b1/</guid>
       <description>&lt;p&gt;Sometimes you might find that you want your users to make decisions based on ListViews and you need to pull in relational data beyond the immediately related objects. Example&lt;/p&gt;
 &lt;p&gt;So using the circus example say you have performers who are performing for a specific show. You might want to see what other shows those performers are also attached to. If it&amp;rsquo;s typically only one or two shows per event, you can probably make another column in the ListView that displays all shows related to that performer. Lets call this field &amp;lsquo;Other Shows&amp;rsquo;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Yii issues with Homebrew PHP 5.3</title>
-      <link>http://localhost:8080/posts/2014-04-04_yii-issues-with-homebrew-php-5-3-8d759e748a92/</link>
+      <link>https://shanedowling.com/posts/2014-04-04_yii-issues-with-homebrew-php-5-3-8d759e748a92/</link>
       <pubDate>Fri, 04 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-04-04_yii-issues-with-homebrew-php-5-3-8d759e748a92/</guid>
+      <guid>https://shanedowling.com/posts/2014-04-04_yii-issues-with-homebrew-php-5-3-8d759e748a92/</guid>
       <description>&lt;p&gt;When running yii with a homebrewed install of PHP 5.3, PHP code embedded
 in HTML wouldn&amp;rsquo;t work. This is because for some inexplicable reason
 Homebrew&amp;rsquo;s PHP install disables short-tag support. Simply edit
@@ -1103,10 +1103,10 @@ Homebrew&amp;rsquo;s PHP install disables short-tag support. Simply edit
     </item>
     <item>
       <title>Owning Your Data — Replacing Gmail</title>
-      <link>http://localhost:8080/posts/2014-03-29_owning-your-data---replacing-gmail-20e9e2259fa2/</link>
+      <link>https://shanedowling.com/posts/2014-03-29_owning-your-data---replacing-gmail-20e9e2259fa2/</link>
       <pubDate>Sat, 29 Mar 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-03-29_owning-your-data---replacing-gmail-20e9e2259fa2/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__jrj__wnQecgnTwBXPZsg05w.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-03-29_owning-your-data---replacing-gmail-20e9e2259fa2/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__jrj__wnQecgnTwBXPZsg05w.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Gmail isn&amp;rsquo;t secure or private, Google have admitted this. You simply cannot expect privacy from any service that you don&amp;rsquo;t have
 control of. Thankfully your email doesn&amp;rsquo;t have to be tied a mail service
 like Gmail, Yahoo or Microsoft. You can simply roll your own email
@@ -1124,9 +1124,9 @@ your desktop.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Useful bit of SQL to update many records in SugarCRM</title>
-      <link>http://localhost:8080/posts/2014-03-27_useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d/</link>
+      <link>https://shanedowling.com/posts/2014-03-27_useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d/</link>
       <pubDate>Thu, 27 Mar 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-03-27_useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d/</guid>
+      <guid>https://shanedowling.com/posts/2014-03-27_useful-bit-of-sql-to-update-many-records-in-sugarcrm-3fae0ab47a4d/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;UPDATE&lt;/span&gt; clowns &lt;span style=&#34;color:#66d9ef&#34;&gt;SET&lt;/span&gt; deleted&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; id &lt;span style=&#34;color:#66d9ef&#34;&gt;IN&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; id &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; (
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; id &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; clowns &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; deleted &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; id &lt;span style=&#34;color:#66d9ef&#34;&gt;ASC&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;LIMIT&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;800&lt;/span&gt;)
@@ -1135,10 +1135,10 @@ your desktop.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Owning Your Data — Initial Server Setup</title>
-      <link>http://localhost:8080/posts/2014-03-06_owning-your-data---initial-server-setup-afa33394b94/</link>
+      <link>https://shanedowling.com/posts/2014-03-06_owning-your-data---initial-server-setup-afa33394b94/</link>
       <pubDate>Thu, 06 Mar 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-03-06_owning-your-data---initial-server-setup-afa33394b94/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__Frjg0ruGoXtEESBMek____Lw.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-03-06_owning-your-data---initial-server-setup-afa33394b94/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__Frjg0ruGoXtEESBMek____Lw.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;So before you can move to your own self-hosted services, you&amp;rsquo;ll need
 your own hosting. This is a really basic tutorial/set of links on
 getting a server up and running with Salt.&lt;/p&gt;
@@ -1157,19 +1157,19 @@ snooping harder. It&amp;rsquo;s hardly a ringing endorsement.&lt;/p&gt;</descrip
     </item>
     <item>
       <title>Owning Your Data</title>
-      <link>http://localhost:8080/posts/2014-02-27_owning-your-data-296ed1534643/</link>
+      <link>https://shanedowling.com/posts/2014-02-27_owning-your-data-296ed1534643/</link>
       <pubDate>Thu, 27 Feb 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-02-27_owning-your-data-296ed1534643/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__onILu1exx9sSg4nwDK__CJw.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-02-27_owning-your-data-296ed1534643/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__onILu1exx9sSg4nwDK__CJw.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Governments are collecting data on you, that&amp;rsquo;s a fairly accepted fact at this stage. Whether you&amp;rsquo;re being &amp;ldquo;social&amp;rdquo;, reading email, playing video games or even when you&amp;rsquo;re writing a book on the NSA. If you want more details The Guardian has a great explanation as to what Snowden&amp;rsquo;s files mean &lt;a href=&#34;https://www.theguardian.com/world/interactive/2013/nov/01/snowden-nsa-files-surveillance-revelations-decoded&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;There&amp;rsquo;s one critical flaw to the NSA&amp;rsquo;s methods. Most of how the NSA collects data on you(via prism anyway) is through Google, Yahoo, Gmail, Facebook and Microsoft. These technologies are all just choices you&amp;rsquo;ve made. Thankfully, choices you can undo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Rolling your own mail server with Salt</title>
-      <link>http://localhost:8080/posts/2014-02-16_rolling-your-own-mail-server-with-salt-159de9bec794/</link>
+      <link>https://shanedowling.com/posts/2014-02-16_rolling-your-own-mail-server-with-salt-159de9bec794/</link>
       <pubDate>Sun, 16 Feb 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-02-16_rolling-your-own-mail-server-with-salt-159de9bec794/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__eQD1Nfyf2Y7LLmCrROHrMA.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2014-02-16_rolling-your-own-mail-server-with-salt-159de9bec794/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__eQD1Nfyf2Y7LLmCrROHrMA.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Recently I decided to migrate my mail server and I took this as an
 opportunity to better get my head around setting the whole thing up.
 I&amp;rsquo;ve used iRedmail in the past but the whole process seemed a little
@@ -1178,9 +1178,9 @@ tutorial and came across &lt;a href=&#34;http://dbpmail.net/essays/2013-06-29-ha
     </item>
     <item>
       <title>OfflineImap to Thunderbird</title>
-      <link>http://localhost:8080/posts/2014-02-08_offlineimap-to-thunderbird-152bb02286f/</link>
+      <link>https://shanedowling.com/posts/2014-02-08_offlineimap-to-thunderbird-152bb02286f/</link>
       <pubDate>Sat, 08 Feb 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2014-02-08_offlineimap-to-thunderbird-152bb02286f/</guid>
+      <guid>https://shanedowling.com/posts/2014-02-08_offlineimap-to-thunderbird-152bb02286f/</guid>
       <description>&lt;p&gt;Last week I moved from Debian to Linux Mint and setup Thunderbird as my
 new mail client(replacing mutt). Sadly for some reason Thunderbird
 started tanking and wiped all the mails from my mailserver without
@@ -1192,9 +1192,9 @@ OfflineImap uses the MailDir format and Thunderbird didn&amp;rsquo;t support it.
     </item>
     <item>
       <title>Thrashing your networks download with dispatch and axel</title>
-      <link>http://localhost:8080/posts/2013-12-12_thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7/</link>
+      <link>https://shanedowling.com/posts/2013-12-12_thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7/</link>
       <pubDate>Thu, 12 Dec 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-12-12_thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7/</guid>
+      <guid>https://shanedowling.com/posts/2013-12-12_thrashing-your-networks-download-with-dispatch-and-axel-771526f193b7/</guid>
       <description>&lt;p&gt;Say you need to grab a file as fast as possible and you also happen to
 have a few network connections knocking about. For example maybe a
 separate network for your wireless and ethernet. Maybe you have a phone
@@ -1209,10 +1209,10 @@ itself to list all potential connections.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fixing a broken vagrant box</title>
-      <link>http://localhost:8080/posts/2013-10-17_fixing-a-broken-vagrant-box-cd6f169a62eb/</link>
+      <link>https://shanedowling.com/posts/2013-10-17_fixing-a-broken-vagrant-box-cd6f169a62eb/</link>
       <pubDate>Thu, 17 Oct 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-10-17_fixing-a-broken-vagrant-box-cd6f169a62eb/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__TalXSpVG5yo__Lucbr1Wm6w.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2013-10-17_fixing-a-broken-vagrant-box-cd6f169a62eb/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__TalXSpVG5yo__Lucbr1Wm6w.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The first time this happened I went into a cold sweat. My box with all
 dev versions of my companies live databases had died. Of course I had
 the box provisioned with salt so configuration wasn&amp;rsquo;t a problem, but
@@ -1222,9 +1222,9 @@ should&amp;rsquo;ve been salted too but I hadn&amp;rsquo;t gotten round to it ye
     </item>
     <item>
       <title>Using PPAs with Salt-States</title>
-      <link>http://localhost:8080/posts/2013-10-10_using-ppas-with-salt-states-dd60c32c1211/</link>
+      <link>https://shanedowling.com/posts/2013-10-10_using-ppas-with-salt-states-dd60c32c1211/</link>
       <pubDate>Thu, 10 Oct 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-10-10_using-ppas-with-salt-states-dd60c32c1211/</guid>
+      <guid>https://shanedowling.com/posts/2013-10-10_using-ppas-with-salt-states-dd60c32c1211/</guid>
       <description>&lt;p&gt;I couldn&amp;rsquo;t seem to find a decent tutorial on using PPA&amp;rsquo;s to manage repos
 with salt states so I&amp;rsquo;m documenting it here.&lt;/p&gt;
 &lt;p&gt;Say you want to install golang using these&lt;/p&gt;
@@ -1242,10 +1242,10 @@ This also ensures you always have an up-to-date version of go.&lt;/p&gt;
     </item>
     <item>
       <title>Making Drupal 6 Development Suck Less</title>
-      <link>http://localhost:8080/posts/2013-10-03_making-drupal-6-development-suck-less-ea6930df8056/</link>
+      <link>https://shanedowling.com/posts/2013-10-03_making-drupal-6-development-suck-less-ea6930df8056/</link>
       <pubDate>Thu, 03 Oct 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-10-03_making-drupal-6-development-suck-less-ea6930df8056/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__pyKonP__4TTO__P9guQ1lY9A.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2013-10-03_making-drupal-6-development-suck-less-ea6930df8056/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__pyKonP__4TTO__P9guQ1lY9A.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;So you&amp;rsquo;re here. Like myself probably stuck developing for `Drupal
 6 `__. All the modules on-line are for
 the latest and greatest versions of Drupal and you&amp;rsquo;re scouring posts
@@ -1266,10 +1266,10 @@ because I too feel your pain.&lt;/p&gt;
     </item>
     <item>
       <title>Connect to routers anonymously</title>
-      <link>http://localhost:8080/posts/2013-09-28_connect-to-routers-anonymously-9287ec7e7951/</link>
+      <link>https://shanedowling.com/posts/2013-09-28_connect-to-routers-anonymously-9287ec7e7951/</link>
       <pubDate>Sat, 28 Sep 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-09-28_connect-to-routers-anonymously-9287ec7e7951/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__2zYJ6QvnP__Z17B321DD7NQ.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2013-09-28_connect-to-routers-anonymously-9287ec7e7951/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__2zYJ6QvnP__Z17B321DD7NQ.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve created a little script that incorporates
 &lt;a href=&#34;https://launchpad.net/wicd&#34;&gt;wicd&lt;/a&gt;, &lt;a href=&#34;https://github.com/alobbs/macchanger&#34;&gt;macchanger&lt;/a&gt;, &lt;a href=&#34;http://unixhelp.ed.ac.uk/CGI/man-cgi?hostname&#34;&gt;hostname&lt;/a&gt; and &lt;a href=&#34;http://www.openwall.com/john/&#34;&gt;john the ripper&amp;rsquo;s&lt;/a&gt; password list to randomise your mac address and hostname when connecting to the internet.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve gone with wicd over network manager as network-manager has a
@@ -1282,18 +1282,18 @@ scripts to connect to vaguely complex network configurations.&lt;/p&gt;</descrip
     </item>
     <item>
       <title>Explainshell</title>
-      <link>http://localhost:8080/posts/2013-09-13_explainshell-52cc1de7a71a/</link>
+      <link>https://shanedowling.com/posts/2013-09-13_explainshell-52cc1de7a71a/</link>
       <pubDate>Fri, 13 Sep 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-09-13_explainshell-52cc1de7a71a/</guid>
+      <guid>https://shanedowling.com/posts/2013-09-13_explainshell-52cc1de7a71a/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://explainshell.com&#34; title=&#34;https://explainshell.com&#34;&gt;&lt;strong&gt;explainshell.com - &lt;em&gt;match command-line arguments to their help text&lt;/em&gt;&lt;/strong&gt;
 match command-line arguments to their help textexplainshell.com&lt;/a&gt;&lt;a href=&#34;https://explainshell.com&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A very nice visualization of command line args.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Salt Miner</title>
-      <link>http://localhost:8080/posts/2013-09-07_salt-miner-5d8c30f9d61f/</link>
+      <link>https://shanedowling.com/posts/2013-09-07_salt-miner-5d8c30f9d61f/</link>
       <pubDate>Sat, 07 Sep 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-09-07_salt-miner-5d8c30f9d61f/</guid>
+      <guid>https://shanedowling.com/posts/2013-09-07_salt-miner-5d8c30f9d61f/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve just created a salt state that allows you to install a
 crypto-currency miner across your salt provisioned boxes. It&amp;rsquo;s only
 tested on Ubuntu and Debian, but I intend to extend it to
@@ -1304,9 +1304,9 @@ against Bitcoins isn&amp;rsquo;t so bad&lt;/a&gt; but feel free to choose whatev
     </item>
     <item>
       <title>Unit-testing unmanaged Django models</title>
-      <link>http://localhost:8080/posts/2013-08-31_unit-testing-unmanaged-django-models-bf2cb6837fec/</link>
+      <link>https://shanedowling.com/posts/2013-08-31_unit-testing-unmanaged-django-models-bf2cb6837fec/</link>
       <pubDate>Sat, 31 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-08-31_unit-testing-unmanaged-django-models-bf2cb6837fec/</guid>
+      <guid>https://shanedowling.com/posts/2013-08-31_unit-testing-unmanaged-django-models-bf2cb6837fec/</guid>
       <description>&lt;p&gt;Say you have an app with a set of models that aren&amp;rsquo;t being managed by
 Django, you&amp;rsquo;re going to run into trouble when it comes time to run
 unit-tests against these. What I mean is if in the model meta you have
@@ -1323,9 +1323,9 @@ models, just for testing purposes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Suppling test data to django-cities</title>
-      <link>http://localhost:8080/posts/2013-08-29_suppling-test-data-to-django-cities-6afd013f671d/</link>
+      <link>https://shanedowling.com/posts/2013-08-29_suppling-test-data-to-django-cities-6afd013f671d/</link>
       <pubDate>Thu, 29 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-08-29_suppling-test-data-to-django-cities-6afd013f671d/</guid>
+      <guid>https://shanedowling.com/posts/2013-08-29_suppling-test-data-to-django-cities-6afd013f671d/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/coderholic/django-cities&#34;&gt;Django-Cities&lt;/a&gt;, is an awesome project that supplies easy to import worldwide location data and a set of very neat location models that you should really be using for any django project needing location information. I&amp;rsquo;ve been using it lately but ran into problems when I tried to run unit tests that made use of the django-cities app.&lt;/p&gt;
 &lt;p&gt;As django-cities populates a load of data via it&amp;rsquo;s import command it can
 take a long time(over an hour) before a test database with all the data
@@ -1334,9 +1334,9 @@ workable dataset up and running for a few small unit tests.&lt;/p&gt;</descripti
     </item>
     <item>
       <title>Archlinux Pacman Update Fix</title>
-      <link>http://localhost:8080/posts/2013-08-25_archlinux-pacman-update-fix-a99b2f157a2c/</link>
+      <link>https://shanedowling.com/posts/2013-08-25_archlinux-pacman-update-fix-a99b2f157a2c/</link>
       <pubDate>Sun, 25 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-08-25_archlinux-pacman-update-fix-a99b2f157a2c/</guid>
+      <guid>https://shanedowling.com/posts/2013-08-25_archlinux-pacman-update-fix-a99b2f157a2c/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m writing this up as a quick solution to archlinux&amp;rsquo;s dreaded pacman
 update problem.&lt;/p&gt;
 &lt;p&gt;If you have yaourt installed simply update package-query through it and
@@ -1347,10 +1347,10 @@ update pacman normally.&lt;/p&gt;
     </item>
     <item>
       <title>Writing Django tests for PostGis</title>
-      <link>http://localhost:8080/posts/2013-08-24_writing-django-tests-for-postgis-9eefe47fd368/</link>
+      <link>https://shanedowling.com/posts/2013-08-24_writing-django-tests-for-postgis-9eefe47fd368/</link>
       <pubDate>Sat, 24 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-08-24_writing-django-tests-for-postgis-9eefe47fd368/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2013-08-24_writing-django-tests-for-postgis-9eefe47fd368/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__gkK1dMEHoaXRw2CWD0xS__g.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;PostGis is awesome, I think I already established this in &lt;a href=&#34;http://shanedowling.com/index.php/postgis/&#34;&gt;this post&lt;/a&gt;. However when you start writing django tests you might start getting errors complaining that certain postgres libs cannot be found. This is because you&amp;rsquo;ve failed to create a proper postgres_template database for your test database to work with. Run these commands in your postgres prompt to create the appropriate template.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;DATABASE&lt;/span&gt; template_postgis &lt;span style=&#34;color:#66d9ef&#34;&gt;ENCODING&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;UPDATE&lt;/span&gt; pg_database &lt;span style=&#34;color:#66d9ef&#34;&gt;SET&lt;/span&gt; datistemplate&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;true&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; datname&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;template_postgis&amp;#39;&lt;/span&gt;;
@@ -1366,26 +1366,26 @@ settings.py&lt;/p&gt;</description>
     </item>
     <item>
       <title>Install nzbget using salt</title>
-      <link>http://localhost:8080/posts/2013-08-23_install-nzbget-using-salt-7cc40711adb6/</link>
+      <link>https://shanedowling.com/posts/2013-08-23_install-nzbget-using-salt-7cc40711adb6/</link>
       <pubDate>Fri, 23 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-08-23_install-nzbget-using-salt-7cc40711adb6/</guid>
+      <guid>https://shanedowling.com/posts/2013-08-23_install-nzbget-using-salt-7cc40711adb6/</guid>
       <description>&lt;p&gt;Recently I&amp;rsquo;ve been using vagrant to configure more and more of the local webapps I&amp;rsquo;m using day to day, simply as I find sticking all the apps I use on my host machine a little messy. I&amp;rsquo;ve also been picking up &lt;a href=&#34;http://saltstack.com/&#34;&gt;salt-stack&lt;/a&gt; with salt-states as the provisioner as I personally prefer it a lot more than puppet/chef.&lt;/p&gt;
 &lt;p&gt;As a learning exercise I figured I&amp;rsquo;d setup nzbget using salt, it&amp;rsquo;s good because it requires a few config files and some compiling. You can find the repo &lt;a href=&#34;https://github.com/shano/salt-nzbget&#34;&gt;here&lt;/a&gt;. Should be fairly self explanatory, but there&amp;rsquo;s more details in the README. If you&amp;rsquo;ve any questions just ask in the comments.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Octopress back to Wordpress</title>
-      <link>http://localhost:8080/posts/2013-08-22_octopress-back-to-wordpress-6740efc31eb9/</link>
+      <link>https://shanedowling.com/posts/2013-08-22_octopress-back-to-wordpress-6740efc31eb9/</link>
       <pubDate>Thu, 22 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-08-22_octopress-back-to-wordpress-6740efc31eb9/</guid>
+      <guid>https://shanedowling.com/posts/2013-08-22_octopress-back-to-wordpress-6740efc31eb9/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been using &lt;a href=&#34;http://octopress.org/&#34;&gt;Octopress&lt;/a&gt; for the last while
 and it felt good having a nice fast static blog as opposed to heavy-old
 &lt;a href=&#34;https://wordpress.com/&#34;&gt;Wordpress&lt;/a&gt;. After time passed however, I noticed I wrote less. Having to grab my laptop and pull up vim to write something, then play around with git or a sometimes having dodgy rsync problems it made the whole process less seamless. Jumping straight onto Wordpress anywhere I felt like(even my phone), has made the ability to write much more present during my day and naturally as a result I&amp;rsquo;m writing more.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Postgis</title>
-      <link>http://localhost:8080/posts/2013-08-19_postgis-31e5d7e13bff/</link>
+      <link>https://shanedowling.com/posts/2013-08-19_postgis-31e5d7e13bff/</link>
       <pubDate>Mon, 19 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-08-19_postgis-31e5d7e13bff/</guid>
+      <guid>https://shanedowling.com/posts/2013-08-19_postgis-31e5d7e13bff/</guid>
       <description>&lt;p&gt;from cities.models import City
 cape_town = City.objects.filter(country__name=&amp;lsquo;South Africa&amp;rsquo;).get(name=&amp;lsquo;Cape Town&amp;rsquo;)
 nearest = City.objects.distance(cape_town.location).exclude(id=cape_town.id).order_by(&amp;lsquo;distance&amp;rsquo;)[:10000]&lt;/p&gt;
@@ -1395,18 +1395,18 @@ distance the 10000th closest place to Cape Town.&lt;/p&gt;</description>
     </item>
     <item>
       <title>worksly.com — Find workspaces in the UK</title>
-      <link>http://localhost:8080/posts/2013-05-22_worksly-com---find-workspaces-in-the-uk-ee31e3f6b1b3/</link>
+      <link>https://shanedowling.com/posts/2013-05-22_worksly-com---find-workspaces-in-the-uk-ee31e3f6b1b3/</link>
       <pubDate>Wed, 22 May 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2013-05-22_worksly-com---find-workspaces-in-the-uk-ee31e3f6b1b3/</guid>
+      <guid>https://shanedowling.com/posts/2013-05-22_worksly-com---find-workspaces-in-the-uk-ee31e3f6b1b3/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s online &lt;a href=&#34;http://www.worksly.com/&#34;&gt;here&lt;/a&gt;. Hopefully people find it useful, it&amp;rsquo;s got data from Foursquare, Yelp and a few other sources.&lt;/p&gt;
 &lt;p&gt;The site itself is built in Python, Bottle, Bootstrap and MySQL, though I hope to upgrade to Postgres with PostGIS when I get the time. I also want to make it look a lot less bootstrappy.&lt;/p&gt;
 &lt;p&gt;For scraping content, because Yelp renders it&amp;rsquo;s content in AJAX callbacks, it required &lt;a href=&#34;http://phantomjs.org/&#34;&gt;Phantom JS&lt;/a&gt; and Python with it&amp;rsquo;s awesome &lt;a href=&#34;http://beautiful-soup-4.readthedocs.org/en/latest/&#34;&gt;beautifulsoup&lt;/a&gt; library.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Circumventing The Pirate Bay Blockade</title>
-      <link>http://localhost:8080/posts/2012-05-03_circumventing-the-pirate-bay-blockade-b85834c22679/</link>
+      <link>https://shanedowling.com/posts/2012-05-03_circumventing-the-pirate-bay-blockade-b85834c22679/</link>
       <pubDate>Thu, 03 May 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2012-05-03_circumventing-the-pirate-bay-blockade-b85834c22679/</guid>
+      <guid>https://shanedowling.com/posts/2012-05-03_circumventing-the-pirate-bay-blockade-b85834c22679/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.fucktimkuik.org&#34; title=&#34;https://www.fucktimkuik.org&#34;&gt;&lt;strong&gt;Fuck jou, Tim Kuik&lt;/strong&gt;
 _Edit description_www.fucktimkuik.org&lt;/a&gt;&lt;a href=&#34;https://www.fucktimkuik.org&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;will forward you to a number of viable options, but in case that goes down.&lt;/p&gt;
@@ -1420,9 +1420,9 @@ _Edit description_lanunbay.org&lt;/a&gt;&lt;a href=&#34;http://lanunbay.org/&#34
     </item>
     <item>
       <title>Screwed Server Checklist</title>
-      <link>http://localhost:8080/posts/2012-04-28_screwed-server-checklist-ef23820824c7/</link>
+      <link>https://shanedowling.com/posts/2012-04-28_screwed-server-checklist-ef23820824c7/</link>
       <pubDate>Sat, 28 Apr 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2012-04-28_screwed-server-checklist-ef23820824c7/</guid>
+      <guid>https://shanedowling.com/posts/2012-04-28_screwed-server-checklist-ef23820824c7/</guid>
       <description>&lt;p&gt;My servers started getting unusably slow at peak hours lately and I
 decided, midst panic to vaguely attempt to document the various things I
 had to go through to narrow down the problem, anyway I&amp;rsquo;m sticking them
@@ -1433,18 +1433,18 @@ else.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Diary.py future proof memories.</title>
-      <link>http://localhost:8080/posts/2012-03-08_diary-py-future-proof-memories--b097056bc350/</link>
+      <link>https://shanedowling.com/posts/2012-03-08_diary-py-future-proof-memories--b097056bc350/</link>
       <pubDate>Thu, 08 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2012-03-08_diary-py-future-proof-memories--b097056bc350/</guid>
+      <guid>https://shanedowling.com/posts/2012-03-08_diary-py-future-proof-memories--b097056bc350/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve created a little command line diary script for anyone whose interested. It stores your diaries in separate txt files so you know all of your memories will always be accessible to you in a format you&amp;rsquo;ll always be able to read. It&amp;rsquo;s super quick and easy to use. It&amp;rsquo;s based loosely on Gina Trapini&amp;rsquo;s &lt;a href=&#34;http://todotxt.com/&#34;&gt;todotxt&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Documentation is &lt;a href=&#34;https://github.com/shanedowling/Diary.py&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Download is &lt;a href=&#34;https://github.com/shanedowling/Diary.py/downloads&#34;&gt;here&lt;/a&gt;. Works really well with Dropbox too!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quick vhost script</title>
-      <link>http://localhost:8080/posts/2012-03-01_quick-vhost-script-6bdb6138fc10/</link>
+      <link>https://shanedowling.com/posts/2012-03-01_quick-vhost-script-6bdb6138fc10/</link>
       <pubDate>Thu, 01 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2012-03-01_quick-vhost-script-6bdb6138fc10/</guid>
+      <guid>https://shanedowling.com/posts/2012-03-01_quick-vhost-script-6bdb6138fc10/</guid>
       <description>&lt;p&gt;Quick script to setup a new virtualhost entry for apache. Works for me
 on archlinux.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/python&lt;/span&gt;
@@ -1492,9 +1492,9 @@ on archlinux.&lt;/p&gt;
     </item>
     <item>
       <title>Easily remember linux commands</title>
-      <link>http://localhost:8080/posts/2012-02-19_easily-remember-linux-commands-44191f6843f6/</link>
+      <link>https://shanedowling.com/posts/2012-02-19_easily-remember-linux-commands-44191f6843f6/</link>
       <pubDate>Sun, 19 Feb 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2012-02-19_easily-remember-linux-commands-44191f6843f6/</guid>
+      <guid>https://shanedowling.com/posts/2012-02-19_easily-remember-linux-commands-44191f6843f6/</guid>
       <description>&lt;p&gt;I use an absolute ton of awesome tools my various linux distros. The
 problem is I tend to forget a lot of the time how to use the tools, so I
 got a list of frequently used command with and a few examples of how to
@@ -1559,9 +1559,9 @@ $ shutdown -h +10
     </item>
     <item>
       <title>Simple ubuntu backup to S3</title>
-      <link>http://localhost:8080/posts/2012-01-14_simple-ubuntu-backup-to-s3-c3f3b7070208/</link>
+      <link>https://shanedowling.com/posts/2012-01-14_simple-ubuntu-backup-to-s3-c3f3b7070208/</link>
       <pubDate>Sat, 14 Jan 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2012-01-14_simple-ubuntu-backup-to-s3-c3f3b7070208/</guid>
+      <guid>https://shanedowling.com/posts/2012-01-14_simple-ubuntu-backup-to-s3-c3f3b7070208/</guid>
       <description>&lt;p&gt;After browsing the web for ages to find a decent solution to backup my
 server to amazon s3 I finally came across one and I&amp;rsquo;m just throwing it
 up here. So basically all I need it to do was backup my sites(filesystem and mysql databases) and some config for lighttpd.&lt;/p&gt;
@@ -1577,9 +1577,9 @@ up here. So basically all I need it to do was backup my sites(filesystem and mys
     </item>
     <item>
       <title>Simple git web interface</title>
-      <link>http://localhost:8080/posts/2012-01-07_simple-git-web-interface-999d0f685454/</link>
+      <link>https://shanedowling.com/posts/2012-01-07_simple-git-web-interface-999d0f685454/</link>
       <pubDate>Sat, 07 Jan 2012 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2012-01-07_simple-git-web-interface-999d0f685454/</guid>
+      <guid>https://shanedowling.com/posts/2012-01-07_simple-git-web-interface-999d0f685454/</guid>
       <description>&lt;p&gt;I decided instead of springing for a monthly github payed account I&amp;rsquo;d
 install git on a server and use a decent web interface that could be
 easily installed.&lt;/p&gt;
@@ -1596,9 +1596,9 @@ hook it into lighttpd and have it run under a subdomain.&lt;/p&gt;</description>
     </item>
     <item>
       <title>CLI Dash</title>
-      <link>http://localhost:8080/posts/2011-12-31_cli-dash-b7f2766a53c9/</link>
+      <link>https://shanedowling.com/posts/2011-12-31_cli-dash-b7f2766a53c9/</link>
       <pubDate>Sat, 31 Dec 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2011-12-31_cli-dash-b7f2766a53c9/</guid>
+      <guid>https://shanedowling.com/posts/2011-12-31_cli-dash-b7f2766a53c9/</guid>
       <description>&lt;p&gt;Due to being flu-ridden for the entire holiday period, I decided to
 write up a quick tool I&amp;rsquo;ve been wanting to write for ages. It&amp;rsquo;s written
 in Python, so go easy, I&amp;rsquo;m no Python expert and I&amp;rsquo;m sick.&lt;/p&gt;
@@ -1609,9 +1609,9 @@ you&amp;rsquo;ve any suggestions let me know.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Good Coding Practice Snippets</title>
-      <link>http://localhost:8080/posts/2011-12-24_good-coding-practice-snippets-60b75db22e57/</link>
+      <link>https://shanedowling.com/posts/2011-12-24_good-coding-practice-snippets-60b75db22e57/</link>
       <pubDate>Sat, 24 Dec 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2011-12-24_good-coding-practice-snippets-60b75db22e57/</guid>
+      <guid>https://shanedowling.com/posts/2011-12-24_good-coding-practice-snippets-60b75db22e57/</guid>
       <description>&lt;p&gt;After reading through Code Complete I decided to make up mind-maps on
 each topic in the hope that I would peruse them every so often to brush
 up on my programming best practice. Recently I decided take a look over
@@ -1622,9 +1622,9 @@ but there was so much I&amp;rsquo;d missed, even from the tiny mind-maps I&amp;r
     </item>
     <item>
       <title>Very Simple EC2 Snapshot Management</title>
-      <link>http://localhost:8080/posts/2011-04-01_very-simple-ec2-snapshot-management-6bcca8bd28fb/</link>
+      <link>https://shanedowling.com/posts/2011-04-01_very-simple-ec2-snapshot-management-6bcca8bd28fb/</link>
       <pubDate>Fri, 01 Apr 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2011-04-01_very-simple-ec2-snapshot-management-6bcca8bd28fb/</guid>
+      <guid>https://shanedowling.com/posts/2011-04-01_very-simple-ec2-snapshot-management-6bcca8bd28fb/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been pulling my hair out trying to get a handy ec2 snapshot
 backup/management working. My google results have ranged from broken
 libraries to using bash scripts to do one aspect and php scripts to do
@@ -1634,9 +1634,9 @@ based on the ec2-api-tools. Ubuntu based info &lt;a href=&#34;https://help.ubunt
     </item>
     <item>
       <title>Music at work</title>
-      <link>http://localhost:8080/posts/2011-01-13_music-at-work-12aac3472110/</link>
+      <link>https://shanedowling.com/posts/2011-01-13_music-at-work-12aac3472110/</link>
       <pubDate>Thu, 13 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2011-01-13_music-at-work-12aac3472110/</guid>
+      <guid>https://shanedowling.com/posts/2011-01-13_music-at-work-12aac3472110/</guid>
       <description>&lt;p&gt;For anyone bored of trying to decide what to listen to at work I&amp;rsquo;d
 recommend indie 103.1. Decent music and as it&amp;rsquo;s in La it&amp;rsquo;s 8 hours
 behind, so no annoying presenters during the work day(If you&amp;rsquo;re in the
@@ -1648,51 +1648,51 @@ those who don&amp;rsquo;t you can just the url….&lt;/p&gt;
     </item>
     <item>
       <title>Daily WTF — Shopping Carts</title>
-      <link>http://localhost:8080/posts/2011-01-12_daily-wtf---shopping-carts-bbcfbdade962/</link>
+      <link>https://shanedowling.com/posts/2011-01-12_daily-wtf---shopping-carts-bbcfbdade962/</link>
       <pubDate>Wed, 12 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2011-01-12_daily-wtf---shopping-carts-bbcfbdade962/</guid>
+      <guid>https://shanedowling.com/posts/2011-01-12_daily-wtf---shopping-carts-bbcfbdade962/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://thedailywtf.com/Articles/Confessions-The-Shopping-Cart.aspx&#34;&gt;Daily WTF-Shopping Carts&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Really entertaining how the writer &amp;ldquo;thought&amp;rdquo; through this solution.&lt;/p&gt;
 &lt;p&gt;Amazing.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Software Engineer</title>
-      <link>http://localhost:8080/posts/2011-01-08_software-engineer-ddc413164c2c/</link>
+      <link>https://shanedowling.com/posts/2011-01-08_software-engineer-ddc413164c2c/</link>
       <pubDate>Sat, 08 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2011-01-08_software-engineer-ddc413164c2c/</guid>
+      <guid>https://shanedowling.com/posts/2011-01-08_software-engineer-ddc413164c2c/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.reddit.com/r/programming/comments/ey7wm/software_engineering_is_the_best_job_of_2011/&#34;&gt;Best job of 2011&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Apparently.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Intel Insider — Now hardware can screw you with copy protection.</title>
-      <link>http://localhost:8080/posts/2011-01-06_intel-insider---now-hardware-can-screw-you-with-copy-protection--723284f48a80/</link>
+      <link>https://shanedowling.com/posts/2011-01-06_intel-insider---now-hardware-can-screw-you-with-copy-protection--723284f48a80/</link>
       <pubDate>Thu, 06 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2011-01-06_intel-insider---now-hardware-can-screw-you-with-copy-protection--723284f48a80/</guid>
+      <guid>https://shanedowling.com/posts/2011-01-06_intel-insider---now-hardware-can-screw-you-with-copy-protection--723284f48a80/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.wired.com/gadgetlab/2011/01/intel-cpu/&#34;&gt;Intel Insider-Now hardware can screw you with copy protection.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Another product I have to remember never to buy. Companies should be
 punished for this behaviour.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PHP and big numbers</title>
-      <link>http://localhost:8080/posts/2011-01-05_php-and-big-numbers-4605875d1635/</link>
+      <link>https://shanedowling.com/posts/2011-01-05_php-and-big-numbers-4605875d1635/</link>
       <pubDate>Wed, 05 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2011-01-05_php-and-big-numbers-4605875d1635/</guid>
+      <guid>https://shanedowling.com/posts/2011-01-05_php-and-big-numbers-4605875d1635/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.exploringbinary.com/php-hangs-on-numeric-value-2-2250738585072011e-308/&#34;&gt;PHP isn&amp;rsquo;t friends with big numbers.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Wonder where I can stick this number to cause some serious problems.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Worryingly accurate — This is your brain on vim</title>
-      <link>http://localhost:8080/posts/2011-01-05_worryingly-accurate---this-is-your-brain-on-vim-7583add32743/</link>
+      <link>https://shanedowling.com/posts/2011-01-05_worryingly-accurate---this-is-your-brain-on-vim-7583add32743/</link>
       <pubDate>Wed, 05 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2011-01-05_worryingly-accurate---this-is-your-brain-on-vim-7583add32743/</guid>
+      <guid>https://shanedowling.com/posts/2011-01-05_worryingly-accurate---this-is-your-brain-on-vim-7583add32743/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://kev.town/2010/12/15/this-is-your-brain-on-vim/&#34; title=&#34;https://kev.town/2010/12/15/this-is-your-brain-on-vim/&#34;&gt;&lt;strong&gt;This is Your Brain on Vim&lt;/strong&gt;
 _la casa de kev en Interweb_kev.town&lt;/a&gt;&lt;a href=&#34;https://kev.town/2010/12/15/this-is-your-brain-on-vim/&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Simple ubuntu backup to S3</title>
-      <link>http://localhost:8080/posts/2010-11-22_simple-ubuntu-backup-to-s3-d8a52b123d12/</link>
+      <link>https://shanedowling.com/posts/2010-11-22_simple-ubuntu-backup-to-s3-d8a52b123d12/</link>
       <pubDate>Mon, 22 Nov 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2010-11-22_simple-ubuntu-backup-to-s3-d8a52b123d12/</guid>
+      <guid>https://shanedowling.com/posts/2010-11-22_simple-ubuntu-backup-to-s3-d8a52b123d12/</guid>
       <description>&lt;p&gt;After browsing the web for ages to find a decent solution to
 backup my server to amazon s3 I finally came across one and I&amp;rsquo;m just
 throwing it up here.&lt;/p&gt;
@@ -1711,9 +1711,9 @@ throwing it up here.&lt;/p&gt;
     </item>
     <item>
       <title>8 randomly useful php tricks</title>
-      <link>http://localhost:8080/posts/2010-02-22_8-randomly-useful-php-tricks-1acfd89a3fb4/</link>
+      <link>https://shanedowling.com/posts/2010-02-22_8-randomly-useful-php-tricks-1acfd89a3fb4/</link>
       <pubDate>Mon, 22 Feb 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2010-02-22_8-randomly-useful-php-tricks-1acfd89a3fb4/</guid>
+      <guid>https://shanedowling.com/posts/2010-02-22_8-randomly-useful-php-tricks-1acfd89a3fb4/</guid>
       <description>&lt;p&gt;&lt;strong&gt;1)debug_print_backtrace()&lt;/strong&gt;
 I use this one a lot, print a debug-style list of what was called to get
 thethe point where this function is called. Very, very useful.&lt;/p&gt;
@@ -1729,9 +1729,9 @@ long.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sync config files over dropbox</title>
-      <link>http://localhost:8080/posts/2010-02-14_sync-config-files-over-dropbox-62b51425343e/</link>
+      <link>https://shanedowling.com/posts/2010-02-14_sync-config-files-over-dropbox-62b51425343e/</link>
       <pubDate>Sun, 14 Feb 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2010-02-14_sync-config-files-over-dropbox-62b51425343e/</guid>
+      <guid>https://shanedowling.com/posts/2010-02-14_sync-config-files-over-dropbox-62b51425343e/</guid>
       <description>&lt;p&gt;One of the many reasons for my love of linux is the idea of keeping
 config information in simple texts files in the home directory of each
 user. It all very painless. And now with &lt;a href=&#34;https://www.dropbox.com/referrals/NTQyMzk2MT&#34;&gt;Dropbox&lt;/a&gt; I can have a
@@ -1744,18 +1744,18 @@ however)&lt;/p&gt;</description>
     </item>
     <item>
       <title>Disable jQuery autocompleter cache</title>
-      <link>http://localhost:8080/posts/2010-02-12_disable-jquery-autocompleter-cache-a6f3a338274c/</link>
+      <link>https://shanedowling.com/posts/2010-02-12_disable-jquery-autocompleter-cache-a6f3a338274c/</link>
       <pubDate>Fri, 12 Feb 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2010-02-12_disable-jquery-autocompleter-cache-a6f3a338274c/</guid>
+      <guid>https://shanedowling.com/posts/2010-02-12_disable-jquery-autocompleter-cache-a6f3a338274c/</guid>
       <description>&lt;p&gt;For anyone wondering how to disable the &lt;a href=&#34;http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/&#34;&gt;autocompleter&lt;/a&gt; cache in jQuery(meaning you always poll the server each time a letter is entered).&lt;/p&gt;
 &lt;p&gt;Simply set cacheLength: 0, in the autocompleter&amp;rsquo;s settings. Seems obvious but my googling told me never set this value below 1 or the whole thing would explode. Tried matchSubset etc and nothing else worked.&lt;/p&gt;
 &lt;p&gt;Simple solutions eh?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Php Beautifier</title>
-      <link>http://localhost:8080/posts/2010-01-23_php-beautifier-51200a4b525f/</link>
+      <link>https://shanedowling.com/posts/2010-01-23_php-beautifier-51200a4b525f/</link>
       <pubDate>Sat, 23 Jan 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2010-01-23_php-beautifier-51200a4b525f/</guid>
+      <guid>https://shanedowling.com/posts/2010-01-23_php-beautifier-51200a4b525f/</guid>
       <description>&lt;h3 id=&#34;why&#34;&gt;Why?&lt;/h3&gt;
 &lt;p&gt;When you&amp;rsquo;re faced with an ugly PHP file(or files) with little to do but
 trawl through it, there is a solution.&lt;/p&gt;
@@ -1770,10 +1770,10 @@ your code will be formatted to the pear standard.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Vim!</title>
-      <link>http://localhost:8080/posts/2010-01-11_vim--e2fc00d85b79/</link>
+      <link>https://shanedowling.com/posts/2010-01-11_vim--e2fc00d85b79/</link>
       <pubDate>Mon, 11 Jan 2010 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2010-01-11_vim--e2fc00d85b79/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__z__gwqd53GgEAJGz83yndbA.png&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2010-01-11_vim--e2fc00d85b79/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__z__gwqd53GgEAJGz83yndbA.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;For a while now vim has been my editor of choice and only up until
 recently have I began to unearth it&amp;rsquo;s potential. My reasoning before was
 that it was so cross-compatible(even working in ssh terminals) that this
@@ -1785,10 +1785,10 @@ plugin.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Google Wave Server Admin</title>
-      <link>http://localhost:8080/posts/2009-12-16_google-wave-server-admin-693186dcac55/</link>
+      <link>https://shanedowling.com/posts/2009-12-16_google-wave-server-admin-693186dcac55/</link>
       <pubDate>Wed, 16 Dec 2009 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2009-12-16_google-wave-server-admin-693186dcac55/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__FO13w__1tT7x8ZvWoH19o0w.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2009-12-16_google-wave-server-admin-693186dcac55/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__FO13w__1tT7x8ZvWoH19o0w.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Download &lt;a href=&#34;http://github.com/shanedowling/Wave-ServerAdmin&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;what-itdoes&#34;&gt;What it does&lt;/h3&gt;
 &lt;p&gt;Execute commands from google wave on your remote server.&lt;/p&gt;
@@ -1806,18 +1806,18 @@ can&amp;rsquo;t seem to be able to wait any longer before the request times out.
     </item>
     <item>
       <title>Pseudocode Programming Process</title>
-      <link>http://localhost:8080/posts/2009-11-23_pseudocode-programming-process-ad198e7b0584/</link>
+      <link>https://shanedowling.com/posts/2009-11-23_pseudocode-programming-process-ad198e7b0584/</link>
       <pubDate>Mon, 23 Nov 2009 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2009-11-23_pseudocode-programming-process-ad198e7b0584/</guid>
+      <guid>https://shanedowling.com/posts/2009-11-23_pseudocode-programming-process-ad198e7b0584/</guid>
       <description>&lt;p&gt;So for the last while I&amp;rsquo;ve been experimenting with PPP as described in
 &lt;a href=&#34;http://cc2e.com/Page.aspx?hid=145&#34;&gt;Code Complete&lt;/a&gt;. Jeff Atwood has a great description of it on &lt;a href=&#34;http://www.codinghorror.com/blog/archives/001264.html&#34;&gt;coding horror&lt;/a&gt;. You should read the blog post the metaphor of pseudocode as tang is a good one. I&amp;rsquo;ve been using PPP for a number of weeks now and so far it&amp;rsquo;s really been working. There have been several reasons why I found it worksbut for me the most important and useful part is purely that it &lt;strong&gt;slows me down&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Code Complete</title>
-      <link>http://localhost:8080/posts/2009-11-06_code-complete-d53ccde8613b/</link>
+      <link>https://shanedowling.com/posts/2009-11-06_code-complete-d53ccde8613b/</link>
       <pubDate>Fri, 06 Nov 2009 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2009-11-06_code-complete-d53ccde8613b/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:8080/1__aEP__LZBNqV2mQa4JFBx__7Q.jpeg&#34;&gt;&lt;/p&gt;
+      <guid>https://shanedowling.com/posts/2009-11-06_code-complete-d53ccde8613b/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/1__aEP__LZBNqV2mQa4JFBx__7Q.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve been reading through Steve McConnell&amp;rsquo;s &lt;a href=&#34;http://www.amazon.com/exec/obidos/ASIN/0735619670/codinghorror-20&#34;&gt;Code
 Complete&lt;/a&gt; for the last few months, in fact I&amp;rsquo;m working through mindmaps of each section to traverse through this dense book in a fairly easy manner.
 Basically, instead of saying &amp;ldquo;Hey I need to create a new class what
@@ -1829,9 +1829,9 @@ future reference.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Useful Linux apps you&#39;ve probably never heard of</title>
-      <link>http://localhost:8080/posts/2008-06-12_useful-linux-apps-you-ve-probably-never-heard-of-ad375c0b8532/</link>
+      <link>https://shanedowling.com/posts/2008-06-12_useful-linux-apps-you-ve-probably-never-heard-of-ad375c0b8532/</link>
       <pubDate>Thu, 12 Jun 2008 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2008-06-12_useful-linux-apps-you-ve-probably-never-heard-of-ad375c0b8532/</guid>
+      <guid>https://shanedowling.com/posts/2008-06-12_useful-linux-apps-you-ve-probably-never-heard-of-ad375c0b8532/</guid>
       <description>&lt;h3 id=&#34;corkscrew&#34;&gt;Corkscrew&lt;/h3&gt;
 &lt;p&gt;What corkscrew does is allow you to tunnel ssh connections over a http
 proxy very easily. As far as admins of the http proxy can see this is
@@ -1845,9 +1845,9 @@ is has added support for this a while back.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Getting yourself on Trinity&#39;s Wireless network with Linux</title>
-      <link>http://localhost:8080/posts/2008-02-03_getting-yourself-on-trinity-s-wireless-network-with-linux-dd6a51344317/</link>
+      <link>https://shanedowling.com/posts/2008-02-03_getting-yourself-on-trinity-s-wireless-network-with-linux-dd6a51344317/</link>
       <pubDate>Sun, 03 Feb 2008 00:00:00 +0000</pubDate>
-      <guid>http://localhost:8080/posts/2008-02-03_getting-yourself-on-trinity-s-wireless-network-with-linux-dd6a51344317/</guid>
+      <guid>https://shanedowling.com/posts/2008-02-03_getting-yourself-on-trinity-s-wireless-network-with-linux-dd6a51344317/</guid>
       <description>&lt;p&gt;Since ISServices have washed their hands of any support for Linux, I&amp;rsquo;ve
 banged up a guide on how to get onto it with Linux. I&amp;rsquo;m using Ubuntu so
 things may need to be changed depending on your distro. :D Right, you
