@@ -1,0 +1,146 @@
+<!doctype html><html lang=en dir=auto><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=8080&amp;path=livereload" data-no-instant defer></script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="noindex, nofollow"><title>SugarCRM 7 — Adding an action to the listview | Shane Dowling</title><meta name=keywords content><meta name=description content="
+There doesn&rsquo;t appear to be a documented way to do this but in SugarCRM 7
+this is how I&rsquo;ve added actions to the listview. For this example it&rsquo;s
+showing how to add a button to an animal module, which adds the animal
+to a related circus event.
+1. Adding thebutton
+This first thing you need to do is copy the global recordlist.php file
+into your module and create a custom recordlist.php which overrides the
+existing one. You can copy the base one SugarCRM has or simply take this
+file below and alter the add_to_circus button. Note the
+addtocirus:fire action, we will create javascript code that is called
+when this event is fired. This code should go into
+custom/module/animals/clients/base/views/recordlist/recordlist.php"><meta name=author content="Shane Dowling"><link rel=canonical href=http://localhost:8080/posts/2014-05-18_sugarcrm-7---adding-an-action-to-the-listview-436f18c039e6/><link crossorigin=anonymous href=/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css integrity="sha256-j+ECM6cGvIfy4Is8+XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as=style><link rel=icon href=http://localhost:8080/favicon.ico><link rel=icon type=image/png sizes=16x16 href=http://localhost:8080/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=http://localhost:8080/favicon-32x32.png><link rel=apple-touch-icon href=http://localhost:8080/apple-touch-icon.png><link rel=mask-icon href=http://localhost:8080/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=http://localhost:8080/posts/2014-05-18_sugarcrm-7---adding-an-action-to-the-listview-436f18c039e6/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=http://localhost:8080/ accesskey=h title="Shane Dowling (Alt + H)">Shane Dowling</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=http://localhost:8080/posts/ title=Posts><span>Posts</span></a></li><li><a href=http://localhost:8080/categories/ title=Categories><span>Categories</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">SugarCRM 7 — Adding an action to the listview</h1><div class=post-meta><span title='2014-05-18 00:00:00 +0000 UTC'>May 18, 2014</span>&nbsp;·&nbsp;Shane Dowling</div></header><div class=post-content><p><img loading=lazy src=/1__O0TIZQumvouoJ6ZCn8__s3g.jpeg></p><p>There doesn&rsquo;t appear to be a documented way to do this but in SugarCRM 7
+this is how I&rsquo;ve added actions to the listview. For this example it&rsquo;s
+showing how to add a button to an animal module, which adds the animal
+to a related circus event.</p><h3 id=1-adding-thebutton>1. Adding thebutton<a hidden class=anchor aria-hidden=true href=#1-adding-thebutton>#</a></h3><p>This first thing you need to do is copy the global recordlist.php file
+into your module and create a custom recordlist.php which overrides the
+existing one. You can copy the base one SugarCRM has or simply take this
+file below and alter the add_to_circus button. Note the
+addtocirus:fire action, we will create javascript code that is called
+when this event is fired. This code should go into
+custom/module/animals/clients/base/views/recordlist/recordlist.php</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>defined</span>(<span style=color:#e6db74>&#39;sugarEntry&#39;</span>) <span style=color:#f92672>||</span> <span style=color:#f92672>!</span><span style=color:#a6e22e>sugarEntry</span>) {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>die</span>(<span style=color:#e6db74>&#39;Not A Valid Entry Point&#39;</span>);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>/*********************************************************************************
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * By installing or using this file, you are confirming on behalf of the entity
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * subscribed to the SugarCRM Inc. product (&#34;Company&#34;) that Company is bound by
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * [http://www.sugarcrm.com/master-subscription-agreement](http://www.sugarcrm.com/master-subscription-agreement)
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> *
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * If Company is not bound by the MSA, then by installing or using this file
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * you are agreeing unconditionally that Company will be bound by the MSA and
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * certifying that you have authority to bind Company accordingly.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> *
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Copyright © 2004–2014 SugarCRM Inc. All rights reserved.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> ********************************************************************************/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$viewdefs[<span style=color:#e6db74>&#39;CSTM_ANIMALS&#39;</span>][<span style=color:#e6db74>&#39;base&#39;</span>][<span style=color:#e6db74>&#39;view&#39;</span>][<span style=color:#e6db74>&#39;recordlist&#39;</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;selection&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;type&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;multi&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;actions&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;name&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;edit_button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;type&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;label&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;LBL_MASS_UPDATE&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;primary&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;events&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;click&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;list:massupdate:fire&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;acl_action&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;massupdate&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;name&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;merge_button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;type&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;label&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;LBL_MERGE&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;primary&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;events&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;click&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;list:mergeduplicates:fire&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;acl_action&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;edit&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;name&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;calc_field_button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;type&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;label&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;LBL_UPDATE_CALC_FIELDS&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;events&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;click&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;list:updatecalcfields:fire&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;acl_action&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;massupdate&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;name&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;addtolist_button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;type&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;label&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;LBL_ADD_TO_PROSPECT_LIST_BUTTON_LABEL&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;primary&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;events&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;click&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;list:massaddtolist:fire&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;acl_module&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;ProspectLists&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;acl_action&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;edit&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;name&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;delete_button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;type&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;label&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;LBL_DELETE&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;acl_action&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;delete&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;primary&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;events&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;click&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;list:massdelete:fire&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;name&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;export_button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;type&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;label&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;LBL_EXPORT&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;acl_action&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;export&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;primary&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;events&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;click&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;list:massexport:fire&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;name&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;add_to_circus_button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;type&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;button&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;label&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;LBL_ADD_TO_FAIR&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;acl_action&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;edit&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;primary&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;events&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;click&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;list:addtocircus:fire&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> );
+</span></span></code></pre></div><h3 id=2-adding-theaction>2. Adding theaction<a hidden class=anchor aria-hidden=true href=#2-adding-theaction>#</a></h3><p>This is an example of the JS code you could call when the event has
+custom/modules/animals/clients/base/views/recordlist/recordlist.js. On
+initialise we simply set a new context.on that calls your js modules
+function.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span>({
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//add listener for custom button
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>on</span>(<span style=color:#e6db74>&#39;list:addtocircus:fire&#39;</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>add_to_circus</span>, <span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span> },
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>add_to_circus</span> <span style=color:#f92672>:</span> <span style=color:#66d9ef>function</span>() {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>idCSV</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>selector</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;CSTM_ANIMALS_&#39;</span>;
+</span></span><span style=display:flex><span> <span style=color:#75715e>// I&#39;m sure there&#39;s a better way to do this, but not documented or found anywhere.
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#a6e22e>$</span>(<span style=color:#e6db74>&#39;input[type=checkbox]:checked&#39;</span>).<span style=color:#a6e22e>closest</span>(<span style=color:#e6db74>&#39;[name^=&#39;</span><span style=color:#f92672>+</span><span style=color:#a6e22e>selector</span><span style=color:#f92672>+</span><span style=color:#e6db74>&#39;]&#39;</span>).<span style=color:#a6e22e>each</span>(<span style=color:#66d9ef>function</span>(){
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>idCSV</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>$</span>(<span style=color:#66d9ef>this</span>).<span style=color:#a6e22e>attr</span>(<span style=color:#e6db74>&#39;name&#39;</span>).<span style=color:#a6e22e>substring</span>(<span style=color:#a6e22e>selector</span>.<span style=color:#a6e22e>length</span>) <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;,&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>$</span>.<span style=color:#a6e22e>ajax</span>({
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>errorResponse</span> <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;&#39;</span>) {
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>alert</span>.<span style=color:#a6e22e>show</span>(<span style=color:#e6db74>&#39;bad-add-to-circus&#39;</span>, {
+</span></span><span style=display:flex><span> });
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> });
+</span></span><span style=display:flex><span> },
+</span></span><span style=display:flex><span> })
+</span></span></code></pre></div><p>Now there&rsquo;s a few caveats with this code.</p><ul><li>I couldn&rsquo;t find a documented way to get the selected backbone items from SugarCRMs listview collection. So I had to write a jQuery selector, simply replace CSTM_ANIMAL with your module name and the selector should get you the list of ids that have been selected by the user, package them to a CSV then pass them to the ajax call.</li><li>The keen eyed observers might have noticed I&rsquo;m using the old way of directly calling a controller action, this is because this code was implemented to support a migration project from SugarCRM 6 -> SugarCRM 7 and it was faster than re-implementing the PHP code. However if starting anew, I would strongly recommend instead adding a new rest endpoint to your module and calling that via AJAX. There&rsquo;s some great documentation <a href=http://developer.sugarcrm.com/2014/03/10/sugarcrm-cookbook-adding-a-rest-endpoint-2/>here</a> on that topic, which should help show you how to implement the code to add the animal to a circus. I&rsquo;ll do another post on this in the future.</li></ul><h3 id=3-quick-repair-and-rebuiltas-always>3. Quick Repair and Rebuilt(as always)<a hidden class=anchor aria-hidden=true href=#3-quick-repair-and-rebuiltas-always>#</a></h3><p>Any questions feel free to ask!</p></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2025 <a href=http://localhost:8080/>Shane Dowling</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
