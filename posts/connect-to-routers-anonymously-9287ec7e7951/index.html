@@ -1,0 +1,140 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Connect to routers anonymously | Shane Dowling</title><meta name=keywords content><meta name=description content="
+I&rsquo;ve created a little script that incorporates
+wicd, macchanger, hostname and john the ripper&rsquo;s password list to randomise your mac address and hostname when connecting to the internet.
+I&rsquo;ve gone with wicd over network manager as network-manager has a
+tendency to store connection details, so while your machine might id
+your hostname or mac address as something new, network-manager will
+actually connect using the original stored details.
+I must admit I enjoyed writing this, it reminded me of the old days when
+linux network managers were all rubbish and you had to write bash
+scripts to connect to vaguely complex network configurations."><meta name=author content="Shane Dowling"><link rel=canonical href=https://shanedowling.com/posts/connect-to-routers-anonymously-9287ec7e7951/><link crossorigin=anonymous href=/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css integrity="sha256-j+ECM6cGvIfy4Is8+XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as=style><link rel=icon href=https://shanedowling.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://shanedowling.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://shanedowling.com/favicon-32x32.png><link rel=apple-touch-icon href=https://shanedowling.com/apple-touch-icon.png><link rel=mask-icon href=https://shanedowling.com/favicon.ico><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://shanedowling.com/posts/connect-to-routers-anonymously-9287ec7e7951/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://shanedowling.com/posts/connect-to-routers-anonymously-9287ec7e7951/"><meta property="og:site_name" content="Shane Dowling"><meta property="og:title" content="Connect to routers anonymously"><meta property="og:description" content="
+I’ve created a little script that incorporates wicd, macchanger, hostname and john the ripper’s password list to randomise your mac address and hostname when connecting to the internet.
+I’ve gone with wicd over network manager as network-manager has a tendency to store connection details, so while your machine might id your hostname or mac address as something new, network-manager will actually connect using the original stored details.
+I must admit I enjoyed writing this, it reminded me of the old days when linux network managers were all rubbish and you had to write bash scripts to connect to vaguely complex network configurations."><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2013-09-28T00:00:00+00:00"><meta property="article:modified_time" content="2013-09-28T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Connect to routers anonymously"><meta name=twitter:description content="
+I&rsquo;ve created a little script that incorporates
+wicd, macchanger, hostname and john the ripper&rsquo;s password list to randomise your mac address and hostname when connecting to the internet.
+I&rsquo;ve gone with wicd over network manager as network-manager has a
+tendency to store connection details, so while your machine might id
+your hostname or mac address as something new, network-manager will
+actually connect using the original stored details.
+I must admit I enjoyed writing this, it reminded me of the old days when
+linux network managers were all rubbish and you had to write bash
+scripts to connect to vaguely complex network configurations."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://shanedowling.com/posts/"},{"@type":"ListItem","position":2,"name":"Connect to routers anonymously","item":"https://shanedowling.com/posts/connect-to-routers-anonymously-9287ec7e7951/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Connect to routers anonymously","name":"Connect to routers anonymously","description":"\nI\u0026rsquo;ve created a little script that incorporates wicd, macchanger, hostname and john the ripper\u0026rsquo;s password list to randomise your mac address and hostname when connecting to the internet.\nI\u0026rsquo;ve gone with wicd over network manager as network-manager has a tendency to store connection details, so while your machine might id your hostname or mac address as something new, network-manager will actually connect using the original stored details.\nI must admit I enjoyed writing this, it reminded me of the old days when linux network managers were all rubbish and you had to write bash scripts to connect to vaguely complex network configurations.\n","keywords":[],"articleBody":"\nI’ve created a little script that incorporates wicd, macchanger, hostname and john the ripper’s password list to randomise your mac address and hostname when connecting to the internet.\nI’ve gone with wicd over network manager as network-manager has a tendency to store connection details, so while your machine might id your hostname or mac address as something new, network-manager will actually connect using the original stored details.\nI must admit I enjoyed writing this, it reminded me of the old days when linux network managers were all rubbish and you had to write bash scripts to connect to vaguely complex network configurations.\n#!/bin/bash # Anonymise your machines internet connection # Settings INTERFACE=wlan1 HOSTS_FILE=\"/etc/hosts\" START_TOKEN=\"## start-anon\" END_TOKEN=\"## end-anon\" # Must be run as root if [[ $EUID -ne 0 ]]; then printf \"This script must be run as root\\\\n\" 1\u003e\u00262 exit 1 fi # Network restart function if [ \"Linux\" == \\`uname\\` ]; then restart_network=\"/etc/init.d/networking restart\" fi # Function to clear old data and add new hosts entry function update_hosts() { # if no hosts file found… if [ ! -f $1 ] then printf \\\\n\"No hosts file found\\\\n\" 1\u003e\u00262 exit 1 fi file=$1 host=$2 sed_script=\"{ s/$END_TOKEN/$END_TOKEN/ t finished_sites s/$START_TOKEN/$START_TOKEN/ x t started_sites s/$START_TOKEN/$START_TOKEN/ x t started_sites p b end : started_sites d : finished_sites x d : end d }\" hostname $host sed — in-place -e \"$sed_script\" $file echo $START_TOKEN \u003e\u003e $file printf \"\\\\n127.0.1.1 $host\\\\n\" \u003e\u003e $file echo $END_TOKEN \u003e\u003e $file } # Presenting original information printf \"Starting to anonimise your data\\\\n\" # Stop Wicd sudo service wicd stop sleep 1 #changing mac address to random ifconfig $INTERFACE down \u003e /dev/null if [ $? == 0 ]; then printf \"%snChanging mac address…\\\\n\" macchanger -r $INTERFACE else printf \"%sScript encountered an error, sorry…\\\\n\" exit 1 fi sleep 1 # Use john to supply new hostname to function OLDHOST=$(hostname) printf \"%s\\\\nChanging hostname…\\\\n\" printf \"Current : $OLDHOST \\\\n\" FILE=/usr/share/john/password.lst WORD=$(sort -R $FILE | head -1) update_hosts $HOSTS_FILE $WORD NEWHOST=$(hostname) printf \"New : $NEWHOST \\\\n\" sleep 1 # putting interface up ifconfig $INTERFACE up \u003e /dev/null printf \"\\\\n\" sleep 1 # Restart networking $restart_network # Get wicd back up and running service wicd start sleep 1 wicd-gtk \u003e /dev/null 2\u003e\u00261 \u0026 ","wordCount":"367","inLanguage":"en","datePublished":"2013-09-28T00:00:00Z","dateModified":"2013-09-28T00:00:00Z","author":{"@type":"Person","name":"Shane Dowling"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shanedowling.com/posts/connect-to-routers-anonymously-9287ec7e7951/"},"publisher":{"@type":"Organization","name":"Shane Dowling","logo":{"@type":"ImageObject","url":"https://shanedowling.com/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://shanedowling.com/ accesskey=h title="Shane Dowling (Alt + H)">Shane Dowling</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://shanedowling.com/posts/ title=Posts><span>Posts</span></a></li><li><a href=https://shanedowling.com/categories/ title=Categories><span>Categories</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">Connect to routers anonymously</h1><div class=post-meta><span title='2013-09-28 00:00:00 +0000 UTC'>September 28, 2013</span>&nbsp;·&nbsp;Shane Dowling</div></header><div class=post-content><p><img loading=lazy src=/images/1__2zYJ6QvnP__Z17B321DD7NQ.png></p><p>I&rsquo;ve created a little script that incorporates
+<a href=https://launchpad.net/wicd>wicd</a>, <a href=https://github.com/alobbs/macchanger>macchanger</a>, <a href=http://unixhelp.ed.ac.uk/CGI/man-cgi?hostname>hostname</a> and <a href=http://www.openwall.com/john/>john the ripper&rsquo;s</a> password list to randomise your mac address and hostname when connecting to the internet.</p><p>I&rsquo;ve gone with wicd over network manager as network-manager has a
+tendency to store connection details, so while your machine might id
+your hostname or mac address as something new, network-manager will
+actually connect using the original stored details.</p><p>I must admit I enjoyed writing this, it reminded me of the old days when
+linux network managers were all rubbish and you had to write bash
+scripts to connect to vaguely complex network configurations.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#75715e># Anonymise your machines internet connection</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Settings</span>
+</span></span><span style=display:flex><span> INTERFACE<span style=color:#f92672>=</span>wlan1
+</span></span><span style=display:flex><span> HOSTS_FILE<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/etc/hosts&#34;</span>
+</span></span><span style=display:flex><span> START_TOKEN<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;## start-anon&#34;</span>
+</span></span><span style=display:flex><span> END_TOKEN<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;## end-anon&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Must be run as root</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> $EUID -ne <span style=color:#ae81ff>0</span> <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span> printf <span style=color:#e6db74>&#34;This script must be run as root\\n&#34;</span> 1&gt;&amp;<span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span> exit <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Network restart function</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;Linux&#34;</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>\`</span>uname<span style=color:#ae81ff>\`</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span> restart_network<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/etc/init.d/networking restart&#34;</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Function to clear old data and add new hosts entry</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>function</span> update_hosts<span style=color:#f92672>()</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># if no hosts file found…</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> ! -f $1 <span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span> printf <span style=color:#ae81ff>\\</span>n<span style=color:#e6db74>&#34;No hosts file found\\n&#34;</span> 1&gt;&amp;<span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span> exit <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>file<span style=color:#f92672>=</span>$1
+</span></span><span style=display:flex><span> host<span style=color:#f92672>=</span>$2
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sed_script<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> s/</span>$END_TOKEN<span style=color:#e6db74>/</span>$END_TOKEN<span style=color:#e6db74>/
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> t finished_sites
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>s/</span>$START_TOKEN<span style=color:#e6db74>/</span>$START_TOKEN<span style=color:#e6db74>/
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> x
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> t started_sites
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>s/</span>$START_TOKEN<span style=color:#e6db74>/</span>$START_TOKEN<span style=color:#e6db74>/
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> x
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> t started_sites
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>p
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> b end
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> : started_sites
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> d
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> : finished_sites
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> x
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> d
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> : end
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> d
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> }&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>hostname $host
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sed — in-place -e <span style=color:#e6db74>&#34;</span>$sed_script<span style=color:#e6db74>&#34;</span> $file
+</span></span><span style=display:flex><span> echo $START_TOKEN &gt;&gt; $file
+</span></span><span style=display:flex><span> printf <span style=color:#e6db74>&#34;\\n127.0.1.1 </span>$host<span style=color:#e6db74>\\n&#34;</span> &gt;&gt; $file
+</span></span><span style=display:flex><span> echo $END_TOKEN &gt;&gt; $file
+</span></span><span style=display:flex><span> <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Presenting original information</span>
+</span></span><span style=display:flex><span> printf <span style=color:#e6db74>&#34;Starting to anonimise your data\\n&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Stop Wicd</span>
+</span></span><span style=display:flex><span> sudo service wicd stop
+</span></span><span style=display:flex><span> sleep <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#changing mac address to random</span>
+</span></span><span style=display:flex><span> ifconfig $INTERFACE down &gt; /dev/null
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> $? <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span> printf <span style=color:#e6db74>&#34;%snChanging mac address…\\n&#34;</span>
+</span></span><span style=display:flex><span> macchanger -r $INTERFACE
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span> printf <span style=color:#e6db74>&#34;%sScript encountered an error, sorry…\\n&#34;</span>
+</span></span><span style=display:flex><span> exit <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span> sleep <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Use john to supply new hostname to function</span>
+</span></span><span style=display:flex><span> OLDHOST<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>hostname<span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span> printf <span style=color:#e6db74>&#34;%s\\nChanging hostname…\\n&#34;</span>
+</span></span><span style=display:flex><span> printf <span style=color:#e6db74>&#34;Current : </span>$OLDHOST<span style=color:#e6db74> \\n&#34;</span>
+</span></span><span style=display:flex><span> FILE<span style=color:#f92672>=</span>/usr/share/john/password.lst
+</span></span><span style=display:flex><span> WORD<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>sort -R $FILE | head -1<span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span> update_hosts $HOSTS_FILE $WORD
+</span></span><span style=display:flex><span> NEWHOST<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>hostname<span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span> printf <span style=color:#e6db74>&#34;New : </span>$NEWHOST<span style=color:#e6db74> \\n&#34;</span>
+</span></span><span style=display:flex><span> sleep <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># putting interface up</span>
+</span></span><span style=display:flex><span> ifconfig $INTERFACE up &gt; /dev/null
+</span></span><span style=display:flex><span> printf <span style=color:#e6db74>&#34;\\n&#34;</span>
+</span></span><span style=display:flex><span> sleep <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Restart networking</span>
+</span></span><span style=display:flex><span> $restart_network
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Get wicd back up and running</span>
+</span></span><span style=display:flex><span> service wicd start
+</span></span><span style=display:flex><span> sleep <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>wicd-gtk &gt; /dev/null 2&gt;&amp;<span style=color:#ae81ff>1</span> &amp;
+</span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://shanedowling.com/>Shane Dowling</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

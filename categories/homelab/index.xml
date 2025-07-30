@@ -10,10 +10,10 @@
     <atom:link href="https://shanedowling.com/categories/homelab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Homelab - Day 5 - The NAS</title>
-      <link>https://shanedowling.com/posts/2025-06-18-homelab---day-5---the-nas/</link>
+      <link>https://shanedowling.com/posts/homelab---day-5---the-nas/</link>
       <pubDate>Wed, 18 Jun 2025 21:11:54 +0000</pubDate>
-      <guid>https://shanedowling.com/posts/2025-06-18-homelab---day-5---the-nas/</guid>
-      <description>&lt;img src=&#34;https://shanedowling.com/hp-proliant.jpg&#34; height=&#34;400px&#34;&gt;
+      <guid>https://shanedowling.com/posts/homelab---day-5---the-nas/</guid>
+      <description>&lt;img src=&#34;https://shanedowling.com/images/hp-proliant.jpg&#34; height=&#34;400px&#34;&gt;
 &lt;p&gt;So, it&amp;rsquo;s been a while and I have made some progress worth sharing!&lt;/p&gt;
 &lt;p&gt;After keeping an eye on the auction sites for a while I ended up pulling the plug and buying 2 12TB Seagate Ironwolf drives for my NAS and now wanted to get started with setting this up.&lt;/p&gt;
 &lt;h2 id=&#34;the-hardware&#34;&gt;The hardware&lt;/h2&gt;
@@ -21,9 +21,9 @@
     </item>
     <item>
       <title>Homelab - Day 4 - Self-Hosting Gitea</title>
-      <link>https://shanedowling.com/posts/2025-03-07-homelab---day-4---self-hosting-gitea/</link>
+      <link>https://shanedowling.com/posts/homelab---day-4---self-hosting-gitea/</link>
       <pubDate>Fri, 07 Mar 2025 19:31:59 +0000</pubDate>
-      <guid>https://shanedowling.com/posts/2025-03-07-homelab---day-4---self-hosting-gitea/</guid>
+      <guid>https://shanedowling.com/posts/homelab---day-4---self-hosting-gitea/</guid>
       <description>&lt;h1 id=&#34;aims&#34;&gt;Aims&lt;/h1&gt;
 &lt;p&gt;Today’s goal was to deploy Gitea on my K3s cluster, ensuring that:&lt;/p&gt;
 &lt;ul&gt;
@@ -37,9 +37,9 @@
     </item>
     <item>
       <title>Homelab - Day 3 - The first software deployment</title>
-      <link>https://shanedowling.com/posts/2025-02-28-homelab---day-3---the-first-software-deployment/</link>
+      <link>https://shanedowling.com/posts/homelab---day-3---the-first-software-deployment/</link>
       <pubDate>Fri, 28 Feb 2025 10:45:34 +0000</pubDate>
-      <guid>https://shanedowling.com/posts/2025-02-28-homelab---day-3---the-first-software-deployment/</guid>
+      <guid>https://shanedowling.com/posts/homelab---day-3---the-first-software-deployment/</guid>
       <description>&lt;h1 id=&#34;aims&#34;&gt;Aims&lt;/h1&gt;
 &lt;p&gt;The goal for today was to get my &lt;strong&gt;first piece of software running on the cluster&lt;/strong&gt;, ensuring that:&lt;/p&gt;
 &lt;ul&gt;
@@ -51,9 +51,9 @@
     </item>
     <item>
       <title>Homelab - Day 2 - Setting Up a New K3s Control Plane and Node</title>
-      <link>https://shanedowling.com/posts/2025-02-21-control-planes/</link>
+      <link>https://shanedowling.com/posts/homelab---day-2---setting-up-k3s-control-plane/</link>
       <pubDate>Fri, 21 Feb 2025 23:57:09 +0000</pubDate>
-      <guid>https://shanedowling.com/posts/2025-02-21-control-planes/</guid>
+      <guid>https://shanedowling.com/posts/homelab---day-2---setting-up-k3s-control-plane/</guid>
       <description>&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
 &lt;h2 id=&#34;aims&#34;&gt;Aims&lt;/h2&gt;
 &lt;p&gt;The goal was to set up a fresh K3s cluster, ensuring that:&lt;/p&gt;
@@ -88,9 +88,9 @@
     </item>
     <item>
       <title>Homelab - Day 1 - Really Ghetto Data Storage</title>
-      <link>https://shanedowling.com/posts/2025-02-11-homelab---day-1---data-storage/</link>
+      <link>https://shanedowling.com/posts/homelab---day-1---data-storage/</link>
       <pubDate>Tue, 11 Feb 2025 13:57:09 +0000</pubDate>
-      <guid>https://shanedowling.com/posts/2025-02-11-homelab---day-1---data-storage/</guid>
+      <guid>https://shanedowling.com/posts/homelab---day-1---data-storage/</guid>
       <description>&lt;h2 id=&#34;setting-up-storage-for-the-kubernetes-cluster&#34;&gt;Setting Up Storage for the Kubernetes Cluster&lt;/h2&gt;
 &lt;p&gt;The first step in setting up my homelab Kubernetes cluster is ensuring some reliable data storage. Right now, I have two main categories of data in mind:&lt;/p&gt;
 &lt;h3 id=&#34;1-operationally-critical-data&#34;&gt;1. Operationally Critical Data&lt;/h3&gt;
@@ -108,9 +108,9 @@
     </item>
     <item>
       <title>Homelab Setup: The Journey to Kubernetes</title>
-      <link>https://shanedowling.com/posts/2025-02-10-homelab-setup-the-journey-to-kubernetes/</link>
+      <link>https://shanedowling.com/posts/homelab-setup-the-journey-to-kubernetes/</link>
       <pubDate>Mon, 10 Feb 2025 20:50:46 +0000</pubDate>
-      <guid>https://shanedowling.com/posts/2025-02-10-homelab-setup-the-journey-to-kubernetes/</guid>
+      <guid>https://shanedowling.com/posts/homelab-setup-the-journey-to-kubernetes/</guid>
       <description>&lt;h2 id=&#34;why-im-migrating-my-self-hosted-services&#34;&gt;Why I&amp;rsquo;m Migrating My Self-Hosted Services&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;ve decided to migrate all my existing self-hosted services—and add a few new ones—to a Kubernetes (K8s) cluster that I&amp;rsquo;m going to build. There are several motivations behind this decision:&lt;/p&gt;
 &lt;h3 id=&#34;learning-kubernetes-beyond-ephemeral-clusters&#34;&gt;Learning Kubernetes Beyond Ephemeral Clusters&lt;/h3&gt;

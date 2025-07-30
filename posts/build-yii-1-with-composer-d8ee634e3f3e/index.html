@@ -1,0 +1,286 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Build Yii 1.* with composer | Shane Dowling</title><meta name=keywords content><meta name=description content="
+While we&rsquo;re looking forward to Yii 2 coming alive, all of the posts on
+please do not use it for production**. So it might be a little while
+before we have in-built composer awesomeness with Yii. The guide
+online on integrating composer with yii does not seem particularly
+straight-forward and misses out on a lot of steps, hence this post. You
+basically need to have the right folder structure or things will start
+to break. This guide relies on some of phundaments packages to get
+things up and running, as the official yii composer project doesn&rsquo;t work
+anymore."><meta name=author content="Shane Dowling"><link rel=canonical href=https://shanedowling.com/posts/build-yii-1-with-composer-d8ee634e3f3e/><link crossorigin=anonymous href=/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css integrity="sha256-j+ECM6cGvIfy4Is8+XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as=style><link rel=icon href=https://shanedowling.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://shanedowling.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://shanedowling.com/favicon-32x32.png><link rel=apple-touch-icon href=https://shanedowling.com/apple-touch-icon.png><link rel=mask-icon href=https://shanedowling.com/favicon.ico><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://shanedowling.com/posts/build-yii-1-with-composer-d8ee634e3f3e/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://shanedowling.com/posts/build-yii-1-with-composer-d8ee634e3f3e/"><meta property="og:site_name" content="Shane Dowling"><meta property="og:title" content="Build Yii 1.* with composer"><meta property="og:description" content="
+While we’re looking forward to Yii 2 coming alive, all of the posts on please do not use it for production**. So it might be a little while before we have in-built composer awesomeness with Yii. The guide online on integrating composer with yii does not seem particularly straight-forward and misses out on a lot of steps, hence this post. You basically need to have the right folder structure or things will start to break. This guide relies on some of phundaments packages to get things up and running, as the official yii composer project doesn’t work anymore."><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2014-04-08T00:00:00+00:00"><meta property="article:modified_time" content="2014-04-08T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Build Yii 1.* with composer"><meta name=twitter:description content="
+While we&rsquo;re looking forward to Yii 2 coming alive, all of the posts on
+please do not use it for production**. So it might be a little while
+before we have in-built composer awesomeness with Yii. The guide
+online on integrating composer with yii does not seem particularly
+straight-forward and misses out on a lot of steps, hence this post. You
+basically need to have the right folder structure or things will start
+to break. This guide relies on some of phundaments packages to get
+things up and running, as the official yii composer project doesn&rsquo;t work
+anymore."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://shanedowling.com/posts/"},{"@type":"ListItem","position":2,"name":"Build Yii 1.* with composer","item":"https://shanedowling.com/posts/build-yii-1-with-composer-d8ee634e3f3e/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Build Yii 1.* with composer","name":"Build Yii 1.* with composer","description":"\nWhile we\u0026rsquo;re looking forward to Yii 2 coming alive, all of the posts on please do not use it for production**. So it might be a little while before we have in-built composer awesomeness with Yii. The guide online on integrating composer with yii does not seem particularly straight-forward and misses out on a lot of steps, hence this post. You basically need to have the right folder structure or things will start to break. This guide relies on some of phundaments packages to get things up and running, as the official yii composer project doesn\u0026rsquo;t work anymore.\n","keywords":[],"articleBody":"\nWhile we’re looking forward to Yii 2 coming alive, all of the posts on please do not use it for production**. So it might be a little while before we have in-built composer awesomeness with Yii. The guide online on integrating composer with yii does not seem particularly straight-forward and misses out on a lot of steps, hence this post. You basically need to have the right folder structure or things will start to break. This guide relies on some of phundaments packages to get things up and running, as the official yii composer project doesn’t work anymore.\nCreate the root folder my_yii_install. mkdir -p my_yii_install/protected/config In my_yii_install/protected/ download the composer.phar and create a composer.json like so. { \"repositories\": [ { \"type\":\"composer\", \"url\": \"http://packages.phundament.com\" } ], \"require\": { \"php\": \"\u003e=5.3.2\", \"yiisoft/yii\": \"1.1.*\", \"yiiext/migrate-command\": \"0.7.*\" }, \"config\": { \"bin-dir\": \"bin/\" }, \"autoload\": { \"psr-0\": { \"config\": \"./\" } }, \"scripts\": { \"pre-install-cmd\": \"config\\\\\\\\ComposerCallback::preInstall\", \"post-install-cmd\": \"config\\\\\\\\ComposerCallback::postInstall\", \"pre-update-cmd\": \"config\\\\\\\\ComposerCallback::preUpdate\", \"post-update-cmd\": \"config\\\\\\\\ComposerCallback::postUpdate\", \"post-package-install\": [\"config\\\\\\\\ComposerCallback::postPackageInstall\"], \"post-package-update\": [\"config\\\\\\\\ComposerCallback::postPackageUpdate\"] } } In my_yii_install/config add console.php return array( 'aliases' =\u003e array( 'vendor' =\u003e 'application.vendor', ), 'basePath' =\u003e dirname(__FILE__) . DIRECTORY_SEPARATOR .'..', 'name' =\u003e 'My Awesome Yii Site', 'components' =\u003e array( 'db' =\u003e array( // MySQL 'connectionString' =\u003e 'mysql:host=localhost;dbname=my_yii_database', 'emulatePrepare' =\u003e true, 'username' =\u003e 'root', 'password' =\u003e 'root', 'charset' =\u003e 'utf8', ), ), 'params' =\u003e array( 'composer.callbacks' =\u003e array( // args for Yii command runner 'yiisoft/yii-install' =\u003e array('yiic', 'webapp', dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'), 'post-update' =\u003e array('yiic', 'migrate'), 'post-install' =\u003e array('yiic', 'migrate'), ), ), ); Now you’ll need to add a file like the below to actually handle the new composer hooks you’ve created. This will basically run migrations once your dependencies have installed. This is blantantly taken from phundaments ComposerCallback. I just thought I’d copy it here for completeness.\nComposerCallback.php\n/** * Class file *“ * @author Tobias Munk * @link [http://www.phundament.com/](http://www.phundament.com/) * @copyright Copyright © 2012 diemeisterei GmbH * @license [http://www.phundament.com/license](http://www.phundament.com/license) */ namespace config; use Composer\\\\Script\\\\Event; /** * ComposerCallback provides composer hooks * * This setup class triggers \\`./yiic migrate\\` at post-install and post-update. * For a package the class triggers \\`./yiic -\\` at post-package-install and * post-package-update. * See composer manual (http://getcomposer.org/doc/articles/scripts.md) * * Usage example * * config.php * 'params' =\u003e array( * 'composer.callbacks' =\u003e array( * 'post-update' =\u003e array('yiic', 'migrate'), * 'post-install' =\u003e array('yiic', 'migrate'), * 'yiisoft/yii-install' =\u003e array('yiic', 'webapp', realpath(dirname(__FILE__))), * ), * ) * ); composer.json \"scripts\": { \"pre-install-cmd\": \"config\\\\\\\\ComposerCallback::preInstall\", \"post-install-cmd\": \"config\\\\\\\\ComposerCallback::postInstall\", \"pre-update-cmd\": \"config\\\\\\\\ComposerCallback::preUpdate\", \"post-update-cmd\": \"config\\\\\\\\ComposerCallback::postUpdate\", \"post-package-install\": [ \"config\\\\\\\\ComposerCallback::postPackageInstall\" ], \"post-package-update\": [ \"config\\\\\\\\ComposerCallback::postPackageUpdate\" ] } * * * @author Tobias Munk * @package phundament.app * @since 0.7.1 */ defined('YII_PATH') or define('YII_PATH', dirname(__FILE__).'/../vendor/yiisoft/yii/framework'); defined('CONSOLE_CONFIG') or define('CONSOLE_CONFIG', dirname(__FILE__).'/console.php'); class ComposerCallback { /** * Displays welcome message * @static * @param ComposerScriptEvent $event */ public static function preInstall(Event $event) { $composer = $event-\u003egetComposer(); // do stuff echo \"Phundament 3 Installernn\"; echo \" * download packages specified in composer.json * trigger composer callbacksnn\"; if (self::confirm(\"Start Installation?\")) { self::runHook('pre-install'); } else { exit(\"Installation aborted.n\"); } } /** * Executes ./yiic migrate * @static * @param ComposerScriptEvent $event */ public static function postInstall(Event $event) { self::runHook('post-install'); echo \"nnInstallation completed.nnThank you for choosing Phundament 3!nn\"; } /** * Displays welcome message * * @static * @param ComposerScriptEvent $event */ public static function preUpdate(Event $event) { echo \"Welcome to Phundament Installation 3 via composernnUpdating your application to the lastest available packages…n\"; self::runHook('pre-update'); } /** * Executes ./yiic migrate * * @static * @param ComposerScriptEvent $event */ public static function postUpdate(Event $event) { self::runHook('post-update'); echo \"nnUpdate completed.nn\"; } /** * Executes ./yiic - * * @static * @param ComposerScriptEvent $event */ public static function postPackageInstall(Event $event) { $installedPackage = $event-\u003egetOperation()-\u003egetPackage(); $hookName = $installedPackage-\u003egetPrettyName().'-install'; self::runHook($hookName); } /** * Executes ./yiic - * * @static * @param ComposerScriptEvent $event */ public static function postPackageUpdate(Event $event) { $installedPackage = $event-\u003egetOperation()-\u003egetTargetPackage(); $commandName = $installedPackage-\u003egetPrettyName().'-update'; self::runHook($commandName); } /** * Asks user to confirm by typing y or n. * * Credits to Yii CConsoleCommand * * @param string $message to echo out before waiting for user input * @return bool if user confirmed */ public static function confirm($message) { echo $message . ' [yes|no] '; return !strncasecmp(trim(fgets(STDIN)), 'y', 1); } /** * Runs Yii command, if available (defined in config/console.php) */ private static function runHook($name){ $app = self::getYiiApplication(); if ($app === null) return; if (isset($app-\u003eparams['composer.callbacks'][$name])) { $args = $app-\u003eparams['composer.callbacks'][$name]; $app-\u003ecommandRunner-\u003eaddCommands(Yii::getPathOfAlias('system.cli.commands')); $app-\u003ecommandRunner-\u003erun($args); } } /** * Creates console application, if Yii is available */ private static function getYiiApplication() { if (!is_file(YII_PATH.'/yii.php')) { return null; } require_once(YII_PATH.'/yii.php'); spl_autoload_register(array('YiiBase', 'autoload')); if (Yii::app() === null) { if (is_file(CONSOLE_CONFIG)) { $app = Yii::createConsoleApplication(CONSOLE_CONFIG); } else { throw new Exception(\"File from CONSOLE_CONFIG not found\"); } } else { $app = Yii::app(); } return $app; } } Now you should be able to run php composer.phar install and it should ask do you want to setup your yii project and all of the required folders, which is pretty awesome. The only other thing you might want to do is add more dependencies. Say you have a library you wish to add. Add the entry into composer.json run the update(which should call any migrations needed automatically), then you need to add this line to your index.php.\nrequire_once(dirname(__FILE__).'/protected/vendor/autoload.php'); And should be be good to access composers namespaces libraries. Very cool!\n","wordCount":"861","inLanguage":"en","datePublished":"2014-04-08T00:00:00Z","dateModified":"2014-04-08T00:00:00Z","author":{"@type":"Person","name":"Shane Dowling"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://shanedowling.com/posts/build-yii-1-with-composer-d8ee634e3f3e/"},"publisher":{"@type":"Organization","name":"Shane Dowling","logo":{"@type":"ImageObject","url":"https://shanedowling.com/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://shanedowling.com/ accesskey=h title="Shane Dowling (Alt + H)">Shane Dowling</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://shanedowling.com/posts/ title=Posts><span>Posts</span></a></li><li><a href=https://shanedowling.com/categories/ title=Categories><span>Categories</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">Build Yii 1.* with composer</h1><div class=post-meta><span title='2014-04-08 00:00:00 +0000 UTC'>April 8, 2014</span>&nbsp;·&nbsp;Shane Dowling</div></header><div class=post-content><p><img loading=lazy src=/images/1__l9C5aZ3qEUjpuOr__ZRZtbw.png></p><p>While we&rsquo;re looking forward to Yii 2 coming alive, all of the posts on
+please do not use it for production**. So it might be a little while
+before we have in-built composer awesomeness with Yii. <a href=http://www.yiiframework.com/wiki/392/creating-yii-applications-with-composer/>The guide
+online</a> on integrating composer with yii does not seem particularly
+straight-forward and misses out on a lot of steps, hence this post. You
+basically need to have the right folder structure or things will start
+to break. This guide relies on some of phundaments packages to get
+things up and running, as the official yii composer project doesn&rsquo;t work
+anymore.</p><ul><li>Create the root folder my_yii_install.</li><li>mkdir -p my_yii_install/protected/config</li><li>In my_yii_install/protected/ <a href=https://getcomposer.org/download/>download the composer.phar</a> and create a composer.json like so.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;repositories&#34;</span>: [
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;type&#34;</span>:<span style=color:#e6db74>&#34;composer&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;url&#34;</span>: <span style=color:#e6db74>&#34;http://packages.phundament.com&#34;</span>
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> ],
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;require&#34;</span>: {
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;php&#34;</span>: <span style=color:#e6db74>&#34;&gt;=5.3.2&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;yiisoft/yii&#34;</span>: <span style=color:#e6db74>&#34;1.1.*&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;yiiext/migrate-command&#34;</span>: <span style=color:#e6db74>&#34;0.7.*&#34;</span>
+</span></span><span style=display:flex><span> },
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;config&#34;</span>: {
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;bin-dir&#34;</span>: <span style=color:#e6db74>&#34;bin/&#34;</span>
+</span></span><span style=display:flex><span> },
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;autoload&#34;</span>: {
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;psr-0&#34;</span>: {
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;config&#34;</span>: <span style=color:#e6db74>&#34;./&#34;</span>
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> },
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;scripts&#34;</span>: {
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;pre-install-cmd&#34;</span>: <span style=color:#e6db74>&#34;config\\\\ComposerCallback::preInstall&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;post-install-cmd&#34;</span>: <span style=color:#e6db74>&#34;config\\\\ComposerCallback::postInstall&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;pre-update-cmd&#34;</span>: <span style=color:#e6db74>&#34;config\\\\ComposerCallback::preUpdate&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;post-update-cmd&#34;</span>: <span style=color:#e6db74>&#34;config\\\\ComposerCallback::postUpdate&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;post-package-install&#34;</span>: [<span style=color:#e6db74>&#34;config\\\\ComposerCallback::postPackageInstall&#34;</span>],
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;post-package-update&#34;</span>: [<span style=color:#e6db74>&#34;config\\\\ComposerCallback::postPackageUpdate&#34;</span>]
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> }
+</span></span></code></pre></div><ul><li>In my_yii_install/config add console.php</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#66d9ef>return</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;aliases&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;vendor&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;application.vendor&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;basePath&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>dirname</span>(<span style=color:#66d9ef>__FILE__</span>) <span style=color:#f92672>.</span> <span style=color:#a6e22e>DIRECTORY_SEPARATOR</span> <span style=color:#f92672>.</span><span style=color:#e6db74>&#39;..&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;name&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;My Awesome Yii Site&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;components&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;db&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#75715e>// MySQL
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#e6db74>&#39;connectionString&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;mysql:host=localhost;dbname=my_yii_database&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;emulatePrepare&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;username&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;root&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;password&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;root&#39;</span>,
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;charset&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;utf8&#39;</span>,
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;params&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;composer.callbacks&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#75715e>// args for Yii command runner
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#e6db74>&#39;yiisoft/yii-install&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#39;yiic&#39;</span>, <span style=color:#e6db74>&#39;webapp&#39;</span>, <span style=color:#a6e22e>dirname</span>(<span style=color:#66d9ef>__FILE__</span>)<span style=color:#f92672>.</span><span style=color:#a6e22e>DIRECTORY_SEPARATOR</span><span style=color:#f92672>.</span><span style=color:#e6db74>&#39;..&#39;</span><span style=color:#f92672>.</span><span style=color:#a6e22e>DIRECTORY_SEPARATOR</span><span style=color:#f92672>.</span><span style=color:#e6db74>&#39;..&#39;</span>),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;post-update&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#39;yiic&#39;</span>, <span style=color:#e6db74>&#39;migrate&#39;</span>),
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;post-install&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#39;yiic&#39;</span>, <span style=color:#e6db74>&#39;migrate&#39;</span>),
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> ),
+</span></span><span style=display:flex><span> );
+</span></span></code></pre></div><ul><li>Now you&rsquo;ll need to add a file like the below to actually handle the new composer hooks you&rsquo;ve created. This will basically run migrations once your dependencies have installed.</li></ul><p>This is blantantly taken from phundaments <a href=https://github.com/phundament/app/blob/yii-webapp/protected/config/ComposerCallback.php>ComposerCallback</a>.
+I just thought I&rsquo;d copy it here for completeness.</p><p>ComposerCallback.php</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#e6db74>/**
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Class file
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> *“
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @author Tobias Munk
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @link [http://www.phundament.com/](http://www.phundament.com/)
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @copyright Copyright © 2012 diemeisterei GmbH
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @license [http://www.phundament.com/license](http://www.phundament.com/license)
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> */</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>namespace</span> <span style=color:#a6e22e>config</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>use</span> <span style=color:#a6e22e>Composer\\Script\\Event</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>/**</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>ComposerCallback</span> <span style=color:#a6e22e>provides</span> <span style=color:#a6e22e>composer</span> <span style=color:#a6e22e>hooks</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>This</span> <span style=color:#a6e22e>setup</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>triggers</span> <span style=color:#a6e22e>\</span><span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>./</span><span style=color:#a6e22e>yiic</span> <span style=color:#a6e22e>migrate\</span><span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#a6e22e>at</span> <span style=color:#a6e22e>post</span><span style=color:#f92672>-</span><span style=color:#a6e22e>install</span> <span style=color:#66d9ef>and</span> <span style=color:#a6e22e>post</span><span style=color:#f92672>-</span><span style=color:#a6e22e>update</span><span style=color:#f92672>.</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>For</span> <span style=color:#a6e22e>a</span> <span style=color:#a6e22e>package</span> <span style=color:#a6e22e>the</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>triggers</span> <span style=color:#a6e22e>\</span><span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>./</span><span style=color:#a6e22e>yiic</span> <span style=color:#f92672>-</span><span style=color:#a6e22e>\</span><span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#a6e22e>at</span> <span style=color:#a6e22e>post</span><span style=color:#f92672>-</span><span style=color:#a6e22e>package</span><span style=color:#f92672>-</span><span style=color:#a6e22e>install</span> <span style=color:#66d9ef>and</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>post</span><span style=color:#f92672>-</span><span style=color:#a6e22e>package</span><span style=color:#f92672>-</span><span style=color:#a6e22e>update</span><span style=color:#f92672>.</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>See</span> <span style=color:#a6e22e>composer</span> <span style=color:#a6e22e>manual</span> (<span style=color:#a6e22e>http</span><span style=color:#f92672>://</span><span style=color:#a6e22e>getcomposer</span><span style=color:#f92672>.</span><span style=color:#a6e22e>org</span><span style=color:#f92672>/</span><span style=color:#a6e22e>doc</span><span style=color:#f92672>/</span><span style=color:#a6e22e>articles</span><span style=color:#f92672>/</span><span style=color:#a6e22e>scripts</span><span style=color:#f92672>.</span><span style=color:#a6e22e>md</span>)
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>Usage</span> <span style=color:#a6e22e>example</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>config</span><span style=color:#f92672>.</span><span style=color:#a6e22e>php</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#e6db74>&#39;params&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#e6db74>&#39;composer.callbacks&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#e6db74>&#39;post-update&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#39;yiic&#39;</span>, <span style=color:#e6db74>&#39;migrate&#39;</span>),
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#e6db74>&#39;post-install&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#39;yiic&#39;</span>, <span style=color:#e6db74>&#39;migrate&#39;</span>),
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#e6db74>&#39;yiisoft/yii-install&#39;</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#39;yiic&#39;</span>, <span style=color:#e6db74>&#39;webapp&#39;</span>, <span style=color:#a6e22e>realpath</span>(<span style=color:#a6e22e>dirname</span>(<span style=color:#66d9ef>__FILE__</span>))),
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> ),
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> )
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> );
+</span></span></code></pre></div><ul><li>composer.json</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span> <span style=color:#e6db74>&#34;scripts&#34;</span><span style=color:#960050;background-color:#1e0010>:</span> {
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;pre-install-cmd&#34;</span>: <span style=color:#e6db74>&#34;config\\\\ComposerCallback::preInstall&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;post-install-cmd&#34;</span>: <span style=color:#e6db74>&#34;config\\\\ComposerCallback::postInstall&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;pre-update-cmd&#34;</span>: <span style=color:#e6db74>&#34;config\\\\ComposerCallback::preUpdate&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;post-update-cmd&#34;</span>: <span style=color:#e6db74>&#34;config\\\\ComposerCallback::postUpdate&#34;</span>,
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;post-package-install&#34;</span>: [
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;config\\\\ComposerCallback::postPackageInstall&#34;</span>
+</span></span><span style=display:flex><span> ],
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#34;post-package-update&#34;</span>: [
+</span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;config\\\\ComposerCallback::postPackageUpdate&#34;</span>
+</span></span><span style=display:flex><span> ]
+</span></span><span style=display:flex><span> }
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#f92672>@</span><span style=color:#a6e22e>author</span> <span style=color:#a6e22e>Tobias</span> <span style=color:#a6e22e>Munk</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#f92672>@</span><span style=color:#a6e22e>package</span> <span style=color:#a6e22e>phundament</span><span style=color:#f92672>.</span><span style=color:#a6e22e>app</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*</span> <span style=color:#f92672>@</span><span style=color:#a6e22e>since</span> <span style=color:#ae81ff>0.7</span><span style=color:#f92672>.</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span> <span style=color:#f92672>*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>defined</span>(<span style=color:#e6db74>&#39;YII_PATH&#39;</span>) <span style=color:#66d9ef>or</span> <span style=color:#a6e22e>define</span>(<span style=color:#e6db74>&#39;YII_PATH&#39;</span>, <span style=color:#a6e22e>dirname</span>(<span style=color:#66d9ef>__FILE__</span>)<span style=color:#f92672>.</span><span style=color:#e6db74>&#39;/../vendor/yiisoft/yii/framework&#39;</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>defined</span>(<span style=color:#e6db74>&#39;CONSOLE_CONFIG&#39;</span>) <span style=color:#66d9ef>or</span> <span style=color:#a6e22e>define</span>(<span style=color:#e6db74>&#39;CONSOLE_CONFIG&#39;</span>, <span style=color:#a6e22e>dirname</span>(<span style=color:#66d9ef>__FILE__</span>)<span style=color:#f92672>.</span><span style=color:#e6db74>&#39;/console.php&#39;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ComposerCallback</span>
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> <span style=color:#e6db74>/**
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Displays welcome message
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @static
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @param ComposerScriptEvent $event
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> */</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>preInstall</span>(<span style=color:#a6e22e>Event</span> $event)
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> $composer <span style=color:#f92672>=</span> $event<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>getComposer</span>();
+</span></span><span style=display:flex><span> <span style=color:#75715e>// do stuff
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;Phundament 3 Installernn&#34;</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34; * download packages specified in composer.json
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * trigger composer callbacksnn&#34;</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>self</span><span style=color:#f92672>::</span><span style=color:#a6e22e>confirm</span>(<span style=color:#e6db74>&#34;Start Installation?&#34;</span>)) {
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>self</span><span style=color:#f92672>::</span><span style=color:#a6e22e>runHook</span>(<span style=color:#e6db74>&#39;pre-install&#39;</span>);
+</span></span><span style=display:flex><span> } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>exit</span>(<span style=color:#e6db74>&#34;Installation aborted.n&#34;</span>);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>/**
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Executes ./yiic migrate
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @static
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @param ComposerScriptEvent $event
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> */</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>postInstall</span>(<span style=color:#a6e22e>Event</span> $event)
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>self</span><span style=color:#f92672>::</span><span style=color:#a6e22e>runHook</span>(<span style=color:#e6db74>&#39;post-install&#39;</span>);
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;nnInstallation completed.nnThank you for choosing Phundament 3!nn&#34;</span>;
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>/**
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Displays welcome message
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> *
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @static
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @param ComposerScriptEvent $event
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> */</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>preUpdate</span>(<span style=color:#a6e22e>Event</span> $event)
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;Welcome to Phundament Installation 3 via composernnUpdating your application to the lastest available packages…n&#34;</span>;
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>self</span><span style=color:#f92672>::</span><span style=color:#a6e22e>runHook</span>(<span style=color:#e6db74>&#39;pre-update&#39;</span>);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>/**
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Executes ./yiic migrate
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> *
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @static
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @param ComposerScriptEvent $event
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> */</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>postUpdate</span>(<span style=color:#a6e22e>Event</span> $event)
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>self</span><span style=color:#f92672>::</span><span style=color:#a6e22e>runHook</span>(<span style=color:#e6db74>&#39;post-update&#39;</span>);
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;nnUpdate completed.nn&#34;</span>;
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>/**
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Executes ./yiic -
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> *
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @static
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @param ComposerScriptEvent $event
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> */</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>postPackageInstall</span>(<span style=color:#a6e22e>Event</span> $event)
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> $installedPackage <span style=color:#f92672>=</span> $event<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>getOperation</span>()<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>getPackage</span>();
+</span></span><span style=display:flex><span> $hookName <span style=color:#f92672>=</span> $installedPackage<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>getPrettyName</span>()<span style=color:#f92672>.</span><span style=color:#e6db74>&#39;-install&#39;</span>;
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>self</span><span style=color:#f92672>::</span><span style=color:#a6e22e>runHook</span>($hookName);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>/**
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Executes ./yiic -
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> *
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @static
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @param ComposerScriptEvent $event
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> */</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>postPackageUpdate</span>(<span style=color:#a6e22e>Event</span> $event)
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> $installedPackage <span style=color:#f92672>=</span> $event<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>getOperation</span>()<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>getTargetPackage</span>();
+</span></span><span style=display:flex><span> $commandName <span style=color:#f92672>=</span> $installedPackage<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>getPrettyName</span>()<span style=color:#f92672>.</span><span style=color:#e6db74>&#39;-update&#39;</span>;
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>self</span><span style=color:#f92672>::</span><span style=color:#a6e22e>runHook</span>($commandName);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>/**
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Asks user to confirm by typing y or n.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> *
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Credits to Yii CConsoleCommand
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> *
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @param string $message to echo out before waiting for user input
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * @return bool if user confirmed
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> */</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>confirm</span>($message)
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>echo</span> $message <span style=color:#f92672>.</span> <span style=color:#e6db74>&#39; [yes|no] &#39;</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> <span style=color:#f92672>!</span><span style=color:#a6e22e>strncasecmp</span>(<span style=color:#a6e22e>trim</span>(<span style=color:#a6e22e>fgets</span>(<span style=color:#a6e22e>STDIN</span>)), <span style=color:#e6db74>&#39;y&#39;</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>/**
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Runs Yii command, if available (defined in config/console.php)
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> */</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>runHook</span>($name){
+</span></span><span style=display:flex><span> $app <span style=color:#f92672>=</span> <span style=color:#a6e22e>self</span><span style=color:#f92672>::</span><span style=color:#a6e22e>getYiiApplication</span>();
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> ($app <span style=color:#f92672>===</span> <span style=color:#66d9ef>null</span>) <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>isset</span>($app<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>params</span>[<span style=color:#e6db74>&#39;composer.callbacks&#39;</span>][$name])) {
+</span></span><span style=display:flex><span> $args <span style=color:#f92672>=</span> $app<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>params</span>[<span style=color:#e6db74>&#39;composer.callbacks&#39;</span>][$name];
+</span></span><span style=display:flex><span> $app<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>commandRunner</span><span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>addCommands</span>(<span style=color:#a6e22e>Yii</span><span style=color:#f92672>::</span><span style=color:#a6e22e>getPathOfAlias</span>(<span style=color:#e6db74>&#39;system.cli.commands&#39;</span>));
+</span></span><span style=display:flex><span> $app<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>commandRunner</span><span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>run</span>($args);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>/**
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> * Creates console application, if Yii is available
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> */</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getYiiApplication</span>()
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>is_file</span>(<span style=color:#a6e22e>YII_PATH</span><span style=color:#f92672>.</span><span style=color:#e6db74>&#39;/yii.php&#39;</span>))
+</span></span><span style=display:flex><span> {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>require_once</span>(<span style=color:#a6e22e>YII_PATH</span><span style=color:#f92672>.</span><span style=color:#e6db74>&#39;/yii.php&#39;</span>);
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>spl_autoload_register</span>(<span style=color:#66d9ef>array</span>(<span style=color:#e6db74>&#39;YiiBase&#39;</span>, <span style=color:#e6db74>&#39;autoload&#39;</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>Yii</span><span style=color:#f92672>::</span><span style=color:#a6e22e>app</span>() <span style=color:#f92672>===</span> <span style=color:#66d9ef>null</span>) {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>is_file</span>(<span style=color:#a6e22e>CONSOLE_CONFIG</span>)) {
+</span></span><span style=display:flex><span> $app <span style=color:#f92672>=</span> <span style=color:#a6e22e>Yii</span><span style=color:#f92672>::</span><span style=color:#a6e22e>createConsoleApplication</span>(<span style=color:#a6e22e>CONSOLE_CONFIG</span>);
+</span></span><span style=display:flex><span> } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Exception</span>(<span style=color:#e6db74>&#34;File from CONSOLE_CONFIG not found&#34;</span>);
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span> $app <span style=color:#f92672>=</span> <span style=color:#a6e22e>Yii</span><span style=color:#f92672>::</span><span style=color:#a6e22e>app</span>();
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> $app;
+</span></span><span style=display:flex><span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><ul><li>Now you should be able to run</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>php composer.phar install
+</span></span></code></pre></div><p>and it should ask do you want to setup your yii project and all of the
+required folders, which is pretty awesome. The only other thing you
+might want to do is add more dependencies. Say you have a library you
+wish to add. Add the entry into composer.json run the update(which
+should call any migrations needed automatically), then you need to add
+this line to your index.php.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#66d9ef>require_once</span>(<span style=color:#a6e22e>dirname</span>(<span style=color:#66d9ef>__FILE__</span>)<span style=color:#f92672>.</span><span style=color:#e6db74>&#39;/protected/vendor/autoload.php&#39;</span>);
+</span></span></code></pre></div><p>And should be be good to access composers namespaces libraries. Very
+cool!</p></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://shanedowling.com/>Shane Dowling</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
