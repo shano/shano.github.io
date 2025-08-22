@@ -4,18 +4,20 @@
     <title>Shane Dowling</title>
     <link>https://shanedowling.com/</link>
     <description>Recent content on Shane Dowling</description>
-    <generator>Hugo -- 0.148.1</generator>
+    <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Jul 2025 11:08:46 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 22 Aug 2025 23:10:06 +0100</lastBuildDate>
     <atom:link href="https://shanedowling.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>A UserScript for GitHub Absolute Dates with Commit History Exception</title>
-      <link>https://shanedowling.com/posts/github-userscript-absolute-dates/</link>
-      <pubDate>Thu, 31 Jul 2025 11:08:46 +0100</pubDate>
-      <guid>https://shanedowling.com/posts/github-userscript-absolute-dates/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve written a UserScript that formats GitHub&amp;rsquo;s relative time elements to show absolute dates with hours, minutes, and seconds - except in commit history views where relative dates are more useful.&lt;/p&gt;
-&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
-&lt;p&gt;GitHub shows relative times like &amp;ldquo;2 hours ago&amp;rdquo; or &amp;ldquo;3 days ago&amp;rdquo; throughout the interface. While this works well for commit history where you want to understand the flow of changes, it&amp;rsquo;s less helpful for other areas like issue timestamps, PR creation dates, or release dates where absolute timestamps provide better context.&lt;/p&gt;</description>
+      <title>Email to Remarkable</title>
+      <link>https://shanedowling.com/posts/email-to-remarkable/</link>
+      <pubDate>Fri, 22 Aug 2025 23:10:06 +0100</pubDate>
+      <guid>https://shanedowling.com/posts/email-to-remarkable/</guid>
+      <description>&lt;h1 id=&#34;email-to-remarkable&#34;&gt;Email to Remarkable&lt;/h1&gt;
+&lt;p&gt;A Python tool that monitors an email mailbox for PDF attachments and automatically uploads them to your reMarkable cloud storage.&lt;/p&gt;
+&lt;p&gt;Perfect for sending articles, documents, and papers directly to your reMarkable tablet via email.&lt;/p&gt;
+&lt;p&gt;You can find it &lt;a href=&#34;https://github.com/shano/email-to-remarkable-sync&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hopefully it&amp;rsquo;s helpful to someone!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Homelab - Day 5 - The NAS</title>

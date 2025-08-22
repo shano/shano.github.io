@@ -2,29 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://shanedowling.com/posts/github-userscript-absolute-dates/</loc>
-    <lastmod>2025-07-31T11:08:46+01:00</lastmod>
-  </url><url>
-    <loc>https://shanedowling.com/tags/github/</loc>
-    <lastmod>2025-07-31T11:08:46+01:00</lastmod>
-  </url><url>
-    <loc>https://shanedowling.com/tags/javascript/</loc>
-    <lastmod>2025-07-31T11:08:46+01:00</lastmod>
+    <loc>https://shanedowling.com/posts/email-to-remarkable/</loc>
+    <lastmod>2025-08-22T23:10:06+01:00</lastmod>
   </url><url>
     <loc>https://shanedowling.com/posts/</loc>
-    <lastmod>2025-07-31T11:08:46+01:00</lastmod>
-  </url><url>
-    <loc>https://shanedowling.com/tags/productivity/</loc>
-    <lastmod>2025-07-31T11:08:46+01:00</lastmod>
+    <lastmod>2025-08-22T23:10:06+01:00</lastmod>
   </url><url>
     <loc>https://shanedowling.com/</loc>
-    <lastmod>2025-07-31T11:08:46+01:00</lastmod>
-  </url><url>
-    <loc>https://shanedowling.com/tags/</loc>
-    <lastmod>2025-07-31T11:08:46+01:00</lastmod>
-  </url><url>
-    <loc>https://shanedowling.com/tags/userscript/</loc>
-    <lastmod>2025-07-31T11:08:46+01:00</lastmod>
+    <lastmod>2025-08-22T23:10:06+01:00</lastmod>
   </url><url>
     <loc>https://shanedowling.com/categories/</loc>
     <lastmod>2025-06-18T21:11:54+00:00</lastmod>
@@ -545,5 +530,7 @@
     <loc>https://shanedowling.com/en/</loc>
   </url><url>
     <loc>https://shanedowling.com/false/</loc>
+  </url><url>
+    <loc>https://shanedowling.com/tags/</loc>
   </url>
 </urlset>
