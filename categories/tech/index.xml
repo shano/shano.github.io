@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tech on Shane Dowling</title>
     <link>https://shanedowling.com/categories/tech/</link>
     <description>Recent content in Tech on Shane Dowling</description>
-    <generator>Hugo -- 0.148.2</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Sep 2020 18:06:58 +0000</lastBuildDate>
     <atom:link href="https://shanedowling.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
@@ -13,309 +13,140 @@
       <link>https://shanedowling.com/posts/populate-ansible-from-amazon-secrets-manager-8eac77127e37/</link>
       <pubDate>Thu, 03 Sep 2020 18:06:58 +0000</pubDate>
       <guid>https://shanedowling.com/posts/populate-ansible-from-amazon-secrets-manager-8eac77127e37/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__l0WrN40X7lf7tKsbdtj7Sw.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;One of the ways to improve your security and avoid passing around env files is to follow the &lt;a href=&#34;https://12factor.net/config&#34;&gt;twelve factor app&lt;/a&gt; and start populating your secrets from the environment. Another improvement is to pull those secrets from a known secret store, with features like rotation, auditing etc.&lt;/p&gt;
-&lt;h3 id=&#34;requirements&#34;&gt;&lt;strong&gt;Requirements&lt;/strong&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.ansible.com/&#34;&gt;Ansible&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Have some secrets stored in &lt;a href=&#34;https://aws.amazon.com/secrets-manager/&#34;&gt;AWS Secrets Manager&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Ansible should have access to the latest &lt;a href=&#34;https://aws.amazon.com/cli/&#34;&gt;aws-cli&lt;/a&gt; command(secrets manager is a recent addition)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stedolan.github.io/jq/&#34;&gt;Jq&lt;/a&gt; if you&amp;rsquo;re storing json in your secrets&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;It&amp;rsquo;s worth testing your AWS calls to just extract the secret you&amp;rsquo;re interested in to stdout, from the terminal tests some calls like:&lt;/p&gt;</description>
+      <description>One of the ways to improve your security and avoid passing around env files is to follow the twelve factor app and start populating your secrets from the environment. Another improvement is to pull those secrets from a known secret store, with features like rotation, auditing etc.&#xA;Requirements Ansible Have some secrets stored in AWS Secrets Manager Ansible should have access to the latest aws-cli command(secrets manager is a recent addition) Jq if you&amp;rsquo;re storing json in your secrets It&amp;rsquo;s worth testing your AWS calls to just extract the secret you&amp;rsquo;re interested in to stdout, from the terminal tests some calls like:</description>
     </item>
     <item>
       <title>Better local development for Serverless Functions</title>
       <link>https://shanedowling.com/posts/better-local-development-for-serverless-functions-b96b5a4cfa8f/</link>
       <pubDate>Mon, 11 Feb 2019 20:15:38 +0000</pubDate>
       <guid>https://shanedowling.com/posts/better-local-development-for-serverless-functions-b96b5a4cfa8f/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__roedigbmFjRYkZobdZWuKg.jpeg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Lambda is a terrific piece of kit for all the benefits listed on the &lt;a href=&#34;https://aws.amazon.com/lambda/&#34;&gt;AWS product page&lt;/a&gt; and &lt;a href=&#34;https://serverless.com/&#34;&gt;Serverless&lt;/a&gt; is a very useful framework for developing Lambda functions. However, developing serverless applications locally is a total pain if what you&amp;rsquo;re solving isn&amp;rsquo;t totally trivial.&lt;/p&gt;
-&lt;p&gt;When things get complicated and your Lambda functions start to integrate with other AWS services, things really begin to break down. There are a few things that look like silver-bullets, I&amp;rsquo;ll share them here and explain why they didn&amp;rsquo;t work for me, then give you a working example that I myself struggled to find(hence me writing this).&lt;/p&gt;</description>
+      <description>Lambda is a terrific piece of kit for all the benefits listed on the AWS product page and Serverless is a very useful framework for developing Lambda functions. However, developing serverless applications locally is a total pain if what you&amp;rsquo;re solving isn&amp;rsquo;t totally trivial.&#xA;When things get complicated and your Lambda functions start to integrate with other AWS services, things really begin to break down. There are a few things that look like silver-bullets, I&amp;rsquo;ll share them here and explain why they didn&amp;rsquo;t work for me, then give you a working example that I myself struggled to find(hence me writing this).</description>
     </item>
     <item>
       <title>Easy maintenance mode with nginx</title>
       <link>https://shanedowling.com/posts/easy-maintenance-mode-with-nginx-2d4d510a0980/</link>
       <pubDate>Mon, 20 Aug 2018 18:51:42 +0000</pubDate>
       <guid>https://shanedowling.com/posts/easy-maintenance-mode-with-nginx-2d4d510a0980/</guid>
-      <description>&lt;p&gt;So I combined a few solutions I found online to come up with a quick way to set up maintenance mode using nginx. Ideally it shouldn&amp;rsquo;t happen but in times of emergency in can be good to knock up a quick maintenance page for everyone but your own internal ips.&lt;/p&gt;
-&lt;h3 id=&#34;nginx-config&#34;&gt;Nginx Config&lt;/h3&gt;
-&lt;p&gt;So here&amp;rsquo;s the configuration I use for nginx, it starts with setting the internal ips of your company in the main nginx config file. Then in the actual vhost, you can set it to watch for the existence of a maintenance_on.html and when it exists, throw a 503 and use the maintenance page as your 503 error page.&lt;/p&gt;</description>
+      <description>So I combined a few solutions I found online to come up with a quick way to set up maintenance mode using nginx. Ideally it shouldn&amp;rsquo;t happen but in times of emergency in can be good to knock up a quick maintenance page for everyone but your own internal ips.&#xA;Nginx Config So here&amp;rsquo;s the configuration I use for nginx, it starts with setting the internal ips of your company in the main nginx config file.</description>
     </item>
     <item>
       <title>Lessons from Remote Working</title>
       <link>https://shanedowling.com/posts/for-the-past-few-years-as-a-freelancer-ive-done-many-forms-of-remote-work-19b58de3bc90/</link>
       <pubDate>Sun, 18 Feb 2018 22:57:15 +0000</pubDate>
       <guid>https://shanedowling.com/posts/for-the-past-few-years-as-a-freelancer-ive-done-many-forms-of-remote-work-19b58de3bc90/</guid>
-      <description>&lt;p&gt;For the past few years as a freelancer, I&amp;rsquo;ve done many forms of remote work. I&amp;rsquo;ve worked both part and full-time remote positions, I&amp;rsquo;ve also worked with teams across multiple time-zones, in locations ranging from home offices, hotdesking, even camping and crummy motels, so I have a fairly broad range of experience with remote working. It seems to be the trend that many companies have opted for, and this is definitely a great idea, both for the employee and the company. The employee can often cultivate a better work-life balance and the company can access a far wider range of talent than what may exist in the local area.&lt;/p&gt;</description>
+      <description>For the past few years as a freelancer, I&amp;rsquo;ve done many forms of remote work. I&amp;rsquo;ve worked both part and full-time remote positions, I&amp;rsquo;ve also worked with teams across multiple time-zones, in locations ranging from home offices, hotdesking, even camping and crummy motels, so I have a fairly broad range of experience with remote working. It seems to be the trend that many companies have opted for, and this is definitely a great idea, both for the employee and the company.</description>
     </item>
     <item>
       <title>Supplementing an iPad Pro with Linux</title>
       <link>https://shanedowling.com/posts/supplementing-an-ipad-pro-57a809a06d7f/</link>
       <pubDate>Sun, 21 Jan 2018 13:04:52 +0000</pubDate>
       <guid>https://shanedowling.com/posts/supplementing-an-ipad-pro-57a809a06d7f/</guid>
-      <description>&lt;p&gt;Recently I wrote about &lt;a href=&#34;https://shanedowling.com/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2&#34;&gt;why I&amp;rsquo;m using an iPad Pro as my main &amp;ldquo;at home&amp;rdquo; machine&lt;/a&gt; and &lt;a href=&#34;https://shanedowling.com/how-am-i-using-my-ipad-pro-as-a-development-machine-e4912a31744e&#34;&gt;how I&amp;rsquo;m generally using it for tinkering around with remote servers&lt;/a&gt;. There is however, one caveat. I do still have an at-home server that I use for helping with making the iPad as feature rich as I need it to be.&lt;/p&gt;
-&lt;h4 id=&#34;the-server&#34;&gt;The Server&lt;/h4&gt;
-&lt;p&gt;To do this, I essentially have Archlinux running on an old Thinkpad X230, sitting under my router connected via an ethernet cable to keep things nice and stable. The only way I manage it is over SSH.&lt;/p&gt;</description>
+      <description>Recently I wrote about why I&amp;rsquo;m using an iPad Pro as my main &amp;ldquo;at home&amp;rdquo; machine and how I&amp;rsquo;m generally using it for tinkering around with remote servers. There is however, one caveat. I do still have an at-home server that I use for helping with making the iPad as feature rich as I need it to be.&#xA;The Server To do this, I essentially have Archlinux running on an old Thinkpad X230, sitting under my router connected via an ethernet cable to keep things nice and stable.</description>
     </item>
     <item>
       <title>The iPad Pro as a focused, simple coding machine</title>
       <link>https://shanedowling.com/posts/how-am-i-using-my-ipad-pro-as-a-development-machine-e4912a31744e/</link>
       <pubDate>Sat, 20 Jan 2018 22:47:42 +0000</pubDate>
       <guid>https://shanedowling.com/posts/how-am-i-using-my-ipad-pro-as-a-development-machine-e4912a31744e/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__bY3zgSqJyGTkf__ghXqpKRQ.jpeg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;So recently I wrote a post on &lt;a href=&#34;https://shanedowling.com/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2&#34;&gt;why a developer might use an iPad Pro&lt;/a&gt; as an at home machine. Today, I&amp;rsquo;m going to elaborate on how I&amp;rsquo;m actually using it day to day.&lt;/p&gt;
-&lt;h3 id=&#34;so-there-is-not-much-you-can-do-locally&#34;&gt;So there is not much you can do locally&lt;/h3&gt;
-&lt;p&gt;Realistically, as a local dev environment there really is not much an iPad Pro can do. I&amp;rsquo;m used to proper Linux/Unix based machines, these sandboxed apps just didn&amp;rsquo;t cut it for me, there&amp;rsquo;s nothing close to a full development system on an iPad(sorry I know!), I wouldn&amp;rsquo;t even bother trying. So pretty quickly I opted to go for a remote Linux box that I could remotely access.&lt;/p&gt;</description>
+      <description>So recently I wrote a post on why a developer might use an iPad Pro as an at home machine. Today, I&amp;rsquo;m going to elaborate on how I&amp;rsquo;m actually using it day to day.&#xA;So there is not much you can do locally Realistically, as a local dev environment there really is not much an iPad Pro can do. I&amp;rsquo;m used to proper Linux/Unix based machines, these sandboxed apps just didn&amp;rsquo;t cut it for me, there&amp;rsquo;s nothing close to a full development system on an iPad(sorry I know!</description>
     </item>
     <item>
       <title>Why an iPad for a backend developer</title>
       <link>https://shanedowling.com/posts/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2/</link>
       <pubDate>Mon, 08 Jan 2018 19:38:33 +0000</pubDate>
       <guid>https://shanedowling.com/posts/why-im-using-an-ipad-as-my-at-home-machine-2fe3e8949bb2/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__B__WKx4__N__VChXf__FWDV5dg__2x.jpeg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;So I&amp;rsquo;m a backend developer. I&amp;rsquo;m often closest to the source of most technical problems at my job. Networking issues, memory issues, hardware issues, operating system issues, the list goes on. I need to be able to tinker and play with things often, so usually my work environments reflect this. So the question is, why in God&amp;rsquo;s name would I want to move to an iPad?&lt;/p&gt;
-&lt;p&gt;The downsides are immediately obvious, I have almost no tinkering power on here. It&amp;rsquo;s not Open Source, like at all. There&amp;rsquo;s very little I can do with this if something goes wrong, recently I had an issue with an app not syncing with my iPhone, I had to contact the developer and ask for assistance, rather than just jump down to the log files or the code itself and see what was up.&lt;/p&gt;</description>
+      <description>So I&amp;rsquo;m a backend developer. I&amp;rsquo;m often closest to the source of most technical problems at my job. Networking issues, memory issues, hardware issues, operating system issues, the list goes on. I need to be able to tinker and play with things often, so usually my work environments reflect this. So the question is, why in God&amp;rsquo;s name would I want to move to an iPad?&#xA;The downsides are immediately obvious, I have almost no tinkering power on here.</description>
     </item>
     <item>
       <title>Faster SugarCRM Development with PHPStorm</title>
       <link>https://shanedowling.com/posts/faster-sugarcrm-development-with-phpstorm-8f59b4860885/</link>
       <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/faster-sugarcrm-development-with-phpstorm-8f59b4860885/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__QzgJ__r__gWS5Nddl0PmJlSw.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Javascript development with SugarCRM can be a bit of a pain, however combining PHPStorm&amp;rsquo;s filewatcher tool with a cut down repair script can speed things up to a more tolerable level.&lt;/p&gt;
-&lt;p&gt;What this setup does is watch for any javascript changes in our custom/ folder(because you&amp;rsquo;re not making core hacks are you?) and execute a light-weight repair script when any of those files change. So you&amp;rsquo;ll hit save in PHPStorm, wait a few seconds and your dev javascript should be refreshed and ready to test.&lt;/p&gt;</description>
+      <description>Javascript development with SugarCRM can be a bit of a pain, however combining PHPStorm&amp;rsquo;s filewatcher tool with a cut down repair script can speed things up to a more tolerable level.&#xA;What this setup does is watch for any javascript changes in our custom/ folder(because you&amp;rsquo;re not making core hacks are you?) and execute a light-weight repair script when any of those files change. So you&amp;rsquo;ll hit save in PHPStorm, wait a few seconds and your dev javascript should be refreshed and ready to test.</description>
     </item>
     <item>
       <title>Pomot — command line pomotodo client</title>
       <link>https://shanedowling.com/posts/pomot-command-line-pomotodo-client-d3447f55056e/</link>
       <pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/pomot-command-line-pomotodo-client-d3447f55056e/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__kvu1aNJ6g__yuMT7O3c6L8Q.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;For anyone interested, I&amp;rsquo;ve created a simple pomotodo client for interacting with pomotodo.com easily.&lt;/p&gt;
-&lt;p&gt;You can find it &lt;a href=&#34;https://github.com/shano/pomot/&#34;&gt;here&lt;/a&gt;, feel free to use github issues for any issues or feature requests you can think of.&lt;/p&gt;</description>
+      <description>For anyone interested, I&amp;rsquo;ve created a simple pomotodo client for interacting with pomotodo.com easily.&#xA;You can find it here, feel free to use github issues for any issues or feature requests you can think of.</description>
     </item>
     <item>
       <title>Command line calendars with Khal and fastmail</title>
       <link>https://shanedowling.com/posts/command-line-calendars-with-khal-and-fastmail-57214af20b8f/</link>
       <pubDate>Tue, 04 Apr 2017 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/command-line-calendars-with-khal-and-fastmail-57214af20b8f/</guid>
-      <description>&lt;p&gt;Recently I&amp;rsquo;ve been on a bit of a command line kick and I started using &lt;a href=&#34;https://github.com/pimutils/khal&#34;&gt;khal&lt;/a&gt; to render my calendar agenda locally.&lt;/p&gt;
-&lt;p&gt;All of the codebases used are python based so before I start I&amp;rsquo;ve created a virtualenv so as not to pollute my OS.&lt;/p&gt;
-&lt;p&gt;mkvirtualenv khal
-workon khal&lt;/p&gt;
-&lt;h3 id=&#34;vdirsyncer&#34;&gt;Vdirsyncer&lt;/h3&gt;
-&lt;p&gt;Firstly we need to setup &lt;a href=&#34;https://github.com/pimutils/vdirsyncer&#34;&gt;Vdirsyncer&lt;/a&gt;, which is used to actually download your caldav entries to a local folder which khal then reads from.&lt;/p&gt;</description>
+      <description>Recently I&amp;rsquo;ve been on a bit of a command line kick and I started using khal to render my calendar agenda locally.&#xA;All of the codebases used are python based so before I start I&amp;rsquo;ve created a virtualenv so as not to pollute my OS.&#xA;mkvirtualenv khal workon khal&#xA;Vdirsyncer Firstly we need to setup Vdirsyncer, which is used to actually download your caldav entries to a local folder which khal then reads from.</description>
     </item>
     <item>
       <title>SugarCRM 7 — Conditional Read Only Fields</title>
       <link>https://shanedowling.com/posts/sugarcrm-7-conditional-read-only-fields-7fbf971f0592/</link>
       <pubDate>Sat, 06 Feb 2016 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/sugarcrm-7-conditional-read-only-fields-7fbf971f0592/</guid>
-      <description>&lt;p&gt;SugarCRM has a few ways to set fields as read-only, but it leaves a lot to be desired. One of the missing features that you might need to implement is having a module flagged as read-only on the record view based on a field on the module or the result of an API request.&lt;/p&gt;
-&lt;p&gt;I have found a way to do it but it is mostly basic UI hacking and doesn&amp;rsquo;t set the field read-only everywhere on the UI, just the record view page. So it will remain on the recordlist view or within other subpanels as editable, so bear this in mind as it&amp;rsquo;s only useful for very specific cases.&lt;/p&gt;</description>
+      <description>SugarCRM has a few ways to set fields as read-only, but it leaves a lot to be desired. One of the missing features that you might need to implement is having a module flagged as read-only on the record view based on a field on the module or the result of an API request.&#xA;I have found a way to do it but it is mostly basic UI hacking and doesn&amp;rsquo;t set the field read-only everywhere on the UI, just the record view page.</description>
     </item>
     <item>
       <title>NetworkX — Get all Paths from all sources to sinks</title>
       <link>https://shanedowling.com/posts/networkx-get-all-paths-from-all-sources-to-sinks-825e3787b458/</link>
       <pubDate>Wed, 04 Nov 2015 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/networkx-get-all-paths-from-all-sources-to-sinks-825e3787b458/</guid>
-      <description>&lt;p&gt;Often when I&amp;rsquo;m working with graphs and a set of masses in a spectrum I need to be able to iterate over all paths for all sources and sinks in that graph. Especially if I&amp;rsquo;m looking to compare multiple ideal spectrums against a given spectrum. Here&amp;rsquo;s some code that will allow me to quickly iterate over all source-&amp;gt;sink paths in a given graph G.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; Shane Dowling, 04 Nov 2015
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; Will iterate over all sources, sinks and get all paths
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; networkx &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; nx
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;G &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nx&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;DiGraph()
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Fill in a few edges&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; sink_nodes &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [node &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; node, outdegree &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; G&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;out_degree(G&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;nodes())&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;items() &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; outdegree &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; source_nodes &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [node &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; node, indegree &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; G&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;in_degree(G&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;nodes())&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;items() &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; indegree &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; [(source, sink) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; sink &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; sink_nodes &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; source &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; source_nodes]:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; path &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; nx&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;all_simple_paths(G, source&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;source, target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;sink):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; print(path)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <description>Often when I&amp;rsquo;m working with graphs and a set of masses in a spectrum I need to be able to iterate over all paths for all sources and sinks in that graph. Especially if I&amp;rsquo;m looking to compare multiple ideal spectrums against a given spectrum. Here&amp;rsquo;s some code that will allow me to quickly iterate over all source-&amp;gt;sink paths in a given graph G.&#xA;#!/usr/bin/env python &amp;#34;&amp;#34;&amp;#34; Shane Dowling, 04 Nov 2015 Will iterate over all sources, sinks and get all paths &amp;#34;&amp;#34;&amp;#34; import networkx as nx G = nx.</description>
     </item>
     <item>
       <title>Generate Binary Tree From String</title>
       <link>https://shanedowling.com/posts/generate-binary-tree-from-string-fcb1a0c662e7/</link>
       <pubDate>Tue, 27 Oct 2015 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/generate-binary-tree-from-string-fcb1a0c662e7/</guid>
-      <description>&lt;p&gt;Recently while implementing the &lt;a href=&#34;http://rosalind.info/problems/ba7f/&#34;&gt;Small Parsimony Problem&lt;/a&gt; I had the need to generate a binary tree from a string in Python.&lt;/p&gt;
-&lt;p&gt;The pseudo-code in the question implicitly assumes you have some functionality that will generate a DNA sequence like CAAATCCC into a binary tree, then run SmallParsimony on it. I couldn&amp;rsquo;t find that functionality anywhere, so I decided to implement something simple in networkx. Hopefully it&amp;rsquo;s useful.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; Shane Dowling, 27 Oct 2015
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; To run simply call generate_leaf_graph and pass in s string.
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;count_predecessors&lt;/span&gt;(T):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; pred &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; v &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; T&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;nodes():
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; pred &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; pred
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;generate_leaf_graph&lt;/span&gt;(s):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; Will generate a leaf graph and return it along
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; with the Character dictionary representing the characters
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; at each leaf node position
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; T &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nx&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;DiGraph()
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Character &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; parI &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; len(s)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (son, daughter) &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; zip(s[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;::&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;], s[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;::&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;]):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   Character[i] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; son
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   Character[i&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; daughter
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   T&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_edge(parI, i)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   T&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_edge(parI, i&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   i &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   parI &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; count_predecessors(T) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; v &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; T&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;nodes():
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   T&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_edge(parI, v)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   T&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_edge(parI, v&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   parI &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; [T, Character]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <description>Recently while implementing the Small Parsimony Problem I had the need to generate a binary tree from a string in Python.&#xA;The pseudo-code in the question implicitly assumes you have some functionality that will generate a DNA sequence like CAAATCCC into a binary tree, then run SmallParsimony on it. I couldn&amp;rsquo;t find that functionality anywhere, so I decided to implement something simple in networkx. Hopefully it&amp;rsquo;s useful.&#xA;#!/usr/bin/env python &amp;#34;&amp;#34;&amp;#34; Shane Dowling, 27 Oct 2015 To run simply call generate_leaf_graph and pass in s string.</description>
     </item>
     <item>
       <title>SugarCRM — Conditional Actions</title>
       <link>https://shanedowling.com/posts/sugarcrm-conditional-actions-9c19e52c50/</link>
       <pubDate>Thu, 15 Oct 2015 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/sugarcrm-conditional-actions-9c19e52c50/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__qWKDdqMlWZ9HD3fdzhvAjw.jpeg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Say you need to hide certain actions in Sugar depending on the status of a field, I&amp;rsquo;ve come across a great snippet of code from an awesome comment by Felix Nilam on the SugarCRM forums and wanted to show you a brief snippet of how it could work.&lt;/p&gt;
-&lt;p&gt;Make sure to call it before render, otherwise I had issues with this.meta.buttons already having rendered.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;({
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;extendsFrom&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RecordView&amp;#39;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;initialize&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;view&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;invokeParent&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;, {&lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;view&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;record&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;initialize&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;]});
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;before&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;render&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;mycustom_button_visibility&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;before&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;render&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;mycustom2_button_visibility&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;mycustom_button_visibility&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;typeof&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;model&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;some_field&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;undefined&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;model&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;some_field&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;some_value&amp;#39;&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;hide_button&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;some_button_name&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;mycustom2_button_visibility&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;typeof&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;model&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;some_second_field&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;undefined&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;model&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;some_second_field&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;some_value&amp;#39;&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;hide_button&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;some_second_button_name&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;hide_button&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;button_sel&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;button_index&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// find the buttons index for the share button
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;find&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;meta&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;buttons&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;bn&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;idx&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;bn&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;main_dropdown&amp;#39;&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#a6e22e&#34;&gt;button_sel&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;idx&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;find&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;bn&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;buttons&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;bbn&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;idx_bbn&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;bbn&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#a6e22e&#34;&gt;button_index&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;idx_bbn&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                });
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        });
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;button_sel&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;button_index&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;//remove the meta
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;meta&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;buttons&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;button_sel&lt;/span&gt;].&lt;span style=&#34;color:#a6e22e&#34;&gt;buttons&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;splice&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;button_index&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;})
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Props to Felix for the snippet and I hope this helps others.&lt;/p&gt;</description>
+      <description>Say you need to hide certain actions in Sugar depending on the status of a field, I&amp;rsquo;ve come across a great snippet of code from an awesome comment by Felix Nilam on the SugarCRM forums and wanted to show you a brief snippet of how it could work.&#xA;Make sure to call it before render, otherwise I had issues with this.meta.buttons already having rendered.&#xA;({ extendsFrom: &amp;#39;RecordView&amp;#39;, initialize: function (options) { app.</description>
     </item>
     <item>
       <title>Bioinformatics/Rosalind — Skeleton Generator</title>
       <link>https://shanedowling.com/posts/bioinformatics-rosalind-skeleton-generator-5229517d32fa/</link>
       <pubDate>Sun, 27 Sep 2015 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/bioinformatics-rosalind-skeleton-generator-5229517d32fa/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__UkaRZWvi0Lv5WVz4qxP5LQ.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Working through part 4 of my &lt;a href=&#34;https://www.coursera.org/specializations/bioinformatics&#34;&gt;Cousera Bioinformatics specialisation&lt;/a&gt;, I decided to write a generator that creates a standardised approach to structure, write and test your algorithmic code. It also works for &lt;a href=&#34;http://rosalind.info/&#34;&gt;Rosalind&lt;/a&gt; problems.&lt;/p&gt;
-&lt;p&gt;Explanations are in the &lt;a href=&#34;https://github.com/shano/biogen/blob/master/README.md&#34;&gt;README&lt;/a&gt;. If you have any issues or are confused by anything, feel free to get in touch!&lt;/p&gt;
-&lt;p&gt;You can find the code &lt;a href=&#34;https://github.com/shano/biogen&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>Working through part 4 of my Cousera Bioinformatics specialisation, I decided to write a generator that creates a standardised approach to structure, write and test your algorithmic code. It also works for Rosalind problems.&#xA;Explanations are in the README. If you have any issues or are confused by anything, feel free to get in touch!&#xA;You can find the code here.</description>
     </item>
     <item>
       <title>Tiddlywiki to Org-Mode</title>
       <link>https://shanedowling.com/posts/tiddlywiki-to-org-mode-c83bd3cd7323/</link>
       <pubDate>Mon, 31 Aug 2015 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/tiddlywiki-to-org-mode-c83bd3cd7323/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__xJqslHRpA1F0Qxjvp4tU2A.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Okay, I swear this is the last document conversion script I&amp;rsquo;m writing this year. I&amp;rsquo;ve been on a bit of a rampage to move all of my life in Emacs Org-Mode and converting all of my Tiddlywiki notes into Org mode has been on my list for a while. Thankfully both formats are pretty simple so the script was fairly straightforward.&lt;/p&gt;
-&lt;p&gt;You can find it &lt;a href=&#34;https://github.com/shano/Tiddlywiki-to-Org-Mode&#34;&gt;here&lt;/a&gt;, simply fill in the folder locations and give it a run.&lt;/p&gt;</description>
+      <description>Okay, I swear this is the last document conversion script I&amp;rsquo;m writing this year. I&amp;rsquo;ve been on a bit of a rampage to move all of my life in Emacs Org-Mode and converting all of my Tiddlywiki notes into Org mode has been on my list for a while. Thankfully both formats are pretty simple so the script was fairly straightforward.&#xA;You can find it here, simply fill in the folder locations and give it a run.</description>
     </item>
     <item>
       <title>OSQA to Tiddlywiki</title>
       <link>https://shanedowling.com/posts/osqa-to-tiddlywiki-ccdb598d226b/</link>
       <pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/osqa-to-tiddlywiki-ccdb598d226b/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__0l5W0q____QuCByvtgmeQdJA.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Recently I&amp;rsquo;ve been trying out &lt;a href=&#34;http://www.tiddlywiki.com/&#34;&gt;Tiddlywiki&lt;/a&gt; as an alternative to &lt;a href=&#34;http://evernote.com/&#34;&gt;Evernote&lt;/a&gt;. I decided to try convert my existing &lt;a href=&#34;http://www.osqa.net/&#34;&gt;OSQA&lt;/a&gt; install to &lt;a href=&#34;http://www.tiddlywiki.com/&#34;&gt;Tiddlywiki&lt;/a&gt; as I&amp;rsquo;m travelling a lot and don&amp;rsquo;t always have access to my servers via the internet. Here&amp;rsquo;s a python script I wrote that might help anyones trying to do the same.&lt;/p&gt;
-&lt;p&gt;You can find it &lt;a href=&#34;https://github.com/shano/osqatotiddlywiki&#34;&gt;here on github&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Any questions or queries, just let me know!&lt;/p&gt;</description>
+      <description>Recently I&amp;rsquo;ve been trying out Tiddlywiki as an alternative to Evernote. I decided to try convert my existing OSQA install to Tiddlywiki as I&amp;rsquo;m travelling a lot and don&amp;rsquo;t always have access to my servers via the internet. Here&amp;rsquo;s a python script I wrote that might help anyones trying to do the same.&#xA;You can find it here on github.&#xA;Any questions or queries, just let me know!</description>
     </item>
     <item>
       <title>Verify you&#39;re hidden with conky</title>
       <link>https://shanedowling.com/posts/verify-youre-hidden-with-conky-b59f1e36001b/</link>
       <pubDate>Sun, 26 Jul 2015 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/verify-youre-hidden-with-conky-b59f1e36001b/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__1JMMamsmo6ZschEvlANcLg.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;I run a few scripts to ensure my identity stays hidden day to day on my
-laptop. Here&amp;rsquo;s a few conky scripts to verify things are as they should
-be.&lt;/p&gt;
-&lt;h3 id=&#34;vpn&#34;&gt;VPN&lt;/h3&gt;
-&lt;p&gt;Because I don&amp;rsquo;t always know my ip or what my VPN&amp;rsquo;s ip is, I wanted conky
-to display the location I currently appear at from my VPN. If the
-location was the same as where I physically am, something&amp;rsquo;s gone wrong.
-To implement this, I wrote a python script and using ipinfo.io grab my
-location and print it to conky.&lt;/p&gt;</description>
+      <description>I run a few scripts to ensure my identity stays hidden day to day on my laptop. Here&amp;rsquo;s a few conky scripts to verify things are as they should be.&#xA;VPN Because I don&amp;rsquo;t always know my ip or what my VPN&amp;rsquo;s ip is, I wanted conky to display the location I currently appear at from my VPN. If the location was the same as where I physically am, something&amp;rsquo;s gone wrong.</description>
     </item>
     <item>
       <title>SugarCRM 7 — Adding an action to the listview headerpanel</title>
       <link>https://shanedowling.com/posts/sugarcrm-7-adding-an-action-to-the-listview-headerpanel-cdfff560e7b3/</link>
       <pubDate>Sat, 25 Jul 2015 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/sugarcrm-7-adding-an-action-to-the-listview-headerpanel-cdfff560e7b3/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__WJpUe2DNz1qsC4zMTJB0eA.jpeg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;This tutorial should show you how to add a custom button/action that
-will appear across all modules. It&amp;rsquo;s a little similar to &lt;a href=&#34;http://shanedowling.com/sugarcrm-7-adding-an-action-to-the-listview/&#34;&gt;this tutorial&lt;/a&gt;
-with a few changes to how the button gets rendered and the actions get
-called.&lt;/p&gt;
-&lt;h3 id=&#34;1-adding-the-button-to-the-headerpanel&#34;&gt;1. Adding the button to the headerpanel&lt;/h3&gt;
-&lt;p&gt;Firstly you&amp;rsquo;ll need to create a new folder to store the headerpane
-actions, so create this folder in the sugarcrm root
-directory custom/clients/base/views/list-headerpane/. Then create the
-file list-headerpane.php with this content. This will add a button next
-to the Create button for all modules.&lt;/p&gt;</description>
+      <description>This tutorial should show you how to add a custom button/action that will appear across all modules. It&amp;rsquo;s a little similar to this tutorial with a few changes to how the button gets rendered and the actions get called.&#xA;1. Adding the button to the headerpanel Firstly you&amp;rsquo;ll need to create a new folder to store the headerpane actions, so create this folder in the sugarcrm root directory custom/clients/base/views/list-headerpane/. Then create the file list-headerpane.</description>
     </item>
     <item>
       <title>SugarCRM — Prevent currencies getting overridden</title>
       <link>https://shanedowling.com/posts/sugarcrm-prevent-currencies-getting-overridden-7944af907da9/</link>
       <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/sugarcrm-prevent-currencies-getting-overridden-7944af907da9/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__zrzOG7L4xvFI2XJ2hB9iaA.jpeg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;SugarCRM has some neat features involving currency rates, but one of the
-more annoying ones is that Sugar will automatically update the base rate
-every time you save a record with a currency field attached. This can be
-fairly annoying default behaviour if you wish to maintain the correct
-record value at the time of sale.&lt;/p&gt;
-&lt;h3 id=&#34;the-problem&#34;&gt;The problem&lt;/h3&gt;
-&lt;p&gt;Say for example you have a custom module Books and your systems base
-currency is USD. You sell a book for 10 Euros at 11 dollars(the currenct
-change rate). If say a few weeks later you wanted to change the status
-of the Book to say, note down that the invoice was received and the
-exchange rate in that time has changed drastically. When you hit save
-Sugar would re-calculate the Euro value again(and despite the item being
-sold for 10 Euros originally the exchange rate has now changed and Sugar
-shows say 12 Euros, which is completely inconsistent with what you&amp;rsquo;ve
-invoiced.&lt;/p&gt;</description>
+      <description>SugarCRM has some neat features involving currency rates, but one of the more annoying ones is that Sugar will automatically update the base rate every time you save a record with a currency field attached. This can be fairly annoying default behaviour if you wish to maintain the correct record value at the time of sale.&#xA;The problem Say for example you have a custom module Books and your systems base currency is USD.</description>
     </item>
   </channel>
 </rss>
