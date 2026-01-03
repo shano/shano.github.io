@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Homelab on Shane Dowling</title>
     <link>https://shanedowling.com/categories/homelab/</link>
     <description>Recent content in Homelab on Shane Dowling</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- 0.146.0</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 18 Jun 2025 21:11:54 +0000</lastBuildDate>
     <atom:link href="https://shanedowling.com/categories/homelab/index.xml" rel="self" type="application/rss+xml" />
@@ -13,42 +13,124 @@
       <link>https://shanedowling.com/posts/homelab---day-5---the-nas/</link>
       <pubDate>Wed, 18 Jun 2025 21:11:54 +0000</pubDate>
       <guid>https://shanedowling.com/posts/homelab---day-5---the-nas/</guid>
-      <description>So, it&amp;rsquo;s been a while and I have made some progress worth sharing!&#xA;After keeping an eye on the auction sites for a while I ended up pulling the plug and buying 2 12TB Seagate Ironwolf drives for my NAS and now wanted to get started with setting this up.&#xA;The hardware Off a recommendation from Joe at Late Night Linux I picked up a HP 290 G2 I5-8500. It comes with 8GB of RAM and a 256ssd.</description>
+      <description>&lt;img src=&#34;https://shanedowling.com/images/hp-proliant.jpg&#34; height=&#34;400px&#34;&gt;
+&lt;p&gt;So, it&amp;rsquo;s been a while and I have made some progress worth sharing!&lt;/p&gt;
+&lt;p&gt;After keeping an eye on the auction sites for a while I ended up pulling the plug and buying 2 12TB Seagate Ironwolf drives for my NAS and now wanted to get started with setting this up.&lt;/p&gt;
+&lt;h2 id=&#34;the-hardware&#34;&gt;The hardware&lt;/h2&gt;
+&lt;p&gt;Off a recommendation from Joe at &lt;a href=&#34;https://latenightlinux.com/&#34;&gt;Late Night Linux&lt;/a&gt; I picked up a HP 290 G2 I5-8500. It comes with 8GB of RAM and a 256ssd. The form factor is reasonably nice and it fit the two drives perfectly and it&amp;rsquo;s been chugging along well.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Homelab - Day 4 - Self-Hosting Gitea</title>
       <link>https://shanedowling.com/posts/homelab---day-4---self-hosting-gitea/</link>
       <pubDate>Fri, 07 Mar 2025 19:31:59 +0000</pubDate>
       <guid>https://shanedowling.com/posts/homelab---day-4---self-hosting-gitea/</guid>
-      <description>Aims Today’s goal was to deploy Gitea on my K3s cluster, ensuring that:&#xA;It used persistent storage via my NAS. It was accessible externally through Traefik. It could eventually replace GitHub for my FluxCD setup. What I Did Storage and Permissions Woes Running Gitea as a stateless container worked fine initially, but as soon as I introduced persistence, things got tricky. I ran into permission issues almost immediately, thanks to the interplay between Kubernetes&amp;rsquo; user permissions and my NAS file system.</description>
+      <description>&lt;h1 id=&#34;aims&#34;&gt;Aims&lt;/h1&gt;
+&lt;p&gt;Today’s goal was to deploy Gitea on my K3s cluster, ensuring that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It used persistent storage via my NAS.&lt;/li&gt;
+&lt;li&gt;It was accessible externally through Traefik.&lt;/li&gt;
+&lt;li&gt;It could eventually replace GitHub for my FluxCD setup.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;what-i-did&#34;&gt;What I Did&lt;/h1&gt;
+&lt;h2 id=&#34;storage-and-permissions-woes&#34;&gt;Storage and Permissions Woes&lt;/h2&gt;
+&lt;p&gt;Running Gitea as a stateless container worked fine initially, but as soon as I introduced persistence, things got tricky. I ran into permission issues almost immediately, thanks to the interplay between Kubernetes&amp;rsquo; user permissions and my NAS file system.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Homelab - Day 3 - The first software deployment</title>
       <link>https://shanedowling.com/posts/homelab---day-3---the-first-software-deployment/</link>
       <pubDate>Fri, 28 Feb 2025 10:45:34 +0000</pubDate>
       <guid>https://shanedowling.com/posts/homelab---day-3---the-first-software-deployment/</guid>
-      <description>Aims The goal for today was to get my first piece of software running on the cluster, ensuring that:&#xA;It leveraged the NAS for storage. It was accessible externally via Traefik. The process was repeatable for future deployments. I chose the Unifi Management Console as my first self-hosted application. Once migrated, I could wipe my Raspberry Pi 4, which was previously running the console, and add it as a worker node to the cluster.</description>
+      <description>&lt;h1 id=&#34;aims&#34;&gt;Aims&lt;/h1&gt;
+&lt;p&gt;The goal for today was to get my &lt;strong&gt;first piece of software running on the cluster&lt;/strong&gt;, ensuring that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It leveraged the &lt;strong&gt;NAS for storage&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It was accessible externally via &lt;strong&gt;Traefik&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The process was repeatable for future deployments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I chose the &lt;strong&gt;Unifi Management Console&lt;/strong&gt; as my first self-hosted application. Once migrated, I could &lt;strong&gt;wipe my Raspberry Pi 4&lt;/strong&gt;, which was previously running the console, and add it as a &lt;strong&gt;worker node to the cluster&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Homelab - Day 2 - Setting Up a New K3s Control Plane and Node</title>
       <link>https://shanedowling.com/posts/homelab---day-2---setting-up-k3s-control-plane/</link>
       <pubDate>Fri, 21 Feb 2025 23:57:09 +0000</pubDate>
       <guid>https://shanedowling.com/posts/homelab---day-2---setting-up-k3s-control-plane/</guid>
-      <description>After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&#xA;Aims The goal was to set up a fresh K3s cluster, ensuring that:&#xA;The control plane and node are configured correctly. Flux is properly bootstrapped to manage cluster state.</description>
+      <description>&lt;p&gt;After going back and forth multiple times and making plenty of mistakes, I finally managed to set up a new K3s control plane and node. It turned out to be relatively straightforward once I got the steps right, so I’m documenting this for future reference!&lt;/p&gt;
+&lt;h2 id=&#34;aims&#34;&gt;Aims&lt;/h2&gt;
+&lt;p&gt;The goal was to set up a fresh K3s cluster, ensuring that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The control plane and node are configured correctly.&lt;/li&gt;
+&lt;li&gt;Flux is properly bootstrapped to manage cluster state.&lt;/li&gt;
+&lt;li&gt;Common pitfalls are documented to save time in the future.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;what-i-did&#34;&gt;What I Did&lt;/h2&gt;
+&lt;h3 id=&#34;control-plane-setup&#34;&gt;Control Plane Setup&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Install K3s:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -sfL https://get.k3s.io | sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Add an SSH key for Flux to connect to GitHub.&lt;/li&gt;
+&lt;li&gt;Bootstrap Flux with Git:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;flux bootstrap git &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --url&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;ssh://git@github.com/&amp;lt;your-repo&amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --branch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;main &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --private-key-file&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/home/&amp;lt;user&amp;gt;/.ssh/&amp;lt;flux_key&amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --path&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;clusters/k3s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Retrieve the control plane token:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cat /var/lib/rancher/k3s/server/token
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Allow traffic on the K3s API port:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;iptables -A INPUT -p tcp --dport &lt;span style=&#34;color:#ae81ff&#34;&gt;6443&lt;/span&gt; -j ACCEPT
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;node-setup&#34;&gt;Node Setup&lt;/h3&gt;
+&lt;p&gt;To join a new node to the cluster:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Homelab - Day 1 - Really Ghetto Data Storage</title>
       <link>https://shanedowling.com/posts/homelab---day-1---data-storage/</link>
       <pubDate>Tue, 11 Feb 2025 13:57:09 +0000</pubDate>
       <guid>https://shanedowling.com/posts/homelab---day-1---data-storage/</guid>
-      <description>Setting Up Storage for the Kubernetes Cluster The first step in setting up my homelab Kubernetes cluster is ensuring some reliable data storage. Right now, I have two main categories of data in mind:&#xA;1. Operationally Critical Data Needs RAID with redundancy Requires both on-site and off-site backups Approximately 1TB of data 2. Media Data Non-critical, so no backups required Several terabytes of storage needed Since the Kubernetes cluster depends on Operationally Critical Data, I need to establish a RAID-backed storage solution with proper backups before moving forward.</description>
+      <description>&lt;h2 id=&#34;setting-up-storage-for-the-kubernetes-cluster&#34;&gt;Setting Up Storage for the Kubernetes Cluster&lt;/h2&gt;
+&lt;p&gt;The first step in setting up my homelab Kubernetes cluster is ensuring some reliable data storage. Right now, I have two main categories of data in mind:&lt;/p&gt;
+&lt;h3 id=&#34;1-operationally-critical-data&#34;&gt;1. Operationally Critical Data&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Needs RAID with redundancy&lt;/li&gt;
+&lt;li&gt;Requires both on-site and off-site backups&lt;/li&gt;
+&lt;li&gt;Approximately &lt;strong&gt;1TB&lt;/strong&gt; of data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-media-data&#34;&gt;2. Media Data&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Non-critical, so no backups required&lt;/li&gt;
+&lt;li&gt;Several terabytes of storage needed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Since the Kubernetes cluster depends on Operationally Critical Data, I need to establish a RAID-backed storage solution with proper backups before moving forward.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Homelab Setup: The Journey to Kubernetes</title>
       <link>https://shanedowling.com/posts/homelab-setup-the-journey-to-kubernetes/</link>
       <pubDate>Mon, 10 Feb 2025 20:50:46 +0000</pubDate>
       <guid>https://shanedowling.com/posts/homelab-setup-the-journey-to-kubernetes/</guid>
-      <description>Why I&amp;rsquo;m Migrating My Self-Hosted Services I&amp;rsquo;ve decided to migrate all my existing self-hosted services—and add a few new ones—to a Kubernetes (K8s) cluster that I&amp;rsquo;m going to build. There are several motivations behind this decision:&#xA;Learning Kubernetes Beyond Ephemeral Clusters My role as an Engineering Manager at Syntasso involves a lot of K8s development using Kind, but these environments are entirely ephemeral. I want to experience the long-term challenges of operating a cluster to build greater empathy for our customers.</description>
+      <description>&lt;h2 id=&#34;why-im-migrating-my-self-hosted-services&#34;&gt;Why I&amp;rsquo;m Migrating My Self-Hosted Services&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve decided to migrate all my existing self-hosted services—and add a few new ones—to a Kubernetes (K8s) cluster that I&amp;rsquo;m going to build. There are several motivations behind this decision:&lt;/p&gt;
+&lt;h3 id=&#34;learning-kubernetes-beyond-ephemeral-clusters&#34;&gt;Learning Kubernetes Beyond Ephemeral Clusters&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;My role as an Engineering Manager at Syntasso involves a lot of K8s development using Kind, but these environments are entirely ephemeral. I want to experience the long-term challenges of operating a cluster to build greater empathy for our customers.&lt;/li&gt;
+&lt;li&gt;I want to deepen my understanding of Kubernetes, particularly in areas like:
+&lt;ul&gt;
+&lt;li&gt;Hardening a K8s cluster&lt;/li&gt;
+&lt;li&gt;Managing multiple clusters effectively&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;increased-focus-on-self-hosting&#34;&gt;Increased Focus on Self-Hosting&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The British government&amp;rsquo;s baffling approach to tech privacy has pushed me toward self-hosting more of my personal services.&lt;/li&gt;
+&lt;li&gt;My current setup is a mix of manually configured systems and Docker Compose-based services running on different machines. It’s time to bring structure to the chaos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;the-plan&#34;&gt;The Plan&lt;/h2&gt;
+&lt;h3 id=&#34;time-constraints-and-approach&#34;&gt;Time Constraints and Approach&lt;/h3&gt;
+&lt;p&gt;I&amp;rsquo;m a dad with two small kids, so my time for this project is limited. My approach will be:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

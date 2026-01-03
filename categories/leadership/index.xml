@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Leadership on Shane Dowling</title>
     <link>https://shanedowling.com/categories/leadership/</link>
     <description>Recent content in Leadership on Shane Dowling</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- 0.146.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 27 Aug 2021 13:32:59 +0000</lastBuildDate>
     <atom:link href="https://shanedowling.com/categories/leadership/index.xml" rel="self" type="application/rss+xml" />
@@ -13,21 +13,32 @@
       <link>https://shanedowling.com/posts/nonviolent-communication-a7bddf8d0805/</link>
       <pubDate>Fri, 27 Aug 2021 13:32:59 +0000</pubDate>
       <guid>https://shanedowling.com/posts/nonviolent-communication-a7bddf8d0805/</guid>
-      <description>What is Nonviolent Communication? Nonviolent Communication(NVC) helps us communicate clearly by breaking down and identifying our needs and communicating them compassionately.&#xA;Why? NVC can help reduce conflict towards others and ourselves. It can also help us to hear others out and recognise each other&amp;rsquo;s needs and support acting more compassionately day to day.&#xA;How At a high level, the steps involved are:&#xA;Observation Be present and listen carefully to what the other person is saying.</description>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__Tq3cCMHDxnnkVTxtFSJ6jA.jpeg&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;what-is-nonviolent-communication&#34;&gt;What is Nonviolent Communication?&lt;/h3&gt;
+&lt;p&gt;Nonviolent Communication(NVC) helps us communicate clearly by breaking down and identifying our needs and communicating them compassionately.&lt;/p&gt;
+&lt;h3 id=&#34;why&#34;&gt;Why?&lt;/h3&gt;
+&lt;p&gt;NVC can help reduce conflict towards others and ourselves. It can also help us to hear others out and recognise each other&amp;rsquo;s needs and support acting more compassionately day to day.&lt;/p&gt;
+&lt;h3 id=&#34;how&#34;&gt;How&lt;/h3&gt;
+&lt;p&gt;At a high level, the steps involved are:&lt;/p&gt;
+&lt;h4 id=&#34;observation&#34;&gt;Observation&lt;/h4&gt;
+&lt;p&gt;Be present and listen carefully to what the other person is saying. How is it affecting you? Just observe, don&amp;rsquo;t evaluate.&lt;/p&gt;</description>
     </item>
     <item>
       <title>5 Steps to a better Personal Development Plan(PDP)</title>
       <link>https://shanedowling.com/posts/wrangle-your-personal-development-plan-pdp-into-actionable-objectives-e448649b5db0/</link>
       <pubDate>Fri, 26 Mar 2021 15:30:42 +0000</pubDate>
       <guid>https://shanedowling.com/posts/wrangle-your-personal-development-plan-pdp-into-actionable-objectives-e448649b5db0/</guid>
-      <description>Reviewing your PDP can be a somewhat overwhelming process. So many areas of improvement can be highlighted, it can be a real challenge to discover what to focus on. Not only that but you also want to make sure your areas of focus have high impact benefits to the squad, so much to think about!&#xA;These 5 steps should help give you the direction needed to turn those PDP opportunities into something actionable, demonstrable and focused on what you care about.</description>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__fc4D7D9urHFu0rbm8cpP2Q.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Reviewing your PDP can be a somewhat overwhelming process. So many areas of improvement can be highlighted, it can be a real challenge to discover what to focus on. Not only that but you also want to make sure your areas of focus have high impact benefits to the squad, so much to think about!&lt;/p&gt;
+&lt;p&gt;These 5 steps should help give you the direction needed to turn those PDP opportunities into something actionable, demonstrable and focused on what you care about.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Learning Python as a Platform Engineer-First Steps</title>
       <link>https://shanedowling.com/posts/learning-python-as-a-platform-engineer-first-steps-911e59dd4af8/</link>
       <pubDate>Fri, 01 Jan 2021 14:48:49 +0000</pubDate>
       <guid>https://shanedowling.com/posts/learning-python-as-a-platform-engineer-first-steps-911e59dd4af8/</guid>
-      <description>I&amp;rsquo;ve relatively recently moved into a Platform Engineering position after working in very developer oriented teams for many years. What&amp;rsquo;s interesting is that the engineers you work with have much more diverse and interesting backgrounds in terms of their experience, so there&amp;rsquo;s a real opportunity to grow and learn a lot more, as opposed to a more homogenous set of developers. With that in mind, I wanted to put together materials on how a more ops focused engineer can up-skill in Python(as that&amp;rsquo;s more my wheel-house), in particular what are the things that would help you move into a more Python-focused role.</description>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__t__tjPBb9m6YDhRdn3wKGSg.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve relatively recently moved into a Platform Engineering position after working in very developer oriented teams for many years. What&amp;rsquo;s interesting is that the engineers you work with have much more diverse and interesting backgrounds in terms of their experience, so there&amp;rsquo;s a real opportunity to grow and learn a lot more, as opposed to a more homogenous set of developers. With that in mind, I wanted to put together materials on how a more ops focused engineer can up-skill in Python(as that&amp;rsquo;s more my wheel-house), in particular what are the things that would help you move into a more Python-focused role.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

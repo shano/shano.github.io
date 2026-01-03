@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Platform Engineering on Shane Dowling</title>
     <link>https://shanedowling.com/categories/platform-engineering/</link>
     <description>Recent content in Platform Engineering on Shane Dowling</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- 0.146.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 02 Jan 2024 16:45:59 +0000</lastBuildDate>
     <atom:link href="https://shanedowling.com/categories/platform-engineering/index.xml" rel="self" type="application/rss+xml" />
@@ -13,35 +13,47 @@
       <link>https://shanedowling.com/posts/im-launching-a-platform-engineering-newsletter/</link>
       <pubDate>Tue, 02 Jan 2024 16:45:59 +0000</pubDate>
       <guid>https://shanedowling.com/posts/im-launching-a-platform-engineering-newsletter/</guid>
-      <description>Hello! I&amp;rsquo;m excited to share the first issue of our monthly journey through the world of platform engineering. This newsletter is all about the latest trends, insights, and resources in our field whether you&amp;rsquo;re a seasoned expert or just starting out.&#xA;You can find the first month here.&#xA;Each month, I&amp;rsquo;ll bring you a mix of news, case studies, upcoming events, and cool projects to keep you in the know. Feel free to share your thoughts, feedback, or anything exciting you&amp;rsquo;ve come across in platform engineering.</description>
+      <description>&lt;p&gt;Hello! I&amp;rsquo;m excited to share the first issue of our monthly journey through the world of platform engineering. This newsletter is all about the latest trends, insights, and resources in our field whether you&amp;rsquo;re a seasoned expert or just starting out.&lt;/p&gt;
+&lt;p&gt;You can find the first month &lt;a href=&#34;https://pemonthly.com/p/platform-engineering-monthly-december&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Each month, I&amp;rsquo;ll bring you a mix of news, case studies, upcoming events, and cool projects to keep you in the know. Feel free to share your thoughts, feedback, or anything exciting you&amp;rsquo;ve come across in platform engineering. As it was the holidays, I opted to send Decembers newsletter in January but expect this newsletter to come out on the final Tuesday of the month.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Streamlining OS Development Pipelines for the Beepberry - A Fun Challenge</title>
       <link>https://shanedowling.com/posts/streamlining-os-development-pipelines-for-the-beepberry/</link>
       <pubDate>Mon, 05 Jun 2023 13:32:59 +0000</pubDate>
       <guid>https://shanedowling.com/posts/streamlining-os-development-pipelines-for-the-beepberry/</guid>
-      <description>Introduction Imagine a cool device that brings together an LCD screen, Raspberry Pi Zero, and a Blackberry keyboard – that&amp;rsquo;s the Beepberry! It&amp;rsquo;s designed to work like a WiFi-only keyboard phone, and one of the main goals is to reach a super-fast boot time of under 5 seconds. Sounds challenging, right? Well, to speed up the development process and test boot optimization, using QEMU to emulate the OS is a smart move.</description>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1_6nkAxHBzMyFB-k06nx5jdg.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Imagine a cool device that brings together an LCD screen, Raspberry Pi Zero, and a Blackberry keyboard – that&amp;rsquo;s the Beepberry! It&amp;rsquo;s designed to work like a WiFi-only keyboard phone, and one of the main goals is to reach a super-fast boot time of under 5 seconds. Sounds challenging, right? Well, to speed up the development process and test boot optimization, using QEMU to emulate the OS is a smart move. In this blog post, we&amp;rsquo;ll explore the tough parts of creating pipelines for entire operating systems, their limitations, and the benefits that the Beepberry project will gain from using QEMU.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Harnessing the Power of NixOS for Platform Engineering</title>
       <link>https://shanedowling.com/posts/harnessing-the-power-of-nixos-for-platform-engineering/</link>
       <pubDate>Sun, 19 Mar 2023 13:32:59 +0000</pubDate>
       <guid>https://shanedowling.com/posts/harnessing-the-power-of-nixos-for-platform-engineering/</guid>
-      <description>Introduction NixOS is an innovative and powerful Linux distribution built on top of the Nix package manager. Its unique approach to package and configuration management sets it apart from traditional Linux distributions, making it an excellent choice for platform engineering tasks. In this blog post, we’ll explore the benefits of using NixOS for platform engineering and provide an overview of its key features. Immutable Infrastructure and Reproducible Builds&#xA;NixOS’s immutability and reproducibility are its most significant strengths.</description>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1*TGyS3TCFr2HNkaxm6B1T7Q@2x.jpeg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;NixOS is an innovative and powerful Linux distribution built on top of the Nix package manager. Its unique approach to package and configuration management sets it apart from traditional Linux distributions, making it an excellent choice for platform engineering tasks. In this blog post, we’ll explore the benefits of using NixOS for platform engineering and provide an overview of its key features.
+Immutable Infrastructure and Reproducible Builds&lt;/p&gt;
+&lt;p&gt;NixOS’s immutability and reproducibility are its most significant strengths. All software packages and system configurations are stored in an isolated and immutable manner, ensuring that any changes to the system will not affect existing dependencies. This approach allows for consistent and reproducible builds, reducing the risk of “works on my machine” issues and simplifying deployment across environments.&lt;/p&gt;</description>
     </item>
     <item>
       <title>De-risk early when engineering platforms</title>
       <link>https://shanedowling.com/posts/de-risk-early-when-engineering-platforms/</link>
       <pubDate>Sat, 11 Mar 2023 13:32:59 +0000</pubDate>
       <guid>https://shanedowling.com/posts/de-risk-early-when-engineering-platforms/</guid>
-      <description>Platform engineering encompasses a broad domain with continually evolving frontiers that require overcoming new challenges to level up the solutions offered to engineers. However, this evolution can lead to situations where previously-made assumptions may no longer be applicable to new solutions.&#xA;Our team recently encountered this scenario when using AWS Stacksets across multi-account/region rollouts of our platform, which highlighted some interesting dependency challenges that we only discovered at the 11th hour of our project.</description>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1*kDMCR1b1FEdKc2qS7WpelA@2x.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Platform engineering encompasses a broad domain with continually evolving frontiers that require overcoming new challenges to level up the solutions offered to engineers. However, this evolution can lead to situations where previously-made assumptions may no longer be applicable to new solutions.&lt;/p&gt;
+&lt;p&gt;Our team recently encountered this scenario when using AWS Stacksets across multi-account/region rollouts of our platform, which highlighted some interesting dependency challenges that we only discovered at the 11th hour of our project. The new world introduced edge cases that we didn’t anticipate, and we learned that it’s crucial to identify unknowns early and be honest about them. It’s essential to deliver a first step that cuts across those unknowns as soon as possible and iterate from there, even if that means doing something hacky. If a hack doesn’t work, it’s better to discard it than a polished solution that would never work.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Reduce developer cognitive load with nix</title>
       <link>https://shanedowling.com/posts/reduce-developer-cognitive-load-with-nix/</link>
       <pubDate>Sat, 11 Mar 2023 13:32:59 +0000</pubDate>
       <guid>https://shanedowling.com/posts/reduce-developer-cognitive-load-with-nix/</guid>
-      <description>Nixpkg is a package manager that uses a purely functional approach to package management, isolating packages and ensuring that there are no conflicts between them. It provides a powerful language for defining packages, which makes it easy to manage dependencies and ensure that software environments are reproducible and reliable. Additionally, Nixpkg makes it easy to manage multiple software environments and share projects with other developers.&#xA;In addition to Nixpkg, there are two other tools that can be used in conjunction with Nix to improve developer productivity: Homemanager and Direnv.</description>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1*pKKqrJIhwCjSWjfz2BIQPw@2x.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Nixpkg is a package manager that uses a purely functional approach to package management, isolating packages and ensuring that there are no conflicts between them. It provides a powerful language for defining packages, which makes it easy to manage dependencies and ensure that software environments are reproducible and reliable. Additionally, Nixpkg makes it easy to manage multiple software environments and share projects with other developers.&lt;/p&gt;
+&lt;p&gt;In addition to Nixpkg, there are two other tools that can be used in conjunction with Nix to improve developer productivity: Homemanager and Direnv.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

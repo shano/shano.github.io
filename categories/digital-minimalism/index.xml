@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Digital Minimalism on Shane Dowling</title>
     <link>https://shanedowling.com/categories/digital-minimalism/</link>
     <description>Recent content in Digital Minimalism on Shane Dowling</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- 0.146.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 01 Jan 2024 16:45:59 +0000</lastBuildDate>
     <atom:link href="https://shanedowling.com/categories/digital-minimalism/index.xml" rel="self" type="application/rss+xml" />
@@ -13,42 +13,81 @@
       <link>https://shanedowling.com/posts/kindle-scribe-to-mastodon/</link>
       <pubDate>Mon, 01 Jan 2024 16:45:59 +0000</pubDate>
       <guid>https://shanedowling.com/posts/kindle-scribe-to-mastodon/</guid>
-      <description>Kindle Scribe to Mastodon Over the holidays, I put together a fun little project to put out status updates on Mastodon. Of course, I used some spare time to make this as overly-engineered as possible.&#xA;Stringing It All Together I wanted this to be event-driven and serverless and to give me some experience toying with Terraform in AWS. Thankfully, what would be the most computationally challenging part is already handled by Amazon.</description>
+      <description>&lt;img src=&#34;https://shanedowling.com/images/eink.jpg&#34; height=&#34;400px&#34;&gt;
+&lt;h1 id=&#34;kindle-scribe-to-mastodon&#34;&gt;Kindle Scribe to Mastodon&lt;/h1&gt;
+&lt;p&gt;Over the holidays, I put together a fun little project to put out status updates on Mastodon. Of course, I used some spare time to make this as overly-engineered as possible.&lt;/p&gt;
+&lt;h2 id=&#34;stringing-it-all-together&#34;&gt;Stringing It All Together&lt;/h2&gt;
+&lt;p&gt;I wanted this to be event-driven and serverless and to give me some experience toying with Terraform in AWS. Thankfully, what would be the most computationally challenging part is already handled by Amazon. The Kindle Scribe provides a means to convert a note to text and then email it to myself. I used my email provider to then forward it to AWS. I&amp;rsquo;m using Amazon to register a domain (click TLD domain names are only $3). I used route53 to hook that domain up to SES, then have SES invoke a Lambda when that particular email address is emailed from a particular email with a particular subject line. As I  can&amp;rsquo;t send the email body directly to a Lambda, I&amp;rsquo;ll need to write it to a bucket first, then have the lambda read from the s3 bucket. (Thankfully SES does pass a MessageID to the Lambda so we know which MessageID refers to to which event), you could also trigger an event from a bucket change but SES already offered, so I figured this was a bit simpler. Now that I&amp;rsquo;ve got it all triggering a Lambda, I can throw code at this problem.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Make your smartphone a little dumber</title>
       <link>https://shanedowling.com/posts/make-your-smartphone-a-little-dumber/</link>
       <pubDate>Fri, 01 Sep 2023 16:45:59 +0000</pubDate>
       <guid>https://shanedowling.com/posts/make-your-smartphone-a-little-dumber/</guid>
-      <description>For many, MANY years, I&amp;rsquo;ve been an advocate for the simplicity of dumbphones. My go-to? The LightPhone 2. However, modern life sometimes demands the functionalities of a smartphone, such as banking or GPS navigation. Every once in a while, I wish my smartphone would be just a touch simpler, but I can&amp;rsquo;t abandon its smart features entirely. There are times I need them, especially for those updates or browser-based app handshakes.</description>
+      <description>&lt;img alt=&#34;Photo by Thanos Pal on Unsplash&#34; src=&#34;https://shanedowling.com/images/dumb-punkt.jpg&#34; height=&#34;400px&#34;&gt;
+&lt;p&gt;For many, &lt;a href=&#34;switching-to-a-dumbphone-3b090f8ad709.html&#34;&gt;MANY&lt;/a&gt; years, I&amp;rsquo;ve been an advocate for the simplicity of dumbphones. My go-to? The LightPhone 2. However, modern life sometimes demands the functionalities of a smartphone, such as banking or GPS navigation. Every once in a while, I wish my smartphone would be just a touch simpler, but I can&amp;rsquo;t abandon its smart features entirely. There are times I need them, especially for those updates or browser-based app handshakes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Keep up to date</title>
       <link>https://shanedowling.com/posts/keep-up-to-date-b90ee98640d4/</link>
       <pubDate>Sat, 15 Feb 2014 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/keep-up-to-date-b90ee98640d4/</guid>
-      <description>I love keeping up to date with all the latest tech news, but I find that when I follow numerous blogs there&amp;rsquo;s a heavy noise to signal ratio and eventually I get bogged down with all the blog posts coming at me. On top of that I don&amp;rsquo;t particularly like reading from a screen when I can avoid it, I spend so many hours a day reading/writing to computer screens, I always like to take a welcome break.</description>
+      <description>&lt;p&gt;I love keeping up to date with all the latest tech news, but I find
+that when I follow numerous blogs there&amp;rsquo;s a heavy noise to signal ratio
+and eventually I get bogged down with all the blog posts coming at me.
+On top of that I don&amp;rsquo;t particularly like reading from a screen when I
+can avoid it, I spend so many hours a day reading/writing to computer
+screens, I always like to take a welcome break.
+As a result of these two needs I came up with a neat solution that
+allows me to retrieve all relevant tech news each day, that I can read
+offline whenever I want.
+It requires:&lt;/p&gt;</description>
     </item>
     <item>
       <title>On wanting</title>
       <link>https://shanedowling.com/posts/archived/on-wanting-8c4ca2f2d314/</link>
       <pubDate>Sat, 08 Feb 2014 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/archived/on-wanting-8c4ca2f2d314/</guid>
-      <description>Recently I moved jobs and the new company I work for was nice enough to give me a brand new, high-end, retina Macbook Pro. It&amp;rsquo;s a great machineand I&amp;rsquo;ve been reminded how great an operating system OSX actually is. Naturally, I&amp;rsquo;ve been looking at my own machine a little differently. It&amp;rsquo;s a Lenovo Thinkpad X230 with an SSD and 16GBs of RAM. Generally it&amp;rsquo;s faster than I&amp;rsquo;ll need for a long time and I&amp;rsquo;ve had no real issues with it, but after starting to use the Macbook and the terrific software built with it, I wanted it bad.</description>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__yqRgbrg76yhiaKeopwA06g__2x.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Recently I moved jobs and the new company I work for was nice enough to give me a brand new, high-end, retina Macbook Pro. It&amp;rsquo;s a great machineand I&amp;rsquo;ve been reminded how great an operating system OSX actually is. Naturally, I&amp;rsquo;ve been looking at my own machine a little differently. It&amp;rsquo;s a Lenovo Thinkpad X230 with an SSD and 16GBs of RAM. Generally it&amp;rsquo;s faster than I&amp;rsquo;ll need for a long time and I&amp;rsquo;ve had no real issues with it, but after starting to use the Macbook and the terrific software built with it, I wanted it bad. One evening I started looking at
+pricing/portability and found one I wanted. I also started looking at
+software I could use I got excited, about to make a purchase. Then I
+stopped. I stopped and forced myself to make a list of all the reasons I
+wanted the Macbook that I couldn&amp;rsquo;t get on my currently machine. I made the list as specific as possible, not just &amp;ldquo;it&amp;rsquo;s pretty&amp;rdquo; or &amp;ldquo;all the apps are better&amp;rdquo;, here&amp;rsquo;s what I came up with.&lt;/p&gt;</description>
     </item>
     <item>
       <title>De-activating facebook for a month</title>
       <link>https://shanedowling.com/posts/archived/de-activating-facebook-for-a-month-f91b49da00a4/</link>
       <pubDate>Sat, 01 Feb 2014 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/archived/de-activating-facebook-for-a-month-f91b49da00a4/</guid>
-      <description>I&amp;rsquo;ll keep this one short, because there&amp;rsquo;s a million and one articles about people walking away from the social network. People are writing like they&amp;rsquo;re revolutionaries leading the mass exodus. I even poked fun at it in my internet predictions. Anyway, at the start of the year I figured I&amp;rsquo;d give a month away from facebook a try, partially inspired by Leo Babuta&amp;rsquo;s A Year of Living Without.&#xA;Why I asked myself what value I was actually getting from the service.</description>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__nNdLICwvbMSn__IhaHVHYRg__2x.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll keep this one short, because there&amp;rsquo;s a million and one articles about people walking away from the social network. People are writing like they&amp;rsquo;re revolutionaries leading the mass exodus. I even poked fun at it in my &lt;a href=&#34;http://139.59.171.97/2014/01/25/internet-predictions-2014/&#34;&gt;internet predictions&lt;/a&gt;. Anyway, at the start of the year I figured I&amp;rsquo;d give a month away from facebook a try, partially inspired by Leo Babuta&amp;rsquo;s &lt;a href=&#34;https://zenhabits.net/without/&#34;&gt;A Year of Living Without&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;why&#34;&gt;Why&lt;/h3&gt;
+&lt;p&gt;I asked myself what value I was actually getting from the service. If I
+can&amp;rsquo;t be bothered ringing someone and catching up, then realistically
+why would I waste time liking their cat photos? I also questioned the
+value of these facebook friends. Am I actually friends with all these
+people or is the connection just convenient enough for me to keep them
+around? Do I actually want to share something with them or am I just
+boasting?
+Again, this topic has been discussed ad nauseam, but I&amp;rsquo;ll link &lt;a href=&#34;http://www.npr.org/blogs/alltechconsidered/2013/08/19/213568763/researchers-facebook-makes-us-sadder-and-less-satisfied&#34;&gt;this article&lt;/a&gt; and quote it&amp;rsquo;s final line, &amp;ldquo;Direct interactions with other human beings led people to feel better&amp;rdquo;. Again, the article is based on one study, but it adds evidence to a belief I&amp;rsquo;ve held for quite some time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Freedom of Limits</title>
       <link>https://shanedowling.com/posts/the-freedom-of-limits-8677931d93e0/</link>
       <pubDate>Fri, 27 Dec 2013 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/posts/the-freedom-of-limits-8677931d93e0/</guid>
-      <description>Over the course of this blog I intend to show how limitations can in many ways bring positive changes in your life. While limitations can appear under various guises(vegetarianism, minimalism) etc there is a huge number of aspects in your life where you can benefit from limits, just without the grandiose terms behind them.&#xA;Why? If you&amp;rsquo;ve ever attempted to meditate, you&amp;rsquo;ll realise that the human mind is insane. It&amp;rsquo;s cannot help but leap from one random thought to the next, like an irritated monkey in a cage.</description>
+      <description>&lt;p&gt;Over the course of this blog I intend to show how limitations can in
+many ways bring positive changes in your life. While limitations can
+appear under various guises(vegetarianism, minimalism) etc there is a
+huge number of aspects in your life where you can benefit from limits,
+just without the grandiose terms behind them.&lt;/p&gt;
+&lt;h3 id=&#34;why&#34;&gt;Why?&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;ve ever attempted to meditate, you&amp;rsquo;ll realise that the human mind
+is insane. It&amp;rsquo;s cannot help but leap from one random thought to the
+next, like an irritated monkey in a cage. Seriously, just attempt to
+think about your breath for any extended period and you&amp;rsquo;ll realise how
+helpless you are to it(unless you&amp;rsquo;re trained of course). I recently watched a documentary by Adam Curtis called &lt;a href=&#34;https://youtu.be/eJ3RzGoQC4s&#34;&gt;Century of the Self&lt;/a&gt;. If you haven&amp;rsquo;t watched it, I&amp;rsquo;d highly recommend it. Essentially it&amp;rsquo;s about the rise of the concept of the self and how corporations have sought to exploit it. I won&amp;rsquo;t go into too much detail but the important parts for this post are that during post-WW2 America, corporations had a genuine fear that they would run out of consumers.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
