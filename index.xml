@@ -4,10 +4,21 @@
     <title>Shane Dowling</title>
     <link>https://shanedowling.com/</link>
     <description>Recent content on Shane Dowling</description>
-    <generator>Hugo -- 0.146.0</generator>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Jun 2025 21:11:54 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 Aug 2025 23:10:06 +0100</lastBuildDate>
     <atom:link href="https://shanedowling.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Email to Remarkable</title>
+      <link>https://shanedowling.com/posts/email-to-remarkable/</link>
+      <pubDate>Fri, 22 Aug 2025 23:10:06 +0100</pubDate>
+      <guid>https://shanedowling.com/posts/email-to-remarkable/</guid>
+      <description>&lt;h1 id=&#34;email-to-remarkable&#34;&gt;Email to Remarkable&lt;/h1&gt;
+&lt;p&gt;A Python tool that monitors an email mailbox for PDF attachments and automatically uploads them to your reMarkable cloud storage.&lt;/p&gt;
+&lt;p&gt;Perfect for sending articles, documents, and papers directly to your reMarkable tablet via email.&lt;/p&gt;
+&lt;p&gt;You can find it &lt;a href=&#34;https://github.com/shano/email-to-remarkable-sync&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hopefully it&amp;rsquo;s helpful to someone!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Homelab - Day 5 - The NAS</title>
       <link>https://shanedowling.com/posts/homelab---day-5---the-nas/</link>
@@ -262,15 +273,6 @@ Immutable Infrastructure and Reproducible Builds&lt;/p&gt;
       <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__roedigbmFjRYkZobdZWuKg.jpeg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Lambda is a terrific piece of kit for all the benefits listed on the &lt;a href=&#34;https://aws.amazon.com/lambda/&#34;&gt;AWS product page&lt;/a&gt; and &lt;a href=&#34;https://serverless.com/&#34;&gt;Serverless&lt;/a&gt; is a very useful framework for developing Lambda functions. However, developing serverless applications locally is a total pain if what you&amp;rsquo;re solving isn&amp;rsquo;t totally trivial.&lt;/p&gt;
 &lt;p&gt;When things get complicated and your Lambda functions start to integrate with other AWS services, things really begin to break down. There are a few things that look like silver-bullets, I&amp;rsquo;ll share them here and explain why they didn&amp;rsquo;t work for me, then give you a working example that I myself struggled to find(hence me writing this).&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Easy maintenance mode with nginx</title>
-      <link>https://shanedowling.com/posts/easy-maintenance-mode-with-nginx-2d4d510a0980/</link>
-      <pubDate>Mon, 20 Aug 2018 18:51:42 +0000</pubDate>
-      <guid>https://shanedowling.com/posts/easy-maintenance-mode-with-nginx-2d4d510a0980/</guid>
-      <description>&lt;p&gt;So I combined a few solutions I found online to come up with a quick way to set up maintenance mode using nginx. Ideally it shouldn&amp;rsquo;t happen but in times of emergency in can be good to knock up a quick maintenance page for everyone but your own internal ips.&lt;/p&gt;
-&lt;h3 id=&#34;nginx-config&#34;&gt;Nginx Config&lt;/h3&gt;
-&lt;p&gt;So here&amp;rsquo;s the configuration I use for nginx, it starts with setting the internal ips of your company in the main nginx config file. Then in the actual vhost, you can set it to watch for the existence of a maintenance_on.html and when it exists, throw a 503 and use the maintenance page as your 503 error page.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
