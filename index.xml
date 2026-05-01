@@ -6,8 +6,19 @@
     <description>Recent content on Shane Dowling</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Aug 2025 23:10:06 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://shanedowling.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homelab</title>
+      <link>https://shanedowling.com/homelab/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://shanedowling.com/homelab/</guid>
+      <description>&lt;p&gt;I used to write periodic homelab update posts but they&amp;rsquo;d go stale almost immediately. So instead, I&amp;rsquo;m just going to keep this page current. It&amp;rsquo;s the state of things as of the last updated date at the bottom.&lt;/p&gt;
+&lt;p&gt;Everything is managed via a private Git repo with FluxCD handling the GitOps side of things.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;the-hardware&#34;&gt;The Hardware&lt;/h2&gt;
+&lt;p&gt;It&amp;rsquo;s a 4-node K3s cluster, all sitting under my desk. A mix of whatever I&amp;rsquo;ve picked up cheaply over the years:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Email to Remarkable</title>
       <link>https://shanedowling.com/posts/email-to-remarkable/</link>
@@ -264,15 +275,6 @@ Immutable Infrastructure and Reproducible Builds&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://stedolan.github.io/jq/&#34;&gt;Jq&lt;/a&gt; if you&amp;rsquo;re storing json in your secrets&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;It&amp;rsquo;s worth testing your AWS calls to just extract the secret you&amp;rsquo;re interested in to stdout, from the terminal tests some calls like:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Better local development for Serverless Functions</title>
-      <link>https://shanedowling.com/posts/better-local-development-for-serverless-functions-b96b5a4cfa8f/</link>
-      <pubDate>Mon, 11 Feb 2019 20:15:38 +0000</pubDate>
-      <guid>https://shanedowling.com/posts/better-local-development-for-serverless-functions-b96b5a4cfa8f/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__roedigbmFjRYkZobdZWuKg.jpeg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Lambda is a terrific piece of kit for all the benefits listed on the &lt;a href=&#34;https://aws.amazon.com/lambda/&#34;&gt;AWS product page&lt;/a&gt; and &lt;a href=&#34;https://serverless.com/&#34;&gt;Serverless&lt;/a&gt; is a very useful framework for developing Lambda functions. However, developing serverless applications locally is a total pain if what you&amp;rsquo;re solving isn&amp;rsquo;t totally trivial.&lt;/p&gt;
-&lt;p&gt;When things get complicated and your Lambda functions start to integrate with other AWS services, things really begin to break down. There are a few things that look like silver-bullets, I&amp;rsquo;ll share them here and explain why they didn&amp;rsquo;t work for me, then give you a working example that I myself struggled to find(hence me writing this).&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
