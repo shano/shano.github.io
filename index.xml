@@ -14,10 +14,10 @@
       <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
       <guid>https://shanedowling.com/homelab/</guid>
       <description>&lt;p&gt;I used to write periodic homelab update posts but they&amp;rsquo;d go stale almost immediately. So instead, I&amp;rsquo;m just going to keep this page current. It&amp;rsquo;s the state of things as of the last updated date at the bottom.&lt;/p&gt;
-&lt;p&gt;Everything is managed via a private Git repo with FluxCD handling the GitOps side of things.&lt;/p&gt;
+&lt;p&gt;Everything is managed via a private Git repo with &lt;a href=&#34;https://fluxcd.io/&#34;&gt;FluxCD&lt;/a&gt; handling the GitOps side of things.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;the-hardware&#34;&gt;The Hardware&lt;/h2&gt;
-&lt;p&gt;It&amp;rsquo;s a 4-node K3s cluster, all sitting under my desk. A mix of whatever I&amp;rsquo;ve picked up cheaply over the years:&lt;/p&gt;</description>
+&lt;p&gt;It&amp;rsquo;s a 4-node &lt;a href=&#34;https://k3s.io/&#34;&gt;K3s&lt;/a&gt; cluster, all sitting under my desk. A mix of whatever I&amp;rsquo;ve picked up cheaply over the years:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Email to Remarkable</title>
