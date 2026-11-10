@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Shane Dowling</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Aug 2025 23:10:06 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 15:40:40 +0000</lastBuildDate>
     <atom:link href="https://shanedowling.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI and the Art of Work</title>
+      <link>https://shanedowling.com/posts/2026-11-10-ai-and-the-art-of-work/</link>
+      <pubDate>Tue, 10 Nov 2026 15:40:40 +0000</pubDate>
+      <guid>https://shanedowling.com/posts/2026-11-10-ai-and-the-art-of-work/</guid>
+      <description>&lt;p&gt;I have been utterly drained by the amount of AI content lately. Not only the volume but just the way people speak about AI, it&amp;rsquo;s (to be honest) dehumanising. Not just that it&amp;rsquo;s mostly written in that weird &amp;ldquo;AI-voice&amp;rdquo; but also because it&amp;rsquo;s all extremes. AI will save / destroy / eat humanity. This whiplash of opinions is really&amp;hellip; uninteresting. These extremes don&amp;rsquo;t really speak to me. I&amp;rsquo;m not token-maxxing, sometimes AI does work that I find really annoying and pointless and it&amp;rsquo;s like &amp;ldquo;hey, that&amp;rsquo;s cool&amp;rdquo;. Would I rather live in a world without all this uncertainty about the future? Absolutely. Do I reckon I&amp;rsquo;ll need to depend on AI for my future career and to have the best chance of continuing to predictably provide for my family? Yes. So here I am, drowning in tools, models, harnesses, paradigms and extreme opinions all lacking in some relatable day-to-day humanity. So to me it comes across as noise screaming on by. Kinda like when I watch a Marvel movie.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Email to Remarkable</title>
       <link>https://shanedowling.com/posts/email-to-remarkable/</link>
@@ -264,15 +271,6 @@ Immutable Infrastructure and Reproducible Builds&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://stedolan.github.io/jq/&#34;&gt;Jq&lt;/a&gt; if you&amp;rsquo;re storing json in your secrets&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;It&amp;rsquo;s worth testing your AWS calls to just extract the secret you&amp;rsquo;re interested in to stdout, from the terminal tests some calls like:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Better local development for Serverless Functions</title>
-      <link>https://shanedowling.com/posts/better-local-development-for-serverless-functions-b96b5a4cfa8f/</link>
-      <pubDate>Mon, 11 Feb 2019 20:15:38 +0000</pubDate>
-      <guid>https://shanedowling.com/posts/better-local-development-for-serverless-functions-b96b5a4cfa8f/</guid>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://shanedowling.com/images/1__roedigbmFjRYkZobdZWuKg.jpeg&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Lambda is a terrific piece of kit for all the benefits listed on the &lt;a href=&#34;https://aws.amazon.com/lambda/&#34;&gt;AWS product page&lt;/a&gt; and &lt;a href=&#34;https://serverless.com/&#34;&gt;Serverless&lt;/a&gt; is a very useful framework for developing Lambda functions. However, developing serverless applications locally is a total pain if what you&amp;rsquo;re solving isn&amp;rsquo;t totally trivial.&lt;/p&gt;
-&lt;p&gt;When things get complicated and your Lambda functions start to integrate with other AWS services, things really begin to break down. There are a few things that look like silver-bullets, I&amp;rsquo;ll share them here and explain why they didn&amp;rsquo;t work for me, then give you a working example that I myself struggled to find(hence me writing this).&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
