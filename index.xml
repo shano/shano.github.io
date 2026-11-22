@@ -6,25 +6,25 @@
     <description>Recent content on Shane Dowling</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Nov 2026 15:40:40 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://shanedowling.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homelab</title>
+      <link>https://shanedowling.com/homelab/</link>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://shanedowling.com/homelab/</guid>
+      <description>&lt;p&gt;I used to write periodic homelab update posts but they&amp;rsquo;d go stale almost immediately. So instead, I&amp;rsquo;m just going to keep this page current. It&amp;rsquo;s the state of things as of the last updated date at the bottom.&lt;/p&gt;
+&lt;p&gt;Everything is managed via a private Git repo with &lt;a href=&#34;https://fluxcd.io/&#34;&gt;FluxCD&lt;/a&gt; handling the GitOps side of things.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;the-hardware&#34;&gt;The Hardware&lt;/h2&gt;
+&lt;p&gt;It&amp;rsquo;s a 4-node &lt;a href=&#34;https://k3s.io/&#34;&gt;K3s&lt;/a&gt; cluster, all sitting under my desk. It was 5 until recently. A mix of whatever I&amp;rsquo;ve picked up cheaply over the years:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>AI and the Art of Work</title>
       <link>https://shanedowling.com/posts/2026-11-10-ai-and-the-art-of-work/</link>
       <pubDate>Tue, 10 Nov 2026 15:40:40 +0000</pubDate>
       <guid>https://shanedowling.com/posts/2026-11-10-ai-and-the-art-of-work/</guid>
       <description>&lt;p&gt;I have been utterly drained by the amount of AI content lately. Not only the volume but just the way people speak about AI, it&amp;rsquo;s (to be honest) dehumanising. Not just that it&amp;rsquo;s mostly written in that weird &amp;ldquo;AI-voice&amp;rdquo; but also because it&amp;rsquo;s all extremes. AI will save / destroy / eat humanity. This whiplash of opinions is really&amp;hellip; uninteresting. These extremes don&amp;rsquo;t really speak to me. I&amp;rsquo;m not token-maxxing, sometimes AI does work that I find really annoying and pointless and it&amp;rsquo;s like &amp;ldquo;hey, that&amp;rsquo;s cool&amp;rdquo;. Would I rather live in a world without all this uncertainty about the future? Absolutely. Do I reckon I&amp;rsquo;ll need to depend on AI for my future career and to have the best chance of continuing to predictably provide for my family? Yes. So here I am, drowning in tools, models, harnesses, paradigms and extreme opinions all lacking in some relatable day-to-day humanity. So to me it comes across as noise screaming on by. Kinda like when I watch a Marvel movie.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Homelab</title>
-      <link>https://shanedowling.com/homelab/</link>
-      <pubDate>Sun, 09 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>https://shanedowling.com/homelab/</guid>
-      <description>&lt;p&gt;I used to write periodic homelab update posts but they&amp;rsquo;d go stale almost immediately. So instead, I&amp;rsquo;m just going to keep this page current. It&amp;rsquo;s the state of things as of the last updated date at the bottom.&lt;/p&gt;
-&lt;p&gt;Everything is managed via a private Git repo with &lt;a href=&#34;https://fluxcd.io/&#34;&gt;FluxCD&lt;/a&gt; handling the GitOps side of things.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;the-hardware&#34;&gt;The Hardware&lt;/h2&gt;
-&lt;p&gt;It&amp;rsquo;s a 5-node &lt;a href=&#34;https://k3s.io/&#34;&gt;K3s&lt;/a&gt; cluster, all sitting under my desk. A mix of whatever I&amp;rsquo;ve picked up cheaply over the years:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Email to Remarkable</title>
